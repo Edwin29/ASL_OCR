@@ -1,0 +1,74 @@
+{
+  "generated_at": "2026-07-31T16:07:04.899525+00:00",
+  "project_root": "D:\\Projects\\OCR",
+  "book_id": "ebs-2027-math1",
+  "pdf": {
+    "path": "D:\\Projects\\OCR\\2027 수능특강 수학 I.pdf",
+    "file_name": "2027 수능특강 수학 I.pdf",
+    "size_bytes": 6505157,
+    "sha256": "55ad6d0dc73893828cb4c896716d3882857f6fd3497044a256e81e9d73b037ff",
+    "page_count": 160,
+    "unique_media_boxes": [
+      {
+        "height_pt": 737.0081,
+        "width_pt": 583.9371
+      }
+    ]
+  },
+  "zip": {
+    "path": "D:\\Projects\\OCR\\2027 수능특강 수학 I-png-Images.zip",
+    "file_name": "2027 수능특강 수학 I-png-Images.zip",
+    "size_bytes": 9881661,
+    "sha256": "f6112edaa160610f0d1aa4164aba9eb0020f110397b9809f32b9a8148869cd78",
+    "file_count": 163,
+    "canonical_page_count": 160,
+    "canonical_page_min": 1,
+    "canonical_page_max": 160,
+    "missing_pages": [],
+    "duplicate_or_extra_files": [
+      {
+        "zip_member": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_52 - 복사본.png",
+        "file_name": "2027 수능특강 수학 I_52 - 복사본.png",
+        "size_bytes": 80621,
+        "sha256": "a4cf8ca80c10f574e26f727132c37ce6f4a3f5b477f678a71e17c7d9da52d025",
+        "width": 584,
+        "height": 737,
+        "mode": "RGBA",
+        "format": "PNG"
+      },
+      {
+        "zip_member": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_53 - 복사본.png",
+        "file_name": "2027 수능특강 수학 I_53 - 복사본.png",
+        "size_bytes": 74533,
+        "sha256": "65551d07a5132f06e10e69df2472f776be0e69067b163c5de9fc61a12d283e8d",
+        "width": 584,
+        "height": 737,
+        "mode": "RGBA",
+        "format": "PNG"
+      },
+      {
+        "zip_member": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_54 - 복사본.png",
+        "file_name": "2027 수능특강 수학 I_54 - 복사본.png",
+        "size_bytes": 65860,
+        "sha256": "7b250e59d39708260c801b2c89987cacc6d0b877d2731ffca533b68ee9d7ce44",
+        "width": 584,
+        "height": 737,
+        "mode": "RGBA",
+        "format": "PNG"
+      }
+    ],
+    "unique_dimensions": [
+      {
+        "width": 584,
+        "height": 737
+      }
+    ]
+  },
+  "findings": {
+    "pdf_page_count": 160,
+    "canonical_zip_page_count": 160,
+    "zip_extra_file_count": 3,
+    "all_zip_pages_low_quality": true,
+    "recommended_baseline": "Render PDF pages to 300dpi PNG files before OCR."
+  }
+}

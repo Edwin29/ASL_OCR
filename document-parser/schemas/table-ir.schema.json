@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/document-parser/table-ir.schema.json",
+  "title": "TableIr",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["row_count", "column_count", "cells", "structure_confidence"],
+  "properties": {
+    "row_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "column_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "structure_confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "cells": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/cell"
+      }
+    }
+  },
+  "$defs": {
+    "cell": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cell_id", "row_index", "column_index", "row_span", "column_span", "bbox", "content_nodes"],
+      "properties": {
+        "cell_id": {
+          "type": "string"
+        },
+        "row_index": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "column_index": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "row_span": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "column_span": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "bbox": {
+          "$ref": "page-ir.schema.json#/$defs/bbox"
+        },
+        "content_nodes": {
+          "type": "array",
+          "items": {
+            "$ref": "page-ir.schema.json#/$defs/node"
+          }
+        },
+        "header_candidate": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}
+

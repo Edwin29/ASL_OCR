@@ -1,0 +1,2427 @@
+{
+  "book_id": "ebs-2027-math1",
+  "profile_hint": "EBS_SUNEUNG_TEUKGANG",
+  "source_pdf": "2027 수능특강 수학 I.pdf",
+  "source_zip": "2027 수능특강 수학 I-png-Images.zip",
+  "page_count": 160,
+  "pages": [
+    {
+      "page_id": "p001",
+      "sequence_index": 1,
+      "pdf_page_number": 1,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_1.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p001.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p002",
+      "sequence_index": 2,
+      "pdf_page_number": 2,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_2.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p002.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p003",
+      "sequence_index": 3,
+      "pdf_page_number": 3,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_3.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p003.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p004",
+      "sequence_index": 4,
+      "pdf_page_number": 4,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_4.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p004.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p005",
+      "sequence_index": 5,
+      "pdf_page_number": 5,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_5.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p005.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p006",
+      "sequence_index": 6,
+      "pdf_page_number": 6,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_6.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p006.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p007",
+      "sequence_index": 7,
+      "pdf_page_number": 7,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_7.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p007.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p008",
+      "sequence_index": 8,
+      "pdf_page_number": 8,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_8.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p008.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p009",
+      "sequence_index": 9,
+      "pdf_page_number": 9,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_9.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p009.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p010",
+      "sequence_index": 10,
+      "pdf_page_number": 10,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_10.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p010.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p011",
+      "sequence_index": 11,
+      "pdf_page_number": 11,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_11.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p011.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p012",
+      "sequence_index": 12,
+      "pdf_page_number": 12,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_12.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p012.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p013",
+      "sequence_index": 13,
+      "pdf_page_number": 13,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_13.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p013.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p014",
+      "sequence_index": 14,
+      "pdf_page_number": 14,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_14.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p014.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p015",
+      "sequence_index": 15,
+      "pdf_page_number": 15,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_15.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p015.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p016",
+      "sequence_index": 16,
+      "pdf_page_number": 16,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_16.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p016.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p017",
+      "sequence_index": 17,
+      "pdf_page_number": 17,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_17.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p017.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p018",
+      "sequence_index": 18,
+      "pdf_page_number": 18,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_18.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p018.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p019",
+      "sequence_index": 19,
+      "pdf_page_number": 19,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_19.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p019.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p020",
+      "sequence_index": 20,
+      "pdf_page_number": 20,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_20.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p020.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p021",
+      "sequence_index": 21,
+      "pdf_page_number": 21,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_21.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p021.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p022",
+      "sequence_index": 22,
+      "pdf_page_number": 22,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_22.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p022.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p023",
+      "sequence_index": 23,
+      "pdf_page_number": 23,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_23.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p023.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p024",
+      "sequence_index": 24,
+      "pdf_page_number": 24,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_24.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p024.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p025",
+      "sequence_index": 25,
+      "pdf_page_number": 25,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_25.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p025.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p026",
+      "sequence_index": 26,
+      "pdf_page_number": 26,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_26.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p026.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p027",
+      "sequence_index": 27,
+      "pdf_page_number": 27,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_27.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p027.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p028",
+      "sequence_index": 28,
+      "pdf_page_number": 28,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_28.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p028.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p029",
+      "sequence_index": 29,
+      "pdf_page_number": 29,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_29.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p029.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p030",
+      "sequence_index": 30,
+      "pdf_page_number": 30,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_30.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p030.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p031",
+      "sequence_index": 31,
+      "pdf_page_number": 31,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_31.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p031.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p032",
+      "sequence_index": 32,
+      "pdf_page_number": 32,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_32.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p032.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p033",
+      "sequence_index": 33,
+      "pdf_page_number": 33,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_33.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p033.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p034",
+      "sequence_index": 34,
+      "pdf_page_number": 34,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_34.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p034.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p035",
+      "sequence_index": 35,
+      "pdf_page_number": 35,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_35.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p035.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p036",
+      "sequence_index": 36,
+      "pdf_page_number": 36,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_36.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p036.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p037",
+      "sequence_index": 37,
+      "pdf_page_number": 37,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_37.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p037.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p038",
+      "sequence_index": 38,
+      "pdf_page_number": 38,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_38.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p038.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p039",
+      "sequence_index": 39,
+      "pdf_page_number": 39,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_39.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p039.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p040",
+      "sequence_index": 40,
+      "pdf_page_number": 40,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_40.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p040.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p041",
+      "sequence_index": 41,
+      "pdf_page_number": 41,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_41.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p041.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p042",
+      "sequence_index": 42,
+      "pdf_page_number": 42,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_42.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p042.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p043",
+      "sequence_index": 43,
+      "pdf_page_number": 43,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_43.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p043.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p044",
+      "sequence_index": 44,
+      "pdf_page_number": 44,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_44.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p044.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p045",
+      "sequence_index": 45,
+      "pdf_page_number": 45,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_45.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p045.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p046",
+      "sequence_index": 46,
+      "pdf_page_number": 46,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_46.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p046.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p047",
+      "sequence_index": 47,
+      "pdf_page_number": 47,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_47.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p047.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p048",
+      "sequence_index": 48,
+      "pdf_page_number": 48,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_48.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p048.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p049",
+      "sequence_index": 49,
+      "pdf_page_number": 49,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_49.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p049.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p050",
+      "sequence_index": 50,
+      "pdf_page_number": 50,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_50.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p050.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p051",
+      "sequence_index": 51,
+      "pdf_page_number": 51,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_51.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p051.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p052",
+      "sequence_index": 52,
+      "pdf_page_number": 52,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_52.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p052.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p053",
+      "sequence_index": 53,
+      "pdf_page_number": 53,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_53.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p053.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p054",
+      "sequence_index": 54,
+      "pdf_page_number": 54,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_54.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p054.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p055",
+      "sequence_index": 55,
+      "pdf_page_number": 55,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_55.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p055.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p056",
+      "sequence_index": 56,
+      "pdf_page_number": 56,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_56.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p056.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p057",
+      "sequence_index": 57,
+      "pdf_page_number": 57,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_57.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p057.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p058",
+      "sequence_index": 58,
+      "pdf_page_number": 58,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_58.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p058.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p059",
+      "sequence_index": 59,
+      "pdf_page_number": 59,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_59.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p059.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p060",
+      "sequence_index": 60,
+      "pdf_page_number": 60,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_60.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p060.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p061",
+      "sequence_index": 61,
+      "pdf_page_number": 61,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_61.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p061.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p062",
+      "sequence_index": 62,
+      "pdf_page_number": 62,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_62.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p062.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p063",
+      "sequence_index": 63,
+      "pdf_page_number": 63,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_63.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p063.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p064",
+      "sequence_index": 64,
+      "pdf_page_number": 64,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_64.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p064.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p065",
+      "sequence_index": 65,
+      "pdf_page_number": 65,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_65.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p065.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p066",
+      "sequence_index": 66,
+      "pdf_page_number": 66,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_66.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p066.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p067",
+      "sequence_index": 67,
+      "pdf_page_number": 67,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_67.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p067.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p068",
+      "sequence_index": 68,
+      "pdf_page_number": 68,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_68.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p068.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p069",
+      "sequence_index": 69,
+      "pdf_page_number": 69,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_69.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p069.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p070",
+      "sequence_index": 70,
+      "pdf_page_number": 70,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_70.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p070.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p071",
+      "sequence_index": 71,
+      "pdf_page_number": 71,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_71.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p071.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p072",
+      "sequence_index": 72,
+      "pdf_page_number": 72,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_72.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p072.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p073",
+      "sequence_index": 73,
+      "pdf_page_number": 73,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_73.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p073.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p074",
+      "sequence_index": 74,
+      "pdf_page_number": 74,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_74.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p074.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p075",
+      "sequence_index": 75,
+      "pdf_page_number": 75,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_75.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p075.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p076",
+      "sequence_index": 76,
+      "pdf_page_number": 76,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_76.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p076.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p077",
+      "sequence_index": 77,
+      "pdf_page_number": 77,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_77.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p077.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p078",
+      "sequence_index": 78,
+      "pdf_page_number": 78,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_78.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p078.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p079",
+      "sequence_index": 79,
+      "pdf_page_number": 79,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_79.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p079.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p080",
+      "sequence_index": 80,
+      "pdf_page_number": 80,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_80.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p080.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p081",
+      "sequence_index": 81,
+      "pdf_page_number": 81,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_81.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p081.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p082",
+      "sequence_index": 82,
+      "pdf_page_number": 82,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_82.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p082.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p083",
+      "sequence_index": 83,
+      "pdf_page_number": 83,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_83.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p083.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p084",
+      "sequence_index": 84,
+      "pdf_page_number": 84,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_84.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p084.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p085",
+      "sequence_index": 85,
+      "pdf_page_number": 85,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_85.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p085.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p086",
+      "sequence_index": 86,
+      "pdf_page_number": 86,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_86.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p086.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p087",
+      "sequence_index": 87,
+      "pdf_page_number": 87,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_87.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p087.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p088",
+      "sequence_index": 88,
+      "pdf_page_number": 88,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_88.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p088.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p089",
+      "sequence_index": 89,
+      "pdf_page_number": 89,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_89.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p089.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p090",
+      "sequence_index": 90,
+      "pdf_page_number": 90,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_90.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p090.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p091",
+      "sequence_index": 91,
+      "pdf_page_number": 91,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_91.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p091.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p092",
+      "sequence_index": 92,
+      "pdf_page_number": 92,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_92.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p092.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p093",
+      "sequence_index": 93,
+      "pdf_page_number": 93,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_93.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p093.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p094",
+      "sequence_index": 94,
+      "pdf_page_number": 94,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_94.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p094.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p095",
+      "sequence_index": 95,
+      "pdf_page_number": 95,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_95.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p095.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p096",
+      "sequence_index": 96,
+      "pdf_page_number": 96,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_96.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p096.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p097",
+      "sequence_index": 97,
+      "pdf_page_number": 97,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_97.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p097.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p098",
+      "sequence_index": 98,
+      "pdf_page_number": 98,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_98.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p098.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p099",
+      "sequence_index": 99,
+      "pdf_page_number": 99,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_99.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p099.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p100",
+      "sequence_index": 100,
+      "pdf_page_number": 100,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_100.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p100.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p101",
+      "sequence_index": 101,
+      "pdf_page_number": 101,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_101.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p101.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p102",
+      "sequence_index": 102,
+      "pdf_page_number": 102,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_102.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p102.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p103",
+      "sequence_index": 103,
+      "pdf_page_number": 103,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_103.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p103.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p104",
+      "sequence_index": 104,
+      "pdf_page_number": 104,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_104.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p104.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p105",
+      "sequence_index": 105,
+      "pdf_page_number": 105,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_105.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p105.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p106",
+      "sequence_index": 106,
+      "pdf_page_number": 106,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_106.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p106.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p107",
+      "sequence_index": 107,
+      "pdf_page_number": 107,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_107.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p107.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p108",
+      "sequence_index": 108,
+      "pdf_page_number": 108,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_108.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p108.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p109",
+      "sequence_index": 109,
+      "pdf_page_number": 109,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_109.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p109.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p110",
+      "sequence_index": 110,
+      "pdf_page_number": 110,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_110.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p110.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p111",
+      "sequence_index": 111,
+      "pdf_page_number": 111,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_111.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p111.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p112",
+      "sequence_index": 112,
+      "pdf_page_number": 112,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_112.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p112.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p113",
+      "sequence_index": 113,
+      "pdf_page_number": 113,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_113.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p113.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p114",
+      "sequence_index": 114,
+      "pdf_page_number": 114,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_114.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p114.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p115",
+      "sequence_index": 115,
+      "pdf_page_number": 115,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_115.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p115.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p116",
+      "sequence_index": 116,
+      "pdf_page_number": 116,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_116.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p116.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p117",
+      "sequence_index": 117,
+      "pdf_page_number": 117,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_117.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p117.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p118",
+      "sequence_index": 118,
+      "pdf_page_number": 118,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_118.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p118.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p119",
+      "sequence_index": 119,
+      "pdf_page_number": 119,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_119.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p119.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p120",
+      "sequence_index": 120,
+      "pdf_page_number": 120,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_120.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p120.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p121",
+      "sequence_index": 121,
+      "pdf_page_number": 121,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_121.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p121.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p122",
+      "sequence_index": 122,
+      "pdf_page_number": 122,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_122.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p122.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p123",
+      "sequence_index": 123,
+      "pdf_page_number": 123,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_123.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p123.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p124",
+      "sequence_index": 124,
+      "pdf_page_number": 124,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_124.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p124.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p125",
+      "sequence_index": 125,
+      "pdf_page_number": 125,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_125.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p125.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p126",
+      "sequence_index": 126,
+      "pdf_page_number": 126,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_126.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p126.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p127",
+      "sequence_index": 127,
+      "pdf_page_number": 127,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_127.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p127.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p128",
+      "sequence_index": 128,
+      "pdf_page_number": 128,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_128.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p128.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p129",
+      "sequence_index": 129,
+      "pdf_page_number": 129,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_129.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p129.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p130",
+      "sequence_index": 130,
+      "pdf_page_number": 130,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_130.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p130.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p131",
+      "sequence_index": 131,
+      "pdf_page_number": 131,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_131.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p131.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p132",
+      "sequence_index": 132,
+      "pdf_page_number": 132,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_132.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p132.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p133",
+      "sequence_index": 133,
+      "pdf_page_number": 133,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_133.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p133.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p134",
+      "sequence_index": 134,
+      "pdf_page_number": 134,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_134.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p134.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p135",
+      "sequence_index": 135,
+      "pdf_page_number": 135,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_135.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p135.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p136",
+      "sequence_index": 136,
+      "pdf_page_number": 136,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_136.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p136.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p137",
+      "sequence_index": 137,
+      "pdf_page_number": 137,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_137.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p137.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p138",
+      "sequence_index": 138,
+      "pdf_page_number": 138,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_138.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p138.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p139",
+      "sequence_index": 139,
+      "pdf_page_number": 139,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_139.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p139.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p140",
+      "sequence_index": 140,
+      "pdf_page_number": 140,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_140.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p140.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p141",
+      "sequence_index": 141,
+      "pdf_page_number": 141,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_141.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p141.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p142",
+      "sequence_index": 142,
+      "pdf_page_number": 142,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_142.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p142.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p143",
+      "sequence_index": 143,
+      "pdf_page_number": 143,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_143.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p143.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p144",
+      "sequence_index": 144,
+      "pdf_page_number": 144,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_144.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p144.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p145",
+      "sequence_index": 145,
+      "pdf_page_number": 145,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_145.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p145.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p146",
+      "sequence_index": 146,
+      "pdf_page_number": 146,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_146.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p146.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p147",
+      "sequence_index": 147,
+      "pdf_page_number": 147,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_147.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p147.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p148",
+      "sequence_index": 148,
+      "pdf_page_number": 148,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_148.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p148.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p149",
+      "sequence_index": 149,
+      "pdf_page_number": 149,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_149.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p149.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p150",
+      "sequence_index": 150,
+      "pdf_page_number": 150,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_150.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p150.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p151",
+      "sequence_index": 151,
+      "pdf_page_number": 151,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_151.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p151.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p152",
+      "sequence_index": 152,
+      "pdf_page_number": 152,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_152.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p152.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p153",
+      "sequence_index": 153,
+      "pdf_page_number": 153,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_153.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p153.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p154",
+      "sequence_index": 154,
+      "pdf_page_number": 154,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_154.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p154.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p155",
+      "sequence_index": 155,
+      "pdf_page_number": 155,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_155.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p155.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p156",
+      "sequence_index": 156,
+      "pdf_page_number": 156,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_156.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p156.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p157",
+      "sequence_index": 157,
+      "pdf_page_number": 157,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_157.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p157.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p158",
+      "sequence_index": 158,
+      "pdf_page_number": 158,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_158.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p158.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p159",
+      "sequence_index": 159,
+      "pdf_page_number": 159,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_159.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p159.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    },
+    {
+      "page_id": "p160",
+      "sequence_index": 160,
+      "pdf_page_number": 160,
+      "zip_image_ref": "2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_160.png",
+      "recommended_render_path": "data/pages_pdf300/ebs_2027_math1_p160.png",
+      "quality_status": "LOW_QUALITY",
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "ZIP image is below the recommended OCR baseline size."
+        }
+      ]
+    }
+  ],
+  "initial_golden_candidates": [
+    3,
+    4,
+    8,
+    12,
+    19,
+    20,
+    54,
+    102,
+    120,
+    140,
+    150
+  ],
+  "parser_options": {
+    "preserve_color": true,
+    "emit_debug_artifacts": false,
+    "requires_pdf_text_layer": false
+  }
+}

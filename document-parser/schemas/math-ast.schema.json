@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/document-parser/math-ast.schema.json",
+  "title": "PresentationMathAst",
+  "$ref": "#/$defs/node",
+  "$defs": {
+    "node": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Row",
+            "Identifier",
+            "Number",
+            "Operator",
+            "Relation",
+            "FunctionApplication",
+            "Fraction",
+            "Power",
+            "Subscript",
+            "Subsuperscript",
+            "Radical",
+            "Parenthesized",
+            "UnaryMinus",
+            "AlignedRows",
+            "Unknown"
+          ]
+        },
+        "value": {
+          "type": "string"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/node"
+          }
+        },
+        "left": {
+          "$ref": "#/$defs/node"
+        },
+        "right": {
+          "$ref": "#/$defs/node"
+        },
+        "body": {
+          "$ref": "#/$defs/node"
+        },
+        "base": {
+          "$ref": "#/$defs/node"
+        },
+        "exponent": {
+          "$ref": "#/$defs/node"
+        },
+        "subscript": {
+          "$ref": "#/$defs/node"
+        },
+        "numerator": {
+          "$ref": "#/$defs/node"
+        },
+        "denominator": {
+          "$ref": "#/$defs/node"
+        },
+        "radicand": {
+          "$ref": "#/$defs/node"
+        },
+        "index": {
+          "$ref": "#/$defs/node"
+        },
+        "operator": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
+

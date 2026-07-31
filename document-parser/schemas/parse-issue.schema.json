@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/document-parser/parse-issue.schema.json",
+  "title": "ParseIssue",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["code", "severity"],
+  "properties": {
+    "code": {
+      "type": "string",
+      "enum": [
+        "LOW_RESOLUTION",
+        "BELOW_RECOMMENDED_RESOLUTION",
+        "ASPECT_RATIO_OUT_OF_PROFILE",
+        "UNSUPPORTED_COLOR_MODE",
+        "POSSIBLE_BLUR",
+        "OCR_ENGINE_NOT_CONFIGURED",
+        "OCR_RAW_CACHE_WRITTEN",
+        "SKEW_CORRECTED",
+        "OCR_LOW_CONFIDENCE",
+        "MATH_PARSE_FAILED",
+        "TABLE_STRUCTURE_AMBIGUOUS",
+        "UNSUPPORTED_VISUAL_REGION",
+        "DUPLICATE_CONTENT_SUPPRESSED",
+        "ORPHAN_OCR_TOKEN",
+        "MISSING_ZIP_PAGE",
+        "UNKNOWN"
+      ]
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["info", "warning", "error"]
+    },
+    "message": {
+      "type": "string"
+    },
+    "bbox": {
+      "$ref": "page-ir.schema.json#/$defs/bbox"
+    },
+    "source": {
+      "type": "string"
+    }
+  }
+}
