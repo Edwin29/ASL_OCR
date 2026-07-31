@@ -1,0 +1,1065 @@
+{
+  "document_manifest": {
+    "book_id": "ebs-2027-math1",
+    "profile_hint": "EBS_SUNEUNG_TEUKGANG",
+    "page_count": 1
+  },
+  "pages": [
+    {
+      "page_id": "p008",
+      "page_geometry": {
+        "width": 2434,
+        "height": 3071
+      },
+      "nodes": [
+        {
+          "node_id": "p008-n001",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 206.0,
+            "y": 81.0,
+            "width": 365.0,
+            "height": 91.0
+          },
+          "normalized_bbox": {
+            "x": 0.084634,
+            "y": 0.026376,
+            "width": 0.149959,
+            "height": 0.029632
+          },
+          "reading_order_index": 0,
+          "confidence": 0.867948,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "0 지수와 로그",
+          "normalized_text": "0 지수와 로그",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "0 지수와 로그"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l001",
+            "source_token_count": 2
+          }
+        },
+        {
+          "node_id": "p008-n002",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 273.0,
+            "y": 299.0,
+            "width": 427.0,
+            "height": 65.0
+          },
+          "normalized_bbox": {
+            "x": 0.112161,
+            "y": 0.097362,
+            "width": 0.175431,
+            "height": 0.021166
+          },
+          "reading_order_index": 1,
+          "confidence": 0.990428,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "5로그의 정의와 성질",
+          "normalized_text": "5로그의 정의와 성질",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "5로그의 정의와 성질"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l002",
+            "source_token_count": 2
+          }
+        },
+        {
+          "node_id": "p008-n003",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 259.0,
+            "y": 401.0,
+            "width": 258.0,
+            "height": 51.0
+          },
+          "normalized_bbox": {
+            "x": 0.106409,
+            "y": 0.130576,
+            "width": 0.105998,
+            "height": 0.016607
+          },
+          "reading_order_index": 2,
+          "confidence": 0.666681,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "(1) 로그의 정의",
+          "normalized_text": "(1) 로그의 정의",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(1) 로그의 정의"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l003",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p008-n004",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 318.0,
+            "y": 466.0,
+            "width": 1080.0,
+            "height": 62.0
+          },
+          "normalized_bbox": {
+            "x": 0.130649,
+            "y": 0.151742,
+            "width": 0.443714,
+            "height": 0.020189
+          },
+          "reading_order_index": 3,
+          "confidence": 0.211727,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "0>0, 0#1, N> 0일 때, @ = N올 만족시키는 실수 [틀 기호로",
+          "normalized_text": "0>0, 0#1, N> 0일 때, @ = N올 만족시키는 실수 [틀 기호로",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "0>0, 0#1, N> 0일 때, @ = N올 만족시키는 실수 [틀 기호로"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l004",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p008-n005",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 389.27313509186865,
+            "y": 543.0,
+            "width": 139.72686490813135,
+            "height": 60.90290337845465
+          },
+          "normalized_bbox": {
+            "x": 0.159931,
+            "y": 0.176815,
+            "width": 0.057406,
+            "height": 0.019832
+          },
+          "reading_order_index": 4,
+          "confidence": 0.999656,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "logaN",
+          "normalized_text": "logaN",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "logaN"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l005",
+            "source_token_count": 2
+          }
+        },
+        {
+          "node_id": "p008-n006",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 322.0,
+            "y": 612.0,
+            "width": 356.0,
+            "height": 56.0
+          },
+          "normalized_bbox": {
+            "x": 0.132293,
+            "y": 0.199284,
+            "width": 0.146261,
+            "height": 0.018235
+          },
+          "reading_order_index": 5,
+          "confidence": 0.329343,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "과 같이 나타번다. 즉,",
+          "normalized_text": "과 같이 나타번다. 즉,",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "과 같이 나타번다. 즉,"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l006",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p008-n007",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 395.0,
+            "y": 683.0,
+            "width": 408.0,
+            "height": 60.0
+          },
+          "normalized_bbox": {
+            "x": 0.162284,
+            "y": 0.222403,
+            "width": 0.167625,
+            "height": 0.019538
+          },
+          "reading_order_index": 6,
+          "confidence": 0.191142,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "@' =N(> a=loga N",
+          "normalized_text": "@' =N(> a=loga N",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "@' =N(> a=loga N"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l007",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p008-n008",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 319.0,
+            "y": 750.0,
+            "width": 1526.0,
+            "height": 64.89902029390203
+          },
+          "normalized_bbox": {
+            "x": 0.13106,
+            "y": 0.24422,
+            "width": 0.626952,
+            "height": 0.021133
+          },
+          "reading_order_index": 7,
+          "confidence": 0.775414,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "이때logaN에서 @틀 밑, N올 진수라 하고 loga N올 @틀 믿으로 하는 N의 로그라고 한다.",
+          "normalized_text": "이때logaN에서 @틀 밑, N올 진수라 하고 loga N올 @틀 믿으로 하는 N의 로그라고 한다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "이때logaN에서 @틀 밑, N올 진수라 하고 loga N올 @틀 믿으로 하는 N의 로그라고 한다."
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l008",
+            "source_token_count": 3
+          }
+        },
+        {
+          "node_id": "p008-n009",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 333.0,
+            "y": 816.0,
+            "width": 947.0,
+            "height": 60.890529644924186
+          },
+          "normalized_bbox": {
+            "x": 0.136812,
+            "y": 0.265711,
+            "width": 0.389071,
+            "height": 0.019828
+          },
+          "reading_order_index": 8,
+          "confidence": 0.631001,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "참고 logaN이 정의되기 위한 조건은 0> 0, @#1, N> 이이다",
+          "normalized_text": "참고 logaN이 정의되기 위한 조건은 0> 0, @#1, N> 이이다",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "참고 logaN이 정의되기 위한 조건은 0> 0, @#1, N> 이이다"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l009",
+            "source_token_count": 3
+          }
+        },
+        {
+          "node_id": "p008-n010",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 341.0,
+            "y": 880.0,
+            "width": 475.0,
+            "height": 56.87566427895729
+          },
+          "normalized_bbox": {
+            "x": 0.140099,
+            "y": 0.286552,
+            "width": 0.195152,
+            "height": 0.01852
+          },
+          "reading_order_index": 9,
+          "confidence": 0.739099,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "예 20 = 1이므로logz1=0",
+          "normalized_text": "예 20 = 1이므로logz1=0",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "예 20 = 1이므로logz1=0"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l010",
+            "source_token_count": 4
+          }
+        },
+        {
+          "node_id": "p008-n011",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 463.0,
+            "y": 942.0,
+            "width": 353.0,
+            "height": 59.89490209868802
+          },
+          "normalized_bbox": {
+            "x": 0.190222,
+            "y": 0.30674,
+            "width": 0.145029,
+            "height": 0.019503
+          },
+          "reading_order_index": 10,
+          "confidence": 0.582688,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "2'=2이므로log22=1",
+          "normalized_text": "2'=2이므로log22=1",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "2'=2이므로log22=1"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l011",
+            "source_token_count": 3
+          }
+        },
+        {
+          "node_id": "p008-n012",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 463.0,
+            "y": 1005.0,
+            "width": 353.0,
+            "height": 58.89052964492407
+          },
+          "normalized_bbox": {
+            "x": 0.190222,
+            "y": 0.327255,
+            "width": 0.145029,
+            "height": 0.019176
+          },
+          "reading_order_index": 11,
+          "confidence": 0.722763,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "23 =8이므로logz8=3",
+          "normalized_text": "23 =8이므로logz8=3",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "23 =8이므로logz8=3"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l012",
+            "source_token_count": 3
+          }
+        },
+        {
+          "node_id": "p008-n013",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 257.0,
+            "y": 1099.0,
+            "width": 260.0,
+            "height": 51.0
+          },
+          "normalized_bbox": {
+            "x": 0.105588,
+            "y": 0.357864,
+            "width": 0.10682,
+            "height": 0.016607
+          },
+          "reading_order_index": 12,
+          "confidence": 0.991983,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "(2) 로그의 성질",
+          "normalized_text": "(2) 로그의 성질",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(2) 로그의 성질"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l013",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p008-n014",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 318.0,
+            "y": 1166.0,
+            "width": 617.0,
+            "height": 60.0
+          },
+          "normalized_bbox": {
+            "x": 0.130649,
+            "y": 0.379681,
+            "width": 0.253492,
+            "height": 0.019538
+          },
+          "reading_order_index": 13,
+          "confidence": 0.550027,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "0>0, 0#1이고 M>0, N> 0일 때",
+          "normalized_text": "0>0, 0#1이고 M>0, N> 0일 때",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "0>0, 0#1이고 M>0, N> 0일 때"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l014",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p008-n015",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 359.2153303579228,
+            "y": 1238.0,
+            "width": 527.7846696420772,
+            "height": 64.91330826874241
+          },
+          "normalized_bbox": {
+            "x": 0.147582,
+            "y": 0.403126,
+            "width": 0.216838,
+            "height": 0.021138
+          },
+          "reading_order_index": 14,
+          "confidence": 0.765356,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "logaMN =loga M +loga N",
+          "normalized_text": "logaMN =loga M +loga N",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "logaMN =loga M +loga N"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l015",
+            "source_token_count": 2
+          }
+        },
+        {
+          "node_id": "p008-n016",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 360.1556860704389,
+            "y": 1309.0,
+            "width": 498.8443139295611,
+            "height": 93.0
+          },
+          "normalized_bbox": {
+            "x": 0.147969,
+            "y": 0.426246,
+            "width": 0.204948,
+            "height": 0.030283
+          },
+          "reading_order_index": 15,
+          "confidence": 0.888689,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "logaMN=logaM-loga N",
+          "normalized_text": "logaMN=logaM-loga N",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "logaMN=logaM-loga N"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l016",
+            "source_token_count": 5
+          }
+        },
+        {
+          "node_id": "p008-n017",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 360.2049114597055,
+            "y": 1412.0,
+            "width": 618.7950885402945,
+            "height": 66.91641002492224
+          },
+          "normalized_bbox": {
+            "x": 0.147989,
+            "y": 0.459785,
+            "width": 0.25423,
+            "height": 0.02179
+          },
+          "reading_order_index": 16,
+          "confidence": 0.743081,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "logaM' =? loga M (단; 가은 실수)",
+          "normalized_text": "logaM' =? loga M (단; 가은 실수)",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "logaM' =? loga M (단; 가은 실수)"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l017",
+            "source_token_count": 2
+          }
+        },
+        {
+          "node_id": "p008-n018",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 332.0,
+            "y": 1478.0,
+            "width": 624.0,
+            "height": 60.89902029390214
+          },
+          "normalized_bbox": {
+            "x": 0.136401,
+            "y": 0.481276,
+            "width": 0.256368,
+            "height": 0.01983
+          },
+          "reading_order_index": 17,
+          "confidence": 0.904379,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "설명logaM =m,logaN =끄이라 하면",
+          "normalized_text": "설명logaM =m,logaN =끄이라 하면",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "설명logaM =m,logaN =끄이라 하면"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l018",
+            "source_token_count": 5
+          }
+        },
+        {
+          "node_id": "p008-n019",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 491.0,
+            "y": 1546.0,
+            "width": 260.0,
+            "height": 42.0
+          },
+          "normalized_bbox": {
+            "x": 0.201726,
+            "y": 0.503419,
+            "width": 0.10682,
+            "height": 0.013676
+          },
+          "reading_order_index": 18,
+          "confidence": 0.534476,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "a\"=M , @\" = N",
+          "normalized_text": "a\"=M , @\" = N",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "a\"=M , @\" = N"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l019",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p008-n020",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 468.0,
+            "y": 1603.0,
+            "width": 445.0,
+            "height": 49.0
+          },
+          "normalized_bbox": {
+            "x": 0.192276,
+            "y": 0.52198,
+            "width": 0.182827,
+            "height": 0.015956
+          },
+          "reading_order_index": 19,
+          "confidence": 0.434827,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "MN =a\" X a\"= @\"+\"이므로",
+          "normalized_text": "MN =a\" X a\"= @\"+\"이므로",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "MN =a\" X a\"= @\"+\"이므로"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l020",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p008-n021",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 528.2686976019667,
+            "y": 1666.0,
+            "width": 605.7313023980333,
+            "height": 57.8756642789574
+          },
+          "normalized_bbox": {
+            "x": 0.217037,
+            "y": 0.542494,
+            "width": 0.248862,
+            "height": 0.018846
+          },
+          "reading_order_index": 20,
+          "confidence": 0.936271,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "logaMN =m+n=loga M +loga N",
+          "normalized_text": "logaMN =m+n=loga M +loga N",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "logaMN =m+n=loga M +loga N"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l021",
+            "source_token_count": 2
+          }
+        },
+        {
+          "node_id": "p008-n022",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 468.0,
+            "y": 1722.0,
+            "width": 424.0,
+            "height": 89.0
+          },
+          "normalized_bbox": {
+            "x": 0.192276,
+            "y": 0.560729,
+            "width": 0.174199,
+            "height": 0.028981
+          },
+          "reading_order_index": 21,
+          "confidence": 0.117118,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "M=d\" : d\"=d\" \"이무로",
+          "normalized_text": "M=d\" : d\"=d\" \"이무로",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "M=d\" : d\"=d\" \"이무로"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l022",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p008-n023",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 528.2448296563452,
+            "y": 1814.0,
+            "width": 586.7551703436548,
+            "height": 88.0
+          },
+          "normalized_bbox": {
+            "x": 0.217027,
+            "y": 0.590687,
+            "width": 0.241066,
+            "height": 0.028655
+          },
+          "reading_order_index": 22,
+          "confidence": 0.425236,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "logaM- -\"=log M-logr N",
+          "normalized_text": "logaM- -\"=log M-logr N",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "logaM- -\"=log M-logr N"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l023",
+            "source_token_count": 2
+          }
+        },
+        {
+          "node_id": "p008-n024",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 468.0,
+            "y": 1915.0,
+            "width": 370.0,
+            "height": 49.0
+          },
+          "normalized_bbox": {
+            "x": 0.192276,
+            "y": 0.623575,
+            "width": 0.152013,
+            "height": 0.015956
+          },
+          "reading_order_index": 23,
+          "confidence": 0.366384,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "M' = (a\")' = @\"이므로",
+          "normalized_text": "M' = (a\")' = @\"이므로",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "M' = (a\")' = @\"이므로"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l024",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p008-n025",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 528.262538605064,
+            "y": 1976.0,
+            "width": 409.73746139493596,
+            "height": 57.894902098688135
+          },
+          "normalized_bbox": {
+            "x": 0.217035,
+            "y": 0.643439,
+            "width": 0.168339,
+            "height": 0.018852
+          },
+          "reading_order_index": 24,
+          "confidence": 0.841766,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "logaM' =m =거logaM",
+          "normalized_text": "logaM' =m =거logaM",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "logaM' =m =거logaM"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l025",
+            "source_token_count": 4
+          }
+        },
+        {
+          "node_id": "p008-n026",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 341.0,
+            "y": 2035.0,
+            "width": 871.737461394936,
+            "height": 60.89490209868791
+          },
+          "normalized_bbox": {
+            "x": 0.140099,
+            "y": 0.662651,
+            "width": 0.35815,
+            "height": 0.019829
+          },
+          "reading_order_index": 25,
+          "confidence": 0.656158,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "예 logz6=1og? (2 X 3) =1og2 2+lo82 3=1+log?",
+          "normalized_text": "예 logz6=1og? (2 X 3) =1og2 2+lo82 3=1+log?",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "예 logz6=1og? (2 X 3) =1og2 2+lo82 3=1+log?"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l026",
+            "source_token_count": 4
+          }
+        },
+        {
+          "node_id": "p008-n027",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 458.2750696327987,
+            "y": 2104.0,
+            "width": 568.7249303672013,
+            "height": 71.0
+          },
+          "normalized_bbox": {
+            "x": 0.188281,
+            "y": 0.685119,
+            "width": 0.233659,
+            "height": 0.02312
+          },
+          "reading_order_index": 26,
+          "confidence": 0.700069,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "logz23=log22-1og2 3=1-logz 3",
+          "normalized_text": "logz23=log22-1og2 3=1-logz 3",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "logz23=log22-1og2 3=1-logz 3"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l028",
+            "source_token_count": 5
+          }
+        },
+        {
+          "node_id": "p008-n028",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 457.22760010982483,
+            "y": 2196.0,
+            "width": 651.7723998901752,
+            "height": 79.0
+          },
+          "normalized_bbox": {
+            "x": 0.18785,
+            "y": 0.715077,
+            "width": 0.267778,
+            "height": 0.025725
+          },
+          "reading_order_index": 27,
+          "confidence": 0.503308,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "logz2 =logz2_석logz2-금x1-금",
+          "normalized_text": "logz2 =logz2_석logz2-금x1-금",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "logz2 =logz2_석logz2-금x1-금"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l029",
+            "source_token_count": 6
+          }
+        },
+        {
+          "node_id": "p008-n029",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1204.0,
+            "y": 2046.0,
+            "width": 26.0,
+            "height": 33.0
+          },
+          "normalized_bbox": {
+            "x": 0.494659,
+            "y": 0.666232,
+            "width": 0.010682,
+            "height": 0.010746
+          },
+          "reading_order_index": 28,
+          "confidence": 1.0,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "3",
+          "normalized_text": "3",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "3"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l027",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p008-n030",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 125.0,
+            "y": 2912.0,
+            "width": 441.0,
+            "height": 42.0
+          },
+          "normalized_bbox": {
+            "x": 0.051356,
+            "y": 0.948225,
+            "width": 0.181183,
+            "height": 0.013676
+          },
+          "reading_order_index": 29,
+          "confidence": 0.863793,
+          "source_engine": "easyocr-general-ocr",
+          "issues": [],
+          "raw_text": "8 2027학년도 EBS 수능특강 수학 I",
+          "normalized_text": "8 2027학년도 EBS 수능특강 수학 I",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "8 2027학년도 EBS 수능특강 수학 I"
+            }
+          ],
+          "layout": {
+            "line_id": "p008-l030",
+            "source_token_count": 2
+          }
+        }
+      ],
+      "reading_order": [
+        "p008-n001",
+        "p008-n002",
+        "p008-n003",
+        "p008-n004",
+        "p008-n005",
+        "p008-n006",
+        "p008-n007",
+        "p008-n008",
+        "p008-n009",
+        "p008-n010",
+        "p008-n011",
+        "p008-n012",
+        "p008-n013",
+        "p008-n014",
+        "p008-n015",
+        "p008-n016",
+        "p008-n017",
+        "p008-n018",
+        "p008-n019",
+        "p008-n020",
+        "p008-n021",
+        "p008-n022",
+        "p008-n023",
+        "p008-n024",
+        "p008-n025",
+        "p008-n026",
+        "p008-n027",
+        "p008-n028",
+        "p008-n029",
+        "p008-n030"
+      ],
+      "parse_issues": [
+        {
+          "code": "OCR_LOW_CONFIDENCE",
+          "severity": "warning",
+          "message": "20 EasyOCR tokens below confidence 0.50"
+        },
+        {
+          "code": "OCR_RAW_CACHE_WRITTEN",
+          "severity": "info",
+          "message": "D:\\Projects\\OCR\\document-parser\\data\\debug\\ocr_cache\\easyocr-general-ocr\\p008-f4e05d102099ba865d9d12cf.json"
+        }
+      ],
+      "quality_report": {
+        "page_id": "p008",
+        "source": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p008.png",
+        "status": "PASS",
+        "width": 2434,
+        "height": 3071,
+        "mode": "RGB",
+        "image_format": "PNG",
+        "long_edge": 3071,
+        "aspect_ratio": 0.792576,
+        "blur_score": 624.618286,
+        "issues": []
+      }
+    }
+  ],
+  "engine_manifest": {
+    "general_ocr": {
+      "engine_id": "easyocr-general-ocr",
+      "engine_version": "1.7.2"
+    },
+    "pipeline": {
+      "mode": "text_only",
+      "requires_pdf_text_layer": false,
+      "layout_mode": "token_line_block"
+    }
+  },
+  "validation_summary": {
+    "schema_valid": true,
+    "validation_performed": true,
+    "coordinate_missing_node_count": 0,
+    "reading_order_cycle_count": 0,
+    "invalid_reading_order_ref_count": 0,
+    "missing_reading_order_node_count": 0,
+    "duplicate_node_id_count": 0,
+    "required_field_missing_count": 0,
+    "type_error_count": 0,
+    "bbox_invalid_count": 0,
+    "normalized_bbox_out_of_range_count": 0,
+    "confidence_invalid_count": 0,
+    "reading_order_index_mismatch_count": 0,
+    "quality_status_invalid_count": 0,
+    "issue_invalid_count": 0,
+    "page_count_mismatch": false,
+    "page_count": 1
+  }
+}

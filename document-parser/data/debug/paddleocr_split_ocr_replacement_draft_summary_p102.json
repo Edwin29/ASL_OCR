@@ -1,0 +1,135 @@
+{
+  "mode": "split_ocr_replacement_draft",
+  "page_count": 1,
+  "source_candidate_count": 15,
+  "replacement_node_count": 30,
+  "skipped_candidate_count": 1,
+  "skipped_statuses": {
+    "REVIEW_REQUIRED_LOW_CONFIDENCE": 1
+  },
+  "pages": [
+    {
+      "page_id": "p102",
+      "source_candidate_count": 15,
+      "replacement_node_count": 30,
+      "skipped_candidate_count": 1,
+      "resolved_crossing_issue_count": 15,
+      "unresolved_crossing_issue_count": 1,
+      "skipped_candidates": [
+        {
+          "source_text_node_id": "p102-n031",
+          "status": "REVIEW_REQUIRED_LOW_CONFIDENCE"
+        }
+      ],
+      "source_replacements": [
+        {
+          "source_text_node_id": "p102-n004",
+          "replacement_node_ids": [
+            "p102-n004-splitocr-s001",
+            "p102-n004-splitocr-s002"
+          ]
+        },
+        {
+          "source_text_node_id": "p102-n021",
+          "replacement_node_ids": [
+            "p102-n021-splitocr-s001",
+            "p102-n021-splitocr-s002"
+          ]
+        },
+        {
+          "source_text_node_id": "p102-n011",
+          "replacement_node_ids": [
+            "p102-n011-splitocr-s001",
+            "p102-n011-splitocr-s002"
+          ]
+        },
+        {
+          "source_text_node_id": "p102-n030",
+          "replacement_node_ids": [
+            "p102-n030-splitocr-s001",
+            "p102-n030-splitocr-s002"
+          ]
+        },
+        {
+          "source_text_node_id": "p102-n038",
+          "replacement_node_ids": [
+            "p102-n038-splitocr-s001",
+            "p102-n038-splitocr-s002"
+          ]
+        },
+        {
+          "source_text_node_id": "p102-n040",
+          "replacement_node_ids": [
+            "p102-n040-splitocr-s001",
+            "p102-n040-splitocr-s002"
+          ]
+        },
+        {
+          "source_text_node_id": "p102-n041",
+          "replacement_node_ids": [
+            "p102-n041-splitocr-s001",
+            "p102-n041-splitocr-s002"
+          ]
+        },
+        {
+          "source_text_node_id": "p102-n062",
+          "replacement_node_ids": [
+            "p102-n062-splitocr-s001",
+            "p102-n062-splitocr-s002"
+          ]
+        },
+        {
+          "source_text_node_id": "p102-n053",
+          "replacement_node_ids": [
+            "p102-n053-splitocr-s001",
+            "p102-n053-splitocr-s002"
+          ]
+        },
+        {
+          "source_text_node_id": "p102-n058",
+          "replacement_node_ids": [
+            "p102-n058-splitocr-s001",
+            "p102-n058-splitocr-s002"
+          ]
+        },
+        {
+          "source_text_node_id": "p102-n033",
+          "replacement_node_ids": [
+            "p102-n033-splitocr-s001",
+            "p102-n033-splitocr-s002"
+          ]
+        },
+        {
+          "source_text_node_id": "p102-n046",
+          "replacement_node_ids": [
+            "p102-n046-splitocr-s001",
+            "p102-n046-splitocr-s002"
+          ]
+        },
+        {
+          "source_text_node_id": "p102-n065",
+          "replacement_node_ids": [
+            "p102-n065-splitocr-s001",
+            "p102-n065-splitocr-s002"
+          ]
+        },
+        {
+          "source_text_node_id": "p102-n056",
+          "replacement_node_ids": [
+            "p102-n056-splitocr-s001",
+            "p102-n056-splitocr-s002"
+          ]
+        },
+        {
+          "source_text_node_id": "p102-n068",
+          "replacement_node_ids": [
+            "p102-n068-splitocr-s001",
+            "p102-n068-splitocr-s002"
+          ]
+        }
+      ]
+    }
+  ],
+  "schema_valid": true,
+  "input": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_split_ocr_reconciliation_page_ir_p102.json"
+}

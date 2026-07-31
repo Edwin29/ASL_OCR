@@ -10,5 +10,14 @@ dependencies = [
   "pypdfium2",
 ]
 
+[project.optional-dependencies]
+ocr = [
+  "paddleocr",
+  "paddlepaddle",
+]
+legacy-ocr = [
+  "easyocr",
+]
+
 [tool.setuptools.packages.find]
 where = ["src"]

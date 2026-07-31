@@ -1,0 +1,33 @@
+{
+  "barrier_count": 3,
+  "assigned_text_node_count": 14,
+  "crossing_warning_count": 0,
+  "pages": [
+    {
+      "page_id": "p004",
+      "barrier_count": 3,
+      "assigned_text_node_count": 14,
+      "crossing_warning_count": 0,
+      "barriers": [
+        {
+          "node_id": "p004-structure-r001",
+          "structure_label": "TABLE_CANDIDATE",
+          "layout_barrier_role": "table_region_boundary",
+          "assigned_text_node_count": 5
+        },
+        {
+          "node_id": "p004-structure-r002",
+          "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+          "layout_barrier_role": "visual_region_boundary",
+          "assigned_text_node_count": 5
+        },
+        {
+          "node_id": "p004-structure-r003",
+          "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+          "layout_barrier_role": "visual_region_boundary",
+          "assigned_text_node_count": 4
+        }
+      ]
+    }
+  ]
+}

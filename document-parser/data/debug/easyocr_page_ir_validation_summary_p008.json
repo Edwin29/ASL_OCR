@@ -1,0 +1,19 @@
+{
+  "schema_valid": true,
+  "validation_performed": true,
+  "coordinate_missing_node_count": 0,
+  "reading_order_cycle_count": 0,
+  "invalid_reading_order_ref_count": 0,
+  "missing_reading_order_node_count": 0,
+  "duplicate_node_id_count": 0,
+  "required_field_missing_count": 0,
+  "type_error_count": 0,
+  "bbox_invalid_count": 0,
+  "normalized_bbox_out_of_range_count": 0,
+  "confidence_invalid_count": 0,
+  "reading_order_index_mismatch_count": 0,
+  "quality_status_invalid_count": 0,
+  "issue_invalid_count": 0,
+  "page_count_mismatch": false,
+  "page_count": 1
+}

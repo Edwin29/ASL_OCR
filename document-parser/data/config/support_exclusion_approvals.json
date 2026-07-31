@@ -1,0 +1,13 @@
+{
+  "approved_exclusion_types": [
+    "INTRO_GUIDE_PAGE_UNSUPPORTED"
+  ],
+  "approvals": [
+    {
+      "exclusion_type": "INTRO_GUIDE_PAGE_UNSUPPORTED",
+      "status": "approved",
+      "basis": "User approved excluding publisher intro/guide pages from supported math-content parsing.",
+      "scope": "Intro/structure pages that satisfy the shared support policy evidence thresholds."
+    }
+  ]
+}

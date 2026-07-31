@@ -1,0 +1,122 @@
+{
+  "mode": "split_ocr_reconciliation_preview",
+  "page_count": 1,
+  "candidate_count": 16,
+  "segment_count": 32,
+  "statuses": {
+    "REVIEW_REPLACE_CANDIDATE": 15,
+    "REVIEW_REQUIRED_LOW_CONFIDENCE": 1
+  },
+  "pages": [
+    {
+      "page_id": "p102",
+      "candidate_count": 16,
+      "segment_count": 32,
+      "statuses": {
+        "REVIEW_REPLACE_CANDIDATE": 15,
+        "REVIEW_REQUIRED_LOW_CONFIDENCE": 1
+      },
+      "candidates": [
+        {
+          "source_text_node_id": "p102-n004",
+          "status": "REVIEW_REPLACE_CANDIDATE",
+          "segment_count": 2,
+          "combined_recognized_text": "본문5~13쪽 유제"
+        },
+        {
+          "source_text_node_id": "p102-n011",
+          "status": "REVIEW_REPLACE_CANDIDATE",
+          "segment_count": 2,
+          "combined_recognized_text": "1 4 2 4 3 ⑤ 4① 5 ② 6 1 7 4 8 ⑤ 9 ③ 10 ⑤ 11 1"
+        },
+        {
+          "source_text_node_id": "p102-n021",
+          "status": "REVIEW_REPLACE_CANDIDATE",
+          "segment_count": 2,
+          "combined_recognized_text": "3 ② 4 ⑤ 5 100 65 7 ⑤ 8 ⑤ 9 1 10 ② 11 ⑤ 12 4"
+        },
+        {
+          "source_text_node_id": "p102-n030",
+          "status": "REVIEW_REPLACE_CANDIDATE",
+          "segment_count": 2,
+          "combined_recognized_text": "본문 21~29쪽 유제"
+        },
+        {
+          "source_text_node_id": "p102-n031",
+          "status": "REVIEW_REQUIRED_LOW_CONFIDENCE",
+          "segment_count": 2,
+          "combined_recognized_text": "1 ② 2 ③ 3 ⑤ 4 4 5 4 6 ② 7 ② 8 4 1 1 2 ③ 3 ③ 49 5 ② 6 1 7 ② 8"
+        },
+        {
+          "source_text_node_id": "p102-n033",
+          "status": "REVIEW_REPLACE_CANDIDATE",
+          "segment_count": 2,
+          "combined_recognized_text": "본문 30~31쪽 Level 1 기초 연습"
+        },
+        {
+          "source_text_node_id": "p102-n038",
+          "status": "REVIEW_REPLACE_CANDIDATE",
+          "segment_count": 2,
+          "combined_recognized_text": "1 ③ 2 4 3 ② 4 ⑤ 5 ⑤ 6 4 7 ② 8 27 1 1 2 ② 3 4 4 ③ 5 ⑤ 6 ③ 7 1 8"
+        },
+        {
+          "source_text_node_id": "p102-n040",
+          "status": "REVIEW_REPLACE_CANDIDATE",
+          "segment_count": 2,
+          "combined_recognized_text": "1 ⑤ 2 4 3 ③ 43 5 ③ 6 ⑤ 77 8 ③ 1 ② 2 1 3 1 44 5 ② 6 1 7 330"
+        },
+        {
+          "source_text_node_id": "p102-n041",
+          "status": "REVIEW_REPLACE_CANDIDATE",
+          "segment_count": 2,
+          "combined_recognized_text": "본문34쪽 8 129"
+        },
+        {
+          "source_text_node_id": "p102-n046",
+          "status": "REVIEW_REPLACE_CANDIDATE",
+          "segment_count": 2,
+          "combined_recognized_text": "본문 32~33쪽 Level 2 기본 연습"
+        },
+        {
+          "source_text_node_id": "p102-n053",
+          "status": "REVIEW_REPLACE_CANDIDATE",
+          "segment_count": 2,
+          "combined_recognized_text": "1 4 24 3 ② 4 ⑤ 55 65 7 1 8 ③ 1 93 2 ⑤ 3 ⑤ 4 1 5 1 6 4 7 4 8 3"
+        },
+        {
+          "source_text_node_id": "p102-n056",
+          "status": "REVIEW_REPLACE_CANDIDATE",
+          "segment_count": 2,
+          "combined_recognized_text": "2 3 4 4 ③ 5 1 6 ③ 7 1 8 4 1 ② 2 ② 3 ③ 4 ② 5 1 6 4 7 ② 8"
+        },
+        {
+          "source_text_node_id": "p102-n058",
+          "status": "REVIEW_REPLACE_CANDIDATE",
+          "segment_count": 2,
+          "combined_recognized_text": "1 ② 2 ② 3 ② 4 ③ 5 4 6 ② 7 4 8 4 1 ② 2 ③ 3 27 4 ⑤ 5 1 6"
+        },
+        {
+          "source_text_node_id": "p102-n062",
+          "status": "REVIEW_REPLACE_CANDIDATE",
+          "segment_count": 2,
+          "combined_recognized_text": "본문37~45쪽 유제"
+        },
+        {
+          "source_text_node_id": "p102-n065",
+          "status": "REVIEW_REPLACE_CANDIDATE",
+          "segment_count": 2,
+          "combined_recognized_text": "본문46~47쪽 Level 1 기초 연습"
+        },
+        {
+          "source_text_node_id": "p102-n068",
+          "status": "REVIEW_REPLACE_CANDIDATE",
+          "segment_count": 2,
+          "combined_recognized_text": "본문48~49쪽 Level 2 기본 연습"
+        }
+      ]
+    }
+  ],
+  "schema_valid": true,
+  "page_ir": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_page_ir_p102.json",
+  "split_ocr_manifest": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_ocr_manifest_p102.json"
+}

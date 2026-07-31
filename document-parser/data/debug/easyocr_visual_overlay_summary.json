@@ -1,0 +1,16 @@
+{
+  "page_ir": "D:\\Projects\\OCR\\document-parser\\data\\debug\\easyocr_visual_page_ir_samples.json",
+  "images_dir": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300",
+  "output_dir": "D:\\Projects\\OCR\\document-parser\\data\\debug\\easyocr_visual_overlays",
+  "overlay_count": 1,
+  "overlays": [
+    {
+      "page_id": "p003",
+      "image_path": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p003.png",
+      "output_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\easyocr_visual_overlays\\p003_overlay.png",
+      "node_count": 83,
+      "issue_count": 3,
+      "quality_status": "PASS"
+    }
+  ]
+}

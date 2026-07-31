@@ -1,0 +1,123 @@
+{
+  "report_type": "ocr_quality",
+  "page_count": 1,
+  "total_node_count": 30,
+  "total_low_confidence_node_count": 7,
+  "total_reading_order_warning_count": 1,
+  "low_confidence_threshold": 0.5,
+  "wide_node_ratio": 0.72,
+  "tall_node_ratio": 0.08,
+  "overlap_threshold": 0.35,
+  "pages": [
+    {
+      "page_id": "p008",
+      "node_count": 30,
+      "mean_confidence": 0.66436,
+      "min_confidence": 0.117118,
+      "low_confidence_node_count": 7,
+      "suspicious_shape_node_count": 0,
+      "overlap_warning_count": 0,
+      "reading_order_warning_count": 1,
+      "parse_issue_codes": [
+        "OCR_LOW_CONFIDENCE",
+        "OCR_RAW_CACHE_WRITTEN"
+      ],
+      "low_confidence_nodes": [
+        {
+          "node_id": "p008-n004",
+          "reading_order_index": 3,
+          "confidence": 0.211727,
+          "bbox": {
+            "x": 318.0,
+            "y": 466.0,
+            "width": 1080.0,
+            "height": 62.0
+          },
+          "text": "0>0, 0#1, N> 0일 때, @ = N올 만족시키는 실수 [틀 기호로"
+        },
+        {
+          "node_id": "p008-n006",
+          "reading_order_index": 5,
+          "confidence": 0.329343,
+          "bbox": {
+            "x": 322.0,
+            "y": 612.0,
+            "width": 356.0,
+            "height": 56.0
+          },
+          "text": "과 같이 나타번다. 즉,"
+        },
+        {
+          "node_id": "p008-n007",
+          "reading_order_index": 6,
+          "confidence": 0.191142,
+          "bbox": {
+            "x": 395.0,
+            "y": 683.0,
+            "width": 408.0,
+            "height": 60.0
+          },
+          "text": "@' =N(> a=loga N"
+        },
+        {
+          "node_id": "p008-n020",
+          "reading_order_index": 19,
+          "confidence": 0.434827,
+          "bbox": {
+            "x": 468.0,
+            "y": 1603.0,
+            "width": 445.0,
+            "height": 49.0
+          },
+          "text": "MN =a\" X a\"= @\"+\"이므로"
+        },
+        {
+          "node_id": "p008-n022",
+          "reading_order_index": 21,
+          "confidence": 0.117118,
+          "bbox": {
+            "x": 468.0,
+            "y": 1722.0,
+            "width": 424.0,
+            "height": 89.0
+          },
+          "text": "M=d\" : d\"=d\" \"이무로"
+        },
+        {
+          "node_id": "p008-n023",
+          "reading_order_index": 22,
+          "confidence": 0.425236,
+          "bbox": {
+            "x": 528.2448296563452,
+            "y": 1814.0,
+            "width": 586.7551703436548,
+            "height": 88.0
+          },
+          "text": "logaM- -\"=log M-logr N"
+        },
+        {
+          "node_id": "p008-n024",
+          "reading_order_index": 23,
+          "confidence": 0.366384,
+          "bbox": {
+            "x": 468.0,
+            "y": 1915.0,
+            "width": 370.0,
+            "height": 49.0
+          },
+          "text": "M' = (a\")' = @\"이므로"
+        }
+      ],
+      "suspicious_shape_nodes": [],
+      "overlap_warnings": [],
+      "reading_order_warnings": [
+        {
+          "type": "LARGE_VERTICAL_GAP",
+          "from_node_id": "p008-n029",
+          "to_node_id": "p008-n030",
+          "vertical_gap": 833.0
+        }
+      ]
+    }
+  ]
+}

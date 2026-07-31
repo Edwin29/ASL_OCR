@@ -1,0 +1,2223 @@
+{
+  "document_manifest": {
+    "book_id": "ebs-2027-math1",
+    "profile_hint": "EBS_SUNEUNG_TEUKGANG",
+    "page_count": 1
+  },
+  "pages": [
+    {
+      "page_id": "p004",
+      "page_geometry": {
+        "width": 2434,
+        "height": 3071
+      },
+      "nodes": [
+        {
+          "node_id": "p004-n001",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 259.0,
+            "y": 86.0,
+            "width": 671.0,
+            "height": 165.0
+          },
+          "normalized_bbox": {
+            "x": 0.106409,
+            "y": 0.028004,
+            "width": 0.275678,
+            "height": 0.053728
+          },
+          "reading_order_index": 0,
+          "confidence": 0.98484,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "01 지수와 로그",
+          "normalized_text": "01 지수와 로그",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "01 지수와 로그"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l001",
+            "source_token_count": 2
+          }
+        },
+        {
+          "node_id": "p004-n002",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 264.0,
+            "y": 345.0,
+            "width": 286.0,
+            "height": 62.0
+          },
+          "normalized_bbox": {
+            "x": 0.108463,
+            "y": 0.112341,
+            "width": 0.117502,
+            "height": 0.020189
+          },
+          "reading_order_index": 1,
+          "confidence": 0.999812,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "1거듭제곱근",
+          "normalized_text": "1거듭제곱근",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "1거듭제곱근"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l002",
+            "source_token_count": 2
+          }
+        },
+        {
+          "node_id": "p004-n003",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 255.0,
+            "y": 445.0,
+            "width": 363.0,
+            "height": 52.0
+          },
+          "normalized_bbox": {
+            "x": 0.104766,
+            "y": 0.144904,
+            "width": 0.149137,
+            "height": 0.016933
+          },
+          "reading_order_index": 2,
+          "confidence": 0.957348,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "(1)실수 a의 n제곱근",
+          "normalized_text": "(1)실수 a의 n제곱근",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(1)실수 a의 n제곱근"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l003",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p004-n004",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 323.0,
+            "y": 516.0,
+            "width": 1771.0,
+            "height": 46.0
+          },
+          "normalized_bbox": {
+            "x": 0.132703,
+            "y": 0.168023,
+            "width": 0.727609,
+            "height": 0.014979
+          },
+          "reading_order_index": 3,
+          "confidence": 0.945035,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "실수 a와2 이상의 자연수 n에 대하여 n제곱하여 a가 되는 수.즉 방정식x\"=a의 근을 a의 n제곱근이라고",
+          "normalized_text": "실수 a와2 이상의 자연수 n에 대하여 n제곱하여 a가 되는 수.즉 방정식x\"=a의 근을 a의 n제곱근이라고",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "실수 a와2 이상의 자연수 n에 대하여 n제곱하여 a가 되는 수.즉 방정식x\"=a의 근을 a의 n제곱근이라고"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l004",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p004-n005",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 323.0,
+            "y": 589.0,
+            "width": 1539.0,
+            "height": 46.0
+          },
+          "normalized_bbox": {
+            "x": 0.132703,
+            "y": 0.191794,
+            "width": 0.632293,
+            "height": 0.014979
+          },
+          "reading_order_index": 4,
+          "confidence": 0.987194,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "한다.이때 a의 제곱근,a의 세제곱근,a의 네제곱근,을 통틀어 a의 거듭제곱근이라고 한다.",
+          "normalized_text": "한다.이때 a의 제곱근,a의 세제곱근,a의 네제곱근,을 통틀어 a의 거듭제곱근이라고 한다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "한다.이때 a의 제곱근,a의 세제곱근,a의 네제곱근,을 통틀어 a의 거듭제곱근이라고 한다."
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l005",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p004-n006",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 259.0,
+            "y": 685.0,
+            "width": 572.0,
+            "height": 46.0
+          },
+          "normalized_bbox": {
+            "x": 0.106409,
+            "y": 0.223054,
+            "width": 0.235004,
+            "height": 0.014979
+          },
+          "reading_order_index": 5,
+          "confidence": 0.980616,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "(2)실수 a의 n제곱근 중 실수인 것",
+          "normalized_text": "(2)실수 a의 n제곱근 중 실수인 것",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(2)실수 a의 n제곱근 중 실수인 것"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l006",
+            "source_token_count": 2
+          }
+        },
+        {
+          "node_id": "p004-n007",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 325.0,
+            "y": 754.0,
+            "width": 787.0,
+            "height": 46.0
+          },
+          "normalized_bbox": {
+            "x": 0.133525,
+            "y": 0.245523,
+            "width": 0.323336,
+            "height": 0.014979
+          },
+          "reading_order_index": 6,
+          "confidence": 0.965374,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "실수a의 n제곱근 중에서 실수인 것을x라 할 때",
+          "normalized_text": "실수a의 n제곱근 중에서 실수인 것을x라 할 때",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "실수a의 n제곱근 중에서 실수인 것을x라 할 때"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l007",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p004-n008",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 323.0,
+            "y": 825.0,
+            "width": 1200.0,
+            "height": 46.0
+          },
+          "normalized_bbox": {
+            "x": 0.132703,
+            "y": 0.268642,
+            "width": 0.493016,
+            "height": 0.014979
+          },
+          "reading_order_index": 7,
+          "confidence": 0.952473,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "①n이 홀수이면 a의 값에 관계없이 실수 x는 항상 존재하고 x=\"a이다.",
+          "normalized_text": "①n이 홀수이면 a의 값에 관계없이 실수 x는 항상 존재하고 x=\"a이다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "①n이 홀수이면 a의 값에 관계없이 실수 x는 항상 존재하고 x=\"a이다."
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l008",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p004-n009",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 321.0,
+            "y": 894.0,
+            "width": 1322.0,
+            "height": 48.0
+          },
+          "normalized_bbox": {
+            "x": 0.131882,
+            "y": 0.29111,
+            "width": 0.543139,
+            "height": 0.01563
+          },
+          "reading_order_index": 8,
+          "confidence": 0.896258,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "2n이 짝수이면 a≥0일 때에만 실수 x가 존재하고 x=na 또는 x=-na이다.",
+          "normalized_text": "2n이 짝수이면 a≥0일 때에만 실수 x가 존재하고 x=na 또는 x=-na이다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "2n이 짝수이면 a≥0일 때에만 실수 x가 존재하고 x=na 또는 x=-na이다."
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l009",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p004-n010",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 692.0,
+            "y": 987.0,
+            "width": 799.0,
+            "height": 44.0
+          },
+          "normalized_bbox": {
+            "x": 0.284306,
+            "y": 0.321394,
+            "width": 0.328266,
+            "height": 0.014328
+          },
+          "reading_order_index": 9,
+          "confidence": 0.914109,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "a >0 a=0 a <0",
+          "normalized_text": "a >0 a=0 a <0",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "a >0 a=0 a <0"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l010",
+            "source_token_count": 3,
+            "parent_structure_node_ids": [
+              "p004-structure-r001"
+            ],
+            "primary_parent_structure_node_id": "p004-structure-r001",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p004-structure-r001",
+                "structure_label": "TABLE_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 284890.353
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p004-structure-r001"
+            ],
+            "primary_layout_barrier_node_id": "p004-structure-r001",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p004-structure-r001",
+                "structure_label": "TABLE_CANDIDATE",
+                "layout_barrier_role": "table_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 284890.353
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n011",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 367.0,
+            "y": 1048.0,
+            "width": 745.0,
+            "height": 63.0
+          },
+          "normalized_bbox": {
+            "x": 0.150781,
+            "y": 0.341257,
+            "width": 0.306081,
+            "height": 0.020514
+          },
+          "reading_order_index": 10,
+          "confidence": 0.870643,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "n이홀수 √a 0",
+          "normalized_text": "n이홀수 √a 0",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "n이홀수 √a 0"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l011",
+            "source_token_count": 3,
+            "parent_structure_node_ids": [
+              "p004-structure-r001"
+            ],
+            "primary_parent_structure_node_id": "p004-structure-r001",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p004-structure-r001",
+                "structure_label": "TABLE_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 284890.353
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p004-structure-r001"
+            ],
+            "primary_layout_barrier_node_id": "p004-structure-r001",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p004-structure-r001",
+                "structure_label": "TABLE_CANDIDATE",
+                "layout_barrier_role": "table_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 284890.353
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n012",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 367.0,
+            "y": 1117.0,
+            "width": 745.0,
+            "height": 69.0
+          },
+          "normalized_bbox": {
+            "x": 0.150781,
+            "y": 0.363725,
+            "width": 0.306081,
+            "height": 0.022468
+          },
+          "reading_order_index": 11,
+          "confidence": 0.870218,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "n이 짝수 a, −na 0",
+          "normalized_text": "n이 짝수 a, −na 0",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "n이 짝수 a, −na 0"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l013",
+            "source_token_count": 3,
+            "parent_structure_node_ids": [
+              "p004-structure-r001"
+            ],
+            "primary_parent_structure_node_id": "p004-structure-r001",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p004-structure-r001",
+                "structure_label": "TABLE_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 284890.353
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p004-structure-r001"
+            ],
+            "primary_layout_barrier_node_id": "p004-structure-r001",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p004-structure-r001",
+                "structure_label": "TABLE_CANDIDATE",
+                "layout_barrier_role": "table_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 284890.353
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n013",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 323.0,
+            "y": 1209.0,
+            "width": 1774.0,
+            "height": 52.0
+          },
+          "normalized_bbox": {
+            "x": 0.132703,
+            "y": 0.393683,
+            "width": 0.728841,
+            "height": 0.016933
+          },
+          "reading_order_index": 12,
+          "confidence": 0.913435,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "설명>n이2 이상의자연수일 때 실수a의n제곱근 중에서실수인것은방정식x^\"=a의근 중에서실수인것이므로이는",
+          "normalized_text": "설명>n이2 이상의자연수일 때 실수a의n제곱근 중에서실수인것은방정식x^\"=a의근 중에서실수인것이므로이는",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "설명>n이2 이상의자연수일 때 실수a의n제곱근 중에서실수인것은방정식x^\"=a의근 중에서실수인것이므로이는"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l015",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p004-n014",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 422.0,
+            "y": 1273.0,
+            "width": 1571.0,
+            "height": 48.0
+          },
+          "normalized_bbox": {
+            "x": 0.173377,
+            "y": 0.414523,
+            "width": 0.64544,
+            "height": 0.01563
+          },
+          "reading_order_index": 13,
+          "confidence": 0.9195,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "함수y=x^\"의 그래프와 직선y=a의 교점의x좌표와 같다.이때 이 실수를 기호va를이용하여 나타낸다.",
+          "normalized_text": "함수y=x^\"의 그래프와 직선y=a의 교점의x좌표와 같다.이때 이 실수를 기호va를이용하여 나타낸다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "함수y=x^\"의 그래프와 직선y=a의 교점의x좌표와 같다.이때 이 실수를 기호va를이용하여 나타낸다."
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l016",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p004-n015",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 418.0,
+            "y": 1338.0,
+            "width": 270.0,
+            "height": 46.0
+          },
+          "normalized_bbox": {
+            "x": 0.171734,
+            "y": 0.435689,
+            "width": 0.110929,
+            "height": 0.014979
+          },
+          "reading_order_index": 14,
+          "confidence": 0.932003,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "(i)n이 홀수일 때",
+          "normalized_text": "(i)n이 홀수일 때",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(i)n이 홀수일 때"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l017",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p004-n016",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 603.0,
+            "y": 1394.0,
+            "width": 209.0,
+            "height": 61.0
+          },
+          "normalized_bbox": {
+            "x": 0.24774,
+            "y": 0.453924,
+            "width": 0.085867,
+            "height": 0.019863
+          },
+          "reading_order_index": 15,
+          "confidence": 0.815857,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "y4 y=xn",
+          "normalized_text": "y4 y=xn",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "y4 y=xn"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l020",
+            "source_token_count": 2,
+            "parent_structure_node_ids": [
+              "p004-structure-r002"
+            ],
+            "primary_parent_structure_node_id": "p004-structure-r002",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p004-structure-r002",
+                "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+                "overlap_ratio": 0.882721,
+                "structure_area": 186577.544
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p004-structure-r002"
+            ],
+            "primary_layout_barrier_node_id": "p004-structure-r002",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p004-structure-r002",
+                "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+                "layout_barrier_role": "visual_region_boundary",
+                "overlap_ratio": 0.882721,
+                "barrier_area": 186577.544
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n017",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 605.0,
+            "y": 1472.0,
+            "width": 373.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.248562,
+            "y": 0.479323,
+            "width": 0.153246,
+            "height": 0.017584
+          },
+          "reading_order_index": 16,
+          "confidence": 0.862764,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "a -y=a (a>0)",
+          "normalized_text": "a -y=a (a>0)",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "a -y=a (a>0)"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l021",
+            "source_token_count": 2,
+            "parent_structure_node_ids": [
+              "p004-structure-r002"
+            ],
+            "primary_parent_structure_node_id": "p004-structure-r002",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p004-structure-r002",
+                "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+                "overlap_ratio": 0.992335,
+                "structure_area": 186577.544
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p004-structure-r002"
+            ],
+            "primary_layout_barrier_node_id": "p004-structure-r002",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p004-structure-r002",
+                "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+                "layout_barrier_role": "visual_region_boundary",
+                "overlap_ratio": 0.992335,
+                "barrier_area": 186577.544
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n018",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 508.0,
+            "y": 1553.0,
+            "width": 319.0,
+            "height": 88.0
+          },
+          "normalized_bbox": {
+            "x": 0.20871,
+            "y": 0.505698,
+            "width": 0.13106,
+            "height": 0.028655
+          },
+          "reading_order_index": 17,
+          "confidence": 0.804344,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "2a x",
+          "normalized_text": "2a x",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "2a x"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l023",
+            "source_token_count": 3,
+            "parent_structure_node_ids": [
+              "p004-structure-r002"
+            ],
+            "primary_parent_structure_node_id": "p004-structure-r002",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p004-structure-r002",
+                "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 186577.544
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p004-structure-r002"
+            ],
+            "primary_layout_barrier_node_id": "p004-structure-r002",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p004-structure-r002",
+                "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+                "layout_barrier_role": "visual_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 186577.544
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n019",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1407.0,
+            "y": 1048.0,
+            "width": 78.0,
+            "height": 63.0
+          },
+          "normalized_bbox": {
+            "x": 0.578061,
+            "y": 0.341257,
+            "width": 0.032046,
+            "height": 0.020514
+          },
+          "reading_order_index": 18,
+          "confidence": 0.63759,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "√a",
+          "normalized_text": "√a",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "√a"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l012",
+            "source_token_count": 1,
+            "parent_structure_node_ids": [
+              "p004-structure-r001"
+            ],
+            "primary_parent_structure_node_id": "p004-structure-r001",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p004-structure-r001",
+                "structure_label": "TABLE_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 284890.353
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p004-structure-r001"
+            ],
+            "primary_layout_barrier_node_id": "p004-structure-r001",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p004-structure-r001",
+                "structure_label": "TABLE_CANDIDATE",
+                "layout_barrier_role": "table_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 284890.353
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n020",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1398.0,
+            "y": 1123.0,
+            "width": 93.0,
+            "height": 61.0
+          },
+          "normalized_bbox": {
+            "x": 0.574363,
+            "y": 0.365679,
+            "width": 0.038209,
+            "height": 0.019863
+          },
+          "reading_order_index": 19,
+          "confidence": 0.996047,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "없다",
+          "normalized_text": "없다",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "없다"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l014",
+            "source_token_count": 1,
+            "parent_structure_node_ids": [
+              "p004-structure-r001"
+            ],
+            "primary_parent_structure_node_id": "p004-structure-r001",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p004-structure-r001",
+                "structure_label": "TABLE_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 284890.353
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p004-structure-r001"
+            ],
+            "primary_layout_barrier_node_id": "p004-structure-r001",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p004-structure-r001",
+                "structure_label": "TABLE_CANDIDATE",
+                "layout_barrier_role": "table_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 284890.353
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n021",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1255.0,
+            "y": 1338.0,
+            "width": 270.0,
+            "height": 46.0
+          },
+          "normalized_bbox": {
+            "x": 0.515612,
+            "y": 0.435689,
+            "width": 0.110929,
+            "height": 0.014979
+          },
+          "reading_order_index": 20,
+          "confidence": 0.855803,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "(ii) n이 짝수일 때",
+          "normalized_text": "(ii) n이 짝수일 때",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(ii) n이 짝수일 때"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l018",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p004-n022",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1447.0,
+            "y": 1392.0,
+            "width": 226.0,
+            "height": 57.0
+          },
+          "normalized_bbox": {
+            "x": 0.594495,
+            "y": 0.453273,
+            "width": 0.092851,
+            "height": 0.018561
+          },
+          "reading_order_index": 21,
+          "confidence": 0.628218,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "y4 y=n",
+          "normalized_text": "y4 y=n",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "y4 y=n"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l019",
+            "source_token_count": 3,
+            "parent_structure_node_ids": [
+              "p004-structure-r003"
+            ],
+            "primary_parent_structure_node_id": "p004-structure-r003",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p004-structure-r003",
+                "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+                "overlap_ratio": 0.843526,
+                "structure_area": 185000.317
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p004-structure-r003"
+            ],
+            "primary_layout_barrier_node_id": "p004-structure-r003",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p004-structure-r003",
+                "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+                "layout_barrier_role": "visual_region_boundary",
+                "overlap_ratio": 0.843526,
+                "barrier_area": 185000.317
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n023",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1453.0,
+            "y": 1489.0,
+            "width": 375.0,
+            "height": 57.0
+          },
+          "normalized_bbox": {
+            "x": 0.59696,
+            "y": 0.484858,
+            "width": 0.154067,
+            "height": 0.018561
+          },
+          "reading_order_index": 22,
+          "confidence": 0.934478,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "a y =a (a>0)",
+          "normalized_text": "a y =a (a>0)",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "a y =a (a>0)"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l022",
+            "source_token_count": 2,
+            "parent_structure_node_ids": [
+              "p004-structure-r003"
+            ],
+            "primary_parent_structure_node_id": "p004-structure-r003",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p004-structure-r003",
+                "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+                "overlap_ratio": 0.989803,
+                "structure_area": 185000.317
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p004-structure-r003"
+            ],
+            "primary_layout_barrier_node_id": "p004-structure-r003",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p004-structure-r003",
+                "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+                "layout_barrier_role": "visual_region_boundary",
+                "overlap_ratio": 0.989803,
+                "barrier_area": 185000.317
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n024",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1341.0,
+            "y": 1610.0,
+            "width": 327.0,
+            "height": 64.0
+          },
+          "normalized_bbox": {
+            "x": 0.550945,
+            "y": 0.524259,
+            "width": 0.134347,
+            "height": 0.02084
+          },
+          "reading_order_index": 23,
+          "confidence": 0.807648,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "a O a x→",
+          "normalized_text": "a O a x→",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "a O a x→"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l024",
+            "source_token_count": 5,
+            "parent_structure_node_ids": [
+              "p004-structure-r003"
+            ],
+            "primary_parent_structure_node_id": "p004-structure-r003",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p004-structure-r003",
+                "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 185000.317
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p004-structure-r003"
+            ],
+            "primary_layout_barrier_node_id": "p004-structure-r003",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p004-structure-r003",
+                "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+                "layout_barrier_role": "visual_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 185000.317
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n025",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1451.0,
+            "y": 1694.0,
+            "width": 377.0,
+            "height": 62.0
+          },
+          "normalized_bbox": {
+            "x": 0.596138,
+            "y": 0.551612,
+            "width": 0.154889,
+            "height": 0.020189
+          },
+          "reading_order_index": 24,
+          "confidence": 0.765825,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "a y =a (a<0)",
+          "normalized_text": "a y =a (a<0)",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "a y =a (a<0)"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l027",
+            "source_token_count": 2,
+            "parent_structure_node_ids": [
+              "p004-structure-r003"
+            ],
+            "primary_parent_structure_node_id": "p004-structure-r003",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p004-structure-r003",
+                "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+                "overlap_ratio": 0.989857,
+                "structure_area": 185000.317
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p004-structure-r003"
+            ],
+            "primary_layout_barrier_node_id": "p004-structure-r003",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p004-structure-r003",
+                "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+                "layout_barrier_role": "visual_region_boundary",
+                "overlap_ratio": 0.989857,
+                "barrier_area": 185000.317
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n026",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 599.0,
+            "y": 1602.0,
+            "width": 160.0,
+            "height": 53.0
+          },
+          "normalized_bbox": {
+            "x": 0.246097,
+            "y": 0.521654,
+            "width": 0.065735,
+            "height": 0.017258
+          },
+          "reading_order_index": 25,
+          "confidence": 0.58864,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "O √a",
+          "normalized_text": "O √a",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "O √a"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l025",
+            "source_token_count": 3,
+            "parent_structure_node_ids": [
+              "p004-structure-r002"
+            ],
+            "primary_parent_structure_node_id": "p004-structure-r002",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p004-structure-r002",
+                "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 186577.544
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p004-structure-r002"
+            ],
+            "primary_layout_barrier_node_id": "p004-structure-r002",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p004-structure-r002",
+                "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+                "layout_barrier_role": "visual_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 186577.544
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n027",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 608.0,
+            "y": 1670.0,
+            "width": 368.0,
+            "height": 61.0
+          },
+          "normalized_bbox": {
+            "x": 0.249795,
+            "y": 0.543797,
+            "width": 0.151191,
+            "height": 0.019863
+          },
+          "reading_order_index": 26,
+          "confidence": 0.943963,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "a y =a (a<0)",
+          "normalized_text": "a y =a (a<0)",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "a y =a (a<0)"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l026",
+            "source_token_count": 2,
+            "parent_structure_node_ids": [
+              "p004-structure-r002"
+            ],
+            "primary_parent_structure_node_id": "p004-structure-r002",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p004-structure-r002",
+                "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+                "overlap_ratio": 0.997666,
+                "structure_area": 186577.544
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p004-structure-r002"
+            ],
+            "primary_layout_barrier_node_id": "p004-structure-r002",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p004-structure-r002",
+                "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+                "layout_barrier_role": "visual_region_boundary",
+                "overlap_ratio": 0.997666,
+                "barrier_area": 186577.544
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n028",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 321.0,
+            "y": 1785.0,
+            "width": 729.0,
+            "height": 50.0
+          },
+          "normalized_bbox": {
+            "x": 0.131882,
+            "y": 0.581244,
+            "width": 0.299507,
+            "height": 0.016281
+          },
+          "reading_order_index": 27,
+          "confidence": 0.884701,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "참고>방정식xn=0의 근은0이므로η0=0이다.",
+          "normalized_text": "참고>방정식xn=0의 근은0이므로η0=0이다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "참고>방정식xn=0의 근은0이므로η0=0이다."
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l028",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p004-n029",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 255.0,
+            "y": 1879.0,
+            "width": 369.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.104766,
+            "y": 0.611853,
+            "width": 0.151602,
+            "height": 0.017584
+          },
+          "reading_order_index": 28,
+          "confidence": 0.975073,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "(3)거듭제곱근의 성질",
+          "normalized_text": "(3)거듭제곱근의 성질",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(3)거듭제곱근의 성질"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l029",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p004-n030",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 321.0,
+            "y": 1954.0,
+            "width": 769.0,
+            "height": 46.0
+          },
+          "normalized_bbox": {
+            "x": 0.131882,
+            "y": 0.636275,
+            "width": 0.315941,
+            "height": 0.014979
+          },
+          "reading_order_index": 29,
+          "confidence": 0.961278,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "a>0,b>0이고 m,n이2이상의 자연수일 때",
+          "normalized_text": "a>0,b>0이고 m,n이2이상의 자연수일 때",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "a>0,b>0이고 m,n이2이상의 자연수일 때"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l030",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p004-n031",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 314.0,
+            "y": 2015.0,
+            "width": 245.0,
+            "height": 60.0
+          },
+          "normalized_bbox": {
+            "x": 0.129006,
+            "y": 0.656138,
+            "width": 0.100657,
+            "height": 0.019538
+          },
+          "reading_order_index": 30,
+          "confidence": 0.740534,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "① (na )n=a",
+          "normalized_text": "① (na )n=a",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "① (na )n=a"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l031",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p004-n032",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 319.0,
+            "y": 2096.0,
+            "width": 240.0,
+            "height": 73.0
+          },
+          "normalized_bbox": {
+            "x": 0.13106,
+            "y": 0.682514,
+            "width": 0.098603,
+            "height": 0.023771
+          },
+          "reading_order_index": 31,
+          "confidence": 0.871025,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "③n√a na",
+          "normalized_text": "③n√a na",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "③n√a na"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l033",
+            "source_token_count": 6
+          }
+        },
+        {
+          "node_id": "p004-n033",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1209.0,
+            "y": 2017.0,
+            "width": 291.0,
+            "height": 60.0
+          },
+          "normalized_bbox": {
+            "x": 0.496713,
+            "y": 0.656789,
+            "width": 0.119556,
+            "height": 0.019538
+          },
+          "reading_order_index": 32,
+          "confidence": 0.707216,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "② n a n b= nab",
+          "normalized_text": "② n a n b= nab",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "② n a n b= nab"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l032",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p004-n034",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1205.0,
+            "y": 2109.0,
+            "width": 307.0,
+            "height": 70.0
+          },
+          "normalized_bbox": {
+            "x": 0.49507,
+            "y": 0.686747,
+            "width": 0.12613,
+            "height": 0.022794
+          },
+          "reading_order_index": 33,
+          "confidence": 0.728894,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "④ (ηa )m=nαm",
+          "normalized_text": "④ (ηa )m=nαm",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "④ (ηa )m=nαm"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l034",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p004-n035",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1206.0,
+            "y": 2215.0,
+            "width": 578.0,
+            "height": 71.0
+          },
+          "normalized_bbox": {
+            "x": 0.495481,
+            "y": 0.721263,
+            "width": 0.237469,
+            "height": 0.02312
+          },
+          "reading_order_index": 34,
+          "confidence": 0.627394,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": " nα=nα (단, p는 자연수)",
+          "normalized_text": " nα=nα (단, p는 자연수)",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": " nα=nα (단, p는 자연수)"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l037",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p004-n036",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1253.0,
+            "y": 2299.0,
+            "width": 399.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.51479,
+            "y": 0.748616,
+            "width": 0.163928,
+            "height": 0.017584
+          },
+          "reading_order_index": 35,
+          "confidence": 0.933156,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "②32×33=32×3=36",
+          "normalized_text": "②32×33=32×3=36",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "②32×33=32×3=36"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l039",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p004-n037",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1249.0,
+            "y": 2386.0,
+            "width": 339.0,
+            "height": 58.0
+          },
+          "normalized_bbox": {
+            "x": 0.513147,
+            "y": 0.776946,
+            "width": 0.139277,
+            "height": 0.018886
+          },
+          "reading_order_index": 36,
+          "confidence": 0.925713,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "④ (32)4=324=316",
+          "normalized_text": "④ (32)4=324=316",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "④ (32)4=324=316"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l041",
+            "source_token_count": 1
+          }
+        },
+        {
+          "node_id": "p004-n038",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 375.0,
+            "y": 2148.0,
+            "width": 180.0,
+            "height": 55.0
+          },
+          "normalized_bbox": {
+            "x": 0.154067,
+            "y": 0.699446,
+            "width": 0.073952,
+            "height": 0.017909
+          },
+          "reading_order_index": 37,
+          "confidence": 0.830722,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "2?b √b",
+          "normalized_text": "2?b √b",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "2?b √b"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l035",
+            "source_token_count": 4
+          }
+        },
+        {
+          "node_id": "p004-n039",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 318.0,
+            "y": 2223.0,
+            "width": 264.0,
+            "height": 57.0
+          },
+          "normalized_bbox": {
+            "x": 0.130649,
+            "y": 0.723868,
+            "width": 0.108463,
+            "height": 0.018561
+          },
+          "reading_order_index": 38,
+          "confidence": 0.660368,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "5nnα=mn√a",
+          "normalized_text": "5nnα=mn√a",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "5nnα=mn√a"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l036",
+            "source_token_count": 7
+          }
+        },
+        {
+          "node_id": "p004-n040",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 325.0,
+            "y": 2297.0,
+            "width": 305.0,
+            "height": 58.0
+          },
+          "normalized_bbox": {
+            "x": 0.133525,
+            "y": 0.747965,
+            "width": 0.125308,
+            "height": 0.018886
+          },
+          "reading_order_index": 39,
+          "confidence": 0.952676,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "예 ① (32)3=2",
+          "normalized_text": "예 ① (32)3=2",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "예 ① (32)3=2"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l038",
+            "source_token_count": 2
+          }
+        },
+        {
+          "node_id": "p004-n041",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 420.0,
+            "y": 2361.0,
+            "width": 213.0,
+            "height": 80.0
+          },
+          "normalized_bbox": {
+            "x": 0.172555,
+            "y": 0.768805,
+            "width": 0.08751,
+            "height": 0.02605
+          },
+          "reading_order_index": 40,
+          "confidence": 0.934996,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "③32 32",
+          "normalized_text": "③32 32",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "③32 32"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l040",
+            "source_token_count": 4
+          }
+        },
+        {
+          "node_id": "p004-n042",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 472.0,
+            "y": 2418.0,
+            "width": 159.0,
+            "height": 46.0
+          },
+          "normalized_bbox": {
+            "x": 0.193919,
+            "y": 0.787366,
+            "width": 0.065325,
+            "height": 0.014979
+          },
+          "reading_order_index": 41,
+          "confidence": 0.865133,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "33 √3",
+          "normalized_text": "33 √3",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "33 √3"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l042",
+            "source_token_count": 4
+          }
+        },
+        {
+          "node_id": "p004-n043",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 422.0,
+            "y": 2470.0,
+            "width": 1187.0,
+            "height": 70.0
+          },
+          "normalized_bbox": {
+            "x": 0.173377,
+            "y": 0.804298,
+            "width": 0.487675,
+            "height": 0.022794
+          },
+          "reading_order_index": 42,
+          "confidence": 0.808781,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "53?√33×23=3 ⑥ φ34=3×232x2=3 32",
+          "normalized_text": "53?√33×23=3 ⑥ φ34=3×232x2=3 32",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "53?√33×23=3 ⑥ φ34=3×232x2=3 32"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l043",
+            "source_token_count": 6
+          }
+        },
+        {
+          "node_id": "p004-n044",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 127.0,
+            "y": 2912.0,
+            "width": 432.0,
+            "height": 36.0
+          },
+          "normalized_bbox": {
+            "x": 0.052177,
+            "y": 0.948225,
+            "width": 0.177486,
+            "height": 0.011723
+          },
+          "reading_order_index": 43,
+          "confidence": 0.988406,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "42027학년도 EBS 수능특강 수학I",
+          "normalized_text": "42027학년도 EBS 수능특강 수학I",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "42027학년도 EBS 수능특강 수학I"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l044",
+            "source_token_count": 2
+          }
+        },
+        {
+          "node_id": "p004-structure-r001",
+          "content_type": "TABLE",
+          "bbox": {
+            "x": 320.751,
+            "y": 972.118,
+            "width": 1304.921,
+            "height": 218.32
+          },
+          "normalized_bbox": {
+            "x": 0.131779,
+            "y": 0.316548,
+            "width": 0.536122,
+            "height": 0.071091
+          },
+          "reading_order_index": 44,
+          "confidence": 0.9692416191101074,
+          "source_engine": "paddleocr-ppstructurev3-layout",
+          "issues": [
+            {
+              "code": "STRUCTURE_REGION_CANDIDATE",
+              "severity": "info",
+              "message": "Experimental PaddleOCR layout region candidate: TABLE_CANDIDATE."
+            }
+          ],
+          "layout": {
+            "is_structure_region_candidate": true,
+            "structure_label": "TABLE_CANDIDATE",
+            "domain_mapping_reason": "Compact ruled region can advance as a table candidate.",
+            "raw_label": "table",
+            "normalized_raw_label": "table",
+            "raw": {
+              "block_id": null,
+              "block_order": null,
+              "block_label": null,
+              "label": "table",
+              "category": null,
+              "score": 0.9692416191101074,
+              "confidence": null
+            },
+            "contained_text_node_count": 5,
+            "contained_text_node_refs": [
+              {
+                "node_id": "p004-n010",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n011",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n012",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n019",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n020",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              }
+            ],
+            "is_layout_barrier": true,
+            "layout_barrier_role": "table_region_boundary",
+            "layout_barrier_text_node_refs": [
+              {
+                "node_id": "p004-n010",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n011",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n012",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n019",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n020",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              }
+            ],
+            "layout_barrier_text_node_count": 5
+          },
+          "contained_text_nodes": [
+            "p004-n010",
+            "p004-n011",
+            "p004-n012",
+            "p004-n019",
+            "p004-n020"
+          ]
+        },
+        {
+          "node_id": "p004-structure-r002",
+          "content_type": "UNSUPPORTED_VISUAL",
+          "bbox": {
+            "x": 468.8,
+            "y": 1401.154,
+            "width": 506.341,
+            "height": 368.482
+          },
+          "normalized_bbox": {
+            "x": 0.192605,
+            "y": 0.456253,
+            "width": 0.208028,
+            "height": 0.119988
+          },
+          "reading_order_index": 45,
+          "confidence": 0.9570398330688477,
+          "source_engine": "paddleocr-ppstructurev3-layout",
+          "issues": [
+            {
+              "code": "STRUCTURE_REGION_CANDIDATE",
+              "severity": "info",
+              "message": "Experimental PaddleOCR layout region candidate: GRAPH_OR_DIAGRAM_CANDIDATE."
+            }
+          ],
+          "layout": {
+            "is_structure_region_candidate": true,
+            "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+            "domain_mapping_reason": "Image-like layout region should be separated from primary text OCR.",
+            "raw_label": "image",
+            "normalized_raw_label": "image",
+            "raw": {
+              "block_id": null,
+              "block_order": null,
+              "block_label": null,
+              "label": "image",
+              "category": null,
+              "score": 0.9570398330688477,
+              "confidence": null
+            },
+            "contained_text_node_count": 5,
+            "contained_text_node_refs": [
+              {
+                "node_id": "p004-n016",
+                "overlap_ratio": 0.882721,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n017",
+                "overlap_ratio": 0.992335,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n018",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n026",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n027",
+                "overlap_ratio": 0.997666,
+                "center_inside": true
+              }
+            ],
+            "is_layout_barrier": true,
+            "layout_barrier_role": "visual_region_boundary",
+            "layout_barrier_text_node_refs": [
+              {
+                "node_id": "p004-n016",
+                "overlap_ratio": 0.882721,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n017",
+                "overlap_ratio": 0.992335,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n018",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n026",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n027",
+                "overlap_ratio": 0.997666,
+                "center_inside": true
+              }
+            ],
+            "layout_barrier_text_node_count": 5
+          },
+          "visual_type_candidate": "GRAPH_OR_DIAGRAM_CANDIDATE",
+          "contained_text_nodes": [
+            "p004-n016",
+            "p004-n017",
+            "p004-n018",
+            "p004-n026",
+            "p004-n027"
+          ]
+        },
+        {
+          "node_id": "p004-structure-r003",
+          "content_type": "UNSUPPORTED_VISUAL",
+          "bbox": {
+            "x": 1305.516,
+            "y": 1400.919,
+            "width": 518.66,
+            "height": 356.689
+          },
+          "normalized_bbox": {
+            "x": 0.536366,
+            "y": 0.456177,
+            "width": 0.21309,
+            "height": 0.116148
+          },
+          "reading_order_index": 46,
+          "confidence": 0.9527389407157898,
+          "source_engine": "paddleocr-ppstructurev3-layout",
+          "issues": [
+            {
+              "code": "STRUCTURE_REGION_CANDIDATE",
+              "severity": "info",
+              "message": "Experimental PaddleOCR layout region candidate: GRAPH_OR_DIAGRAM_CANDIDATE."
+            }
+          ],
+          "layout": {
+            "is_structure_region_candidate": true,
+            "structure_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+            "domain_mapping_reason": "Image-like layout region should be separated from primary text OCR.",
+            "raw_label": "image",
+            "normalized_raw_label": "image",
+            "raw": {
+              "block_id": null,
+              "block_order": null,
+              "block_label": null,
+              "label": "image",
+              "category": null,
+              "score": 0.9527389407157898,
+              "confidence": null
+            },
+            "contained_text_node_count": 4,
+            "contained_text_node_refs": [
+              {
+                "node_id": "p004-n022",
+                "overlap_ratio": 0.843526,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n023",
+                "overlap_ratio": 0.989803,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n024",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n025",
+                "overlap_ratio": 0.989857,
+                "center_inside": true
+              }
+            ],
+            "is_layout_barrier": true,
+            "layout_barrier_role": "visual_region_boundary",
+            "layout_barrier_text_node_refs": [
+              {
+                "node_id": "p004-n022",
+                "overlap_ratio": 0.843526,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n023",
+                "overlap_ratio": 0.989803,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n024",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p004-n025",
+                "overlap_ratio": 0.989857,
+                "center_inside": true
+              }
+            ],
+            "layout_barrier_text_node_count": 4
+          },
+          "visual_type_candidate": "GRAPH_OR_DIAGRAM_CANDIDATE",
+          "contained_text_nodes": [
+            "p004-n022",
+            "p004-n023",
+            "p004-n024",
+            "p004-n025"
+          ]
+        }
+      ],
+      "reading_order": [
+        "p004-n001",
+        "p004-n002",
+        "p004-n003",
+        "p004-n004",
+        "p004-n005",
+        "p004-n006",
+        "p004-n007",
+        "p004-n008",
+        "p004-n009",
+        "p004-n010",
+        "p004-n011",
+        "p004-n012",
+        "p004-n013",
+        "p004-n014",
+        "p004-n015",
+        "p004-n016",
+        "p004-n017",
+        "p004-n018",
+        "p004-n019",
+        "p004-n020",
+        "p004-n021",
+        "p004-n022",
+        "p004-n023",
+        "p004-n024",
+        "p004-n025",
+        "p004-n026",
+        "p004-n027",
+        "p004-n028",
+        "p004-n029",
+        "p004-n030",
+        "p004-n031",
+        "p004-n032",
+        "p004-n033",
+        "p004-n034",
+        "p004-n035",
+        "p004-n036",
+        "p004-n037",
+        "p004-n038",
+        "p004-n039",
+        "p004-n040",
+        "p004-n041",
+        "p004-n042",
+        "p004-n043",
+        "p004-n044",
+        "p004-structure-r001",
+        "p004-structure-r002",
+        "p004-structure-r003"
+      ],
+      "parse_issues": [
+        {
+          "code": "OCR_LOW_CONFIDENCE",
+          "severity": "warning",
+          "message": "5 PaddleOCR tokens below confidence 0.50"
+        },
+        {
+          "code": "OCR_RAW_CACHE_WRITTEN",
+          "severity": "info",
+          "message": "D:\\Projects\\OCR\\document-parser\\data\\debug\\ocr_cache\\paddleocr-general-ocr\\p004-db48107be815ef22fd0144b5.json"
+        },
+        {
+          "code": "STRUCTURE_TEXT_LINKS_ADDED",
+          "severity": "info",
+          "message": "Structure region candidates were linked to overlapping OCR TEXT nodes."
+        },
+        {
+          "code": "STRUCTURE_REGION_CANDIDATES_ADDED",
+          "severity": "info",
+          "message": "3 experimental PaddleOCR structure region candidates were added."
+        },
+        {
+          "code": "LAYOUT_BARRIERS_APPLIED",
+          "severity": "info",
+          "message": "3 structure regions were marked as layout barriers; 14 TEXT nodes were assigned."
+        }
+      ],
+      "quality_report": {
+        "page_id": "p004",
+        "source": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p004.png",
+        "status": "PASS",
+        "width": 2434,
+        "height": 3071,
+        "mode": "RGB",
+        "image_format": "PNG",
+        "long_edge": 3071,
+        "aspect_ratio": 0.792576,
+        "blur_score": 978.34259,
+        "issues": []
+      }
+    }
+  ],
+  "engine_manifest": {
+    "general_ocr": {
+      "engine_id": "paddleocr-general-ocr",
+      "engine_version": "3.7.0"
+    },
+    "pipeline": {
+      "mode": "text_only",
+      "requires_pdf_text_layer": false,
+      "layout_mode": "token_line_block",
+      "visual_region_mode": "approval_gated_unsupported_page_candidates",
+      "reading_order_mode": "two_column_candidate_postprocess"
+    },
+    "structure_layout": {
+      "engine_id": "paddleocr-ppstructurev3-layout",
+      "mode": "experimental_region_candidates"
+    },
+    "layout_barriers": {
+      "mode": "structure_region_containment",
+      "barrier_labels": [
+        "GRAPH_OR_DIAGRAM_CANDIDATE",
+        "PROBLEM_BOX_CANDIDATE",
+        "TABLE_CANDIDATE"
+      ],
+      "containment_threshold": 0.55
+    }
+  },
+  "validation_summary": {
+    "schema_valid": true,
+    "validation_performed": true,
+    "coordinate_missing_node_count": 0,
+    "reading_order_cycle_count": 0,
+    "invalid_reading_order_ref_count": 0,
+    "missing_reading_order_node_count": 0,
+    "duplicate_node_id_count": 0,
+    "required_field_missing_count": 0,
+    "type_error_count": 0,
+    "bbox_invalid_count": 0,
+    "normalized_bbox_out_of_range_count": 0,
+    "confidence_invalid_count": 0,
+    "reading_order_index_mismatch_count": 0,
+    "invalid_embedded_text_ref_count": 0,
+    "quality_status_invalid_count": 0,
+    "issue_invalid_count": 0,
+    "page_count_mismatch": false,
+    "page_count": 1
+  }
+}

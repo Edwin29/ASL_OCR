@@ -1,0 +1,1317 @@
+{
+  "total_candidate_count": 119,
+  "page_count": 8,
+  "pages": [
+    {
+      "page_id": "p003",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "page_id": "p004",
+      "candidate_count": 26,
+      "candidates": [
+        {
+          "node_id": "p004-n008",
+          "text": "①n이 홀수이면 a의 값에 관계없이 실수 x는 항상 존재하고 x=\"a이다.",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n009",
+          "text": "2n이 짝수이면 a≥0일 때에만 실수 x가 존재하고 x=na 또는 x=-na이다.",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n010",
+          "text": "a >0 a=0 a <0",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n011",
+          "text": "n이홀수 √a 0",
+          "score": 5,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "math_symbol",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n014",
+          "text": "함수y=x^\"의 그래프와 직선y=a의 교점의x좌표와 같다.이때 이 실수를 기호va를이용하여 나타낸다.",
+          "score": 4,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator"
+          ]
+        },
+        {
+          "node_id": "p004-n016",
+          "text": "y4 y=xn",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n017",
+          "text": "a -y=a (a>0)",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n019",
+          "text": "√a",
+          "score": 3,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "math_symbol"
+          ]
+        },
+        {
+          "node_id": "p004-n022",
+          "text": "y4 y=n",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n023",
+          "text": "a y =a (a>0)",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n025",
+          "text": "a y =a (a<0)",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n026",
+          "text": "O √a",
+          "score": 5,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "math_symbol",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n027",
+          "text": "a y =a (a<0)",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n028",
+          "text": "참고>방정식xn=0의 근은0이므로η0=0이다.",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n030",
+          "text": "a>0,b>0이고 m,n이2이상의 자연수일 때",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n031",
+          "text": "① (na )n=a",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n032",
+          "text": "③n√a na",
+          "score": 5,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "math_symbol",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n033",
+          "text": "② n a n b= nab",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n034",
+          "text": "④ (ηa )m=nαm",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n036",
+          "text": "②32×33=32×3=36",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n037",
+          "text": "④ (32)4=324=316",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n038",
+          "text": "2?b √b",
+          "score": 5,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "math_symbol",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n039",
+          "text": "5nnα=mn√a",
+          "score": 7,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "math_symbol",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n040",
+          "text": "예 ① (32)3=2",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n042",
+          "text": "33 √3",
+          "score": 5,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "math_symbol",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p004-n043",
+          "text": "53?√33×23=3 ⑥ φ34=3×232x2=3 32",
+          "score": 11,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "math_symbol",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "p008",
+      "candidate_count": 21,
+      "candidates": [
+        {
+          "node_id": "p008-n004",
+          "text": "a>0,a≠1,N>0일 때, a^=N을만족시키는실수x를기호로",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p008-n007",
+          "text": "αx= N ← x=loga N",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p008-n009",
+          "text": "참고>logaN이 정의되기위한 조건은a>0, a≠1, N>0이다.",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p008-n010",
+          "text": "예 ① 20= 1이므로 log2 1=0",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p008-n011",
+          "text": "②21=2이므로 log2 2=1",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p008-n012",
+          "text": "③ 23=8이므로 10g2 8=3",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p008-n014",
+          "text": "a>0, a≠1이고 M>0, N>0일 때",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p008-n015",
+          "text": "① loga M N =loga M +loga N",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p008-n016",
+          "text": "② logaMN=loga M −loga N",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p008-n017",
+          "text": "③loga Mr=r loga M(단, r은실수)",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p008-n018",
+          "text": "설명> 1oga M = m, 1oga N = n이라 하면",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p008-n019",
+          "text": "αm = M , αn= N",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p008-n020",
+          "text": "① M N =αm × αn=αm+n이로",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p008-n021",
+          "text": "loga MN =m+n=loga M +loga N",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p008-n022",
+          "text": "②MN=αm + αn =αm−n이ㅁ로",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p008-n023",
+          "text": "10gaMN=M−n =1oga M −loga N",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p008-n024",
+          "text": "③ M ′ = ( αm)′ = αmr이ㅁ로",
+          "score": 4,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p008-n025",
+          "text": "loga M′ = Mr =r 1oga M",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p008-n026",
+          "text": "예 ① log2 6=log2 (2 × 3)=log2 2+log2 3=1+log2 3",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense"
+          ]
+        },
+        {
+          "node_id": "p008-n027",
+          "text": "② log232=log2 2−log2 3=1−log2 3",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p008-n028",
+          "text": "③ 10g2 2=10g2 22 =1 110g2 2=1×1=1",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "p012",
+      "candidate_count": 13,
+      "candidates": [
+        {
+          "node_id": "p012-n004",
+          "text": "밑을10으로 하는 로그,즉log10N(N>0)을 상용로그라 하고, 보통 밑 10을 생략하여",
+          "score": 4,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator"
+          ]
+        },
+        {
+          "node_id": "p012-n005",
+          "text": "log N",
+          "score": 3,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "function_notation"
+          ]
+        },
+        {
+          "node_id": "p012-n007",
+          "text": "예 ① log 10=log10 10=1",
+          "score": 11,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p012-n008",
+          "text": "③ log ✓10=10g10 102:1 1",
+          "score": 9,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p012-n016",
+          "text": "② log 1001=10g10 10−2= −2",
+          "score": 11,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p012-n020",
+          "text": ".7582를 찾으면 된다.즉,1og 5.73=0.7582이다.",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p012-n023",
+          "text": "N =a × 10n(1≤a<10, n은 정수)",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p012-n025",
+          "text": "log N =1og (a × 10n) = n +log a",
+          "score": 11,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p012-n031",
+          "text": "상용로그표에서 1og 2=0.3010이므로",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p012-n032",
+          "text": "log 230=30log 2=30× 0.3010=9.03=9+0.03",
+          "score": 11,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p012-n034",
+          "text": "상용로그표를 이용하여 1og 1.07=0.03으로 계산하면",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p012-n035",
+          "text": "9+0.03=log 109+1og 1.07=log (1.07 × 109)",
+          "score": 11,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p012-n038",
+          "text": "log 230=1og (1.07 × 109)",
+          "score": 9,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation",
+            "short_symbolic_line"
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "p019",
+      "candidate_count": 15,
+      "candidates": [
+        {
+          "node_id": "p019-n005",
+          "text": "자연수 m(m≥2)에 대하여 m12의 n제곱근 중에서 정수가 존재하도록 하는 2 이상의 자연수 n의 개수",
+          "score": 4,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator"
+          ]
+        },
+        {
+          "node_id": "p019-n006",
+          "text": "를 f(m)이라 할 때,  f(m)의 값은? [4점]9",
+          "score": 3,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "function_notation"
+          ]
+        },
+        {
+          "node_id": "p019-n007",
+          "text": "m=2",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p019-n012",
+          "text": "x=m12 …",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p019-n015",
+          "text": "(i) m=2일 때, η은 xn=212이고 n의 값은2, 3, 4, 6, 12이므로 f(2)=5",
+          "score": 7,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation"
+          ]
+        },
+        {
+          "node_id": "p019-n016",
+          "text": "(ii) m=3일 때, η은 xn=312이고 n의 값은2, 3, 4, 6, 12이므로 f(3)=5",
+          "score": 7,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation"
+          ]
+        },
+        {
+          "node_id": "p019-n017",
+          "text": "(i) m=4일 때, 은 xn= 412, 즉 xn=224이고 n의 값은2, 3, 4, 6, 8, 12, 24이므로 f(4) =7",
+          "score": 7,
+          "candidate_kind": "inline_or_mixed",
+          "reasons": [
+            "relation_operator",
+            "function_notation"
+          ]
+        },
+        {
+          "node_id": "p019-n018",
+          "text": "(iv) m=5일 때, η은 xn=512이고 n의 값은2, 3, 4, 6, 12이므로 f(5)=5",
+          "score": 7,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation"
+          ]
+        },
+        {
+          "node_id": "p019-n019",
+          "text": "(v) m=6일 때, 은 xn=612이고 n의 값은2, 3, 4, 6, 12이므로 f(6)=5",
+          "score": 7,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation"
+          ]
+        },
+        {
+          "node_id": "p019-n020",
+          "text": "(vi) m=7일 때, η은 xn=712이고 n의 값은 2, 3, 4, 6, 12이므로 f(7)=5",
+          "score": 7,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation"
+          ]
+        },
+        {
+          "node_id": "p019-n021",
+          "text": "(vi)m=8일 때, η은 xn=812, 즉 xn=236이고 n의 값은2, 3, 4, 6, 9, 12, 18, 36이므로 f(8)=8",
+          "score": 7,
+          "candidate_kind": "inline_or_mixed",
+          "reasons": [
+            "relation_operator",
+            "function_notation"
+          ]
+        },
+        {
+          "node_id": "p019-n022",
+          "text": "(ri)m=9일 때, 은 xn=912, 즉 xn=324이고 n의 값은 2, 3, 4, 6, 8, 12, 24이므로 f(9) =7",
+          "score": 7,
+          "candidate_kind": "inline_or_mixed",
+          "reasons": [
+            "relation_operator",
+            "function_notation"
+          ]
+        },
+        {
+          "node_id": "p019-n024",
+          "text": "∑ f(m)= f(2) +f(3) +f(4) ++f(9)9",
+          "score": 14,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation",
+            "math_symbol",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p019-n025",
+          "text": "=5×5+7×2+8",
+          "score": 4,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p019-n027",
+          "text": "m=2",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "p020",
+      "candidate_count": 19,
+      "candidates": [
+        {
+          "node_id": "p020-n004",
+          "text": "y=αx (a>0, a≠1)",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p020-n006",
+          "text": "2−지수함수y=a^(a>0,a≠1)의그래프와성질",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p020-n007",
+          "text": "(1)지수함수y=αx(a>0, a≠1)의그래프",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p020-n009",
+          "text": "①a>1일 때",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p020-n010",
+          "text": "20<a<1일 때",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p020-n011",
+          "text": "y=αx y4",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p020-n012",
+          "text": "y4 y=ax",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p020-n018",
+          "text": "(2)지수함수y=ax^(a>0,a≠1)의성질",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p020-n020",
+          "text": "2a>1일 때, x의 값이 증가하면y의 값도 증가한다.",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p020-n021",
+          "text": "0<a<1일 때,x의 값이 증가하면 y의 값은 감소한다.",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p020-n022",
+          "text": "3함수y=a^의 그래프는 점(0,1)을 지나고, 점근선은 x축이다.",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p020-n023",
+          "text": "예두함수y=2x^,y=3^의그래프와두함수y=2, =13x'의 그래프는 그림과 같다.",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense"
+          ]
+        },
+        {
+          "node_id": "p020-n024",
+          "text": "y=1(cid:xy4",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p020-n025",
+          "text": "y4y=3xy=2x",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p020-n030",
+          "text": "참고>(i) a>b>1일 때",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p020-n031",
+          "text": "x > 0이면 αx> bx, x< 0이면 αx< bx",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p020-n032",
+          "text": "(i) 0<a<b<1일 때",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p020-n033",
+          "text": "x >0이면 αx<bx, x<0이면 αx> bx",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p020-n035",
+          "text": "y=2) 3",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "p054",
+      "candidate_count": 25,
+      "candidates": [
+        {
+          "node_id": "p054-n004",
+          "text": "(1) α2=b2+c2−2bc cos A",
+          "score": 11,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n005",
+          "text": "(2) b2=c2+α2−2ca cos B",
+          "score": 11,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n006",
+          "text": "(3) c2=α2+b2−2ab cos C",
+          "score": 11,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n007",
+          "text": "설명>삼각형ABC의꼭짓점C에서 직선AB에내린수선의발을H라할때,등식α2²}=b2+c2{-2bccoSA가성립함을",
+          "score": 4,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator"
+          ]
+        },
+        {
+          "node_id": "p054-n009",
+          "text": "(i) 0^< A< 90°일 때",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n010",
+          "text": "CH=b sin A이고 BH=AB-AH=c-b cos A이므로",
+          "score": 11,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n011",
+          "text": "α2=CH{+BH-2 -2",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n012",
+          "text": "= (b sin A)2+ (c−b cos A)2",
+          "score": 5,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "function_notation",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n013",
+          "text": "=b2 sin2 A+c2—2bc cos A+b2 cos2 A",
+          "score": 7,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "function_notation",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n014",
+          "text": "= b²(sin2 A +cos² A) + c2−2bc cos A",
+          "score": 7,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "function_notation",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n015",
+          "text": "= b2+c2−2bc cos A",
+          "score": 7,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "function_notation",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n016",
+          "text": "(i) A=90°일 때",
+          "score": 6,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n017",
+          "text": "cos A=cos 90°=0이므로",
+          "score": 11,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n018",
+          "text": "a2=b2+c2",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n019",
+          "text": "=b2+c2−2bc cos A",
+          "score": 7,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "function_notation",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n020",
+          "text": "(ii) 90°<A< 180°일 때",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n022",
+          "text": "CH= b sin (180°− A) =b sin A이고",
+          "score": 9,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n023",
+          "text": "BH=AB+AH=c+b cos (180°−A)=c−b cos A이므로",
+          "score": 11,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n024",
+          "text": "a2=CH{+BH2 2",
+          "score": 8,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n025",
+          "text": "= (b sin A)2+(c− b cos A)2",
+          "score": 5,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "function_notation",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n026",
+          "text": "= b2 sin2 A + c2−2bc cos A +b2 cos2 A",
+          "score": 7,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "function_notation",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n027",
+          "text": "= b²(sin2 A +cos² A) + c2−2bc cos A",
+          "score": 7,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "function_notation",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n028",
+          "text": "= b2+ c2−2bc cos A",
+          "score": 7,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "function_notation",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n030",
+          "text": "a2=b2+ c2−2bc cos A",
+          "score": 11,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        },
+        {
+          "node_id": "p054-n033",
+          "text": "b2=c2+α2−2ca cos B, c2=a2+b2−2ab cos C",
+          "score": 11,
+          "candidate_kind": "display_or_expression",
+          "reasons": [
+            "relation_operator",
+            "function_notation",
+            "symbol_dense",
+            "short_symbolic_line"
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "p102",
+      "candidate_count": 0,
+      "candidates": []
+    }
+  ]
+}

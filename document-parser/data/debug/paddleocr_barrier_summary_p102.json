@@ -1,0 +1,51 @@
+{
+  "barrier_count": 6,
+  "assigned_text_node_count": 58,
+  "crossing_warning_count": 16,
+  "pages": [
+    {
+      "page_id": "p102",
+      "barrier_count": 6,
+      "assigned_text_node_count": 58,
+      "crossing_warning_count": 16,
+      "barriers": [
+        {
+          "node_id": "p102-structure-r001",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "assigned_text_node_count": 7
+        },
+        {
+          "node_id": "p102-structure-r002",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "assigned_text_node_count": 11
+        },
+        {
+          "node_id": "p102-structure-r003",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "assigned_text_node_count": 8
+        },
+        {
+          "node_id": "p102-structure-r004",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "assigned_text_node_count": 12
+        },
+        {
+          "node_id": "p102-structure-r005",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "assigned_text_node_count": 11
+        },
+        {
+          "node_id": "p102-structure-r006",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "assigned_text_node_count": 9
+        }
+      ]
+    }
+  ]
+}

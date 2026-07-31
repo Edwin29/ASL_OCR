@@ -1,0 +1,5621 @@
+{
+  "document_manifest": {
+    "book_id": "ebs-2027-math1",
+    "profile_hint": "EBS_SUNEUNG_TEUKGANG",
+    "page_count": 1
+  },
+  "pages": [
+    {
+      "page_id": "p102",
+      "page_geometry": {
+        "width": 2434,
+        "height": 3071
+      },
+      "nodes": [
+        {
+          "node_id": "p102-n001",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 211.0,
+            "y": 123.0,
+            "width": 536.0,
+            "height": 105.0
+          },
+          "normalized_bbox": {
+            "x": 0.086689,
+            "y": 0.040052,
+            "width": 0.220214,
+            "height": 0.034191
+          },
+          "reading_order_index": 0,
+          "confidence": 0.986687,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "한눈에 보는 정답",
+          "normalized_text": "한눈에 보는 정답",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "한눈에 보는 정답"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l001",
+            "source_token_count": 1,
+            "reading_order_group": "HEADER"
+          }
+        },
+        {
+          "node_id": "p102-n002",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1902.0,
+            "y": 173.0,
+            "width": 241.0,
+            "height": 38.0
+          },
+          "normalized_bbox": {
+            "x": 0.78143,
+            "y": 0.056333,
+            "width": 0.099014,
+            "height": 0.012374
+          },
+          "reading_order_index": 1,
+          "confidence": 0.998715,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "www.ebsi.co.kr",
+          "normalized_text": "www.ebsi.co.kr",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "www.ebsi.co.kr"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l002",
+            "source_token_count": 1,
+            "reading_order_group": "HEADER"
+          }
+        },
+        {
+          "node_id": "p102-n003",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1222.0,
+            "y": 295.0,
+            "width": 572.0,
+            "height": 91.0
+          },
+          "normalized_bbox": {
+            "x": 0.502054,
+            "y": 0.09606,
+            "width": 0.235004,
+            "height": 0.029632
+          },
+          "reading_order_index": 39,
+          "confidence": 0.96816,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "04 사인법칙과 코사인법칙",
+          "normalized_text": "04 사인법칙과 코사인법칙",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "04 사인법칙과 코사인법칙"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l004",
+            "source_token_count": 1,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r010"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r010",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r010",
+                "structure_label": "VISUAL_OR_PROBLEM_CAPTION_CANDIDATE",
+                "overlap_ratio": 0.684374,
+                "structure_area": 35623.016
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n004",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 968.0,
+            "y": 390.0,
+            "width": 354.0,
+            "height": 61.0
+          },
+          "normalized_bbox": {
+            "x": 0.397699,
+            "y": 0.126994,
+            "width": 0.14544,
+            "height": 0.019863
+          },
+          "reading_order_index": 3,
+          "confidence": 0.994007,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문5~13쪽 유제",
+          "normalized_text": "본문5~13쪽 유제",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문5~13쪽 유제"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l005",
+            "source_token_count": 2,
+            "reading_order_group": "LEFT",
+            "layout_barrier_crossing_candidate": [
+              "p102-structure-r002",
+              "p102-structure-r004"
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n005",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 192.0,
+            "y": 461.0,
+            "width": 1266.0,
+            "height": 53.0
+          },
+          "normalized_bbox": {
+            "x": 0.078882,
+            "y": 0.150114,
+            "width": 0.520131,
+            "height": 0.017258
+          },
+          "reading_order_index": 5,
+          "confidence": 0.947362,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "1 ① 2 ③ 3 1254④ 5 ① 6② 7⑤ 8③ 1④2 ③",
+          "normalized_text": "1 ① 2 ③ 3 1254④ 5 ① 6② 7⑤ 8③ 1④2 ③",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "1 ① 2 ③ 3 1254④ 5 ① 6② 7⑤ 8③ 1④2 ③"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l009",
+            "source_token_count": 10,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r002",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 0.731725,
+                "structure_area": 642805.072
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r002",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 0.731725,
+                "barrier_area": 642805.072
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n006",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 190.0,
+            "y": 530.0,
+            "width": 228.0,
+            "height": 55.0
+          },
+          "normalized_bbox": {
+            "x": 0.078061,
+            "y": 0.172582,
+            "width": 0.093673,
+            "height": 0.017909
+          },
+          "reading_order_index": 6,
+          "confidence": 0.886172,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "9 ③ 10 ①",
+          "normalized_text": "9 ③ 10 ①",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "9 ③ 10 ①"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l010",
+            "source_token_count": 2,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r002",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 642805.072
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r002",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 642805.072
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n007",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 175.0,
+            "y": 608.0,
+            "width": 298.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.071898,
+            "y": 0.197981,
+            "width": 0.122432,
+            "height": 0.017584
+          },
+          "reading_order_index": 7,
+          "confidence": 0.976034,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "Level 1기초연습",
+          "normalized_text": "Level 1기초연습",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "Level 1기초연습"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l015",
+            "source_token_count": 2,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r002",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 642805.072
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r002",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 642805.072
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n008",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 190.0,
+            "y": 676.0,
+            "width": 586.0,
+            "height": 51.0
+          },
+          "normalized_bbox": {
+            "x": 0.078061,
+            "y": 0.220124,
+            "width": 0.240756,
+            "height": 0.016607
+          },
+          "reading_order_index": 9,
+          "confidence": 0.926874,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "1⑤ 2 ⑤ 5 100",
+          "normalized_text": "1⑤ 2 ⑤ 5 100",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "1⑤ 2 ⑤ 5 100"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l017",
+            "source_token_count": 3,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r002",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 642805.072
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r002",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 642805.072
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n009",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 190.0,
+            "y": 737.0,
+            "width": 232.0,
+            "height": 52.0
+          },
+          "normalized_bbox": {
+            "x": 0.078061,
+            "y": 0.239987,
+            "width": 0.095316,
+            "height": 0.016933
+          },
+          "reading_order_index": 10,
+          "confidence": 0.936721,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "9① 10 ③",
+          "normalized_text": "9① 10 ③",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "9① 10 ③"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l018",
+            "source_token_count": 2,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r002",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 642805.072
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r002",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 642805.072
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n010",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 179.0,
+            "y": 812.0,
+            "width": 294.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.073541,
+            "y": 0.264409,
+            "width": 0.120789,
+            "height": 0.017584
+          },
+          "reading_order_index": 11,
+          "confidence": 0.989354,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "Level 2기본연습",
+          "normalized_text": "Level 2기본연습",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "Level 2기본연습"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l022",
+            "source_token_count": 2,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r002",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 642805.072
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r002",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 642805.072
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n011",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 192.0,
+            "y": 869.0,
+            "width": 1403.0,
+            "height": 66.0
+          },
+          "normalized_bbox": {
+            "x": 0.078882,
+            "y": 0.28297,
+            "width": 0.576417,
+            "height": 0.021491
+          },
+          "reading_order_index": 12,
+          "confidence": 0.896336,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "1 ④ 2 ④3 ⑤ 4①5 ② 6① 7 ④ 8⑤ 9 ③ 10 ⑤  11 ①",
+          "normalized_text": "1 ④ 2 ④3 ⑤ 4①5 ② 6① 7 ④ 8⑤ 9 ③ 10 ⑤  11 ①",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "1 ④ 2 ④3 ⑤ 4①5 ② 6① 7 ④ 8⑤ 9 ③ 10 ⑤  11 ①"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l023",
+            "source_token_count": 10,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r002",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 0.660274,
+                "structure_area": 642805.072
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r002",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 0.660274,
+                "barrier_area": 642805.072
+              }
+            ],
+            "layout_barrier_crossing_candidate": [
+              "p102-structure-r002",
+              "p102-structure-r004"
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n012",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1002.0,
+            "y": 944.0,
+            "width": 527.0,
+            "height": 60.0
+          },
+          "normalized_bbox": {
+            "x": 0.411668,
+            "y": 0.307392,
+            "width": 0.216516,
+            "height": 0.019538
+          },
+          "reading_order_index": 49,
+          "confidence": 0.971192,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문18쪽 Level 3실력완성",
+          "normalized_text": "본문18쪽 Level 3실력완성",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문18쪽 Level 3실력완성"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l024",
+            "source_token_count": 3,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r004",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 0.576338,
+                "structure_area": 634800.502
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r004",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 0.576338,
+                "barrier_area": 634800.502
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n013",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1249.0,
+            "y": 1013.0,
+            "width": 325.0,
+            "height": 50.0
+          },
+          "normalized_bbox": {
+            "x": 0.513147,
+            "y": 0.32986,
+            "width": 0.133525,
+            "height": 0.016281
+          },
+          "reading_order_index": 51,
+          "confidence": 0.954858,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "1③ 2 ② 320",
+          "normalized_text": "1③ 2 ② 320",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "1③ 2 ② 320"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l027",
+            "source_token_count": 3,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r004",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 0.97042,
+                "structure_area": 634800.502
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r004",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 0.97042,
+                "barrier_area": 634800.502
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n014",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 171.0,
+            "y": 301.0,
+            "width": 337.0,
+            "height": 75.0
+          },
+          "normalized_bbox": {
+            "x": 0.070255,
+            "y": 0.098014,
+            "width": 0.138455,
+            "height": 0.024422
+          },
+          "reading_order_index": 2,
+          "confidence": 0.967721,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "01지수와 로그",
+          "normalized_text": "01지수와 로그",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "01지수와 로그"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l003",
+            "source_token_count": 2,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r012"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r012",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r012",
+                "structure_label": "VISUAL_OR_PROBLEM_CAPTION_CANDIDATE",
+                "overlap_ratio": 0.797692,
+                "structure_area": 20280.911
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n015",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 171.0,
+            "y": 392.0,
+            "width": 91.0,
+            "height": 59.0
+          },
+          "normalized_bbox": {
+            "x": 0.070255,
+            "y": 0.127646,
+            "width": 0.037387,
+            "height": 0.019212
+          },
+          "reading_order_index": 4,
+          "confidence": 0.99777,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "유제",
+          "normalized_text": "유제",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "유제"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l006",
+            "source_token_count": 1,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r002",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 642805.072
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r002",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 642805.072
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n016",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 2010.0,
+            "y": 405.0,
+            "width": 160.0,
+            "height": 35.0
+          },
+          "normalized_bbox": {
+            "x": 0.825801,
+            "y": 0.131879,
+            "width": 0.065735,
+            "height": 0.011397
+          },
+          "reading_order_index": 40,
+          "confidence": 0.99851,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문53~59쪽",
+          "normalized_text": "본문53~59쪽",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문53~59쪽"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l007",
+            "source_token_count": 1,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r004",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 634800.502
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r004",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 634800.502
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n017",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1481.0,
+            "y": 459.0,
+            "width": 683.0,
+            "height": 53.0
+          },
+          "normalized_bbox": {
+            "x": 0.608463,
+            "y": 0.149463,
+            "width": 0.280608,
+            "height": 0.017258
+          },
+          "reading_order_index": 41,
+          "confidence": 0.979715,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "3 ⑤ 46 52 6⑤ 72 8③",
+          "normalized_text": "3 ⑤ 46 52 6⑤ 72 8③",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "3 ⑤ 46 52 6⑤ 72 8③"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l008",
+            "source_token_count": 6,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r004",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 634800.502
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r004",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 634800.502
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n018",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 2008.0,
+            "y": 545.0,
+            "width": 165.0,
+            "height": 40.0
+          },
+          "normalized_bbox": {
+            "x": 0.824979,
+            "y": 0.177467,
+            "width": 0.06779,
+            "height": 0.013025
+          },
+          "reading_order_index": 43,
+          "confidence": 0.997859,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문60~62쪽",
+          "normalized_text": "본문60~62쪽",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문60~62쪽"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l012",
+            "source_token_count": 1,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r004",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 634800.502
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r004",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 634800.502
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n019",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1234.0,
+            "y": 537.0,
+            "width": 297.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.506984,
+            "y": 0.174862,
+            "width": 0.122021,
+            "height": 0.017584
+          },
+          "reading_order_index": 42,
+          "confidence": 0.963223,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "Level 1기초연습",
+          "normalized_text": "Level 1기초연습",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "Level 1기초연습"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l011",
+            "source_token_count": 2,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r004",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 634800.502
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r004",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 634800.502
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n020",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 958.0,
+            "y": 601.0,
+            "width": 1208.0,
+            "height": 59.0
+          },
+          "normalized_bbox": {
+            "x": 0.393591,
+            "y": 0.195702,
+            "width": 0.496302,
+            "height": 0.019212
+          },
+          "reading_order_index": 44,
+          "confidence": 0.91881,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문14~15쪽 1① 2 ④3 ② 4 ① 5 ③ 7⑤ 8②",
+          "normalized_text": "본문14~15쪽 1① 2 ④3 ② 4 ① 5 ③ 7⑤ 8②",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문14~15쪽 1① 2 ④3 ② 4 ① 5 ③ 7⑤ 8②"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l013",
+            "source_token_count": 8,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r004",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 0.77875,
+                "structure_area": 634800.502
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r004",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 0.77875,
+                "barrier_area": 634800.502
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n021",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 422.0,
+            "y": 664.0,
+            "width": 1297.0,
+            "height": 63.0
+          },
+          "normalized_bbox": {
+            "x": 0.173377,
+            "y": 0.216216,
+            "width": 0.532868,
+            "height": 0.020514
+          },
+          "reading_order_index": 8,
+          "confidence": 0.945915,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "3 ② 4⑤ 65 7⑤ 8⑤ 9 ① 10 ②11 ⑤12 ④",
+          "normalized_text": "3 ② 4⑤ 65 7⑤ 8⑤ 9 ① 10 ②11 ⑤12 ④",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "3 ② 4⑤ 65 7⑤ 8⑤ 9 ① 10 ②11 ⑤12 ④"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l016",
+            "source_token_count": 9,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r002",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 0.536904,
+                "structure_area": 642805.072
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r002",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 0.536904,
+                "barrier_area": 642805.072
+              }
+            ],
+            "layout_barrier_crossing_candidate": [
+              "p102-structure-r002",
+              "p102-structure-r004"
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n022",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1234.0,
+            "y": 743.0,
+            "width": 297.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.506984,
+            "y": 0.241941,
+            "width": 0.122021,
+            "height": 0.017584
+          },
+          "reading_order_index": 46,
+          "confidence": 0.969408,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "Level 2기본연습",
+          "normalized_text": "Level 2기본연습",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "Level 2기본연습"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l019",
+            "source_token_count": 2,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r004",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 634800.502
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r004",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 634800.502
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n023",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 960.0,
+            "y": 810.0,
+            "width": 1204.0,
+            "height": 52.0
+          },
+          "normalized_bbox": {
+            "x": 0.394412,
+            "y": 0.263758,
+            "width": 0.494659,
+            "height": 0.016933
+          },
+          "reading_order_index": 48,
+          "confidence": 0.946779,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문16~17쪽 1⑤ 2 ②3 ③ 4② 5 ④ 6① 7③ 8④",
+          "normalized_text": "본문16~17쪽 1⑤ 2 ②3 ③ 4② 5 ④ 6① 7③ 8④",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문16~17쪽 1⑤ 2 ②3 ③ 4② 5 ④ 6① 7③ 8④"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l021",
+            "source_token_count": 9,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r004",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 0.779676,
+                "structure_area": 634800.502
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r004",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 0.779676,
+                "barrier_area": 634800.502
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n024",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1837.0,
+            "y": 603.0,
+            "width": 91.0,
+            "height": 53.0
+          },
+          "normalized_bbox": {
+            "x": 0.754725,
+            "y": 0.196353,
+            "width": 0.037387,
+            "height": 0.017258
+          },
+          "reading_order_index": 45,
+          "confidence": 0.991608,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "6①",
+          "normalized_text": "6①",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "6①"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l014",
+            "source_token_count": 1,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r004",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 634800.502
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r004",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 634800.502
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n025",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 2010.0,
+            "y": 752.0,
+            "width": 162.0,
+            "height": 35.0
+          },
+          "normalized_bbox": {
+            "x": 0.825801,
+            "y": 0.244871,
+            "width": 0.066557,
+            "height": 0.011397
+          },
+          "reading_order_index": 47,
+          "confidence": 0.997576,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문63~65쪽",
+          "normalized_text": "본문63~65쪽",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문63~65쪽"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l020",
+            "source_token_count": 1,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r004",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 634800.502
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r004",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 634800.502
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n026",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 2056.0,
+            "y": 954.0,
+            "width": 117.0,
+            "height": 42.0
+          },
+          "normalized_bbox": {
+            "x": 0.8447,
+            "y": 0.310648,
+            "width": 0.048069,
+            "height": 0.013676
+          },
+          "reading_order_index": 50,
+          "confidence": 0.994513,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문66쪽",
+          "normalized_text": "본문66쪽",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문66쪽"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l025",
+            "source_token_count": 1,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r004",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 634800.502
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r004"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r004",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r004",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 634800.502
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n027",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 175.0,
+            "y": 956.0,
+            "width": 295.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.071898,
+            "y": 0.311299,
+            "width": 0.1212,
+            "height": 0.017584
+          },
+          "reading_order_index": 13,
+          "confidence": 0.989103,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "Level 3실력완성",
+          "normalized_text": "Level 3실력완성",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "Level 3실력완성"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l026",
+            "source_token_count": 2,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r002",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 642805.072
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r002",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 642805.072
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n028",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 192.0,
+            "y": 1023.0,
+            "width": 323.0,
+            "height": 52.0
+          },
+          "normalized_bbox": {
+            "x": 0.078882,
+            "y": 0.333116,
+            "width": 0.132703,
+            "height": 0.016933
+          },
+          "reading_order_index": 14,
+          "confidence": 0.942202,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "1⑤ 2 ③3 ③",
+          "normalized_text": "1⑤ 2 ③3 ③",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "1⑤ 2 ③3 ③"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l028",
+            "source_token_count": 3,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r002",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 0.865231,
+                "structure_area": 642805.072
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r002"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r002",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r002",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 0.865231,
+                "barrier_area": 642805.072
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n029",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 163.0,
+            "y": 1201.0,
+            "width": 1585.0,
+            "height": 93.0
+          },
+          "normalized_bbox": {
+            "x": 0.066968,
+            "y": 0.391078,
+            "width": 0.651191,
+            "height": 0.030283
+          },
+          "reading_order_index": 15,
+          "confidence": 0.95787,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "02 지수함수와 로그함수 05 등차수열과 등비수열",
+          "normalized_text": "02 지수함수와 로그함수 05 등차수열과 등비수열",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "02 지수함수와 로그함수 05 등차수열과 등비수열"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l029",
+            "source_token_count": 2,
+            "reading_order_group": "LEFT"
+          }
+        },
+        {
+          "node_id": "p102-n030",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 958.0,
+            "y": 1299.0,
+            "width": 362.0,
+            "height": 60.0
+          },
+          "normalized_bbox": {
+            "x": 0.393591,
+            "y": 0.422989,
+            "width": 0.148726,
+            "height": 0.019538
+          },
+          "reading_order_index": 16,
+          "confidence": 0.974971,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문 21~29쪽 유제",
+          "normalized_text": "본문 21~29쪽 유제",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문 21~29쪽 유제"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l030",
+            "source_token_count": 2,
+            "reading_order_group": "LEFT",
+            "layout_barrier_crossing_candidate": [
+              "p102-structure-r001",
+              "p102-structure-r006"
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n031",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 190.0,
+            "y": 1364.0,
+            "width": 1974.0,
+            "height": 60.0
+          },
+          "normalized_bbox": {
+            "x": 0.078061,
+            "y": 0.444155,
+            "width": 0.811011,
+            "height": 0.019538
+          },
+          "reading_order_index": 18,
+          "confidence": 0.920096,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "1 ② 2 ③3 ⑤ 4 ④ 5 ④ 6② 7② 8④ 1① 2 ③3 ③ 49 5 ② 6① 7② 8⑤",
+          "normalized_text": "1 ② 2 ③3 ⑤ 4 ④ 5 ④ 6② 7② 8④ 1① 2 ③3 ③ 49 5 ② 6① 7② 8⑤",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "1 ② 2 ③3 ⑤ 4 ④ 5 ④ 6② 7② 8④ 1① 2 ③3 ③ 49 5 ② 6① 7② 8⑤"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l033",
+            "source_token_count": 17,
+            "reading_order_group": "LEFT",
+            "layout_barrier_crossing_candidate": [
+              "p102-structure-r001",
+              "p102-structure-r006"
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n032",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1246.0,
+            "y": 1438.0,
+            "width": 230.0,
+            "height": 53.0
+          },
+          "normalized_bbox": {
+            "x": 0.511915,
+            "y": 0.468251,
+            "width": 0.094495,
+            "height": 0.017258
+          },
+          "reading_order_index": 53,
+          "confidence": 0.963561,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "9② 10 ④",
+          "normalized_text": "9② 10 ④",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "9② 10 ④"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l034",
+            "source_token_count": 2,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r006"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r006",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r006",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 644812.163
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r006"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r006",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r006",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 644812.163
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n033",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 953.0,
+            "y": 1514.0,
+            "width": 574.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.391537,
+            "y": 0.492999,
+            "width": 0.235826,
+            "height": 0.017584
+          },
+          "reading_order_index": 54,
+          "confidence": 0.988823,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문30~31쪽 Level 1기초연습",
+          "normalized_text": "본문30~31쪽 Level 1기초연습",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문30~31쪽 Level 1기초연습"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l036",
+            "source_token_count": 3,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r006"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r006",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r006",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 0.525035,
+                "structure_area": 644812.163
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r006"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r006",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r006",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 0.525035,
+                "barrier_area": 644812.163
+              }
+            ],
+            "layout_barrier_crossing_candidate": [
+              "p102-structure-r001",
+              "p102-structure-r006"
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n034",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 175.0,
+            "y": 1303.0,
+            "width": 87.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.071898,
+            "y": 0.424292,
+            "width": 0.035744,
+            "height": 0.017584
+          },
+          "reading_order_index": 17,
+          "confidence": 0.999188,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "유제",
+          "normalized_text": "유제",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "유제"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l031",
+            "source_token_count": 1,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r001"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r001",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r001",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 580421.487
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r001"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r001",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r001",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 580421.487
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n035",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 2012.0,
+            "y": 1311.0,
+            "width": 161.0,
+            "height": 40.0
+          },
+          "normalized_bbox": {
+            "x": 0.826623,
+            "y": 0.426897,
+            "width": 0.066146,
+            "height": 0.013025
+          },
+          "reading_order_index": 52,
+          "confidence": 0.99421,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문69~77쪽",
+          "normalized_text": "본문69~77쪽",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문69~77쪽"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l032",
+            "source_token_count": 1,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r006"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r006",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r006",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 644812.163
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r006"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r006",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r006",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 644812.163
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n036",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 190.0,
+            "y": 1440.0,
+            "width": 217.0,
+            "height": 53.0
+          },
+          "normalized_bbox": {
+            "x": 0.078061,
+            "y": 0.468903,
+            "width": 0.089154,
+            "height": 0.017258
+          },
+          "reading_order_index": 19,
+          "confidence": 0.884193,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "9 ③ 10 2",
+          "normalized_text": "9 ③ 10 2",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "9 ③ 10 2"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l035",
+            "source_token_count": 2,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r001"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r001",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r001",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 580421.487
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r001"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r001",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r001",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 580421.487
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n037",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 177.0,
+            "y": 1516.0,
+            "width": 296.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.07272,
+            "y": 0.49365,
+            "width": 0.121611,
+            "height": 0.017584
+          },
+          "reading_order_index": 20,
+          "confidence": 0.967799,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "Level 1기초연습",
+          "normalized_text": "Level 1기초연습",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "Level 1기초연습"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l037",
+            "source_token_count": 2,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r001"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r001",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r001",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 580421.487
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r001"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r001",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r001",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 580421.487
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n038",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 192.0,
+            "y": 1577.0,
+            "width": 1972.0,
+            "height": 59.0
+          },
+          "normalized_bbox": {
+            "x": 0.078882,
+            "y": 0.513514,
+            "width": 0.810189,
+            "height": 0.019212
+          },
+          "reading_order_index": 21,
+          "confidence": 0.929886,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "1 ③ 3②4⑤ 5 ⑤ 6④ 7② 827 1①2 ②3 ④4③ 5⑤ 6 ③ 7① 8⑤",
+          "normalized_text": "1 ③ 3②4⑤ 5 ⑤ 6④ 7② 827 1①2 ②3 ④4③ 5⑤ 6 ③ 7① 8⑤",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "1 ③ 3②4⑤ 5 ⑤ 6④ 7② 827 1①2 ②3 ④4③ 5⑤ 6 ③ 7① 8⑤"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l039",
+            "source_token_count": 15,
+            "reading_order_group": "LEFT",
+            "layout_barrier_crossing_candidate": [
+              "p102-structure-r001",
+              "p102-structure-r006"
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n039",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 173.0,
+            "y": 1655.0,
+            "width": 302.0,
+            "height": 59.0
+          },
+          "normalized_bbox": {
+            "x": 0.071076,
+            "y": 0.538912,
+            "width": 0.124076,
+            "height": 0.019212
+          },
+          "reading_order_index": 23,
+          "confidence": 0.940215,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "Level 2기본 연습",
+          "normalized_text": "Level 2기본 연습",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "Level 2기본 연습"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l042",
+            "source_token_count": 1,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r001"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r001",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r001",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 580421.487
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r001"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r001",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r001",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 580421.487
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n040",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 192.0,
+            "y": 1724.0,
+            "width": 1875.0,
+            "height": 53.0
+          },
+          "normalized_bbox": {
+            "x": 0.078882,
+            "y": 0.561381,
+            "width": 0.770337,
+            "height": 0.017258
+          },
+          "reading_order_index": 24,
+          "confidence": 0.951581,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "1⑤ 2 ④3 ③ 43 5 ③ 6⑤ 77 8③ 1②2 ①3① 44 5 ② 6① 7 330",
+          "normalized_text": "1⑤ 2 ④3 ③ 43 5 ③ 6⑤ 77 8③ 1②2 ①3① 44 5 ② 6① 7 330",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "1⑤ 2 ④3 ③ 43 5 ③ 6⑤ 77 8③ 1②2 ①3① 44 5 ② 6① 7 330"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l044",
+            "source_token_count": 15,
+            "reading_order_group": "LEFT",
+            "layout_barrier_crossing_candidate": [
+              "p102-structure-r001",
+              "p102-structure-r006"
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n041",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 998.0,
+            "y": 1787.0,
+            "width": 362.0,
+            "height": 61.0
+          },
+          "normalized_bbox": {
+            "x": 0.410025,
+            "y": 0.581895,
+            "width": 0.148726,
+            "height": 0.019863
+          },
+          "reading_order_index": 25,
+          "confidence": 0.96073,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문34쪽 8 129",
+          "normalized_text": "본문34쪽 8 129",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문34쪽 8 129"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l045",
+            "source_token_count": 2,
+            "reading_order_group": "LEFT",
+            "layout_barrier_crossing_candidate": [
+              "p102-structure-r001",
+              "p102-structure-r006"
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n042",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1236.0,
+            "y": 1866.0,
+            "width": 289.0,
+            "height": 48.0
+          },
+          "normalized_bbox": {
+            "x": 0.507806,
+            "y": 0.60762,
+            "width": 0.118735,
+            "height": 0.01563
+          },
+          "reading_order_index": 58,
+          "confidence": 0.985997,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "Level 3실력완성",
+          "normalized_text": "Level 3실력완성",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "Level 3실력완성"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l047",
+            "source_token_count": 2,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r006"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r006",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r006",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 644812.163
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r006"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r006",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r006",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 644812.163
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n043",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1249.0,
+            "y": 1931.0,
+            "width": 322.0,
+            "height": 50.0
+          },
+          "normalized_bbox": {
+            "x": 0.513147,
+            "y": 0.628785,
+            "width": 0.132293,
+            "height": 0.016281
+          },
+          "reading_order_index": 60,
+          "confidence": 0.919826,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "1⑤ 2803 ④",
+          "normalized_text": "1⑤ 2803 ④",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "1⑤ 2803 ④"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l050",
+            "source_token_count": 3,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r006"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r006",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r006",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 0.95026,
+                "structure_area": 644812.163
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r006"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r006",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r006",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 0.95026,
+                "barrier_area": 644812.163
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n044",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 2012.0,
+            "y": 1526.0,
+            "width": 160.0,
+            "height": 34.0
+          },
+          "normalized_bbox": {
+            "x": 0.826623,
+            "y": 0.496907,
+            "width": 0.065735,
+            "height": 0.011071
+          },
+          "reading_order_index": 55,
+          "confidence": 0.937564,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문78~79쪽",
+          "normalized_text": "본문78~79쪽",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문78~79쪽"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l038",
+            "source_token_count": 1,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r006"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r006",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r006",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 644812.163
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r006"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r006",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r006",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 644812.163
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n045",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 308.0,
+            "y": 1582.0,
+            "width": 93.0,
+            "height": 51.0
+          },
+          "normalized_bbox": {
+            "x": 0.126541,
+            "y": 0.515142,
+            "width": 0.038209,
+            "height": 0.016607
+          },
+          "reading_order_index": 22,
+          "confidence": 0.790303,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "2 ④",
+          "normalized_text": "2 ④",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "2 ④"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l040",
+            "source_token_count": 1,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r001"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r001",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r001",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 580421.487
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r001"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r001",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r001",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 580421.487
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n046",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 953.0,
+            "y": 1658.0,
+            "width": 576.0,
+            "height": 52.0
+          },
+          "normalized_bbox": {
+            "x": 0.391537,
+            "y": 0.539889,
+            "width": 0.236647,
+            "height": 0.016933
+          },
+          "reading_order_index": 56,
+          "confidence": 0.977565,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문32~33쪽 Level 2기본 연습",
+          "normalized_text": "본문32~33쪽 Level 2기본 연습",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문32~33쪽 Level 2기본 연습"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l041",
+            "source_token_count": 2,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r006"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r006",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r006",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 0.526684,
+                "structure_area": 644812.163
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r006"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r006",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r006",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 0.526684,
+                "barrier_area": 644812.163
+              }
+            ],
+            "layout_barrier_crossing_candidate": [
+              "p102-structure-r001",
+              "p102-structure-r006"
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n047",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 2012.0,
+            "y": 1668.0,
+            "width": 158.0,
+            "height": 34.0
+          },
+          "normalized_bbox": {
+            "x": 0.826623,
+            "y": 0.543146,
+            "width": 0.064914,
+            "height": 0.011071
+          },
+          "reading_order_index": 57,
+          "confidence": 0.997419,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문80~81쪽",
+          "normalized_text": "본문80~81쪽",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문80~81쪽"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l043",
+            "source_token_count": 1,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r006"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r006",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r006",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 644812.163
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r006"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r006",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r006",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 644812.163
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n048",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 179.0,
+            "y": 1804.0,
+            "width": 291.0,
+            "height": 48.0
+          },
+          "normalized_bbox": {
+            "x": 0.073541,
+            "y": 0.587431,
+            "width": 0.119556,
+            "height": 0.01563
+          },
+          "reading_order_index": 26,
+          "confidence": 0.937563,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "Level 3실력 완성",
+          "normalized_text": "Level 3실력 완성",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "Level 3실력 완성"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l046",
+            "source_token_count": 2,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r001"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r001",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r001",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 580421.487
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r001"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r001",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r001",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 580421.487
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n049",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 192.0,
+            "y": 1868.0,
+            "width": 323.0,
+            "height": 49.0
+          },
+          "normalized_bbox": {
+            "x": 0.078882,
+            "y": 0.608271,
+            "width": 0.132703,
+            "height": 0.015956
+          },
+          "reading_order_index": 27,
+          "confidence": 0.910879,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "1⑤ 2 ① 3 ②",
+          "normalized_text": "1⑤ 2 ① 3 ②",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "1⑤ 2 ① 3 ②"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l049",
+            "source_token_count": 3,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r001"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r001",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r001",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 0.952,
+                "structure_area": 580421.487
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r001"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r001",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r001",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 0.952,
+                "barrier_area": 580421.487
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n050",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 2057.0,
+            "y": 1871.0,
+            "width": 116.0,
+            "height": 41.0
+          },
+          "normalized_bbox": {
+            "x": 0.845111,
+            "y": 0.609248,
+            "width": 0.047658,
+            "height": 0.013351
+          },
+          "reading_order_index": 59,
+          "confidence": 0.987544,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문82쪽",
+          "normalized_text": "본문82쪽",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문82쪽"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l048",
+            "source_token_count": 1,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r006"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r006",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r006",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 644812.163
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r006"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r006",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r006",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 644812.163
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n051",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 163.0,
+            "y": 2118.0,
+            "width": 294.0,
+            "height": 88.0
+          },
+          "normalized_bbox": {
+            "x": 0.066968,
+            "y": 0.689678,
+            "width": 0.120789,
+            "height": 0.028655
+          },
+          "reading_order_index": 28,
+          "confidence": 0.99938,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "03삼각함수",
+          "normalized_text": "03삼각함수",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "03삼각함수"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l052",
+            "source_token_count": 1,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r011"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r011",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r011",
+                "structure_label": "VISUAL_OR_PROBLEM_CAPTION_CANDIDATE",
+                "overlap_ratio": 0.666104,
+                "structure_area": 17233.451
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n052",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 171.0,
+            "y": 2217.0,
+            "width": 91.0,
+            "height": 59.0
+          },
+          "normalized_bbox": {
+            "x": 0.070255,
+            "y": 0.721915,
+            "width": 0.037387,
+            "height": 0.019212
+          },
+          "reading_order_index": 30,
+          "confidence": 0.998422,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "유제",
+          "normalized_text": "유제",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "유제"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l054",
+            "source_token_count": 1,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r003"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r003",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r003",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 581760.429
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r003"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r003",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r003",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 581760.429
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n053",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 190.0,
+            "y": 2284.0,
+            "width": 1974.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.078061,
+            "y": 0.743732,
+            "width": 0.811011,
+            "height": 0.017584
+          },
+          "reading_order_index": 31,
+          "confidence": 0.95583,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "1 ④ 24 3 ② 4⑤ 55 65 7① 8③ 1932⑤3⑤ 4① 5 ① 64 7④ 8③",
+          "normalized_text": "1 ④ 24 3 ② 4⑤ 55 65 7① 8③ 1932⑤3⑤ 4① 5 ① 64 7④ 8③",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "1 ④ 24 3 ② 4⑤ 55 65 7① 8③ 1932⑤3⑤ 4① 5 ① 64 7④ 8③"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l056",
+            "source_token_count": 16,
+            "reading_order_group": "LEFT",
+            "layout_barrier_crossing_candidate": [
+              "p102-structure-r003",
+              "p102-structure-r005"
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n054",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 188.0,
+            "y": 2355.0,
+            "width": 236.0,
+            "height": 56.0
+          },
+          "normalized_bbox": {
+            "x": 0.077239,
+            "y": 0.766851,
+            "width": 0.09696,
+            "height": 0.018235
+          },
+          "reading_order_index": 32,
+          "confidence": 0.950994,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "9② 10 ④",
+          "normalized_text": "9② 10 ④",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "9② 10 ④"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l058",
+            "source_token_count": 2,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r003"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r003",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r003",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 581760.429
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r003"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r003",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r003",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 581760.429
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n055",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 177.0,
+            "y": 2432.0,
+            "width": 296.0,
+            "height": 56.0
+          },
+          "normalized_bbox": {
+            "x": 0.07272,
+            "y": 0.791924,
+            "width": 0.121611,
+            "height": 0.018235
+          },
+          "reading_order_index": 33,
+          "confidence": 0.971265,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "Level 1기초연습",
+          "normalized_text": "Level 1기초연습",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "Level 1기초연습"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l060",
+            "source_token_count": 2,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r003"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r003",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r003",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 581760.429
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r003"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r003",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r003",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 581760.429
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n056",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 306.0,
+            "y": 2494.0,
+            "width": 1860.0,
+            "height": 58.0
+          },
+          "normalized_bbox": {
+            "x": 0.125719,
+            "y": 0.812113,
+            "width": 0.764174,
+            "height": 0.018886
+          },
+          "reading_order_index": 66,
+          "confidence": 0.928023,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "2 ②3④ 4③ 5 ① 6③7①8④ 1②2 ②3 ③ 4②5① 6④ 7② 8⑤",
+          "normalized_text": "2 ②3④ 4③ 5 ① 6③7①8④ 1②2 ②3 ③ 4②5① 6④ 7② 8⑤",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "2 ②3④ 4③ 5 ① 6③7①8④ 1②2 ②3 ③ 4②5① 6④ 7② 8⑤"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l062",
+            "source_token_count": 15,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r005",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 0.505645,
+                "structure_area": 582272.513
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r005",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 0.505645,
+                "barrier_area": 582272.513
+              }
+            ],
+            "layout_barrier_crossing_candidate": [
+              "p102-structure-r003",
+              "p102-structure-r005"
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n057",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 175.0,
+            "y": 2574.0,
+            "width": 298.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.071898,
+            "y": 0.838163,
+            "width": 0.122432,
+            "height": 0.017584
+          },
+          "reading_order_index": 35,
+          "confidence": 0.950845,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "Level 2기본 연습",
+          "normalized_text": "Level 2기본 연습",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "Level 2기본 연습"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l064",
+            "source_token_count": 1,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r003"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r003",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r003",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 581760.429
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r003"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r003",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r003",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 581760.429
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n058",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 192.0,
+            "y": 2638.0,
+            "width": 1736.0,
+            "height": 56.0
+          },
+          "normalized_bbox": {
+            "x": 0.078882,
+            "y": 0.859004,
+            "width": 0.713229,
+            "height": 0.018235
+          },
+          "reading_order_index": 36,
+          "confidence": 0.92683,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "1 ② 2 ②3 ②4③ 5 ④ 6② 7④ 8④ 1②2 ③327 4⑤ 5 ① 6⑤",
+          "normalized_text": "1 ② 2 ②3 ②4③ 5 ④ 6② 7④ 8④ 1②2 ③327 4⑤ 5 ① 6⑤",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "1 ② 2 ②3 ②4③ 5 ④ 6② 7④ 8④ 1②2 ③327 4⑤ 5 ① 6⑤"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l067",
+            "source_token_count": 14,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r003"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r003",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r003",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 0.533906,
+                "structure_area": 581760.429
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r003"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r003",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r003",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 0.533906,
+                "barrier_area": 581760.429
+              }
+            ],
+            "layout_barrier_crossing_candidate": [
+              "p102-structure-r003",
+              "p102-structure-r005"
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n059",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 175.0,
+            "y": 2718.0,
+            "width": 297.0,
+            "height": 52.0
+          },
+          "normalized_bbox": {
+            "x": 0.071898,
+            "y": 0.885054,
+            "width": 0.122021,
+            "height": 0.016933
+          },
+          "reading_order_index": 37,
+          "confidence": 0.964839,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "Level 3실력완성",
+          "normalized_text": "Level 3실력완성",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "Level 3실력완성"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l069",
+            "source_token_count": 1,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r003"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r003",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r003",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 581760.429
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r003"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r003",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r003",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 581760.429
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n060",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 192.0,
+            "y": 2785.0,
+            "width": 323.0,
+            "height": 50.0
+          },
+          "normalized_bbox": {
+            "x": 0.078882,
+            "y": 0.906871,
+            "width": 0.132703,
+            "height": 0.016281
+          },
+          "reading_order_index": 38,
+          "confidence": 0.938703,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "1⑤ 2 ③ 3 ④",
+          "normalized_text": "1⑤ 2 ③ 3 ④",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "1⑤ 2 ③ 3 ④"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l073",
+            "source_token_count": 3,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r003"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r003",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r003",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 0.87672,
+                "structure_area": 581760.429
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r003"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r003",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r003",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 0.87672,
+                "barrier_area": 581760.429
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n061",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1224.0,
+            "y": 2123.0,
+            "width": 634.0,
+            "height": 77.0
+          },
+          "normalized_bbox": {
+            "x": 0.502876,
+            "y": 0.691306,
+            "width": 0.260477,
+            "height": 0.025073
+          },
+          "reading_order_index": 61,
+          "confidence": 0.994475,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "06수열의 합과 수학적 귀납법",
+          "normalized_text": "06수열의 합과 수학적 귀납법",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "06수열의 합과 수학적 귀납법"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l051",
+            "source_token_count": 1,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r007"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r007",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r007",
+                "structure_label": "VISUAL_OR_PROBLEM_CAPTION_CANDIDATE",
+                "overlap_ratio": 0.784987,
+                "structure_area": 38321.476
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n062",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 955.0,
+            "y": 2215.0,
+            "width": 365.0,
+            "height": 59.0
+          },
+          "normalized_bbox": {
+            "x": 0.392358,
+            "y": 0.721263,
+            "width": 0.149959,
+            "height": 0.019212
+          },
+          "reading_order_index": 29,
+          "confidence": 0.998202,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문37~45쪽 유제",
+          "normalized_text": "본문37~45쪽 유제",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문37~45쪽 유제"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l053",
+            "source_token_count": 2,
+            "reading_order_group": "LEFT",
+            "layout_barrier_crossing_candidate": [
+              "p102-structure-r003",
+              "p102-structure-r005"
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n063",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 2008.0,
+            "y": 2226.0,
+            "width": 164.0,
+            "height": 41.0
+          },
+          "normalized_bbox": {
+            "x": 0.824979,
+            "y": 0.724845,
+            "width": 0.067379,
+            "height": 0.013351
+          },
+          "reading_order_index": 62,
+          "confidence": 0.996432,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문85~95쪽",
+          "normalized_text": "본문85~95쪽",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문85~95쪽"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l055",
+            "source_token_count": 1,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r005",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 582272.513
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r005",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 582272.513
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n064",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1246.0,
+            "y": 2355.0,
+            "width": 349.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.511915,
+            "y": 0.766851,
+            "width": 0.143385,
+            "height": 0.017584
+          },
+          "reading_order_index": 63,
+          "confidence": 0.854495,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "9 ④ 10 30 11 ②",
+          "normalized_text": "9 ④ 10 30 11 ②",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "9 ④ 10 30 11 ②"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l057",
+            "source_token_count": 2,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r005",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 582272.513
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r005",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 582272.513
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n065",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 955.0,
+            "y": 2432.0,
+            "width": 576.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.392358,
+            "y": 0.791924,
+            "width": 0.236647,
+            "height": 0.017584
+          },
+          "reading_order_index": 64,
+          "confidence": 0.953166,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문46~47쪽 Level 1기초 연습",
+          "normalized_text": "본문46~47쪽 Level 1기초 연습",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문46~47쪽 Level 1기초 연습"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l059",
+            "source_token_count": 3,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r005",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 0.53038,
+                "structure_area": 582272.513
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r005",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 0.53038,
+                "barrier_area": 582272.513
+              }
+            ],
+            "layout_barrier_crossing_candidate": [
+              "p102-structure-r003",
+              "p102-structure-r005"
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n066",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 2010.0,
+            "y": 2440.0,
+            "width": 163.0,
+            "height": 40.0
+          },
+          "normalized_bbox": {
+            "x": 0.825801,
+            "y": 0.794529,
+            "width": 0.066968,
+            "height": 0.013025
+          },
+          "reading_order_index": 65,
+          "confidence": 0.998614,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문96~97쪽",
+          "normalized_text": "본문96~97쪽",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문96~97쪽"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l061",
+            "source_token_count": 1,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r005",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 582272.513
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r005",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 582272.513
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n067",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 192.0,
+            "y": 2499.0,
+            "width": 93.0,
+            "height": 50.0
+          },
+          "normalized_bbox": {
+            "x": 0.078882,
+            "y": 0.813741,
+            "width": 0.038209,
+            "height": 0.016281
+          },
+          "reading_order_index": 34,
+          "confidence": 0.998016,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "1①",
+          "normalized_text": "1①",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "1①"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l063",
+            "source_token_count": 1,
+            "reading_order_group": "LEFT",
+            "parent_structure_node_ids": [
+              "p102-structure-r003"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r003",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r003",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 581760.429
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r003"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r003",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r003",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 581760.429
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n068",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 947.0,
+            "y": 2574.0,
+            "width": 582.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.389071,
+            "y": 0.838163,
+            "width": 0.239113,
+            "height": 0.017584
+          },
+          "reading_order_index": 67,
+          "confidence": 0.98747,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문48~49쪽 Level 2기본연습",
+          "normalized_text": "본문48~49쪽 Level 2기본연습",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문48~49쪽 Level 2기본연습"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l065",
+            "source_token_count": 3,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r005",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 0.521476,
+                "structure_area": 582272.513
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r005",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 0.521476,
+                "barrier_area": 582272.513
+              }
+            ],
+            "layout_barrier_crossing_candidate": [
+              "p102-structure-r003",
+              "p102-structure-r005"
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n069",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 2006.0,
+            "y": 2582.0,
+            "width": 166.0,
+            "height": 40.0
+          },
+          "normalized_bbox": {
+            "x": 0.824158,
+            "y": 0.840768,
+            "width": 0.0682,
+            "height": 0.013025
+          },
+          "reading_order_index": 68,
+          "confidence": 0.999041,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문98~99쪽",
+          "normalized_text": "본문98~99쪽",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문98~99쪽"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l066",
+            "source_token_count": 1,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r005",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 582272.513
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r005",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 582272.513
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n070",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1953.0,
+            "y": 2641.0,
+            "width": 91.0,
+            "height": 50.0
+          },
+          "normalized_bbox": {
+            "x": 0.802383,
+            "y": 0.85998,
+            "width": 0.037387,
+            "height": 0.016281
+          },
+          "reading_order_index": 69,
+          "confidence": 0.894283,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "7④",
+          "normalized_text": "7④",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "7④"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l068",
+            "source_token_count": 1,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r005",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 582272.513
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r005",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 582272.513
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n071",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 998.0,
+            "y": 2718.0,
+            "width": 529.0,
+            "height": 52.0
+          },
+          "normalized_bbox": {
+            "x": 0.410025,
+            "y": 0.885054,
+            "width": 0.217338,
+            "height": 0.016933
+          },
+          "reading_order_index": 70,
+          "confidence": 0.978116,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문50쪽 Level 3실력완성",
+          "normalized_text": "본문50쪽 Level 3실력완성",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문50쪽 Level 3실력완성"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l070",
+            "source_token_count": 2,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r005",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 0.569941,
+                "structure_area": 582272.513
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r005",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 0.569941,
+                "barrier_area": 582272.513
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n072",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1249.0,
+            "y": 2783.0,
+            "width": 324.0,
+            "height": 52.0
+          },
+          "normalized_bbox": {
+            "x": 0.513147,
+            "y": 0.906219,
+            "width": 0.133114,
+            "height": 0.016933
+          },
+          "reading_order_index": 72,
+          "confidence": 0.92198,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "1① 2 ⑤3 ①",
+          "normalized_text": "1① 2 ⑤3 ①",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "1① 2 ⑤3 ①"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l072",
+            "source_token_count": 3,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r005",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 0.893019,
+                "structure_area": 582272.513
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r005",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 0.893019,
+                "barrier_area": 582272.513
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n073",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 2048.0,
+            "y": 2727.0,
+            "width": 124.0,
+            "height": 35.0
+          },
+          "normalized_bbox": {
+            "x": 0.841413,
+            "y": 0.887984,
+            "width": 0.050945,
+            "height": 0.011397
+          },
+          "reading_order_index": 71,
+          "confidence": 0.997636,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "본문100쪽",
+          "normalized_text": "본문100쪽",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "본문100쪽"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l071",
+            "source_token_count": 1,
+            "reading_order_group": "RIGHT",
+            "parent_structure_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_parent_structure_node_id": "p102-structure-r005",
+            "parent_structure_matches": [
+              {
+                "structure_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "overlap_ratio": 1.0,
+                "structure_area": 582272.513
+              }
+            ],
+            "layout_barrier_node_ids": [
+              "p102-structure-r005"
+            ],
+            "primary_layout_barrier_node_id": "p102-structure-r005",
+            "layout_barrier_matches": [
+              {
+                "barrier_node_id": "p102-structure-r005",
+                "structure_label": "PROBLEM_BOX_CANDIDATE",
+                "layout_barrier_role": "problem_region_boundary",
+                "overlap_ratio": 1.0,
+                "barrier_area": 582272.513
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p102-n074",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 126.0,
+            "y": 2908.0,
+            "width": 473.0,
+            "height": 46.0
+          },
+          "normalized_bbox": {
+            "x": 0.051767,
+            "y": 0.946923,
+            "width": 0.19433,
+            "height": 0.014979
+          },
+          "reading_order_index": 73,
+          "confidence": 0.976136,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "102 2027학년도 EBS 수능특강 수학I",
+          "normalized_text": "102 2027학년도 EBS 수능특강 수학I",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "102 2027학년도 EBS 수능특강 수학I"
+            }
+          ],
+          "layout": {
+            "line_id": "p102-l074",
+            "source_token_count": 2,
+            "reading_order_group": "FOOTER"
+          }
+        },
+        {
+          "node_id": "p102-structure-r001",
+          "content_type": "UNKNOWN",
+          "bbox": {
+            "x": 169.824,
+            "y": 1301.387,
+            "width": 946.451,
+            "height": 613.261
+          },
+          "normalized_bbox": {
+            "x": 0.069772,
+            "y": 0.423767,
+            "width": 0.388846,
+            "height": 0.199694
+          },
+          "reading_order_index": 74,
+          "confidence": 0.9679797291755676,
+          "source_engine": "paddleocr-ppstructurev3-layout",
+          "issues": [
+            {
+              "code": "STRUCTURE_REGION_CANDIDATE",
+              "severity": "info",
+              "message": "Experimental PaddleOCR layout region candidate: PROBLEM_BOX_CANDIDATE."
+            }
+          ],
+          "layout": {
+            "is_structure_region_candidate": true,
+            "structure_label": "PROBLEM_BOX_CANDIDATE",
+            "domain_mapping_reason": "Large table-like layout region is more likely a boxed textbook problem than a strict table.",
+            "raw_label": "table",
+            "normalized_raw_label": "table",
+            "raw": {
+              "block_id": null,
+              "block_order": null,
+              "block_label": null,
+              "label": "table",
+              "category": null,
+              "score": 0.9679797291755676,
+              "confidence": null
+            },
+            "contained_text_node_count": 7,
+            "contained_text_node_refs": [
+              {
+                "node_id": "p102-n034",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n036",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n037",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n039",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n045",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n048",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n049",
+                "overlap_ratio": 0.952,
+                "center_inside": true
+              }
+            ],
+            "is_layout_barrier": true,
+            "layout_barrier_role": "problem_region_boundary",
+            "layout_barrier_text_node_refs": [
+              {
+                "node_id": "p102-n034",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n036",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n037",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n039",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n045",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n048",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n049",
+                "overlap_ratio": 0.952,
+                "center_inside": true
+              }
+            ],
+            "layout_barrier_text_node_count": 7
+          },
+          "contained_text_nodes": [
+            "p102-n034",
+            "p102-n036",
+            "p102-n037",
+            "p102-n039",
+            "p102-n045",
+            "p102-n048",
+            "p102-n049"
+          ]
+        },
+        {
+          "node_id": "p102-structure-r002",
+          "content_type": "UNKNOWN",
+          "bbox": {
+            "x": 169.934,
+            "y": 390.235,
+            "width": 948.43,
+            "height": 677.757
+          },
+          "normalized_bbox": {
+            "x": 0.069817,
+            "y": 0.127071,
+            "width": 0.389659,
+            "height": 0.220696
+          },
+          "reading_order_index": 75,
+          "confidence": 0.9673937559127808,
+          "source_engine": "paddleocr-ppstructurev3-layout",
+          "issues": [
+            {
+              "code": "STRUCTURE_REGION_CANDIDATE",
+              "severity": "info",
+              "message": "Experimental PaddleOCR layout region candidate: PROBLEM_BOX_CANDIDATE."
+            }
+          ],
+          "layout": {
+            "is_structure_region_candidate": true,
+            "structure_label": "PROBLEM_BOX_CANDIDATE",
+            "domain_mapping_reason": "Large table-like layout region is more likely a boxed textbook problem than a strict table.",
+            "raw_label": "table",
+            "normalized_raw_label": "table",
+            "raw": {
+              "block_id": null,
+              "block_order": null,
+              "block_label": null,
+              "label": "table",
+              "category": null,
+              "score": 0.9673937559127808,
+              "confidence": null
+            },
+            "contained_text_node_count": 11,
+            "contained_text_node_refs": [
+              {
+                "node_id": "p102-n005",
+                "overlap_ratio": 0.731725,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n006",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n007",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n008",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n009",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n010",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n011",
+                "overlap_ratio": 0.660274,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n015",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n021",
+                "overlap_ratio": 0.536904,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n027",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n028",
+                "overlap_ratio": 0.865231,
+                "center_inside": true
+              }
+            ],
+            "is_layout_barrier": true,
+            "layout_barrier_role": "problem_region_boundary",
+            "layout_barrier_text_node_refs": [
+              {
+                "node_id": "p102-n005",
+                "overlap_ratio": 0.731725,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n006",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n007",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n008",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n009",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n010",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n011",
+                "overlap_ratio": 0.660274,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n015",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n021",
+                "overlap_ratio": 0.536904,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n027",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n028",
+                "overlap_ratio": 0.865231,
+                "center_inside": true
+              }
+            ],
+            "layout_barrier_text_node_count": 11
+          },
+          "contained_text_nodes": [
+            "p102-n005",
+            "p102-n006",
+            "p102-n007",
+            "p102-n008",
+            "p102-n009",
+            "p102-n010",
+            "p102-n011",
+            "p102-n015",
+            "p102-n021",
+            "p102-n027",
+            "p102-n028"
+          ]
+        },
+        {
+          "node_id": "p102-structure-r003",
+          "content_type": "UNKNOWN",
+          "bbox": {
+            "x": 169.2,
+            "y": 2216.238,
+            "width": 949.661,
+            "height": 612.598
+          },
+          "normalized_bbox": {
+            "x": 0.069515,
+            "y": 0.721667,
+            "width": 0.390165,
+            "height": 0.199478
+          },
+          "reading_order_index": 76,
+          "confidence": 0.966858983039856,
+          "source_engine": "paddleocr-ppstructurev3-layout",
+          "issues": [
+            {
+              "code": "STRUCTURE_REGION_CANDIDATE",
+              "severity": "info",
+              "message": "Experimental PaddleOCR layout region candidate: PROBLEM_BOX_CANDIDATE."
+            }
+          ],
+          "layout": {
+            "is_structure_region_candidate": true,
+            "structure_label": "PROBLEM_BOX_CANDIDATE",
+            "domain_mapping_reason": "Large table-like layout region is more likely a boxed textbook problem than a strict table.",
+            "raw_label": "table",
+            "normalized_raw_label": "table",
+            "raw": {
+              "block_id": null,
+              "block_order": null,
+              "block_label": null,
+              "label": "table",
+              "category": null,
+              "score": 0.966858983039856,
+              "confidence": null
+            },
+            "contained_text_node_count": 8,
+            "contained_text_node_refs": [
+              {
+                "node_id": "p102-n052",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n054",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n055",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n057",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n058",
+                "overlap_ratio": 0.533906,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n059",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n060",
+                "overlap_ratio": 0.87672,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n067",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              }
+            ],
+            "is_layout_barrier": true,
+            "layout_barrier_role": "problem_region_boundary",
+            "layout_barrier_text_node_refs": [
+              {
+                "node_id": "p102-n052",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n054",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n055",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n057",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n058",
+                "overlap_ratio": 0.533906,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n059",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n060",
+                "overlap_ratio": 0.87672,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n067",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              }
+            ],
+            "layout_barrier_text_node_count": 8
+          },
+          "contained_text_nodes": [
+            "p102-n052",
+            "p102-n054",
+            "p102-n055",
+            "p102-n057",
+            "p102-n058",
+            "p102-n059",
+            "p102-n060",
+            "p102-n067"
+          ]
+        },
+        {
+          "node_id": "p102-structure-r004",
+          "content_type": "UNKNOWN",
+          "bbox": {
+            "x": 1225.27,
+            "y": 392.863,
+            "width": 949.365,
+            "height": 668.658
+          },
+          "normalized_bbox": {
+            "x": 0.503398,
+            "y": 0.127927,
+            "width": 0.390043,
+            "height": 0.217733
+          },
+          "reading_order_index": 77,
+          "confidence": 0.9667684435844421,
+          "source_engine": "paddleocr-ppstructurev3-layout",
+          "issues": [
+            {
+              "code": "STRUCTURE_REGION_CANDIDATE",
+              "severity": "info",
+              "message": "Experimental PaddleOCR layout region candidate: PROBLEM_BOX_CANDIDATE."
+            }
+          ],
+          "layout": {
+            "is_structure_region_candidate": true,
+            "structure_label": "PROBLEM_BOX_CANDIDATE",
+            "domain_mapping_reason": "Large table-like layout region is more likely a boxed textbook problem than a strict table.",
+            "raw_label": "table",
+            "normalized_raw_label": "table",
+            "raw": {
+              "block_id": null,
+              "block_order": null,
+              "block_label": null,
+              "label": "table",
+              "category": null,
+              "score": 0.9667684435844421,
+              "confidence": null
+            },
+            "contained_text_node_count": 12,
+            "contained_text_node_refs": [
+              {
+                "node_id": "p102-n012",
+                "overlap_ratio": 0.576338,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n013",
+                "overlap_ratio": 0.97042,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n016",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n017",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n018",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n019",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n020",
+                "overlap_ratio": 0.77875,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n022",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n023",
+                "overlap_ratio": 0.779676,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n024",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n025",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n026",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              }
+            ],
+            "is_layout_barrier": true,
+            "layout_barrier_role": "problem_region_boundary",
+            "layout_barrier_text_node_refs": [
+              {
+                "node_id": "p102-n012",
+                "overlap_ratio": 0.576338,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n013",
+                "overlap_ratio": 0.97042,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n016",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n017",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n018",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n019",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n020",
+                "overlap_ratio": 0.77875,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n022",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n023",
+                "overlap_ratio": 0.779676,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n024",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n025",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n026",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              }
+            ],
+            "layout_barrier_text_node_count": 12
+          },
+          "contained_text_nodes": [
+            "p102-n012",
+            "p102-n013",
+            "p102-n016",
+            "p102-n017",
+            "p102-n018",
+            "p102-n019",
+            "p102-n020",
+            "p102-n022",
+            "p102-n023",
+            "p102-n024",
+            "p102-n025",
+            "p102-n026"
+          ]
+        },
+        {
+          "node_id": "p102-structure-r005",
+          "content_type": "UNKNOWN",
+          "bbox": {
+            "x": 1225.501,
+            "y": 2216.425,
+            "width": 949.855,
+            "height": 613.012
+          },
+          "normalized_bbox": {
+            "x": 0.503493,
+            "y": 0.721727,
+            "width": 0.390244,
+            "height": 0.199613
+          },
+          "reading_order_index": 78,
+          "confidence": 0.9619464874267578,
+          "source_engine": "paddleocr-ppstructurev3-layout",
+          "issues": [
+            {
+              "code": "STRUCTURE_REGION_CANDIDATE",
+              "severity": "info",
+              "message": "Experimental PaddleOCR layout region candidate: PROBLEM_BOX_CANDIDATE."
+            }
+          ],
+          "layout": {
+            "is_structure_region_candidate": true,
+            "structure_label": "PROBLEM_BOX_CANDIDATE",
+            "domain_mapping_reason": "Large table-like layout region is more likely a boxed textbook problem than a strict table.",
+            "raw_label": "table",
+            "normalized_raw_label": "table",
+            "raw": {
+              "block_id": null,
+              "block_order": null,
+              "block_label": null,
+              "label": "table",
+              "category": null,
+              "score": 0.9619464874267578,
+              "confidence": null
+            },
+            "contained_text_node_count": 11,
+            "contained_text_node_refs": [
+              {
+                "node_id": "p102-n056",
+                "overlap_ratio": 0.505645,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n063",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n064",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n065",
+                "overlap_ratio": 0.53038,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n066",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n068",
+                "overlap_ratio": 0.521476,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n069",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n070",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n071",
+                "overlap_ratio": 0.569941,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n072",
+                "overlap_ratio": 0.893019,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n073",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              }
+            ],
+            "is_layout_barrier": true,
+            "layout_barrier_role": "problem_region_boundary",
+            "layout_barrier_text_node_refs": [
+              {
+                "node_id": "p102-n056",
+                "overlap_ratio": 0.505645,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n063",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n064",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n065",
+                "overlap_ratio": 0.53038,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n066",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n068",
+                "overlap_ratio": 0.521476,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n069",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n070",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n071",
+                "overlap_ratio": 0.569941,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n072",
+                "overlap_ratio": 0.893019,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n073",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              }
+            ],
+            "layout_barrier_text_node_count": 11
+          },
+          "contained_text_nodes": [
+            "p102-n056",
+            "p102-n063",
+            "p102-n064",
+            "p102-n065",
+            "p102-n066",
+            "p102-n068",
+            "p102-n069",
+            "p102-n070",
+            "p102-n071",
+            "p102-n072",
+            "p102-n073"
+          ]
+        },
+        {
+          "node_id": "p102-structure-r006",
+          "content_type": "UNKNOWN",
+          "bbox": {
+            "x": 1225.63,
+            "y": 1298.748,
+            "width": 948.581,
+            "height": 679.765
+          },
+          "normalized_bbox": {
+            "x": 0.503546,
+            "y": 0.422907,
+            "width": 0.389721,
+            "height": 0.22135
+          },
+          "reading_order_index": 79,
+          "confidence": 0.9574626684188843,
+          "source_engine": "paddleocr-ppstructurev3-layout",
+          "issues": [
+            {
+              "code": "STRUCTURE_REGION_CANDIDATE",
+              "severity": "info",
+              "message": "Experimental PaddleOCR layout region candidate: PROBLEM_BOX_CANDIDATE."
+            }
+          ],
+          "layout": {
+            "is_structure_region_candidate": true,
+            "structure_label": "PROBLEM_BOX_CANDIDATE",
+            "domain_mapping_reason": "Large table-like layout region is more likely a boxed textbook problem than a strict table.",
+            "raw_label": "table",
+            "normalized_raw_label": "table",
+            "raw": {
+              "block_id": null,
+              "block_order": null,
+              "block_label": null,
+              "label": "table",
+              "category": null,
+              "score": 0.9574626684188843,
+              "confidence": null
+            },
+            "contained_text_node_count": 9,
+            "contained_text_node_refs": [
+              {
+                "node_id": "p102-n032",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n033",
+                "overlap_ratio": 0.525035,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n035",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n042",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n043",
+                "overlap_ratio": 0.95026,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n044",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n046",
+                "overlap_ratio": 0.526684,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n047",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n050",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              }
+            ],
+            "is_layout_barrier": true,
+            "layout_barrier_role": "problem_region_boundary",
+            "layout_barrier_text_node_refs": [
+              {
+                "node_id": "p102-n032",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n033",
+                "overlap_ratio": 0.525035,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n035",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n042",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n043",
+                "overlap_ratio": 0.95026,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n044",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n046",
+                "overlap_ratio": 0.526684,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n047",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              },
+              {
+                "node_id": "p102-n050",
+                "overlap_ratio": 1.0,
+                "center_inside": true
+              }
+            ],
+            "layout_barrier_text_node_count": 9
+          },
+          "contained_text_nodes": [
+            "p102-n032",
+            "p102-n033",
+            "p102-n035",
+            "p102-n042",
+            "p102-n043",
+            "p102-n044",
+            "p102-n046",
+            "p102-n047",
+            "p102-n050"
+          ]
+        },
+        {
+          "node_id": "p102-structure-r007",
+          "content_type": "UNKNOWN",
+          "bbox": {
+            "x": 1225.277,
+            "y": 2131.221,
+            "width": 626.26,
+            "height": 61.191
+          },
+          "normalized_bbox": {
+            "x": 0.503401,
+            "y": 0.693983,
+            "width": 0.257297,
+            "height": 0.019925
+          },
+          "reading_order_index": 80,
+          "confidence": 0.9207343459129333,
+          "source_engine": "paddleocr-ppstructurev3-layout",
+          "issues": [
+            {
+              "code": "STRUCTURE_REGION_CANDIDATE",
+              "severity": "info",
+              "message": "Experimental PaddleOCR layout region candidate: VISUAL_OR_PROBLEM_CAPTION_CANDIDATE."
+            }
+          ],
+          "layout": {
+            "is_structure_region_candidate": true,
+            "structure_label": "VISUAL_OR_PROBLEM_CAPTION_CANDIDATE",
+            "domain_mapping_reason": "Caption-like region needs domain review before attaching to a visual, table, or problem box.",
+            "raw_label": "figure_title",
+            "normalized_raw_label": "figure_title",
+            "raw": {
+              "block_id": null,
+              "block_order": null,
+              "block_label": null,
+              "label": "figure_title",
+              "category": null,
+              "score": 0.9207343459129333,
+              "confidence": null
+            },
+            "contained_text_node_count": 1,
+            "contained_text_node_refs": [
+              {
+                "node_id": "p102-n061",
+                "overlap_ratio": 0.784987,
+                "center_inside": true
+              }
+            ]
+          },
+          "contained_text_nodes": [
+            "p102-n061"
+          ]
+        },
+        {
+          "node_id": "p102-structure-r008",
+          "content_type": "UNKNOWN",
+          "bbox": {
+            "x": 167.027,
+            "y": 1215.086,
+            "width": 514.565,
+            "height": 60.156
+          },
+          "normalized_bbox": {
+            "x": 0.068622,
+            "y": 0.395665,
+            "width": 0.211407,
+            "height": 0.019588
+          },
+          "reading_order_index": 81,
+          "confidence": 0.9184653759002686,
+          "source_engine": "paddleocr-ppstructurev3-layout",
+          "issues": [
+            {
+              "code": "STRUCTURE_REGION_CANDIDATE",
+              "severity": "info",
+              "message": "Experimental PaddleOCR layout region candidate: VISUAL_OR_PROBLEM_CAPTION_CANDIDATE."
+            }
+          ],
+          "layout": {
+            "is_structure_region_candidate": true,
+            "structure_label": "VISUAL_OR_PROBLEM_CAPTION_CANDIDATE",
+            "domain_mapping_reason": "Caption-like region needs domain review before attaching to a visual, table, or problem box.",
+            "raw_label": "figure_title",
+            "normalized_raw_label": "figure_title",
+            "raw": {
+              "block_id": null,
+              "block_order": null,
+              "block_label": null,
+              "label": "figure_title",
+              "category": null,
+              "score": 0.9184653759002686,
+              "confidence": null
+            },
+            "contained_text_node_count": 0,
+            "contained_text_node_refs": []
+          },
+          "contained_text_nodes": []
+        },
+        {
+          "node_id": "p102-structure-r009",
+          "content_type": "UNKNOWN",
+          "bbox": {
+            "x": 1224.102,
+            "y": 1215.313,
+            "width": 514.683,
+            "height": 60.868
+          },
+          "normalized_bbox": {
+            "x": 0.502918,
+            "y": 0.395739,
+            "width": 0.211456,
+            "height": 0.01982
+          },
+          "reading_order_index": 82,
+          "confidence": 0.9176730513572693,
+          "source_engine": "paddleocr-ppstructurev3-layout",
+          "issues": [
+            {
+              "code": "STRUCTURE_REGION_CANDIDATE",
+              "severity": "info",
+              "message": "Experimental PaddleOCR layout region candidate: VISUAL_OR_PROBLEM_CAPTION_CANDIDATE."
+            }
+          ],
+          "layout": {
+            "is_structure_region_candidate": true,
+            "structure_label": "VISUAL_OR_PROBLEM_CAPTION_CANDIDATE",
+            "domain_mapping_reason": "Caption-like region needs domain review before attaching to a visual, table, or problem box.",
+            "raw_label": "figure_title",
+            "normalized_raw_label": "figure_title",
+            "raw": {
+              "block_id": null,
+              "block_order": null,
+              "block_label": null,
+              "label": "figure_title",
+              "category": null,
+              "score": 0.9176730513572693,
+              "confidence": null
+            },
+            "contained_text_node_count": 0,
+            "contained_text_node_refs": []
+          },
+          "contained_text_nodes": []
+        },
+        {
+          "node_id": "p102-structure-r010",
+          "content_type": "UNKNOWN",
+          "bbox": {
+            "x": 1225.061,
+            "y": 305.035,
+            "width": 557.76,
+            "height": 63.868
+          },
+          "normalized_bbox": {
+            "x": 0.503312,
+            "y": 0.099328,
+            "width": 0.229154,
+            "height": 0.020797
+          },
+          "reading_order_index": 83,
+          "confidence": 0.908439040184021,
+          "source_engine": "paddleocr-ppstructurev3-layout",
+          "issues": [
+            {
+              "code": "STRUCTURE_REGION_CANDIDATE",
+              "severity": "info",
+              "message": "Experimental PaddleOCR layout region candidate: VISUAL_OR_PROBLEM_CAPTION_CANDIDATE."
+            }
+          ],
+          "layout": {
+            "is_structure_region_candidate": true,
+            "structure_label": "VISUAL_OR_PROBLEM_CAPTION_CANDIDATE",
+            "domain_mapping_reason": "Caption-like region needs domain review before attaching to a visual, table, or problem box.",
+            "raw_label": "figure_title",
+            "normalized_raw_label": "figure_title",
+            "raw": {
+              "block_id": null,
+              "block_order": null,
+              "block_label": null,
+              "label": "figure_title",
+              "category": null,
+              "score": 0.908439040184021,
+              "confidence": null
+            },
+            "contained_text_node_count": 1,
+            "contained_text_node_refs": [
+              {
+                "node_id": "p102-n003",
+                "overlap_ratio": 0.684374,
+                "center_inside": true
+              }
+            ]
+          },
+          "contained_text_nodes": [
+            "p102-n003"
+          ]
+        },
+        {
+          "node_id": "p102-structure-r011",
+          "content_type": "UNKNOWN",
+          "bbox": {
+            "x": 168.645,
+            "y": 2128.178,
+            "width": 273.899,
+            "height": 62.919
+          },
+          "normalized_bbox": {
+            "x": 0.069287,
+            "y": 0.692992,
+            "width": 0.11253,
+            "height": 0.020488
+          },
+          "reading_order_index": 84,
+          "confidence": 0.9052481651306152,
+          "source_engine": "paddleocr-ppstructurev3-layout",
+          "issues": [
+            {
+              "code": "STRUCTURE_REGION_CANDIDATE",
+              "severity": "info",
+              "message": "Experimental PaddleOCR layout region candidate: VISUAL_OR_PROBLEM_CAPTION_CANDIDATE."
+            }
+          ],
+          "layout": {
+            "is_structure_region_candidate": true,
+            "structure_label": "VISUAL_OR_PROBLEM_CAPTION_CANDIDATE",
+            "domain_mapping_reason": "Caption-like region needs domain review before attaching to a visual, table, or problem box.",
+            "raw_label": "figure_title",
+            "normalized_raw_label": "figure_title",
+            "raw": {
+              "block_id": null,
+              "block_order": null,
+              "block_label": null,
+              "label": "figure_title",
+              "category": null,
+              "score": 0.9052481651306152,
+              "confidence": null
+            },
+            "contained_text_node_count": 1,
+            "contained_text_node_refs": [
+              {
+                "node_id": "p102-n051",
+                "overlap_ratio": 0.666104,
+                "center_inside": true
+              }
+            ]
+          },
+          "contained_text_nodes": [
+            "p102-n051"
+          ]
+        },
+        {
+          "node_id": "p102-structure-r012",
+          "content_type": "UNKNOWN",
+          "bbox": {
+            "x": 169.048,
+            "y": 306.431,
+            "width": 331.995,
+            "height": 61.088
+          },
+          "normalized_bbox": {
+            "x": 0.069453,
+            "y": 0.099782,
+            "width": 0.136399,
+            "height": 0.019892
+          },
+          "reading_order_index": 85,
+          "confidence": 0.8982276320457458,
+          "source_engine": "paddleocr-ppstructurev3-layout",
+          "issues": [
+            {
+              "code": "STRUCTURE_REGION_CANDIDATE",
+              "severity": "info",
+              "message": "Experimental PaddleOCR layout region candidate: VISUAL_OR_PROBLEM_CAPTION_CANDIDATE."
+            }
+          ],
+          "layout": {
+            "is_structure_region_candidate": true,
+            "structure_label": "VISUAL_OR_PROBLEM_CAPTION_CANDIDATE",
+            "domain_mapping_reason": "Caption-like region needs domain review before attaching to a visual, table, or problem box.",
+            "raw_label": "figure_title",
+            "normalized_raw_label": "figure_title",
+            "raw": {
+              "block_id": null,
+              "block_order": null,
+              "block_label": null,
+              "label": "figure_title",
+              "category": null,
+              "score": 0.8982276320457458,
+              "confidence": null
+            },
+            "contained_text_node_count": 1,
+            "contained_text_node_refs": [
+              {
+                "node_id": "p102-n014",
+                "overlap_ratio": 0.797692,
+                "center_inside": true
+              }
+            ]
+          },
+          "contained_text_nodes": [
+            "p102-n014"
+          ]
+        }
+      ],
+      "reading_order": [
+        "p102-n001",
+        "p102-n002",
+        "p102-n014",
+        "p102-n004",
+        "p102-n015",
+        "p102-n005",
+        "p102-n006",
+        "p102-n007",
+        "p102-n021",
+        "p102-n008",
+        "p102-n009",
+        "p102-n010",
+        "p102-n011",
+        "p102-n027",
+        "p102-n028",
+        "p102-n029",
+        "p102-n030",
+        "p102-n034",
+        "p102-n031",
+        "p102-n036",
+        "p102-n037",
+        "p102-n038",
+        "p102-n045",
+        "p102-n039",
+        "p102-n040",
+        "p102-n041",
+        "p102-n048",
+        "p102-n049",
+        "p102-n051",
+        "p102-n062",
+        "p102-n052",
+        "p102-n053",
+        "p102-n054",
+        "p102-n055",
+        "p102-n067",
+        "p102-n057",
+        "p102-n058",
+        "p102-n059",
+        "p102-n060",
+        "p102-n003",
+        "p102-n016",
+        "p102-n017",
+        "p102-n019",
+        "p102-n018",
+        "p102-n020",
+        "p102-n024",
+        "p102-n022",
+        "p102-n025",
+        "p102-n023",
+        "p102-n012",
+        "p102-n026",
+        "p102-n013",
+        "p102-n035",
+        "p102-n032",
+        "p102-n033",
+        "p102-n044",
+        "p102-n046",
+        "p102-n047",
+        "p102-n042",
+        "p102-n050",
+        "p102-n043",
+        "p102-n061",
+        "p102-n063",
+        "p102-n064",
+        "p102-n065",
+        "p102-n066",
+        "p102-n056",
+        "p102-n068",
+        "p102-n069",
+        "p102-n070",
+        "p102-n071",
+        "p102-n073",
+        "p102-n072",
+        "p102-n074",
+        "p102-structure-r001",
+        "p102-structure-r002",
+        "p102-structure-r003",
+        "p102-structure-r004",
+        "p102-structure-r005",
+        "p102-structure-r006",
+        "p102-structure-r007",
+        "p102-structure-r008",
+        "p102-structure-r009",
+        "p102-structure-r010",
+        "p102-structure-r011",
+        "p102-structure-r012"
+      ],
+      "parse_issues": [
+        {
+          "code": "OCR_RAW_CACHE_WRITTEN",
+          "severity": "info",
+          "message": "D:\\Projects\\OCR\\document-parser\\data\\debug\\ocr_cache\\paddleocr-general-ocr\\p102-2e9ec434d413e12b3225d622.json"
+        },
+        {
+          "code": "TWO_COLUMN_READING_ORDER_APPLIED",
+          "severity": "info",
+          "message": "Primary reading order was reordered by detected left/right page columns.",
+          "evidence": {
+            "primary_node_count": 74,
+            "body_node_count": 71,
+            "left_node_count": 24,
+            "right_node_count": 25,
+            "middle_node_count": 10,
+            "spanning_node_count": 12,
+            "left_vertical_band_count": 4,
+            "right_vertical_band_count": 4,
+            "min_left_nodes": 8,
+            "min_right_nodes": 8,
+            "min_vertical_band_count": 4
+          }
+        },
+        {
+          "code": "STRUCTURE_TEXT_LINKS_ADDED",
+          "severity": "info",
+          "message": "Structure region candidates were linked to overlapping OCR TEXT nodes."
+        },
+        {
+          "code": "STRUCTURE_REGION_CANDIDATES_ADDED",
+          "severity": "info",
+          "message": "12 experimental PaddleOCR structure region candidates were added."
+        },
+        {
+          "code": "LAYOUT_BARRIERS_APPLIED",
+          "severity": "info",
+          "message": "6 structure regions were marked as layout barriers; 58 TEXT nodes were assigned."
+        },
+        {
+          "code": "LAYOUT_BARRIER_CROSSING_TEXT_CANDIDATE",
+          "severity": "warning",
+          "message": "TEXT node p102-n004 overlaps multiple layout barriers and may need splitting before final reconciliation.",
+          "node_id": "p102-n004",
+          "barrier_node_ids": [
+            "p102-structure-r002",
+            "p102-structure-r004"
+          ]
+        },
+        {
+          "code": "LAYOUT_BARRIER_CROSSING_TEXT_CANDIDATE",
+          "severity": "warning",
+          "message": "TEXT node p102-n011 overlaps multiple layout barriers and may need splitting before final reconciliation.",
+          "node_id": "p102-n011",
+          "barrier_node_ids": [
+            "p102-structure-r002",
+            "p102-structure-r004"
+          ]
+        },
+        {
+          "code": "LAYOUT_BARRIER_CROSSING_TEXT_CANDIDATE",
+          "severity": "warning",
+          "message": "TEXT node p102-n021 overlaps multiple layout barriers and may need splitting before final reconciliation.",
+          "node_id": "p102-n021",
+          "barrier_node_ids": [
+            "p102-structure-r002",
+            "p102-structure-r004"
+          ]
+        },
+        {
+          "code": "LAYOUT_BARRIER_CROSSING_TEXT_CANDIDATE",
+          "severity": "warning",
+          "message": "TEXT node p102-n030 overlaps multiple layout barriers and may need splitting before final reconciliation.",
+          "node_id": "p102-n030",
+          "barrier_node_ids": [
+            "p102-structure-r001",
+            "p102-structure-r006"
+          ]
+        },
+        {
+          "code": "LAYOUT_BARRIER_CROSSING_TEXT_CANDIDATE",
+          "severity": "warning",
+          "message": "TEXT node p102-n031 overlaps multiple layout barriers and may need splitting before final reconciliation.",
+          "node_id": "p102-n031",
+          "barrier_node_ids": [
+            "p102-structure-r001",
+            "p102-structure-r006"
+          ]
+        },
+        {
+          "code": "LAYOUT_BARRIER_CROSSING_TEXT_CANDIDATE",
+          "severity": "warning",
+          "message": "TEXT node p102-n033 overlaps multiple layout barriers and may need splitting before final reconciliation.",
+          "node_id": "p102-n033",
+          "barrier_node_ids": [
+            "p102-structure-r001",
+            "p102-structure-r006"
+          ]
+        },
+        {
+          "code": "LAYOUT_BARRIER_CROSSING_TEXT_CANDIDATE",
+          "severity": "warning",
+          "message": "TEXT node p102-n038 overlaps multiple layout barriers and may need splitting before final reconciliation.",
+          "node_id": "p102-n038",
+          "barrier_node_ids": [
+            "p102-structure-r001",
+            "p102-structure-r006"
+          ]
+        },
+        {
+          "code": "LAYOUT_BARRIER_CROSSING_TEXT_CANDIDATE",
+          "severity": "warning",
+          "message": "TEXT node p102-n040 overlaps multiple layout barriers and may need splitting before final reconciliation.",
+          "node_id": "p102-n040",
+          "barrier_node_ids": [
+            "p102-structure-r001",
+            "p102-structure-r006"
+          ]
+        },
+        {
+          "code": "LAYOUT_BARRIER_CROSSING_TEXT_CANDIDATE",
+          "severity": "warning",
+          "message": "TEXT node p102-n041 overlaps multiple layout barriers and may need splitting before final reconciliation.",
+          "node_id": "p102-n041",
+          "barrier_node_ids": [
+            "p102-structure-r001",
+            "p102-structure-r006"
+          ]
+        },
+        {
+          "code": "LAYOUT_BARRIER_CROSSING_TEXT_CANDIDATE",
+          "severity": "warning",
+          "message": "TEXT node p102-n046 overlaps multiple layout barriers and may need splitting before final reconciliation.",
+          "node_id": "p102-n046",
+          "barrier_node_ids": [
+            "p102-structure-r001",
+            "p102-structure-r006"
+          ]
+        },
+        {
+          "code": "LAYOUT_BARRIER_CROSSING_TEXT_CANDIDATE",
+          "severity": "warning",
+          "message": "TEXT node p102-n053 overlaps multiple layout barriers and may need splitting before final reconciliation.",
+          "node_id": "p102-n053",
+          "barrier_node_ids": [
+            "p102-structure-r003",
+            "p102-structure-r005"
+          ]
+        },
+        {
+          "code": "LAYOUT_BARRIER_CROSSING_TEXT_CANDIDATE",
+          "severity": "warning",
+          "message": "TEXT node p102-n056 overlaps multiple layout barriers and may need splitting before final reconciliation.",
+          "node_id": "p102-n056",
+          "barrier_node_ids": [
+            "p102-structure-r003",
+            "p102-structure-r005"
+          ]
+        },
+        {
+          "code": "LAYOUT_BARRIER_CROSSING_TEXT_CANDIDATE",
+          "severity": "warning",
+          "message": "TEXT node p102-n058 overlaps multiple layout barriers and may need splitting before final reconciliation.",
+          "node_id": "p102-n058",
+          "barrier_node_ids": [
+            "p102-structure-r003",
+            "p102-structure-r005"
+          ]
+        },
+        {
+          "code": "LAYOUT_BARRIER_CROSSING_TEXT_CANDIDATE",
+          "severity": "warning",
+          "message": "TEXT node p102-n062 overlaps multiple layout barriers and may need splitting before final reconciliation.",
+          "node_id": "p102-n062",
+          "barrier_node_ids": [
+            "p102-structure-r003",
+            "p102-structure-r005"
+          ]
+        },
+        {
+          "code": "LAYOUT_BARRIER_CROSSING_TEXT_CANDIDATE",
+          "severity": "warning",
+          "message": "TEXT node p102-n065 overlaps multiple layout barriers and may need splitting before final reconciliation.",
+          "node_id": "p102-n065",
+          "barrier_node_ids": [
+            "p102-structure-r003",
+            "p102-structure-r005"
+          ]
+        },
+        {
+          "code": "LAYOUT_BARRIER_CROSSING_TEXT_CANDIDATE",
+          "severity": "warning",
+          "message": "TEXT node p102-n068 overlaps multiple layout barriers and may need splitting before final reconciliation.",
+          "node_id": "p102-n068",
+          "barrier_node_ids": [
+            "p102-structure-r003",
+            "p102-structure-r005"
+          ]
+        }
+      ],
+      "quality_report": {
+        "page_id": "p102",
+        "source": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p102.png",
+        "status": "PASS",
+        "width": 2434,
+        "height": 3071,
+        "mode": "RGB",
+        "image_format": "PNG",
+        "long_edge": 3071,
+        "aspect_ratio": 0.792576,
+        "blur_score": 1515.782471,
+        "issues": []
+      }
+    }
+  ],
+  "engine_manifest": {
+    "general_ocr": {
+      "engine_id": "paddleocr-general-ocr",
+      "engine_version": "3.7.0"
+    },
+    "pipeline": {
+      "mode": "text_only",
+      "requires_pdf_text_layer": false,
+      "layout_mode": "token_line_block",
+      "visual_region_mode": "approval_gated_unsupported_page_candidates",
+      "reading_order_mode": "two_column_candidate_postprocess"
+    },
+    "structure_layout": {
+      "engine_id": "paddleocr-ppstructurev3-layout",
+      "mode": "experimental_region_candidates"
+    },
+    "layout_barriers": {
+      "mode": "structure_region_containment",
+      "barrier_labels": [
+        "GRAPH_OR_DIAGRAM_CANDIDATE",
+        "PROBLEM_BOX_CANDIDATE",
+        "TABLE_CANDIDATE"
+      ],
+      "containment_threshold": 0.55
+    }
+  },
+  "validation_summary": {
+    "schema_valid": true,
+    "validation_performed": true,
+    "coordinate_missing_node_count": 0,
+    "reading_order_cycle_count": 0,
+    "invalid_reading_order_ref_count": 0,
+    "missing_reading_order_node_count": 0,
+    "duplicate_node_id_count": 0,
+    "required_field_missing_count": 0,
+    "type_error_count": 0,
+    "bbox_invalid_count": 0,
+    "normalized_bbox_out_of_range_count": 0,
+    "confidence_invalid_count": 0,
+    "reading_order_index_mismatch_count": 0,
+    "invalid_embedded_text_ref_count": 0,
+    "quality_status_invalid_count": 0,
+    "issue_invalid_count": 0,
+    "page_count_mismatch": false,
+    "page_count": 1
+  }
+}

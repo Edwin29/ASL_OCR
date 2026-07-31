@@ -1,0 +1,462 @@
+{
+  "report_type": "ocr_comparison",
+  "baseline_engine": {
+    "engine_id": "easyocr-general-ocr",
+    "engine_version": "1.7.2"
+  },
+  "candidate_engine": {
+    "engine_id": "paddleocr-general-ocr",
+    "engine_version": "3.7.0"
+  },
+  "low_confidence_threshold": 0.5,
+  "page_count": 8,
+  "baseline_totals": {
+    "page_count": 8,
+    "node_count": 368,
+    "low_confidence_node_count": 121,
+    "low_confidence_rate": 0.328804,
+    "reading_order_warning_count": 13,
+    "region_separation_warning_count": 20,
+    "overlap_warning_count": 15,
+    "diagnostic_score": 169
+  },
+  "candidate_totals": {
+    "page_count": 8,
+    "node_count": 391,
+    "low_confidence_node_count": 1,
+    "low_confidence_rate": 0.002558,
+    "reading_order_warning_count": 14,
+    "region_separation_warning_count": 21,
+    "overlap_warning_count": 17,
+    "diagnostic_score": 53
+  },
+  "deltas": {
+    "node_count": 23.0,
+    "low_confidence_node_count": -120.0,
+    "low_confidence_rate": -0.326246,
+    "reading_order_warning_count": 1.0,
+    "region_separation_warning_count": 1.0,
+    "overlap_warning_count": 2.0,
+    "diagnostic_score": -116.0
+  },
+  "verdict_counts": {
+    "CANDIDATE_PREFERRED": 7,
+    "TIE_OR_REVIEW": 1
+  },
+  "recommendation": "CANDIDATE_CAN_ADVANCE_TO_OVERLAY_REVIEW",
+  "pages": [
+    {
+      "page_id": "p003",
+      "status": "COMPARED",
+      "verdict": "CANDIDATE_PREFERRED",
+      "baseline": {
+        "node_count": 82,
+        "mean_confidence": 0.502784,
+        "min_confidence": 0.042817,
+        "low_confidence_node_count": 42,
+        "low_confidence_rate": 0.512195,
+        "reading_order_warning_count": 6,
+        "region_separation_warning_count": 3,
+        "overlap_warning_count": 8,
+        "suspicious_shape_node_count": 1,
+        "diagnostic_score": 59.0,
+        "parse_issue_codes": [
+          "OCR_LOW_CONFIDENCE",
+          "OCR_RAW_CACHE_WRITTEN"
+        ]
+      },
+      "candidate": {
+        "node_count": 88,
+        "mean_confidence": 0.909334,
+        "min_confidence": 0.445555,
+        "low_confidence_node_count": 1,
+        "low_confidence_rate": 0.011364,
+        "reading_order_warning_count": 3,
+        "region_separation_warning_count": 2,
+        "overlap_warning_count": 6,
+        "suspicious_shape_node_count": 0,
+        "diagnostic_score": 12.0,
+        "parse_issue_codes": [
+          "OCR_LOW_CONFIDENCE",
+          "OCR_RAW_CACHE_WRITTEN"
+        ]
+      },
+      "deltas": {
+        "node_count": 6,
+        "mean_confidence": 0.40655,
+        "min_confidence": 0.402738,
+        "low_confidence_node_count": -41,
+        "reading_order_warning_count": -3,
+        "region_separation_warning_count": -1,
+        "overlap_warning_count": -2,
+        "suspicious_shape_node_count": -1,
+        "diagnostic_score": -47.0
+      },
+      "reasons": [
+        "Candidate has materially fewer low-confidence or layout-warning diagnostics.",
+        "Candidate mean confidence is higher."
+      ]
+    },
+    {
+      "page_id": "p004",
+      "status": "COMPARED",
+      "verdict": "CANDIDATE_PREFERRED",
+      "baseline": {
+        "node_count": 40,
+        "mean_confidence": 0.447727,
+        "min_confidence": 0.096066,
+        "low_confidence_node_count": 23,
+        "low_confidence_rate": 0.575,
+        "reading_order_warning_count": 1,
+        "region_separation_warning_count": 5,
+        "overlap_warning_count": 0,
+        "suspicious_shape_node_count": 2,
+        "diagnostic_score": 29.0,
+        "parse_issue_codes": [
+          "OCR_LOW_CONFIDENCE",
+          "OCR_RAW_CACHE_WRITTEN"
+        ]
+      },
+      "candidate": {
+        "node_count": 44,
+        "mean_confidence": 0.866502,
+        "min_confidence": 0.58864,
+        "low_confidence_node_count": 0,
+        "low_confidence_rate": 0.0,
+        "reading_order_warning_count": 1,
+        "region_separation_warning_count": 2,
+        "overlap_warning_count": 3,
+        "suspicious_shape_node_count": 2,
+        "diagnostic_score": 6.0,
+        "parse_issue_codes": [
+          "OCR_LOW_CONFIDENCE",
+          "OCR_RAW_CACHE_WRITTEN"
+        ]
+      },
+      "deltas": {
+        "node_count": 4,
+        "mean_confidence": 0.418775,
+        "min_confidence": 0.492574,
+        "low_confidence_node_count": -23,
+        "reading_order_warning_count": 0,
+        "region_separation_warning_count": -3,
+        "overlap_warning_count": 3,
+        "suspicious_shape_node_count": 0,
+        "diagnostic_score": -23.0
+      },
+      "reasons": [
+        "Candidate has materially fewer low-confidence or layout-warning diagnostics.",
+        "Candidate mean confidence is higher."
+      ]
+    },
+    {
+      "page_id": "p008",
+      "status": "COMPARED",
+      "verdict": "CANDIDATE_PREFERRED",
+      "baseline": {
+        "node_count": 30,
+        "mean_confidence": 0.66436,
+        "min_confidence": 0.117118,
+        "low_confidence_node_count": 7,
+        "low_confidence_rate": 0.233333,
+        "reading_order_warning_count": 1,
+        "region_separation_warning_count": 0,
+        "overlap_warning_count": 0,
+        "suspicious_shape_node_count": 0,
+        "diagnostic_score": 8.0,
+        "parse_issue_codes": [
+          "OCR_LOW_CONFIDENCE",
+          "OCR_RAW_CACHE_WRITTEN"
+        ]
+      },
+      "candidate": {
+        "node_count": 30,
+        "mean_confidence": 0.918905,
+        "min_confidence": 0.663778,
+        "low_confidence_node_count": 0,
+        "low_confidence_rate": 0.0,
+        "reading_order_warning_count": 1,
+        "region_separation_warning_count": 0,
+        "overlap_warning_count": 1,
+        "suspicious_shape_node_count": 0,
+        "diagnostic_score": 2.0,
+        "parse_issue_codes": [
+          "OCR_RAW_CACHE_WRITTEN"
+        ]
+      },
+      "deltas": {
+        "node_count": 0,
+        "mean_confidence": 0.254545,
+        "min_confidence": 0.54666,
+        "low_confidence_node_count": -7,
+        "reading_order_warning_count": 0,
+        "region_separation_warning_count": 0,
+        "overlap_warning_count": 1,
+        "suspicious_shape_node_count": 0,
+        "diagnostic_score": -6.0
+      },
+      "reasons": [
+        "Candidate has materially fewer low-confidence or layout-warning diagnostics.",
+        "Candidate mean confidence is higher."
+      ]
+    },
+    {
+      "page_id": "p012",
+      "status": "COMPARED",
+      "verdict": "CANDIDATE_PREFERRED",
+      "baseline": {
+        "node_count": 38,
+        "mean_confidence": 0.730608,
+        "min_confidence": 0.222061,
+        "low_confidence_node_count": 8,
+        "low_confidence_rate": 0.210526,
+        "reading_order_warning_count": 0,
+        "region_separation_warning_count": 2,
+        "overlap_warning_count": 0,
+        "suspicious_shape_node_count": 0,
+        "diagnostic_score": 10.0,
+        "parse_issue_codes": [
+          "OCR_LOW_CONFIDENCE",
+          "OCR_RAW_CACHE_WRITTEN"
+        ]
+      },
+      "candidate": {
+        "node_count": 40,
+        "mean_confidence": 0.954697,
+        "min_confidence": 0.87242,
+        "low_confidence_node_count": 0,
+        "low_confidence_rate": 0.0,
+        "reading_order_warning_count": 0,
+        "region_separation_warning_count": 3,
+        "overlap_warning_count": 2,
+        "suspicious_shape_node_count": 0,
+        "diagnostic_score": 5.0,
+        "parse_issue_codes": [
+          "OCR_RAW_CACHE_WRITTEN"
+        ]
+      },
+      "deltas": {
+        "node_count": 2,
+        "mean_confidence": 0.224089,
+        "min_confidence": 0.650359,
+        "low_confidence_node_count": -8,
+        "reading_order_warning_count": 0,
+        "region_separation_warning_count": 1,
+        "overlap_warning_count": 2,
+        "suspicious_shape_node_count": 0,
+        "diagnostic_score": -5.0
+      },
+      "reasons": [
+        "Candidate has materially fewer low-confidence or layout-warning diagnostics.",
+        "Candidate mean confidence is higher."
+      ]
+    },
+    {
+      "page_id": "p019",
+      "status": "COMPARED",
+      "verdict": "CANDIDATE_PREFERRED",
+      "baseline": {
+        "node_count": 27,
+        "mean_confidence": 0.618127,
+        "min_confidence": 0.188712,
+        "low_confidence_node_count": 9,
+        "low_confidence_rate": 0.333333,
+        "reading_order_warning_count": 3,
+        "region_separation_warning_count": 2,
+        "overlap_warning_count": 0,
+        "suspicious_shape_node_count": 2,
+        "diagnostic_score": 14.0,
+        "parse_issue_codes": [
+          "OCR_LOW_CONFIDENCE",
+          "OCR_RAW_CACHE_WRITTEN"
+        ]
+      },
+      "candidate": {
+        "node_count": 29,
+        "mean_confidence": 0.934532,
+        "min_confidence": 0.699983,
+        "low_confidence_node_count": 0,
+        "low_confidence_rate": 0.0,
+        "reading_order_warning_count": 3,
+        "region_separation_warning_count": 3,
+        "overlap_warning_count": 0,
+        "suspicious_shape_node_count": 1,
+        "diagnostic_score": 6.0,
+        "parse_issue_codes": [
+          "OCR_LOW_CONFIDENCE",
+          "OCR_RAW_CACHE_WRITTEN"
+        ]
+      },
+      "deltas": {
+        "node_count": 2,
+        "mean_confidence": 0.316405,
+        "min_confidence": 0.511271,
+        "low_confidence_node_count": -9,
+        "reading_order_warning_count": 0,
+        "region_separation_warning_count": 1,
+        "overlap_warning_count": 0,
+        "suspicious_shape_node_count": -1,
+        "diagnostic_score": -8.0
+      },
+      "reasons": [
+        "Candidate has materially fewer low-confidence or layout-warning diagnostics.",
+        "Candidate mean confidence is higher."
+      ]
+    },
+    {
+      "page_id": "p020",
+      "status": "COMPARED",
+      "verdict": "CANDIDATE_PREFERRED",
+      "baseline": {
+        "node_count": 30,
+        "mean_confidence": 0.53053,
+        "min_confidence": 0.060892,
+        "low_confidence_node_count": 16,
+        "low_confidence_rate": 0.533333,
+        "reading_order_warning_count": 0,
+        "region_separation_warning_count": 1,
+        "overlap_warning_count": 0,
+        "suspicious_shape_node_count": 1,
+        "diagnostic_score": 17.0,
+        "parse_issue_codes": [
+          "OCR_LOW_CONFIDENCE",
+          "OCR_RAW_CACHE_WRITTEN"
+        ]
+      },
+      "candidate": {
+        "node_count": 39,
+        "mean_confidence": 0.914607,
+        "min_confidence": 0.552419,
+        "low_confidence_node_count": 0,
+        "low_confidence_rate": 0.0,
+        "reading_order_warning_count": 1,
+        "region_separation_warning_count": 1,
+        "overlap_warning_count": 1,
+        "suspicious_shape_node_count": 1,
+        "diagnostic_score": 3.0,
+        "parse_issue_codes": [
+          "OCR_LOW_CONFIDENCE",
+          "OCR_RAW_CACHE_WRITTEN"
+        ]
+      },
+      "deltas": {
+        "node_count": 9,
+        "mean_confidence": 0.384077,
+        "min_confidence": 0.491527,
+        "low_confidence_node_count": -16,
+        "reading_order_warning_count": 1,
+        "region_separation_warning_count": 0,
+        "overlap_warning_count": 1,
+        "suspicious_shape_node_count": 0,
+        "diagnostic_score": -14.0
+      },
+      "reasons": [
+        "Candidate has materially fewer low-confidence or layout-warning diagnostics.",
+        "Candidate mean confidence is higher."
+      ]
+    },
+    {
+      "page_id": "p054",
+      "status": "COMPARED",
+      "verdict": "CANDIDATE_PREFERRED",
+      "baseline": {
+        "node_count": 42,
+        "mean_confidence": 0.615819,
+        "min_confidence": 0.164292,
+        "low_confidence_node_count": 15,
+        "low_confidence_rate": 0.357143,
+        "reading_order_warning_count": 2,
+        "region_separation_warning_count": 1,
+        "overlap_warning_count": 0,
+        "suspicious_shape_node_count": 1,
+        "diagnostic_score": 18.0,
+        "parse_issue_codes": [
+          "OCR_LOW_CONFIDENCE",
+          "OCR_RAW_CACHE_WRITTEN"
+        ]
+      },
+      "candidate": {
+        "node_count": 47,
+        "mean_confidence": 0.930115,
+        "min_confidence": 0.771515,
+        "low_confidence_node_count": 0,
+        "low_confidence_rate": 0.0,
+        "reading_order_warning_count": 1,
+        "region_separation_warning_count": 1,
+        "overlap_warning_count": 1,
+        "suspicious_shape_node_count": 1,
+        "diagnostic_score": 3.0,
+        "parse_issue_codes": [
+          "OCR_RAW_CACHE_WRITTEN"
+        ]
+      },
+      "deltas": {
+        "node_count": 5,
+        "mean_confidence": 0.314296,
+        "min_confidence": 0.607223,
+        "low_confidence_node_count": -15,
+        "reading_order_warning_count": -1,
+        "region_separation_warning_count": 0,
+        "overlap_warning_count": 1,
+        "suspicious_shape_node_count": 0,
+        "diagnostic_score": -15.0
+      },
+      "reasons": [
+        "Candidate has materially fewer low-confidence or layout-warning diagnostics.",
+        "Candidate mean confidence is higher."
+      ]
+    },
+    {
+      "page_id": "p102",
+      "status": "COMPARED",
+      "verdict": "TIE_OR_REVIEW",
+      "baseline": {
+        "node_count": 79,
+        "mean_confidence": 0.879141,
+        "min_confidence": 0.43894,
+        "low_confidence_node_count": 1,
+        "low_confidence_rate": 0.012658,
+        "reading_order_warning_count": 0,
+        "region_separation_warning_count": 6,
+        "overlap_warning_count": 7,
+        "suspicious_shape_node_count": 2,
+        "diagnostic_score": 14.0,
+        "parse_issue_codes": [
+          "OCR_LOW_CONFIDENCE",
+          "OCR_RAW_CACHE_WRITTEN"
+        ]
+      },
+      "candidate": {
+        "node_count": 74,
+        "mean_confidence": 0.960056,
+        "min_confidence": 0.790303,
+        "low_confidence_node_count": 0,
+        "low_confidence_rate": 0.0,
+        "reading_order_warning_count": 4,
+        "region_separation_warning_count": 9,
+        "overlap_warning_count": 3,
+        "suspicious_shape_node_count": 5,
+        "diagnostic_score": 16.0,
+        "parse_issue_codes": [
+          "OCR_RAW_CACHE_WRITTEN",
+          "TWO_COLUMN_READING_ORDER_APPLIED"
+        ]
+      },
+      "deltas": {
+        "node_count": -5,
+        "mean_confidence": 0.080915,
+        "min_confidence": 0.351363,
+        "low_confidence_node_count": -1,
+        "reading_order_warning_count": 4,
+        "region_separation_warning_count": 3,
+        "overlap_warning_count": -4,
+        "suspicious_shape_node_count": 3,
+        "diagnostic_score": 2.0
+      },
+      "reasons": [
+        "Candidate has materially more low-confidence or layout-warning diagnostics.",
+        "Candidate mean confidence is higher."
+      ]
+    }
+  ]
+}

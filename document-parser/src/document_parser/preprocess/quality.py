@@ -12,7 +12,7 @@ from typing import Iterable
 import numpy as np
 from PIL import Image
 
-from document_parser.assets.audit import ZIP_PAGE_RE, detect_project_root, find_assets
+from document_parser.assets.constants import ZIP_PAGE_RE
 from document_parser.ingest import ImageDocument, ImageIngestor
 
 
@@ -228,6 +228,8 @@ def parse_page_spec(spec: str) -> list[int]:
 
 
 def main(argv: list[str] | None = None) -> int:
+    from document_parser.assets.audit import detect_project_root, find_assets
+
     parser = argparse.ArgumentParser(description="Generate image quality reports for ZIP and rendered page images.")
     parser.add_argument("--project-root", type=Path, default=None)
     parser.add_argument("--rendered-dir", type=Path, default=Path("document-parser/data/pages_pdf300"))
@@ -248,4 +250,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main(sys.argv[1:]))
-

@@ -1,0 +1,278 @@
+{
+  "engine_id": "paddleocr-ppstructurev3-layout",
+  "engine_version": "3.7.0",
+  "layout_detection_model_name": "PP-DocLayout_plus-L",
+  "layout_threshold": 0.35,
+  "pages": [
+    {
+      "page_id": "p102",
+      "region_count": 12,
+      "regions": [
+        {
+          "label": "table",
+          "domain_label": "PROBLEM_BOX_CANDIDATE",
+          "content_type": "UNKNOWN",
+          "mapping_reason": "Large table-like layout region is more likely a boxed textbook problem than a strict table.",
+          "bbox": {
+            "x": 169.82379150390625,
+            "y": 1301.3873291015625,
+            "width": 946.4514770507812,
+            "height": 613.2611083984375
+          },
+          "confidence": 0.9679797291755676,
+          "raw": {
+            "block_id": null,
+            "block_order": null,
+            "block_label": null,
+            "label": "table",
+            "category": null,
+            "score": 0.9679797291755676,
+            "confidence": null
+          }
+        },
+        {
+          "label": "table",
+          "domain_label": "PROBLEM_BOX_CANDIDATE",
+          "content_type": "UNKNOWN",
+          "mapping_reason": "Large table-like layout region is more likely a boxed textbook problem than a strict table.",
+          "bbox": {
+            "x": 169.93423461914062,
+            "y": 390.2353820800781,
+            "width": 948.4300231933594,
+            "height": 677.7568054199219
+          },
+          "confidence": 0.9673937559127808,
+          "raw": {
+            "block_id": null,
+            "block_order": null,
+            "block_label": null,
+            "label": "table",
+            "category": null,
+            "score": 0.9673937559127808,
+            "confidence": null
+          }
+        },
+        {
+          "label": "table",
+          "domain_label": "PROBLEM_BOX_CANDIDATE",
+          "content_type": "UNKNOWN",
+          "mapping_reason": "Large table-like layout region is more likely a boxed textbook problem than a strict table.",
+          "bbox": {
+            "x": 169.2003936767578,
+            "y": 2216.238037109375,
+            "width": 949.6610565185547,
+            "height": 612.598388671875
+          },
+          "confidence": 0.966858983039856,
+          "raw": {
+            "block_id": null,
+            "block_order": null,
+            "block_label": null,
+            "label": "table",
+            "category": null,
+            "score": 0.966858983039856,
+            "confidence": null
+          }
+        },
+        {
+          "label": "table",
+          "domain_label": "PROBLEM_BOX_CANDIDATE",
+          "content_type": "UNKNOWN",
+          "mapping_reason": "Large table-like layout region is more likely a boxed textbook problem than a strict table.",
+          "bbox": {
+            "x": 1225.2698974609375,
+            "y": 392.86346435546875,
+            "width": 949.3648681640625,
+            "height": 668.6582641601562
+          },
+          "confidence": 0.9667684435844421,
+          "raw": {
+            "block_id": null,
+            "block_order": null,
+            "block_label": null,
+            "label": "table",
+            "category": null,
+            "score": 0.9667684435844421,
+            "confidence": null
+          }
+        },
+        {
+          "label": "table",
+          "domain_label": "PROBLEM_BOX_CANDIDATE",
+          "content_type": "UNKNOWN",
+          "mapping_reason": "Large table-like layout region is more likely a boxed textbook problem than a strict table.",
+          "bbox": {
+            "x": 1225.501220703125,
+            "y": 2216.4248046875,
+            "width": 949.85546875,
+            "height": 613.01220703125
+          },
+          "confidence": 0.9619464874267578,
+          "raw": {
+            "block_id": null,
+            "block_order": null,
+            "block_label": null,
+            "label": "table",
+            "category": null,
+            "score": 0.9619464874267578,
+            "confidence": null
+          }
+        },
+        {
+          "label": "table",
+          "domain_label": "PROBLEM_BOX_CANDIDATE",
+          "content_type": "UNKNOWN",
+          "mapping_reason": "Large table-like layout region is more likely a boxed textbook problem than a strict table.",
+          "bbox": {
+            "x": 1225.63037109375,
+            "y": 1298.7476806640625,
+            "width": 948.580810546875,
+            "height": 679.7645263671875
+          },
+          "confidence": 0.9574626684188843,
+          "raw": {
+            "block_id": null,
+            "block_order": null,
+            "block_label": null,
+            "label": "table",
+            "category": null,
+            "score": 0.9574626684188843,
+            "confidence": null
+          }
+        },
+        {
+          "label": "figure_title",
+          "domain_label": "VISUAL_OR_PROBLEM_CAPTION_CANDIDATE",
+          "content_type": "UNKNOWN",
+          "mapping_reason": "Caption-like region needs domain review before attaching to a visual, table, or problem box.",
+          "bbox": {
+            "x": 1225.27685546875,
+            "y": 2131.220947265625,
+            "width": 626.2601318359375,
+            "height": 61.191162109375
+          },
+          "confidence": 0.9207343459129333,
+          "raw": {
+            "block_id": null,
+            "block_order": null,
+            "block_label": null,
+            "label": "figure_title",
+            "category": null,
+            "score": 0.9207343459129333,
+            "confidence": null
+          }
+        },
+        {
+          "label": "figure_title",
+          "domain_label": "VISUAL_OR_PROBLEM_CAPTION_CANDIDATE",
+          "content_type": "UNKNOWN",
+          "mapping_reason": "Caption-like region needs domain review before attaching to a visual, table, or problem box.",
+          "bbox": {
+            "x": 167.02706909179688,
+            "y": 1215.0860595703125,
+            "width": 514.5650939941406,
+            "height": 60.15625
+          },
+          "confidence": 0.9184653759002686,
+          "raw": {
+            "block_id": null,
+            "block_order": null,
+            "block_label": null,
+            "label": "figure_title",
+            "category": null,
+            "score": 0.9184653759002686,
+            "confidence": null
+          }
+        },
+        {
+          "label": "figure_title",
+          "domain_label": "VISUAL_OR_PROBLEM_CAPTION_CANDIDATE",
+          "content_type": "UNKNOWN",
+          "mapping_reason": "Caption-like region needs domain review before attaching to a visual, table, or problem box.",
+          "bbox": {
+            "x": 1224.102294921875,
+            "y": 1215.3134765625,
+            "width": 514.68310546875,
+            "height": 60.868408203125
+          },
+          "confidence": 0.9176730513572693,
+          "raw": {
+            "block_id": null,
+            "block_order": null,
+            "block_label": null,
+            "label": "figure_title",
+            "category": null,
+            "score": 0.9176730513572693,
+            "confidence": null
+          }
+        },
+        {
+          "label": "figure_title",
+          "domain_label": "VISUAL_OR_PROBLEM_CAPTION_CANDIDATE",
+          "content_type": "UNKNOWN",
+          "mapping_reason": "Caption-like region needs domain review before attaching to a visual, table, or problem box.",
+          "bbox": {
+            "x": 1225.060791015625,
+            "y": 305.035400390625,
+            "width": 557.7596435546875,
+            "height": 63.868194580078125
+          },
+          "confidence": 0.908439040184021,
+          "raw": {
+            "block_id": null,
+            "block_order": null,
+            "block_label": null,
+            "label": "figure_title",
+            "category": null,
+            "score": 0.908439040184021,
+            "confidence": null
+          }
+        },
+        {
+          "label": "figure_title",
+          "domain_label": "VISUAL_OR_PROBLEM_CAPTION_CANDIDATE",
+          "content_type": "UNKNOWN",
+          "mapping_reason": "Caption-like region needs domain review before attaching to a visual, table, or problem box.",
+          "bbox": {
+            "x": 168.64549255371094,
+            "y": 2128.178466796875,
+            "width": 273.8989715576172,
+            "height": 62.919189453125
+          },
+          "confidence": 0.9052481651306152,
+          "raw": {
+            "block_id": null,
+            "block_order": null,
+            "block_label": null,
+            "label": "figure_title",
+            "category": null,
+            "score": 0.9052481651306152,
+            "confidence": null
+          }
+        },
+        {
+          "label": "figure_title",
+          "domain_label": "VISUAL_OR_PROBLEM_CAPTION_CANDIDATE",
+          "content_type": "UNKNOWN",
+          "mapping_reason": "Caption-like region needs domain review before attaching to a visual, table, or problem box.",
+          "bbox": {
+            "x": 169.04783630371094,
+            "y": 306.4305725097656,
+            "width": 331.9946746826172,
+            "height": 61.08758544921875
+          },
+          "confidence": 0.8982276320457458,
+          "raw": {
+            "block_id": null,
+            "block_order": null,
+            "block_label": null,
+            "label": "figure_title",
+            "category": null,
+            "score": 0.8982276320457458,
+            "confidence": null
+          }
+        }
+      ]
+    }
+  ]
+}

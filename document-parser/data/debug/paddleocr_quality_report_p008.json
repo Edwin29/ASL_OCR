@@ -1,0 +1,47 @@
+{
+  "report_type": "ocr_quality",
+  "page_count": 1,
+  "total_node_count": 30,
+  "total_low_confidence_node_count": 0,
+  "total_reading_order_warning_count": 1,
+  "total_region_separation_warning_count": 0,
+  "low_confidence_threshold": 0.5,
+  "wide_node_ratio": 0.72,
+  "tall_node_ratio": 0.08,
+  "overlap_threshold": 0.35,
+  "pages": [
+    {
+      "page_id": "p008",
+      "node_count": 30,
+      "mean_confidence": 0.918905,
+      "min_confidence": 0.663778,
+      "low_confidence_node_count": 0,
+      "suspicious_shape_node_count": 0,
+      "overlap_warning_count": 1,
+      "reading_order_warning_count": 1,
+      "region_separation_warning_count": 0,
+      "parse_issue_codes": [
+        "OCR_RAW_CACHE_WRITTEN"
+      ],
+      "low_confidence_nodes": [],
+      "suspicious_shape_nodes": [],
+      "overlap_warnings": [
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p008-n028",
+          "right_node_id": "p008-n029",
+          "overlap_ratio": 0.797647
+        }
+      ],
+      "reading_order_warnings": [
+        {
+          "type": "LARGE_VERTICAL_GAP",
+          "from_node_id": "p008-n029",
+          "to_node_id": "p008-n030",
+          "vertical_gap": 634.0
+        }
+      ],
+      "region_separation_warnings": []
+    }
+  ]
+}

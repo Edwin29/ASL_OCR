@@ -7,13 +7,16 @@ import sys
 from pathlib import Path
 from typing import Iterable
 
-from document_parser.assets.audit import BOOK_ID, PROFILE_HINT
+from document_parser.assets.constants import BOOK_ID, PROFILE_HINT
 from document_parser.ingest import ImageDocument, ImageIngestor
 from document_parser.layout import LayoutBuilder, LayoutLine
 from document_parser.ocr.base import BBox, GeneralOcrAdapter, OcrPageResult
 from document_parser.ocr.cache import OcrResultCache
 from document_parser.ocr.noop import NoopGeneralOcrAdapter
 from document_parser.preprocess import ImageQualityGate, QualityIssue, QualityReport
+from document_parser.serialization.reading_order import apply_two_column_reading_order
+from document_parser.serialization.visual_regions import apply_intro_page_exclusion
+from document_parser.validation import validate_document_ir
 
 
 class TextOnlyPageIrBuilder:
@@ -37,6 +40,8 @@ class TextOnlyPageIrBuilder:
                 "mode": "text_only",
                 "requires_pdf_text_layer": False,
                 "layout_mode": "token_line_block",
+                "visual_region_mode": "approval_gated_unsupported_page_candidates",
+                "reading_order_mode": "two_column_candidate_postprocess",
             },
         }
         for index, image_path in enumerate(sorted(image_paths), start=1):
@@ -89,7 +94,7 @@ class TextOnlyPageIrBuilder:
                 "severity": "info",
                 "message": str(cache_path),
             })
-        return {
+        page = {
             "page_id": image.page_id,
             "page_geometry": {
                 "width": image.width,
@@ -100,6 +105,8 @@ class TextOnlyPageIrBuilder:
             "parse_issues": parse_issues,
             "quality_report": quality.to_jsonable(),
         }
+        page = apply_intro_page_exclusion(page)
+        return apply_two_column_reading_order(page)
 
 
 def text_node_from_line(
@@ -160,79 +167,6 @@ def page_id_from_path(path: Path, fallback_index: int) -> str:
     if match:
         return f"p{int(match.group(1)):03d}"
     return f"p{fallback_index:03d}"
-
-
-def validate_document_ir(payload: dict[str, object]) -> dict[str, object]:
-    pages = payload.get("pages")
-    manifest = payload.get("document_manifest")
-    required_field_missing_count = 0
-    coordinate_missing_node_count = 0
-    duplicate_node_id_count = 0
-    invalid_reading_order_ref_count = 0
-    reading_order_duplicate_count = 0
-
-    if not isinstance(pages, list):
-        pages = []
-        required_field_missing_count += 1
-    if not isinstance(manifest, dict):
-        manifest = {}
-        required_field_missing_count += 1
-
-    manifest_page_count = manifest.get("page_count")
-    page_count_mismatch = manifest_page_count != len(pages)
-
-    for page in pages:
-        if not isinstance(page, dict):
-            required_field_missing_count += 1
-            continue
-        nodes = page.get("nodes")
-        reading_order = page.get("reading_order")
-        if not isinstance(nodes, list):
-            nodes = []
-            required_field_missing_count += 1
-        if not isinstance(reading_order, list):
-            reading_order = []
-            required_field_missing_count += 1
-
-        node_ids: list[str] = []
-        for node in nodes:
-            if not isinstance(node, dict):
-                required_field_missing_count += 1
-                continue
-            node_id = node.get("node_id")
-            if not isinstance(node_id, str):
-                required_field_missing_count += 1
-            else:
-                node_ids.append(node_id)
-            if not isinstance(node.get("bbox"), dict) or not isinstance(node.get("normalized_bbox"), dict):
-                coordinate_missing_node_count += 1
-
-        node_id_set = set(node_ids)
-        duplicate_node_id_count += len(node_ids) - len(node_id_set)
-        ordered_ids = [item for item in reading_order if isinstance(item, str)]
-        invalid_reading_order_ref_count += sum(1 for item in ordered_ids if item not in node_id_set)
-        reading_order_duplicate_count += len(ordered_ids) - len(set(ordered_ids))
-        required_field_missing_count += len(reading_order) - len(ordered_ids)
-
-    schema_valid = (
-        required_field_missing_count == 0
-        and coordinate_missing_node_count == 0
-        and duplicate_node_id_count == 0
-        and invalid_reading_order_ref_count == 0
-        and reading_order_duplicate_count == 0
-        and not page_count_mismatch
-    )
-    return {
-        "schema_valid": schema_valid,
-        "validation_performed": True,
-        "coordinate_missing_node_count": coordinate_missing_node_count,
-        "reading_order_cycle_count": reading_order_duplicate_count,
-        "invalid_reading_order_ref_count": invalid_reading_order_ref_count,
-        "duplicate_node_id_count": duplicate_node_id_count,
-        "required_field_missing_count": required_field_missing_count,
-        "page_count_mismatch": page_count_mismatch,
-        "page_count": len(pages),
-    }
 
 
 def write_page_ir(path: Path, payload: dict[str, object]) -> None:

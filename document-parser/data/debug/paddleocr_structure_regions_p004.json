@@ -1,0 +1,80 @@
+{
+  "engine_id": "paddleocr-ppstructurev3-layout",
+  "engine_version": "3.7.0",
+  "layout_detection_model_name": "PP-DocLayout_plus-L",
+  "layout_threshold": 0.35,
+  "pages": [
+    {
+      "page_id": "p004",
+      "region_count": 3,
+      "regions": [
+        {
+          "label": "table",
+          "domain_label": "TABLE_CANDIDATE",
+          "content_type": "TABLE",
+          "mapping_reason": "Compact ruled region can advance as a table candidate.",
+          "bbox": {
+            "x": 320.7508544921875,
+            "y": 972.1178588867188,
+            "width": 1304.9212646484375,
+            "height": 218.31976318359375
+          },
+          "confidence": 0.9692416191101074,
+          "raw": {
+            "block_id": null,
+            "block_order": null,
+            "block_label": null,
+            "label": "table",
+            "category": null,
+            "score": 0.9692416191101074,
+            "confidence": null
+          }
+        },
+        {
+          "label": "image",
+          "domain_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+          "content_type": "UNSUPPORTED_VISUAL",
+          "mapping_reason": "Image-like layout region should be separated from primary text OCR.",
+          "bbox": {
+            "x": 468.7995910644531,
+            "y": 1401.1541748046875,
+            "width": 506.3406677246094,
+            "height": 368.4822998046875
+          },
+          "confidence": 0.9570398330688477,
+          "raw": {
+            "block_id": null,
+            "block_order": null,
+            "block_label": null,
+            "label": "image",
+            "category": null,
+            "score": 0.9570398330688477,
+            "confidence": null
+          }
+        },
+        {
+          "label": "image",
+          "domain_label": "GRAPH_OR_DIAGRAM_CANDIDATE",
+          "content_type": "UNSUPPORTED_VISUAL",
+          "mapping_reason": "Image-like layout region should be separated from primary text OCR.",
+          "bbox": {
+            "x": 1305.5155029296875,
+            "y": 1400.9193115234375,
+            "width": 518.6597900390625,
+            "height": 356.6890869140625
+          },
+          "confidence": 0.9527389407157898,
+          "raw": {
+            "block_id": null,
+            "block_order": null,
+            "block_label": null,
+            "label": "image",
+            "category": null,
+            "score": 0.9527389407157898,
+            "confidence": null
+          }
+        }
+      ]
+    }
+  ]
+}

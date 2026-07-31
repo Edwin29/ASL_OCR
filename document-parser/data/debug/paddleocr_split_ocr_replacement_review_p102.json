@@ -1,0 +1,840 @@
+{
+  "mode": "split_ocr_replacement_review",
+  "page_count": 1,
+  "replacement_source_count": 15,
+  "replacement_segment_count": 30,
+  "unresolved_candidate_count": 1,
+  "unresolved_statuses": {
+    "REVIEW_REQUIRED_LOW_CONFIDENCE": 1
+  },
+  "pages": [
+    {
+      "page_id": "p102",
+      "replacement_source_count": 15,
+      "replacement_segment_count": 30,
+      "unresolved_candidate_count": 1,
+      "replacements": [
+        {
+          "source_text_node_id": "p102-n004",
+          "source_text": "본문5~13쪽 유제",
+          "source_bbox": {
+            "x": 968.0,
+            "y": 390.0,
+            "width": 354.0,
+            "height": 61.0
+          },
+          "replacement_node_ids": [
+            "p102-n004-splitocr-s001",
+            "p102-n004-splitocr-s002"
+          ],
+          "replacement_text": "본문5~13쪽 유제",
+          "replacement_segment_count": 2,
+          "replacement_segments": [
+            {
+              "node_id": "p102-n004-splitocr-s001",
+              "text": "본문5~13쪽",
+              "bbox": {
+                "x": 968.0,
+                "y": 390.235,
+                "width": 150.364,
+                "height": 60.765
+              },
+              "reading_order_index": 5,
+              "confidence": 0.999252,
+              "barrier_node_id": "p102-structure-r002",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n004__p102-structure-r002_split.png",
+              "min_confidence": 0.999252,
+              "average_confidence": 0.999252
+            },
+            {
+              "node_id": "p102-n004-splitocr-s002",
+              "text": "유제",
+              "bbox": {
+                "x": 1225.27,
+                "y": 392.863,
+                "width": 96.73,
+                "height": 58.137
+              },
+              "reading_order_index": 53,
+              "confidence": 0.999846,
+              "barrier_node_id": "p102-structure-r004",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n004__p102-structure-r004_split.png",
+              "min_confidence": 0.999846,
+              "average_confidence": 0.999846
+            }
+          ],
+          "source_issue_codes": [
+            "TEXT_REPLACED_BY_SPLIT_OCR_DRAFT"
+          ],
+          "replacement_draft_status": "DRAFT_REPLACED_IN_PRIMARY_READING_ORDER"
+        },
+        {
+          "source_text_node_id": "p102-n011",
+          "source_text": "1 ④ 2 ④3 ⑤ 4①5 ② 6① 7 ④ 8⑤ 9 ③ 10 ⑤  11 ①",
+          "source_bbox": {
+            "x": 192.0,
+            "y": 869.0,
+            "width": 1403.0,
+            "height": 66.0
+          },
+          "replacement_node_ids": [
+            "p102-n011-splitocr-s001",
+            "p102-n011-splitocr-s002"
+          ],
+          "replacement_text": "1 4 2 4 3 ⑤ 4① 5 ② 6 1 7 4 8 ⑤ 9 ③ 10 ⑤ 11 1",
+          "replacement_segment_count": 2,
+          "replacement_segments": [
+            {
+              "node_id": "p102-n011-splitocr-s001",
+              "text": "1 4 2 4 3 ⑤ 4① 5 ② 6 1 7 4 8 ⑤",
+              "bbox": {
+                "x": 192.0,
+                "y": 869.0,
+                "width": 926.364,
+                "height": 66.0
+              },
+              "reading_order_index": 14,
+              "confidence": 0.943765,
+              "barrier_node_id": "p102-structure-r002",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n011__p102-structure-r002_split.png",
+              "min_confidence": 0.643626,
+              "average_confidence": 0.943765
+            },
+            {
+              "node_id": "p102-n011-splitocr-s002",
+              "text": "9 ③ 10 ⑤ 11 1",
+              "bbox": {
+                "x": 1225.27,
+                "y": 869.0,
+                "width": 369.73,
+                "height": 66.0
+              },
+              "reading_order_index": 64,
+              "confidence": 0.972442,
+              "barrier_node_id": "p102-structure-r004",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n011__p102-structure-r004_split.png",
+              "min_confidence": 0.929002,
+              "average_confidence": 0.972442
+            }
+          ],
+          "source_issue_codes": [
+            "TEXT_REPLACED_BY_SPLIT_OCR_DRAFT"
+          ],
+          "replacement_draft_status": "DRAFT_REPLACED_IN_PRIMARY_READING_ORDER"
+        },
+        {
+          "source_text_node_id": "p102-n021",
+          "source_text": "3 ② 4⑤ 65 7⑤ 8⑤ 9 ① 10 ②11 ⑤12 ④",
+          "source_bbox": {
+            "x": 422.0,
+            "y": 664.0,
+            "width": 1297.0,
+            "height": 63.0
+          },
+          "replacement_node_ids": [
+            "p102-n021-splitocr-s001",
+            "p102-n021-splitocr-s002"
+          ],
+          "replacement_text": "3 ② 4 ⑤ 5 100 65 7 ⑤ 8 ⑤ 9 1 10 ② 11 ⑤ 12 4",
+          "replacement_segment_count": 2,
+          "replacement_segments": [
+            {
+              "node_id": "p102-n021-splitocr-s001",
+              "text": "3 ② 4 ⑤ 5 100 65 7 ⑤ 8 ⑤",
+              "bbox": {
+                "x": 422.0,
+                "y": 664.0,
+                "width": 696.364,
+                "height": 63.0
+              },
+              "reading_order_index": 10,
+              "confidence": 0.957585,
+              "barrier_node_id": "p102-structure-r002",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n021__p102-structure-r002_split.png",
+              "min_confidence": 0.889937,
+              "average_confidence": 0.957585
+            },
+            {
+              "node_id": "p102-n021-splitocr-s002",
+              "text": "9 1 10 ② 11 ⑤ 12 4",
+              "bbox": {
+                "x": 1225.27,
+                "y": 664.0,
+                "width": 493.73,
+                "height": 63.0
+              },
+              "reading_order_index": 60,
+              "confidence": 0.936964,
+              "barrier_node_id": "p102-structure-r004",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n021__p102-structure-r004_split.png",
+              "min_confidence": 0.646994,
+              "average_confidence": 0.936964
+            }
+          ],
+          "source_issue_codes": [
+            "TEXT_REPLACED_BY_SPLIT_OCR_DRAFT"
+          ],
+          "replacement_draft_status": "DRAFT_REPLACED_IN_PRIMARY_READING_ORDER"
+        },
+        {
+          "source_text_node_id": "p102-n030",
+          "source_text": "본문 21~29쪽 유제",
+          "source_bbox": {
+            "x": 958.0,
+            "y": 1299.0,
+            "width": 362.0,
+            "height": 60.0
+          },
+          "replacement_node_ids": [
+            "p102-n030-splitocr-s001",
+            "p102-n030-splitocr-s002"
+          ],
+          "replacement_text": "본문 21~29쪽 유제",
+          "replacement_segment_count": 2,
+          "replacement_segments": [
+            {
+              "node_id": "p102-n030-splitocr-s001",
+              "text": "본문 21~29쪽",
+              "bbox": {
+                "x": 958.0,
+                "y": 1301.387,
+                "width": 158.275,
+                "height": 57.613
+              },
+              "reading_order_index": 20,
+              "confidence": 0.96215,
+              "barrier_node_id": "p102-structure-r001",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n030__p102-structure-r001_split.png",
+              "min_confidence": 0.96215,
+              "average_confidence": 0.96215
+            },
+            {
+              "node_id": "p102-n030-splitocr-s002",
+              "text": "유제",
+              "bbox": {
+                "x": 1225.63,
+                "y": 1299.0,
+                "width": 94.37,
+                "height": 60.0
+              },
+              "reading_order_index": 70,
+              "confidence": 0.99969,
+              "barrier_node_id": "p102-structure-r006",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n030__p102-structure-r006_split.png",
+              "min_confidence": 0.99969,
+              "average_confidence": 0.99969
+            }
+          ],
+          "source_issue_codes": [
+            "TEXT_REPLACED_BY_SPLIT_OCR_DRAFT"
+          ],
+          "replacement_draft_status": "DRAFT_REPLACED_IN_PRIMARY_READING_ORDER"
+        },
+        {
+          "source_text_node_id": "p102-n033",
+          "source_text": "본문30~31쪽 Level 1기초연습",
+          "source_bbox": {
+            "x": 953.0,
+            "y": 1514.0,
+            "width": 574.0,
+            "height": 54.0
+          },
+          "replacement_node_ids": [
+            "p102-n033-splitocr-s001",
+            "p102-n033-splitocr-s002"
+          ],
+          "replacement_text": "본문 30~31쪽 Level 1 기초 연습",
+          "replacement_segment_count": 2,
+          "replacement_segments": [
+            {
+              "node_id": "p102-n033-splitocr-s001",
+              "text": "본문 30~31쪽",
+              "bbox": {
+                "x": 953.0,
+                "y": 1514.0,
+                "width": 163.275,
+                "height": 54.0
+              },
+              "reading_order_index": 24,
+              "confidence": 0.966365,
+              "barrier_node_id": "p102-structure-r001",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n033__p102-structure-r001_split.png",
+              "min_confidence": 0.966365,
+              "average_confidence": 0.966365
+            },
+            {
+              "node_id": "p102-n033-splitocr-s002",
+              "text": "Level 1 기초 연습",
+              "bbox": {
+                "x": 1225.63,
+                "y": 1514.0,
+                "width": 301.37,
+                "height": 54.0
+              },
+              "reading_order_index": 73,
+              "confidence": 0.993816,
+              "barrier_node_id": "p102-structure-r006",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n033__p102-structure-r006_split.png",
+              "min_confidence": 0.993476,
+              "average_confidence": 0.993816
+            }
+          ],
+          "source_issue_codes": [
+            "TEXT_REPLACED_BY_SPLIT_OCR_DRAFT"
+          ],
+          "replacement_draft_status": "DRAFT_REPLACED_IN_PRIMARY_READING_ORDER"
+        },
+        {
+          "source_text_node_id": "p102-n038",
+          "source_text": "1 ③ 3②4⑤ 5 ⑤ 6④ 7② 827 1①2 ②3 ④4③ 5⑤ 6 ③ 7① 8⑤",
+          "source_bbox": {
+            "x": 192.0,
+            "y": 1577.0,
+            "width": 1972.0,
+            "height": 59.0
+          },
+          "replacement_node_ids": [
+            "p102-n038-splitocr-s001",
+            "p102-n038-splitocr-s002"
+          ],
+          "replacement_text": "1 ③ 2 4 3 ② 4 ⑤ 5 ⑤ 6 4 7 ② 8 27 1 1 2 ② 3 4 4 ③ 5 ⑤ 6 ③ 7 1 8",
+          "replacement_segment_count": 2,
+          "replacement_segments": [
+            {
+              "node_id": "p102-n038-splitocr-s001",
+              "text": "1 ③ 2 4 3 ② 4 ⑤ 5 ⑤ 6 4 7 ② 8 27",
+              "bbox": {
+                "x": 192.0,
+                "y": 1577.0,
+                "width": 924.275,
+                "height": 59.0
+              },
+              "reading_order_index": 26,
+              "confidence": 0.90021,
+              "barrier_node_id": "p102-structure-r001",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n038__p102-structure-r001_split.png",
+              "min_confidence": 0.644745,
+              "average_confidence": 0.90021
+            },
+            {
+              "node_id": "p102-n038-splitocr-s002",
+              "text": "1 1 2 ② 3 4 4 ③ 5 ⑤ 6 ③ 7 1 8",
+              "bbox": {
+                "x": 1225.63,
+                "y": 1577.0,
+                "width": 938.37,
+                "height": 59.0
+              },
+              "reading_order_index": 75,
+              "confidence": 0.923973,
+              "barrier_node_id": "p102-structure-r006",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n038__p102-structure-r006_split.png",
+              "min_confidence": 0.540629,
+              "average_confidence": 0.923973
+            }
+          ],
+          "source_issue_codes": [
+            "TEXT_REPLACED_BY_SPLIT_OCR_DRAFT"
+          ],
+          "replacement_draft_status": "DRAFT_REPLACED_IN_PRIMARY_READING_ORDER"
+        },
+        {
+          "source_text_node_id": "p102-n040",
+          "source_text": "1⑤ 2 ④3 ③ 43 5 ③ 6⑤ 77 8③ 1②2 ①3① 44 5 ② 6① 7 330",
+          "source_bbox": {
+            "x": 192.0,
+            "y": 1724.0,
+            "width": 1875.0,
+            "height": 53.0
+          },
+          "replacement_node_ids": [
+            "p102-n040-splitocr-s001",
+            "p102-n040-splitocr-s002"
+          ],
+          "replacement_text": "1 ⑤ 2 4 3 ③ 43 5 ③ 6 ⑤ 77 8 ③ 1 ② 2 1 3 1 44 5 ② 6 1 7 330",
+          "replacement_segment_count": 2,
+          "replacement_segments": [
+            {
+              "node_id": "p102-n040-splitocr-s001",
+              "text": "1 ⑤ 2 4 3 ③ 43 5 ③ 6 ⑤ 77 8 ③",
+              "bbox": {
+                "x": 192.0,
+                "y": 1724.0,
+                "width": 924.275,
+                "height": 53.0
+              },
+              "reading_order_index": 30,
+              "confidence": 0.937883,
+              "barrier_node_id": "p102-structure-r001",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n040__p102-structure-r001_split.png",
+              "min_confidence": 0.811387,
+              "average_confidence": 0.937883
+            },
+            {
+              "node_id": "p102-n040-splitocr-s002",
+              "text": "1 ② 2 1 3 1 44 5 ② 6 1 7 330",
+              "bbox": {
+                "x": 1225.63,
+                "y": 1724.0,
+                "width": 841.37,
+                "height": 53.0
+              },
+              "reading_order_index": 78,
+              "confidence": 0.916459,
+              "barrier_node_id": "p102-structure-r006",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n040__p102-structure-r006_split.png",
+              "min_confidence": 0.500428,
+              "average_confidence": 0.916459
+            }
+          ],
+          "source_issue_codes": [
+            "TEXT_REPLACED_BY_SPLIT_OCR_DRAFT"
+          ],
+          "replacement_draft_status": "DRAFT_REPLACED_IN_PRIMARY_READING_ORDER"
+        },
+        {
+          "source_text_node_id": "p102-n041",
+          "source_text": "본문34쪽 8 129",
+          "source_bbox": {
+            "x": 998.0,
+            "y": 1787.0,
+            "width": 362.0,
+            "height": 61.0
+          },
+          "replacement_node_ids": [
+            "p102-n041-splitocr-s001",
+            "p102-n041-splitocr-s002"
+          ],
+          "replacement_text": "본문34쪽 8 129",
+          "replacement_segment_count": 2,
+          "replacement_segments": [
+            {
+              "node_id": "p102-n041-splitocr-s001",
+              "text": "본문34쪽",
+              "bbox": {
+                "x": 998.0,
+                "y": 1787.0,
+                "width": 118.275,
+                "height": 61.0
+              },
+              "reading_order_index": 31,
+              "confidence": 0.999059,
+              "barrier_node_id": "p102-structure-r001",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n041__p102-structure-r001_split.png",
+              "min_confidence": 0.999059,
+              "average_confidence": 0.999059
+            },
+            {
+              "node_id": "p102-n041-splitocr-s002",
+              "text": "8 129",
+              "bbox": {
+                "x": 1225.63,
+                "y": 1787.0,
+                "width": 134.37,
+                "height": 61.0
+              },
+              "reading_order_index": 79,
+              "confidence": 0.974135,
+              "barrier_node_id": "p102-structure-r006",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n041__p102-structure-r006_split.png",
+              "min_confidence": 0.974135,
+              "average_confidence": 0.974135
+            }
+          ],
+          "source_issue_codes": [
+            "TEXT_REPLACED_BY_SPLIT_OCR_DRAFT"
+          ],
+          "replacement_draft_status": "DRAFT_REPLACED_IN_PRIMARY_READING_ORDER"
+        },
+        {
+          "source_text_node_id": "p102-n046",
+          "source_text": "본문32~33쪽 Level 2기본 연습",
+          "source_bbox": {
+            "x": 953.0,
+            "y": 1658.0,
+            "width": 576.0,
+            "height": 52.0
+          },
+          "replacement_node_ids": [
+            "p102-n046-splitocr-s001",
+            "p102-n046-splitocr-s002"
+          ],
+          "replacement_text": "본문 32~33쪽 Level 2 기본 연습",
+          "replacement_segment_count": 2,
+          "replacement_segments": [
+            {
+              "node_id": "p102-n046-splitocr-s001",
+              "text": "본문 32~33쪽",
+              "bbox": {
+                "x": 953.0,
+                "y": 1658.0,
+                "width": 163.275,
+                "height": 52.0
+              },
+              "reading_order_index": 29,
+              "confidence": 0.95935,
+              "barrier_node_id": "p102-structure-r001",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n046__p102-structure-r001_split.png",
+              "min_confidence": 0.95935,
+              "average_confidence": 0.95935
+            },
+            {
+              "node_id": "p102-n046-splitocr-s002",
+              "text": "Level 2 기본 연습",
+              "bbox": {
+                "x": 1225.63,
+                "y": 1658.0,
+                "width": 303.37,
+                "height": 52.0
+              },
+              "reading_order_index": 76,
+              "confidence": 0.984778,
+              "barrier_node_id": "p102-structure-r006",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n046__p102-structure-r006_split.png",
+              "min_confidence": 0.976484,
+              "average_confidence": 0.984778
+            }
+          ],
+          "source_issue_codes": [
+            "TEXT_REPLACED_BY_SPLIT_OCR_DRAFT"
+          ],
+          "replacement_draft_status": "DRAFT_REPLACED_IN_PRIMARY_READING_ORDER"
+        },
+        {
+          "source_text_node_id": "p102-n053",
+          "source_text": "1 ④ 24 3 ② 4⑤ 55 65 7① 8③ 1932⑤3⑤ 4① 5 ① 64 7④ 8③",
+          "source_bbox": {
+            "x": 190.0,
+            "y": 2284.0,
+            "width": 1974.0,
+            "height": 54.0
+          },
+          "replacement_node_ids": [
+            "p102-n053-splitocr-s001",
+            "p102-n053-splitocr-s002"
+          ],
+          "replacement_text": "1 4 24 3 ② 4 ⑤ 55 65 7 1 8 ③ 1 93 2 ⑤ 3 ⑤ 4 1 5 1 6 4 7 4 8 3",
+          "replacement_segment_count": 2,
+          "replacement_segments": [
+            {
+              "node_id": "p102-n053-splitocr-s001",
+              "text": "1 4 24 3 ② 4 ⑤ 55 65 7 1 8 ③",
+              "bbox": {
+                "x": 190.0,
+                "y": 2284.0,
+                "width": 928.861,
+                "height": 54.0
+              },
+              "reading_order_index": 39,
+              "confidence": 0.941981,
+              "barrier_node_id": "p102-structure-r003",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n053__p102-structure-r003_split.png",
+              "min_confidence": 0.696478,
+              "average_confidence": 0.941981
+            },
+            {
+              "node_id": "p102-n053-splitocr-s002",
+              "text": "1 93 2 ⑤ 3 ⑤ 4 1 5 1 6 4 7 4 8 3",
+              "bbox": {
+                "x": 1225.501,
+                "y": 2284.0,
+                "width": 938.499,
+                "height": 54.0
+              },
+              "reading_order_index": 88,
+              "confidence": 0.934528,
+              "barrier_node_id": "p102-structure-r005",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n053__p102-structure-r005_split.png",
+              "min_confidence": 0.65966,
+              "average_confidence": 0.934528
+            }
+          ],
+          "source_issue_codes": [
+            "TEXT_REPLACED_BY_SPLIT_OCR_DRAFT"
+          ],
+          "replacement_draft_status": "DRAFT_REPLACED_IN_PRIMARY_READING_ORDER"
+        },
+        {
+          "source_text_node_id": "p102-n056",
+          "source_text": "2 ②3④ 4③ 5 ① 6③7①8④ 1②2 ②3 ③ 4②5① 6④ 7② 8⑤",
+          "source_bbox": {
+            "x": 306.0,
+            "y": 2494.0,
+            "width": 1860.0,
+            "height": 58.0
+          },
+          "replacement_node_ids": [
+            "p102-n056-splitocr-s001",
+            "p102-n056-splitocr-s002"
+          ],
+          "replacement_text": "2 3 4 4 ③ 5 1 6 ③ 7 1 8 4 1 ② 2 ② 3 ③ 4 ② 5 1 6 4 7 ② 8",
+          "replacement_segment_count": 2,
+          "replacement_segments": [
+            {
+              "node_id": "p102-n056-splitocr-s001",
+              "text": "2 3 4 4 ③ 5 1 6 ③ 7 1 8 4",
+              "bbox": {
+                "x": 306.0,
+                "y": 2494.0,
+                "width": 812.861,
+                "height": 58.0
+              },
+              "reading_order_index": 43,
+              "confidence": 0.959771,
+              "barrier_node_id": "p102-structure-r003",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n056__p102-structure-r003_split.png",
+              "min_confidence": 0.80206,
+              "average_confidence": 0.959771
+            },
+            {
+              "node_id": "p102-n056-splitocr-s002",
+              "text": "1 ② 2 ② 3 ③ 4 ② 5 1 6 4 7 ② 8",
+              "bbox": {
+                "x": 1225.501,
+                "y": 2494.0,
+                "width": 940.499,
+                "height": 58.0
+              },
+              "reading_order_index": 92,
+              "confidence": 0.909579,
+              "barrier_node_id": "p102-structure-r005",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n056__p102-structure-r005_split.png",
+              "min_confidence": 0.618526,
+              "average_confidence": 0.909579
+            }
+          ],
+          "source_issue_codes": [
+            "TEXT_REPLACED_BY_SPLIT_OCR_DRAFT"
+          ],
+          "replacement_draft_status": "DRAFT_REPLACED_IN_PRIMARY_READING_ORDER"
+        },
+        {
+          "source_text_node_id": "p102-n058",
+          "source_text": "1 ② 2 ②3 ②4③ 5 ④ 6② 7④ 8④ 1②2 ③327 4⑤ 5 ① 6⑤",
+          "source_bbox": {
+            "x": 192.0,
+            "y": 2638.0,
+            "width": 1736.0,
+            "height": 56.0
+          },
+          "replacement_node_ids": [
+            "p102-n058-splitocr-s001",
+            "p102-n058-splitocr-s002"
+          ],
+          "replacement_text": "1 ② 2 ② 3 ② 4 ③ 5 4 6 ② 7 4 8 4 1 ② 2 ③ 3 27 4 ⑤ 5 1 6",
+          "replacement_segment_count": 2,
+          "replacement_segments": [
+            {
+              "node_id": "p102-n058-splitocr-s001",
+              "text": "1 ② 2 ② 3 ② 4 ③ 5 4 6 ② 7 4 8 4",
+              "bbox": {
+                "x": 192.0,
+                "y": 2638.0,
+                "width": 926.861,
+                "height": 56.0
+              },
+              "reading_order_index": 47,
+              "confidence": 0.912635,
+              "barrier_node_id": "p102-structure-r003",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n058__p102-structure-r003_split.png",
+              "min_confidence": 0.646829,
+              "average_confidence": 0.912635
+            },
+            {
+              "node_id": "p102-n058-splitocr-s002",
+              "text": "1 ② 2 ③ 3 27 4 ⑤ 5 1 6",
+              "bbox": {
+                "x": 1225.501,
+                "y": 2638.0,
+                "width": 702.499,
+                "height": 56.0
+              },
+              "reading_order_index": 95,
+              "confidence": 0.942926,
+              "barrier_node_id": "p102-structure-r005",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n058__p102-structure-r005_split.png",
+              "min_confidence": 0.80923,
+              "average_confidence": 0.942926
+            }
+          ],
+          "source_issue_codes": [
+            "TEXT_REPLACED_BY_SPLIT_OCR_DRAFT"
+          ],
+          "replacement_draft_status": "DRAFT_REPLACED_IN_PRIMARY_READING_ORDER"
+        },
+        {
+          "source_text_node_id": "p102-n062",
+          "source_text": "본문37~45쪽 유제",
+          "source_bbox": {
+            "x": 955.0,
+            "y": 2215.0,
+            "width": 365.0,
+            "height": 59.0
+          },
+          "replacement_node_ids": [
+            "p102-n062-splitocr-s001",
+            "p102-n062-splitocr-s002"
+          ],
+          "replacement_text": "본문37~45쪽 유제",
+          "replacement_segment_count": 2,
+          "replacement_segments": [
+            {
+              "node_id": "p102-n062-splitocr-s001",
+              "text": "본문37~45쪽",
+              "bbox": {
+                "x": 955.0,
+                "y": 2216.238,
+                "width": 163.861,
+                "height": 57.762
+              },
+              "reading_order_index": 37,
+              "confidence": 0.999725,
+              "barrier_node_id": "p102-structure-r003",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n062__p102-structure-r003_split.png",
+              "min_confidence": 0.999725,
+              "average_confidence": 0.999725
+            },
+            {
+              "node_id": "p102-n062-splitocr-s002",
+              "text": "유제",
+              "bbox": {
+                "x": 1225.501,
+                "y": 2216.425,
+                "width": 94.499,
+                "height": 57.575
+              },
+              "reading_order_index": 86,
+              "confidence": 0.999823,
+              "barrier_node_id": "p102-structure-r005",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n062__p102-structure-r005_split.png",
+              "min_confidence": 0.999823,
+              "average_confidence": 0.999823
+            }
+          ],
+          "source_issue_codes": [
+            "TEXT_REPLACED_BY_SPLIT_OCR_DRAFT"
+          ],
+          "replacement_draft_status": "DRAFT_REPLACED_IN_PRIMARY_READING_ORDER"
+        },
+        {
+          "source_text_node_id": "p102-n065",
+          "source_text": "본문46~47쪽 Level 1기초 연습",
+          "source_bbox": {
+            "x": 955.0,
+            "y": 2432.0,
+            "width": 576.0,
+            "height": 54.0
+          },
+          "replacement_node_ids": [
+            "p102-n065-splitocr-s001",
+            "p102-n065-splitocr-s002"
+          ],
+          "replacement_text": "본문46~47쪽 Level 1 기초 연습",
+          "replacement_segment_count": 2,
+          "replacement_segments": [
+            {
+              "node_id": "p102-n065-splitocr-s001",
+              "text": "본문46~47쪽",
+              "bbox": {
+                "x": 955.0,
+                "y": 2432.0,
+                "width": 163.861,
+                "height": 54.0
+              },
+              "reading_order_index": 42,
+              "confidence": 0.999246,
+              "barrier_node_id": "p102-structure-r003",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n065__p102-structure-r003_split.png",
+              "min_confidence": 0.999246,
+              "average_confidence": 0.999246
+            },
+            {
+              "node_id": "p102-n065-splitocr-s002",
+              "text": "Level 1 기초 연습",
+              "bbox": {
+                "x": 1225.501,
+                "y": 2432.0,
+                "width": 305.499,
+                "height": 54.0
+              },
+              "reading_order_index": 90,
+              "confidence": 0.993457,
+              "barrier_node_id": "p102-structure-r005",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n065__p102-structure-r005_split.png",
+              "min_confidence": 0.992878,
+              "average_confidence": 0.993457
+            }
+          ],
+          "source_issue_codes": [
+            "TEXT_REPLACED_BY_SPLIT_OCR_DRAFT"
+          ],
+          "replacement_draft_status": "DRAFT_REPLACED_IN_PRIMARY_READING_ORDER"
+        },
+        {
+          "source_text_node_id": "p102-n068",
+          "source_text": "본문48~49쪽 Level 2기본연습",
+          "source_bbox": {
+            "x": 947.0,
+            "y": 2574.0,
+            "width": 582.0,
+            "height": 54.0
+          },
+          "replacement_node_ids": [
+            "p102-n068-splitocr-s001",
+            "p102-n068-splitocr-s002"
+          ],
+          "replacement_text": "본문48~49쪽 Level 2 기본 연습",
+          "replacement_segment_count": 2,
+          "replacement_segments": [
+            {
+              "node_id": "p102-n068-splitocr-s001",
+              "text": "본문48~49쪽",
+              "bbox": {
+                "x": 947.0,
+                "y": 2574.0,
+                "width": 171.861,
+                "height": 54.0
+              },
+              "reading_order_index": 46,
+              "confidence": 0.996881,
+              "barrier_node_id": "p102-structure-r003",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n068__p102-structure-r003_split.png",
+              "min_confidence": 0.996881,
+              "average_confidence": 0.996881
+            },
+            {
+              "node_id": "p102-n068-splitocr-s002",
+              "text": "Level 2 기본 연습",
+              "bbox": {
+                "x": 1225.501,
+                "y": 2574.0,
+                "width": 303.499,
+                "height": 54.0
+              },
+              "reading_order_index": 93,
+              "confidence": 0.993339,
+              "barrier_node_id": "p102-structure-r005",
+              "crop_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n068__p102-structure-r005_split.png",
+              "min_confidence": 0.990479,
+              "average_confidence": 0.993339
+            }
+          ],
+          "source_issue_codes": [
+            "TEXT_REPLACED_BY_SPLIT_OCR_DRAFT"
+          ],
+          "replacement_draft_status": "DRAFT_REPLACED_IN_PRIMARY_READING_ORDER"
+        }
+      ],
+      "unresolved_candidates": [
+        {
+          "source_text_node_id": "p102-n031",
+          "source_text": "1 ② 2 ③3 ⑤ 4 ④ 5 ④ 6② 7② 8④ 1① 2 ③3 ③ 49 5 ② 6① 7② 8⑤",
+          "status": "REVIEW_REQUIRED_LOW_CONFIDENCE",
+          "segment_count": 2,
+          "combined_recognized_text": "1 ② 2 ③ 3 ⑤ 4 4 5 4 6 ② 7 ② 8 4 1 1 2 ③ 3 ③ 49 5 ② 6 1 7 ② 8"
+        }
+      ]
+    }
+  ],
+  "page_ir": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_split_ocr_replacement_draft_page_ir_p102.json"
+}

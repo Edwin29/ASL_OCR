@@ -1,0 +1,16 @@
+{
+  "page_ir": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_page_ir_p004.json",
+  "images_dir": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300",
+  "output_dir": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_overlays",
+  "overlay_count": 1,
+  "overlays": [
+    {
+      "page_id": "p004",
+      "image_path": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p004.png",
+      "output_path": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_overlays\\p004_overlay.png",
+      "node_count": 47,
+      "issue_count": 5,
+      "quality_status": "PASS"
+    }
+  ]
+}

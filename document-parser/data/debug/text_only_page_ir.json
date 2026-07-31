@@ -1,0 +1,311 @@
+{
+  "document_manifest": {
+    "book_id": "ebs-2027-math1",
+    "profile_hint": "EBS_SUNEUNG_TEUKGANG",
+    "page_count": 8
+  },
+  "pages": [
+    {
+      "page_id": "p003",
+      "page_geometry": {
+        "width": 2434,
+        "height": 3071
+      },
+      "nodes": [],
+      "reading_order": [],
+      "parse_issues": [
+        {
+          "code": "OCR_ENGINE_NOT_CONFIGURED",
+          "severity": "warning",
+          "message": "General OCR adapter contract is present, but no real OCR engine is configured."
+        },
+        {
+          "code": "OCR_RAW_CACHE_WRITTEN",
+          "severity": "info",
+          "message": "D:\\Projects\\OCR\\document-parser\\data\\debug\\ocr_cache\\noop-general-ocr\\p003-070ee87fff7881d5fda0fc10.json"
+        }
+      ],
+      "quality_report": {
+        "page_id": "p003",
+        "source": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p003.png",
+        "status": "PASS",
+        "width": 2434,
+        "height": 3071,
+        "mode": "RGB",
+        "image_format": "PNG",
+        "long_edge": 3071,
+        "aspect_ratio": 0.792576,
+        "blur_score": 1261.919434,
+        "issues": []
+      }
+    },
+    {
+      "page_id": "p004",
+      "page_geometry": {
+        "width": 2434,
+        "height": 3071
+      },
+      "nodes": [],
+      "reading_order": [],
+      "parse_issues": [
+        {
+          "code": "OCR_ENGINE_NOT_CONFIGURED",
+          "severity": "warning",
+          "message": "General OCR adapter contract is present, but no real OCR engine is configured."
+        },
+        {
+          "code": "OCR_RAW_CACHE_WRITTEN",
+          "severity": "info",
+          "message": "D:\\Projects\\OCR\\document-parser\\data\\debug\\ocr_cache\\noop-general-ocr\\p004-d189cd6e479ba9f4bd614ab8.json"
+        }
+      ],
+      "quality_report": {
+        "page_id": "p004",
+        "source": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p004.png",
+        "status": "PASS",
+        "width": 2434,
+        "height": 3071,
+        "mode": "RGB",
+        "image_format": "PNG",
+        "long_edge": 3071,
+        "aspect_ratio": 0.792576,
+        "blur_score": 978.34259,
+        "issues": []
+      }
+    },
+    {
+      "page_id": "p008",
+      "page_geometry": {
+        "width": 2434,
+        "height": 3071
+      },
+      "nodes": [],
+      "reading_order": [],
+      "parse_issues": [
+        {
+          "code": "OCR_ENGINE_NOT_CONFIGURED",
+          "severity": "warning",
+          "message": "General OCR adapter contract is present, but no real OCR engine is configured."
+        },
+        {
+          "code": "OCR_RAW_CACHE_WRITTEN",
+          "severity": "info",
+          "message": "D:\\Projects\\OCR\\document-parser\\data\\debug\\ocr_cache\\noop-general-ocr\\p008-820296d2819f99fea6f58416.json"
+        }
+      ],
+      "quality_report": {
+        "page_id": "p008",
+        "source": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p008.png",
+        "status": "PASS",
+        "width": 2434,
+        "height": 3071,
+        "mode": "RGB",
+        "image_format": "PNG",
+        "long_edge": 3071,
+        "aspect_ratio": 0.792576,
+        "blur_score": 624.618286,
+        "issues": []
+      }
+    },
+    {
+      "page_id": "p012",
+      "page_geometry": {
+        "width": 2434,
+        "height": 3071
+      },
+      "nodes": [],
+      "reading_order": [],
+      "parse_issues": [
+        {
+          "code": "OCR_ENGINE_NOT_CONFIGURED",
+          "severity": "warning",
+          "message": "General OCR adapter contract is present, but no real OCR engine is configured."
+        },
+        {
+          "code": "OCR_RAW_CACHE_WRITTEN",
+          "severity": "info",
+          "message": "D:\\Projects\\OCR\\document-parser\\data\\debug\\ocr_cache\\noop-general-ocr\\p012-9c6716684481bc0421656bbf.json"
+        }
+      ],
+      "quality_report": {
+        "page_id": "p012",
+        "source": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p012.png",
+        "status": "PASS",
+        "width": 2434,
+        "height": 3071,
+        "mode": "RGB",
+        "image_format": "PNG",
+        "long_edge": 3071,
+        "aspect_ratio": 0.792576,
+        "blur_score": 973.83844,
+        "issues": []
+      }
+    },
+    {
+      "page_id": "p019",
+      "page_geometry": {
+        "width": 2434,
+        "height": 3071
+      },
+      "nodes": [],
+      "reading_order": [],
+      "parse_issues": [
+        {
+          "code": "OCR_ENGINE_NOT_CONFIGURED",
+          "severity": "warning",
+          "message": "General OCR adapter contract is present, but no real OCR engine is configured."
+        },
+        {
+          "code": "OCR_RAW_CACHE_WRITTEN",
+          "severity": "info",
+          "message": "D:\\Projects\\OCR\\document-parser\\data\\debug\\ocr_cache\\noop-general-ocr\\p019-176f3398634afe6d8ff7e1bb.json"
+        }
+      ],
+      "quality_report": {
+        "page_id": "p019",
+        "source": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p019.png",
+        "status": "PASS",
+        "width": 2434,
+        "height": 3071,
+        "mode": "RGB",
+        "image_format": "PNG",
+        "long_edge": 3071,
+        "aspect_ratio": 0.792576,
+        "blur_score": 997.238464,
+        "issues": []
+      }
+    },
+    {
+      "page_id": "p020",
+      "page_geometry": {
+        "width": 2434,
+        "height": 3071
+      },
+      "nodes": [],
+      "reading_order": [],
+      "parse_issues": [
+        {
+          "code": "OCR_ENGINE_NOT_CONFIGURED",
+          "severity": "warning",
+          "message": "General OCR adapter contract is present, but no real OCR engine is configured."
+        },
+        {
+          "code": "OCR_RAW_CACHE_WRITTEN",
+          "severity": "info",
+          "message": "D:\\Projects\\OCR\\document-parser\\data\\debug\\ocr_cache\\noop-general-ocr\\p020-c5e39c5400473affd355d31e.json"
+        }
+      ],
+      "quality_report": {
+        "page_id": "p020",
+        "source": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p020.png",
+        "status": "PASS",
+        "width": 2434,
+        "height": 3071,
+        "mode": "RGB",
+        "image_format": "PNG",
+        "long_edge": 3071,
+        "aspect_ratio": 0.792576,
+        "blur_score": 768.528381,
+        "issues": []
+      }
+    },
+    {
+      "page_id": "p054",
+      "page_geometry": {
+        "width": 2434,
+        "height": 3071
+      },
+      "nodes": [],
+      "reading_order": [],
+      "parse_issues": [
+        {
+          "code": "OCR_ENGINE_NOT_CONFIGURED",
+          "severity": "warning",
+          "message": "General OCR adapter contract is present, but no real OCR engine is configured."
+        },
+        {
+          "code": "OCR_RAW_CACHE_WRITTEN",
+          "severity": "info",
+          "message": "D:\\Projects\\OCR\\document-parser\\data\\debug\\ocr_cache\\noop-general-ocr\\p054-18a354712c2e58369d0fb8a7.json"
+        }
+      ],
+      "quality_report": {
+        "page_id": "p054",
+        "source": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p054.png",
+        "status": "PASS",
+        "width": 2434,
+        "height": 3071,
+        "mode": "RGB",
+        "image_format": "PNG",
+        "long_edge": 3071,
+        "aspect_ratio": 0.792576,
+        "blur_score": 837.619385,
+        "issues": []
+      }
+    },
+    {
+      "page_id": "p102",
+      "page_geometry": {
+        "width": 2434,
+        "height": 3071
+      },
+      "nodes": [],
+      "reading_order": [],
+      "parse_issues": [
+        {
+          "code": "OCR_ENGINE_NOT_CONFIGURED",
+          "severity": "warning",
+          "message": "General OCR adapter contract is present, but no real OCR engine is configured."
+        },
+        {
+          "code": "OCR_RAW_CACHE_WRITTEN",
+          "severity": "info",
+          "message": "D:\\Projects\\OCR\\document-parser\\data\\debug\\ocr_cache\\noop-general-ocr\\p102-5c88ed527a6bd17193cab6e1.json"
+        }
+      ],
+      "quality_report": {
+        "page_id": "p102",
+        "source": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p102.png",
+        "status": "PASS",
+        "width": 2434,
+        "height": 3071,
+        "mode": "RGB",
+        "image_format": "PNG",
+        "long_edge": 3071,
+        "aspect_ratio": 0.792576,
+        "blur_score": 1515.782471,
+        "issues": []
+      }
+    }
+  ],
+  "engine_manifest": {
+    "general_ocr": {
+      "engine_id": "noop-general-ocr",
+      "engine_version": "0.1.0"
+    },
+    "pipeline": {
+      "mode": "text_only",
+      "requires_pdf_text_layer": false,
+      "layout_mode": "token_line_block"
+    }
+  },
+  "validation_summary": {
+    "schema_valid": true,
+    "validation_performed": true,
+    "coordinate_missing_node_count": 0,
+    "reading_order_cycle_count": 0,
+    "invalid_reading_order_ref_count": 0,
+    "missing_reading_order_node_count": 0,
+    "duplicate_node_id_count": 0,
+    "required_field_missing_count": 0,
+    "type_error_count": 0,
+    "bbox_invalid_count": 0,
+    "normalized_bbox_out_of_range_count": 0,
+    "confidence_invalid_count": 0,
+    "reading_order_index_mismatch_count": 0,
+    "quality_status_invalid_count": 0,
+    "issue_invalid_count": 0,
+    "page_count_mismatch": false,
+    "page_count": 8
+  }
+}

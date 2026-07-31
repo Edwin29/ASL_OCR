@@ -1,0 +1,1311 @@
+{
+  "report_type": "ocr_quality",
+  "page_count": 8,
+  "total_node_count": 392,
+  "total_low_confidence_node_count": 1,
+  "total_reading_order_warning_count": 14,
+  "total_region_separation_warning_count": 21,
+  "low_confidence_threshold": 0.5,
+  "wide_node_ratio": 0.72,
+  "tall_node_ratio": 0.08,
+  "overlap_threshold": 0.35,
+  "pages": [
+    {
+      "page_id": "p003",
+      "node_count": 89,
+      "mean_confidence": 0.909334,
+      "min_confidence": 0.445555,
+      "low_confidence_node_count": 1,
+      "suspicious_shape_node_count": 1,
+      "overlap_warning_count": 94,
+      "reading_order_warning_count": 3,
+      "region_separation_warning_count": 2,
+      "parse_issue_codes": [
+        "OCR_LOW_CONFIDENCE",
+        "OCR_RAW_CACHE_WRITTEN",
+        "INTRO_GUIDE_PAGE_EXCLUDED"
+      ],
+      "low_confidence_nodes": [
+        {
+          "node_id": "p003-n039",
+          "reading_order_index": null,
+          "confidence": 0.445555,
+          "bbox": {
+            "x": 839.0,
+            "y": 1246.0,
+            "width": 176.0,
+            "height": 25.0
+          },
+          "text": "③\\ q$}=$q^({, p는 자연수)"
+        }
+      ],
+      "suspicious_shape_nodes": [
+        {
+          "node_id": "p003-intro-guide",
+          "reading_order_index": 0,
+          "confidence": 0.909334,
+          "bbox": {
+            "x": 0,
+            "y": 0,
+            "width": 2434,
+            "height": 3071
+          },
+          "text": ""
+        }
+      ],
+      "overlap_warnings": [
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n001",
+          "right_node_id": "p003-intro-guide",
+          "overlap_ratio": 1.0
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n002",
+          "right_node_id": "p003-intro-guide",
+          "overlap_ratio": 1.0
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n003",
+          "right_node_id": "p003-intro-guide",
+          "overlap_ratio": 1.0
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n004",
+          "right_node_id": "p003-intro-guide",
+          "overlap_ratio": 1.0
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n005",
+          "right_node_id": "p003-intro-guide",
+          "overlap_ratio": 1.0
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n006",
+          "right_node_id": "p003-intro-guide",
+          "overlap_ratio": 1.0
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n007",
+          "right_node_id": "p003-n011",
+          "overlap_ratio": 0.42201
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n007",
+          "right_node_id": "p003-intro-guide",
+          "overlap_ratio": 1.0
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n008",
+          "right_node_id": "p003-intro-guide",
+          "overlap_ratio": 1.0
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n009",
+          "right_node_id": "p003-intro-guide",
+          "overlap_ratio": 1.0
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n010",
+          "right_node_id": "p003-intro-guide",
+          "overlap_ratio": 1.0
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n011",
+          "right_node_id": "p003-intro-guide",
+          "overlap_ratio": 1.0
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n012",
+          "right_node_id": "p003-intro-guide",
+          "overlap_ratio": 1.0
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n013",
+          "right_node_id": "p003-intro-guide",
+          "overlap_ratio": 1.0
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n014",
+          "right_node_id": "p003-intro-guide",
+          "overlap_ratio": 1.0
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n015",
+          "right_node_id": "p003-intro-guide",
+          "overlap_ratio": 1.0
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n016",
+          "right_node_id": "p003-intro-guide",
+          "overlap_ratio": 1.0
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n017",
+          "right_node_id": "p003-intro-guide",
+          "overlap_ratio": 1.0
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n018",
+          "right_node_id": "p003-intro-guide",
+          "overlap_ratio": 1.0
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n019",
+          "right_node_id": "p003-intro-guide",
+          "overlap_ratio": 1.0
+        }
+      ],
+      "reading_order_warnings": [
+        {
+          "type": "SAME_BAND_X_BACKTRACK",
+          "from_node_id": "p003-n005",
+          "to_node_id": "p003-n006",
+          "x_backtrack": 873.0
+        },
+        {
+          "type": "SAME_BAND_X_BACKTRACK",
+          "from_node_id": "p003-n057",
+          "to_node_id": "p003-n058",
+          "x_backtrack": 1234.0
+        },
+        {
+          "type": "SAME_BAND_X_BACKTRACK",
+          "from_node_id": "p003-n060",
+          "to_node_id": "p003-n061",
+          "x_backtrack": 1611.0
+        }
+      ],
+      "region_separation_warnings": [
+        {
+          "type": "INTRO_GUIDE_PAGE_EXCLUSION_CANDIDATE",
+          "node_count": 83,
+          "reason": "Intro/structure page appears to be publisher guide content rather than supported math content. Exclude this page from primary parsing and preserve OCR only as embedded unsupported visual evidence.",
+          "evidence": {
+            "header_text": "이책의 구성과 특징 structure 2 개념 정리 여러 종의 교과서를 통합하여 핵심 개 01 지수와 로그",
+            "has_intro_header": true,
+            "text_node_count": 88,
+            "lower_text_node_count": 86,
+            "compact_lower_text_node_count": 83,
+            "min_text_nodes": 20,
+            "min_lower_text_nodes": 20,
+            "min_compact_lower_text_nodes": 10
+          },
+          "sample_nodes": [
+            {
+              "node_id": "p003-n003",
+              "reading_order_index": null,
+              "confidence": 0.620611,
+              "bbox": {
+                "x": 1276.0,
+                "y": 526.0,
+                "width": 260.0,
+                "height": 61.0
+              },
+              "text": "2 개념 정리"
+            },
+            {
+              "node_id": "p003-n004",
+              "reading_order_index": null,
+              "confidence": 0.983888,
+              "bbox": {
+                "x": 1346.0,
+                "y": 608.0,
+                "width": 527.0,
+                "height": 39.0
+              },
+              "text": "여러 종의 교과서를 통합하여 핵심 개"
+            },
+            {
+              "node_id": "p003-n005",
+              "reading_order_index": null,
+              "confidence": 0.955392,
+              "bbox": {
+                "x": 1346.0,
+                "y": 658.0,
+                "width": 521.0,
+                "height": 43.0
+              },
+              "text": "넘만을 체계적으로 정리하였고설명>"
+            },
+            {
+              "node_id": "p003-n008",
+              "reading_order_index": null,
+              "confidence": 0.878486,
+              "bbox": {
+                "x": 453.0,
+                "y": 566.0,
+                "width": 252.0,
+                "height": 56.0
+              },
+              "text": "01 지수와 로그"
+            },
+            {
+              "node_id": "p003-n009",
+              "reading_order_index": null,
+              "confidence": 0.977721,
+              "bbox": {
+                "x": 449.0,
+                "y": 660.0,
+                "width": 110.0,
+                "height": 21.0
+              },
+              "text": "1거듭제곱근"
+            }
+          ]
+        },
+        {
+          "type": "TWO_COLUMN_SPLIT_CANDIDATE",
+          "node_count": 7,
+          "reason": "Several nodes cross the page midpoint while left/right column nodes are both present.",
+          "sample_nodes": [
+            {
+              "node_id": "p003-n002",
+              "reading_order_index": null,
+              "confidence": 0.959088,
+              "bbox": {
+                "x": 570.0,
+                "y": 292.0,
+                "width": 1634.0,
+                "height": 107.0
+              },
+              "text": "구성과 특징 Structure"
+            },
+            {
+              "node_id": "p003-n006",
+              "reading_order_index": null,
+              "confidence": 0.944827,
+              "bbox": {
+                "x": 473.0,
+                "y": 710.0,
+                "width": 1398.0,
+                "height": 39.0
+              },
+              "text": "실수a와2 이상의자연수 n에 대하여n제곱하여a가 되는 수 즉 방정식x\"=a의 근을a의 n제곱근이라고 참고>,예 를 제시하여 개념에 대한"
+            },
+            {
+              "node_id": "p003-n007",
+              "reading_order_index": null,
+              "confidence": 0.926355,
+              "bbox": {
+                "x": 473.0,
+                "y": 752.0,
+                "width": 1341.0,
+                "height": 46.0
+              },
+              "text": "한다 이때a의 제곱근 a의세제곱근 a의 네제곱근…을통틀어a의 거듭제곱근이라고한다 이해와 적용에 도움이 되게 하였다."
+            },
+            {
+              "node_id": "p003-n061",
+              "reading_order_index": null,
+              "confidence": 0.952142,
+              "bbox": {
+                "x": 340.0,
+                "y": 1988.0,
+                "width": 1117.0,
+                "height": 54.0
+              },
+              "text": "로 숙지했는지 확인할 수 있는 문항을 3 γ4 ×32–3의 값은?[26008–0013] 대표기출문제"
+            },
+            {
+              "node_id": "p003-n081",
+              "reading_order_index": null,
+              "confidence": 0.950705,
+              "bbox": {
+                "x": 624.0,
+                "y": 2530.0,
+                "width": 1331.0,
+                "height": 38.0
+              },
+              "text": "대학수학능력시험과 모의평가 기출 문 (i) m=4일 때, 은 x∗=412, 즉 x∗=224이고 n의 값은 2, 3, 4, 6, 8, 12, 24이므로 f (4)=7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "p004",
+      "node_count": 44,
+      "mean_confidence": 0.866502,
+      "min_confidence": 0.58864,
+      "low_confidence_node_count": 0,
+      "suspicious_shape_node_count": 2,
+      "overlap_warning_count": 3,
+      "reading_order_warning_count": 1,
+      "region_separation_warning_count": 2,
+      "parse_issue_codes": [
+        "OCR_LOW_CONFIDENCE",
+        "OCR_RAW_CACHE_WRITTEN"
+      ],
+      "low_confidence_nodes": [],
+      "suspicious_shape_nodes": [
+        {
+          "node_id": "p004-n004",
+          "reading_order_index": 3,
+          "confidence": 0.945035,
+          "bbox": {
+            "x": 323.0,
+            "y": 516.0,
+            "width": 1771.0,
+            "height": 46.0
+          },
+          "text": "실수 a와2 이상의 자연수 n에 대하여 n제곱하여 a가 되는 수.즉 방정식x\"=a의 근을 a의 n제곱근이라고"
+        },
+        {
+          "node_id": "p004-n013",
+          "reading_order_index": 12,
+          "confidence": 0.913435,
+          "bbox": {
+            "x": 323.0,
+            "y": 1209.0,
+            "width": 1774.0,
+            "height": 52.0
+          },
+          "text": "설명>n이2 이상의자연수일 때 실수a의n제곱근 중에서실수인것은방정식x^\"=a의근 중에서실수인것이므로이는"
+        }
+      ],
+      "overlap_warnings": [
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p004-n018",
+          "right_node_id": "p004-n026",
+          "overlap_ratio": 0.735849
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p004-n032",
+          "right_node_id": "p004-n038",
+          "overlap_ratio": 0.381818
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p004-n041",
+          "right_node_id": "p004-n042",
+          "overlap_ratio": 0.5
+        }
+      ],
+      "reading_order_warnings": [
+        {
+          "type": "SAME_BAND_X_BACKTRACK",
+          "from_node_id": "p004-n025",
+          "to_node_id": "p004-n026",
+          "x_backtrack": 852.0
+        }
+      ],
+      "region_separation_warnings": [
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p004-n013",
+            "reading_order_index": 12,
+            "confidence": 0.913435,
+            "bbox": {
+              "x": 323.0,
+              "y": 1209.0,
+              "width": 1774.0,
+              "height": 52.0
+            },
+            "text": "설명>n이2 이상의자연수일 때 실수a의n제곱근 중에서실수인것은방정식x^\"=a의근 중에서실수인것이므로이는"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "TWO_COLUMN_SPLIT_CANDIDATE",
+          "node_count": 7,
+          "reason": "Several nodes cross the page midpoint while left/right column nodes are both present.",
+          "sample_nodes": [
+            {
+              "node_id": "p004-n004",
+              "reading_order_index": 3,
+              "confidence": 0.945035,
+              "bbox": {
+                "x": 323.0,
+                "y": 516.0,
+                "width": 1771.0,
+                "height": 46.0
+              },
+              "text": "실수 a와2 이상의 자연수 n에 대하여 n제곱하여 a가 되는 수.즉 방정식x\"=a의 근을 a의 n제곱근이라고"
+            },
+            {
+              "node_id": "p004-n005",
+              "reading_order_index": 4,
+              "confidence": 0.987194,
+              "bbox": {
+                "x": 323.0,
+                "y": 589.0,
+                "width": 1539.0,
+                "height": 46.0
+              },
+              "text": "한다.이때 a의 제곱근,a의 세제곱근,a의 네제곱근,을 통틀어 a의 거듭제곱근이라고 한다."
+            },
+            {
+              "node_id": "p004-n008",
+              "reading_order_index": 7,
+              "confidence": 0.952473,
+              "bbox": {
+                "x": 323.0,
+                "y": 825.0,
+                "width": 1200.0,
+                "height": 46.0
+              },
+              "text": "①n이 홀수이면 a의 값에 관계없이 실수 x는 항상 존재하고 x=\"a이다."
+            },
+            {
+              "node_id": "p004-n009",
+              "reading_order_index": 8,
+              "confidence": 0.896258,
+              "bbox": {
+                "x": 321.0,
+                "y": 894.0,
+                "width": 1322.0,
+                "height": 48.0
+              },
+              "text": "2n이 짝수이면 a≥0일 때에만 실수 x가 존재하고 x=na 또는 x=-na이다."
+            },
+            {
+              "node_id": "p004-n013",
+              "reading_order_index": 12,
+              "confidence": 0.913435,
+              "bbox": {
+                "x": 323.0,
+                "y": 1209.0,
+                "width": 1774.0,
+                "height": 52.0
+              },
+              "text": "설명>n이2 이상의자연수일 때 실수a의n제곱근 중에서실수인것은방정식x^\"=a의근 중에서실수인것이므로이는"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "p008",
+      "node_count": 30,
+      "mean_confidence": 0.918905,
+      "min_confidence": 0.663778,
+      "low_confidence_node_count": 0,
+      "suspicious_shape_node_count": 0,
+      "overlap_warning_count": 1,
+      "reading_order_warning_count": 1,
+      "region_separation_warning_count": 0,
+      "parse_issue_codes": [
+        "OCR_RAW_CACHE_WRITTEN"
+      ],
+      "low_confidence_nodes": [],
+      "suspicious_shape_nodes": [],
+      "overlap_warnings": [
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p008-n028",
+          "right_node_id": "p008-n029",
+          "overlap_ratio": 0.797647
+        }
+      ],
+      "reading_order_warnings": [
+        {
+          "type": "LARGE_VERTICAL_GAP",
+          "from_node_id": "p008-n029",
+          "to_node_id": "p008-n030",
+          "vertical_gap": 634.0
+        }
+      ],
+      "region_separation_warnings": []
+    },
+    {
+      "page_id": "p012",
+      "node_count": 40,
+      "mean_confidence": 0.954697,
+      "min_confidence": 0.87242,
+      "low_confidence_node_count": 0,
+      "suspicious_shape_node_count": 0,
+      "overlap_warning_count": 2,
+      "reading_order_warning_count": 0,
+      "region_separation_warning_count": 3,
+      "parse_issue_codes": [
+        "OCR_RAW_CACHE_WRITTEN"
+      ],
+      "low_confidence_nodes": [],
+      "suspicious_shape_nodes": [],
+      "overlap_warnings": [
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p012-n008",
+          "right_node_id": "p012-n017",
+          "overlap_ratio": 0.575
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p012-n011",
+          "right_node_id": "p012-n018",
+          "overlap_ratio": 1.0
+        }
+      ],
+      "reading_order_warnings": [],
+      "region_separation_warnings": [
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p012-n011",
+            "reading_order_index": 10,
+            "confidence": 0.997065,
+            "bbox": {
+              "x": 371.0,
+              "y": 1021.0,
+              "width": 1706.0,
+              "height": 58.0
+            },
+            "text": "상용로그표에는 0.01의 간격으로 1.00부터 9.99까지 수 0 1 2 3 4 5 6 7 9"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p012-n028",
+            "reading_order_index": 27,
+            "confidence": 0.947548,
+            "bbox": {
+              "x": 323.0,
+              "y": 1962.0,
+              "width": 1520.0,
+              "height": 51.0
+            },
+            "text": "상용로그를 이용하면 230,32 등과 같은 수를 10진법으로 나타내어 어림한 값을 구할 수 있다."
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "TABLE_LIKE_CANDIDATE",
+          "node_count": 1,
+          "reason": "Numeric/list-like OCR lines suggest a table or answer-list region should be separated from body text.",
+          "sample_nodes": [
+            {
+              "node_id": "p012-n011",
+              "reading_order_index": 10,
+              "confidence": 0.997065,
+              "bbox": {
+                "x": 371.0,
+                "y": 1021.0,
+                "width": 1706.0,
+                "height": 58.0
+              },
+              "text": "상용로그표에는 0.01의 간격으로 1.00부터 9.99까지 수 0 1 2 3 4 5 6 7 9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "p019",
+      "node_count": 29,
+      "mean_confidence": 0.934532,
+      "min_confidence": 0.699983,
+      "low_confidence_node_count": 0,
+      "suspicious_shape_node_count": 1,
+      "overlap_warning_count": 0,
+      "reading_order_warning_count": 3,
+      "region_separation_warning_count": 3,
+      "parse_issue_codes": [
+        "OCR_LOW_CONFIDENCE",
+        "OCR_RAW_CACHE_WRITTEN"
+      ],
+      "low_confidence_nodes": [],
+      "suspicious_shape_nodes": [
+        {
+          "node_id": "p019-n003",
+          "reading_order_index": 2,
+          "confidence": 0.749417,
+          "bbox": {
+            "x": 369.0,
+            "y": 395.0,
+            "width": 1795.0,
+            "height": 100.0
+          },
+          "text": "홍장 거듭제곱근의 성질이나 지수법칙을 이용하여 식의 값을 구하는 문제,로그의 정의와 성질을 이용하여 식의 값을 구하는 문제가 출제된다.또 어떤 조건을 만족시키는 거듭제곱근으로 표현된 수나 로그로 나타내어진 수를 구하"
+        }
+      ],
+      "overlap_warnings": [],
+      "reading_order_warnings": [
+        {
+          "type": "SAME_BAND_X_BACKTRACK",
+          "from_node_id": "p019-n001",
+          "to_node_id": "p019-n002",
+          "x_backtrack": 1631.0
+        },
+        {
+          "type": "SAME_BAND_X_BACKTRACK",
+          "from_node_id": "p019-n004",
+          "to_node_id": "p019-n005",
+          "x_backtrack": 1536.0
+        },
+        {
+          "type": "LARGE_VERTICAL_GAP",
+          "from_node_id": "p019-n028",
+          "to_node_id": "p019-n029",
+          "vertical_gap": 626.0
+        }
+      ],
+      "region_separation_warnings": [
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p019-n005",
+            "reading_order_index": 4,
+            "confidence": 0.95856,
+            "bbox": {
+              "x": 401.0,
+              "y": 735.0,
+              "width": 1702.0,
+              "height": 46.0
+            },
+            "text": "자연수 m(m≥2)에 대하여 m12의 n제곱근 중에서 정수가 존재하도록 하는 2 이상의 자연수 n의 개수"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "TWO_COLUMN_SPLIT_CANDIDATE",
+          "node_count": 13,
+          "reason": "Several nodes cross the page midpoint while left/right column nodes are both present.",
+          "sample_nodes": [
+            {
+              "node_id": "p019-n003",
+              "reading_order_index": 2,
+              "confidence": 0.749417,
+              "bbox": {
+                "x": 369.0,
+                "y": 395.0,
+                "width": 1795.0,
+                "height": 100.0
+              },
+              "text": "홍장 거듭제곱근의 성질이나 지수법칙을 이용하여 식의 값을 구하는 문제,로그의 정의와 성질을 이용하여 식의 값을 구하는 문제가 출제된다.또 어떤 조건을 만족시키는 거듭제곱근으로 표현된 수나 로그로 나타내어진 수를 구하"
+            },
+            {
+              "node_id": "p019-n005",
+              "reading_order_index": 4,
+              "confidence": 0.95856,
+              "bbox": {
+                "x": 401.0,
+                "y": 735.0,
+                "width": 1702.0,
+                "height": 46.0
+              },
+              "text": "자연수 m(m≥2)에 대하여 m12의 n제곱근 중에서 정수가 존재하도록 하는 2 이상의 자연수 n의 개수"
+            },
+            {
+              "node_id": "p019-n008",
+              "reading_order_index": 7,
+              "confidence": 0.874922,
+              "bbox": {
+                "x": 396.0,
+                "y": 925.0,
+                "width": 1464.0,
+                "height": 54.0
+              },
+              "text": "① 37 ②42 ③ 47 ④ 52 5 57"
+            },
+            {
+              "node_id": "p019-n009",
+              "reading_order_index": 8,
+              "confidence": 0.984618,
+              "bbox": {
+                "x": 399.0,
+                "y": 1081.0,
+                "width": 1704.0,
+                "height": 50.0
+              },
+              "text": "출제의도 a의 n제곱근의 뜻을 이해하고 방정식x^=a가 정수인 근을 갖도록 하는 자연수 n의 개수를 구할 수 있는지를"
+            },
+            {
+              "node_id": "p019-n013",
+              "reading_order_index": 12,
+              "confidence": 0.935042,
+              "bbox": {
+                "x": 586.0,
+                "y": 1340.0,
+                "width": 1519.0,
+                "height": 44.0
+              },
+              "text": "m의 값에 따라 ㄱ의 방정식이 정수인 근을 갖도록 하는 2 이상의 자연수 n의 개수를 구하면 다음과 같"
+            }
+          ]
+        },
+        {
+          "type": "TABLE_LIKE_CANDIDATE",
+          "node_count": 1,
+          "reason": "Numeric/list-like OCR lines suggest a table or answer-list region should be separated from body text.",
+          "sample_nodes": [
+            {
+              "node_id": "p019-n008",
+              "reading_order_index": 7,
+              "confidence": 0.874922,
+              "bbox": {
+                "x": 396.0,
+                "y": 925.0,
+                "width": 1464.0,
+                "height": 54.0
+              },
+              "text": "① 37 ②42 ③ 47 ④ 52 5 57"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "p020",
+      "node_count": 39,
+      "mean_confidence": 0.914607,
+      "min_confidence": 0.552419,
+      "low_confidence_node_count": 0,
+      "suspicious_shape_node_count": 1,
+      "overlap_warning_count": 1,
+      "reading_order_warning_count": 1,
+      "region_separation_warning_count": 1,
+      "parse_issue_codes": [
+        "OCR_LOW_CONFIDENCE",
+        "OCR_RAW_CACHE_WRITTEN"
+      ],
+      "low_confidence_nodes": [],
+      "suspicious_shape_nodes": [
+        {
+          "node_id": "p020-n003",
+          "reading_order_index": 2,
+          "confidence": 0.956425,
+          "bbox": {
+            "x": 264.0,
+            "y": 449.0,
+            "width": 1754.0,
+            "height": 44.0
+          },
+          "text": "1이 아닌 양의 실수 a에 대하여 실수 x에 a^을 대응시키면 x의 값에 따라 a^x의 값이 오직 하나로 정해지므로"
+        }
+      ],
+      "overlap_warnings": [
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p020-n024",
+          "right_node_id": "p020-n034",
+          "overlap_ratio": 0.714286
+        }
+      ],
+      "reading_order_warnings": [
+        {
+          "type": "LARGE_VERTICAL_GAP",
+          "from_node_id": "p020-n038",
+          "to_node_id": "p020-n039",
+          "vertical_gap": 566.0
+        }
+      ],
+      "region_separation_warnings": [
+        {
+          "type": "TWO_COLUMN_SPLIT_CANDIDATE",
+          "node_count": 4,
+          "reason": "Several nodes cross the page midpoint while left/right column nodes are both present.",
+          "sample_nodes": [
+            {
+              "node_id": "p020-n003",
+              "reading_order_index": 2,
+              "confidence": 0.956425,
+              "bbox": {
+                "x": 264.0,
+                "y": 449.0,
+                "width": 1754.0,
+                "height": 44.0
+              },
+              "text": "1이 아닌 양의 실수 a에 대하여 실수 x에 a^을 대응시키면 x의 값에 따라 a^x의 값이 오직 하나로 정해지므로"
+            },
+            {
+              "node_id": "p020-n005",
+              "reading_order_index": 4,
+              "confidence": 0.969992,
+              "bbox": {
+                "x": 266.0,
+                "y": 591.0,
+                "width": 1134.0,
+                "height": 44.0
+              },
+              "text": "은 x에 대한 함수이다.이 함수를 a를 밑으로 하는 지수함수라고 한다."
+            },
+            {
+              "node_id": "p020-n019",
+              "reading_order_index": 18,
+              "confidence": 0.974567,
+              "bbox": {
+                "x": 323.0,
+                "y": 1620.0,
+                "width": 1147.0,
+                "height": 44.0
+              },
+              "text": "1 정의역은 실수 전체의 집합이고,치역은 양의 실수 전체의 집합이다."
+            },
+            {
+              "node_id": "p020-n023",
+              "reading_order_index": 22,
+              "confidence": 0.835112,
+              "bbox": {
+                "x": 259.0,
+                "y": 1898.0,
+                "width": 1409.0,
+                "height": 78.0
+              },
+              "text": "예두함수y=2x^,y=3^의그래프와두함수y=2, =13x'의 그래프는 그림과 같다."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "p054",
+      "node_count": 47,
+      "mean_confidence": 0.930115,
+      "min_confidence": 0.771515,
+      "low_confidence_node_count": 0,
+      "suspicious_shape_node_count": 1,
+      "overlap_warning_count": 1,
+      "reading_order_warning_count": 1,
+      "region_separation_warning_count": 1,
+      "parse_issue_codes": [
+        "OCR_RAW_CACHE_WRITTEN"
+      ],
+      "low_confidence_nodes": [],
+      "suspicious_shape_nodes": [
+        {
+          "node_id": "p054-n007",
+          "reading_order_index": 6,
+          "confidence": 0.858697,
+          "bbox": {
+            "x": 259.0,
+            "y": 670.0,
+            "width": 1785.0,
+            "height": 57.0
+          },
+          "text": "설명>삼각형ABC의꼭짓점C에서 직선AB에내린수선의발을H라할때,등식α2²}=b2+c2{-2bccoSA가성립함을"
+        }
+      ],
+      "overlap_warnings": [
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p054-n039",
+          "right_node_id": "p054-n040",
+          "overlap_ratio": 0.52381
+        }
+      ],
+      "reading_order_warnings": [
+        {
+          "type": "LARGE_VERTICAL_GAP",
+          "from_node_id": "p054-n046",
+          "to_node_id": "p054-n047",
+          "vertical_gap": 1019.0
+        }
+      ],
+      "region_separation_warnings": [
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p054-n007",
+            "reading_order_index": 6,
+            "confidence": 0.858697,
+            "bbox": {
+              "x": 259.0,
+              "y": 670.0,
+              "width": 1785.0,
+              "height": 57.0
+            },
+            "text": "설명>삼각형ABC의꼭짓점C에서 직선AB에내린수선의발을H라할때,등식α2²}=b2+c2{-2bccoSA가성립함을"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        }
+      ]
+    },
+    {
+      "page_id": "p102",
+      "node_count": 74,
+      "mean_confidence": 0.960056,
+      "min_confidence": 0.790303,
+      "low_confidence_node_count": 0,
+      "suspicious_shape_node_count": 5,
+      "overlap_warning_count": 3,
+      "reading_order_warning_count": 4,
+      "region_separation_warning_count": 9,
+      "parse_issue_codes": [
+        "OCR_RAW_CACHE_WRITTEN",
+        "TWO_COLUMN_READING_ORDER_APPLIED"
+      ],
+      "low_confidence_nodes": [],
+      "suspicious_shape_nodes": [
+        {
+          "node_id": "p102-n031",
+          "reading_order_index": 18,
+          "confidence": 0.920096,
+          "bbox": {
+            "x": 190.0,
+            "y": 1364.0,
+            "width": 1974.0,
+            "height": 60.0
+          },
+          "text": "1 ② 2 ③3 ⑤ 4 ④ 5 ④ 6② 7② 8④ 1① 2 ③3 ③ 49 5 ② 6① 7② 8⑤"
+        },
+        {
+          "node_id": "p102-n038",
+          "reading_order_index": 21,
+          "confidence": 0.929886,
+          "bbox": {
+            "x": 192.0,
+            "y": 1577.0,
+            "width": 1972.0,
+            "height": 59.0
+          },
+          "text": "1 ③ 3②4⑤ 5 ⑤ 6④ 7② 827 1①2 ②3 ④4③ 5⑤ 6 ③ 7① 8⑤"
+        },
+        {
+          "node_id": "p102-n040",
+          "reading_order_index": 24,
+          "confidence": 0.951581,
+          "bbox": {
+            "x": 192.0,
+            "y": 1724.0,
+            "width": 1875.0,
+            "height": 53.0
+          },
+          "text": "1⑤ 2 ④3 ③ 43 5 ③ 6⑤ 77 8③ 1②2 ①3① 44 5 ② 6① 7 330"
+        },
+        {
+          "node_id": "p102-n053",
+          "reading_order_index": 31,
+          "confidence": 0.95583,
+          "bbox": {
+            "x": 190.0,
+            "y": 2284.0,
+            "width": 1974.0,
+            "height": 54.0
+          },
+          "text": "1 ④ 24 3 ② 4⑤ 55 65 7① 8③ 1932⑤3⑤ 4① 5 ① 64 7④ 8③"
+        },
+        {
+          "node_id": "p102-n056",
+          "reading_order_index": 66,
+          "confidence": 0.928023,
+          "bbox": {
+            "x": 306.0,
+            "y": 2494.0,
+            "width": 1860.0,
+            "height": 58.0
+          },
+          "text": "2 ②3④ 4③ 5 ① 6③7①8④ 1②2 ②3 ③ 4②5① 6④ 7② 8⑤"
+        }
+      ],
+      "overlap_warnings": [
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p102-n021",
+          "right_node_id": "p102-n008",
+          "overlap_ratio": 0.604096
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p102-n038",
+          "right_node_id": "p102-n045",
+          "overlap_ratio": 1.0
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p102-n020",
+          "right_node_id": "p102-n024",
+          "overlap_ratio": 1.0
+        }
+      ],
+      "reading_order_warnings": [
+        {
+          "type": "SAME_BAND_X_BACKTRACK",
+          "from_node_id": "p102-n018",
+          "to_node_id": "p102-n020",
+          "x_backtrack": 1050.0
+        },
+        {
+          "type": "SAME_BAND_X_BACKTRACK",
+          "from_node_id": "p102-n025",
+          "to_node_id": "p102-n023",
+          "x_backtrack": 1050.0
+        },
+        {
+          "type": "SAME_BAND_X_BACKTRACK",
+          "from_node_id": "p102-n066",
+          "to_node_id": "p102-n056",
+          "x_backtrack": 1704.0
+        },
+        {
+          "type": "SAME_BAND_X_BACKTRACK",
+          "from_node_id": "p102-n070",
+          "to_node_id": "p102-n071",
+          "x_backtrack": 955.0
+        }
+      ],
+      "region_separation_warnings": [
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p102-n029",
+            "reading_order_index": 15,
+            "confidence": 0.95787,
+            "bbox": {
+              "x": 163.0,
+              "y": 1201.0,
+              "width": 1585.0,
+              "height": 93.0
+            },
+            "text": "02 지수함수와 로그함수 05 등차수열과 등비수열"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p102-n031",
+            "reading_order_index": 18,
+            "confidence": 0.920096,
+            "bbox": {
+              "x": 190.0,
+              "y": 1364.0,
+              "width": 1974.0,
+              "height": 60.0
+            },
+            "text": "1 ② 2 ③3 ⑤ 4 ④ 5 ④ 6② 7② 8④ 1① 2 ③3 ③ 49 5 ② 6① 7② 8⑤"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p102-n038",
+            "reading_order_index": 21,
+            "confidence": 0.929886,
+            "bbox": {
+              "x": 192.0,
+              "y": 1577.0,
+              "width": 1972.0,
+              "height": 59.0
+            },
+            "text": "1 ③ 3②4⑤ 5 ⑤ 6④ 7② 827 1①2 ②3 ④4③ 5⑤ 6 ③ 7① 8⑤"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p102-n040",
+            "reading_order_index": 24,
+            "confidence": 0.951581,
+            "bbox": {
+              "x": 192.0,
+              "y": 1724.0,
+              "width": 1875.0,
+              "height": 53.0
+            },
+            "text": "1⑤ 2 ④3 ③ 43 5 ③ 6⑤ 77 8③ 1②2 ①3① 44 5 ② 6① 7 330"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p102-n053",
+            "reading_order_index": 31,
+            "confidence": 0.95583,
+            "bbox": {
+              "x": 190.0,
+              "y": 2284.0,
+              "width": 1974.0,
+              "height": 54.0
+            },
+            "text": "1 ④ 24 3 ② 4⑤ 55 65 7① 8③ 1932⑤3⑤ 4① 5 ① 64 7④ 8③"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p102-n058",
+            "reading_order_index": 36,
+            "confidence": 0.92683,
+            "bbox": {
+              "x": 192.0,
+              "y": 2638.0,
+              "width": 1736.0,
+              "height": 56.0
+            },
+            "text": "1 ② 2 ②3 ②4③ 5 ④ 6② 7④ 8④ 1②2 ③327 4⑤ 5 ① 6⑤"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p102-n056",
+            "reading_order_index": 66,
+            "confidence": 0.928023,
+            "bbox": {
+              "x": 306.0,
+              "y": 2494.0,
+              "width": 1860.0,
+              "height": 58.0
+            },
+            "text": "2 ②3④ 4③ 5 ① 6③7①8④ 1②2 ②3 ③ 4②5① 6④ 7② 8⑤"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "TWO_COLUMN_SPLIT_CANDIDATE",
+          "node_count": 12,
+          "reason": "Several nodes cross the page midpoint while left/right column nodes are both present.",
+          "sample_nodes": [
+            {
+              "node_id": "p102-n005",
+              "reading_order_index": 5,
+              "confidence": 0.947362,
+              "bbox": {
+                "x": 192.0,
+                "y": 461.0,
+                "width": 1266.0,
+                "height": 53.0
+              },
+              "text": "1 ① 2 ③ 3 1254④ 5 ① 6② 7⑤ 8③ 1④2 ③"
+            },
+            {
+              "node_id": "p102-n021",
+              "reading_order_index": 8,
+              "confidence": 0.945915,
+              "bbox": {
+                "x": 422.0,
+                "y": 664.0,
+                "width": 1297.0,
+                "height": 63.0
+              },
+              "text": "3 ② 4⑤ 65 7⑤ 8⑤ 9 ① 10 ②11 ⑤12 ④"
+            },
+            {
+              "node_id": "p102-n011",
+              "reading_order_index": 12,
+              "confidence": 0.896336,
+              "bbox": {
+                "x": 192.0,
+                "y": 869.0,
+                "width": 1403.0,
+                "height": 66.0
+              },
+              "text": "1 ④ 2 ④3 ⑤ 4①5 ② 6① 7 ④ 8⑤ 9 ③ 10 ⑤  11 ①"
+            },
+            {
+              "node_id": "p102-n029",
+              "reading_order_index": 15,
+              "confidence": 0.95787,
+              "bbox": {
+                "x": 163.0,
+                "y": 1201.0,
+                "width": 1585.0,
+                "height": 93.0
+              },
+              "text": "02 지수함수와 로그함수 05 등차수열과 등비수열"
+            },
+            {
+              "node_id": "p102-n031",
+              "reading_order_index": 18,
+              "confidence": 0.920096,
+              "bbox": {
+                "x": 190.0,
+                "y": 1364.0,
+                "width": 1974.0,
+                "height": 60.0
+              },
+              "text": "1 ② 2 ③3 ⑤ 4 ④ 5 ④ 6② 7② 8④ 1① 2 ③3 ③ 49 5 ② 6① 7② 8⑤"
+            }
+          ]
+        },
+        {
+          "type": "TABLE_LIKE_CANDIDATE",
+          "node_count": 11,
+          "reason": "Numeric/list-like OCR lines suggest a table or answer-list region should be separated from body text.",
+          "sample_nodes": [
+            {
+              "node_id": "p102-n005",
+              "reading_order_index": 5,
+              "confidence": 0.947362,
+              "bbox": {
+                "x": 192.0,
+                "y": 461.0,
+                "width": 1266.0,
+                "height": 53.0
+              },
+              "text": "1 ① 2 ③ 3 1254④ 5 ① 6② 7⑤ 8③ 1④2 ③"
+            },
+            {
+              "node_id": "p102-n021",
+              "reading_order_index": 8,
+              "confidence": 0.945915,
+              "bbox": {
+                "x": 422.0,
+                "y": 664.0,
+                "width": 1297.0,
+                "height": 63.0
+              },
+              "text": "3 ② 4⑤ 65 7⑤ 8⑤ 9 ① 10 ②11 ⑤12 ④"
+            },
+            {
+              "node_id": "p102-n011",
+              "reading_order_index": 12,
+              "confidence": 0.896336,
+              "bbox": {
+                "x": 192.0,
+                "y": 869.0,
+                "width": 1403.0,
+                "height": 66.0
+              },
+              "text": "1 ④ 2 ④3 ⑤ 4①5 ② 6① 7 ④ 8⑤ 9 ③ 10 ⑤  11 ①"
+            },
+            {
+              "node_id": "p102-n031",
+              "reading_order_index": 18,
+              "confidence": 0.920096,
+              "bbox": {
+                "x": 190.0,
+                "y": 1364.0,
+                "width": 1974.0,
+                "height": 60.0
+              },
+              "text": "1 ② 2 ③3 ⑤ 4 ④ 5 ④ 6② 7② 8④ 1① 2 ③3 ③ 49 5 ② 6① 7② 8⑤"
+            },
+            {
+              "node_id": "p102-n038",
+              "reading_order_index": 21,
+              "confidence": 0.929886,
+              "bbox": {
+                "x": 192.0,
+                "y": 1577.0,
+                "width": 1972.0,
+                "height": 59.0
+              },
+              "text": "1 ③ 3②4⑤ 5 ⑤ 6④ 7② 827 1①2 ②3 ④4③ 5⑤ 6 ③ 7① 8⑤"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

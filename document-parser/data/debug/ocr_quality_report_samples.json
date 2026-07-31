@@ -1,0 +1,2266 @@
+{
+  "report_type": "ocr_quality",
+  "page_count": 8,
+  "total_node_count": 368,
+  "total_low_confidence_node_count": 121,
+  "total_reading_order_warning_count": 13,
+  "total_region_separation_warning_count": 20,
+  "low_confidence_threshold": 0.5,
+  "wide_node_ratio": 0.72,
+  "tall_node_ratio": 0.08,
+  "overlap_threshold": 0.35,
+  "pages": [
+    {
+      "page_id": "p003",
+      "node_count": 82,
+      "mean_confidence": 0.502784,
+      "min_confidence": 0.042817,
+      "low_confidence_node_count": 42,
+      "suspicious_shape_node_count": 1,
+      "overlap_warning_count": 8,
+      "reading_order_warning_count": 6,
+      "region_separation_warning_count": 3,
+      "parse_issue_codes": [
+        "OCR_LOW_CONFIDENCE",
+        "OCR_RAW_CACHE_WRITTEN"
+      ],
+      "low_confidence_nodes": [
+        {
+          "node_id": "p003-n006",
+          "reading_order_index": 5,
+          "confidence": 0.389061,
+          "bbox": {
+            "x": 470.0,
+            "y": 696.0,
+            "width": 119.0,
+            "height": 25.0
+          },
+          "text": "실수 @의 n제골근"
+        },
+        {
+          "node_id": "p003-n007",
+          "reading_order_index": 6,
+          "confidence": 0.166269,
+          "bbox": {
+            "x": 473.0,
+            "y": 724.0,
+            "width": 687.0,
+            "height": 26.0
+          },
+          "text": "실수 @와 2 이상의 자연수 \"에 대하여 까제급하여 @가 되는 수; 즉 방정식 1\" = @의 근을 @의 \"제급근이라고"
+        },
+        {
+          "node_id": "p003-n012",
+          "reading_order_index": 11,
+          "confidence": 0.125454,
+          "bbox": {
+            "x": 470.0,
+            "y": 816.0,
+            "width": 311.0,
+            "height": 25.0
+          },
+          "text": "실수 @의 \"제급근 중에서 실수인 것올 교라 할 때"
+        },
+        {
+          "node_id": "p003-n013",
+          "reading_order_index": 12,
+          "confidence": 0.122731,
+          "bbox": {
+            "x": 473.0,
+            "y": 842.0,
+            "width": 464.0,
+            "height": 26.0
+          },
+          "text": "0 n이 훌수이면 @의 값에 관계없이 실수 _는 항상 존재하고 _-미하이다"
+        },
+        {
+          "node_id": "p003-n014",
+          "reading_order_index": 13,
+          "confidence": 0.215635,
+          "bbox": {
+            "x": 490.0,
+            "y": 872.0,
+            "width": 492.0,
+            "height": 21.0
+          },
+          "text": "H이 짝수이면 4>0일 때에만 실수 교가 존재하고 r-\"a 또는 r= 개 (이다"
+        },
+        {
+          "node_id": "p003-n016",
+          "reading_order_index": 15,
+          "confidence": 0.395244,
+          "bbox": {
+            "x": 493.0,
+            "y": 937.0,
+            "width": 153.0,
+            "height": 18.0
+          },
+          "text": "#이 홍수 새 @"
+        },
+        {
+          "node_id": "p003-n017",
+          "reading_order_index": 16,
+          "confidence": 0.251541,
+          "bbox": {
+            "x": 493.0,
+            "y": 963.0,
+            "width": 174.0,
+            "height": 19.0
+          },
+          "text": "#이 짝수 Wa , 그\"a"
+        },
+        {
+          "node_id": "p003-n019",
+          "reading_order_index": 18,
+          "confidence": 0.106693,
+          "bbox": {
+            "x": 512.0,
+            "y": 1021.0,
+            "width": 117.0,
+            "height": 18.0
+          },
+          "text": "합수 y = ,\"의 그래\""
+        },
+        {
+          "node_id": "p003-n020",
+          "reading_order_index": 19,
+          "confidence": 0.418932,
+          "bbox": {
+            "x": 510.0,
+            "y": 1045.0,
+            "width": 88.0,
+            "height": 18.0
+          },
+          "text": "(i) n이흔수일"
+        },
+        {
+          "node_id": "p003-n021",
+          "reading_order_index": 20,
+          "confidence": 0.363291,
+          "bbox": {
+            "x": 891.0,
+            "y": 965.0,
+            "width": 31.0,
+            "height": 17.0
+          },
+          "text": "없다."
+        },
+        {
+          "node_id": "p003-n023",
+          "reading_order_index": 22,
+          "confidence": 0.309269,
+          "bbox": {
+            "x": 1620.0,
+            "y": 1069.0,
+            "width": 528.0,
+            "height": 55.0
+          },
+          "text": "예제는 개념울올 적용하 대표 문항으로"
+        },
+        {
+          "node_id": "p003-n025",
+          "reading_order_index": 24,
+          "confidence": 0.198,
+          "bbox": {
+            "x": 766.0,
+            "y": 1101.0,
+            "width": 128.0,
+            "height": 34.0
+          },
+          "text": "827XVg의 값은?"
+        },
+        {
+          "node_id": "p003-n026",
+          "reading_order_index": 25,
+          "confidence": 0.119772,
+          "bbox": {
+            "x": 752.0,
+            "y": 1148.0,
+            "width": 43.0,
+            "height": 21.0
+          },
+          "text": "0*3"
+        },
+        {
+          "node_id": "p003-n027",
+          "reading_order_index": 26,
+          "confidence": 0.39536,
+          "bbox": {
+            "x": 1620.0,
+            "y": 1121.0,
+            "width": 528.0,
+            "height": 49.0
+          },
+          "text": "문제지 해결하는 데 필요한 주요 개념"
+        },
+        {
+          "node_id": "p003-n029",
+          "reading_order_index": 28,
+          "confidence": 0.334708,
+          "bbox": {
+            "x": 855.0,
+            "y": 1222.0,
+            "width": 1296.0,
+            "height": 50.0
+          },
+          "text": "\"a \" =\"a\" (단, /눈 자연수) 02 \"a\"6=\"ab 이 과정의 이해틀 돕도록 하여고 유제"
+        },
+        {
+          "node_id": "p003-n032",
+          "reading_order_index": 31,
+          "confidence": 0.297077,
+          "bbox": {
+            "x": 510.0,
+            "y": 1208.0,
+            "width": 568.0,
+            "height": 32.0
+          },
+          "text": "방정식 ,\" =0의 근위 \"길잡이 4> 0.6> 0이고 m. \"이 2 이상의 자연수일 따"
+        },
+        {
+          "node_id": "p003-n034",
+          "reading_order_index": 33,
+          "confidence": 0.136574,
+          "bbox": {
+            "x": 471.0,
+            "y": 1282.0,
+            "width": 158.0,
+            "height": 19.0
+          },
+          "text": "0>0, 6> 0이고 m, n이"
+        },
+        {
+          "node_id": "p003-n035",
+          "reading_order_index": 34,
+          "confidence": 0.309947,
+          "bbox": {
+            "x": 474.0,
+            "y": 1306.0,
+            "width": 555.0,
+            "height": 45.0
+          },
+          "text": "O (a)\"=4 [푹*오=[뜻x중"
+        },
+        {
+          "node_id": "p003-n036",
+          "reading_order_index": 35,
+          "confidence": 0.173476,
+          "bbox": {
+            "x": 946.0,
+            "y": 1352.0,
+            "width": 65.0,
+            "height": 21.0
+          },
+          "text": "=낌9 X Y3"
+        },
+        {
+          "node_id": "p003-n037",
+          "reading_order_index": 36,
+          "confidence": 0.108064,
+          "bbox": {
+            "x": 946.0,
+            "y": 1380.0,
+            "width": 55.0,
+            "height": 19.0
+          },
+          "text": "=웨9 X 3"
+        }
+      ],
+      "suspicious_shape_nodes": [
+        {
+          "node_id": "p003-n001",
+          "reading_order_index": 0,
+          "confidence": 0.865303,
+          "bbox": {
+            "x": 326.0,
+            "y": 293.0,
+            "width": 1881.0,
+            "height": 115.0
+          },
+          "text": "이 책의 구성과 특징 Structure"
+        }
+      ],
+      "overlap_warnings": [
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n008",
+          "right_node_id": "p003-n011",
+          "overlap_ratio": 0.72
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n029",
+          "right_node_id": "p003-n039",
+          "overlap_ratio": 1.0
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n032",
+          "right_node_id": "p003-n039",
+          "overlap_ratio": 0.647059
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n064",
+          "right_node_id": "p003-n067",
+          "overlap_ratio": 0.368176
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n064",
+          "right_node_id": "p003-n068",
+          "overlap_ratio": 0.875
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n074",
+          "right_node_id": "p003-n077",
+          "overlap_ratio": 0.96
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n075",
+          "right_node_id": "p003-n078",
+          "overlap_ratio": 0.800738
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p003-n075",
+          "right_node_id": "p003-n079",
+          "overlap_ratio": 0.75
+        }
+      ],
+      "reading_order_warnings": [
+        {
+          "type": "SAME_BAND_X_BACKTRACK",
+          "from_node_id": "p003-n003",
+          "to_node_id": "p003-n004",
+          "x_backtrack": 891.0
+        },
+        {
+          "type": "SAME_BAND_X_BACKTRACK",
+          "from_node_id": "p003-n023",
+          "to_node_id": "p003-n024",
+          "x_backtrack": 879.0
+        },
+        {
+          "type": "SAME_BAND_X_BACKTRACK",
+          "from_node_id": "p003-n054",
+          "to_node_id": "p003-n055",
+          "x_backtrack": 1231.0
+        },
+        {
+          "type": "SAME_BAND_X_BACKTRACK",
+          "from_node_id": "p003-n056",
+          "to_node_id": "p003-n057",
+          "x_backtrack": 940.0
+        },
+        {
+          "type": "SAME_BAND_X_BACKTRACK",
+          "from_node_id": "p003-n061",
+          "to_node_id": "p003-n062",
+          "x_backtrack": 1050.0
+        },
+        {
+          "type": "SAME_BAND_X_BACKTRACK",
+          "from_node_id": "p003-n066",
+          "to_node_id": "p003-n067",
+          "x_backtrack": 1603.0
+        }
+      ],
+      "region_separation_warnings": [
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p003-n067",
+            "reading_order_index": 66,
+            "confidence": 0.504201,
+            "bbox": {
+              "x": 339.0,
+              "y": 2198.0,
+              "width": 1668.0,
+              "height": 51.0
+            },
+            "text": "력올 함양할 수 있는 문항올 제시하여 [26008-0014] 자연수 m ( m>2)에 대하여 m모의 #제급근 중에서 정수가 존재하도록 하늘 2 이상의 자연수 \"의 개수"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "INTRO_GUIDE_PAGE_EXCLUSION_CANDIDATE",
+          "node_count": 76,
+          "reason": "Intro/structure page appears to be publisher guide content rather than supported math content. Exclude this page from primary parsing and preserve OCR only as embedded unsupported visual evidence.",
+          "evidence": {
+            "header_text": "이 책의 구성과 특징 structure 개념 정리 여러 종의 교과서지 통합하여 핵심 개 01 지수와로그",
+            "has_intro_header": true,
+            "text_node_count": 82,
+            "lower_text_node_count": 81,
+            "compact_lower_text_node_count": 76,
+            "min_text_nodes": 20,
+            "min_lower_text_nodes": 20,
+            "min_compact_lower_text_nodes": 10
+          },
+          "sample_nodes": [
+            {
+              "node_id": "p003-n002",
+              "reading_order_index": 1,
+              "confidence": 0.993127,
+              "bbox": {
+                "x": 1368.0,
+                "y": 535.0,
+                "width": 157.0,
+                "height": 52.0
+              },
+              "text": "개념 정리"
+            },
+            {
+              "node_id": "p003-n003",
+              "reading_order_index": 2,
+              "confidence": 0.620492,
+              "bbox": {
+                "x": 1344.0,
+                "y": 605.0,
+                "width": 531.0,
+                "height": 51.0
+              },
+              "text": "여러 종의 교과서지 통합하여 핵심 개"
+            },
+            {
+              "node_id": "p003-n004",
+              "reading_order_index": 3,
+              "confidence": 0.988878,
+              "bbox": {
+                "x": 453.0,
+                "y": 563.0,
+                "width": 255.0,
+                "height": 63.0
+              },
+              "text": "01 지수와로그"
+            },
+            {
+              "node_id": "p003-n005",
+              "reading_order_index": 4,
+              "confidence": 0.873597,
+              "bbox": {
+                "x": 473.0,
+                "y": 660.0,
+                "width": 88.0,
+                "height": 25.0
+              },
+              "text": "거듭제급근"
+            },
+            {
+              "node_id": "p003-n006",
+              "reading_order_index": 5,
+              "confidence": 0.389061,
+              "bbox": {
+                "x": 470.0,
+                "y": 696.0,
+                "width": 119.0,
+                "height": 25.0
+              },
+              "text": "실수 @의 n제골근"
+            }
+          ]
+        },
+        {
+          "type": "TWO_COLUMN_SPLIT_CANDIDATE",
+          "node_count": 10,
+          "reason": "Several nodes cross the page midpoint while left/right column nodes are both present.",
+          "sample_nodes": [
+            {
+              "node_id": "p003-n001",
+              "reading_order_index": 0,
+              "confidence": 0.865303,
+              "bbox": {
+                "x": 326.0,
+                "y": 293.0,
+                "width": 1881.0,
+                "height": 115.0
+              },
+              "text": "이 책의 구성과 특징 Structure"
+            },
+            {
+              "node_id": "p003-n008",
+              "reading_order_index": 7,
+              "confidence": 0.551515,
+              "bbox": {
+                "x": 470.0,
+                "y": 751.0,
+                "width": 1350.0,
+                "height": 54.0
+              },
+              "text": "한다. 이때 @의 제급근 @의 세제급근. @의 네제급근 \"올 봉들어 @의 거듭제급근이라고 한다 이해와 적용에 도움이 되게 하여다"
+            },
+            {
+              "node_id": "p003-n029",
+              "reading_order_index": 28,
+              "confidence": 0.334708,
+              "bbox": {
+                "x": 855.0,
+                "y": 1222.0,
+                "width": 1296.0,
+                "height": 50.0
+              },
+              "text": "\"a \" =\"a\" (단, /눈 자연수) 02 \"a\"6=\"ab 이 과정의 이해틀 돕도록 하여고 유제"
+            },
+            {
+              "node_id": "p003-n058",
+              "reading_order_index": 57,
+              "confidence": 0.43851,
+              "bbox": {
+                "x": 336.0,
+                "y": 2047.0,
+                "width": 1535.1624763874381,
+                "height": 51.0
+              },
+              "text": "제시하엿으며 Level 2 기본 연습은 기 @{ 거듭제공근의 성질이나 지수법칙올 이용하여 식의 값을 구하는 문제 로그의 정의와성질올"
+            },
+            {
+              "node_id": "p003-n064",
+              "reading_order_index": 63,
+              "confidence": 0.345128,
+              "bbox": {
+                "x": 339.0,
+                "y": 2225.0,
+                "width": 1305.0,
+                "height": 72.0
+              },
+              "text": "대학수학능력시험 실전에 대비할 수 잎 두 실수 L, y에 대하 뜰 j(m)이라 할 때.올 f(m)의 값은? [유정]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "p004",
+      "node_count": 40,
+      "mean_confidence": 0.447727,
+      "min_confidence": 0.096066,
+      "low_confidence_node_count": 23,
+      "suspicious_shape_node_count": 2,
+      "overlap_warning_count": 0,
+      "reading_order_warning_count": 1,
+      "region_separation_warning_count": 5,
+      "parse_issue_codes": [
+        "OCR_LOW_CONFIDENCE",
+        "OCR_RAW_CACHE_WRITTEN"
+      ],
+      "low_confidence_nodes": [
+        {
+          "node_id": "p004-n004",
+          "reading_order_index": 3,
+          "confidence": 0.220185,
+          "bbox": {
+            "x": 318.0,
+            "y": 514.0,
+            "width": 1783.0,
+            "height": 61.0
+          },
+          "text": "실수 @와 2 이상의 자연수 p에 대하여 n제급하여 @가 되는 수, 즉 방정식 3\" =@의 근을 @의 n제급근이라고"
+        },
+        {
+          "node_id": "p004-n005",
+          "reading_order_index": 4,
+          "confidence": 0.448628,
+          "bbox": {
+            "x": 318.0,
+            "y": 585.0,
+            "width": 1548.0,
+            "height": 61.0
+          },
+          "text": "한다. 이때 @의 제급근 @의 세제급근, @의 네제급근 .올 통들어 @의 거듭제급근이라고 한다."
+        },
+        {
+          "node_id": "p004-n007",
+          "reading_order_index": 6,
+          "confidence": 0.309586,
+          "bbox": {
+            "x": 319.0,
+            "y": 751.0,
+            "width": 795.0,
+            "height": 56.0
+          },
+          "text": "실수 @의 n제공근 중에서 실수인 것올 _라 할 때"
+        },
+        {
+          "node_id": "p004-n008",
+          "reading_order_index": 7,
+          "confidence": 0.280474,
+          "bbox": {
+            "x": 365.0,
+            "y": 823.0,
+            "width": 1162.0,
+            "height": 56.0
+          },
+          "text": "H이 흙수이면 @의 값에 관계없이 실수 교는 항상 존재하고 r=\"@이다."
+        },
+        {
+          "node_id": "p004-n009",
+          "reading_order_index": 8,
+          "confidence": 0.182638,
+          "bbox": {
+            "x": 365.0,
+            "y": 895.0,
+            "width": 1282.0,
+            "height": 54.0
+          },
+          "text": "H이 짝수이면 @ >0일 때에만 실수 .가 존재하고 r=\"a 또는 r= -\".이다:"
+        },
+        {
+          "node_id": "p004-n013",
+          "reading_order_index": 12,
+          "confidence": 0.433436,
+          "bbox": {
+            "x": 698.0,
+            "y": 996.0,
+            "width": 81.0,
+            "height": 32.0
+          },
+          "text": "a>0"
+        },
+        {
+          "node_id": "p004-n017",
+          "reading_order_index": 16,
+          "confidence": 0.173939,
+          "bbox": {
+            "x": 425.0,
+            "y": 1273.0,
+            "width": 1570.0,
+            "height": 56.0
+          },
+          "text": "함수 y = 비\" 의 그래프와 직선 y = @의 교점의 교좌표와 같다. 이때 이 실수름 기호 \"a틀 이용하여 나타}다."
+        },
+        {
+          "node_id": "p004-n018",
+          "reading_order_index": 17,
+          "confidence": 0.463319,
+          "bbox": {
+            "x": 415.0,
+            "y": 1337.0,
+            "width": 275.0,
+            "height": 53.0
+          },
+          "text": "(i) H이 홀수일 때"
+        },
+        {
+          "node_id": "p004-n019",
+          "reading_order_index": 18,
+          "confidence": 0.096066,
+          "bbox": {
+            "x": 607.0,
+            "y": 1406.0,
+            "width": 196.0,
+            "height": 39.0
+          },
+          "text": "리사 U=간\""
+        },
+        {
+          "node_id": "p004-n020",
+          "reading_order_index": 19,
+          "confidence": 0.304405,
+          "bbox": {
+            "x": 1250.0,
+            "y": 1337.0,
+            "width": 272.0,
+            "height": 53.0
+          },
+          "text": "(ii) 끄이 짝수일 때"
+        },
+        {
+          "node_id": "p004-n021",
+          "reading_order_index": 20,
+          "confidence": 0.15841,
+          "bbox": {
+            "x": 1454.0,
+            "y": 1404.0,
+            "width": 211.0,
+            "height": 42.0
+          },
+          "text": "리^ Y=소\""
+        },
+        {
+          "node_id": "p004-n022",
+          "reading_order_index": 21,
+          "confidence": 0.250539,
+          "bbox": {
+            "x": 789.0,
+            "y": 1484.0,
+            "width": 190.0,
+            "height": 43.0
+          },
+          "text": "Y=a (a>0)"
+        },
+        {
+          "node_id": "p004-n024",
+          "reading_order_index": 23,
+          "confidence": 0.162094,
+          "bbox": {
+            "x": 1636.0,
+            "y": 1631.0,
+            "width": 26.0,
+            "height": 28.0
+          },
+          "text": "X"
+        },
+        {
+          "node_id": "p004-n025",
+          "reading_order_index": 24,
+          "confidence": 0.414521,
+          "bbox": {
+            "x": 1639.0,
+            "y": 1705.0,
+            "width": 189.0,
+            "height": 40.0
+          },
+          "text": "리=@ (a<0)"
+        },
+        {
+          "node_id": "p004-n026",
+          "reading_order_index": 25,
+          "confidence": 0.45429,
+          "bbox": {
+            "x": 787.0,
+            "y": 1681.0,
+            "width": 192.0,
+            "height": 40.0
+          },
+          "text": "Y=a (a<0)"
+        },
+        {
+          "node_id": "p004-n030",
+          "reading_order_index": 29,
+          "confidence": 0.326586,
+          "bbox": {
+            "x": 366.0,
+            "y": 2016.0,
+            "width": 193.0,
+            "height": 65.0
+          },
+          "text": "(\"a)\" =a"
+        },
+        {
+          "node_id": "p004-n031",
+          "reading_order_index": 30,
+          "confidence": 0.421851,
+          "bbox": {
+            "x": 364.0,
+            "y": 2089.0,
+            "width": 1145.0,
+            "height": 121.0
+          },
+          "text": "\"문-움 (\"a)\"=\"d\""
+        },
+        {
+          "node_id": "p004-n032",
+          "reading_order_index": 31,
+          "confidence": 0.10077,
+          "bbox": {
+            "x": 367.0,
+            "y": 2229.0,
+            "width": 215.0,
+            "height": 54.0
+          },
+          "text": "m\"d= ."
+        },
+        {
+          "node_id": "p004-n034",
+          "reading_order_index": 33,
+          "confidence": 0.433341,
+          "bbox": {
+            "x": 458.0,
+            "y": 2363.0,
+            "width": 1131.0,
+            "height": 104.0
+          },
+          "text": "훌용-용3 (82 ) +=히27=816"
+        },
+        {
+          "node_id": "p004-n035",
+          "reading_order_index": 34,
+          "confidence": 0.159236,
+          "bbox": {
+            "x": 1320.0,
+            "y": 2481.0,
+            "width": 284.0,
+            "height": 55.0
+          },
+          "text": "3= 3*2/33x3 =833"
+        }
+      ],
+      "suspicious_shape_nodes": [
+        {
+          "node_id": "p004-n004",
+          "reading_order_index": 3,
+          "confidence": 0.220185,
+          "bbox": {
+            "x": 318.0,
+            "y": 514.0,
+            "width": 1783.0,
+            "height": 61.0
+          },
+          "text": "실수 @와 2 이상의 자연수 p에 대하여 n제급하여 @가 되는 수, 즉 방정식 3\" =@의 근을 @의 n제급근이라고"
+        },
+        {
+          "node_id": "p004-n016",
+          "reading_order_index": 15,
+          "confidence": 0.607052,
+          "bbox": {
+            "x": 332.0,
+            "y": 1210.0,
+            "width": 1768.0,
+            "height": 57.0
+          },
+          "text": "설명 H이 2 이상의 자연수일 때 실수 @의 거제급근 중에서 실수인 것은 방정식 a\" =@의 근 중에서 실수인 것이므로 이느"
+        }
+      ],
+      "overlap_warnings": [],
+      "reading_order_warnings": [
+        {
+          "type": "SAME_BAND_X_BACKTRACK",
+          "from_node_id": "p004-n025",
+          "to_node_id": "p004-n026",
+          "x_backtrack": 852.0
+        }
+      ],
+      "region_separation_warnings": [
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p004-n004",
+            "reading_order_index": 3,
+            "confidence": 0.220185,
+            "bbox": {
+              "x": 318.0,
+              "y": 514.0,
+              "width": 1783.0,
+              "height": 61.0
+            },
+            "text": "실수 @와 2 이상의 자연수 p에 대하여 n제급하여 @가 되는 수, 즉 방정식 3\" =@의 근을 @의 n제급근이라고"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p004-n005",
+            "reading_order_index": 4,
+            "confidence": 0.448628,
+            "bbox": {
+              "x": 318.0,
+              "y": 585.0,
+              "width": 1548.0,
+              "height": 61.0
+            },
+            "text": "한다. 이때 @의 제급근 @의 세제급근, @의 네제급근 .올 통들어 @의 거듭제급근이라고 한다."
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p004-n016",
+            "reading_order_index": 15,
+            "confidence": 0.607052,
+            "bbox": {
+              "x": 332.0,
+              "y": 1210.0,
+              "width": 1768.0,
+              "height": 57.0
+            },
+            "text": "설명 H이 2 이상의 자연수일 때 실수 @의 거제급근 중에서 실수인 것은 방정식 a\" =@의 근 중에서 실수인 것이므로 이느"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p004-n017",
+            "reading_order_index": 16,
+            "confidence": 0.173939,
+            "bbox": {
+              "x": 425.0,
+              "y": 1273.0,
+              "width": 1570.0,
+              "height": 56.0
+            },
+            "text": "함수 y = 비\" 의 그래프와 직선 y = @의 교점의 교좌표와 같다. 이때 이 실수름 기호 \"a틀 이용하여 나타}다."
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "TWO_COLUMN_SPLIT_CANDIDATE",
+          "node_count": 8,
+          "reason": "Several nodes cross the page midpoint while left/right column nodes are both present.",
+          "sample_nodes": [
+            {
+              "node_id": "p004-n004",
+              "reading_order_index": 3,
+              "confidence": 0.220185,
+              "bbox": {
+                "x": 318.0,
+                "y": 514.0,
+                "width": 1783.0,
+                "height": 61.0
+              },
+              "text": "실수 @와 2 이상의 자연수 p에 대하여 n제급하여 @가 되는 수, 즉 방정식 3\" =@의 근을 @의 n제급근이라고"
+            },
+            {
+              "node_id": "p004-n005",
+              "reading_order_index": 4,
+              "confidence": 0.448628,
+              "bbox": {
+                "x": 318.0,
+                "y": 585.0,
+                "width": 1548.0,
+                "height": 61.0
+              },
+              "text": "한다. 이때 @의 제급근 @의 세제급근, @의 네제급근 .올 통들어 @의 거듭제급근이라고 한다."
+            },
+            {
+              "node_id": "p004-n008",
+              "reading_order_index": 7,
+              "confidence": 0.280474,
+              "bbox": {
+                "x": 365.0,
+                "y": 823.0,
+                "width": 1162.0,
+                "height": 56.0
+              },
+              "text": "H이 흙수이면 @의 값에 관계없이 실수 교는 항상 존재하고 r=\"@이다."
+            },
+            {
+              "node_id": "p004-n009",
+              "reading_order_index": 8,
+              "confidence": 0.182638,
+              "bbox": {
+                "x": 365.0,
+                "y": 895.0,
+                "width": 1282.0,
+                "height": 54.0
+              },
+              "text": "H이 짝수이면 @ >0일 때에만 실수 .가 존재하고 r=\"a 또는 r= -\".이다:"
+            },
+            {
+              "node_id": "p004-n016",
+              "reading_order_index": 15,
+              "confidence": 0.607052,
+              "bbox": {
+                "x": 332.0,
+                "y": 1210.0,
+                "width": 1768.0,
+                "height": 57.0
+              },
+              "text": "설명 H이 2 이상의 자연수일 때 실수 @의 거제급근 중에서 실수인 것은 방정식 a\" =@의 근 중에서 실수인 것이므로 이느"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "p008",
+      "node_count": 30,
+      "mean_confidence": 0.66436,
+      "min_confidence": 0.117118,
+      "low_confidence_node_count": 7,
+      "suspicious_shape_node_count": 0,
+      "overlap_warning_count": 0,
+      "reading_order_warning_count": 1,
+      "region_separation_warning_count": 0,
+      "parse_issue_codes": [
+        "OCR_LOW_CONFIDENCE",
+        "OCR_RAW_CACHE_WRITTEN"
+      ],
+      "low_confidence_nodes": [
+        {
+          "node_id": "p008-n004",
+          "reading_order_index": 3,
+          "confidence": 0.211727,
+          "bbox": {
+            "x": 318.0,
+            "y": 466.0,
+            "width": 1080.0,
+            "height": 62.0
+          },
+          "text": "0>0, 0#1, N> 0일 때, @ = N올 만족시키는 실수 [틀 기호로"
+        },
+        {
+          "node_id": "p008-n006",
+          "reading_order_index": 5,
+          "confidence": 0.329343,
+          "bbox": {
+            "x": 322.0,
+            "y": 612.0,
+            "width": 356.0,
+            "height": 56.0
+          },
+          "text": "과 같이 나타번다. 즉,"
+        },
+        {
+          "node_id": "p008-n007",
+          "reading_order_index": 6,
+          "confidence": 0.191142,
+          "bbox": {
+            "x": 395.0,
+            "y": 683.0,
+            "width": 408.0,
+            "height": 60.0
+          },
+          "text": "@' =N(> a=loga N"
+        },
+        {
+          "node_id": "p008-n020",
+          "reading_order_index": 19,
+          "confidence": 0.434827,
+          "bbox": {
+            "x": 468.0,
+            "y": 1603.0,
+            "width": 445.0,
+            "height": 49.0
+          },
+          "text": "MN =a\" X a\"= @\"+\"이므로"
+        },
+        {
+          "node_id": "p008-n022",
+          "reading_order_index": 21,
+          "confidence": 0.117118,
+          "bbox": {
+            "x": 468.0,
+            "y": 1722.0,
+            "width": 424.0,
+            "height": 89.0
+          },
+          "text": "M=d\" : d\"=d\" \"이무로"
+        },
+        {
+          "node_id": "p008-n023",
+          "reading_order_index": 22,
+          "confidence": 0.425236,
+          "bbox": {
+            "x": 528.2448296563452,
+            "y": 1814.0,
+            "width": 586.7551703436548,
+            "height": 88.0
+          },
+          "text": "logaM- -\"=log M-logr N"
+        },
+        {
+          "node_id": "p008-n024",
+          "reading_order_index": 23,
+          "confidence": 0.366384,
+          "bbox": {
+            "x": 468.0,
+            "y": 1915.0,
+            "width": 370.0,
+            "height": 49.0
+          },
+          "text": "M' = (a\")' = @\"이므로"
+        }
+      ],
+      "suspicious_shape_nodes": [],
+      "overlap_warnings": [],
+      "reading_order_warnings": [
+        {
+          "type": "LARGE_VERTICAL_GAP",
+          "from_node_id": "p008-n029",
+          "to_node_id": "p008-n030",
+          "vertical_gap": 833.0
+        }
+      ],
+      "region_separation_warnings": []
+    },
+    {
+      "page_id": "p012",
+      "node_count": 38,
+      "mean_confidence": 0.730608,
+      "min_confidence": 0.222061,
+      "low_confidence_node_count": 8,
+      "suspicious_shape_node_count": 0,
+      "overlap_warning_count": 0,
+      "reading_order_warning_count": 0,
+      "region_separation_warning_count": 2,
+      "parse_issue_codes": [
+        "OCR_LOW_CONFIDENCE",
+        "OCR_RAW_CACHE_WRITTEN"
+      ],
+      "low_confidence_nodes": [
+        {
+          "node_id": "p012-n004",
+          "reading_order_index": 3,
+          "confidence": 0.468805,
+          "bbox": {
+            "x": 321.0,
+            "y": 467.0,
+            "width": 1452.0,
+            "height": 67.91641002492236
+          },
+          "text": "믿을 10으로 하늘 로그, 즉logioN (N>0)올 상용로그라 하고, 보통 밑 10올 생각하여"
+        },
+        {
+          "node_id": "p012-n006",
+          "reading_order_index": 5,
+          "confidence": 0.338211,
+          "bbox": {
+            "x": 319.0,
+            "y": 612.0,
+            "width": 296.0,
+            "height": 56.0
+          },
+          "text": "과 같이 나타번다."
+        },
+        {
+          "node_id": "p012-n010",
+          "reading_order_index": 9,
+          "confidence": 0.376493,
+          "bbox": {
+            "x": 365.0,
+            "y": 948.0,
+            "width": 711.0,
+            "height": 56.0
+          },
+          "text": "상용로그표v 이용하 상용로그의 값 구하기"
+        },
+        {
+          "node_id": "p012-n013",
+          "reading_order_index": 12,
+          "confidence": 0.222061,
+          "bbox": {
+            "x": 369.0,
+            "y": 1157.0,
+            "width": 857.0,
+            "height": 63.0
+          },
+          "text": "리까지 반올림하여 나타번 값이 주어저 있다   예름"
+        },
+        {
+          "node_id": "p012-n021",
+          "reading_order_index": 20,
+          "confidence": 0.287822,
+          "bbox": {
+            "x": 448.0,
+            "y": 1586.0,
+            "width": 606.0,
+            "height": 55.0
+          },
+          "text": "N=aX10\" (1스0<10, n은 정수)"
+        },
+        {
+          "node_id": "p012-n022",
+          "reading_order_index": 21,
+          "confidence": 0.395173,
+          "bbox": {
+            "x": 371.0,
+            "y": 1655.0,
+            "width": 879.0,
+            "height": 60.0
+          },
+          "text": "의 꼴로 나타) 수 있다. 이틀 로그의 성질올 이용하면"
+        },
+        {
+          "node_id": "p012-n024",
+          "reading_order_index": 23,
+          "confidence": 0.405981,
+          "bbox": {
+            "x": 366.0,
+            "y": 1794.0,
+            "width": 1296.0,
+            "height": 65.0
+          },
+          "text": "와 같이 나타) 수 있으므로 N의 상용로그의 값은 @올 이용하여 구할 수 있다."
+        },
+        {
+          "node_id": "p012-n026",
+          "reading_order_index": 25,
+          "confidence": 0.422054,
+          "bbox": {
+            "x": 318.0,
+            "y": 1959.0,
+            "width": 1527.0,
+            "height": 63.0
+          },
+          "text": "상용로그름 이용하면 230 , 82 등과 같은 수름 10진법으로 나타내어 어림하 값을 구할 수 있다."
+        }
+      ],
+      "suspicious_shape_nodes": [],
+      "overlap_warnings": [],
+      "reading_order_warnings": [],
+      "region_separation_warnings": [
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p012-n011",
+            "reading_order_index": 10,
+            "confidence": 0.572187,
+            "bbox": {
+              "x": 367.0,
+              "y": 1020.0,
+              "width": 1596.0,
+              "height": 60.0
+            },
+            "text": "상용로그표에는 0.01의 간격으로 1.00부터 9.99까지 0 |1 | 2 | 3 | 4 | 5 | 6 | 7 |"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p012-n026",
+            "reading_order_index": 25,
+            "confidence": 0.422054,
+            "bbox": {
+              "x": 318.0,
+              "y": 1959.0,
+              "width": 1527.0,
+              "height": 63.0
+            },
+            "text": "상용로그름 이용하면 230 , 82 등과 같은 수름 10진법으로 나타내어 어림하 값을 구할 수 있다."
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        }
+      ]
+    },
+    {
+      "page_id": "p019",
+      "node_count": 27,
+      "mean_confidence": 0.618127,
+      "min_confidence": 0.188712,
+      "low_confidence_node_count": 9,
+      "suspicious_shape_node_count": 2,
+      "overlap_warning_count": 0,
+      "reading_order_warning_count": 3,
+      "region_separation_warning_count": 2,
+      "parse_issue_codes": [
+        "OCR_LOW_CONFIDENCE",
+        "OCR_RAW_CACHE_WRITTEN"
+      ],
+      "low_confidence_nodes": [
+        {
+          "node_id": "p019-n001",
+          "reading_order_index": 0,
+          "confidence": 0.41203,
+          "bbox": {
+            "x": 1967.0,
+            "y": 165.0,
+            "width": 237.0,
+            "height": 33.0
+          },
+          "text": "WWW.ebsicOkr"
+        },
+        {
+          "node_id": "p019-n006",
+          "reading_order_index": 5,
+          "confidence": 0.247621,
+          "bbox": {
+            "x": 393.0,
+            "y": 729.0,
+            "width": 1713.0,
+            "height": 62.0
+          },
+          "text": "자연수 m (m>2)에 대하여 m의 n제공근 중에서 정수가 존재하도록 하느 2 이상의 자연수 n의 개수"
+        },
+        {
+          "node_id": "p019-n012",
+          "reading_order_index": 11,
+          "confidence": 0.441714,
+          "bbox": {
+            "x": 656.0,
+            "y": 1273.5675716376834,
+            "width": 138.99363055707227,
+            "height": 53.86485672463323
+          },
+          "text": "X\"=m2"
+        },
+        {
+          "node_id": "p019-n013",
+          "reading_order_index": 12,
+          "confidence": 0.342766,
+          "bbox": {
+            "x": 586.0,
+            "y": 1338.0,
+            "width": 1522.0,
+            "height": 55.0
+          },
+          "text": "m의 값에 따라 @의 방정식이 정수인 근을 갖도록 하는 2 이상의 자연수 끄의 개수름 구하면 다음과 같"
+        },
+        {
+          "node_id": "p019-n015",
+          "reading_order_index": 14,
+          "confidence": 0.188712,
+          "bbox": {
+            "x": 581.0,
+            "y": 1464.0,
+            "width": 1116.0,
+            "height": 53.0
+          },
+          "text": "(i) m =2일 때, @은 -\" =212이고 n의 값은 2, 3, 4, 6, 12이므로 f(2) =5"
+        },
+        {
+          "node_id": "p019-n019",
+          "reading_order_index": 18,
+          "confidence": 0.252615,
+          "bbox": {
+            "x": 580.0,
+            "y": 1708.0,
+            "width": 1118.0,
+            "height": 60.0
+          },
+          "text": "(v) m =6일 때. @은 -\" =6 이고 n의 값은 2. 3, 4, 6, 12이므로 f(6) =5"
+        },
+        {
+          "node_id": "p019-n020",
+          "reading_order_index": 19,
+          "confidence": 0.420466,
+          "bbox": {
+            "x": 583.0,
+            "y": 1770.0,
+            "width": 1115.0,
+            "height": 60.0
+          },
+          "text": "(vi) m =7일 때,@은 r\" =7 이고 n의 값은 2, 3, 4, 6, 12이므로 j(7) =5"
+        },
+        {
+          "node_id": "p019-n022",
+          "reading_order_index": 21,
+          "confidence": 0.34941,
+          "bbox": {
+            "x": 581.0,
+            "y": 1898.0,
+            "width": 1399.0,
+            "height": 58.0
+          },
+          "text": "(m) m=9일 때, @은 .\" =9', 즉 1\" = 32'이고 n의 값은 2, 3,4, 6, 8, 12, 24이므로 j(9) =7"
+        },
+        {
+          "node_id": "p019-n024",
+          "reading_order_index": 23,
+          "confidence": 0.467691,
+          "bbox": {
+            "x": 656.0,
+            "y": 2042.0,
+            "width": 662.0,
+            "height": 69.0
+          },
+          "text": "m=2j(m)-j(2)+7(3)+7(4) +  +f(9)"
+        }
+      ],
+      "suspicious_shape_nodes": [
+        {
+          "node_id": "p019-n003",
+          "reading_order_index": 2,
+          "confidence": 0.729708,
+          "bbox": {
+            "x": 380.0,
+            "y": 394.0,
+            "width": 1785.0,
+            "height": 55.0
+          },
+          "text": "출제 거듭제공근의 성질이나 지수법칙올 이용하여 식의 값을 구하는 문제 로그의 정의와 성질올 이용하여 식의 값을 구하능 문"
+        },
+        {
+          "node_id": "p019-n004",
+          "reading_order_index": 3,
+          "confidence": 0.589709,
+          "bbox": {
+            "x": 378.0,
+            "y": 445.0,
+            "width": 1773.0,
+            "height": 58.0
+          },
+          "text": "경향 제가 출제되다. 또 어떤 조건올 만족시키논 거듭제급근으로 표현된 수나 로그로 나타내어진 수름 구하능 문제가 출제되다:"
+        }
+      ],
+      "overlap_warnings": [],
+      "reading_order_warnings": [
+        {
+          "type": "SAME_BAND_X_BACKTRACK",
+          "from_node_id": "p019-n001",
+          "to_node_id": "p019-n002",
+          "x_backtrack": 1633.0
+        },
+        {
+          "type": "SAME_BAND_X_BACKTRACK",
+          "from_node_id": "p019-n005",
+          "to_node_id": "p019-n006",
+          "x_backtrack": 1547.0
+        },
+        {
+          "type": "LARGE_VERTICAL_GAP",
+          "from_node_id": "p019-n026",
+          "to_node_id": "p019-n027",
+          "vertical_gap": 689.0
+        }
+      ],
+      "region_separation_warnings": [
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p019-n006",
+            "reading_order_index": 5,
+            "confidence": 0.247621,
+            "bbox": {
+              "x": 393.0,
+              "y": 729.0,
+              "width": 1713.0,
+              "height": 62.0
+            },
+            "text": "자연수 m (m>2)에 대하여 m의 n제공근 중에서 정수가 존재하도록 하느 2 이상의 자연수 n의 개수"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "TWO_COLUMN_SPLIT_CANDIDATE",
+          "node_count": 14,
+          "reason": "Several nodes cross the page midpoint while left/right column nodes are both present.",
+          "sample_nodes": [
+            {
+              "node_id": "p019-n003",
+              "reading_order_index": 2,
+              "confidence": 0.729708,
+              "bbox": {
+                "x": 380.0,
+                "y": 394.0,
+                "width": 1785.0,
+                "height": 55.0
+              },
+              "text": "출제 거듭제공근의 성질이나 지수법칙올 이용하여 식의 값을 구하는 문제 로그의 정의와 성질올 이용하여 식의 값을 구하능 문"
+            },
+            {
+              "node_id": "p019-n004",
+              "reading_order_index": 3,
+              "confidence": 0.589709,
+              "bbox": {
+                "x": 378.0,
+                "y": 445.0,
+                "width": 1773.0,
+                "height": 58.0
+              },
+              "text": "경향 제가 출제되다. 또 어떤 조건올 만족시키논 거듭제급근으로 표현된 수나 로그로 나타내어진 수름 구하능 문제가 출제되다:"
+            },
+            {
+              "node_id": "p019-n006",
+              "reading_order_index": 5,
+              "confidence": 0.247621,
+              "bbox": {
+                "x": 393.0,
+                "y": 729.0,
+                "width": 1713.0,
+                "height": 62.0
+              },
+              "text": "자연수 m (m>2)에 대하여 m의 n제공근 중에서 정수가 존재하도록 하느 2 이상의 자연수 n의 개수"
+            },
+            {
+              "node_id": "p019-n008",
+              "reading_order_index": 7,
+              "confidence": 0.963617,
+              "bbox": {
+                "x": 448.0,
+                "y": 937.0,
+                "width": 1407.0,
+                "height": 40.0
+              },
+              "text": "37 42 47 52 57"
+            },
+            {
+              "node_id": "p019-n009",
+              "reading_order_index": 8,
+              "confidence": 0.531117,
+              "bbox": {
+                "x": 407.0,
+                "y": 1080.0,
+                "width": 1698.0,
+                "height": 54.0
+              },
+              "text": "출제 의도 @의 거제공근의 뜻올 이해하고 방정식 r\" = @가 정수인 근올 갖도록 하는 자연수 n의 개수름 구할 수 있는지름"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "p020",
+      "node_count": 30,
+      "mean_confidence": 0.53053,
+      "min_confidence": 0.060892,
+      "low_confidence_node_count": 16,
+      "suspicious_shape_node_count": 1,
+      "overlap_warning_count": 0,
+      "reading_order_warning_count": 0,
+      "region_separation_warning_count": 1,
+      "parse_issue_codes": [
+        "OCR_LOW_CONFIDENCE",
+        "OCR_RAW_CACHE_WRITTEN"
+      ],
+      "low_confidence_nodes": [
+        {
+          "node_id": "p020-n003",
+          "reading_order_index": 2,
+          "confidence": 0.435857,
+          "bbox": {
+            "x": 258.0,
+            "y": 443.0,
+            "width": 1764.0,
+            "height": 61.0
+          },
+          "text": "1이 아난 양의 실수 @에 대하여 실수 z에 @올 대응시키면 의 값에 따라 @의 값이 오직 하나로 정해지므로"
+        },
+        {
+          "node_id": "p020-n004",
+          "reading_order_index": 3,
+          "confidence": 0.398486,
+          "bbox": {
+            "x": 333.0,
+            "y": 519.0,
+            "width": 364.0,
+            "height": 55.0
+          },
+          "text": "Y=@\" (a>0, 0#1)"
+        },
+        {
+          "node_id": "p020-n005",
+          "reading_order_index": 4,
+          "confidence": 0.268456,
+          "bbox": {
+            "x": 258.0,
+            "y": 583.0,
+            "width": 1145.0,
+            "height": 62.0
+          },
+          "text": "은 z에 대한 함수이다. 이 함수름 @틀 믿으로 하는 지수함수라고 한다."
+        },
+        {
+          "node_id": "p020-n007",
+          "reading_order_index": 6,
+          "confidence": 0.307288,
+          "bbox": {
+            "x": 316.0,
+            "y": 955.0,
+            "width": 689.0,
+            "height": 65.0
+          },
+          "text": "지수함수 y=d\" (a>0,a#1)의 그래프"
+        },
+        {
+          "node_id": "p020-n009",
+          "reading_order_index": 8,
+          "confidence": 0.320961,
+          "bbox": {
+            "x": 319.0,
+            "y": 1099.0,
+            "width": 227.0,
+            "height": 54.0
+          },
+          "text": "@ @> 1일 때"
+        },
+        {
+          "node_id": "p020-n011",
+          "reading_order_index": 10,
+          "confidence": 0.182716,
+          "bbox": {
+            "x": 1279.0,
+            "y": 1176.0,
+            "width": 164.0,
+            "height": 41.0
+          },
+          "text": "집=a 리사"
+        },
+        {
+          "node_id": "p020-n012",
+          "reading_order_index": 11,
+          "confidence": 0.293813,
+          "bbox": {
+            "x": 523.0,
+            "y": 1176.0,
+            "width": 196.0,
+            "height": 41.0
+          },
+          "text": "리 집=@"
+        },
+        {
+          "node_id": "p020-n014",
+          "reading_order_index": 13,
+          "confidence": 0.479398,
+          "bbox": {
+            "x": 366.0,
+            "y": 1614.0,
+            "width": 1109.0,
+            "height": 61.0
+          },
+          "text": "정의역은 실수 전체의 집합이고, 치역은 양의 실수 전체의 집합이다."
+        },
+        {
+          "node_id": "p020-n015",
+          "reading_order_index": 14,
+          "confidence": 0.323015,
+          "bbox": {
+            "x": 367.0,
+            "y": 1689.0,
+            "width": 831.0,
+            "height": 54.0
+          },
+          "text": "0> 1일 때 , 표의 값이 증가하면 늑의 값도 증가한다."
+        },
+        {
+          "node_id": "p020-n016",
+          "reading_order_index": 15,
+          "confidence": 0.353385,
+          "bbox": {
+            "x": 367.0,
+            "y": 1759.0,
+            "width": 891.0,
+            "height": 56.0
+          },
+          "text": "0<a<1일 때, 표의 값이 증가하면 늑의 값은 감소한다."
+        },
+        {
+          "node_id": "p020-n017",
+          "reading_order_index": 16,
+          "confidence": 0.405491,
+          "bbox": {
+            "x": 366.0,
+            "y": 1825.0,
+            "width": 1042.0,
+            "height": 64.0
+          },
+          "text": "함수 y = @의 그래프는 점 (0, 1)올 지나고 점근선은 a축이다."
+        },
+        {
+          "node_id": "p020-n019",
+          "reading_order_index": 18,
+          "confidence": 0.302831,
+          "bbox": {
+            "x": 1324.0,
+            "y": 2003.0,
+            "width": 175.0,
+            "height": 67.0
+          },
+          "text": "y=(궁)\" y"
+        },
+        {
+          "node_id": "p020-n022",
+          "reading_order_index": 21,
+          "confidence": 0.168937,
+          "bbox": {
+            "x": 511.0,
+            "y": 2013.0,
+            "width": 154.0,
+            "height": 45.0
+          },
+          "text": "리^ 집>31"
+        },
+        {
+          "node_id": "p020-n025",
+          "reading_order_index": 24,
+          "confidence": 0.123119,
+          "bbox": {
+            "x": 650.3447882227953,
+            "y": 2047.2634323122327,
+            "width": 92.31042355440945,
+            "height": 43.47313537553441
+          },
+          "text": "리=21"
+        },
+        {
+          "node_id": "p020-n027",
+          "reading_order_index": 26,
+          "confidence": 0.079387,
+          "bbox": {
+            "x": 413.0,
+            "y": 2438.0,
+            "width": 550.0,
+            "height": 49.0
+          },
+          "text": "r> 0이면 d>6\" , r<0이면 @ < b\""
+        },
+        {
+          "node_id": "p020-n029",
+          "reading_order_index": 28,
+          "confidence": 0.060892,
+          "bbox": {
+            "x": 414.0,
+            "y": 2566.0,
+            "width": 548.0,
+            "height": 44.0
+          },
+          "text": "z> 0이면 @r<bz , z<0이면 4>b1"
+        }
+      ],
+      "suspicious_shape_nodes": [
+        {
+          "node_id": "p020-n003",
+          "reading_order_index": 2,
+          "confidence": 0.435857,
+          "bbox": {
+            "x": 258.0,
+            "y": 443.0,
+            "width": 1764.0,
+            "height": 61.0
+          },
+          "text": "1이 아난 양의 실수 @에 대하여 실수 z에 @올 대응시키면 의 값에 따라 @의 값이 오직 하나로 정해지므로"
+        }
+      ],
+      "overlap_warnings": [],
+      "reading_order_warnings": [],
+      "region_separation_warnings": [
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p020-n003",
+            "reading_order_index": 2,
+            "confidence": 0.435857,
+            "bbox": {
+              "x": 258.0,
+              "y": 443.0,
+              "width": 1764.0,
+              "height": 61.0
+            },
+            "text": "1이 아난 양의 실수 @에 대하여 실수 z에 @올 대응시키면 의 값에 따라 @의 값이 오직 하나로 정해지므로"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        }
+      ]
+    },
+    {
+      "page_id": "p054",
+      "node_count": 42,
+      "mean_confidence": 0.615819,
+      "min_confidence": 0.164292,
+      "low_confidence_node_count": 15,
+      "suspicious_shape_node_count": 1,
+      "overlap_warning_count": 0,
+      "reading_order_warning_count": 2,
+      "region_separation_warning_count": 1,
+      "parse_issue_codes": [
+        "OCR_LOW_CONFIDENCE",
+        "OCR_RAW_CACHE_WRITTEN"
+      ],
+      "low_confidence_nodes": [
+        {
+          "node_id": "p054-n004",
+          "reading_order_index": 3,
+          "confidence": 0.339661,
+          "bbox": {
+            "x": 259.0,
+            "y": 468.0,
+            "width": 464.0,
+            "height": 54.0
+          },
+          "text": "(1) @?=6'+02-2bc cos A"
+        },
+        {
+          "node_id": "p054-n005",
+          "reading_order_index": 4,
+          "confidence": 0.393626,
+          "bbox": {
+            "x": 257.0,
+            "y": 540.0,
+            "width": 471.0,
+            "height": 51.0
+          },
+          "text": "(2) b2=0?+0?-2ca COS B"
+        },
+        {
+          "node_id": "p054-n009",
+          "reading_order_index": 8,
+          "confidence": 0.477025,
+          "bbox": {
+            "x": 361.0,
+            "y": 805.0,
+            "width": 323.0,
+            "height": 44.0
+          },
+          "text": "(i) 0 < A<90\"일 때"
+        },
+        {
+          "node_id": "p054-n011",
+          "reading_order_index": 10,
+          "confidence": 0.254267,
+          "bbox": {
+            "x": 480.0,
+            "y": 930.0,
+            "width": 241.0,
+            "height": 51.0
+          },
+          "text": "d?-CI +BH"
+        },
+        {
+          "node_id": "p054-n012",
+          "reading_order_index": 11,
+          "confidence": 0.462071,
+          "bbox": {
+            "x": 550.0,
+            "y": 994.0,
+            "width": 444.0,
+            "height": 51.0
+          },
+          "text": "(6 sin A)?+ (0-6 cos A)?"
+        },
+        {
+          "node_id": "p054-n013",
+          "reading_order_index": 12,
+          "confidence": 0.448435,
+          "bbox": {
+            "x": 516.0,
+            "y": 1055.0,
+            "width": 625.0,
+            "height": 54.0
+          },
+          "text": "=6? sin? A+0-2bc cos A+6? cos? A"
+        },
+        {
+          "node_id": "p054-n016",
+          "reading_order_index": 15,
+          "confidence": 0.390084,
+          "bbox": {
+            "x": 359.0,
+            "y": 1249.0,
+            "width": 255.0,
+            "height": 44.0
+          },
+          "text": "(ii) A-90'일 때"
+        },
+        {
+          "node_id": "p054-n017",
+          "reading_order_index": 16,
+          "confidence": 0.289735,
+          "bbox": {
+            "x": 412.0,
+            "y": 1311.0,
+            "width": 413.0,
+            "height": 45.0
+          },
+          "text": "COS A=COS 90\" =이이므로"
+        },
+        {
+          "node_id": "p054-n018",
+          "reading_order_index": 17,
+          "confidence": 0.364737,
+          "bbox": {
+            "x": 480.0,
+            "y": 1370.0,
+            "width": 174.0,
+            "height": 51.0
+          },
+          "text": "@?=62+02"
+        },
+        {
+          "node_id": "p054-n019",
+          "reading_order_index": 18,
+          "confidence": 0.330787,
+          "bbox": {
+            "x": 517.0,
+            "y": 1434.0,
+            "width": 325.0,
+            "height": 44.0
+          },
+          "text": "=62+02-2bc COS A"
+        },
+        {
+          "node_id": "p054-n020",
+          "reading_order_index": 19,
+          "confidence": 0.287127,
+          "bbox": {
+            "x": 361.0,
+            "y": 1498.0,
+            "width": 361.0,
+            "height": 45.0
+          },
+          "text": "(iii) 90\" < A< 180'일 때"
+        },
+        {
+          "node_id": "p054-n023",
+          "reading_order_index": 22,
+          "confidence": 0.368343,
+          "bbox": {
+            "x": 413.0,
+            "y": 1683.0,
+            "width": 939.0,
+            "height": 50.0
+          },
+          "text": "BH= AB+AH= 0+6 cos (180\"  A) =(-b cos A이므로"
+        },
+        {
+          "node_id": "p054-n025",
+          "reading_order_index": 24,
+          "confidence": 0.297851,
+          "bbox": {
+            "x": 550.0,
+            "y": 1810.0,
+            "width": 444.0,
+            "height": 55.0
+          },
+          "text": "(6 sin A)?+ ((-6 cos A)?"
+        },
+        {
+          "node_id": "p054-n030",
+          "reading_order_index": 29,
+          "confidence": 0.242085,
+          "bbox": {
+            "x": 429.0,
+            "y": 2125.0,
+            "width": 366.0,
+            "height": 52.0
+          },
+          "text": "d?=62+0-2b0 cos A"
+        },
+        {
+          "node_id": "p054-n033",
+          "reading_order_index": 32,
+          "confidence": 0.164292,
+          "bbox": {
+            "x": 430.0,
+            "y": 2313.0,
+            "width": 752.0,
+            "height": 50.0
+          },
+          "text": "62=0?+0-2ca CoS B, (?= d+63-2ab cos C"
+        }
+      ],
+      "suspicious_shape_nodes": [
+        {
+          "node_id": "p054-n007",
+          "reading_order_index": 6,
+          "confidence": 0.67629,
+          "bbox": {
+            "x": 275.0,
+            "y": 674.0,
+            "width": 1768.0,
+            "height": 56.0
+          },
+          "text": "설명 삼각형 ABC의 꼭짓점 C에서 직선 AB에l 내린 수선의 발올 H라 할 때, 등식 @ =6+02-2bc cos A가 성립함올"
+        }
+      ],
+      "overlap_warnings": [],
+      "reading_order_warnings": [
+        {
+          "type": "SAME_BAND_X_BACKTRACK",
+          "from_node_id": "p054-n040",
+          "to_node_id": "p054-n041",
+          "x_backtrack": 1227.0
+        },
+        {
+          "type": "LARGE_VERTICAL_GAP",
+          "from_node_id": "p054-n041",
+          "to_node_id": "p054-n042",
+          "vertical_gap": 990.0
+        }
+      ],
+      "region_separation_warnings": [
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p054-n007",
+            "reading_order_index": 6,
+            "confidence": 0.67629,
+            "bbox": {
+              "x": 275.0,
+              "y": 674.0,
+              "width": 1768.0,
+              "height": 56.0
+            },
+            "text": "설명 삼각형 ABC의 꼭짓점 C에서 직선 AB에l 내린 수선의 발올 H라 할 때, 등식 @ =6+02-2bc cos A가 성립함올"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        }
+      ]
+    },
+    {
+      "page_id": "p102",
+      "node_count": 79,
+      "mean_confidence": 0.879141,
+      "min_confidence": 0.43894,
+      "low_confidence_node_count": 1,
+      "suspicious_shape_node_count": 2,
+      "overlap_warning_count": 7,
+      "reading_order_warning_count": 0,
+      "region_separation_warning_count": 6,
+      "parse_issue_codes": [
+        "OCR_LOW_CONFIDENCE",
+        "OCR_RAW_CACHE_WRITTEN"
+      ],
+      "low_confidence_nodes": [
+        {
+          "node_id": "p102-n050",
+          "reading_order_index": 49,
+          "confidence": 0.43894,
+          "bbox": {
+            "x": 2015.0,
+            "y": 1672.0,
+            "width": 153.0,
+            "height": 33.0
+          },
+          "text": "본문 80O~81쪽"
+        }
+      ],
+      "suspicious_shape_nodes": [
+        {
+          "node_id": "p102-n005",
+          "reading_order_index": 4,
+          "confidence": 0.880334,
+          "bbox": {
+            "x": 200.0,
+            "y": 463.0,
+            "width": 1919.0,
+            "height": 52.0
+          },
+          "text": "1 @ 2 @ 3 1254 @ 5 @ 6 @ 7 6 8 @ 1 @ 2 @ 3 4 6 5 2 6 6 7 2 8"
+        },
+        {
+          "node_id": "p102-n034",
+          "reading_order_index": 33,
+          "confidence": 0.860592,
+          "bbox": {
+            "x": 201.0,
+            "y": 1586.0,
+            "width": 1843.0,
+            "height": 49.0
+          },
+          "text": "1 2 @ 3 @ 4 6 5 6 6 @ 7 @ 8 27 1 0 3 4 @ 5 6 6 @ 7 @"
+        }
+      ],
+      "overlap_warnings": [
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p102-n011",
+          "right_node_id": "p102-n022",
+          "overlap_ratio": 0.581522
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p102-n021",
+          "right_node_id": "p102-n027",
+          "overlap_ratio": 1.0
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p102-n034",
+          "right_node_id": "p102-n045",
+          "overlap_ratio": 0.960784
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p102-n036",
+          "right_node_id": "p102-n047",
+          "overlap_ratio": 0.439828
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p102-n056",
+          "right_node_id": "p102-n066",
+          "overlap_ratio": 0.778683
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p102-n059",
+          "right_node_id": "p102-n069",
+          "overlap_ratio": 0.380952
+        },
+        {
+          "type": "BBOX_OVERLAP",
+          "left_node_id": "p102-n069",
+          "right_node_id": "p102-n073",
+          "overlap_ratio": 1.0
+        }
+      ],
+      "reading_order_warnings": [],
+      "region_separation_warnings": [
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p102-n005",
+            "reading_order_index": 4,
+            "confidence": 0.880334,
+            "bbox": {
+              "x": 200.0,
+              "y": 463.0,
+              "width": 1919.0,
+              "height": 52.0
+            },
+            "text": "1 @ 2 @ 3 1254 @ 5 @ 6 @ 7 6 8 @ 1 @ 2 @ 3 4 6 5 2 6 6 7 2 8"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p102-n029",
+            "reading_order_index": 28,
+            "confidence": 0.738511,
+            "bbox": {
+              "x": 169.0,
+              "y": 1211.0,
+              "width": 1580.0,
+              "height": 84.0
+            },
+            "text": "02 지수함수와 로그함수 05 등차수열과 등비수열"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p102-n034",
+            "reading_order_index": 33,
+            "confidence": 0.860592,
+            "bbox": {
+              "x": 201.0,
+              "y": 1586.0,
+              "width": 1843.0,
+              "height": 49.0
+            },
+            "text": "1 2 @ 3 @ 4 6 5 6 6 @ 7 @ 8 27 1 0 3 4 @ 5 6 6 @ 7 @"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "MIXED_REGION_CANDIDATE",
+          "node": {
+            "node_id": "p102-n056",
+            "reading_order_index": 55,
+            "confidence": 0.902888,
+            "bbox": {
+              "x": 201.0,
+              "y": 2290.0,
+              "width": 1711.0,
+              "height": 47.0
+            },
+            "text": "1 2 4 3 @ 4 6 5 5 6 5 7 @ 1 93 3 6 4"
+          },
+          "reason": "Wide OCR line may have merged body text with an adjacent table, figure, or graph label."
+        },
+        {
+          "type": "TWO_COLUMN_SPLIT_CANDIDATE",
+          "node_count": 12,
+          "reason": "Several nodes cross the page midpoint while left/right column nodes are both present.",
+          "sample_nodes": [
+            {
+              "node_id": "p102-n005",
+              "reading_order_index": 4,
+              "confidence": 0.880334,
+              "bbox": {
+                "x": 200.0,
+                "y": 463.0,
+                "width": 1919.0,
+                "height": 52.0
+              },
+              "text": "1 @ 2 @ 3 1254 @ 5 @ 6 @ 7 6 8 @ 1 @ 2 @ 3 4 6 5 2 6 6 7 2 8"
+            },
+            {
+              "node_id": "p102-n018",
+              "reading_order_index": 17,
+              "confidence": 0.864412,
+              "bbox": {
+                "x": 963.0,
+                "y": 607.0,
+                "width": 1196.0,
+                "height": 50.0
+              },
+              "text": "본문 14~15쪽 1 0 2 @ 3 @ 4 05 @ 6 @ 7 6 8 @"
+            },
+            {
+              "node_id": "p102-n021",
+              "reading_order_index": 20,
+              "confidence": 0.938487,
+              "bbox": {
+                "x": 963.0,
+                "y": 811.0,
+                "width": 1158.0,
+                "height": 51.0
+              },
+              "text": "본문 16~17쪽 2 @ 3 4 @ 5 @ 6 @ 7 8"
+            },
+            {
+              "node_id": "p102-n022",
+              "reading_order_index": 21,
+              "confidence": 0.905083,
+              "bbox": {
+                "x": 431.0,
+                "y": 874.0,
+                "width": 1160.0,
+                "height": 60.0
+              },
+              "text": "3 4 @ 6 @ 7 @ 8 6 9 10 11 @"
+            },
+            {
+              "node_id": "p102-n029",
+              "reading_order_index": 28,
+              "confidence": 0.738511,
+              "bbox": {
+                "x": 169.0,
+                "y": 1211.0,
+                "width": 1580.0,
+                "height": 84.0
+              },
+              "text": "02 지수함수와 로그함수 05 등차수열과 등비수열"
+            }
+          ]
+        },
+        {
+          "type": "TABLE_LIKE_CANDIDATE",
+          "node_count": 14,
+          "reason": "Numeric/list-like OCR lines suggest a table or answer-list region should be separated from body text.",
+          "sample_nodes": [
+            {
+              "node_id": "p102-n005",
+              "reading_order_index": 4,
+              "confidence": 0.880334,
+              "bbox": {
+                "x": 200.0,
+                "y": 463.0,
+                "width": 1919.0,
+                "height": 52.0
+              },
+              "text": "1 @ 2 @ 3 1254 @ 5 @ 6 @ 7 6 8 @ 1 @ 2 @ 3 4 6 5 2 6 6 7 2 8"
+            },
+            {
+              "node_id": "p102-n018",
+              "reading_order_index": 17,
+              "confidence": 0.864412,
+              "bbox": {
+                "x": 963.0,
+                "y": 607.0,
+                "width": 1196.0,
+                "height": 50.0
+              },
+              "text": "본문 14~15쪽 1 0 2 @ 3 @ 4 05 @ 6 @ 7 6 8 @"
+            },
+            {
+              "node_id": "p102-n019",
+              "reading_order_index": 18,
+              "confidence": 0.863387,
+              "bbox": {
+                "x": 668.0,
+                "y": 670.0,
+                "width": 1004.0,
+                "height": 57.0
+              },
+              "text": "5 100 7 8 9 10 @)11 6 12"
+            },
+            {
+              "node_id": "p102-n021",
+              "reading_order_index": 20,
+              "confidence": 0.938487,
+              "bbox": {
+                "x": 963.0,
+                "y": 811.0,
+                "width": 1158.0,
+                "height": 51.0
+              },
+              "text": "본문 16~17쪽 2 @ 3 4 @ 5 @ 6 @ 7 8"
+            },
+            {
+              "node_id": "p102-n022",
+              "reading_order_index": 21,
+              "confidence": 0.905083,
+              "bbox": {
+                "x": 431.0,
+                "y": 874.0,
+                "width": 1160.0,
+                "height": 60.0
+              },
+              "text": "3 4 @ 6 @ 7 @ 8 6 9 10 11 @"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

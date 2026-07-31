@@ -3,7 +3,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import re
 import sys
 import zipfile
 from dataclasses import dataclass
@@ -15,11 +14,7 @@ from typing import Any
 from PIL import Image
 from pypdf import PdfReader
 
-
-BOOK_ID = "ebs-2027-math1"
-PROFILE_HINT = "EBS_SUNEUNG_TEUKGANG"
-ZIP_PAGE_RE = re.compile(r"_(\d+)\.png$", re.IGNORECASE)
-GOLDEN_CANDIDATES = [3, 4, 8, 12, 19, 20, 54, 102, 120, 140, 150]
+from document_parser.assets.constants import BOOK_ID, GOLDEN_CANDIDATES, PROFILE_HINT, ZIP_PAGE_RE
 
 
 @dataclass(frozen=True)

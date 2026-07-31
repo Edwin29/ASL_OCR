@@ -1,0 +1,78 @@
+{
+  "report_type": "support_review",
+  "page_count": 8,
+  "candidate_count": 1,
+  "pending_approval_count": 0,
+  "approved_candidate_count": 1,
+  "approved_exclusion_types": [
+    "INTRO_GUIDE_PAGE_UNSUPPORTED"
+  ],
+  "pages": [
+    {
+      "page_id": "p003",
+      "node_count": 88,
+      "exclusion_candidate_count": 1,
+      "exclusion_candidates": [
+        {
+          "candidate_type": "INTRO_GUIDE_PAGE_UNSUPPORTED",
+          "reason_code": "INTRO_GUIDE_PAGE_EXCLUSION_CANDIDATE",
+          "approval_status": "APPROVED",
+          "recommended_action": "exclude_from_primary_math_parsing",
+          "will_apply_with_current_approvals": true,
+          "evidence": {
+            "header_text": "이책의 구성과 특징 structure 2 개념 정리 여러 종의 교과서를 통합하여 핵심 개 01 지수와 로그",
+            "has_intro_header": true,
+            "text_node_count": 88,
+            "lower_text_node_count": 86,
+            "compact_lower_text_node_count": 83,
+            "min_text_nodes": 20,
+            "min_lower_text_nodes": 20,
+            "min_compact_lower_text_nodes": 10
+          }
+        }
+      ]
+    },
+    {
+      "page_id": "p004",
+      "node_count": 44,
+      "exclusion_candidate_count": 0,
+      "exclusion_candidates": []
+    },
+    {
+      "page_id": "p008",
+      "node_count": 30,
+      "exclusion_candidate_count": 0,
+      "exclusion_candidates": []
+    },
+    {
+      "page_id": "p012",
+      "node_count": 40,
+      "exclusion_candidate_count": 0,
+      "exclusion_candidates": []
+    },
+    {
+      "page_id": "p019",
+      "node_count": 29,
+      "exclusion_candidate_count": 0,
+      "exclusion_candidates": []
+    },
+    {
+      "page_id": "p020",
+      "node_count": 39,
+      "exclusion_candidate_count": 0,
+      "exclusion_candidates": []
+    },
+    {
+      "page_id": "p054",
+      "node_count": 47,
+      "exclusion_candidate_count": 0,
+      "exclusion_candidates": []
+    },
+    {
+      "page_id": "p102",
+      "node_count": 74,
+      "exclusion_candidate_count": 0,
+      "exclusion_candidates": []
+    }
+  ]
+}

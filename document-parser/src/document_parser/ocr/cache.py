@@ -15,7 +15,10 @@ class OcrResultCache:
         self.cache_dir = cache_dir
 
     def cache_key(self, image: ImageDocument, result: OcrPageResult) -> str:
-        seed = f"{image.sha256}:{result.engine_id}:{result.engine_version}"
+        cache_signature = ""
+        if isinstance(result.raw_result, dict):
+            cache_signature = str(result.raw_result.get("cache_signature", ""))
+        seed = f"{image.sha256}:{result.engine_id}:{result.engine_version}:{cache_signature}"
         return hashlib.sha256(seed.encode("utf-8")).hexdigest()[:24]
 
     def path_for(self, image: ImageDocument, result: OcrPageResult) -> Path:
@@ -36,4 +39,3 @@ class OcrResultCache:
         }
         path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         return path
-

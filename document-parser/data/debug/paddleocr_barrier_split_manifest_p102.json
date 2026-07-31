@@ -1,0 +1,1203 @@
+{
+  "split_manifest_version": 1,
+  "mode": "layout_barrier_crossing_split_crops",
+  "padding": 8,
+  "page_count": 1,
+  "work_unit_count": 32,
+  "pages": [
+    {
+      "page_id": "p102",
+      "image_path": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p102.png",
+      "work_unit_count": 32,
+      "work_units": [
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n004",
+          "barrier_node_id": "p102-structure-r002",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n004__p102-structure-r002_split.png",
+          "source_text_bbox": {
+            "x": 968.0,
+            "y": 390.0,
+            "width": 354.0,
+            "height": 61.0
+          },
+          "barrier_bbox": {
+            "x": 169.934,
+            "y": 390.235,
+            "width": 948.43,
+            "height": 677.757
+          },
+          "intersection_bbox": {
+            "x": 968.0,
+            "y": 390.235,
+            "width": 150.364,
+            "height": 60.765
+          },
+          "crop_bbox": {
+            "x": 960,
+            "y": 382,
+            "width": 166,
+            "height": 77
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "본문5~13쪽 유제"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n004",
+          "barrier_node_id": "p102-structure-r004",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n004__p102-structure-r004_split.png",
+          "source_text_bbox": {
+            "x": 968.0,
+            "y": 390.0,
+            "width": 354.0,
+            "height": 61.0
+          },
+          "barrier_bbox": {
+            "x": 1225.27,
+            "y": 392.863,
+            "width": 949.365,
+            "height": 668.658
+          },
+          "intersection_bbox": {
+            "x": 1225.27,
+            "y": 392.863,
+            "width": 96.73,
+            "height": 58.137
+          },
+          "crop_bbox": {
+            "x": 1217,
+            "y": 384,
+            "width": 113,
+            "height": 75
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "본문5~13쪽 유제"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n021",
+          "barrier_node_id": "p102-structure-r002",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n021__p102-structure-r002_split.png",
+          "source_text_bbox": {
+            "x": 422.0,
+            "y": 664.0,
+            "width": 1297.0,
+            "height": 63.0
+          },
+          "barrier_bbox": {
+            "x": 169.934,
+            "y": 390.235,
+            "width": 948.43,
+            "height": 677.757
+          },
+          "intersection_bbox": {
+            "x": 422.0,
+            "y": 664.0,
+            "width": 696.364,
+            "height": 63.0
+          },
+          "crop_bbox": {
+            "x": 414,
+            "y": 656,
+            "width": 712,
+            "height": 79
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "3 ② 4⑤ 65 7⑤ 8⑤ 9 ① 10 ②11 ⑤12 ④"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n021",
+          "barrier_node_id": "p102-structure-r004",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n021__p102-structure-r004_split.png",
+          "source_text_bbox": {
+            "x": 422.0,
+            "y": 664.0,
+            "width": 1297.0,
+            "height": 63.0
+          },
+          "barrier_bbox": {
+            "x": 1225.27,
+            "y": 392.863,
+            "width": 949.365,
+            "height": 668.658
+          },
+          "intersection_bbox": {
+            "x": 1225.27,
+            "y": 664.0,
+            "width": 493.73,
+            "height": 63.0
+          },
+          "crop_bbox": {
+            "x": 1217,
+            "y": 656,
+            "width": 510,
+            "height": 79
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "3 ② 4⑤ 65 7⑤ 8⑤ 9 ① 10 ②11 ⑤12 ④"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n011",
+          "barrier_node_id": "p102-structure-r002",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n011__p102-structure-r002_split.png",
+          "source_text_bbox": {
+            "x": 192.0,
+            "y": 869.0,
+            "width": 1403.0,
+            "height": 66.0
+          },
+          "barrier_bbox": {
+            "x": 169.934,
+            "y": 390.235,
+            "width": 948.43,
+            "height": 677.757
+          },
+          "intersection_bbox": {
+            "x": 192.0,
+            "y": 869.0,
+            "width": 926.364,
+            "height": 66.0
+          },
+          "crop_bbox": {
+            "x": 184,
+            "y": 861,
+            "width": 942,
+            "height": 82
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "1 ④ 2 ④3 ⑤ 4①5 ② 6① 7 ④ 8⑤ 9 ③ 10 ⑤  11 ①"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n011",
+          "barrier_node_id": "p102-structure-r004",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n011__p102-structure-r004_split.png",
+          "source_text_bbox": {
+            "x": 192.0,
+            "y": 869.0,
+            "width": 1403.0,
+            "height": 66.0
+          },
+          "barrier_bbox": {
+            "x": 1225.27,
+            "y": 392.863,
+            "width": 949.365,
+            "height": 668.658
+          },
+          "intersection_bbox": {
+            "x": 1225.27,
+            "y": 869.0,
+            "width": 369.73,
+            "height": 66.0
+          },
+          "crop_bbox": {
+            "x": 1217,
+            "y": 861,
+            "width": 386,
+            "height": 82
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "1 ④ 2 ④3 ⑤ 4①5 ② 6① 7 ④ 8⑤ 9 ③ 10 ⑤  11 ①"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n030",
+          "barrier_node_id": "p102-structure-r001",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n030__p102-structure-r001_split.png",
+          "source_text_bbox": {
+            "x": 958.0,
+            "y": 1299.0,
+            "width": 362.0,
+            "height": 60.0
+          },
+          "barrier_bbox": {
+            "x": 169.824,
+            "y": 1301.387,
+            "width": 946.451,
+            "height": 613.261
+          },
+          "intersection_bbox": {
+            "x": 958.0,
+            "y": 1301.387,
+            "width": 158.275,
+            "height": 57.613
+          },
+          "crop_bbox": {
+            "x": 950,
+            "y": 1293,
+            "width": 174,
+            "height": 74
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "본문 21~29쪽 유제"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n030",
+          "barrier_node_id": "p102-structure-r006",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n030__p102-structure-r006_split.png",
+          "source_text_bbox": {
+            "x": 958.0,
+            "y": 1299.0,
+            "width": 362.0,
+            "height": 60.0
+          },
+          "barrier_bbox": {
+            "x": 1225.63,
+            "y": 1298.748,
+            "width": 948.581,
+            "height": 679.765
+          },
+          "intersection_bbox": {
+            "x": 1225.63,
+            "y": 1299.0,
+            "width": 94.37,
+            "height": 60.0
+          },
+          "crop_bbox": {
+            "x": 1217,
+            "y": 1291,
+            "width": 111,
+            "height": 76
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "본문 21~29쪽 유제"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n031",
+          "barrier_node_id": "p102-structure-r001",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n031__p102-structure-r001_split.png",
+          "source_text_bbox": {
+            "x": 190.0,
+            "y": 1364.0,
+            "width": 1974.0,
+            "height": 60.0
+          },
+          "barrier_bbox": {
+            "x": 169.824,
+            "y": 1301.387,
+            "width": 946.451,
+            "height": 613.261
+          },
+          "intersection_bbox": {
+            "x": 190.0,
+            "y": 1364.0,
+            "width": 926.275,
+            "height": 60.0
+          },
+          "crop_bbox": {
+            "x": 182,
+            "y": 1356,
+            "width": 942,
+            "height": 76
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "1 ② 2 ③3 ⑤ 4 ④ 5 ④ 6② 7② 8④ 1① 2 ③3 ③ 49 5 ② 6① 7② 8⑤"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n031",
+          "barrier_node_id": "p102-structure-r006",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n031__p102-structure-r006_split.png",
+          "source_text_bbox": {
+            "x": 190.0,
+            "y": 1364.0,
+            "width": 1974.0,
+            "height": 60.0
+          },
+          "barrier_bbox": {
+            "x": 1225.63,
+            "y": 1298.748,
+            "width": 948.581,
+            "height": 679.765
+          },
+          "intersection_bbox": {
+            "x": 1225.63,
+            "y": 1364.0,
+            "width": 938.37,
+            "height": 60.0
+          },
+          "crop_bbox": {
+            "x": 1217,
+            "y": 1356,
+            "width": 955,
+            "height": 76
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "1 ② 2 ③3 ⑤ 4 ④ 5 ④ 6② 7② 8④ 1① 2 ③3 ③ 49 5 ② 6① 7② 8⑤"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n038",
+          "barrier_node_id": "p102-structure-r001",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n038__p102-structure-r001_split.png",
+          "source_text_bbox": {
+            "x": 192.0,
+            "y": 1577.0,
+            "width": 1972.0,
+            "height": 59.0
+          },
+          "barrier_bbox": {
+            "x": 169.824,
+            "y": 1301.387,
+            "width": 946.451,
+            "height": 613.261
+          },
+          "intersection_bbox": {
+            "x": 192.0,
+            "y": 1577.0,
+            "width": 924.275,
+            "height": 59.0
+          },
+          "crop_bbox": {
+            "x": 184,
+            "y": 1569,
+            "width": 940,
+            "height": 75
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "1 ③ 3②4⑤ 5 ⑤ 6④ 7② 827 1①2 ②3 ④4③ 5⑤ 6 ③ 7① 8⑤"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n038",
+          "barrier_node_id": "p102-structure-r006",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n038__p102-structure-r006_split.png",
+          "source_text_bbox": {
+            "x": 192.0,
+            "y": 1577.0,
+            "width": 1972.0,
+            "height": 59.0
+          },
+          "barrier_bbox": {
+            "x": 1225.63,
+            "y": 1298.748,
+            "width": 948.581,
+            "height": 679.765
+          },
+          "intersection_bbox": {
+            "x": 1225.63,
+            "y": 1577.0,
+            "width": 938.37,
+            "height": 59.0
+          },
+          "crop_bbox": {
+            "x": 1217,
+            "y": 1569,
+            "width": 955,
+            "height": 75
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "1 ③ 3②4⑤ 5 ⑤ 6④ 7② 827 1①2 ②3 ④4③ 5⑤ 6 ③ 7① 8⑤"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n040",
+          "barrier_node_id": "p102-structure-r001",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n040__p102-structure-r001_split.png",
+          "source_text_bbox": {
+            "x": 192.0,
+            "y": 1724.0,
+            "width": 1875.0,
+            "height": 53.0
+          },
+          "barrier_bbox": {
+            "x": 169.824,
+            "y": 1301.387,
+            "width": 946.451,
+            "height": 613.261
+          },
+          "intersection_bbox": {
+            "x": 192.0,
+            "y": 1724.0,
+            "width": 924.275,
+            "height": 53.0
+          },
+          "crop_bbox": {
+            "x": 184,
+            "y": 1716,
+            "width": 940,
+            "height": 69
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "1⑤ 2 ④3 ③ 43 5 ③ 6⑤ 77 8③ 1②2 ①3① 44 5 ② 6① 7 330"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n040",
+          "barrier_node_id": "p102-structure-r006",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n040__p102-structure-r006_split.png",
+          "source_text_bbox": {
+            "x": 192.0,
+            "y": 1724.0,
+            "width": 1875.0,
+            "height": 53.0
+          },
+          "barrier_bbox": {
+            "x": 1225.63,
+            "y": 1298.748,
+            "width": 948.581,
+            "height": 679.765
+          },
+          "intersection_bbox": {
+            "x": 1225.63,
+            "y": 1724.0,
+            "width": 841.37,
+            "height": 53.0
+          },
+          "crop_bbox": {
+            "x": 1217,
+            "y": 1716,
+            "width": 858,
+            "height": 69
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "1⑤ 2 ④3 ③ 43 5 ③ 6⑤ 77 8③ 1②2 ①3① 44 5 ② 6① 7 330"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n041",
+          "barrier_node_id": "p102-structure-r001",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n041__p102-structure-r001_split.png",
+          "source_text_bbox": {
+            "x": 998.0,
+            "y": 1787.0,
+            "width": 362.0,
+            "height": 61.0
+          },
+          "barrier_bbox": {
+            "x": 169.824,
+            "y": 1301.387,
+            "width": 946.451,
+            "height": 613.261
+          },
+          "intersection_bbox": {
+            "x": 998.0,
+            "y": 1787.0,
+            "width": 118.275,
+            "height": 61.0
+          },
+          "crop_bbox": {
+            "x": 990,
+            "y": 1779,
+            "width": 134,
+            "height": 77
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "본문34쪽 8 129"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n041",
+          "barrier_node_id": "p102-structure-r006",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n041__p102-structure-r006_split.png",
+          "source_text_bbox": {
+            "x": 998.0,
+            "y": 1787.0,
+            "width": 362.0,
+            "height": 61.0
+          },
+          "barrier_bbox": {
+            "x": 1225.63,
+            "y": 1298.748,
+            "width": 948.581,
+            "height": 679.765
+          },
+          "intersection_bbox": {
+            "x": 1225.63,
+            "y": 1787.0,
+            "width": 134.37,
+            "height": 61.0
+          },
+          "crop_bbox": {
+            "x": 1217,
+            "y": 1779,
+            "width": 151,
+            "height": 77
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "본문34쪽 8 129"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n062",
+          "barrier_node_id": "p102-structure-r003",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n062__p102-structure-r003_split.png",
+          "source_text_bbox": {
+            "x": 955.0,
+            "y": 2215.0,
+            "width": 365.0,
+            "height": 59.0
+          },
+          "barrier_bbox": {
+            "x": 169.2,
+            "y": 2216.238,
+            "width": 949.661,
+            "height": 612.598
+          },
+          "intersection_bbox": {
+            "x": 955.0,
+            "y": 2216.238,
+            "width": 163.861,
+            "height": 57.762
+          },
+          "crop_bbox": {
+            "x": 947,
+            "y": 2208,
+            "width": 179,
+            "height": 74
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "본문37~45쪽 유제"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n062",
+          "barrier_node_id": "p102-structure-r005",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n062__p102-structure-r005_split.png",
+          "source_text_bbox": {
+            "x": 955.0,
+            "y": 2215.0,
+            "width": 365.0,
+            "height": 59.0
+          },
+          "barrier_bbox": {
+            "x": 1225.501,
+            "y": 2216.425,
+            "width": 949.855,
+            "height": 613.012
+          },
+          "intersection_bbox": {
+            "x": 1225.501,
+            "y": 2216.425,
+            "width": 94.499,
+            "height": 57.575
+          },
+          "crop_bbox": {
+            "x": 1217,
+            "y": 2208,
+            "width": 111,
+            "height": 74
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "본문37~45쪽 유제"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n053",
+          "barrier_node_id": "p102-structure-r003",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n053__p102-structure-r003_split.png",
+          "source_text_bbox": {
+            "x": 190.0,
+            "y": 2284.0,
+            "width": 1974.0,
+            "height": 54.0
+          },
+          "barrier_bbox": {
+            "x": 169.2,
+            "y": 2216.238,
+            "width": 949.661,
+            "height": 612.598
+          },
+          "intersection_bbox": {
+            "x": 190.0,
+            "y": 2284.0,
+            "width": 928.861,
+            "height": 54.0
+          },
+          "crop_bbox": {
+            "x": 182,
+            "y": 2276,
+            "width": 944,
+            "height": 70
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "1 ④ 24 3 ② 4⑤ 55 65 7① 8③ 1932⑤3⑤ 4① 5 ① 64 7④ 8③"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n053",
+          "barrier_node_id": "p102-structure-r005",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n053__p102-structure-r005_split.png",
+          "source_text_bbox": {
+            "x": 190.0,
+            "y": 2284.0,
+            "width": 1974.0,
+            "height": 54.0
+          },
+          "barrier_bbox": {
+            "x": 1225.501,
+            "y": 2216.425,
+            "width": 949.855,
+            "height": 613.012
+          },
+          "intersection_bbox": {
+            "x": 1225.501,
+            "y": 2284.0,
+            "width": 938.499,
+            "height": 54.0
+          },
+          "crop_bbox": {
+            "x": 1217,
+            "y": 2276,
+            "width": 955,
+            "height": 70
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "1 ④ 24 3 ② 4⑤ 55 65 7① 8③ 1932⑤3⑤ 4① 5 ① 64 7④ 8③"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n058",
+          "barrier_node_id": "p102-structure-r003",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n058__p102-structure-r003_split.png",
+          "source_text_bbox": {
+            "x": 192.0,
+            "y": 2638.0,
+            "width": 1736.0,
+            "height": 56.0
+          },
+          "barrier_bbox": {
+            "x": 169.2,
+            "y": 2216.238,
+            "width": 949.661,
+            "height": 612.598
+          },
+          "intersection_bbox": {
+            "x": 192.0,
+            "y": 2638.0,
+            "width": 926.861,
+            "height": 56.0
+          },
+          "crop_bbox": {
+            "x": 184,
+            "y": 2630,
+            "width": 942,
+            "height": 72
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "1 ② 2 ②3 ②4③ 5 ④ 6② 7④ 8④ 1②2 ③327 4⑤ 5 ① 6⑤"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n058",
+          "barrier_node_id": "p102-structure-r005",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n058__p102-structure-r005_split.png",
+          "source_text_bbox": {
+            "x": 192.0,
+            "y": 2638.0,
+            "width": 1736.0,
+            "height": 56.0
+          },
+          "barrier_bbox": {
+            "x": 1225.501,
+            "y": 2216.425,
+            "width": 949.855,
+            "height": 613.012
+          },
+          "intersection_bbox": {
+            "x": 1225.501,
+            "y": 2638.0,
+            "width": 702.499,
+            "height": 56.0
+          },
+          "crop_bbox": {
+            "x": 1217,
+            "y": 2630,
+            "width": 719,
+            "height": 72
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "1 ② 2 ②3 ②4③ 5 ④ 6② 7④ 8④ 1②2 ③327 4⑤ 5 ① 6⑤"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n033",
+          "barrier_node_id": "p102-structure-r001",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n033__p102-structure-r001_split.png",
+          "source_text_bbox": {
+            "x": 953.0,
+            "y": 1514.0,
+            "width": 574.0,
+            "height": 54.0
+          },
+          "barrier_bbox": {
+            "x": 169.824,
+            "y": 1301.387,
+            "width": 946.451,
+            "height": 613.261
+          },
+          "intersection_bbox": {
+            "x": 953.0,
+            "y": 1514.0,
+            "width": 163.275,
+            "height": 54.0
+          },
+          "crop_bbox": {
+            "x": 945,
+            "y": 1506,
+            "width": 179,
+            "height": 70
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "본문30~31쪽 Level 1기초연습"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n033",
+          "barrier_node_id": "p102-structure-r006",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n033__p102-structure-r006_split.png",
+          "source_text_bbox": {
+            "x": 953.0,
+            "y": 1514.0,
+            "width": 574.0,
+            "height": 54.0
+          },
+          "barrier_bbox": {
+            "x": 1225.63,
+            "y": 1298.748,
+            "width": 948.581,
+            "height": 679.765
+          },
+          "intersection_bbox": {
+            "x": 1225.63,
+            "y": 1514.0,
+            "width": 301.37,
+            "height": 54.0
+          },
+          "crop_bbox": {
+            "x": 1217,
+            "y": 1506,
+            "width": 318,
+            "height": 70
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "본문30~31쪽 Level 1기초연습"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n046",
+          "barrier_node_id": "p102-structure-r001",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n046__p102-structure-r001_split.png",
+          "source_text_bbox": {
+            "x": 953.0,
+            "y": 1658.0,
+            "width": 576.0,
+            "height": 52.0
+          },
+          "barrier_bbox": {
+            "x": 169.824,
+            "y": 1301.387,
+            "width": 946.451,
+            "height": 613.261
+          },
+          "intersection_bbox": {
+            "x": 953.0,
+            "y": 1658.0,
+            "width": 163.275,
+            "height": 52.0
+          },
+          "crop_bbox": {
+            "x": 945,
+            "y": 1650,
+            "width": 179,
+            "height": 68
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "본문32~33쪽 Level 2기본 연습"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n046",
+          "barrier_node_id": "p102-structure-r006",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n046__p102-structure-r006_split.png",
+          "source_text_bbox": {
+            "x": 953.0,
+            "y": 1658.0,
+            "width": 576.0,
+            "height": 52.0
+          },
+          "barrier_bbox": {
+            "x": 1225.63,
+            "y": 1298.748,
+            "width": 948.581,
+            "height": 679.765
+          },
+          "intersection_bbox": {
+            "x": 1225.63,
+            "y": 1658.0,
+            "width": 303.37,
+            "height": 52.0
+          },
+          "crop_bbox": {
+            "x": 1217,
+            "y": 1650,
+            "width": 320,
+            "height": 68
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "본문32~33쪽 Level 2기본 연습"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n065",
+          "barrier_node_id": "p102-structure-r003",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n065__p102-structure-r003_split.png",
+          "source_text_bbox": {
+            "x": 955.0,
+            "y": 2432.0,
+            "width": 576.0,
+            "height": 54.0
+          },
+          "barrier_bbox": {
+            "x": 169.2,
+            "y": 2216.238,
+            "width": 949.661,
+            "height": 612.598
+          },
+          "intersection_bbox": {
+            "x": 955.0,
+            "y": 2432.0,
+            "width": 163.861,
+            "height": 54.0
+          },
+          "crop_bbox": {
+            "x": 947,
+            "y": 2424,
+            "width": 179,
+            "height": 70
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "본문46~47쪽 Level 1기초 연습"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n065",
+          "barrier_node_id": "p102-structure-r005",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n065__p102-structure-r005_split.png",
+          "source_text_bbox": {
+            "x": 955.0,
+            "y": 2432.0,
+            "width": 576.0,
+            "height": 54.0
+          },
+          "barrier_bbox": {
+            "x": 1225.501,
+            "y": 2216.425,
+            "width": 949.855,
+            "height": 613.012
+          },
+          "intersection_bbox": {
+            "x": 1225.501,
+            "y": 2432.0,
+            "width": 305.499,
+            "height": 54.0
+          },
+          "crop_bbox": {
+            "x": 1217,
+            "y": 2424,
+            "width": 322,
+            "height": 70
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "본문46~47쪽 Level 1기초 연습"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n056",
+          "barrier_node_id": "p102-structure-r003",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n056__p102-structure-r003_split.png",
+          "source_text_bbox": {
+            "x": 306.0,
+            "y": 2494.0,
+            "width": 1860.0,
+            "height": 58.0
+          },
+          "barrier_bbox": {
+            "x": 169.2,
+            "y": 2216.238,
+            "width": 949.661,
+            "height": 612.598
+          },
+          "intersection_bbox": {
+            "x": 306.0,
+            "y": 2494.0,
+            "width": 812.861,
+            "height": 58.0
+          },
+          "crop_bbox": {
+            "x": 298,
+            "y": 2486,
+            "width": 828,
+            "height": 74
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "2 ②3④ 4③ 5 ① 6③7①8④ 1②2 ②3 ③ 4②5① 6④ 7② 8⑤"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n056",
+          "barrier_node_id": "p102-structure-r005",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n056__p102-structure-r005_split.png",
+          "source_text_bbox": {
+            "x": 306.0,
+            "y": 2494.0,
+            "width": 1860.0,
+            "height": 58.0
+          },
+          "barrier_bbox": {
+            "x": 1225.501,
+            "y": 2216.425,
+            "width": 949.855,
+            "height": 613.012
+          },
+          "intersection_bbox": {
+            "x": 1225.501,
+            "y": 2494.0,
+            "width": 940.499,
+            "height": 58.0
+          },
+          "crop_bbox": {
+            "x": 1217,
+            "y": 2486,
+            "width": 957,
+            "height": 74
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "2 ②3④ 4③ 5 ① 6③7①8④ 1②2 ②3 ③ 4②5① 6④ 7② 8⑤"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n068",
+          "barrier_node_id": "p102-structure-r003",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n068__p102-structure-r003_split.png",
+          "source_text_bbox": {
+            "x": 947.0,
+            "y": 2574.0,
+            "width": 582.0,
+            "height": 54.0
+          },
+          "barrier_bbox": {
+            "x": 169.2,
+            "y": 2216.238,
+            "width": 949.661,
+            "height": 612.598
+          },
+          "intersection_bbox": {
+            "x": 947.0,
+            "y": 2574.0,
+            "width": 171.861,
+            "height": 54.0
+          },
+          "crop_bbox": {
+            "x": 939,
+            "y": 2566,
+            "width": 187,
+            "height": 70
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "본문48~49쪽 Level 2기본연습"
+        },
+        {
+          "page_id": "p102",
+          "source_text_node_id": "p102-n068",
+          "barrier_node_id": "p102-structure-r005",
+          "structure_label": "PROBLEM_BOX_CANDIDATE",
+          "layout_barrier_role": "problem_region_boundary",
+          "crop_path": "data\\debug\\paddleocr_barrier_split_crops\\p102\\p102-n068__p102-structure-r005_split.png",
+          "source_text_bbox": {
+            "x": 947.0,
+            "y": 2574.0,
+            "width": 582.0,
+            "height": 54.0
+          },
+          "barrier_bbox": {
+            "x": 1225.501,
+            "y": 2216.425,
+            "width": 949.855,
+            "height": 613.012
+          },
+          "intersection_bbox": {
+            "x": 1225.501,
+            "y": 2574.0,
+            "width": 303.499,
+            "height": 54.0
+          },
+          "crop_bbox": {
+            "x": 1217,
+            "y": 2566,
+            "width": 320,
+            "height": 70
+          },
+          "image_size": {
+            "width": 2434,
+            "height": 3071
+          },
+          "source_text": "본문48~49쪽 Level 2기본연습"
+        }
+      ]
+    }
+  ],
+  "page_ir": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_page_ir_p102.json",
+  "images_dir": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300",
+  "output_dir": "D:\\Projects\\OCR\\document-parser\\data\\debug\\paddleocr_barrier_split_crops"
+}

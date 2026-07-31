@@ -1,0 +1,26 @@
+{
+  "image": {
+    "page_id": "p004",
+    "path": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p004.png",
+    "width": 2434,
+    "height": 3071,
+    "sha256": "61dfa0bc726dc64f851c927868258eb4944f53fad551ac5fb33630a507af9eff"
+  },
+  "ocr_result": {
+    "page_id": "p004",
+    "engine_id": "noop-general-ocr",
+    "engine_version": "0.1.0",
+    "tokens": [],
+    "raw_result": {
+      "status": "not_configured",
+      "message": "No general OCR engine is configured for this milestone."
+    },
+    "issues": [
+      {
+        "code": "OCR_ENGINE_NOT_CONFIGURED",
+        "severity": "warning",
+        "message": "General OCR adapter contract is present, but no real OCR engine is configured."
+      }
+    ]
+  }
+}

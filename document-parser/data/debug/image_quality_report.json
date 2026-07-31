@@ -1,0 +1,268 @@
+{
+  "report_type": "image_quality",
+  "report_count": 16,
+  "status_counts": {
+    "PASS": 8,
+    "PASS_WITH_CORRECTION": 0,
+    "LOW_QUALITY": 8,
+    "REJECTED": 0
+  },
+  "reports": [
+    {
+      "page_id": "zip-p003",
+      "source": "2027 수능특강 수학 I-png-Images.zip!2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_3.png",
+      "status": "LOW_QUALITY",
+      "width": 584,
+      "height": 737,
+      "mode": "RGBA",
+      "image_format": "PNG",
+      "long_edge": 737,
+      "aspect_ratio": 0.792402,
+      "blur_score": 3255.484863,
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "Long edge 737px is below minimum OCR baseline 1800px."
+        }
+      ]
+    },
+    {
+      "page_id": "zip-p004",
+      "source": "2027 수능특강 수학 I-png-Images.zip!2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_4.png",
+      "status": "LOW_QUALITY",
+      "width": 584,
+      "height": 737,
+      "mode": "RGBA",
+      "image_format": "PNG",
+      "long_edge": 737,
+      "aspect_ratio": 0.792402,
+      "blur_score": 2659.889404,
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "Long edge 737px is below minimum OCR baseline 1800px."
+        }
+      ]
+    },
+    {
+      "page_id": "zip-p008",
+      "source": "2027 수능특강 수학 I-png-Images.zip!2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_8.png",
+      "status": "LOW_QUALITY",
+      "width": 584,
+      "height": 737,
+      "mode": "RGBA",
+      "image_format": "PNG",
+      "long_edge": 737,
+      "aspect_ratio": 0.792402,
+      "blur_score": 1840.151489,
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "Long edge 737px is below minimum OCR baseline 1800px."
+        }
+      ]
+    },
+    {
+      "page_id": "zip-p012",
+      "source": "2027 수능특강 수학 I-png-Images.zip!2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_12.png",
+      "status": "LOW_QUALITY",
+      "width": 584,
+      "height": 737,
+      "mode": "RGBA",
+      "image_format": "PNG",
+      "long_edge": 737,
+      "aspect_ratio": 0.792402,
+      "blur_score": 2770.765381,
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "Long edge 737px is below minimum OCR baseline 1800px."
+        }
+      ]
+    },
+    {
+      "page_id": "zip-p019",
+      "source": "2027 수능특강 수학 I-png-Images.zip!2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_19.png",
+      "status": "LOW_QUALITY",
+      "width": 584,
+      "height": 737,
+      "mode": "RGBA",
+      "image_format": "PNG",
+      "long_edge": 737,
+      "aspect_ratio": 0.792402,
+      "blur_score": 2902.371582,
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "Long edge 737px is below minimum OCR baseline 1800px."
+        }
+      ]
+    },
+    {
+      "page_id": "zip-p020",
+      "source": "2027 수능특강 수학 I-png-Images.zip!2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_20.png",
+      "status": "LOW_QUALITY",
+      "width": 584,
+      "height": 737,
+      "mode": "RGBA",
+      "image_format": "PNG",
+      "long_edge": 737,
+      "aspect_ratio": 0.792402,
+      "blur_score": 2594.739014,
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "Long edge 737px is below minimum OCR baseline 1800px."
+        }
+      ]
+    },
+    {
+      "page_id": "zip-p054",
+      "source": "2027 수능특강 수학 I-png-Images.zip!2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_54.png",
+      "status": "LOW_QUALITY",
+      "width": 584,
+      "height": 737,
+      "mode": "RGBA",
+      "image_format": "PNG",
+      "long_edge": 737,
+      "aspect_ratio": 0.792402,
+      "blur_score": 2683.239258,
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "Long edge 737px is below minimum OCR baseline 1800px."
+        }
+      ]
+    },
+    {
+      "page_id": "zip-p102",
+      "source": "2027 수능특강 수학 I-png-Images.zip!2027 수능특강 수학 I-png-Images/2027 수능특강 수학 I_102.png",
+      "status": "LOW_QUALITY",
+      "width": 584,
+      "height": 737,
+      "mode": "RGBA",
+      "image_format": "PNG",
+      "long_edge": 737,
+      "aspect_ratio": 0.792402,
+      "blur_score": 6689.649902,
+      "issues": [
+        {
+          "code": "LOW_RESOLUTION",
+          "severity": "warning",
+          "message": "Long edge 737px is below minimum OCR baseline 1800px."
+        }
+      ]
+    },
+    {
+      "page_id": "ebs_2027_math1_p003",
+      "source": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p003.png",
+      "status": "PASS",
+      "width": 2434,
+      "height": 3071,
+      "mode": "RGB",
+      "image_format": "PNG",
+      "long_edge": 3071,
+      "aspect_ratio": 0.792576,
+      "blur_score": 1261.919434,
+      "issues": []
+    },
+    {
+      "page_id": "ebs_2027_math1_p004",
+      "source": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p004.png",
+      "status": "PASS",
+      "width": 2434,
+      "height": 3071,
+      "mode": "RGB",
+      "image_format": "PNG",
+      "long_edge": 3071,
+      "aspect_ratio": 0.792576,
+      "blur_score": 978.34259,
+      "issues": []
+    },
+    {
+      "page_id": "ebs_2027_math1_p008",
+      "source": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p008.png",
+      "status": "PASS",
+      "width": 2434,
+      "height": 3071,
+      "mode": "RGB",
+      "image_format": "PNG",
+      "long_edge": 3071,
+      "aspect_ratio": 0.792576,
+      "blur_score": 624.618286,
+      "issues": []
+    },
+    {
+      "page_id": "ebs_2027_math1_p012",
+      "source": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p012.png",
+      "status": "PASS",
+      "width": 2434,
+      "height": 3071,
+      "mode": "RGB",
+      "image_format": "PNG",
+      "long_edge": 3071,
+      "aspect_ratio": 0.792576,
+      "blur_score": 973.83844,
+      "issues": []
+    },
+    {
+      "page_id": "ebs_2027_math1_p019",
+      "source": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p019.png",
+      "status": "PASS",
+      "width": 2434,
+      "height": 3071,
+      "mode": "RGB",
+      "image_format": "PNG",
+      "long_edge": 3071,
+      "aspect_ratio": 0.792576,
+      "blur_score": 997.238464,
+      "issues": []
+    },
+    {
+      "page_id": "ebs_2027_math1_p020",
+      "source": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p020.png",
+      "status": "PASS",
+      "width": 2434,
+      "height": 3071,
+      "mode": "RGB",
+      "image_format": "PNG",
+      "long_edge": 3071,
+      "aspect_ratio": 0.792576,
+      "blur_score": 768.528381,
+      "issues": []
+    },
+    {
+      "page_id": "ebs_2027_math1_p054",
+      "source": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p054.png",
+      "status": "PASS",
+      "width": 2434,
+      "height": 3071,
+      "mode": "RGB",
+      "image_format": "PNG",
+      "long_edge": 3071,
+      "aspect_ratio": 0.792576,
+      "blur_score": 837.619385,
+      "issues": []
+    },
+    {
+      "page_id": "ebs_2027_math1_p102",
+      "source": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p102.png",
+      "status": "PASS",
+      "width": 2434,
+      "height": 3071,
+      "mode": "RGB",
+      "image_format": "PNG",
+      "long_edge": 3071,
+      "aspect_ratio": 0.792576,
+      "blur_score": 1515.782471,
+      "issues": []
+    }
+  ]
+}
