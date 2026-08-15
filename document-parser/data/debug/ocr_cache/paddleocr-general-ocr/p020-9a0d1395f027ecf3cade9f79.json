@@ -1,7 +1,7 @@
 {
   "image": {
     "page_id": "p020",
-    "path": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p020.png",
+    "path": "D:\\Temp\\page_type_probe\\images\\ebs_2027_math1_p020.png",
     "width": 2434,
     "height": 3071,
     "sha256": "6b7f6de5edca7a753d8d37649b5cdd604ddc333e36fdc62d6e513b19cc268263"
@@ -19,7 +19,7 @@
           "width": 192.0,
           "height": 165.0
         },
-        "confidence": 0.9991339445114136,
+        "confidence": 0.9991310834884644,
         "token_id": "p020-paddleocr-t0001",
         "line_hint": null,
         "raw": {
@@ -42,7 +42,7 @@
             ]
           ],
           "text": "02",
-          "confidence": 0.9991339445114136
+          "confidence": 0.9991310834884644
         }
       },
       {
@@ -53,7 +53,7 @@
           "width": 723.0,
           "height": 104.0
         },
-        "confidence": 0.9668172597885132,
+        "confidence": 0.9674845933914185,
         "token_id": "p020-paddleocr-t0002",
         "line_hint": null,
         "raw": {
@@ -76,7 +76,7 @@
             ]
           ],
           "text": "지수함수와 로그함수",
-          "confidence": 0.9668172597885132
+          "confidence": 0.9674845933914185
         }
       },
       {
@@ -189,7 +189,7 @@
           "width": 356.0,
           "height": 52.0
         },
-        "confidence": 0.9155406951904297,
+        "confidence": 0.9181272983551025,
         "token_id": "p020-paddleocr-t0006",
         "line_hint": null,
         "raw": {
@@ -212,7 +212,7 @@
             ]
           ],
           "text": "y=αx (a>0, a≠1)",
-          "confidence": 0.9155406951904297
+          "confidence": 0.9181272983551025
         }
       },
       {
@@ -223,7 +223,7 @@
           "width": 1134.0,
           "height": 44.0
         },
-        "confidence": 0.9699920415878296,
+        "confidence": 0.9699028134346008,
         "token_id": "p020-paddleocr-t0007",
         "line_hint": null,
         "raw": {
@@ -246,7 +246,7 @@
             ]
           ],
           "text": "은 x에 대한 함수이다.이 함수를 a를 밑으로 하는 지수함수라고 한다.",
-          "confidence": 0.9699920415878296
+          "confidence": 0.9699028134346008
         }
       },
       {
@@ -461,7 +461,7 @@
           "width": 288.0,
           "height": 52.0
         },
-        "confidence": 0.9040504097938538,
+        "confidence": 0.9029602408409119,
         "token_id": "p020-paddleocr-t0014",
         "line_hint": null,
         "raw": {
@@ -484,7 +484,7 @@
             ]
           ],
           "text": "20<a<1일 때",
-          "confidence": 0.9040504097938538
+          "confidence": 0.9029602408409119
         }
       },
       {
@@ -529,7 +529,7 @@
           "width": 103.0,
           "height": 50.0
         },
-        "confidence": 0.7991580367088318,
+        "confidence": 0.7972942590713501,
         "token_id": "p020-paddleocr-t0016",
         "line_hint": null,
         "raw": {
@@ -552,7 +552,7 @@
             ]
           ],
           "text": "y=ax",
-          "confidence": 0.7991580367088318
+          "confidence": 0.7972942590713501
         }
       },
       {
@@ -563,7 +563,7 @@
           "width": 103.0,
           "height": 50.0
         },
-        "confidence": 0.7906812429428101,
+        "confidence": 0.7898115515708923,
         "token_id": "p020-paddleocr-t0017",
         "line_hint": null,
         "raw": {
@@ -586,7 +586,7 @@
             ]
           ],
           "text": "y=αx",
-          "confidence": 0.7906812429428101
+          "confidence": 0.7898115515708923
         }
       },
       {
@@ -1175,7 +1175,7 @@
           "width": 800.0,
           "height": 59.0
         },
-        "confidence": 0.831445038318634,
+        "confidence": 0.829197883605957,
         "token_id": "p020-paddleocr-t0035",
         "line_hint": null,
         "raw": {
@@ -1198,7 +1198,7 @@
             ]
           ],
           "text": "예두함수y=2x^,y=3^의그래프와두함수y=",
-          "confidence": 0.831445038318634
+          "confidence": 0.829197883605957
         }
       },
       {
@@ -1209,7 +1209,7 @@
           "width": 140.0,
           "height": 75.0
         },
-        "confidence": 0.6968398690223694,
+        "confidence": 0.6987125873565674,
         "token_id": "p020-paddleocr-t0036",
         "line_hint": null,
         "raw": {
@@ -1232,7 +1232,7 @@
             ]
           ],
           "text": ", =",
-          "confidence": 0.6968398690223694
+          "confidence": 0.6987125873565674
         }
       },
       {
@@ -1243,7 +1243,7 @@
           "width": 379.0,
           "height": 56.0
         },
-        "confidence": 0.934219241142273,
+        "confidence": 0.9314841032028198,
         "token_id": "p020-paddleocr-t0037",
         "line_hint": null,
         "raw": {
@@ -1266,7 +1266,7 @@
             ]
           ],
           "text": "'의 그래프는 그림과 같다.",
-          "confidence": 0.934219241142273
+          "confidence": 0.9314841032028198
         }
       },
       {
@@ -1447,7 +1447,7 @@
           "width": 110.0,
           "height": 55.0
         },
-        "confidence": 0.8075181841850281,
+        "confidence": 0.8060243725776672,
         "token_id": "p020-paddleocr-t0043",
         "line_hint": null,
         "raw": {
@@ -1470,7 +1470,7 @@
             ]
           ],
           "text": "y=3x",
-          "confidence": 0.8075181841850281
+          "confidence": 0.8060243725776672
         }
       },
       {
@@ -1583,7 +1583,7 @@
           "width": 111.0,
           "height": 58.0
         },
-        "confidence": 0.7789388298988342,
+        "confidence": 0.7755593657493591,
         "token_id": "p020-paddleocr-t0047",
         "line_hint": null,
         "raw": {
@@ -1606,7 +1606,7 @@
             ]
           ],
           "text": "y=2x",
-          "confidence": 0.7789388298988342
+          "confidence": 0.7755593657493591
         }
       },
       {
@@ -1889,7 +1889,7 @@
           "width": 38.0,
           "height": 48.0
         },
-        "confidence": 0.979606568813324,
+        "confidence": 0.9793541431427002,
         "token_id": "p020-paddleocr-t0056",
         "line_hint": null,
         "raw": {
@@ -1912,7 +1912,7 @@
             ]
           ],
           "text": "x",
-          "confidence": 0.979606568813324
+          "confidence": 0.9793541431427002
         }
       },
       {
@@ -2195,7 +2195,7 @@
           "width": 544.0,
           "height": 43.0
         },
-        "confidence": 0.9002810716629028,
+        "confidence": 0.9012253284454346,
         "token_id": "p020-paddleocr-t0065",
         "line_hint": null,
         "raw": {
@@ -2218,7 +2218,7 @@
             ]
           ],
           "text": "x >0이면 αx<bx, x<0이면 αx> bx",
-          "confidence": 0.9002810716629028
+          "confidence": 0.9012253284454346
         }
       },
       {
@@ -2263,7 +2263,7 @@
           "width": 376.0,
           "height": 32.0
         },
-        "confidence": 0.9669250249862671,
+        "confidence": 0.9675281643867493,
         "token_id": "p020-paddleocr-t0067",
         "line_hint": null,
         "raw": {
@@ -2286,7 +2286,7 @@
             ]
           ],
           "text": "2027학년도 EBS 수능특강 수학1",
-          "confidence": 0.9669250249862671
+          "confidence": 0.9675281643867493
         }
       }
     ],

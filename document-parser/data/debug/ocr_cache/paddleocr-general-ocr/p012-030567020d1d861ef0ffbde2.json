@@ -1,7 +1,7 @@
 {
   "image": {
     "page_id": "p012",
-    "path": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p012.png",
+    "path": "D:\\Temp\\page_type_probe\\images\\ebs_2027_math1_p012.png",
     "width": 2434,
     "height": 3071,
     "sha256": "f869151651cda211931408914bac2e1c1d316b86858124ba97fe57970928e3cc"
@@ -19,7 +19,7 @@
           "width": 110.0,
           "height": 104.0
         },
-        "confidence": 0.9998220205307007,
+        "confidence": 0.9998224973678589,
         "token_id": "p012-paddleocr-t0001",
         "line_hint": null,
         "raw": {
@@ -42,7 +42,7 @@
             ]
           ],
           "text": "01",
-          "confidence": 0.9998220205307007
+          "confidence": 0.9998224973678589
         }
       },
       {
@@ -121,7 +121,7 @@
           "width": 195.0,
           "height": 76.0
         },
-        "confidence": 0.9992070198059082,
+        "confidence": 0.9992115497589111,
         "token_id": "p012-paddleocr-t0004",
         "line_hint": null,
         "raw": {
@@ -144,7 +144,7 @@
             ]
           ],
           "text": "상용로그",
-          "confidence": 0.9992070198059082
+          "confidence": 0.9992115497589111
         }
       },
       {
@@ -189,7 +189,7 @@
           "width": 1449.0,
           "height": 52.0
         },
-        "confidence": 0.9274240136146545,
+        "confidence": 0.9272280335426331,
         "token_id": "p012-paddleocr-t0006",
         "line_hint": null,
         "raw": {
@@ -212,7 +212,7 @@
             ]
           ],
           "text": "밑을10으로 하는 로그,즉log10N(N>0)을 상용로그라 하고, 보통 밑 10을 생략하여",
-          "confidence": 0.9274240136146545
+          "confidence": 0.9272280335426331
         }
       },
       {
@@ -291,7 +291,7 @@
           "width": 209.0,
           "height": 101.0
         },
-        "confidence": 0.9131923317909241,
+        "confidence": 0.9134803414344788,
         "token_id": "p012-paddleocr-t0009",
         "line_hint": null,
         "raw": {
@@ -314,7 +314,7 @@
             ]
           ],
           "text": "② log 100",
-          "confidence": 0.9131923317909241
+          "confidence": 0.9134803414344788
         }
       },
       {
@@ -393,7 +393,7 @@
           "width": 305.0,
           "height": 64.0
         },
-        "confidence": 0.9161977767944336,
+        "confidence": 0.9161828756332397,
         "token_id": "p012-paddleocr-t0012",
         "line_hint": null,
         "raw": {
@@ -416,7 +416,7 @@
             ]
           ],
           "text": "=10g10 10−2= −2",
-          "confidence": 0.9161977767944336
+          "confidence": 0.9161828756332397
         }
       },
       {
@@ -631,7 +631,7 @@
           "width": 751.0,
           "height": 46.0
         },
-        "confidence": 0.9514924883842468,
+        "confidence": 0.9513513445854187,
         "token_id": "p012-paddleocr-t0019",
         "line_hint": null,
         "raw": {
@@ -654,7 +654,7 @@
             ]
           ],
           "text": "①상용로그표를 이용한 상용로그의 값 구하기",
-          "confidence": 0.9514924883842468
+          "confidence": 0.9513513445854187
         }
       },
       {
@@ -1073,7 +1073,7 @@
           "width": 854.0,
           "height": 46.0
         },
-        "confidence": 0.9764605164527893,
+        "confidence": 0.9764733910560608,
         "token_id": "p012-paddleocr-t0032",
         "line_hint": null,
         "raw": {
@@ -1096,7 +1096,7 @@
             ]
           ],
           "text": "의 수에 대한 상용로그의 값을 소수점 아래 넷째 자",
-          "confidence": 0.9764605164527893
+          "confidence": 0.9764733910560608
         }
       },
       {
@@ -1141,7 +1141,7 @@
           "width": 850.0,
           "height": 46.0
         },
-        "confidence": 0.9579878449440002,
+        "confidence": 0.9586096405982971,
         "token_id": "p012-paddleocr-t0034",
         "line_hint": null,
         "raw": {
@@ -1164,7 +1164,7 @@
             ]
           ],
           "text": "리까지 반올림하여 나타낸 값이 주어져 있다.예를",
-          "confidence": 0.9579878449440002
+          "confidence": 0.9586096405982971
         }
       },
       {
@@ -1243,7 +1243,7 @@
           "width": 113.0,
           "height": 55.0
         },
-        "confidence": 0.9596661925315857,
+        "confidence": 0.9596604704856873,
         "token_id": "p012-paddleocr-t0037",
         "line_hint": null,
         "raw": {
@@ -1266,7 +1266,7 @@
             ]
           ],
           "text": "→.7582",
-          "confidence": 0.9596661925315857
+          "confidence": 0.9596604704856873
         }
       },
       {
@@ -1345,7 +1345,7 @@
           "width": 856.0,
           "height": 52.0
         },
-        "confidence": 0.9679362177848816,
+        "confidence": 0.9676425457000732,
         "token_id": "p012-paddleocr-t0040",
         "line_hint": null,
         "raw": {
@@ -1368,7 +1368,7 @@
             ]
           ],
           "text": "면 5.7의 가로 행과 3의 세로 열이 만나는 곳의 수",
-          "confidence": 0.9679362177848816
+          "confidence": 0.9676425457000732
         }
       },
       {
@@ -1651,7 +1651,7 @@
           "width": 332.0,
           "height": 53.0
         },
-        "confidence": 0.969658613204956,
+        "confidence": 0.9695085287094116,
         "token_id": "p012-paddleocr-t0049",
         "line_hint": null,
         "raw": {
@@ -1674,7 +1674,7 @@
             ]
           ],
           "text": "(3)상용로그의 활용",
-          "confidence": 0.969658613204956
+          "confidence": 0.9695085287094116
         }
       },
       {
@@ -1719,7 +1719,7 @@
           "width": 677.0,
           "height": 64.0
         },
-        "confidence": 0.8817307353019714,
+        "confidence": 0.8870038390159607,
         "token_id": "p012-paddleocr-t0051",
         "line_hint": null,
         "raw": {
@@ -1742,7 +1742,7 @@
             ]
           ],
           "text": "예230의 어림한 값을 구하면 다음과 같다.",
-          "confidence": 0.8817307353019714
+          "confidence": 0.8870038390159607
         }
       },
       {
@@ -1787,7 +1787,7 @@
           "width": 563.0,
           "height": 47.0
         },
-        "confidence": 0.9444467425346375,
+        "confidence": 0.9443071484565735,
         "token_id": "p012-paddleocr-t0053",
         "line_hint": null,
         "raw": {
@@ -1810,7 +1810,7 @@
             ]
           ],
           "text": "상용로그표에서 1og 2=0.3010이므로",
-          "confidence": 0.9444467425346375
+          "confidence": 0.9443071484565735
         }
       },
       {
@@ -1821,7 +1821,7 @@
           "width": 751.0,
           "height": 46.0
         },
-        "confidence": 0.961187481880188,
+        "confidence": 0.9615283012390137,
         "token_id": "p012-paddleocr-t0054",
         "line_hint": null,
         "raw": {
@@ -1844,7 +1844,7 @@
             ]
           ],
           "text": "log 230=30log 2=30× 0.3010=9.03=9+0.03",
-          "confidence": 0.961187481880188
+          "confidence": 0.9615283012390137
         }
       },
       {
@@ -2059,7 +2059,7 @@
           "width": 605.0,
           "height": 47.0
         },
-        "confidence": 0.9589341878890991,
+        "confidence": 0.9588411450386047,
         "token_id": "p012-paddleocr-t0061",
         "line_hint": null,
         "raw": {
@@ -2082,7 +2082,7 @@
             ]
           ],
           "text": "이므로230은 어림잡아1.07×10'과 같다.",
-          "confidence": 0.9589341878890991
+          "confidence": 0.9588411450386047
         }
       },
       {
@@ -2127,7 +2127,7 @@
           "width": 378.0,
           "height": 32.0
         },
-        "confidence": 0.9711655974388123,
+        "confidence": 0.9707399010658264,
         "token_id": "p012-paddleocr-t0063",
         "line_hint": null,
         "raw": {
@@ -2150,7 +2150,7 @@
             ]
           ],
           "text": "2027학년도 EBS 수능특강 수학 I",
-          "confidence": 0.9711655974388123
+          "confidence": 0.9707399010658264
         }
       }
     ],

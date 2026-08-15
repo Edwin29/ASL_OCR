@@ -5,6 +5,7 @@ from document_parser.ocr.baseline import create_baseline_ocr_adapter
 from document_parser.ocr.easyocr_adapter import EasyOcrGeneralAdapter
 from document_parser.ocr.noop import NoopGeneralOcrAdapter
 from document_parser.ocr.paddleocr_adapter import PaddleOcrGeneralAdapter
+from document_parser.ocr.paddleocr_vl_adapter import PaddleOcrVlAdapter
 
 __all__ = [
     "BBox",
@@ -14,5 +15,6 @@ __all__ = [
     "OcrPageResult",
     "OcrToken",
     "PaddleOcrGeneralAdapter",
+    "PaddleOcrVlAdapter",
     "create_baseline_ocr_adapter",
 ]

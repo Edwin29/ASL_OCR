@@ -60,34 +60,104 @@ def export_page_math_candidate_crops(
         width, height = image.size
         for node in candidate_nodes(page):
             node_id = str(node["node_id"])
+            candidate = node.get("layout", {}).get("math_candidate", {})
+            spans = math_span_candidates(node)
+            if spans:
+                for span_index, span in enumerate(spans, start=1):
+                    crop = export_one_crop(
+                        image=image,
+                        image_width=width,
+                        image_height=height,
+                        box=span["bbox"],
+                        padding=padding,
+                        crop_path=output_dir / page_id / (
+                            f"{safe_filename(node_id)}_span{span_index:02d}_math_candidate.png"
+                        ),
+                    )
+                    if crop is None:
+                        continue
+                    crops.append({
+                        "page_id": page_id,
+                        "node_id": node_id,
+                        "crop_level": "span",
+                        "span_index": span_index,
+                        **crop,
+                        "score": candidate.get("score"),
+                        "candidate_kind": candidate.get("candidate_kind"),
+                        "reasons": candidate.get("reasons", []),
+                        "text": span.get("text", ""),
+                    })
+                continue
+
+            # Fallback for nodes without split span data yet (legacy Page IR, or a
+            # candidate line the span splitter did not confirm as math): crop the
+            # whole line, same as before span-level splitting existed.
             box = bbox(node)
             if box is None:
                 continue
-            crop_box = padded_crop_box(box, image_width=width, image_height=height, padding=padding)
-            if crop_box is None:
+            crop = export_one_crop(
+                image=image,
+                image_width=width,
+                image_height=height,
+                box=box,
+                padding=padding,
+                crop_path=output_dir / page_id / f"{safe_filename(node_id)}_math_candidate.png",
+            )
+            if crop is None:
                 continue
-            crop_path = output_dir / page_id / f"{safe_filename(node_id)}_math_candidate.png"
-            crop_path.parent.mkdir(parents=True, exist_ok=True)
-            image.crop(crop_box).save(crop_path)
-            candidate = node.get("layout", {}).get("math_candidate", {})
             crops.append({
                 "page_id": page_id,
                 "node_id": node_id,
-                "crop_path": str(crop_path),
-                "bbox": box,
-                "crop_bbox": {
-                    "x": crop_box[0],
-                    "y": crop_box[1],
-                    "width": crop_box[2] - crop_box[0],
-                    "height": crop_box[3] - crop_box[1],
-                },
-                "image_size": {"width": width, "height": height},
+                "crop_level": "node",
+                "span_index": None,
+                **crop,
                 "score": candidate.get("score"),
                 "candidate_kind": candidate.get("candidate_kind"),
                 "reasons": candidate.get("reasons", []),
                 "text": node.get("normalized_text", ""),
             })
     return crops
+
+
+def export_one_crop(
+    image: Image.Image,
+    image_width: int,
+    image_height: int,
+    box: dict[str, float],
+    padding: int,
+    crop_path: Path,
+) -> dict[str, object] | None:
+    crop_box = padded_crop_box(box, image_width=image_width, image_height=image_height, padding=padding)
+    if crop_box is None:
+        return None
+    crop_path.parent.mkdir(parents=True, exist_ok=True)
+    image.crop(crop_box).save(crop_path)
+    return {
+        "crop_path": str(crop_path),
+        "bbox": box,
+        "crop_bbox": {
+            "x": crop_box[0],
+            "y": crop_box[1],
+            "width": crop_box[2] - crop_box[0],
+            "height": crop_box[3] - crop_box[1],
+        },
+        "image_size": {"width": image_width, "height": image_height},
+    }
+
+
+def math_span_candidates(node: dict[str, Any]) -> list[dict[str, object]]:
+    spans = node.get("spans")
+    if not isinstance(spans, list):
+        return []
+    confirmed = []
+    for span in spans:
+        if not isinstance(span, dict) or span.get("math_span_candidate") is not True:
+            continue
+        box = bbox_from_dict(span.get("bbox"))
+        if box is None:
+            continue
+        confirmed.append({**span, "bbox": box})
+    return confirmed
 
 
 def candidate_nodes(page: dict[str, Any]) -> list[dict[str, Any]]:
@@ -118,7 +188,10 @@ def is_math_candidate(node: dict[str, Any]) -> bool:
 
 
 def bbox(node: dict[str, Any]) -> dict[str, float] | None:
-    raw = node.get("bbox")
+    return bbox_from_dict(node.get("bbox"))
+
+
+def bbox_from_dict(raw: object) -> dict[str, float] | None:
     if not isinstance(raw, dict):
         return None
     values = {key: number_value(raw.get(key)) for key in ("x", "y", "width", "height")}

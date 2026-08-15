@@ -1,57 +1,64 @@
 {
   "rendered_pages": [
     {
-      "page_number": 3,
-      "output_path": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p003.png",
+      "page_number": 5,
+      "output_path": "D:\\Projects\\OCR\\.claude\\worktrees\\project-context-exploration-7f28b3\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p005.png",
       "width": 2434,
       "height": 3071,
       "dpi": 300
     },
     {
-      "page_number": 4,
-      "output_path": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p004.png",
+      "page_number": 10,
+      "output_path": "D:\\Projects\\OCR\\.claude\\worktrees\\project-context-exploration-7f28b3\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p010.png",
       "width": 2434,
       "height": 3071,
       "dpi": 300
     },
     {
-      "page_number": 8,
-      "output_path": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p008.png",
+      "page_number": 18,
+      "output_path": "D:\\Projects\\OCR\\.claude\\worktrees\\project-context-exploration-7f28b3\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p018.png",
       "width": 2434,
       "height": 3071,
       "dpi": 300
     },
     {
-      "page_number": 12,
-      "output_path": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p012.png",
+      "page_number": 24,
+      "output_path": "D:\\Projects\\OCR\\.claude\\worktrees\\project-context-exploration-7f28b3\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p024.png",
       "width": 2434,
       "height": 3071,
       "dpi": 300
     },
     {
-      "page_number": 19,
-      "output_path": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p019.png",
+      "page_number": 30,
+      "output_path": "D:\\Projects\\OCR\\.claude\\worktrees\\project-context-exploration-7f28b3\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p030.png",
       "width": 2434,
       "height": 3071,
       "dpi": 300
     },
     {
-      "page_number": 20,
-      "output_path": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p020.png",
+      "page_number": 38,
+      "output_path": "D:\\Projects\\OCR\\.claude\\worktrees\\project-context-exploration-7f28b3\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p038.png",
       "width": 2434,
       "height": 3071,
       "dpi": 300
     },
     {
-      "page_number": 54,
-      "output_path": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p054.png",
+      "page_number": 58,
+      "output_path": "D:\\Projects\\OCR\\.claude\\worktrees\\project-context-exploration-7f28b3\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p058.png",
       "width": 2434,
       "height": 3071,
       "dpi": 300
     },
     {
-      "page_number": 102,
-      "output_path": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p102.png",
+      "page_number": 66,
+      "output_path": "D:\\Projects\\OCR\\.claude\\worktrees\\project-context-exploration-7f28b3\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p066.png",
+      "width": 2434,
+      "height": 3071,
+      "dpi": 300
+    },
+    {
+      "page_number": 88,
+      "output_path": "D:\\Projects\\OCR\\.claude\\worktrees\\project-context-exploration-7f28b3\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p088.png",
       "width": 2434,
       "height": 3071,
       "dpi": 300

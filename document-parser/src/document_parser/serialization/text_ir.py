@@ -138,6 +138,10 @@ def text_node_from_line(
         "layout": {
             "line_id": line.line_id,
             "source_token_count": len(line.tokens),
+            "tokens": [
+                {"text": token.text, "bbox": token.bbox.to_jsonable()}
+                for token in line.tokens
+            ],
         },
     }
 

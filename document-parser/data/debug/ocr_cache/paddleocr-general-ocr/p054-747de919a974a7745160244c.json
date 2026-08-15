@@ -1,7 +1,7 @@
 {
   "image": {
     "page_id": "p054",
-    "path": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p054.png",
+    "path": "D:\\Temp\\page_type_probe\\images\\ebs_2027_math1_p054.png",
     "width": 2434,
     "height": 3071,
     "sha256": "104a188df435e214c3a5b3a697dccb215c62c9ad4accff1647a01ac30be5b761"
@@ -53,7 +53,7 @@
           "width": 430.0,
           "height": 65.0
         },
-        "confidence": 0.9989157319068909,
+        "confidence": 0.9989132285118103,
         "token_id": "p054-paddleocr-t0002",
         "line_hint": null,
         "raw": {
@@ -76,7 +76,7 @@
             ]
           ],
           "text": "사인법칙과 코사인법칙",
-          "confidence": 0.9989157319068909
+          "confidence": 0.9989132285118103
         }
       },
       {
@@ -182,14 +182,14 @@
         }
       },
       {
-        "text": "(1) α2=b2+c2−2bc cos A",
+        "text": "(1) a2=b2+c2−2bc cos A",
         "bbox": {
           "x": 257.0,
           "y": 464.0,
           "width": 468.0,
           "height": 56.0
         },
-        "confidence": 0.8989610075950623,
+        "confidence": 0.9002256989479065,
         "token_id": "p054-paddleocr-t0006",
         "line_hint": null,
         "raw": {
@@ -211,8 +211,8 @@
               516.0
             ]
           ],
-          "text": "(1) α2=b2+c2−2bc cos A",
-          "confidence": 0.8989610075950623
+          "text": "(1) a2=b2+c2−2bc cos A",
+          "confidence": 0.9002256989479065
         }
       },
       {
@@ -257,7 +257,7 @@
           "width": 471.0,
           "height": 56.0
         },
-        "confidence": 0.9383386373519897,
+        "confidence": 0.9393415451049805,
         "token_id": "p054-paddleocr-t0008",
         "line_hint": null,
         "raw": {
@@ -280,7 +280,7 @@
             ]
           ],
           "text": "(2) b2=c2+α2−2ca cos B",
-          "confidence": 0.9383386373519897
+          "confidence": 0.9393415451049805
         }
       },
       {
@@ -495,7 +495,7 @@
           "width": 867.0,
           "height": 44.0
         },
-        "confidence": 0.9363536238670349,
+        "confidence": 0.9362921714782715,
         "token_id": "p054-paddleocr-t0015",
         "line_hint": null,
         "raw": {
@@ -518,7 +518,7 @@
             ]
           ],
           "text": "CH=b sin A이고 BH=AB-AH=c-b cos A이므로",
-          "confidence": 0.9363536238670349
+          "confidence": 0.9362921714782715
         }
       },
       {
@@ -835,7 +835,7 @@
           "width": 47.0,
           "height": 44.0
         },
-        "confidence": 0.9996719360351562,
+        "confidence": 0.9996641874313354,
         "token_id": "p054-paddleocr-t0025",
         "line_hint": null,
         "raw": {
@@ -858,7 +858,7 @@
             ]
           ],
           "text": "H",
-          "confidence": 0.9996719360351562
+          "confidence": 0.9996641874313354
         }
       },
       {
@@ -1039,7 +1039,7 @@
           "width": 413.0,
           "height": 50.0
         },
-        "confidence": 0.9138497114181519,
+        "confidence": 0.9147756099700928,
         "token_id": "p054-paddleocr-t0031",
         "line_hint": null,
         "raw": {
@@ -1062,7 +1062,7 @@
             ]
           ],
           "text": "cos A=cos 90°=0이므로",
-          "confidence": 0.9138497114181519
+          "confidence": 0.9147756099700928
         }
       },
       {
@@ -1141,7 +1141,7 @@
           "width": 41.0,
           "height": 42.0
         },
-        "confidence": 0.9987903237342834,
+        "confidence": 0.9987565279006958,
         "token_id": "p054-paddleocr-t0034",
         "line_hint": null,
         "raw": {
@@ -1164,7 +1164,7 @@
             ]
           ],
           "text": "B",
-          "confidence": 0.9987903237342834
+          "confidence": 0.9987565279006958
         }
       },
       {
@@ -1277,7 +1277,7 @@
           "width": 330.0,
           "height": 46.0
         },
-        "confidence": 0.9851784110069275,
+        "confidence": 0.985029399394989,
         "token_id": "p054-paddleocr-t0038",
         "line_hint": null,
         "raw": {
@@ -1300,7 +1300,7 @@
             ]
           ],
           "text": "직각삼각형 ACH에서",
-          "confidence": 0.9851784110069275
+          "confidence": 0.985029399394989
         }
       },
       {
@@ -1345,7 +1345,7 @@
           "width": 591.0,
           "height": 50.0
         },
-        "confidence": 0.9281482100486755,
+        "confidence": 0.9279162883758545,
         "token_id": "p054-paddleocr-t0040",
         "line_hint": null,
         "raw": {
@@ -1368,7 +1368,7 @@
             ]
           ],
           "text": "CH= b sin (180°− A) =b sin A이고",
-          "confidence": 0.9281482100486755
+          "confidence": 0.9279162883758545
         }
       },
       {
@@ -1379,7 +1379,7 @@
           "width": 933.0,
           "height": 46.0
         },
-        "confidence": 0.9119102358818054,
+        "confidence": 0.9140214323997498,
         "token_id": "p054-paddleocr-t0041",
         "line_hint": null,
         "raw": {
@@ -1402,7 +1402,7 @@
             ]
           ],
           "text": "BH=AB+AH=c+b cos (180°−A)=c−b cos A이므로",
-          "confidence": 0.9119102358818054
+          "confidence": 0.9140214323997498
         }
       },
       {
@@ -1515,7 +1515,7 @@
           "width": 22.0,
           "height": 25.0
         },
-        "confidence": 0.9717883467674255,
+        "confidence": 0.9712122678756714,
         "token_id": "p054-paddleocr-t0045",
         "line_hint": null,
         "raw": {
@@ -1538,7 +1538,7 @@
             ]
           ],
           "text": "2",
-          "confidence": 0.9717883467674255
+          "confidence": 0.9712122678756714
         }
       },
       {
@@ -1583,7 +1583,7 @@
           "width": 45.0,
           "height": 43.0
         },
-        "confidence": 0.9969195127487183,
+        "confidence": 0.9967666864395142,
         "token_id": "p054-paddleocr-t0047",
         "line_hint": null,
         "raw": {
@@ -1606,7 +1606,7 @@
             ]
           ],
           "text": "B",
-          "confidence": 0.9969195127487183
+          "confidence": 0.9967666864395142
         }
       },
       {
@@ -1753,7 +1753,7 @@
           "width": 337.0,
           "height": 52.0
         },
-        "confidence": 0.9160820841789246,
+        "confidence": 0.9149596691131592,
         "token_id": "p054-paddleocr-t0052",
         "line_hint": null,
         "raw": {
@@ -1776,18 +1776,18 @@
             ]
           ],
           "text": "= b2+ c2−2bc cos A",
-          "confidence": 0.9160820841789246
+          "confidence": 0.9149596691131592
         }
       },
       {
-        "text": "(i), (i), (ii)에서 ∠A의 크기에 관계없이",
+        "text": "(i), (i), (i)에서 ∠A의 크기에 관계없이",
         "bbox": {
           "x": 361.0,
           "y": 2059.0,
           "width": 594.0,
           "height": 50.0
         },
-        "confidence": 0.8608937859535217,
+        "confidence": 0.8628048300743103,
         "token_id": "p054-paddleocr-t0053",
         "line_hint": null,
         "raw": {
@@ -1809,8 +1809,8 @@
               2107.0
             ]
           ],
-          "text": "(i), (i), (ii)에서 ∠A의 크기에 관계없이",
-          "confidence": 0.8608937859535217
+          "text": "(i), (i), (i)에서 ∠A의 크기에 관계없이",
+          "confidence": 0.8628048300743103
         }
       },
       {
@@ -1821,7 +1821,7 @@
           "width": 367.0,
           "height": 52.0
         },
-        "confidence": 0.8944395184516907,
+        "confidence": 0.893458902835846,
         "token_id": "p054-paddleocr-t0054",
         "line_hint": null,
         "raw": {
@@ -1844,7 +1844,7 @@
             ]
           ],
           "text": "a2=b2+ c2−2bc cos A",
-          "confidence": 0.8944395184516907
+          "confidence": 0.893458902835846
         }
       },
       {
@@ -1923,7 +1923,7 @@
           "width": 749.0,
           "height": 48.0
         },
-        "confidence": 0.938247799873352,
+        "confidence": 0.9391610026359558,
         "token_id": "p054-paddleocr-t0057",
         "line_hint": null,
         "raw": {
@@ -1946,7 +1946,7 @@
             ]
           ],
           "text": "b2=c2+α2−2ca cos B, c2=a2+b2−2ab cos C",
-          "confidence": 0.938247799873352
+          "confidence": 0.9391610026359558
         }
       },
       {
@@ -2025,7 +2025,7 @@
           "width": 378.0,
           "height": 32.0
         },
-        "confidence": 0.9511357545852661,
+        "confidence": 0.9506206512451172,
         "token_id": "p054-paddleocr-t0060",
         "line_hint": null,
         "raw": {
@@ -2048,7 +2048,7 @@
             ]
           ],
           "text": "2027학년도 EBS 수능특강 수학 I",
-          "confidence": 0.9511357545852661
+          "confidence": 0.9506206512451172
         }
       }
     ],
