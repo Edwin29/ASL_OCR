@@ -1,7 +1,7 @@
 {
   "image": {
     "page_id": "p004",
-    "path": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p004.png",
+    "path": "D:\\Temp\\page_type_probe\\images\\ebs_2027_math1_p004.png",
     "width": 2434,
     "height": 3071,
     "sha256": "61dfa0bc726dc64f851c927868258eb4944f53fad551ac5fb33630a507af9eff"
@@ -19,7 +19,7 @@
           "width": 175.0,
           "height": 165.0
         },
-        "confidence": 0.9998222589492798,
+        "confidence": 0.9998220205307007,
         "token_id": "p004-paddleocr-t0001",
         "line_hint": null,
         "raw": {
@@ -42,7 +42,7 @@
             ]
           ],
           "text": "01",
-          "confidence": 0.9998222589492798
+          "confidence": 0.9998220205307007
         }
       },
       {
@@ -53,7 +53,7 @@
           "width": 426.0,
           "height": 107.0
         },
-        "confidence": 0.9698575139045715,
+        "confidence": 0.9761030673980713,
         "token_id": "p004-paddleocr-t0002",
         "line_hint": null,
         "raw": {
@@ -76,7 +76,7 @@
             ]
           ],
           "text": "지수와 로그",
-          "confidence": 0.9698575139045715
+          "confidence": 0.9761030673980713
         }
       },
       {
@@ -325,7 +325,7 @@
           "width": 787.0,
           "height": 46.0
         },
-        "confidence": 0.9653741121292114,
+        "confidence": 0.9654760360717773,
         "token_id": "p004-paddleocr-t0010",
         "line_hint": null,
         "raw": {
@@ -348,7 +348,7 @@
             ]
           ],
           "text": "실수a의 n제곱근 중에서 실수인 것을x라 할 때",
-          "confidence": 0.9653741121292114
+          "confidence": 0.9654760360717773
         }
       },
       {
@@ -393,7 +393,7 @@
           "width": 1322.0,
           "height": 48.0
         },
-        "confidence": 0.8962582349777222,
+        "confidence": 0.8970323204994202,
         "token_id": "p004-paddleocr-t0012",
         "line_hint": null,
         "raw": {
@@ -416,7 +416,7 @@
             ]
           ],
           "text": "2n이 짝수이면 a≥0일 때에만 실수 x가 존재하고 x=na 또는 x=-na이다.",
-          "confidence": 0.8962582349777222
+          "confidence": 0.8970323204994202
         }
       },
       {
@@ -801,7 +801,7 @@
           "width": 1774.0,
           "height": 52.0
         },
-        "confidence": 0.9134347438812256,
+        "confidence": 0.9142445921897888,
         "token_id": "p004-paddleocr-t0024",
         "line_hint": null,
         "raw": {
@@ -824,18 +824,18 @@
             ]
           ],
           "text": "설명>n이2 이상의자연수일 때 실수a의n제곱근 중에서실수인것은방정식x^\"=a의근 중에서실수인것이므로이는",
-          "confidence": 0.9134347438812256
+          "confidence": 0.9142445921897888
         }
       },
       {
-        "text": "함수y=x^\"의 그래프와 직선y=a의 교점의x좌표와 같다.이때 이 실수를 기호va를이용하여 나타낸다.",
+        "text": "함수y=x^\"의 그래프와 직선y=a의 교점의x좌표와 같다.이때 이 실수를 기호\\a를이용하여 나타낸다.",
         "bbox": {
           "x": 422.0,
           "y": 1273.0,
           "width": 1571.0,
           "height": 48.0
         },
-        "confidence": 0.919499933719635,
+        "confidence": 0.920613169670105,
         "token_id": "p004-paddleocr-t0025",
         "line_hint": null,
         "raw": {
@@ -857,8 +857,8 @@
               1321.0
             ]
           ],
-          "text": "함수y=x^\"의 그래프와 직선y=a의 교점의x좌표와 같다.이때 이 실수를 기호va를이용하여 나타낸다.",
-          "confidence": 0.919499933719635
+          "text": "함수y=x^\"의 그래프와 직선y=a의 교점의x좌표와 같다.이때 이 실수를 기호\\a를이용하여 나타낸다.",
+          "confidence": 0.920613169670105
         }
       },
       {
@@ -971,7 +971,7 @@
           "width": 114.0,
           "height": 61.0
         },
-        "confidence": 0.8886896967887878,
+        "confidence": 0.8876007199287415,
         "token_id": "p004-paddleocr-t0029",
         "line_hint": null,
         "raw": {
@@ -994,7 +994,7 @@
             ]
           ],
           "text": "y=xn",
-          "confidence": 0.8886896967887878
+          "confidence": 0.8876007199287415
         }
       },
       {
@@ -1073,7 +1073,7 @@
           "width": 66.0,
           "height": 57.0
         },
-        "confidence": 0.3079630732536316,
+        "confidence": 0.30835455656051636,
         "token_id": "p004-paddleocr-t0032",
         "line_hint": null,
         "raw": {
@@ -1096,7 +1096,7 @@
             ]
           ],
           "text": "n",
-          "confidence": 0.3079630732536316
+          "confidence": 0.30835455656051636
         }
       },
       {
@@ -1141,7 +1141,7 @@
           "width": 195.0,
           "height": 50.0
         },
-        "confidence": 0.9547098875045776,
+        "confidence": 0.9560154676437378,
         "token_id": "p004-paddleocr-t0034",
         "line_hint": null,
         "raw": {
@@ -1164,7 +1164,7 @@
             ]
           ],
           "text": "-y=a (a>0)",
-          "confidence": 0.9547098875045776
+          "confidence": 0.9560154676437378
         }
       },
       {
@@ -1209,7 +1209,7 @@
           "width": 193.0,
           "height": 55.0
         },
-        "confidence": 0.8937067985534668,
+        "confidence": 0.8939260244369507,
         "token_id": "p004-paddleocr-t0036",
         "line_hint": null,
         "raw": {
@@ -1232,7 +1232,7 @@
             ]
           ],
           "text": "y =a (a>0)",
-          "confidence": 0.8937067985534668
+          "confidence": 0.8939260244369507
         }
       },
       {
@@ -1243,7 +1243,7 @@
           "width": 40.0,
           "height": 54.0
         },
-        "confidence": 0.7144845128059387,
+        "confidence": 0.7109538316726685,
         "token_id": "p004-paddleocr-t0037",
         "line_hint": null,
         "raw": {
@@ -1266,7 +1266,7 @@
             ]
           ],
           "text": "2",
-          "confidence": 0.7144845128059387
+          "confidence": 0.7109538316726685
         }
       },
       {
@@ -1379,7 +1379,7 @@
           "width": 42.0,
           "height": 53.0
         },
-        "confidence": 0.26136910915374756,
+        "confidence": 0.2624269425868988,
         "token_id": "p004-paddleocr-t0041",
         "line_hint": null,
         "raw": {
@@ -1402,7 +1402,7 @@
             ]
           ],
           "text": "√",
-          "confidence": 0.26136910915374756
+          "confidence": 0.2624269425868988
         }
       },
       {
@@ -1617,7 +1617,7 @@
           "width": 193.0,
           "height": 52.0
         },
-        "confidence": 0.911833643913269,
+        "confidence": 0.9103255271911621,
         "token_id": "p004-paddleocr-t0048",
         "line_hint": null,
         "raw": {
@@ -1640,7 +1640,7 @@
             ]
           ],
           "text": "y =a (a<0)",
-          "confidence": 0.911833643913269
+          "confidence": 0.9103255271911621
         }
       },
       {
@@ -1685,7 +1685,7 @@
           "width": 193.0,
           "height": 53.0
         },
-        "confidence": 0.8850328326225281,
+        "confidence": 0.8881658315658569,
         "token_id": "p004-paddleocr-t0050",
         "line_hint": null,
         "raw": {
@@ -1708,7 +1708,7 @@
             ]
           ],
           "text": "y =a (a<0)",
-          "confidence": 0.8850328326225281
+          "confidence": 0.8881658315658569
         }
       },
       {
@@ -1753,7 +1753,7 @@
           "width": 729.0,
           "height": 50.0
         },
-        "confidence": 0.8847014904022217,
+        "confidence": 0.8829061985015869,
         "token_id": "p004-paddleocr-t0052",
         "line_hint": null,
         "raw": {
@@ -1776,7 +1776,7 @@
             ]
           ],
           "text": "참고>방정식xn=0의 근은0이므로η0=0이다.",
-          "confidence": 0.8847014904022217
+          "confidence": 0.8829061985015869
         }
       },
       {
@@ -1991,7 +1991,7 @@
           "width": 51.0,
           "height": 49.0
         },
-        "confidence": 0.7354874610900879,
+        "confidence": 0.7223994135856628,
         "token_id": "p004-paddleocr-t0059",
         "line_hint": null,
         "raw": {
@@ -2014,7 +2014,7 @@
             ]
           ],
           "text": "a",
-          "confidence": 0.7354874610900879
+          "confidence": 0.7223994135856628
         }
       },
       {
@@ -2127,7 +2127,7 @@
           "width": 307.0,
           "height": 70.0
         },
-        "confidence": 0.7288942337036133,
+        "confidence": 0.7304377555847168,
         "token_id": "p004-paddleocr-t0063",
         "line_hint": null,
         "raw": {
@@ -2150,7 +2150,7 @@
             ]
           ],
           "text": "④ (ηa )m=nαm",
-          "confidence": 0.7288942337036133
+          "confidence": 0.7304377555847168
         }
       },
       {
@@ -2365,7 +2365,7 @@
           "width": 48.0,
           "height": 57.0
         },
-        "confidence": 0.4222482442855835,
+        "confidence": 0.4152927100658417,
         "token_id": "p004-paddleocr-t0070",
         "line_hint": null,
         "raw": {
@@ -2388,7 +2388,7 @@
             ]
           ],
           "text": "n",
-          "confidence": 0.4222482442855835
+          "confidence": 0.4152927100658417
         }
       },
       {
@@ -2603,7 +2603,7 @@
           "width": 214.0,
           "height": 58.0
         },
-        "confidence": 0.905634343624115,
+        "confidence": 0.9050309062004089,
         "token_id": "p004-paddleocr-t0077",
         "line_hint": null,
         "raw": {
@@ -2626,7 +2626,7 @@
             ]
           ],
           "text": "① (32)3=2",
-          "confidence": 0.905634343624115
+          "confidence": 0.9050309062004089
         }
       },
       {
@@ -2807,7 +2807,7 @@
           "width": 339.0,
           "height": 58.0
         },
-        "confidence": 0.9257133603096008,
+        "confidence": 0.9204436540603638,
         "token_id": "p004-paddleocr-t0083",
         "line_hint": null,
         "raw": {
@@ -2830,7 +2830,7 @@
             ]
           ],
           "text": "④ (32)4=324=316",
-          "confidence": 0.9257133603096008
+          "confidence": 0.9204436540603638
         }
       },
       {
@@ -2977,7 +2977,7 @@
           "width": 185.0,
           "height": 68.0
         },
-        "confidence": 0.8412725925445557,
+        "confidence": 0.841888964176178,
         "token_id": "p004-paddleocr-t0088",
         "line_hint": null,
         "raw": {
@@ -3000,7 +3000,7 @@
             ]
           ],
           "text": "3×23=3",
-          "confidence": 0.8412725925445557
+          "confidence": 0.841888964176178
         }
       },
       {
@@ -3011,7 +3011,7 @@
           "width": 364.0,
           "height": 70.0
         },
-        "confidence": 0.7620249390602112,
+        "confidence": 0.7613233923912048,
         "token_id": "p004-paddleocr-t0089",
         "line_hint": null,
         "raw": {
@@ -3034,7 +3034,7 @@
             ]
           ],
           "text": "⑥ φ34=3×232x2=3 32",
-          "confidence": 0.7620249390602112
+          "confidence": 0.7613233923912048
         }
       },
       {

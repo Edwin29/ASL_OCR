@@ -37,9 +37,36 @@ class MathCandidateCropTests(unittest.TestCase):
             self.assertEqual(manifest["crop_count"], 2)
             self.assertEqual([crop["node_id"] for crop in manifest["pages"][0]["crops"]], ["p008-n002", "p008-n001"])
             for crop in manifest["pages"][0]["crops"]:
+                self.assertEqual(crop["crop_level"], "node")
+                self.assertIsNone(crop["span_index"])
                 self.assertTrue(Path(crop["crop_path"]).exists())
                 self.assertGreater(crop["crop_bbox"]["width"], 0)
                 self.assertGreater(crop["crop_bbox"]["height"], 0)
+
+    def test_exports_one_crop_per_confirmed_math_span_when_available(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            images_dir = root / "images"
+            crops_dir = root / "crops"
+            images_dir.mkdir()
+            Image.new("RGB", (200, 100), "white").save(images_dir / "book_p008.png")
+
+            manifest = export_math_candidate_crops(
+                span_level_page_ir_fixture(),
+                images_dir=images_dir,
+                output_dir=crops_dir,
+                padding=2,
+            )
+
+            crops = manifest["pages"][0]["crops"]
+            self.assertEqual(manifest["crop_count"], 2)
+            self.assertTrue(all(crop["node_id"] == "p008-n001" for crop in crops))
+            self.assertEqual([crop["crop_level"] for crop in crops], ["span", "span"])
+            self.assertEqual([crop["span_index"] for crop in crops], [1, 2])
+            self.assertEqual([crop["text"] for crop in crops], ["f(x)=x^2+1", "y=2x-3"])
+            for crop in crops:
+                self.assertTrue(Path(crop["crop_path"]).exists())
+                self.assertNotIn("span00", crop["crop_path"])
 
 
 def crop_page_ir_fixture():
@@ -57,6 +84,42 @@ def crop_page_ir_fixture():
                     text_node("p008-n003", 10, 60, "not candidate", candidate=False),
                 ],
                 "reading_order": ["p008-n002", "p008-n001", "p008-n003"],
+                "parse_issues": [],
+                "quality_report": {"status": "PASS"},
+            }
+        ],
+    }
+
+
+def span_level_page_ir_fixture():
+    node = text_node("p008-n001", 10, 10, "함수 f(x)=x^2+1 그리고 y=2x-3 이다.")
+    node["spans"] = [
+        {"span_type": "TEXT", "text": "함수"},
+        {
+            "span_type": "UNKNOWN",
+            "text": "f(x)=x^2+1",
+            "math_span_candidate": True,
+            "bbox": {"x": 20, "y": 10, "width": 15, "height": 8},
+        },
+        {"span_type": "TEXT", "text": "그리고"},
+        {
+            "span_type": "UNKNOWN",
+            "text": "y=2x-3",
+            "math_span_candidate": True,
+            "bbox": {"x": 45, "y": 10, "width": 12, "height": 8},
+        },
+        {"span_type": "TEXT", "text": "이다."},
+    ]
+    return {
+        "document_manifest": {"book_id": "book", "page_count": 1},
+        "engine_manifest": {},
+        "validation_summary": {},
+        "pages": [
+            {
+                "page_id": "p008",
+                "page_geometry": {"width": 200, "height": 100},
+                "nodes": [node],
+                "reading_order": ["p008-n001"],
                 "parse_issues": [],
                 "quality_report": {"status": "PASS"},
             }

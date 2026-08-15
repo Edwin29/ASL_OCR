@@ -1,7 +1,7 @@
 {
   "image": {
     "page_id": "p008",
-    "path": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p008.png",
+    "path": "D:\\Temp\\page_type_probe\\images\\ebs_2027_math1_p008.png",
     "width": 2434,
     "height": 3071,
     "sha256": "edf9328048730bcaee82a67bc51d404543a01343863b535e3db02ec8577ad95e"
@@ -19,7 +19,7 @@
           "width": 110.0,
           "height": 102.0
         },
-        "confidence": 0.9998651146888733,
+        "confidence": 0.9998647570610046,
         "token_id": "p008-paddleocr-t0001",
         "line_hint": null,
         "raw": {
@@ -42,7 +42,7 @@
             ]
           ],
           "text": "01",
-          "confidence": 0.9998651146888733
+          "confidence": 0.9998647570610046
         }
       },
       {
@@ -87,7 +87,7 @@
           "width": 375.0,
           "height": 64.0
         },
-        "confidence": 0.974853515625,
+        "confidence": 0.9752885103225708,
         "token_id": "p008-paddleocr-t0003",
         "line_hint": null,
         "raw": {
@@ -110,7 +110,7 @@
             ]
           ],
           "text": "로그의 정의와 성질",
-          "confidence": 0.974853515625
+          "confidence": 0.9752885103225708
         }
       },
       {
@@ -155,7 +155,7 @@
           "width": 265.0,
           "height": 60.0
         },
-        "confidence": 0.9112716913223267,
+        "confidence": 0.9109433889389038,
         "token_id": "p008-paddleocr-t0005",
         "line_hint": null,
         "raw": {
@@ -178,7 +178,7 @@
             ]
           ],
           "text": "(1) 로그의 정의",
-          "confidence": 0.9112716913223267
+          "confidence": 0.9109433889389038
         }
       },
       {
@@ -291,7 +291,7 @@
           "width": 413.0,
           "height": 56.0
         },
-        "confidence": 0.9252564907073975,
+        "confidence": 0.9266036152839661,
         "token_id": "p008-paddleocr-t0009",
         "line_hint": null,
         "raw": {
@@ -314,7 +314,7 @@
             ]
           ],
           "text": "αx= N ← x=loga N",
-          "confidence": 0.9252564907073975
+          "confidence": 0.9266036152839661
         }
       },
       {
@@ -325,7 +325,7 @@
           "width": 1520.0,
           "height": 54.0
         },
-        "confidence": 0.9390969276428223,
+        "confidence": 0.9382306337356567,
         "token_id": "p008-paddleocr-t0010",
         "line_hint": null,
         "raw": {
@@ -348,7 +348,7 @@
             ]
           ],
           "text": "이때 logaN에서 a를 밑, N을 진수라 하고,logaN을 a를 밑으로 하는 N의 로그라고 한다.",
-          "confidence": 0.9390969276428223
+          "confidence": 0.9382306337356567
         }
       },
       {
@@ -461,7 +461,7 @@
           "width": 394.0,
           "height": 53.0
         },
-        "confidence": 0.9289863109588623,
+        "confidence": 0.9301483631134033,
         "token_id": "p008-paddleocr-t0014",
         "line_hint": null,
         "raw": {
@@ -484,7 +484,7 @@
             ]
           ],
           "text": "②21=2이므로 log2 2=1",
-          "confidence": 0.9289863109588623
+          "confidence": 0.9301483631134033
         }
       },
       {
@@ -495,7 +495,7 @@
           "width": 396.0,
           "height": 50.0
         },
-        "confidence": 0.9050281047821045,
+        "confidence": 0.9087598323822021,
         "token_id": "p008-paddleocr-t0015",
         "line_hint": null,
         "raw": {
@@ -518,7 +518,7 @@
             ]
           ],
           "text": "③ 23=8이므로 10g2 8=3",
-          "confidence": 0.9050281047821045
+          "confidence": 0.9087598323822021
         }
       },
       {
@@ -665,7 +665,7 @@
           "width": 152.0,
           "height": 76.0
         },
-        "confidence": 0.8731706738471985,
+        "confidence": 0.8756945729255676,
         "token_id": "p008-paddleocr-t0020",
         "line_hint": null,
         "raw": {
@@ -688,7 +688,7 @@
             ]
           ],
           "text": "② loga",
-          "confidence": 0.8731706738471985
+          "confidence": 0.8756945729255676
         }
       },
       {
@@ -699,7 +699,7 @@
           "width": 349.0,
           "height": 68.0
         },
-        "confidence": 0.8598857522010803,
+        "confidence": 0.8610133528709412,
         "token_id": "p008-paddleocr-t0021",
         "line_hint": null,
         "raw": {
@@ -722,7 +722,7 @@
             ]
           ],
           "text": "=loga M −loga N",
-          "confidence": 0.8598857522010803
+          "confidence": 0.8610133528709412
         }
       },
       {
@@ -869,7 +869,7 @@
           "width": 501.0,
           "height": 68.0
         },
-        "confidence": 0.8732714056968689,
+        "confidence": 0.8737851977348328,
         "token_id": "p008-paddleocr-t0026",
         "line_hint": null,
         "raw": {
@@ -892,7 +892,7 @@
             ]
           ],
           "text": "① M N =αm × αn=αm+n이로",
-          "confidence": 0.8732714056968689
+          "confidence": 0.8737851977348328
         }
       },
       {
@@ -1107,7 +1107,7 @@
           "width": 93.0,
           "height": 62.0
         },
-        "confidence": 0.7145822048187256,
+        "confidence": 0.7082473039627075,
         "token_id": "p008-paddleocr-t0033",
         "line_hint": null,
         "raw": {
@@ -1130,18 +1130,18 @@
             ]
           ],
           "text": "10ga",
-          "confidence": 0.7145822048187256
+          "confidence": 0.7082473039627075
         }
       },
       {
-        "text": "=M−n =1oga M −loga N",
+        "text": "=M−n=1oga M −loga N",
         "bbox": {
           "x": 669.0,
           "y": 1831.0,
           "width": 444.0,
           "height": 56.0
         },
-        "confidence": 0.8199697732925415,
+        "confidence": 0.839078426361084,
         "token_id": "p008-paddleocr-t0034",
         "line_hint": null,
         "raw": {
@@ -1163,8 +1163,8 @@
               1887.0
             ]
           ],
-          "text": "=M−n =1oga M −loga N",
-          "confidence": 0.8199697732925415
+          "text": "=M−n=1oga M −loga N",
+          "confidence": 0.839078426361084
         }
       },
       {
@@ -1345,7 +1345,7 @@
           "width": 132.0,
           "height": 66.0
         },
-        "confidence": 0.926015317440033,
+        "confidence": 0.9270827174186707,
         "token_id": "p008-paddleocr-t0040",
         "line_hint": null,
         "raw": {
@@ -1368,7 +1368,7 @@
             ]
           ],
           "text": "② log2",
-          "confidence": 0.926015317440033
+          "confidence": 0.9270827174186707
         }
       },
       {
@@ -1413,7 +1413,7 @@
           "width": 455.0,
           "height": 60.0
         },
-        "confidence": 0.9267711043357849,
+        "confidence": 0.9262301325798035,
         "token_id": "p008-paddleocr-t0042",
         "line_hint": null,
         "raw": {
@@ -1436,7 +1436,7 @@
             ]
           ],
           "text": "=log2 2−log2 3=1−log2 3",
-          "confidence": 0.9267711043357849
+          "confidence": 0.9262301325798035
         }
       },
       {
@@ -1617,7 +1617,7 @@
           "width": 148.0,
           "height": 62.0
         },
-        "confidence": 0.7377719879150391,
+        "confidence": 0.7397773861885071,
         "token_id": "p008-paddleocr-t0048",
         "line_hint": null,
         "raw": {
@@ -1640,7 +1640,7 @@
             ]
           ],
           "text": "10g2 2=",
-          "confidence": 0.7377719879150391
+          "confidence": 0.7397773861885071
         }
       },
       {
@@ -1651,7 +1651,7 @@
           "width": 102.0,
           "height": 57.0
         },
-        "confidence": 0.7809669971466064,
+        "confidence": 0.7803263664245605,
         "token_id": "p008-paddleocr-t0049",
         "line_hint": null,
         "raw": {
@@ -1674,7 +1674,7 @@
             ]
           ],
           "text": "×1=",
-          "confidence": 0.7809669971466064
+          "confidence": 0.7803263664245605
         }
       },
       {
@@ -1787,7 +1787,7 @@
           "width": 42.0,
           "height": 45.0
         },
-        "confidence": 0.9973055124282837,
+        "confidence": 0.9970617890357971,
         "token_id": "p008-paddleocr-t0053",
         "line_hint": null,
         "raw": {
@@ -1810,7 +1810,7 @@
             ]
           ],
           "text": "2",
-          "confidence": 0.9973055124282837
+          "confidence": 0.9970617890357971
         }
       },
       {

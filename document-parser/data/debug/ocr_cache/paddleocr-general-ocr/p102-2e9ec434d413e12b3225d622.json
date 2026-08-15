@@ -1,7 +1,7 @@
 {
   "image": {
     "page_id": "p102",
-    "path": "D:\\Projects\\OCR\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p102.png",
+    "path": "D:\\Temp\\page_type_probe\\images\\ebs_2027_math1_p102.png",
     "width": 2434,
     "height": 3071,
     "sha256": "8408234886385f82eb3d3fc49f638873e8cd8ecd894a066f8a6f6adeb742829f"
@@ -121,7 +121,7 @@
           "width": 572.0,
           "height": 91.0
         },
-        "confidence": 0.9681604504585266,
+        "confidence": 0.9681499600410461,
         "token_id": "p102-paddleocr-t0004",
         "line_hint": null,
         "raw": {
@@ -144,7 +144,7 @@
             ]
           ],
           "text": "04 사인법칙과 코사인법칙",
-          "confidence": 0.9681604504585266
+          "confidence": 0.9681499600410461
         }
       },
       {
@@ -2807,7 +2807,7 @@
           "width": 170.0,
           "height": 58.0
         },
-        "confidence": 0.9964634776115417,
+        "confidence": 0.9965691566467285,
         "token_id": "p102-paddleocr-t0083",
         "line_hint": null,
         "raw": {
@@ -2830,7 +2830,7 @@
             ]
           ],
           "text": "실력완성",
-          "confidence": 0.9964634776115417
+          "confidence": 0.9965691566467285
         }
       },
       {
@@ -3113,7 +3113,7 @@
           "width": 530.0,
           "height": 93.0
         },
-        "confidence": 0.9643275737762451,
+        "confidence": 0.9641842246055603,
         "token_id": "p102-paddleocr-t0092",
         "line_hint": null,
         "raw": {
@@ -3136,7 +3136,7 @@
             ]
           ],
           "text": "02 지수함수와 로그함수",
-          "confidence": 0.9643275737762451
+          "confidence": 0.9641842246055603
         }
       },
       {
@@ -3147,7 +3147,7 @@
           "width": 524.0,
           "height": 91.0
         },
-        "confidence": 0.9514122009277344,
+        "confidence": 0.9518808722496033,
         "token_id": "p102-paddleocr-t0093",
         "line_hint": null,
         "raw": {
@@ -3170,7 +3170,7 @@
             ]
           ],
           "text": "05 등차수열과 등비수열",
-          "confidence": 0.9514122009277344
+          "confidence": 0.9518808722496033
         }
       },
       {
@@ -3521,7 +3521,7 @@
           "width": 97.0,
           "height": 57.0
         },
-        "confidence": 0.9964101910591125,
+        "confidence": 0.99644535779953,
         "token_id": "p102-paddleocr-t0104",
         "line_hint": null,
         "raw": {
@@ -3544,7 +3544,7 @@
             ]
           ],
           "text": "7②",
-          "confidence": 0.9964101910591125
+          "confidence": 0.99644535779953
         }
       },
       {
@@ -4337,7 +4337,7 @@
           "width": 97.0,
           "height": 57.0
         },
-        "confidence": 0.9961762428283691,
+        "confidence": 0.9961945414543152,
         "token_id": "p102-paddleocr-t0128",
         "line_hint": null,
         "raw": {
@@ -4360,7 +4360,7 @@
             ]
           ],
           "text": "4⑤",
-          "confidence": 0.9961762428283691
+          "confidence": 0.9961945414543152
         }
       },
       {
@@ -4507,7 +4507,7 @@
           "width": 98.0,
           "height": 57.0
         },
-        "confidence": 0.9981733560562134,
+        "confidence": 0.9982755780220032,
         "token_id": "p102-paddleocr-t0133",
         "line_hint": null,
         "raw": {
@@ -4530,7 +4530,7 @@
             ]
           ],
           "text": "1①",
-          "confidence": 0.9981733560562134
+          "confidence": 0.9982755780220032
         }
       },
       {
@@ -4609,7 +4609,7 @@
           "width": 97.0,
           "height": 55.0
         },
-        "confidence": 0.9961010217666626,
+        "confidence": 0.9960842132568359,
         "token_id": "p102-paddleocr-t0136",
         "line_hint": null,
         "raw": {
@@ -4632,7 +4632,7 @@
             ]
           ],
           "text": "4③",
-          "confidence": 0.9961010217666626
+          "confidence": 0.9960842132568359
         }
       },
       {
@@ -5867,7 +5867,7 @@
           "width": 294.0,
           "height": 88.0
         },
-        "confidence": 0.9993796944618225,
+        "confidence": 0.9993832111358643,
         "token_id": "p102-paddleocr-t0173",
         "line_hint": null,
         "raw": {
@@ -5890,7 +5890,7 @@
             ]
           ],
           "text": "03삼각함수",
-          "confidence": 0.9993796944618225
+          "confidence": 0.9993832111358643
         }
       },
       {
@@ -5901,7 +5901,7 @@
           "width": 634.0,
           "height": 77.0
         },
-        "confidence": 0.9944747090339661,
+        "confidence": 0.9943749904632568,
         "token_id": "p102-paddleocr-t0174",
         "line_hint": null,
         "raw": {
@@ -5924,7 +5924,7 @@
             ]
           ],
           "text": "06수열의 합과 수학적 귀납법",
-          "confidence": 0.9944747090339661
+          "confidence": 0.9943749904632568
         }
       },
       {
@@ -7159,7 +7159,7 @@
           "width": 99.0,
           "height": 58.0
         },
-        "confidence": 0.9839350581169128,
+        "confidence": 0.9840445518493652,
         "token_id": "p102-paddleocr-t0211",
         "line_hint": null,
         "raw": {
@@ -7182,7 +7182,7 @@
             ]
           ],
           "text": "7①",
-          "confidence": 0.9839350581169128
+          "confidence": 0.9840445518493652
         }
       },
       {
@@ -7771,7 +7771,7 @@
           "width": 97.0,
           "height": 56.0
         },
-        "confidence": 0.996109127998352,
+        "confidence": 0.9961053133010864,
         "token_id": "p102-paddleocr-t0229",
         "line_hint": null,
         "raw": {
@@ -7794,7 +7794,7 @@
             ]
           ],
           "text": "4③",
-          "confidence": 0.996109127998352
+          "confidence": 0.9961053133010864
         }
       },
       {
@@ -7975,7 +7975,7 @@
           "width": 98.0,
           "height": 56.0
         },
-        "confidence": 0.8666008114814758,
+        "confidence": 0.8660563826560974,
         "token_id": "p102-paddleocr-t0235",
         "line_hint": null,
         "raw": {
@@ -7998,7 +7998,7 @@
             ]
           ],
           "text": "2 ③",
-          "confidence": 0.8666008114814758
+          "confidence": 0.8660563826560974
         }
       },
       {
