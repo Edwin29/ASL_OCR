@@ -144,10 +144,11 @@ class LatexAstParserTests(unittest.TestCase):
         self.assertEqual(result.ast["right"], {"type": "Identifier", "value": "A"})
 
     def test_piecewise_case_block_preserves_all_branch_content(self):
-        # Full \left\{\begin{array}...\end{array}\right. case block. The outer
-        # \left\{...\right. wrapper is not perfectly closed (a documented,
-        # separately-tracked limitation), but every real math fragment inside
-        # each branch and condition must still come through -- none may be
+        # Full \left\{\begin{array}...\end{array}\right. case block. The
+        # \left\{...\right. wrapper is now a real Parenthesized(delimiter="{")
+        # group (previously it was not closed at all -- a documented,
+        # now-fixed limitation), and every real math fragment inside each
+        # branch and condition must still come through -- none may be
         # silently dropped.
         content = (
             "f(x)=\\left\\{\\begin{array}{ll}\\cos x & (0\\leq x\\leq a) \\\\ "
@@ -155,11 +156,247 @@ class LatexAstParserTests(unittest.TestCase):
         )
         result = parse_latex_to_ast(content)
 
+        self.assertEqual(result.unconsumed_tokens, [])
         rendered = repr(result.ast)
         self.assertIn("'cos'", rendered)
         self.assertIn("'sin'", rendered)
-        branches = result.ast["right"]["children"]
-        self.assertEqual(len(branches), 4)
+        brace_group = result.ast["right"]
+        self.assertEqual(brace_group["type"], "Parenthesized")
+        self.assertEqual(brace_group["delimiter"], "{")
+        aligned = brace_group["body"]
+        self.assertEqual(aligned["type"], "AlignedRows")
+        self.assertEqual(aligned["environment"], "array")
+        self.assertEqual(len(aligned["children"]), 4)
+
+
+class CommaListTests(unittest.TestCase):
+    """콤마 목록: "," between complete expressions is a list separator,
+    distinct from `Row` (implicit multiplication) and `AlignedRows` (real
+    row/cell splits, which get numbered-tag treatment downstream). Real
+    fixture evidence: p004 ("\\sqrt[n]{a}, -\\sqrt[n]{a}") and p038
+    ("\\sin\\theta=\\frac{y}{r},\\cos\\theta=\\frac{x}{r},..." -- a
+    comma-list of three complete relations) both previously left every
+    comma and everything after the first one as unconsumed."""
+
+    def test_bare_comma_list_of_numbers(self):
+        result = parse_latex_to_ast("2,4,6")
+
+        self.assertEqual(result.unconsumed_tokens, [])
+        self.assertEqual(result.ast, {
+            "type": "List",
+            "children": [
+                {"type": "Number", "value": "2"},
+                {"type": "Number", "value": "4"},
+                {"type": "Number", "value": "6"},
+            ],
+        })
+
+    def test_set_notation_with_escaped_braces(self):
+        result = parse_latex_to_ast("A=\\{2,4,6\\}")
+
+        self.assertEqual(result.unconsumed_tokens, [])
+        group = result.ast["right"]
+        self.assertEqual(group["type"], "Parenthesized")
+        self.assertEqual(group["delimiter"], "{")
+        self.assertEqual(group["body"]["type"], "List")
+        self.assertEqual(len(group["body"]["children"]), 3)
+
+    def test_interval_notation_with_square_brackets(self):
+        result = parse_latex_to_ast("[0,1]")
+
+        self.assertEqual(result.unconsumed_tokens, [])
+        self.assertEqual(result.ast["delimiter"], "[")
+        self.assertEqual(result.ast["body"]["type"], "List")
+
+    def test_real_fixture_p038_comma_separated_relations(self):
+        # Real p038 raw_formula fragment: a list of three complete relations.
+        result = parse_latex_to_ast(
+            "\\sin\\theta=\\frac{y}{r},\\cos\\theta=\\frac{x}{r},\\tan\\theta=\\frac{y}{x}"
+        )
+
+        self.assertEqual(result.unconsumed_tokens, [])
+        self.assertEqual(result.ast["type"], "List")
+        self.assertEqual(len(result.ast["children"]), 3)
+        for relation in result.ast["children"]:
+            self.assertEqual(relation["type"], "Relation")
+
+    def test_real_fixture_p004_comma_separated_radicals(self):
+        result = parse_latex_to_ast("\\sqrt[n]{a}, -\\sqrt[n]{a}")
+
+        self.assertEqual(result.unconsumed_tokens, [])
+        self.assertEqual(result.ast["type"], "List")
+        self.assertEqual(len(result.ast["children"]), 2)
+
+    def test_single_item_is_not_wrapped_in_a_list(self):
+        # No comma present -- must return the item directly, not List[item].
+        result = parse_latex_to_ast("f(x)=x^{2}+1")
+
+        self.assertNotEqual(result.ast["left"]["argument"]["body"]["type"], "List")
+
+    def test_comma_does_not_cross_a_row_break(self):
+        # A comma inside one \cases branch must not merge with content after
+        # the \\\\ row break into a single flat list.
+        result = parse_latex_to_ast("\\begin{cases}1,2\\\\3\\end{cases}")
+
+        self.assertEqual(result.unconsumed_tokens, [])
+        self.assertEqual(result.ast["type"], "AlignedRows")
+        self.assertEqual(len(result.ast["children"]), 2)
+        self.assertEqual(result.ast["children"][0]["type"], "List")
+        self.assertEqual(result.ast["children"][1], {"type": "Number", "value": "3"})
+
+
+class BraceAndBracketDelimiterTests(unittest.TestCase):
+    """중괄호/대괄호: no real fixture example exists yet for these as literal
+    content delimiters (unlike AlignedRows' environment field, which was
+    grounded in real p019/p038 formulas), so these are hand-authored per the
+    braille regulation's request rather than reproducing an observed bug."""
+
+    def test_escaped_curly_braces_produce_parenthesized_with_brace_delimiter(self):
+        # Set-builder notation "{x>0}" written with escaped braces. Note:
+        # comma-separated content ("{2,4,6,...}") is a separate, still-open
+        # gap -- bare "," has no grammar rule at all yet (falls through as
+        # unconsumed), so it is deliberately not exercised by this test; see
+        # the braille-regulation-extraction memory for the follow-up note.
+        result = parse_latex_to_ast("A=\\{x>0\\}")
+
+        self.assertEqual(result.unconsumed_tokens, [])
+        group = result.ast["right"]
+        self.assertEqual(group["type"], "Parenthesized")
+        self.assertEqual(group["delimiter"], "{")
+        self.assertEqual(group["body"], {
+            "type": "Relation", "operator": ">",
+            "left": {"type": "Identifier", "value": "x"},
+            "right": {"type": "Number", "value": "0"},
+        })
+
+    def test_bare_square_brackets_produce_parenthesized_with_bracket_delimiter(self):
+        result = parse_latex_to_ast("[x+1]")
+
+        self.assertEqual(result.unconsumed_tokens, [])
+        self.assertEqual(result.ast, {
+            "type": "Parenthesized",
+            "delimiter": "[",
+            "body": {
+                "type": "Operator", "operator": "+",
+                "left": {"type": "Identifier", "value": "x"},
+                "right": {"type": "Number", "value": "1"},
+            },
+        })
+
+    def test_sqrt_index_bracket_is_unaffected_by_the_new_bracket_delimiter(self):
+        # \sqrt[n]{a} must still consume its index the old way, not as a
+        # standalone Parenthesized(delimiter="[").
+        result = parse_latex_to_ast("\\sqrt[n]{a}")
+
+        self.assertEqual(result.unconsumed_tokens, [])
+        self.assertEqual(result.ast["type"], "Radical")
+        self.assertEqual(result.ast["index"], {"type": "Identifier", "value": "n"})
+
+    def test_escaped_brace_without_matching_close_is_flagged_not_silently_wrong(self):
+        result = parse_latex_to_ast("\\{x+1")
+
+        error_codes = {i["code"] for i in result.issues if i["severity"] == "error"}
+        self.assertIn("AST_UNMATCHED_BRACE", error_codes)
+
+
+class SlashFractionTests(unittest.TestCase):
+    """빗금 분수 (수학 점자 규정 제7항 2.): no real fixture example exists yet
+    (every observed fraction so far uses `\\frac{}{}`), so these are
+    hand-authored. A bare "/" previously always fell through as `Unknown`
+    (never matched any grammar rule), so this is additive with no regression
+    risk -- confirmed by `test_stacked_frac_is_unaffected` below."""
+
+    def test_slash_between_numbers_is_a_notation_slash_fraction(self):
+        result = parse_latex_to_ast("2/3")
+
+        self.assertEqual(result.unconsumed_tokens, [])
+        self.assertEqual(result.ast, {
+            "type": "Fraction",
+            "numerator": {"type": "Number", "value": "2"},
+            "denominator": {"type": "Number", "value": "3"},
+            "notation": "slash",
+        })
+
+    def test_slash_between_letters(self):
+        result = parse_latex_to_ast("a/b")
+
+        self.assertEqual(result.unconsumed_tokens, [])
+        self.assertEqual(result.ast["type"], "Fraction")
+        self.assertEqual(result.ast["notation"], "slash")
+
+    def test_slash_fraction_binds_tighter_than_addition(self):
+        result = parse_latex_to_ast("1+2/3")
+
+        self.assertEqual(result.unconsumed_tokens, [])
+        self.assertEqual(result.ast["type"], "Operator")
+        self.assertEqual(result.ast["right"]["type"], "Fraction")
+
+    def test_stacked_frac_is_unaffected_and_has_no_notation_field(self):
+        result = parse_latex_to_ast("\\frac{1}{2}")
+
+        self.assertEqual(result.ast, {
+            "type": "Fraction",
+            "numerator": {"type": "Number", "value": "1"},
+            "denominator": {"type": "Number", "value": "2"},
+        })
+        self.assertNotIn("notation", result.ast)
+
+
+class EnvironmentAwareAlignedRowsTests(unittest.TestCase):
+    """`AlignedRows` now carries which `\\begin{...}` environment produced it
+    (or omits the field entirely for a bare `a \\\\ b` outside any
+    environment) -- braille/TTS need this to tell cases/piecewise apart from
+    a plain aligned/array block, since there is no single universal
+    "multiple rows" presentation rule. This also exercises a real tokenizer
+    bug found while adding this: a row break (`\\\\`) immediately followed by
+    a single letter (e.g. "...\\\\b(x-1)", a common \\cases pattern) used to
+    greedily tokenize as a bogus one-letter command "\\b" instead of two
+    row-break backslashes, silently breaking the row split.
+    """
+
+    def test_cases_environment_is_captured(self):
+        result = parse_latex_to_ast("\\begin{cases}a(1-x) & x\\leq0\\\\b(x-1) & x>0\\end{cases}")
+
+        self.assertEqual(result.unconsumed_tokens, [])
+        self.assertEqual(result.ast["type"], "AlignedRows")
+        self.assertEqual(result.ast["environment"], "cases")
+
+    def test_aligned_environment_is_captured_matching_real_fixture(self):
+        # Same shape as the real p019 fixture's raw_formula.
+        result = parse_latex_to_ast(
+            "\\begin{aligned}\\sum_{m=2}^{9}f(m)=&f(2)+f(3)\\\\=&5\\times5+7\\times2+8\\end{aligned}"
+        )
+
+        self.assertEqual(result.unconsumed_tokens, [])
+        self.assertEqual(result.ast["type"], "AlignedRows")
+        self.assertEqual(result.ast["environment"], "aligned")
+
+    def test_array_environment_with_column_spec_is_captured(self):
+        # Same shape as the real p038 fixture's raw_formula.
+        result = parse_latex_to_ast("\\begin{array}{l}a\\\\b\\end{array}")
+
+        self.assertEqual(result.unconsumed_tokens, [])
+        self.assertEqual(result.ast["environment"], "array")
+
+    def test_row_break_outside_any_environment_has_no_environment_field(self):
+        result = parse_latex_to_ast("a\\\\b")
+
+        self.assertEqual(result.ast["type"], "AlignedRows")
+        self.assertNotIn("environment", result.ast)
+
+    def test_row_break_immediately_followed_by_letter_still_splits(self):
+        # The tokenizer bug described in the class docstring: "\\\\b" used to
+        # be misread as command "\b" instead of row-break + letter "b".
+        result = parse_latex_to_ast("a\\\\b")
+
+        self.assertEqual(result.ast, {
+            "type": "AlignedRows",
+            "children": [
+                {"type": "Identifier", "value": "a"},
+                {"type": "Identifier", "value": "b"},
+            ],
+        })
+        self.assertEqual(result.unconsumed_tokens, [])
 
 
 class AstValidatorTests(unittest.TestCase):

@@ -18,6 +18,10 @@ ocr = [
 legacy-ocr = [
   "easyocr",
 ]
+tts = [
+  "piper-tts",
+  "sounddevice",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]

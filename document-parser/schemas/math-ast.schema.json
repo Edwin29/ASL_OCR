@@ -26,6 +26,7 @@
             "Parenthesized",
             "UnaryMinus",
             "AlignedRows",
+            "List",
             "Unknown"
           ]
         },
@@ -36,7 +37,8 @@
           "type": "array",
           "items": {
             "$ref": "#/$defs/node"
-          }
+          },
+          "description": "Row=implicit multiplication/juxtaposition (no separator between children). AlignedRows=a real \\\\ / & row or cell split (see `environment`). List=a bare \",\"-separated list of complete expressions (set notation, intervals, or a list of independent relations) -- distinct from both: unlike Row it has an explicit separator, and unlike AlignedRows it is not multiple lines/rows."
         },
         "left": {
           "$ref": "#/$defs/node"
@@ -70,6 +72,20 @@
         },
         "operator": {
           "type": "string"
+        },
+        "delimiter": {
+          "type": "string",
+          "enum": ["(", "|", "{", "["],
+          "description": "Only present on Parenthesized. \"(\"=real parentheses, \"|\"=absolute value, \"{\"=escaped literal curly braces (e.g. set notation \\{2,4,6\\}, or a \\cases block opened as \\left\\{...\\right.), \"[\"=square brackets (e.g. an interval). Not the \\sqrt[n]{...} index bracket, which is Radical's separate `index` field."
+        },
+        "environment": {
+          "type": "string",
+          "description": "Only present on AlignedRows, and only when the row split came from inside a \\begin{name}...\\end{name} block (e.g. \"cases\", \"aligned\", \"array\", \"matrix\"); omitted for a bare 'a \\\\ b' row split outside any environment. Downstream presentation (braille/TTS) needs this because there is no single universal rule for 'multiple rows' -- piecewise/cases, aligned equation chains, and matrices are each presented differently."
+        },
+        "notation": {
+          "type": "string",
+          "enum": ["slash"],
+          "description": "Only present on Fraction, and only for a bare \"a/b\" slash-notation fraction (not the default \\frac{}{} stacked form, which omits this field entirely). Presentation layers need this because the braille regulation gives slash-notation fractions a different indicator cell from the stacked form's bar."
         }
       }
     }

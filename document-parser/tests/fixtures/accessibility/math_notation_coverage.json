@@ -1,0 +1,346 @@
+{
+  "document_manifest": {
+    "book_id": "accessibility-math-notation-coverage",
+    "page_count": 1
+  },
+  "engine_manifest": {
+    "general_ocr": {
+      "engine_id": "hand-built-fixture",
+      "engine_version": "0.0.0"
+    },
+    "pipeline": {
+      "mode": "paddleocr_vl_baseline"
+    },
+    "problem_unit_detection": {
+      "mode": "text_pattern_stem_and_answer_structure",
+      "engine_id": "text-pattern-problem-unit-detector"
+    }
+  },
+  "pages": [
+    {
+      "page_id": "math_notation_coverage",
+      "page_geometry": {
+        "width": 2434,
+        "height": 3071
+      },
+      "nodes": [
+        {
+          "node_id": "math_notation_coverage-vl001",
+          "bbox": {
+            "x": 100.0,
+            "y": 200.0,
+            "width": 1700.0,
+            "height": 60.0
+          },
+          "normalized_bbox": {
+            "x": 0.041085,
+            "y": 0.065125,
+            "width": 0.698439,
+            "height": 0.019538
+          },
+          "reading_order_index": 0,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 1
+          },
+          "content_type": "TEXT",
+          "raw_text": "전체 넓이의 $2/3$ 를 차지한다.",
+          "normalized_text": "전체 넓이의 $2/3$ 를 차지한다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "전체 넓이의 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "2/3",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Fraction",
+                "numerator": {
+                  "type": "Number",
+                  "value": "2"
+                },
+                "denominator": {
+                  "type": "Number",
+                  "value": "3"
+                },
+                "notation": "slash"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": " 를 차지한다."
+            }
+          ]
+        },
+        {
+          "node_id": "math_notation_coverage-vl002",
+          "bbox": {
+            "x": 100.0,
+            "y": 300.0,
+            "width": 1700.0,
+            "height": 60.0
+          },
+          "normalized_bbox": {
+            "x": 0.041085,
+            "y": 0.097688,
+            "width": 0.698439,
+            "height": 0.019538
+          },
+          "reading_order_index": 1,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 2
+          },
+          "content_type": "TEXT",
+          "raw_text": "$\\ln x$ 는 자연로그이다.",
+          "normalized_text": "$\\ln x$ 는 자연로그이다.",
+          "spans": [
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\ln x",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "FunctionApplication",
+                "name": "ln",
+                "argument": {
+                  "type": "Identifier",
+                  "value": "x"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": " 는 자연로그이다."
+            }
+          ]
+        },
+        {
+          "node_id": "math_notation_coverage-vl003",
+          "bbox": {
+            "x": 100.0,
+            "y": 400.0,
+            "width": 1700.0,
+            "height": 60.0
+          },
+          "normalized_bbox": {
+            "x": 0.041085,
+            "y": 0.130251,
+            "width": 0.698439,
+            "height": 0.019538
+          },
+          "reading_order_index": 2,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 3
+          },
+          "content_type": "TEXT",
+          "raw_text": "$\\exp(x)$ 함수를 이용한다.",
+          "normalized_text": "$\\exp(x)$ 함수를 이용한다.",
+          "spans": [
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\exp(x)",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "FunctionApplication",
+                "name": "exp",
+                "argument": {
+                  "type": "Parenthesized",
+                  "body": {
+                    "type": "Identifier",
+                    "value": "x"
+                  },
+                  "delimiter": "("
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": " 함수를 이용한다."
+            }
+          ]
+        },
+        {
+          "node_id": "math_notation_coverage-vl004",
+          "bbox": {
+            "x": 100.0,
+            "y": 500.0,
+            "width": 1700.0,
+            "height": 60.0
+          },
+          "normalized_bbox": {
+            "x": 0.041085,
+            "y": 0.162813,
+            "width": 0.698439,
+            "height": 0.019538
+          },
+          "reading_order_index": 3,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 4
+          },
+          "content_type": "TEXT",
+          "raw_text": "$\\lim x$ 의 값을 구하시오.",
+          "normalized_text": "$\\lim x$ 의 값을 구하시오.",
+          "spans": [
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\lim x",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "FunctionApplication",
+                "name": "lim",
+                "argument": {
+                  "type": "Identifier",
+                  "value": "x"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": " 의 값을 구하시오."
+            }
+          ]
+        },
+        {
+          "node_id": "math_notation_coverage-vl005",
+          "bbox": {
+            "x": 100.0,
+            "y": 600.0,
+            "width": 1700.0,
+            "height": 60.0
+          },
+          "normalized_bbox": {
+            "x": 0.041085,
+            "y": 0.195376,
+            "width": 0.698439,
+            "height": 0.019538
+          },
+          "reading_order_index": 4,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 5
+          },
+          "content_type": "TEXT",
+          "raw_text": "집합 $\\{1, 2, 3\\}$ 의 원소 개수는 3이다.",
+          "normalized_text": "집합 $\\{1, 2, 3\\}$ 의 원소 개수는 3이다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "집합 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\{1, 2, 3\\}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Parenthesized",
+                "body": {
+                  "type": "List",
+                  "children": [
+                    {
+                      "type": "Number",
+                      "value": "1"
+                    },
+                    {
+                      "type": "Number",
+                      "value": "2"
+                    },
+                    {
+                      "type": "Number",
+                      "value": "3"
+                    }
+                  ]
+                },
+                "delimiter": "{"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": " 의 원소 개수는 3이다."
+            }
+          ]
+        },
+        {
+          "node_id": "math_notation_coverage-vl006",
+          "bbox": {
+            "x": 100.0,
+            "y": 700.0,
+            "width": 800.0,
+            "height": 60.0
+          },
+          "normalized_bbox": {
+            "x": 0.041085,
+            "y": 0.227939,
+            "width": 0.328677,
+            "height": 0.019538
+          },
+          "reading_order_index": 5,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "display_formula",
+            "vl_block_id": 6
+          },
+          "content_type": "MATH",
+          "raw_formula": "3/4",
+          "formula_format": "LATEX",
+          "presentation_ast": {
+            "type": "Fraction",
+            "numerator": {
+              "type": "Number",
+              "value": "3"
+            },
+            "denominator": {
+              "type": "Number",
+              "value": "4"
+            },
+            "notation": "slash"
+          },
+          "unconsumed_tokens": []
+        }
+      ],
+      "reading_order": [
+        "math_notation_coverage-vl001",
+        "math_notation_coverage-vl002",
+        "math_notation_coverage-vl003",
+        "math_notation_coverage-vl004",
+        "math_notation_coverage-vl005",
+        "math_notation_coverage-vl006"
+      ],
+      "parse_issues": [],
+      "quality_report": {
+        "status": "PASS_WITH_CORRECTION",
+        "issues": []
+      }
+    }
+  ]
+}

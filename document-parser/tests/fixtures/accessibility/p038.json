@@ -1,0 +1,3005 @@
+{
+  "document_manifest": {
+    "book_id": "ebs-2027-math1",
+    "page_count": 1
+  },
+  "engine_manifest": {
+    "general_ocr": {
+      "engine_id": "paddleocr-vl",
+      "engine_version": "3.7.0"
+    },
+    "pipeline": {
+      "mode": "paddleocr_vl_baseline"
+    },
+    "problem_unit_detection": {
+      "mode": "text_pattern_stem_and_answer_structure",
+      "engine_id": "text-pattern-problem-unit-detector"
+    }
+  },
+  "pages": [
+    {
+      "page_id": "p038",
+      "page_geometry": {
+        "width": 2434,
+        "height": 3071
+      },
+      "nodes": [
+        {
+          "node_id": "p038-vl001",
+          "bbox": {
+            "x": 207.0,
+            "y": 85.0,
+            "width": 102.0,
+            "height": 86.0
+          },
+          "normalized_bbox": {
+            "x": 0.085045,
+            "y": 0.027678,
+            "width": 0.041906,
+            "height": 0.028004
+          },
+          "reading_order_index": 0,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "header",
+            "vl_block_id": 0
+          },
+          "content_type": "TEXT",
+          "raw_text": "03",
+          "normalized_text": "03",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "03"
+            }
+          ]
+        },
+        {
+          "node_id": "p038-vl002",
+          "bbox": {
+            "x": 343.0,
+            "y": 106.0,
+            "width": 177.0,
+            "height": 60.0
+          },
+          "normalized_bbox": {
+            "x": 0.14092,
+            "y": 0.034516,
+            "width": 0.07272,
+            "height": 0.019538
+          },
+          "reading_order_index": 1,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "header",
+            "vl_block_id": 1
+          },
+          "content_type": "TEXT",
+          "raw_text": "삼각함수",
+          "normalized_text": "삼각함수",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "삼각함수"
+            }
+          ]
+        },
+        {
+          "node_id": "p038-vl003",
+          "bbox": {
+            "x": 255.0,
+            "y": 299.0,
+            "width": 353.0,
+            "height": 61.0
+          },
+          "normalized_bbox": {
+            "x": 0.104766,
+            "y": 0.097362,
+            "width": 0.145029,
+            "height": 0.019863
+          },
+          "reading_order_index": 2,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "paragraph_title",
+            "vl_block_id": 2
+          },
+          "content_type": "TEXT",
+          "raw_text": "2 삼각함수의 뜻",
+          "normalized_text": "2 삼각함수의 뜻",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "2 삼각함수의 뜻"
+            }
+          ]
+        },
+        {
+          "node_id": "p038-vl004",
+          "bbox": {
+            "x": 254.0,
+            "y": 398.0,
+            "width": 1339.0,
+            "height": 198.0
+          },
+          "normalized_bbox": {
+            "x": 0.104355,
+            "y": 0.129599,
+            "width": 0.550123,
+            "height": 0.064474
+          },
+          "reading_order_index": 3,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 3
+          },
+          "content_type": "TEXT",
+          "raw_text": "좌표평면에서 중심이 원점 O이고 반지름의 길이가 $r(r>0)$인 원 위의 한 점을 $\\mathrm{P}(x,y)$, $x$축의 양의 방향을 시초선으로 하였을 때, 동경 OP가 나타내는 각의 크기를 $\\theta$라 하자. 이때 $\\theta$에 대한 삼각함수를 다음과 같이 정의한다.",
+          "normalized_text": "좌표평면에서 중심이 원점 O이고 반지름의 길이가 $r(r>0)$인 원 위의 한 점을 $\\mathrm{P}(x,y)$, $x$축의 양의 방향을 시초선으로 하였을 때, 동경 OP가 나타내는 각의 크기를 $\\theta$라 하자. 이때 $\\theta$에 대한 삼각함수를 다음과 같이 정의한다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "좌표평면에서 중심이 원점 O이고 반지름의 길이가 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "r(r>0)",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Row",
+                "children": [
+                  {
+                    "type": "Identifier",
+                    "value": "r"
+                  },
+                  {
+                    "type": "Parenthesized",
+                    "body": {
+                      "type": "Relation",
+                      "operator": ">",
+                      "left": {
+                        "type": "Identifier",
+                        "value": "r"
+                      },
+                      "right": {
+                        "type": "Number",
+                        "value": "0"
+                      }
+                    },
+                    "delimiter": "("
+                  }
+                ]
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "인 원 위의 한 점을 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\mathrm{P}(x,y)",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Row",
+                "children": [
+                  {
+                    "type": "Identifier",
+                    "value": "P",
+                    "decoration": "mathrm"
+                  },
+                  {
+                    "type": "Parenthesized",
+                    "body": {
+                      "type": "Identifier",
+                      "value": "x"
+                    },
+                    "delimiter": "("
+                  }
+                ]
+              },
+              "unconsumed_tokens": [
+                ",",
+                "y",
+                ")"
+              ],
+              "ast_issues": [
+                {
+                  "code": "AST_UNMATCHED_PAREN",
+                  "severity": "error",
+                  "message": "Missing closing ')' for a parenthesized group."
+                },
+                {
+                  "code": "AST_UNCONSUMED_TOKENS",
+                  "severity": "warning",
+                  "message": "3 token(s) left over after parsing: ',y)'"
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": ", "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "x",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "x"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "축의 양의 방향을 시초선으로 하였을 때, 동경 OP가 나타내는 각의 크기를 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\theta",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "θ"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "라 하자. 이때 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\theta",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "θ"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "에 대한 삼각함수를 다음과 같이 정의한다."
+            }
+          ]
+        },
+        {
+          "node_id": "p038-vl005",
+          "bbox": {
+            "x": 332.0,
+            "y": 614.0,
+            "width": 730.0,
+            "height": 84.0
+          },
+          "normalized_bbox": {
+            "x": 0.136401,
+            "y": 0.199935,
+            "width": 0.299918,
+            "height": 0.027353
+          },
+          "reading_order_index": 4,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [
+            {
+              "code": "AST_UNCONSUMED_TOKENS",
+              "severity": "warning",
+              "message": "97 token(s) left over after parsing: '{begin{array}{l}frac{y}{r},costheta{begin{array}{l}frac{x}{r}end{array}},tantheta{begin{array}{l}frac{y}{x}end{array}}left(xneq0right)end{array}}'"
+            }
+          ],
+          "layout": {
+            "vl_block_label": "display_formula",
+            "vl_block_id": 4
+          },
+          "content_type": "MATH",
+          "raw_formula": "\\sin\\theta{\\begin{array}{l}\\frac{y}{r},\\cos\\theta{\\begin{array}{l}\\frac{x}{r}\\end{array}},\\tan\\theta{\\begin{array}{l}\\frac{y}{x}\\end{array}}\\left(x\\neq0\\right)\\end{array}}",
+          "formula_format": "LATEX",
+          "presentation_ast": {
+            "type": "FunctionApplication",
+            "name": "sin",
+            "argument": {
+              "type": "Identifier",
+              "value": "θ"
+            }
+          },
+          "unconsumed_tokens": [
+            "{",
+            "begin",
+            "{",
+            "a",
+            "r",
+            "r",
+            "a",
+            "y",
+            "}",
+            "{",
+            "l",
+            "}",
+            "frac",
+            "{",
+            "y",
+            "}",
+            "{",
+            "r",
+            "}",
+            ",",
+            "cos",
+            "theta",
+            "{",
+            "begin",
+            "{",
+            "a",
+            "r",
+            "r",
+            "a",
+            "y",
+            "}",
+            "{",
+            "l",
+            "}",
+            "frac",
+            "{",
+            "x",
+            "}",
+            "{",
+            "r",
+            "}",
+            "end",
+            "{",
+            "a",
+            "r",
+            "r",
+            "a",
+            "y",
+            "}",
+            "}",
+            ",",
+            "tan",
+            "theta",
+            "{",
+            "begin",
+            "{",
+            "a",
+            "r",
+            "r",
+            "a",
+            "y",
+            "}",
+            "{",
+            "l",
+            "}",
+            "frac",
+            "{",
+            "y",
+            "}",
+            "{",
+            "x",
+            "}",
+            "end",
+            "{",
+            "a",
+            "r",
+            "r",
+            "a",
+            "y",
+            "}",
+            "}",
+            "left",
+            "(",
+            "x",
+            "neq",
+            "0",
+            "right",
+            ")",
+            "end",
+            "{",
+            "a",
+            "r",
+            "r",
+            "a",
+            "y",
+            "}",
+            "}"
+          ]
+        },
+        {
+          "node_id": "p038-vl006",
+          "bbox": {
+            "x": 253.0,
+            "y": 716.0,
+            "width": 1340.0,
+            "height": 125.0
+          },
+          "normalized_bbox": {
+            "x": 0.103944,
+            "y": 0.233149,
+            "width": 0.550534,
+            "height": 0.040703
+          },
+          "reading_order_index": 5,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 5
+          },
+          "content_type": "TEXT",
+          "raw_text": "이때 $\\sin \\theta$, $\\cos \\theta$, $\\tan \\theta$를 각각 사인함수, 코사인함수, 탄젠트함수라 하고, 이함수들을 $\\theta$에 대한 삼각함수라고 한다.",
+          "normalized_text": "이때 $\\sin \\theta$, $\\cos \\theta$, $\\tan \\theta$를 각각 사인함수, 코사인함수, 탄젠트함수라 하고, 이함수들을 $\\theta$에 대한 삼각함수라고 한다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "이때 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\sin \\theta",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "FunctionApplication",
+                "name": "sin",
+                "argument": {
+                  "type": "Identifier",
+                  "value": "θ"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": ", "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\cos \\theta",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "FunctionApplication",
+                "name": "cos",
+                "argument": {
+                  "type": "Identifier",
+                  "value": "θ"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": ", "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\tan \\theta",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "FunctionApplication",
+                "name": "tan",
+                "argument": {
+                  "type": "Identifier",
+                  "value": "θ"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "를 각각 사인함수, 코사인함수, 탄젠트함수라 하고, 이함수들을 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\theta",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "θ"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "에 대한 삼각함수라고 한다."
+            }
+          ]
+        },
+        {
+          "node_id": "p038-vl007",
+          "bbox": {
+            "x": 253.0,
+            "y": 855.0,
+            "width": 1494.0,
+            "height": 135.0
+          },
+          "normalized_bbox": {
+            "x": 0.103944,
+            "y": 0.278411,
+            "width": 0.613804,
+            "height": 0.04396
+          },
+          "reading_order_index": 6,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 7
+          },
+          "content_type": "TEXT",
+          "raw_text": "설명 동경 OP가 나타내는 각의 크기 $\\theta$에 대하여 $\\frac{y}{r}, \\frac{x}{r}, \\frac{y}{x} (x \\neq 0)$의 값은 각각 하나로 결정된다.\n\n즉, 다음의 대응 관계는 각각 $\\theta$에 대한 함수가 된다.",
+          "normalized_text": "설명 동경 OP가 나타내는 각의 크기 $\\theta$에 대하여 $\\frac{y}{r}, \\frac{x}{r}, \\frac{y}{x} (x \\neq 0)$의 값은 각각 하나로 결정된다.\n\n즉, 다음의 대응 관계는 각각 $\\theta$에 대한 함수가 된다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "설명 동경 OP가 나타내는 각의 크기 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\theta",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "θ"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "에 대하여 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\frac{y}{r}, \\frac{x}{r}, \\frac{y}{x} (x \\neq 0)",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Fraction",
+                "numerator": {
+                  "type": "Identifier",
+                  "value": "y"
+                },
+                "denominator": {
+                  "type": "Identifier",
+                  "value": "r"
+                }
+              },
+              "unconsumed_tokens": [
+                ",",
+                "frac",
+                "{",
+                "x",
+                "}",
+                "{",
+                "r",
+                "}",
+                ",",
+                "frac",
+                "{",
+                "y",
+                "}",
+                "{",
+                "x",
+                "}",
+                "(",
+                "x",
+                "neq",
+                "0",
+                ")"
+              ],
+              "ast_issues": [
+                {
+                  "code": "AST_UNCONSUMED_TOKENS",
+                  "severity": "warning",
+                  "message": "21 token(s) left over after parsing: ',frac{x}{r},frac{y}{x}(xneq0)'"
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": "의 값은 각각 하나로 결정된다.\n\n즉, 다음의 대응 관계는 각각 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\theta",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "θ"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "에 대한 함수가 된다."
+            }
+          ]
+        },
+        {
+          "node_id": "p038-vl008",
+          "bbox": {
+            "x": 425.0,
+            "y": 1010.0,
+            "width": 653.0,
+            "height": 73.0
+          },
+          "normalized_bbox": {
+            "x": 0.17461,
+            "y": 0.328883,
+            "width": 0.268283,
+            "height": 0.023771
+          },
+          "reading_order_index": 7,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [
+            {
+              "code": "AST_UNCONSUMED_TOKENS",
+              "severity": "warning",
+              "message": "33 token(s) left over after parsing: 'longrightarrowfrac{y}{r},thetalongrightarrowfrac{x}{r},thetalongrightarrowfrac{y}{x}(xneq0)'"
+            }
+          ],
+          "layout": {
+            "vl_block_label": "display_formula",
+            "vl_block_id": 8
+          },
+          "content_type": "MATH",
+          "raw_formula": "\\theta\\longrightarrow\\frac{y}{r},\\theta\\longrightarrow\\frac{x}{r},\\theta\\longrightarrow\\frac{y}{x}(x\\neq0)",
+          "formula_format": "LATEX",
+          "presentation_ast": {
+            "type": "Identifier",
+            "value": "θ"
+          },
+          "unconsumed_tokens": [
+            "longrightarrow",
+            "frac",
+            "{",
+            "y",
+            "}",
+            "{",
+            "r",
+            "}",
+            ",",
+            "theta",
+            "longrightarrow",
+            "frac",
+            "{",
+            "x",
+            "}",
+            "{",
+            "r",
+            "}",
+            ",",
+            "theta",
+            "longrightarrow",
+            "frac",
+            "{",
+            "y",
+            "}",
+            "{",
+            "x",
+            "}",
+            "(",
+            "x",
+            "neq",
+            "0",
+            ")"
+          ]
+        },
+        {
+          "node_id": "p038-vl009",
+          "bbox": {
+            "x": 358.0,
+            "y": 1096.0,
+            "width": 1499.0,
+            "height": 51.0
+          },
+          "normalized_bbox": {
+            "x": 0.147083,
+            "y": 0.356887,
+            "width": 0.615859,
+            "height": 0.016607
+          },
+          "reading_order_index": 8,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 9
+          },
+          "content_type": "TEXT",
+          "raw_text": "이때 각 함수를 사인함수, 코사인함수, 탄젠트함수라 하고, 이것을 각각 기호로 다음과 같이 나타낸다.",
+          "normalized_text": "이때 각 함수를 사인함수, 코사인함수, 탄젠트함수라 하고, 이것을 각각 기호로 다음과 같이 나타낸다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "이때 각 함수를 사인함수, 코사인함수, 탄젠트함수라 하고, 이것을 각각 기호로 다음과 같이 나타낸다."
+            }
+          ]
+        },
+        {
+          "node_id": "p038-vl010",
+          "bbox": {
+            "x": 425.0,
+            "y": 1163.0,
+            "width": 667.0,
+            "height": 75.0
+          },
+          "normalized_bbox": {
+            "x": 0.17461,
+            "y": 0.378704,
+            "width": 0.274035,
+            "height": 0.024422
+          },
+          "reading_order_index": 9,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [
+            {
+              "code": "AST_UNCONSUMED_TOKENS",
+              "severity": "warning",
+              "message": "27 token(s) left over after parsing: ',costheta=frac{x}{r},tantheta=frac{y}{x}(xneq0)'"
+            }
+          ],
+          "layout": {
+            "vl_block_label": "display_formula",
+            "vl_block_id": 10
+          },
+          "content_type": "MATH",
+          "raw_formula": "\\sin\\theta=\\frac{y}{r},\\cos\\theta=\\frac{x}{r},\\tan\\theta=\\frac{y}{x}(x\\neq0)",
+          "formula_format": "LATEX",
+          "presentation_ast": {
+            "type": "Relation",
+            "operator": "=",
+            "left": {
+              "type": "FunctionApplication",
+              "name": "sin",
+              "argument": {
+                "type": "Identifier",
+                "value": "θ"
+              }
+            },
+            "right": {
+              "type": "Fraction",
+              "numerator": {
+                "type": "Identifier",
+                "value": "y"
+              },
+              "denominator": {
+                "type": "Identifier",
+                "value": "r"
+              }
+            }
+          },
+          "unconsumed_tokens": [
+            ",",
+            "cos",
+            "theta",
+            "=",
+            "frac",
+            "{",
+            "x",
+            "}",
+            "{",
+            "r",
+            "}",
+            ",",
+            "tan",
+            "theta",
+            "=",
+            "frac",
+            "{",
+            "y",
+            "}",
+            "{",
+            "x",
+            "}",
+            "(",
+            "x",
+            "neq",
+            "0",
+            ")"
+          ]
+        },
+        {
+          "node_id": "p038-vl011",
+          "bbox": {
+            "x": 258.0,
+            "y": 1250.0,
+            "width": 873.0,
+            "height": 50.0
+          },
+          "normalized_bbox": {
+            "x": 0.105998,
+            "y": 0.407034,
+            "width": 0.358669,
+            "height": 0.016281
+          },
+          "reading_order_index": 10,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 11
+          },
+          "content_type": "TEXT",
+          "raw_text": "참고>각 사분면에서의 삼각함수의 부호는 다음 표와 같다.",
+          "normalized_text": "참고>각 사분면에서의 삼각함수의 부호는 다음 표와 같다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "참고>각 사분면에서의 삼각함수의 부호는 다음 표와 같다."
+            }
+          ]
+        },
+        {
+          "node_id": "p038-vl012",
+          "bbox": {
+            "x": 254.0,
+            "y": 1897.0,
+            "width": 490.0,
+            "height": 59.0
+          },
+          "normalized_bbox": {
+            "x": 0.104355,
+            "y": 0.617714,
+            "width": 0.201315,
+            "height": 0.019212
+          },
+          "reading_order_index": 11,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "paragraph_title",
+            "vl_block_id": 13
+          },
+          "content_type": "TEXT",
+          "raw_text": "3 삼각함수 사이의 관계",
+          "normalized_text": "3 삼각함수 사이의 관계",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "3 삼각함수 사이의 관계"
+            }
+          ]
+        },
+        {
+          "node_id": "p038-vl013",
+          "bbox": {
+            "x": 258.0,
+            "y": 1997.0,
+            "width": 323.0,
+            "height": 86.0
+          },
+          "normalized_bbox": {
+            "x": 0.105998,
+            "y": 0.650277,
+            "width": 0.132703,
+            "height": 0.028004
+          },
+          "reading_order_index": 12,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 14
+          },
+          "content_type": "TEXT",
+          "raw_text": "(1)  $ \\tan\\theta = \\frac{\\sin\\theta}{\\cos\\theta} $",
+          "normalized_text": "(1)  $ \\tan\\theta = \\frac{\\sin\\theta}{\\cos\\theta} $",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(1)  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\tan\\theta = \\frac{\\sin\\theta}{\\cos\\theta}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "FunctionApplication",
+                  "name": "tan",
+                  "argument": {
+                    "type": "Identifier",
+                    "value": "θ"
+                  }
+                },
+                "right": {
+                  "type": "Fraction",
+                  "numerator": {
+                    "type": "FunctionApplication",
+                    "name": "sin",
+                    "argument": {
+                      "type": "Identifier",
+                      "value": "θ"
+                    }
+                  },
+                  "denominator": {
+                    "type": "FunctionApplication",
+                    "name": "cos",
+                    "argument": {
+                      "type": "Identifier",
+                      "value": "θ"
+                    }
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            }
+          ]
+        },
+        {
+          "node_id": "p038-vl014",
+          "bbox": {
+            "x": 260.0,
+            "y": 2105.0,
+            "width": 382.0,
+            "height": 53.0
+          },
+          "normalized_bbox": {
+            "x": 0.10682,
+            "y": 0.685444,
+            "width": 0.156943,
+            "height": 0.017258
+          },
+          "reading_order_index": 13,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 15
+          },
+          "content_type": "TEXT",
+          "raw_text": "(2) $ \\sin^{2}\\theta+\\cos^{2}\\theta=1 $",
+          "normalized_text": "(2) $ \\sin^{2}\\theta+\\cos^{2}\\theta=1 $",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(2) "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\sin^{2}\\theta+\\cos^{2}\\theta=1",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Operator",
+                  "operator": "+",
+                  "left": {
+                    "type": "Power",
+                    "base": {
+                      "type": "FunctionApplication",
+                      "name": "sin",
+                      "argument": {
+                        "type": "Identifier",
+                        "value": "θ"
+                      }
+                    },
+                    "exponent": {
+                      "type": "Number",
+                      "value": "2"
+                    }
+                  },
+                  "right": {
+                    "type": "Power",
+                    "base": {
+                      "type": "FunctionApplication",
+                      "name": "cos",
+                      "argument": {
+                        "type": "Identifier",
+                        "value": "θ"
+                      }
+                    },
+                    "exponent": {
+                      "type": "Number",
+                      "value": "2"
+                    }
+                  }
+                },
+                "right": {
+                  "type": "Number",
+                  "value": "1"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            }
+          ]
+        },
+        {
+          "node_id": "p038-vl015",
+          "bbox": {
+            "x": 256.0,
+            "y": 2169.0,
+            "width": 1395.0,
+            "height": 115.0
+          },
+          "normalized_bbox": {
+            "x": 0.105177,
+            "y": 0.706285,
+            "width": 0.573131,
+            "height": 0.037447
+          },
+          "reading_order_index": 14,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 16
+          },
+          "content_type": "TEXT",
+          "raw_text": "설명 각  $ \\theta $가 나타내는 동경과 원  $ x^{2}+y^{2}=1 $이 만나는 점을 P(x, y)라 하면 다음이 성립한다.\n $ \\sin \\theta = y, \\cos \\theta = x^{\\circ} $ 으로",
+          "normalized_text": "설명 각  $ \\theta $가 나타내는 동경과 원  $ x^{2}+y^{2}=1 $이 만나는 점을 P(x, y)라 하면 다음이 성립한다.\n $ \\sin \\theta = y, \\cos \\theta = x^{\\circ} $ 으로",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "설명 각  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\theta",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "θ"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "가 나타내는 동경과 원  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "x^{2}+y^{2}=1",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Operator",
+                  "operator": "+",
+                  "left": {
+                    "type": "Power",
+                    "base": {
+                      "type": "Identifier",
+                      "value": "x"
+                    },
+                    "exponent": {
+                      "type": "Number",
+                      "value": "2"
+                    }
+                  },
+                  "right": {
+                    "type": "Power",
+                    "base": {
+                      "type": "Identifier",
+                      "value": "y"
+                    },
+                    "exponent": {
+                      "type": "Number",
+                      "value": "2"
+                    }
+                  }
+                },
+                "right": {
+                  "type": "Number",
+                  "value": "1"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "이 만나는 점을 P(x, y)라 하면 다음이 성립한다.\n "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\sin \\theta = y, \\cos \\theta = x^{\\circ}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "FunctionApplication",
+                  "name": "sin",
+                  "argument": {
+                    "type": "Identifier",
+                    "value": "θ"
+                  }
+                },
+                "right": {
+                  "type": "Identifier",
+                  "value": "y"
+                }
+              },
+              "unconsumed_tokens": [
+                ",",
+                "cos",
+                "theta",
+                "=",
+                "x",
+                "^",
+                "{",
+                "circ",
+                "}"
+              ],
+              "ast_issues": [
+                {
+                  "code": "AST_UNCONSUMED_TOKENS",
+                  "severity": "warning",
+                  "message": "9 token(s) left over after parsing: ',costheta=x^{circ}'"
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": " 으로"
+            }
+          ]
+        },
+        {
+          "node_id": "p038-vl016",
+          "bbox": {
+            "x": 355.0,
+            "y": 2297.0,
+            "width": 490.0,
+            "height": 80.0
+          },
+          "normalized_bbox": {
+            "x": 0.14585,
+            "y": 0.747965,
+            "width": 0.201315,
+            "height": 0.02605
+          },
+          "reading_order_index": 15,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 17
+          },
+          "content_type": "TEXT",
+          "raw_text": "(1)  $ \\tan\\theta = \\frac{y}{x} = \\frac{\\sin\\theta}{\\cos\\theta} $ ( $ x \\neq 0 $)",
+          "normalized_text": "(1)  $ \\tan\\theta = \\frac{y}{x} = \\frac{\\sin\\theta}{\\cos\\theta} $ ( $ x \\neq 0 $)",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(1)  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\tan\\theta = \\frac{y}{x} = \\frac{\\sin\\theta}{\\cos\\theta}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Relation",
+                  "operator": "=",
+                  "left": {
+                    "type": "FunctionApplication",
+                    "name": "tan",
+                    "argument": {
+                      "type": "Identifier",
+                      "value": "θ"
+                    }
+                  },
+                  "right": {
+                    "type": "Fraction",
+                    "numerator": {
+                      "type": "Identifier",
+                      "value": "y"
+                    },
+                    "denominator": {
+                      "type": "Identifier",
+                      "value": "x"
+                    }
+                  }
+                },
+                "right": {
+                  "type": "Fraction",
+                  "numerator": {
+                    "type": "FunctionApplication",
+                    "name": "sin",
+                    "argument": {
+                      "type": "Identifier",
+                      "value": "θ"
+                    }
+                  },
+                  "denominator": {
+                    "type": "FunctionApplication",
+                    "name": "cos",
+                    "argument": {
+                      "type": "Identifier",
+                      "value": "θ"
+                    }
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": " ( "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "x \\neq 0",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "≠",
+                "left": {
+                  "type": "Identifier",
+                  "value": "x"
+                },
+                "right": {
+                  "type": "Number",
+                  "value": "0"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": ")"
+            }
+          ]
+        },
+        {
+          "node_id": "p038-vl017",
+          "bbox": {
+            "x": 360.0,
+            "y": 2393.0,
+            "width": 688.0,
+            "height": 115.0
+          },
+          "normalized_bbox": {
+            "x": 0.147905,
+            "y": 0.779225,
+            "width": 0.282662,
+            "height": 0.037447
+          },
+          "reading_order_index": 16,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 18
+          },
+          "content_type": "TEXT",
+          "raw_text": "(2) 점 P(x, y)가 원  $ x^2 + y^2 = 1 $ 위의 점이 드로\n $ \\sin^2 \\theta + \\cos^2 \\theta = y^2 + x^2 = 1 $",
+          "normalized_text": "(2) 점 P(x, y)가 원  $ x^2 + y^2 = 1 $ 위의 점이 드로\n $ \\sin^2 \\theta + \\cos^2 \\theta = y^2 + x^2 = 1 $",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(2) 점 P(x, y)가 원  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "x^2 + y^2 = 1",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Operator",
+                  "operator": "+",
+                  "left": {
+                    "type": "Power",
+                    "base": {
+                      "type": "Identifier",
+                      "value": "x"
+                    },
+                    "exponent": {
+                      "type": "Number",
+                      "value": "2"
+                    }
+                  },
+                  "right": {
+                    "type": "Power",
+                    "base": {
+                      "type": "Identifier",
+                      "value": "y"
+                    },
+                    "exponent": {
+                      "type": "Number",
+                      "value": "2"
+                    }
+                  }
+                },
+                "right": {
+                  "type": "Number",
+                  "value": "1"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": " 위의 점이 드로\n "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\sin^2 \\theta + \\cos^2 \\theta = y^2 + x^2 = 1",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Relation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Operator",
+                    "operator": "+",
+                    "left": {
+                      "type": "Power",
+                      "base": {
+                        "type": "FunctionApplication",
+                        "name": "sin",
+                        "argument": {
+                          "type": "Identifier",
+                          "value": "θ"
+                        }
+                      },
+                      "exponent": {
+                        "type": "Number",
+                        "value": "2"
+                      }
+                    },
+                    "right": {
+                      "type": "Power",
+                      "base": {
+                        "type": "FunctionApplication",
+                        "name": "cos",
+                        "argument": {
+                          "type": "Identifier",
+                          "value": "θ"
+                        }
+                      },
+                      "exponent": {
+                        "type": "Number",
+                        "value": "2"
+                      }
+                    }
+                  },
+                  "right": {
+                    "type": "Operator",
+                    "operator": "+",
+                    "left": {
+                      "type": "Power",
+                      "base": {
+                        "type": "Identifier",
+                        "value": "y"
+                      },
+                      "exponent": {
+                        "type": "Number",
+                        "value": "2"
+                      }
+                    },
+                    "right": {
+                      "type": "Power",
+                      "base": {
+                        "type": "Identifier",
+                        "value": "x"
+                      },
+                      "exponent": {
+                        "type": "Number",
+                        "value": "2"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "type": "Number",
+                  "value": "1"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            }
+          ]
+        },
+        {
+          "node_id": "p038-vl018",
+          "bbox": {
+            "x": 1679.0,
+            "y": 407.0,
+            "width": 421.0,
+            "height": 372.0
+          },
+          "normalized_bbox": {
+            "x": 0.689811,
+            "y": 0.13253,
+            "width": 0.172966,
+            "height": 0.121133
+          },
+          "reading_order_index": 17,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "image",
+            "vl_block_id": 6
+          },
+          "content_type": "UNSUPPORTED_VISUAL",
+          "visual_type_candidate": "GRAPH_OR_DIAGRAM",
+          "handling": "ANNOUNCE_AND_PRESERVE_TEXT",
+          "embedded_content_nodes": [
+            {
+              "node_id": "p038-vl018-embedded-01",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 1679.0,
+                "y": 407.0,
+                "width": 421.0,
+                "height": 372.0
+              },
+              "normalized_bbox": {
+                "x": 0.689811,
+                "y": 0.13253,
+                "width": 0.172966,
+                "height": 0.121133
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [
+                {
+                  "code": "AST_UNCONSUMED_TOKENS",
+                  "severity": "warning",
+                  "message": "1 token(s) left over after parsing: 'uparrow'"
+                }
+              ],
+              "raw_formula": "y\\uparrow",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "y"
+              },
+              "unconsumed_tokens": [
+                "uparrow"
+              ]
+            },
+            {
+              "node_id": "p038-vl018-embedded-02",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 1679.0,
+                "y": 407.0,
+                "width": 421.0,
+                "height": 372.0
+              },
+              "normalized_bbox": {
+                "x": 0.689811,
+                "y": 0.13253,
+                "width": 0.172966,
+                "height": 0.121133
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_formula": "r",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "r"
+              },
+              "unconsumed_tokens": []
+            },
+            {
+              "node_id": "p038-vl018-embedded-03",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 1679.0,
+                "y": 407.0,
+                "width": 421.0,
+                "height": 372.0
+              },
+              "normalized_bbox": {
+                "x": 0.689811,
+                "y": 0.13253,
+                "width": 0.172966,
+                "height": 0.121133
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_formula": "y",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "y"
+              },
+              "unconsumed_tokens": []
+            },
+            {
+              "node_id": "p038-vl018-embedded-04",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 1679.0,
+                "y": 407.0,
+                "width": 421.0,
+                "height": 372.0
+              },
+              "normalized_bbox": {
+                "x": 0.689811,
+                "y": 0.13253,
+                "width": 0.172966,
+                "height": 0.121133
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [
+                {
+                  "code": "AST_UNMATCHED_PAREN",
+                  "severity": "error",
+                  "message": "Missing closing ')' for a parenthesized group."
+                },
+                {
+                  "code": "AST_UNCONSUMED_TOKENS",
+                  "severity": "warning",
+                  "message": "3 token(s) left over after parsing: ',y)'"
+                }
+              ],
+              "raw_formula": "P(x, y)",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Row",
+                "children": [
+                  {
+                    "type": "Identifier",
+                    "value": "P"
+                  },
+                  {
+                    "type": "Parenthesized",
+                    "body": {
+                      "type": "Identifier",
+                      "value": "x"
+                    },
+                    "delimiter": "("
+                  }
+                ]
+              },
+              "unconsumed_tokens": [
+                ",",
+                "y",
+                ")"
+              ]
+            },
+            {
+              "node_id": "p038-vl018-embedded-05",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 1679.0,
+                "y": 407.0,
+                "width": 421.0,
+                "height": 372.0
+              },
+              "normalized_bbox": {
+                "x": 0.689811,
+                "y": 0.13253,
+                "width": 0.172966,
+                "height": 0.121133
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_formula": "r",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "r"
+              },
+              "unconsumed_tokens": []
+            },
+            {
+              "node_id": "p038-vl018-embedded-06",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 1679.0,
+                "y": 407.0,
+                "width": 421.0,
+                "height": 372.0
+              },
+              "normalized_bbox": {
+                "x": 0.689811,
+                "y": 0.13253,
+                "width": 0.172966,
+                "height": 0.121133
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token 'θ' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $: 'θ'."
+                }
+              ],
+              "raw_formula": "θ",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Unknown",
+                "value": "θ"
+              },
+              "unconsumed_tokens": []
+            },
+            {
+              "node_id": "p038-vl018-embedded-07",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 1679.0,
+                "y": 407.0,
+                "width": 421.0,
+                "height": 372.0
+              },
+              "normalized_bbox": {
+                "x": 0.689811,
+                "y": 0.13253,
+                "width": 0.172966,
+                "height": 0.121133
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_formula": "O",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "O"
+              },
+              "unconsumed_tokens": []
+            },
+            {
+              "node_id": "p038-vl018-embedded-08",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 1679.0,
+                "y": 407.0,
+                "width": 421.0,
+                "height": 372.0
+              },
+              "normalized_bbox": {
+                "x": 0.689811,
+                "y": 0.13253,
+                "width": 0.172966,
+                "height": 0.121133
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_formula": "x",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "x"
+              },
+              "unconsumed_tokens": []
+            },
+            {
+              "node_id": "p038-vl018-embedded-09",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 1679.0,
+                "y": 407.0,
+                "width": 421.0,
+                "height": 372.0
+              },
+              "normalized_bbox": {
+                "x": 0.689811,
+                "y": 0.13253,
+                "width": 0.172966,
+                "height": 0.121133
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_formula": "r",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "r"
+              },
+              "unconsumed_tokens": []
+            },
+            {
+              "node_id": "p038-vl018-embedded-10",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 1679.0,
+                "y": 407.0,
+                "width": 421.0,
+                "height": 372.0
+              },
+              "normalized_bbox": {
+                "x": 0.689811,
+                "y": 0.13253,
+                "width": 0.172966,
+                "height": 0.121133
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_formula": "x",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "x"
+              },
+              "unconsumed_tokens": []
+            }
+          ]
+        },
+        {
+          "node_id": "p038-vl019",
+          "bbox": {
+            "x": 365.0,
+            "y": 1321.0,
+            "width": 1361.0,
+            "height": 298.0
+          },
+          "normalized_bbox": {
+            "x": 0.149959,
+            "y": 0.430153,
+            "width": 0.559162,
+            "height": 0.097037
+          },
+          "reading_order_index": 18,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "table",
+            "vl_block_id": 12
+          },
+          "content_type": "TABLE",
+          "raw_html": "<table><tr><td>사분면\\n삼각함수</td><td>제1사분면\\n(x&gt;0, y&gt;0)</td><td>제2사분면\\n(x&lt;0, y&gt;0)</td><td>제3사분면\\n(x&lt;0, y&lt;0)</td><td>제4사분면\\n(x&gt;0, y&lt;0)</td></tr><tr><td>$ \\sin \\theta $</td><td>+</td><td>+</td><td>-</td><td>-</td></tr><tr><td>$ \\cos \\theta $</td><td>+</td><td>-</td><td>-</td><td>+</td></tr><tr><td>$ \\tan \\theta $</td><td>+</td><td>-</td><td>+</td><td>-</td></tr></table>",
+          "row_count": 4,
+          "column_count": 5,
+          "cells": [
+            {
+              "cell_id": "p038-vl019-r01c01",
+              "row_index": 1,
+              "column_index": 1,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 365.0,
+                "y": 1321.0,
+                "width": 272.2,
+                "height": 74.5
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p038-vl019-r01c01-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 365.0,
+                    "y": 1321.0,
+                    "width": 272.2,
+                    "height": 74.5
+                  },
+                  "normalized_bbox": {
+                    "x": 0.149959,
+                    "y": 0.430153,
+                    "width": 0.111832,
+                    "height": 0.024259
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "사분면\\n삼각함수",
+                  "normalized_text": "사분면\\n삼각함수",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "사분면\\n삼각함수"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": true
+            },
+            {
+              "cell_id": "p038-vl019-r01c02",
+              "row_index": 1,
+              "column_index": 2,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 637.2,
+                "y": 1321.0,
+                "width": 272.2,
+                "height": 74.5
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p038-vl019-r01c02-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 637.2,
+                    "y": 1321.0,
+                    "width": 272.2,
+                    "height": 74.5
+                  },
+                  "normalized_bbox": {
+                    "x": 0.261791,
+                    "y": 0.430153,
+                    "width": 0.111832,
+                    "height": 0.024259
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "제1사분면\\n(x>0, y>0)",
+                  "normalized_text": "제1사분면\\n(x>0, y>0)",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "제1사분면\\n(x>0, y>0)"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": true
+            },
+            {
+              "cell_id": "p038-vl019-r01c03",
+              "row_index": 1,
+              "column_index": 3,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 909.4,
+                "y": 1321.0,
+                "width": 272.2,
+                "height": 74.5
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p038-vl019-r01c03-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 909.4,
+                    "y": 1321.0,
+                    "width": 272.2,
+                    "height": 74.5
+                  },
+                  "normalized_bbox": {
+                    "x": 0.373624,
+                    "y": 0.430153,
+                    "width": 0.111832,
+                    "height": 0.024259
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "제2사분면\\n(x<0, y>0)",
+                  "normalized_text": "제2사분면\\n(x<0, y>0)",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "제2사분면\\n(x<0, y>0)"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": true
+            },
+            {
+              "cell_id": "p038-vl019-r01c04",
+              "row_index": 1,
+              "column_index": 4,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 1181.6,
+                "y": 1321.0,
+                "width": 272.2,
+                "height": 74.5
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p038-vl019-r01c04-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 1181.6,
+                    "y": 1321.0,
+                    "width": 272.2,
+                    "height": 74.5
+                  },
+                  "normalized_bbox": {
+                    "x": 0.485456,
+                    "y": 0.430153,
+                    "width": 0.111832,
+                    "height": 0.024259
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "제3사분면\\n(x<0, y<0)",
+                  "normalized_text": "제3사분면\\n(x<0, y<0)",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "제3사분면\\n(x<0, y<0)"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": true
+            },
+            {
+              "cell_id": "p038-vl019-r01c05",
+              "row_index": 1,
+              "column_index": 5,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 1453.8,
+                "y": 1321.0,
+                "width": 272.2,
+                "height": 74.5
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p038-vl019-r01c05-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 1453.8,
+                    "y": 1321.0,
+                    "width": 272.2,
+                    "height": 74.5
+                  },
+                  "normalized_bbox": {
+                    "x": 0.597288,
+                    "y": 0.430153,
+                    "width": 0.111832,
+                    "height": 0.024259
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "제4사분면\\n(x>0, y<0)",
+                  "normalized_text": "제4사분면\\n(x>0, y<0)",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "제4사분면\\n(x>0, y<0)"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": true
+            },
+            {
+              "cell_id": "p038-vl019-r02c01",
+              "row_index": 2,
+              "column_index": 1,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 365.0,
+                "y": 1395.5,
+                "width": 272.2,
+                "height": 74.5
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p038-vl019-r02c01-content-01",
+                  "content_type": "MATH",
+                  "bbox": {
+                    "x": 365.0,
+                    "y": 1395.5,
+                    "width": 272.2,
+                    "height": 74.5
+                  },
+                  "normalized_bbox": {
+                    "x": 0.149959,
+                    "y": 0.454412,
+                    "width": 0.111832,
+                    "height": 0.024259
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_formula": "\\sin \\theta",
+                  "formula_format": "LATEX",
+                  "presentation_ast": {
+                    "type": "FunctionApplication",
+                    "name": "sin",
+                    "argument": {
+                      "type": "Identifier",
+                      "value": "θ"
+                    }
+                  },
+                  "unconsumed_tokens": []
+                }
+              ],
+              "header_candidate": false
+            },
+            {
+              "cell_id": "p038-vl019-r02c02",
+              "row_index": 2,
+              "column_index": 2,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 637.2,
+                "y": 1395.5,
+                "width": 272.2,
+                "height": 74.5
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p038-vl019-r02c02-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 637.2,
+                    "y": 1395.5,
+                    "width": 272.2,
+                    "height": 74.5
+                  },
+                  "normalized_bbox": {
+                    "x": 0.261791,
+                    "y": 0.454412,
+                    "width": 0.111832,
+                    "height": 0.024259
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "+",
+                  "normalized_text": "+",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "+"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": false
+            },
+            {
+              "cell_id": "p038-vl019-r02c03",
+              "row_index": 2,
+              "column_index": 3,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 909.4,
+                "y": 1395.5,
+                "width": 272.2,
+                "height": 74.5
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p038-vl019-r02c03-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 909.4,
+                    "y": 1395.5,
+                    "width": 272.2,
+                    "height": 74.5
+                  },
+                  "normalized_bbox": {
+                    "x": 0.373624,
+                    "y": 0.454412,
+                    "width": 0.111832,
+                    "height": 0.024259
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "+",
+                  "normalized_text": "+",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "+"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": false
+            },
+            {
+              "cell_id": "p038-vl019-r02c04",
+              "row_index": 2,
+              "column_index": 4,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 1181.6,
+                "y": 1395.5,
+                "width": 272.2,
+                "height": 74.5
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p038-vl019-r02c04-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 1181.6,
+                    "y": 1395.5,
+                    "width": 272.2,
+                    "height": 74.5
+                  },
+                  "normalized_bbox": {
+                    "x": 0.485456,
+                    "y": 0.454412,
+                    "width": 0.111832,
+                    "height": 0.024259
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "-",
+                  "normalized_text": "-",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "-"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": false
+            },
+            {
+              "cell_id": "p038-vl019-r02c05",
+              "row_index": 2,
+              "column_index": 5,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 1453.8,
+                "y": 1395.5,
+                "width": 272.2,
+                "height": 74.5
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p038-vl019-r02c05-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 1453.8,
+                    "y": 1395.5,
+                    "width": 272.2,
+                    "height": 74.5
+                  },
+                  "normalized_bbox": {
+                    "x": 0.597288,
+                    "y": 0.454412,
+                    "width": 0.111832,
+                    "height": 0.024259
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "-",
+                  "normalized_text": "-",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "-"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": false
+            },
+            {
+              "cell_id": "p038-vl019-r03c01",
+              "row_index": 3,
+              "column_index": 1,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 365.0,
+                "y": 1470.0,
+                "width": 272.2,
+                "height": 74.5
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p038-vl019-r03c01-content-01",
+                  "content_type": "MATH",
+                  "bbox": {
+                    "x": 365.0,
+                    "y": 1470.0,
+                    "width": 272.2,
+                    "height": 74.5
+                  },
+                  "normalized_bbox": {
+                    "x": 0.149959,
+                    "y": 0.478671,
+                    "width": 0.111832,
+                    "height": 0.024259
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_formula": "\\cos \\theta",
+                  "formula_format": "LATEX",
+                  "presentation_ast": {
+                    "type": "FunctionApplication",
+                    "name": "cos",
+                    "argument": {
+                      "type": "Identifier",
+                      "value": "θ"
+                    }
+                  },
+                  "unconsumed_tokens": []
+                }
+              ],
+              "header_candidate": false
+            },
+            {
+              "cell_id": "p038-vl019-r03c02",
+              "row_index": 3,
+              "column_index": 2,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 637.2,
+                "y": 1470.0,
+                "width": 272.2,
+                "height": 74.5
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p038-vl019-r03c02-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 637.2,
+                    "y": 1470.0,
+                    "width": 272.2,
+                    "height": 74.5
+                  },
+                  "normalized_bbox": {
+                    "x": 0.261791,
+                    "y": 0.478671,
+                    "width": 0.111832,
+                    "height": 0.024259
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "+",
+                  "normalized_text": "+",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "+"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": false
+            },
+            {
+              "cell_id": "p038-vl019-r03c03",
+              "row_index": 3,
+              "column_index": 3,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 909.4,
+                "y": 1470.0,
+                "width": 272.2,
+                "height": 74.5
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p038-vl019-r03c03-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 909.4,
+                    "y": 1470.0,
+                    "width": 272.2,
+                    "height": 74.5
+                  },
+                  "normalized_bbox": {
+                    "x": 0.373624,
+                    "y": 0.478671,
+                    "width": 0.111832,
+                    "height": 0.024259
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "-",
+                  "normalized_text": "-",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "-"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": false
+            },
+            {
+              "cell_id": "p038-vl019-r03c04",
+              "row_index": 3,
+              "column_index": 4,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 1181.6,
+                "y": 1470.0,
+                "width": 272.2,
+                "height": 74.5
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p038-vl019-r03c04-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 1181.6,
+                    "y": 1470.0,
+                    "width": 272.2,
+                    "height": 74.5
+                  },
+                  "normalized_bbox": {
+                    "x": 0.485456,
+                    "y": 0.478671,
+                    "width": 0.111832,
+                    "height": 0.024259
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "-",
+                  "normalized_text": "-",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "-"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": false
+            },
+            {
+              "cell_id": "p038-vl019-r03c05",
+              "row_index": 3,
+              "column_index": 5,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 1453.8,
+                "y": 1470.0,
+                "width": 272.2,
+                "height": 74.5
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p038-vl019-r03c05-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 1453.8,
+                    "y": 1470.0,
+                    "width": 272.2,
+                    "height": 74.5
+                  },
+                  "normalized_bbox": {
+                    "x": 0.597288,
+                    "y": 0.478671,
+                    "width": 0.111832,
+                    "height": 0.024259
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "+",
+                  "normalized_text": "+",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "+"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": false
+            },
+            {
+              "cell_id": "p038-vl019-r04c01",
+              "row_index": 4,
+              "column_index": 1,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 365.0,
+                "y": 1544.5,
+                "width": 272.2,
+                "height": 74.5
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p038-vl019-r04c01-content-01",
+                  "content_type": "MATH",
+                  "bbox": {
+                    "x": 365.0,
+                    "y": 1544.5,
+                    "width": 272.2,
+                    "height": 74.5
+                  },
+                  "normalized_bbox": {
+                    "x": 0.149959,
+                    "y": 0.502931,
+                    "width": 0.111832,
+                    "height": 0.024259
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_formula": "\\tan \\theta",
+                  "formula_format": "LATEX",
+                  "presentation_ast": {
+                    "type": "FunctionApplication",
+                    "name": "tan",
+                    "argument": {
+                      "type": "Identifier",
+                      "value": "θ"
+                    }
+                  },
+                  "unconsumed_tokens": []
+                }
+              ],
+              "header_candidate": false
+            },
+            {
+              "cell_id": "p038-vl019-r04c02",
+              "row_index": 4,
+              "column_index": 2,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 637.2,
+                "y": 1544.5,
+                "width": 272.2,
+                "height": 74.5
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p038-vl019-r04c02-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 637.2,
+                    "y": 1544.5,
+                    "width": 272.2,
+                    "height": 74.5
+                  },
+                  "normalized_bbox": {
+                    "x": 0.261791,
+                    "y": 0.502931,
+                    "width": 0.111832,
+                    "height": 0.024259
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "+",
+                  "normalized_text": "+",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "+"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": false
+            },
+            {
+              "cell_id": "p038-vl019-r04c03",
+              "row_index": 4,
+              "column_index": 3,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 909.4,
+                "y": 1544.5,
+                "width": 272.2,
+                "height": 74.5
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p038-vl019-r04c03-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 909.4,
+                    "y": 1544.5,
+                    "width": 272.2,
+                    "height": 74.5
+                  },
+                  "normalized_bbox": {
+                    "x": 0.373624,
+                    "y": 0.502931,
+                    "width": 0.111832,
+                    "height": 0.024259
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "-",
+                  "normalized_text": "-",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "-"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": false
+            },
+            {
+              "cell_id": "p038-vl019-r04c04",
+              "row_index": 4,
+              "column_index": 4,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 1181.6,
+                "y": 1544.5,
+                "width": 272.2,
+                "height": 74.5
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p038-vl019-r04c04-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 1181.6,
+                    "y": 1544.5,
+                    "width": 272.2,
+                    "height": 74.5
+                  },
+                  "normalized_bbox": {
+                    "x": 0.485456,
+                    "y": 0.502931,
+                    "width": 0.111832,
+                    "height": 0.024259
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "+",
+                  "normalized_text": "+",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "+"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": false
+            },
+            {
+              "cell_id": "p038-vl019-r04c05",
+              "row_index": 4,
+              "column_index": 5,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 1453.8,
+                "y": 1544.5,
+                "width": 272.2,
+                "height": 74.5
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p038-vl019-r04c05-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 1453.8,
+                    "y": 1544.5,
+                    "width": 272.2,
+                    "height": 74.5
+                  },
+                  "normalized_bbox": {
+                    "x": 0.597288,
+                    "y": 0.502931,
+                    "width": 0.111832,
+                    "height": 0.024259
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "-",
+                  "normalized_text": "-",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "-"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": false
+            }
+          ],
+          "structure_confidence": 0.9
+        },
+        {
+          "node_id": "p038-vl020",
+          "bbox": {
+            "x": 1671.0,
+            "y": 2170.0,
+            "width": 431.0,
+            "height": 371.0
+          },
+          "normalized_bbox": {
+            "x": 0.686524,
+            "y": 0.70661,
+            "width": 0.177075,
+            "height": 0.120808
+          },
+          "reading_order_index": 19,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "image",
+            "vl_block_id": 19
+          },
+          "content_type": "UNSUPPORTED_VISUAL",
+          "visual_type_candidate": "GRAPH_OR_DIAGRAM",
+          "handling": "ANNOUNCE_AND_PRESERVE_TEXT",
+          "embedded_content_nodes": [
+            {
+              "node_id": "p038-vl020-embedded-01",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 1671.0,
+                "y": 2170.0,
+                "width": 431.0,
+                "height": 371.0
+              },
+              "normalized_bbox": {
+                "x": 0.686524,
+                "y": 0.70661,
+                "width": 0.177075,
+                "height": 0.120808
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [
+                {
+                  "code": "AST_UNCONSUMED_TOKENS",
+                  "severity": "warning",
+                  "message": "1 token(s) left over after parsing: 'uparrow'"
+                }
+              ],
+              "raw_formula": "y\\uparrow",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "y"
+              },
+              "unconsumed_tokens": [
+                "uparrow"
+              ]
+            },
+            {
+              "node_id": "p038-vl020-embedded-02",
+              "content_type": "TEXT",
+              "bbox": {
+                "x": 1671.0,
+                "y": 2170.0,
+                "width": 431.0,
+                "height": 371.0
+              },
+              "normalized_bbox": {
+                "x": 0.686524,
+                "y": 0.70661,
+                "width": 0.177075,
+                "height": 0.120808
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_text": "1",
+              "normalized_text": "1",
+              "spans": [
+                {
+                  "span_type": "TEXT",
+                  "text": "1"
+                }
+              ]
+            },
+            {
+              "node_id": "p038-vl020-embedded-03",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 1671.0,
+                "y": 2170.0,
+                "width": 431.0,
+                "height": 371.0
+              },
+              "normalized_bbox": {
+                "x": 0.686524,
+                "y": 0.70661,
+                "width": 0.177075,
+                "height": 0.120808
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_formula": "y",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "y"
+              },
+              "unconsumed_tokens": []
+            },
+            {
+              "node_id": "p038-vl020-embedded-04",
+              "content_type": "TEXT",
+              "bbox": {
+                "x": 1671.0,
+                "y": 2170.0,
+                "width": 431.0,
+                "height": 371.0
+              },
+              "normalized_bbox": {
+                "x": 0.686524,
+                "y": 0.70661,
+                "width": 0.177075,
+                "height": 0.120808
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_text": "1",
+              "normalized_text": "1",
+              "spans": [
+                {
+                  "span_type": "TEXT",
+                  "text": "1"
+                }
+              ]
+            },
+            {
+              "node_id": "p038-vl020-embedded-05",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 1671.0,
+                "y": 2170.0,
+                "width": 431.0,
+                "height": 371.0
+              },
+              "normalized_bbox": {
+                "x": 0.686524,
+                "y": 0.70661,
+                "width": 0.177075,
+                "height": 0.120808
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_formula": "\\theta",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "θ"
+              },
+              "unconsumed_tokens": []
+            },
+            {
+              "node_id": "p038-vl020-embedded-06",
+              "content_type": "TEXT",
+              "bbox": {
+                "x": 1671.0,
+                "y": 2170.0,
+                "width": 431.0,
+                "height": 371.0
+              },
+              "normalized_bbox": {
+                "x": 0.686524,
+                "y": 0.70661,
+                "width": 0.177075,
+                "height": 0.120808
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_text": "-1\nO\nx\n1\nP(x, y)",
+              "normalized_text": "-1\nO\nx\n1\nP(x, y)",
+              "spans": [
+                {
+                  "span_type": "TEXT",
+                  "text": "-1\nO\nx\n1\nP(x, y)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "node_id": "p038-vl021",
+          "bbox": {
+            "x": 125.0,
+            "y": 2912.0,
+            "width": 48.0,
+            "height": 42.0
+          },
+          "normalized_bbox": {
+            "x": 0.051356,
+            "y": 0.948225,
+            "width": 0.019721,
+            "height": 0.013676
+          },
+          "reading_order_index": 20,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "number",
+            "vl_block_id": 20
+          },
+          "content_type": "TEXT",
+          "raw_text": "38",
+          "normalized_text": "38",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "38"
+            }
+          ]
+        },
+        {
+          "node_id": "p038-vl022",
+          "bbox": {
+            "x": 199.0,
+            "y": 2913.0,
+            "width": 385.0,
+            "height": 37.0
+          },
+          "normalized_bbox": {
+            "x": 0.081758,
+            "y": 0.948551,
+            "width": 0.158176,
+            "height": 0.012048
+          },
+          "reading_order_index": 21,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "footer",
+            "vl_block_id": 21
+          },
+          "content_type": "TEXT",
+          "raw_text": "2027학년도 EBS 수능특강 수학 I",
+          "normalized_text": "2027학년도 EBS 수능특강 수학 I",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "2027학년도 EBS 수능특강 수학 I"
+            }
+          ]
+        }
+      ],
+      "reading_order": [
+        "p038-vl001",
+        "p038-vl002",
+        "p038-vl003",
+        "p038-vl004",
+        "p038-vl005",
+        "p038-vl006",
+        "p038-vl007",
+        "p038-vl008",
+        "p038-vl009",
+        "p038-vl010",
+        "p038-vl011",
+        "p038-vl012",
+        "p038-vl013",
+        "p038-vl014",
+        "p038-vl015",
+        "p038-vl016",
+        "p038-vl017",
+        "p038-vl018",
+        "p038-vl019",
+        "p038-vl020",
+        "p038-vl021",
+        "p038-vl022"
+      ],
+      "parse_issues": [],
+      "quality_report": {
+        "status": "PASS_WITH_CORRECTION",
+        "issues": []
+      }
+    }
+  ],
+  "validation_summary": {
+    "schema_valid": true,
+    "validation_performed": true,
+    "coordinate_missing_node_count": 0,
+    "reading_order_cycle_count": 0,
+    "invalid_reading_order_ref_count": 0,
+    "missing_reading_order_node_count": 0,
+    "duplicate_node_id_count": 0,
+    "required_field_missing_count": 0,
+    "type_error_count": 0,
+    "bbox_invalid_count": 0,
+    "normalized_bbox_out_of_range_count": 0,
+    "confidence_invalid_count": 0,
+    "reading_order_index_mismatch_count": 0,
+    "invalid_embedded_text_ref_count": 0,
+    "quality_status_invalid_count": 0,
+    "issue_invalid_count": 0,
+    "page_count_mismatch": false,
+    "page_count": 1
+  }
+}

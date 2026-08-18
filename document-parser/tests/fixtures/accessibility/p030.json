@@ -1,0 +1,1934 @@
+{
+  "document_manifest": {
+    "book_id": "ebs-2027-math1",
+    "page_count": 1
+  },
+  "engine_manifest": {
+    "general_ocr": {
+      "engine_id": "paddleocr-vl",
+      "engine_version": "3.7.0"
+    },
+    "pipeline": {
+      "mode": "paddleocr_vl_baseline"
+    },
+    "problem_unit_detection": {
+      "mode": "text_pattern_stem_and_answer_structure",
+      "engine_id": "text-pattern-problem-unit-detector"
+    }
+  },
+  "pages": [
+    {
+      "page_id": "p030",
+      "page_geometry": {
+        "width": 2434,
+        "height": 3071
+      },
+      "nodes": [
+        {
+          "node_id": "p030-vl001",
+          "bbox": {
+            "x": 1890.0,
+            "y": 163.0,
+            "width": 249.0,
+            "height": 41.0
+          },
+          "normalized_bbox": {
+            "x": 0.7765,
+            "y": 0.053077,
+            "width": 0.102301,
+            "height": 0.013351
+          },
+          "reading_order_index": 0,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "header",
+            "vl_block_id": 2
+          },
+          "content_type": "TEXT",
+          "raw_text": "www.ebsi.co.kr",
+          "normalized_text": "www.ebsi.co.kr",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "www.ebsi.co.kr"
+            }
+          ]
+        },
+        {
+          "node_id": "p030-vl002",
+          "bbox": {
+            "x": 467.0,
+            "y": 195.0,
+            "width": 85.0,
+            "height": 102.0
+          },
+          "normalized_bbox": {
+            "x": 0.191865,
+            "y": 0.063497,
+            "width": 0.034922,
+            "height": 0.033214
+          },
+          "reading_order_index": 1,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "header",
+            "vl_block_id": 1
+          },
+          "content_type": "TEXT",
+          "raw_text": "1",
+          "normalized_text": "1",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "1"
+            }
+          ]
+        },
+        {
+          "node_id": "p030-vl003",
+          "bbox": {
+            "x": 612.0,
+            "y": 227.0,
+            "width": 239.0,
+            "height": 71.0
+          },
+          "normalized_bbox": {
+            "x": 0.251438,
+            "y": 0.073917,
+            "width": 0.098192,
+            "height": 0.02312
+          },
+          "reading_order_index": 2,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "header",
+            "vl_block_id": 3
+          },
+          "content_type": "TEXT",
+          "raw_text": "기초 연습",
+          "normalized_text": "기초 연습",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "기초 연습"
+            }
+          ]
+        },
+        {
+          "node_id": "p030-vl004",
+          "bbox": {
+            "x": 274.0,
+            "y": 236.0,
+            "width": 137.0,
+            "height": 56.0
+          },
+          "normalized_bbox": {
+            "x": 0.112572,
+            "y": 0.076848,
+            "width": 0.056286,
+            "height": 0.018235
+          },
+          "reading_order_index": 3,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "header",
+            "vl_block_id": 0
+          },
+          "content_type": "TEXT",
+          "raw_text": "Level",
+          "normalized_text": "Level",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "Level"
+            }
+          ]
+        },
+        {
+          "node_id": "p030-vl005",
+          "bbox": {
+            "x": 381.0,
+            "y": 364.0,
+            "width": 195.0,
+            "height": 40.0
+          },
+          "normalized_bbox": {
+            "x": 0.156532,
+            "y": 0.118528,
+            "width": 0.080115,
+            "height": 0.013025
+          },
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [
+            {
+              "code": "TEXT_EMBEDDED_IN_PROBLEM_UNIT",
+              "severity": "info",
+              "message": "OCR TEXT node is embedded in detected problem unit p030-problem-001 with role 'problem_code'."
+            }
+          ],
+          "layout": {
+            "vl_block_label": "paragraph_title",
+            "vl_block_id": 4,
+            "problem_unit_role": "problem_code",
+            "promoted_into_structure_node_id": "p030-problem-001"
+          },
+          "content_type": "TEXT",
+          "raw_text": "[26008-0042]",
+          "normalized_text": "[26008-0042]",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "[26008-0042]"
+            }
+          ],
+          "is_primary_reading_order_candidate": false,
+          "parent_structure_node_id": "p030-problem-001"
+        },
+        {
+          "node_id": "p030-vl006-L01",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 254.0,
+            "y": 414.0,
+            "width": 1933.0,
+            "height": 262.0
+          },
+          "normalized_bbox": {
+            "x": 0.104355,
+            "y": 0.13481,
+            "width": 0.794166,
+            "height": 0.085314
+          },
+          "bbox_is_estimated": true,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "raw_text": "1 지수함수 $f(x)=2^{-x}$에 대하여 함수 $y=f(x)$의 그래프가 $y$축과 만나는 점을 A, 직선 $x=2$와 만나는 점을 B라 할 때, 선분 AB의 길이는?",
+          "normalized_text": "1 지수함수 $f(x)=2^{-x}$에 대하여 함수 $y=f(x)$의 그래프가 $y$축과 만나는 점을 A, 직선 $x=2$와 만나는 점을 B라 할 때, 선분 AB의 길이는?",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "1 지수함수 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "f(x)=2^{-x}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "FunctionApplication",
+                  "name": "f",
+                  "argument": {
+                    "type": "Parenthesized",
+                    "body": {
+                      "type": "Identifier",
+                      "value": "x"
+                    },
+                    "delimiter": "("
+                  }
+                },
+                "right": {
+                  "type": "Power",
+                  "base": {
+                    "type": "Number",
+                    "value": "2"
+                  },
+                  "exponent": {
+                    "type": "UnaryMinus",
+                    "body": {
+                      "type": "Identifier",
+                      "value": "x"
+                    }
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "에 대하여 함수 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "y=f(x)",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Identifier",
+                  "value": "y"
+                },
+                "right": {
+                  "type": "FunctionApplication",
+                  "name": "f",
+                  "argument": {
+                    "type": "Parenthesized",
+                    "body": {
+                      "type": "Identifier",
+                      "value": "x"
+                    },
+                    "delimiter": "("
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "의 그래프가 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "y",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "y"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "축과 만나는 점을 A, 직선 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "x=2",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Identifier",
+                  "value": "x"
+                },
+                "right": {
+                  "type": "Number",
+                  "value": "2"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "와 만나는 점을 B라 할 때, 선분 AB의 길이는?"
+            }
+          ],
+          "split_from_node_id": "p030-vl006",
+          "issues": [
+            {
+              "code": "TEXT_LINE_SPLIT_FROM_MULTILINE_BLOCK",
+              "severity": "info",
+              "message": "Split from multi-line block p030-vl006 for problem-unit structure detection; bbox is inherited from the parent block, not measured per line."
+            },
+            {
+              "code": "TEXT_EMBEDDED_IN_PROBLEM_UNIT",
+              "severity": "info",
+              "message": "OCR TEXT node is embedded in detected problem unit p030-problem-001 with role 'stem'."
+            }
+          ],
+          "layout": {
+            "problem_unit_role": "stem",
+            "promoted_into_structure_node_id": "p030-problem-001"
+          },
+          "is_primary_reading_order_candidate": false,
+          "parent_structure_node_id": "p030-problem-001"
+        },
+        {
+          "node_id": "p030-vl006-L02",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 254.0,
+            "y": 414.0,
+            "width": 1933.0,
+            "height": 262.0
+          },
+          "normalized_bbox": {
+            "x": 0.104355,
+            "y": 0.13481,
+            "width": 0.794166,
+            "height": 0.085314
+          },
+          "bbox_is_estimated": true,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "raw_text": "①$\\frac{\\sqrt{71}}{4}$ ②$\\frac{3\\sqrt{2}}{2}$ ③$\\frac{\\sqrt{73}}{4}$ ④$\\frac{\\sqrt{74}}{4}$ ⑤$\\frac{5\\sqrt{3}}{4}$",
+          "normalized_text": "①$\\frac{\\sqrt{71}}{4}$ ②$\\frac{3\\sqrt{2}}{2}$ ③$\\frac{\\sqrt{73}}{4}$ ④$\\frac{\\sqrt{74}}{4}$ ⑤$\\frac{5\\sqrt{3}}{4}$",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "①"
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\frac{\\sqrt{71}}{4}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Fraction",
+                "numerator": {
+                  "type": "Radical",
+                  "radicand": {
+                    "type": "Number",
+                    "value": "71"
+                  }
+                },
+                "denominator": {
+                  "type": "Number",
+                  "value": "4"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": " ②"
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\frac{3\\sqrt{2}}{2}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Fraction",
+                "numerator": {
+                  "type": "Row",
+                  "children": [
+                    {
+                      "type": "Number",
+                      "value": "3"
+                    },
+                    {
+                      "type": "Radical",
+                      "radicand": {
+                        "type": "Number",
+                        "value": "2"
+                      }
+                    }
+                  ]
+                },
+                "denominator": {
+                  "type": "Number",
+                  "value": "2"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": " ③"
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\frac{\\sqrt{73}}{4}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Fraction",
+                "numerator": {
+                  "type": "Radical",
+                  "radicand": {
+                    "type": "Number",
+                    "value": "73"
+                  }
+                },
+                "denominator": {
+                  "type": "Number",
+                  "value": "4"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": " ④"
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\frac{\\sqrt{74}}{4}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Fraction",
+                "numerator": {
+                  "type": "Radical",
+                  "radicand": {
+                    "type": "Number",
+                    "value": "74"
+                  }
+                },
+                "denominator": {
+                  "type": "Number",
+                  "value": "4"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": " ⑤"
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\frac{5\\sqrt{3}}{4}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Fraction",
+                "numerator": {
+                  "type": "Row",
+                  "children": [
+                    {
+                      "type": "Number",
+                      "value": "5"
+                    },
+                    {
+                      "type": "Radical",
+                      "radicand": {
+                        "type": "Number",
+                        "value": "3"
+                      }
+                    }
+                  ]
+                },
+                "denominator": {
+                  "type": "Number",
+                  "value": "4"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            }
+          ],
+          "split_from_node_id": "p030-vl006",
+          "issues": [
+            {
+              "code": "TEXT_LINE_SPLIT_FROM_MULTILINE_BLOCK",
+              "severity": "info",
+              "message": "Split from multi-line block p030-vl006 for problem-unit structure detection; bbox is inherited from the parent block, not measured per line."
+            },
+            {
+              "code": "TEXT_EMBEDDED_IN_PROBLEM_UNIT",
+              "severity": "info",
+              "message": "OCR TEXT node is embedded in detected problem unit p030-problem-001 with role 'choices'."
+            }
+          ],
+          "layout": {
+            "problem_unit_role": "choices",
+            "promoted_into_structure_node_id": "p030-problem-001"
+          },
+          "is_primary_reading_order_candidate": false,
+          "parent_structure_node_id": "p030-problem-001"
+        },
+        {
+          "node_id": "p030-vl007",
+          "bbox": {
+            "x": 381.0,
+            "y": 979.0,
+            "width": 195.0,
+            "height": 43.0
+          },
+          "normalized_bbox": {
+            "x": 0.156532,
+            "y": 0.318789,
+            "width": 0.080115,
+            "height": 0.014002
+          },
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [
+            {
+              "code": "TEXT_EMBEDDED_IN_PROBLEM_UNIT",
+              "severity": "info",
+              "message": "OCR TEXT node is embedded in detected problem unit p030-problem-002 with role 'problem_code'."
+            }
+          ],
+          "layout": {
+            "vl_block_label": "paragraph_title",
+            "vl_block_id": 6,
+            "problem_unit_role": "problem_code",
+            "promoted_into_structure_node_id": "p030-problem-002"
+          },
+          "content_type": "TEXT",
+          "raw_text": "[26008-0043]",
+          "normalized_text": "[26008-0043]",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "[26008-0043]"
+            }
+          ],
+          "is_primary_reading_order_candidate": false,
+          "parent_structure_node_id": "p030-problem-002"
+        },
+        {
+          "node_id": "p030-vl008-L01",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 244.0,
+            "y": 1026.0,
+            "width": 1675.0,
+            "height": 156.0
+          },
+          "normalized_bbox": {
+            "x": 0.100247,
+            "y": 0.334093,
+            "width": 0.688168,
+            "height": 0.050798
+          },
+          "bbox_is_estimated": true,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "raw_text": "2 지수함수  $ f(x)=(-a^2+6a-4)^x $이  $ x>0 $에서  $ f(x)>1 $일 때, 모든 정수  $ a $의 값의 합은?",
+          "normalized_text": "2 지수함수  $ f(x)=(-a^2+6a-4)^x $이  $ x>0 $에서  $ f(x)>1 $일 때, 모든 정수  $ a $의 값의 합은?",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "2 지수함수  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "f(x)=(-a^2+6a-4)^x",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "FunctionApplication",
+                  "name": "f",
+                  "argument": {
+                    "type": "Parenthesized",
+                    "body": {
+                      "type": "Identifier",
+                      "value": "x"
+                    },
+                    "delimiter": "("
+                  }
+                },
+                "right": {
+                  "type": "Power",
+                  "base": {
+                    "type": "Parenthesized",
+                    "body": {
+                      "type": "Operator",
+                      "operator": "-",
+                      "left": {
+                        "type": "Operator",
+                        "operator": "+",
+                        "left": {
+                          "type": "UnaryMinus",
+                          "body": {
+                            "type": "Power",
+                            "base": {
+                              "type": "Identifier",
+                              "value": "a"
+                            },
+                            "exponent": {
+                              "type": "Number",
+                              "value": "2"
+                            }
+                          }
+                        },
+                        "right": {
+                          "type": "Row",
+                          "children": [
+                            {
+                              "type": "Number",
+                              "value": "6"
+                            },
+                            {
+                              "type": "Identifier",
+                              "value": "a"
+                            }
+                          ]
+                        }
+                      },
+                      "right": {
+                        "type": "Number",
+                        "value": "4"
+                      }
+                    },
+                    "delimiter": "("
+                  },
+                  "exponent": {
+                    "type": "Identifier",
+                    "value": "x"
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "이  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "x>0",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": ">",
+                "left": {
+                  "type": "Identifier",
+                  "value": "x"
+                },
+                "right": {
+                  "type": "Number",
+                  "value": "0"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "에서  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "f(x)>1",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": ">",
+                "left": {
+                  "type": "FunctionApplication",
+                  "name": "f",
+                  "argument": {
+                    "type": "Parenthesized",
+                    "body": {
+                      "type": "Identifier",
+                      "value": "x"
+                    },
+                    "delimiter": "("
+                  }
+                },
+                "right": {
+                  "type": "Number",
+                  "value": "1"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "일 때, 모든 정수  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "a",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "a"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "의 값의 합은?"
+            }
+          ],
+          "split_from_node_id": "p030-vl008",
+          "issues": [
+            {
+              "code": "TEXT_LINE_SPLIT_FROM_MULTILINE_BLOCK",
+              "severity": "info",
+              "message": "Split from multi-line block p030-vl008 for problem-unit structure detection; bbox is inherited from the parent block, not measured per line."
+            },
+            {
+              "code": "TEXT_EMBEDDED_IN_PROBLEM_UNIT",
+              "severity": "info",
+              "message": "OCR TEXT node is embedded in detected problem unit p030-problem-002 with role 'stem'."
+            }
+          ],
+          "layout": {
+            "problem_unit_role": "stem",
+            "promoted_into_structure_node_id": "p030-problem-002"
+          },
+          "is_primary_reading_order_candidate": false,
+          "parent_structure_node_id": "p030-problem-002"
+        },
+        {
+          "node_id": "p030-vl008-L02",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 244.0,
+            "y": 1026.0,
+            "width": 1675.0,
+            "height": 156.0
+          },
+          "normalized_bbox": {
+            "x": 0.100247,
+            "y": 0.334093,
+            "width": 0.688168,
+            "height": 0.050798
+          },
+          "bbox_is_estimated": true,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "raw_text": "① 6 ② 7 ③ 8 ④ 9 ⑤ 10",
+          "normalized_text": "① 6 ② 7 ③ 8 ④ 9 ⑤ 10",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "① 6 ② 7 ③ 8 ④ 9 ⑤ 10"
+            }
+          ],
+          "split_from_node_id": "p030-vl008",
+          "issues": [
+            {
+              "code": "TEXT_LINE_SPLIT_FROM_MULTILINE_BLOCK",
+              "severity": "info",
+              "message": "Split from multi-line block p030-vl008 for problem-unit structure detection; bbox is inherited from the parent block, not measured per line."
+            },
+            {
+              "code": "TEXT_EMBEDDED_IN_PROBLEM_UNIT",
+              "severity": "info",
+              "message": "OCR TEXT node is embedded in detected problem unit p030-problem-002 with role 'choices'."
+            }
+          ],
+          "layout": {
+            "problem_unit_role": "choices",
+            "promoted_into_structure_node_id": "p030-problem-002"
+          },
+          "is_primary_reading_order_candidate": false,
+          "parent_structure_node_id": "p030-problem-002"
+        },
+        {
+          "node_id": "p030-vl009",
+          "bbox": {
+            "x": 380.0,
+            "y": 1465.0,
+            "width": 197.0,
+            "height": 43.0
+          },
+          "normalized_bbox": {
+            "x": 0.156122,
+            "y": 0.477043,
+            "width": 0.080937,
+            "height": 0.014002
+          },
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [
+            {
+              "code": "TEXT_EMBEDDED_IN_PROBLEM_UNIT",
+              "severity": "info",
+              "message": "OCR TEXT node is embedded in detected problem unit p030-problem-003 with role 'problem_code'."
+            }
+          ],
+          "layout": {
+            "vl_block_label": "paragraph_title",
+            "vl_block_id": 8,
+            "problem_unit_role": "problem_code",
+            "promoted_into_structure_node_id": "p030-problem-003"
+          },
+          "content_type": "TEXT",
+          "raw_text": "[26008-0044]",
+          "normalized_text": "[26008-0044]",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "[26008-0044]"
+            }
+          ],
+          "is_primary_reading_order_candidate": false,
+          "parent_structure_node_id": "p030-problem-003"
+        },
+        {
+          "node_id": "p030-vl010-L01",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 246.0,
+            "y": 1530.0,
+            "width": 1935.0,
+            "height": 280.0
+          },
+          "normalized_bbox": {
+            "x": 0.101068,
+            "y": 0.498209,
+            "width": 0.794988,
+            "height": 0.091176
+          },
+          "bbox_is_estimated": true,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "raw_text": "3 두 함수 $f(x)=2^x$, $g(x)=3^{-x}$에 대하여 함수 $h(x)=\\frac{f(x)}{g(x)}$ 라 하자. $-2\\leq x\\leq 1$에서 함수 $h(x)$의 최댓값을 $M$, 최솟값을 $m$이라 할 때, $M\\times m$의 값은?",
+          "normalized_text": "3 두 함수 $f(x)=2^x$, $g(x)=3^{-x}$에 대하여 함수 $h(x)=\\frac{f(x)}{g(x)}$ 라 하자. $-2\\leq x\\leq 1$에서 함수 $h(x)$의 최댓값을 $M$, 최솟값을 $m$이라 할 때, $M\\times m$의 값은?",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "3 두 함수 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "f(x)=2^x",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "FunctionApplication",
+                  "name": "f",
+                  "argument": {
+                    "type": "Parenthesized",
+                    "body": {
+                      "type": "Identifier",
+                      "value": "x"
+                    },
+                    "delimiter": "("
+                  }
+                },
+                "right": {
+                  "type": "Power",
+                  "base": {
+                    "type": "Number",
+                    "value": "2"
+                  },
+                  "exponent": {
+                    "type": "Identifier",
+                    "value": "x"
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": ", "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "g(x)=3^{-x}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "FunctionApplication",
+                  "name": "g",
+                  "argument": {
+                    "type": "Parenthesized",
+                    "body": {
+                      "type": "Identifier",
+                      "value": "x"
+                    },
+                    "delimiter": "("
+                  }
+                },
+                "right": {
+                  "type": "Power",
+                  "base": {
+                    "type": "Number",
+                    "value": "3"
+                  },
+                  "exponent": {
+                    "type": "UnaryMinus",
+                    "body": {
+                      "type": "Identifier",
+                      "value": "x"
+                    }
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "에 대하여 함수 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "h(x)=\\frac{f(x)}{g(x)}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "FunctionApplication",
+                  "name": "h",
+                  "argument": {
+                    "type": "Parenthesized",
+                    "body": {
+                      "type": "Identifier",
+                      "value": "x"
+                    },
+                    "delimiter": "("
+                  }
+                },
+                "right": {
+                  "type": "Fraction",
+                  "numerator": {
+                    "type": "FunctionApplication",
+                    "name": "f",
+                    "argument": {
+                      "type": "Parenthesized",
+                      "body": {
+                        "type": "Identifier",
+                        "value": "x"
+                      },
+                      "delimiter": "("
+                    }
+                  },
+                  "denominator": {
+                    "type": "FunctionApplication",
+                    "name": "g",
+                    "argument": {
+                      "type": "Parenthesized",
+                      "body": {
+                        "type": "Identifier",
+                        "value": "x"
+                      },
+                      "delimiter": "("
+                    }
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": " 라 하자. "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "-2\\leq x\\leq 1",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "≤",
+                "left": {
+                  "type": "Relation",
+                  "operator": "≤",
+                  "left": {
+                    "type": "UnaryMinus",
+                    "body": {
+                      "type": "Number",
+                      "value": "2"
+                    }
+                  },
+                  "right": {
+                    "type": "Identifier",
+                    "value": "x"
+                  }
+                },
+                "right": {
+                  "type": "Number",
+                  "value": "1"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "에서 함수 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "h(x)",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "FunctionApplication",
+                "name": "h",
+                "argument": {
+                  "type": "Parenthesized",
+                  "body": {
+                    "type": "Identifier",
+                    "value": "x"
+                  },
+                  "delimiter": "("
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "의 최댓값을 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "M",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "M"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": ", 최솟값을 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "m",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "m"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "이라 할 때, "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "M\\times m",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Row",
+                "children": [
+                  {
+                    "type": "Identifier",
+                    "value": "M"
+                  },
+                  {
+                    "type": "Identifier",
+                    "value": "m"
+                  }
+                ]
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "의 값은?"
+            }
+          ],
+          "split_from_node_id": "p030-vl010",
+          "issues": [
+            {
+              "code": "TEXT_LINE_SPLIT_FROM_MULTILINE_BLOCK",
+              "severity": "info",
+              "message": "Split from multi-line block p030-vl010 for problem-unit structure detection; bbox is inherited from the parent block, not measured per line."
+            },
+            {
+              "code": "TEXT_EMBEDDED_IN_PROBLEM_UNIT",
+              "severity": "info",
+              "message": "OCR TEXT node is embedded in detected problem unit p030-problem-003 with role 'stem'."
+            }
+          ],
+          "layout": {
+            "problem_unit_role": "stem",
+            "promoted_into_structure_node_id": "p030-problem-003"
+          },
+          "is_primary_reading_order_candidate": false,
+          "parent_structure_node_id": "p030-problem-003"
+        },
+        {
+          "node_id": "p030-vl010-L02",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 246.0,
+            "y": 1530.0,
+            "width": 1935.0,
+            "height": 280.0
+          },
+          "normalized_bbox": {
+            "x": 0.101068,
+            "y": 0.498209,
+            "width": 0.794988,
+            "height": 0.091176
+          },
+          "bbox_is_estimated": true,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "raw_text": "① $\\frac{1}{36}$ ② $\\frac{1}{6}$ ③ $1$ ④ $6$ ⑤ $36$",
+          "normalized_text": "① $\\frac{1}{36}$ ② $\\frac{1}{6}$ ③ $1$ ④ $6$ ⑤ $36$",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "① "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\frac{1}{36}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Fraction",
+                "numerator": {
+                  "type": "Number",
+                  "value": "1"
+                },
+                "denominator": {
+                  "type": "Number",
+                  "value": "36"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": " ② "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\frac{1}{6}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Fraction",
+                "numerator": {
+                  "type": "Number",
+                  "value": "1"
+                },
+                "denominator": {
+                  "type": "Number",
+                  "value": "6"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": " ③ "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "1",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Number",
+                "value": "1"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": " ④ "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "6",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Number",
+                "value": "6"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": " ⑤ "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "36",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Number",
+                "value": "36"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            }
+          ],
+          "split_from_node_id": "p030-vl010",
+          "issues": [
+            {
+              "code": "TEXT_LINE_SPLIT_FROM_MULTILINE_BLOCK",
+              "severity": "info",
+              "message": "Split from multi-line block p030-vl010 for problem-unit structure detection; bbox is inherited from the parent block, not measured per line."
+            },
+            {
+              "code": "TEXT_EMBEDDED_IN_PROBLEM_UNIT",
+              "severity": "info",
+              "message": "OCR TEXT node is embedded in detected problem unit p030-problem-003 with role 'choices'."
+            }
+          ],
+          "layout": {
+            "problem_unit_role": "choices",
+            "promoted_into_structure_node_id": "p030-problem-003"
+          },
+          "is_primary_reading_order_candidate": false,
+          "parent_structure_node_id": "p030-problem-003"
+        },
+        {
+          "node_id": "p030-vl011",
+          "bbox": {
+            "x": 382.0,
+            "y": 2110.0,
+            "width": 197.0,
+            "height": 44.0
+          },
+          "normalized_bbox": {
+            "x": 0.156943,
+            "y": 0.687073,
+            "width": 0.080937,
+            "height": 0.014328
+          },
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [
+            {
+              "code": "TEXT_EMBEDDED_IN_PROBLEM_UNIT",
+              "severity": "info",
+              "message": "OCR TEXT node is embedded in detected problem unit p030-problem-004 with role 'problem_code'."
+            }
+          ],
+          "layout": {
+            "vl_block_label": "paragraph_title",
+            "vl_block_id": 10,
+            "problem_unit_role": "problem_code",
+            "promoted_into_structure_node_id": "p030-problem-004"
+          },
+          "content_type": "TEXT",
+          "raw_text": "[26008-0045]",
+          "normalized_text": "[26008-0045]",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "[26008-0045]"
+            }
+          ],
+          "is_primary_reading_order_candidate": false,
+          "parent_structure_node_id": "p030-problem-004"
+        },
+        {
+          "node_id": "p030-vl012-L01",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 249.0,
+            "y": 2161.0,
+            "width": 1931.0,
+            "height": 333.0
+          },
+          "normalized_bbox": {
+            "x": 0.102301,
+            "y": 0.70368,
+            "width": 0.793344,
+            "height": 0.108434
+          },
+          "bbox_is_estimated": true,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "raw_text": "4 직선 y=m이 함수 f(x)=2^{x-3}+2의 그래프와 만나지 않도록 하는 정수 m의 최앗값을 k라 하자. 함수 y=f(x)의 그래프를 x축의 방향으로 k만큼, y축의 방향으로 -2k만큼 평행이동한 함수의 그래프를 나타내는 식이 y=g(x)일 때, g(k)의 값은?",
+          "normalized_text": "4 직선 y=m이 함수 f(x)=2^{x-3}+2의 그래프와 만나지 않도록 하는 정수 m의 최앗값을 k라 하자. 함수 y=f(x)의 그래프를 x축의 방향으로 k만큼, y축의 방향으로 -2k만큼 평행이동한 함수의 그래프를 나타내는 식이 y=g(x)일 때, g(k)의 값은?",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "4 직선 y=m이 함수 f(x)=2^{x-3}+2의 그래프와 만나지 않도록 하는 정수 m의 최앗값을 k라 하자. 함수 y=f(x)의 그래프를 x축의 방향으로 k만큼, y축의 방향으로 -2k만큼 평행이동한 함수의 그래프를 나타내는 식이 y=g(x)일 때, g(k)의 값은?"
+            }
+          ],
+          "split_from_node_id": "p030-vl012",
+          "issues": [
+            {
+              "code": "TEXT_LINE_SPLIT_FROM_MULTILINE_BLOCK",
+              "severity": "info",
+              "message": "Split from multi-line block p030-vl012 for problem-unit structure detection; bbox is inherited from the parent block, not measured per line."
+            },
+            {
+              "code": "TEXT_EMBEDDED_IN_PROBLEM_UNIT",
+              "severity": "info",
+              "message": "OCR TEXT node is embedded in detected problem unit p030-problem-004 with role 'stem'."
+            }
+          ],
+          "layout": {
+            "problem_unit_role": "stem",
+            "promoted_into_structure_node_id": "p030-problem-004"
+          },
+          "is_primary_reading_order_candidate": false,
+          "parent_structure_node_id": "p030-problem-004"
+        },
+        {
+          "node_id": "p030-vl012-L02",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 249.0,
+            "y": 2161.0,
+            "width": 1931.0,
+            "height": 333.0
+          },
+          "normalized_bbox": {
+            "x": 0.102301,
+            "y": 0.70368,
+            "width": 0.793344,
+            "height": 0.108434
+          },
+          "bbox_is_estimated": true,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "raw_text": "① $ -\\frac{11}{8} $ ② $ -\\frac{3}{2} $ ③ $ -\\frac{13}{8} $ ④ $ -\\frac{7}{4} $ ⑤ $ -\\frac{15}{8} $",
+          "normalized_text": "① $ -\\frac{11}{8} $ ② $ -\\frac{3}{2} $ ③ $ -\\frac{13}{8} $ ④ $ -\\frac{7}{4} $ ⑤ $ -\\frac{15}{8} $",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "① "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "-\\frac{11}{8}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "UnaryMinus",
+                "body": {
+                  "type": "Fraction",
+                  "numerator": {
+                    "type": "Number",
+                    "value": "11"
+                  },
+                  "denominator": {
+                    "type": "Number",
+                    "value": "8"
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": " ② "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "-\\frac{3}{2}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "UnaryMinus",
+                "body": {
+                  "type": "Fraction",
+                  "numerator": {
+                    "type": "Number",
+                    "value": "3"
+                  },
+                  "denominator": {
+                    "type": "Number",
+                    "value": "2"
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": " ③ "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "-\\frac{13}{8}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "UnaryMinus",
+                "body": {
+                  "type": "Fraction",
+                  "numerator": {
+                    "type": "Number",
+                    "value": "13"
+                  },
+                  "denominator": {
+                    "type": "Number",
+                    "value": "8"
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": " ④ "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "-\\frac{7}{4}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "UnaryMinus",
+                "body": {
+                  "type": "Fraction",
+                  "numerator": {
+                    "type": "Number",
+                    "value": "7"
+                  },
+                  "denominator": {
+                    "type": "Number",
+                    "value": "4"
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": " ⑤ "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "-\\frac{15}{8}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "UnaryMinus",
+                "body": {
+                  "type": "Fraction",
+                  "numerator": {
+                    "type": "Number",
+                    "value": "15"
+                  },
+                  "denominator": {
+                    "type": "Number",
+                    "value": "8"
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            }
+          ],
+          "split_from_node_id": "p030-vl012",
+          "issues": [
+            {
+              "code": "TEXT_LINE_SPLIT_FROM_MULTILINE_BLOCK",
+              "severity": "info",
+              "message": "Split from multi-line block p030-vl012 for problem-unit structure detection; bbox is inherited from the parent block, not measured per line."
+            },
+            {
+              "code": "TEXT_EMBEDDED_IN_PROBLEM_UNIT",
+              "severity": "info",
+              "message": "OCR TEXT node is embedded in detected problem unit p030-problem-004 with role 'choices'."
+            }
+          ],
+          "layout": {
+            "problem_unit_role": "choices",
+            "promoted_into_structure_node_id": "p030-problem-004"
+          },
+          "is_primary_reading_order_candidate": false,
+          "parent_structure_node_id": "p030-problem-004"
+        },
+        {
+          "node_id": "p030-vl013",
+          "bbox": {
+            "x": 125.0,
+            "y": 2912.0,
+            "width": 49.0,
+            "height": 42.0
+          },
+          "normalized_bbox": {
+            "x": 0.051356,
+            "y": 0.948225,
+            "width": 0.020131,
+            "height": 0.013676
+          },
+          "reading_order_index": 8,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "number",
+            "vl_block_id": 12
+          },
+          "content_type": "TEXT",
+          "raw_text": "30",
+          "normalized_text": "30",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "30"
+            }
+          ]
+        },
+        {
+          "node_id": "p030-vl014",
+          "bbox": {
+            "x": 199.0,
+            "y": 2912.0,
+            "width": 386.0,
+            "height": 39.0
+          },
+          "normalized_bbox": {
+            "x": 0.081758,
+            "y": 0.948225,
+            "width": 0.158587,
+            "height": 0.012699
+          },
+          "reading_order_index": 9,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "footer",
+            "vl_block_id": 13
+          },
+          "content_type": "TEXT",
+          "raw_text": "2027학년도 EBS 수능특강 수학 I",
+          "normalized_text": "2027학년도 EBS 수능특강 수학 I",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "2027학년도 EBS 수능특강 수학 I"
+            }
+          ]
+        },
+        {
+          "node_id": "p030-problem-001",
+          "content_type": "UNKNOWN",
+          "bbox": {
+            "x": 254.0,
+            "y": 364.0,
+            "width": 1933.0,
+            "height": 312.0
+          },
+          "normalized_bbox": {
+            "x": 0.104355,
+            "y": 0.118528,
+            "width": 0.794166,
+            "height": 0.101596
+          },
+          "reading_order_index": 4,
+          "confidence": 1.0,
+          "source_engine": "text-pattern-problem-unit-detector",
+          "issues": [
+            {
+              "code": "PROBLEM_UNIT_DETECTED",
+              "severity": "info",
+              "message": "Text-pattern evidence (stem start marker + answer structure) indicates a problem unit."
+            }
+          ],
+          "embedded_text_nodes": [
+            "p030-vl005",
+            "p030-vl006-L01",
+            "p030-vl006-L02"
+          ],
+          "layout": {
+            "structure_label": "PROBLEM_UNIT",
+            "is_problem_unit": true,
+            "problem_start_kind": "code",
+            "problem_marker_node_id": "p030-vl005",
+            "answer_structure_type": "choices",
+            "stem_node_ids": [
+              "p030-vl006-L01"
+            ],
+            "stem_text": "1 지수함수 $f(x)=2^{-x}$에 대하여 함수 $y=f(x)$의 그래프가 $y$축과 만나는 점을 A, 직선 $x=2$와 만나는 점을 B라 할 때, 선분 AB의 길이는?",
+            "condition_node_ids": [],
+            "condition_items": [],
+            "bogi_node_ids": [],
+            "bogi_items": [],
+            "choice_node_id": "p030-vl006-L02",
+            "choice_node_ids": [
+              "p030-vl006-L02"
+            ],
+            "choice_raw_text": "①$\\frac{\\sqrt{71}}{4}$ ②$\\frac{3\\sqrt{2}}{2}$ ③$\\frac{\\sqrt{73}}{4}$ ④$\\frac{\\sqrt{74}}{4}$ ⑤$\\frac{5\\sqrt{3}}{4}$",
+            "choice_options": [
+              {
+                "label": "①",
+                "text": "$\\frac{\\sqrt{71}}{4}$"
+              },
+              {
+                "label": "②",
+                "text": "$\\frac{3\\sqrt{2}}{2}$"
+              },
+              {
+                "label": "③",
+                "text": "$\\frac{\\sqrt{73}}{4}$"
+              },
+              {
+                "label": "④",
+                "text": "$\\frac{\\sqrt{74}}{4}$"
+              },
+              {
+                "label": "⑤",
+                "text": "$\\frac{5\\sqrt{3}}{4}$"
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p030-problem-002",
+          "content_type": "UNKNOWN",
+          "bbox": {
+            "x": 244.0,
+            "y": 979.0,
+            "width": 1675.0,
+            "height": 203.0
+          },
+          "normalized_bbox": {
+            "x": 0.100247,
+            "y": 0.318789,
+            "width": 0.688168,
+            "height": 0.066102
+          },
+          "reading_order_index": 5,
+          "confidence": 1.0,
+          "source_engine": "text-pattern-problem-unit-detector",
+          "issues": [
+            {
+              "code": "PROBLEM_UNIT_DETECTED",
+              "severity": "info",
+              "message": "Text-pattern evidence (stem start marker + answer structure) indicates a problem unit."
+            }
+          ],
+          "embedded_text_nodes": [
+            "p030-vl007",
+            "p030-vl008-L01",
+            "p030-vl008-L02"
+          ],
+          "layout": {
+            "structure_label": "PROBLEM_UNIT",
+            "is_problem_unit": true,
+            "problem_start_kind": "code",
+            "problem_marker_node_id": "p030-vl007",
+            "answer_structure_type": "choices",
+            "stem_node_ids": [
+              "p030-vl008-L01"
+            ],
+            "stem_text": "2 지수함수  $ f(x)=(-a^2+6a-4)^x $이  $ x>0 $에서  $ f(x)>1 $일 때, 모든 정수  $ a $의 값의 합은?",
+            "condition_node_ids": [],
+            "condition_items": [],
+            "bogi_node_ids": [],
+            "bogi_items": [],
+            "choice_node_id": "p030-vl008-L02",
+            "choice_node_ids": [
+              "p030-vl008-L02"
+            ],
+            "choice_raw_text": "① 6 ② 7 ③ 8 ④ 9 ⑤ 10",
+            "choice_options": [
+              {
+                "label": "①",
+                "text": "6"
+              },
+              {
+                "label": "②",
+                "text": "7"
+              },
+              {
+                "label": "③",
+                "text": "8"
+              },
+              {
+                "label": "④",
+                "text": "9"
+              },
+              {
+                "label": "⑤",
+                "text": "10"
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p030-problem-003",
+          "content_type": "UNKNOWN",
+          "bbox": {
+            "x": 246.0,
+            "y": 1465.0,
+            "width": 1935.0,
+            "height": 345.0
+          },
+          "normalized_bbox": {
+            "x": 0.101068,
+            "y": 0.477043,
+            "width": 0.794988,
+            "height": 0.112341
+          },
+          "reading_order_index": 6,
+          "confidence": 1.0,
+          "source_engine": "text-pattern-problem-unit-detector",
+          "issues": [
+            {
+              "code": "PROBLEM_UNIT_DETECTED",
+              "severity": "info",
+              "message": "Text-pattern evidence (stem start marker + answer structure) indicates a problem unit."
+            }
+          ],
+          "embedded_text_nodes": [
+            "p030-vl009",
+            "p030-vl010-L01",
+            "p030-vl010-L02"
+          ],
+          "layout": {
+            "structure_label": "PROBLEM_UNIT",
+            "is_problem_unit": true,
+            "problem_start_kind": "code",
+            "problem_marker_node_id": "p030-vl009",
+            "answer_structure_type": "choices",
+            "stem_node_ids": [
+              "p030-vl010-L01"
+            ],
+            "stem_text": "3 두 함수 $f(x)=2^x$, $g(x)=3^{-x}$에 대하여 함수 $h(x)=\\frac{f(x)}{g(x)}$ 라 하자. $-2\\leq x\\leq 1$에서 함수 $h(x)$의 최댓값을 $M$, 최솟값을 $m$이라 할 때, $M\\times m$의 값은?",
+            "condition_node_ids": [],
+            "condition_items": [],
+            "bogi_node_ids": [],
+            "bogi_items": [],
+            "choice_node_id": "p030-vl010-L02",
+            "choice_node_ids": [
+              "p030-vl010-L02"
+            ],
+            "choice_raw_text": "① $\\frac{1}{36}$ ② $\\frac{1}{6}$ ③ $1$ ④ $6$ ⑤ $36$",
+            "choice_options": [
+              {
+                "label": "①",
+                "text": "$\\frac{1}{36}$"
+              },
+              {
+                "label": "②",
+                "text": "$\\frac{1}{6}$"
+              },
+              {
+                "label": "③",
+                "text": "$1$"
+              },
+              {
+                "label": "④",
+                "text": "$6$"
+              },
+              {
+                "label": "⑤",
+                "text": "$36$"
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p030-problem-004",
+          "content_type": "UNKNOWN",
+          "bbox": {
+            "x": 249.0,
+            "y": 2110.0,
+            "width": 1931.0,
+            "height": 384.0
+          },
+          "normalized_bbox": {
+            "x": 0.102301,
+            "y": 0.687073,
+            "width": 0.793344,
+            "height": 0.125041
+          },
+          "reading_order_index": 7,
+          "confidence": 1.0,
+          "source_engine": "text-pattern-problem-unit-detector",
+          "issues": [
+            {
+              "code": "PROBLEM_UNIT_DETECTED",
+              "severity": "info",
+              "message": "Text-pattern evidence (stem start marker + answer structure) indicates a problem unit."
+            }
+          ],
+          "embedded_text_nodes": [
+            "p030-vl011",
+            "p030-vl012-L01",
+            "p030-vl012-L02"
+          ],
+          "layout": {
+            "structure_label": "PROBLEM_UNIT",
+            "is_problem_unit": true,
+            "problem_start_kind": "code",
+            "problem_marker_node_id": "p030-vl011",
+            "answer_structure_type": "choices",
+            "stem_node_ids": [
+              "p030-vl012-L01"
+            ],
+            "stem_text": "4 직선 y=m이 함수 f(x)=2^{x-3}+2의 그래프와 만나지 않도록 하는 정수 m의 최앗값을 k라 하자. 함수 y=f(x)의 그래프를 x축의 방향으로 k만큼, y축의 방향으로 -2k만큼 평행이동한 함수의 그래프를 나타내는 식이 y=g(x)일 때, g(k)의 값은?",
+            "condition_node_ids": [],
+            "condition_items": [],
+            "bogi_node_ids": [],
+            "bogi_items": [],
+            "choice_node_id": "p030-vl012-L02",
+            "choice_node_ids": [
+              "p030-vl012-L02"
+            ],
+            "choice_raw_text": "① $ -\\frac{11}{8} $ ② $ -\\frac{3}{2} $ ③ $ -\\frac{13}{8} $ ④ $ -\\frac{7}{4} $ ⑤ $ -\\frac{15}{8} $",
+            "choice_options": [
+              {
+                "label": "①",
+                "text": "$ -\\frac{11}{8} $"
+              },
+              {
+                "label": "②",
+                "text": "$ -\\frac{3}{2} $"
+              },
+              {
+                "label": "③",
+                "text": "$ -\\frac{13}{8} $"
+              },
+              {
+                "label": "④",
+                "text": "$ -\\frac{7}{4} $"
+              },
+              {
+                "label": "⑤",
+                "text": "$ -\\frac{15}{8} $"
+              }
+            ]
+          }
+        }
+      ],
+      "reading_order": [
+        "p030-vl001",
+        "p030-vl002",
+        "p030-vl003",
+        "p030-vl004",
+        "p030-problem-001",
+        "p030-problem-002",
+        "p030-problem-003",
+        "p030-problem-004",
+        "p030-vl013",
+        "p030-vl014"
+      ],
+      "parse_issues": [
+        {
+          "code": "PROBLEM_UNITS_DETECTED",
+          "severity": "info",
+          "message": "4 problem units were detected and promoted into primary reading order."
+        }
+      ],
+      "quality_report": {
+        "status": "PASS_WITH_CORRECTION",
+        "issues": []
+      }
+    }
+  ],
+  "validation_summary": {
+    "schema_valid": true,
+    "validation_performed": true,
+    "coordinate_missing_node_count": 0,
+    "reading_order_cycle_count": 0,
+    "invalid_reading_order_ref_count": 0,
+    "missing_reading_order_node_count": 0,
+    "duplicate_node_id_count": 0,
+    "required_field_missing_count": 0,
+    "type_error_count": 0,
+    "bbox_invalid_count": 0,
+    "normalized_bbox_out_of_range_count": 0,
+    "confidence_invalid_count": 0,
+    "reading_order_index_mismatch_count": 0,
+    "invalid_embedded_text_ref_count": 0,
+    "quality_status_invalid_count": 0,
+    "issue_invalid_count": 0,
+    "page_count_mismatch": false,
+    "page_count": 1
+  }
+}

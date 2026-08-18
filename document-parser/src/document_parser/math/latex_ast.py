@@ -47,7 +47,14 @@ MULT_DISPLAY = {"\\times": "×", "\\cdot": "·", "\\div": "÷"}
 SKIP_COMMANDS = {"quad", "qquad", "!", ",", ";", ":", "left", "right", "displaystyle", "textstyle"}
 
 TOKEN_PATTERN = re.compile(
-    r"\\[a-zA-Z]+"       # LaTeX command
+    r"\\\\"              # LaTeX row break (two literal backslashes) -- must
+                          # be checked before the \command alternative below,
+                          # otherwise a row break immediately followed by a
+                          # letter (e.g. "...\\\\b(x-1)", common in \cases
+                          # bodies) greedily matches as a bogus one-letter
+                          # command "\b" instead of two separate row-break
+                          # backslash tokens.
+    r"|\\[a-zA-Z]+"       # LaTeX command
     r"|\d+\.\d+|\d+"     # number
     r"|[a-zA-Z]"         # single-letter identifier
     r"|\s+"              # whitespace (skipped)
@@ -90,7 +97,13 @@ def tokenize(raw_latex: str) -> list[Token]:
         text = match.group(0)
         if text.strip() == "":
             continue
-        if text.startswith("\\") and len(text) > 1:
+        if text == "\\\\":
+            # Row break: split into the two single-backslash `char` tokens the
+            # rest of the parser (`_at_row_break`) expects, rather than one
+            # 2-char token -- keeps every downstream consumer unchanged.
+            tokens.append(Token("char", "\\"))
+            tokens.append(Token("char", "\\"))
+        elif text.startswith("\\") and len(text) > 1:
             # A real \command always has >=1 letter after the backslash (the
             # TOKEN_PATTERN command alternative requires it). A bare "\\" with
             # nothing after it only reaches here via the catch-all "." fallback
@@ -112,6 +125,11 @@ class _Parser:
         self.tokens = tokens
         self.pos = 0
         self.issues: list[dict[str, object]] = []
+        # `\begin{name}` pushes, `\end` pops -- lets `parse_row()` tag
+        # `AlignedRows` with which environment (cases/array/aligned/matrix/...)
+        # produced it, since braille/TTS need to know that to pick the right
+        # presentation rule (there is no single universal "multiple rows" rule).
+        self._environment_stack: list[str | None] = []
 
     def peek(self) -> Token | None:
         return self.tokens[self.pos] if self.pos < len(self.tokens) else None
@@ -144,17 +162,59 @@ class _Parser:
         structure's content outright. Reconstructing real row/column association
         for cases and matrices is a follow-up.
         """
-        rows = [self.parse_relation_sequence()]
+        rows = [self.parse_comma_list()]
         while self._at_row_break() or self.at_text("&"):
             if self._at_row_break():
                 self.advance()
                 self.advance()
             else:
                 self.advance()
-            rows.append(self.parse_relation_sequence())
+            rows.append(self.parse_comma_list())
+        environment = self._environment_stack[-1] if self._environment_stack else None
+        self._consume_matching_environment_end()
         if len(rows) == 1:
             return rows[0]
-        return {"type": "AlignedRows", "children": rows}
+        node: dict[str, object] = {"type": "AlignedRows", "children": rows}
+        if environment is not None:
+            node["environment"] = environment
+        return node
+
+    def parse_comma_list(self) -> dict[str, object]:
+        """A bare "," between complete relation-level expressions (set
+        notation "2,4,6,...", an interval "0,1", or a list of independent
+        relations like "sinθ=y/r,cosθ=x/r,...") is a list separator --
+        distinct from `Row` (implicit multiplication, no separator between
+        children) and from `AlignedRows` (real `\\\\`/`&` row/cell splits,
+        which get the numbered-tag braille/TTS treatment). Binds looser than
+        a single relation but tighter than a row/cell split -- called once
+        per "row" inside `parse_row()`'s loop, so a comma never crosses a
+        `\\\\`/`&` boundary. A bare "," previously matched no grammar rule at
+        all and always fell through as `Unknown`/unconsumed, so this is
+        additive with no regression risk for formulas that don't use one.
+        """
+        items = [self.parse_relation_sequence()]
+        while self.peek() is not None and self.peek().kind == "char" and self.peek().text == ",":
+            self.advance()
+            items.append(self.parse_relation_sequence())
+        if len(items) == 1:
+            return items[0]
+        return {"type": "List", "children": items}
+
+    def _consume_matching_environment_end(self) -> None:
+        """The row-break loop above stops as soon as no more `\\\\`/`&` follow
+        -- for `\\begin{cases}a\\\\b\\end{cases}` that's right before `\\end`,
+        which nothing else ever advances past (the `\\begin`/`\\end` handling
+        in `parse_command` only runs when `\\end` is reached *through* a
+        `parse_primary` call, which this loop's natural exit bypasses). Without
+        this, `\\end{...}` always leaks into `unconsumed_tokens`, which would
+        make every environment-wrapped formula look PARTIAL to
+        `classify_ast_status` even though it parsed cleanly."""
+        if not self._environment_stack:
+            return
+        if self.peek() is not None and self.peek().kind == "command" and self.peek().text == "end":
+            self.advance()
+            self._read_environment_name()
+            self._environment_stack.pop()
 
     def _at_row_break(self) -> bool:
         tok = self.peek()
@@ -211,6 +271,25 @@ class _Parser:
             return True
         return False
 
+    def _consume_escaped_closing_brace(self) -> bool:
+        """Match "\\}" (an escaped closing curly brace, two tokens: a lone
+        backslash `char` then a `}` `char`), tolerating a preceding `\\right`
+        the same way `_consume_closing_delimiter` does for `)`/`|`/`]`."""
+        had_right = False
+        if self.peek() is not None and self.peek().kind == "command" and self.peek().text == "right":
+            self.advance()
+            had_right = True
+        nxt = self.tokens[self.pos + 1] if self.pos + 1 < len(self.tokens) else None
+        if (self.peek() is not None and self.peek().kind == "char" and self.peek().text == "\\"
+                and nxt is not None and nxt.kind == "char" and nxt.text == "}"):
+            self.advance()
+            self.advance()
+            return True
+        if had_right and self.at_text("."):
+            self.advance()
+            return True
+        return False
+
     def parse_relation_sequence(self) -> dict[str, object]:
         left = self.parse_additive()
         while True:
@@ -230,7 +309,7 @@ class _Parser:
         return left
 
     def parse_multiplicative(self) -> dict[str, object]:
-        factors = [self.parse_unary()]
+        factors = [self.parse_slash_fraction()]
         while True:
             tok = self.peek()
             if tok is None:
@@ -238,15 +317,35 @@ class _Parser:
             candidate = "\\" + tok.text if tok.kind == "command" else tok.text
             if candidate in MULT_TOKENS:
                 self.advance()
-                factors.append(self.parse_unary())
+                factors.append(self.parse_slash_fraction())
                 continue
             if self._starts_implicit_factor(tok):
-                factors.append(self.parse_unary())
+                factors.append(self.parse_slash_fraction())
                 continue
             break
         if len(factors) == 1:
             return factors[0]
         return {"type": "Row", "children": factors}
+
+    def parse_slash_fraction(self) -> dict[str, object]:
+        """A bare "/" directly between two atoms (e.g. "2/3", "a/b") is a
+        slash-notation fraction, distinct from `\\frac{}{}`'s stacked form --
+        수학 점자 규정 제7항 2. gives it its own braille indicator, different
+        from the stacked form's bar, so the AST records which notation was
+        used (`notation: "slash"`; omitted entirely for the default stacked
+        `\\frac` form, so existing consumers that don't check it are
+        unaffected). Binds at the same tight precedence as a single
+        multiplicative factor, same as implicit multiplication -- not as
+        loosely as `\\div`/`*`. A bare "/" previously matched no grammar rule
+        at all and always fell through as an `Unknown` token, so this is a
+        pure addition with no regression risk for existing formulas.
+        """
+        numerator = self.parse_unary()
+        if self.peek() is not None and self.peek().kind == "char" and self.peek().text == "/":
+            self.advance()
+            denominator = self.parse_unary()
+            return {"type": "Fraction", "numerator": numerator, "denominator": denominator, "notation": "slash"}
+        return numerator
 
     def _starts_implicit_factor(self, tok: Token) -> bool:
         # Juxtaposition (e.g. "2x", "ab") means implicit multiplication. Stop at
@@ -255,7 +354,7 @@ class _Parser:
             return True
         if tok.kind == "command" and (tok.text in FUNCTION_NAMES or tok.text == "frac" or tok.text == "sqrt" or tok.text in GREEK_AND_CONSTANTS or tok.text in DECORATION_COMMANDS):
             return True
-        if tok.kind == "char" and tok.text in {"(", "|"}:
+        if tok.kind == "char" and tok.text in {"(", "|", "["}:
             return True
         return False
 
@@ -316,7 +415,7 @@ class _Parser:
 
         if tok.kind == "char" and tok.text == "(":
             self.advance()
-            body = self.parse_relation_sequence()
+            body = self.parse_comma_list()
             if not self._consume_closing_delimiter(")"):
                 self.issues.append({
                     "code": "AST_UNMATCHED_PAREN",
@@ -327,7 +426,7 @@ class _Parser:
 
         if tok.kind == "char" and tok.text == "|":
             self.advance()
-            body = self.parse_relation_sequence()
+            body = self.parse_comma_list()
             if not self._consume_closing_delimiter("|"):
                 self.issues.append({
                     "code": "AST_UNMATCHED_PAREN",
@@ -336,15 +435,47 @@ class _Parser:
                 })
             return {"type": "Parenthesized", "body": body, "delimiter": "|"}
 
+        if tok.kind == "char" and tok.text == "[":
+            # A bare "[" here is a real 대괄호 (e.g. an interval "[0,1]"), not
+            # \sqrt's index bracket -- that one is consumed separately, right
+            # after \sqrt, before control ever reaches this general dispatch.
+            self.advance()
+            body = self.parse_comma_list()
+            if not self._consume_closing_delimiter("]"):
+                self.issues.append({
+                    "code": "AST_UNMATCHED_BRACKET",
+                    "severity": "error",
+                    "message": "Missing closing ']' for a bracketed group.",
+                })
+            return {"type": "Parenthesized", "body": body, "delimiter": "["}
+
         if tok.kind == "char" and tok.text == "{":
             return self.parse_brace_group()
 
         if tok.kind == "char" and tok.text == "\\":
             # A lone backslash not forming a \command is an escaped-delimiter
-            # artifact (e.g. the "\{" / "\}" / "\." in \left\{...\right.), which
-            # tokenizes as a separate backslash char plus the delimiter char.
-            # Skip the backslash silently and let the delimiter char (if any)
-            # be handled by its own normal rule.
+            # artifact. "\{"/"\}" specifically (e.g. set notation
+            # "\{2,4,6,...\}", or a \cases block opened as \left\{...\right.)
+            # are real 중괄호 content delimiters -- everything else here (a
+            # "\}"/"\." not opened by a matching "\{", stray \right markers)
+            # is a spacing/closing artifact with nothing to attach to, so it
+            # is skipped past rather than treated as an empty group.
+            nxt = self.tokens[self.pos + 1] if self.pos + 1 < len(self.tokens) else None
+            if nxt is not None and nxt.kind == "char" and nxt.text == "{":
+                self.advance()  # consume the backslash
+                self.advance()  # consume '{'
+                # \begin{cases}...\end{cases} is the single most common thing
+                # to find directly inside \left\{...\right. (연립식/피스와이즈),
+                # and that needs row/cell splitting -- parse_row() (not
+                # parse_relation_sequence()) is what already does that.
+                body = self.parse_row()
+                if not self._consume_escaped_closing_brace():
+                    self.issues.append({
+                        "code": "AST_UNMATCHED_BRACE",
+                        "severity": "error",
+                        "message": "Missing closing '\\}' for an escaped brace group.",
+                    })
+                return {"type": "Parenthesized", "body": body, "delimiter": "{"}
             self.advance()
             if self.peek() is None:
                 return unknown_node("")
@@ -378,14 +509,19 @@ class _Parser:
             return unknown_node("")
 
         if name in {"begin", "end"}:
-            # \begin{aligned}, \end{array}, etc: the brace group is an environment
-            # name, not content, and tabular environments like \begin{array}{ll}
-            # follow it with a column-spec brace group that is also not content.
-            # Discard up to two groups and continue with whatever follows.
+            # \begin{aligned}, \end{array}, etc: the first brace group is an
+            # environment name, not content, and tabular environments like
+            # \begin{array}{ll} follow it with a column-spec brace group that
+            # is also not content. Read the name (see `_read_environment_name`)
+            # and push/pop it on `self._environment_stack` so `parse_row()`
+            # can tag the resulting `AlignedRows` with it.
+            environment_name = self._read_environment_name()
             if self.at_text("{"):
                 self.parse_brace_group()
-            if self.at_text("{"):
-                self.parse_brace_group()
+            if name == "begin":
+                self._environment_stack.append(environment_name)
+            elif self._environment_stack:
+                self._environment_stack.pop()
             if self.peek() is not None:
                 return self.parse_primary()
             return unknown_node("")
@@ -456,6 +592,22 @@ class _Parser:
         if force_paren and self.at_text("("):
             return self.parse_primary()
         return self.parse_postfix() if not force_paren else self.parse_primary()
+
+    def _read_environment_name(self) -> str | None:
+        """`\\begin{name}`/`\\end{name}`'s brace group is always a bare word
+        like "cases"/"array"/"aligned"/"matrix", never a real expression --
+        read the raw token text directly rather than running the expression
+        grammar on it (which would turn e.g. "cases" into a `Row` of five
+        implicitly-multiplied `Identifier` letters)."""
+        if not self.at_text("{"):
+            return None
+        self.advance()  # consume '{'
+        chars: list[str] = []
+        while self.peek() is not None and not self.at_text("}"):
+            chars.append(self.advance().text)
+        if self.at_text("}"):
+            self.advance()
+        return "".join(chars) or None
 
     def parse_brace_group(self) -> dict[str, object]:
         self.advance()  # consume '{'
