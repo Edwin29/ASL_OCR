@@ -1,0 +1,3382 @@
+{
+  "document_manifest": {
+    "book_id": "ebs-2027-math1",
+    "page_count": 1
+  },
+  "engine_manifest": {
+    "general_ocr": {
+      "engine_id": "paddleocr-vl",
+      "engine_version": "3.7.0"
+    },
+    "pipeline": {
+      "mode": "paddleocr_vl_baseline"
+    },
+    "problem_unit_detection": {
+      "mode": "text_pattern_stem_and_answer_structure",
+      "engine_id": "text-pattern-problem-unit-detector"
+    }
+  },
+  "pages": [
+    {
+      "page_id": "p004",
+      "page_geometry": {
+        "width": 2434,
+        "height": 3071
+      },
+      "nodes": [
+        {
+          "node_id": "p004-vl001",
+          "bbox": {
+            "x": 260.0,
+            "y": 87.0,
+            "width": 182.0,
+            "height": 179.0
+          },
+          "normalized_bbox": {
+            "x": 0.10682,
+            "y": 0.02833,
+            "width": 0.074774,
+            "height": 0.058287
+          },
+          "reading_order_index": 0,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "header",
+            "vl_block_id": 0
+          },
+          "content_type": "TEXT",
+          "raw_text": "01",
+          "normalized_text": "01",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "01"
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl002",
+          "bbox": {
+            "x": 504.0,
+            "y": 148.0,
+            "width": 424.0,
+            "height": 100.0
+          },
+          "normalized_bbox": {
+            "x": 0.207067,
+            "y": 0.048193,
+            "width": 0.174199,
+            "height": 0.032563
+          },
+          "reading_order_index": 1,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "paragraph_title",
+            "vl_block_id": 1
+          },
+          "content_type": "TEXT",
+          "raw_text": "지수와 로그",
+          "normalized_text": "지수와 로그",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "지수와 로그"
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl003",
+          "bbox": {
+            "x": 255.0,
+            "y": 345.0,
+            "width": 302.0,
+            "height": 62.0
+          },
+          "normalized_bbox": {
+            "x": 0.104766,
+            "y": 0.112341,
+            "width": 0.124076,
+            "height": 0.020189
+          },
+          "reading_order_index": 2,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "paragraph_title",
+            "vl_block_id": 2
+          },
+          "content_type": "TEXT",
+          "raw_text": "1 거듭제곱근",
+          "normalized_text": "1 거듭제곱근",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "1 거듭제곱근"
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl004",
+          "bbox": {
+            "x": 255.0,
+            "y": 446.0,
+            "width": 373.0,
+            "height": 52.0
+          },
+          "normalized_bbox": {
+            "x": 0.104766,
+            "y": 0.14523,
+            "width": 0.153246,
+            "height": 0.016933
+          },
+          "reading_order_index": 3,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 3
+          },
+          "content_type": "TEXT",
+          "raw_text": "(1) 실수 $a$의 $n$제곱근",
+          "normalized_text": "(1) 실수 $a$의 $n$제곱근",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(1) 실수 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "a",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "a"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "의 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "n",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "n"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "제곱근"
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl005",
+          "bbox": {
+            "x": 308.0,
+            "y": 516.0,
+            "width": 1798.0,
+            "height": 129.0
+          },
+          "normalized_bbox": {
+            "x": 0.126541,
+            "y": 0.168023,
+            "width": 0.738702,
+            "height": 0.042006
+          },
+          "reading_order_index": 4,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 4
+          },
+          "content_type": "TEXT",
+          "raw_text": "실수 a와 2 이상의 자연수 n에 대하여 n제곱하여 a가 되는 수, 즉 방정식 $x^{n}=a$의 근을 a의 n제곱근이라고 한다. 이때 a의 제곱근, a의 세제곱근, a의 네제곱근, ···을 통틀어 a의 거듭제곱근이라고 한다.",
+          "normalized_text": "실수 a와 2 이상의 자연수 n에 대하여 n제곱하여 a가 되는 수, 즉 방정식 $x^{n}=a$의 근을 a의 n제곱근이라고 한다. 이때 a의 제곱근, a의 세제곱근, a의 네제곱근, ···을 통틀어 a의 거듭제곱근이라고 한다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "실수 a와 2 이상의 자연수 n에 대하여 n제곱하여 a가 되는 수, 즉 방정식 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "x^{n}=a",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Power",
+                  "base": {
+                    "type": "Identifier",
+                    "value": "x"
+                  },
+                  "exponent": {
+                    "type": "Identifier",
+                    "value": "n"
+                  }
+                },
+                "right": {
+                  "type": "Identifier",
+                  "value": "a"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "의 근을 a의 n제곱근이라고 한다. 이때 a의 제곱근, a의 세제곱근, a의 네제곱근, ···을 통틀어 a의 거듭제곱근이라고 한다."
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl006",
+          "bbox": {
+            "x": 256.0,
+            "y": 682.0,
+            "width": 588.0,
+            "height": 55.0
+          },
+          "normalized_bbox": {
+            "x": 0.105177,
+            "y": 0.222077,
+            "width": 0.241578,
+            "height": 0.017909
+          },
+          "reading_order_index": 5,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 5
+          },
+          "content_type": "TEXT",
+          "raw_text": "(2) 실수 a의 n제곱근 중 실수인 것",
+          "normalized_text": "(2) 실수 a의 n제곱근 중 실수인 것",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(2) 실수 a의 n제곱근 중 실수인 것"
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl007",
+          "bbox": {
+            "x": 315.0,
+            "y": 752.0,
+            "width": 809.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.129417,
+            "y": 0.244871,
+            "width": 0.332375,
+            "height": 0.017584
+          },
+          "reading_order_index": 6,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 6
+          },
+          "content_type": "TEXT",
+          "raw_text": "실수 a의 n제곱근 중에서 실수인 것을 x라 할 때",
+          "normalized_text": "실수 a의 n제곱근 중에서 실수인 것을 x라 할 때",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "실수 a의 n제곱근 중에서 실수인 것을 x라 할 때"
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl008",
+          "bbox": {
+            "x": 312.0,
+            "y": 822.0,
+            "width": 1223.0,
+            "height": 56.0
+          },
+          "normalized_bbox": {
+            "x": 0.128184,
+            "y": 0.267665,
+            "width": 0.502465,
+            "height": 0.018235
+          },
+          "reading_order_index": 7,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 7
+          },
+          "content_type": "TEXT",
+          "raw_text": "① $n$이 홀수이면 $a$의 값에 관계없이 실수 $x$는 항상 존재하고 $x=\\sqrt[n]{a}$이다.",
+          "normalized_text": "① $n$이 홀수이면 $a$의 값에 관계없이 실수 $x$는 항상 존재하고 $x=\\sqrt[n]{a}$이다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "① "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "n",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "n"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "이 홀수이면 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "a",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "a"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "의 값에 관계없이 실수 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "x",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "x"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "는 항상 존재하고 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "x=\\sqrt[n]{a}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Identifier",
+                  "value": "x"
+                },
+                "right": {
+                  "type": "Radical",
+                  "radicand": {
+                    "type": "Identifier",
+                    "value": "a"
+                  },
+                  "index": {
+                    "type": "Identifier",
+                    "value": "n"
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "이다."
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl009",
+          "bbox": {
+            "x": 314.0,
+            "y": 891.0,
+            "width": 1339.0,
+            "height": 57.0
+          },
+          "normalized_bbox": {
+            "x": 0.129006,
+            "y": 0.290134,
+            "width": 0.550123,
+            "height": 0.018561
+          },
+          "reading_order_index": 8,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 8
+          },
+          "content_type": "TEXT",
+          "raw_text": "② $n$이 짝수이면 $a \\geq 0$일 때에만 실수 $x$가 존재하고 $x = \\sqrt[n]{a}$ 또는 $x = -\\sqrt[n]{a}$이다.",
+          "normalized_text": "② $n$이 짝수이면 $a \\geq 0$일 때에만 실수 $x$가 존재하고 $x = \\sqrt[n]{a}$ 또는 $x = -\\sqrt[n]{a}$이다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "② "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "n",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "n"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "이 짝수이면 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "a \\geq 0",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "≥",
+                "left": {
+                  "type": "Identifier",
+                  "value": "a"
+                },
+                "right": {
+                  "type": "Number",
+                  "value": "0"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "일 때에만 실수 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "x",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "x"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "가 존재하고 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "x = \\sqrt[n]{a}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Identifier",
+                  "value": "x"
+                },
+                "right": {
+                  "type": "Radical",
+                  "radicand": {
+                    "type": "Identifier",
+                    "value": "a"
+                  },
+                  "index": {
+                    "type": "Identifier",
+                    "value": "n"
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": " 또는 "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "x = -\\sqrt[n]{a}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Identifier",
+                  "value": "x"
+                },
+                "right": {
+                  "type": "UnaryMinus",
+                  "body": {
+                    "type": "Radical",
+                    "radicand": {
+                      "type": "Identifier",
+                      "value": "a"
+                    },
+                    "index": {
+                      "type": "Identifier",
+                      "value": "n"
+                    }
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "이다."
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl010",
+          "bbox": {
+            "x": 317.0,
+            "y": 1211.0,
+            "width": 1786.0,
+            "height": 115.0
+          },
+          "normalized_bbox": {
+            "x": 0.130238,
+            "y": 0.394334,
+            "width": 0.733772,
+            "height": 0.037447
+          },
+          "reading_order_index": 9,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 10
+          },
+          "content_type": "TEXT",
+          "raw_text": "설명 n이 2 이상의 자연수일 때 실수 a의 n제곱근 중에서 실수인 것은 방정식  $ x^n = a $의 근 중에서 실수인 것이므로 이는 함수  $ y = x^n $의 그래프와 직선  $ y = a $의 교점의 x좌표와 같다. 이때 이 실수를 기호  $ \\sqrt[n]{a} $를 이용하여 나타낸다.",
+          "normalized_text": "설명 n이 2 이상의 자연수일 때 실수 a의 n제곱근 중에서 실수인 것은 방정식  $ x^n = a $의 근 중에서 실수인 것이므로 이는 함수  $ y = x^n $의 그래프와 직선  $ y = a $의 교점의 x좌표와 같다. 이때 이 실수를 기호  $ \\sqrt[n]{a} $를 이용하여 나타낸다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "설명 n이 2 이상의 자연수일 때 실수 a의 n제곱근 중에서 실수인 것은 방정식  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "x^n = a",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Power",
+                  "base": {
+                    "type": "Identifier",
+                    "value": "x"
+                  },
+                  "exponent": {
+                    "type": "Identifier",
+                    "value": "n"
+                  }
+                },
+                "right": {
+                  "type": "Identifier",
+                  "value": "a"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "의 근 중에서 실수인 것이므로 이는 함수  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "y = x^n",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Identifier",
+                  "value": "y"
+                },
+                "right": {
+                  "type": "Power",
+                  "base": {
+                    "type": "Identifier",
+                    "value": "x"
+                  },
+                  "exponent": {
+                    "type": "Identifier",
+                    "value": "n"
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "의 그래프와 직선  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "y = a",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Identifier",
+                  "value": "y"
+                },
+                "right": {
+                  "type": "Identifier",
+                  "value": "a"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "의 교점의 x좌표와 같다. 이때 이 실수를 기호  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\sqrt[n]{a}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Radical",
+                "radicand": {
+                  "type": "Identifier",
+                  "value": "a"
+                },
+                "index": {
+                  "type": "Identifier",
+                  "value": "n"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "를 이용하여 나타낸다."
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl011",
+          "bbox": {
+            "x": 416.0,
+            "y": 1338.0,
+            "width": 280.0,
+            "height": 49.0
+          },
+          "normalized_bbox": {
+            "x": 0.170912,
+            "y": 0.435689,
+            "width": 0.115037,
+            "height": 0.015956
+          },
+          "reading_order_index": 10,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 11
+          },
+          "content_type": "TEXT",
+          "raw_text": "(i) n이 홀수일 때",
+          "normalized_text": "(i) n이 홀수일 때",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(i) n이 홀수일 때"
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl012",
+          "bbox": {
+            "x": 1251.0,
+            "y": 1338.0,
+            "width": 277.0,
+            "height": 48.0
+          },
+          "normalized_bbox": {
+            "x": 0.513969,
+            "y": 0.435689,
+            "width": 0.113804,
+            "height": 0.01563
+          },
+          "reading_order_index": 11,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 13
+          },
+          "content_type": "TEXT",
+          "raw_text": "(ii) n이 짝수일 때",
+          "normalized_text": "(ii) n이 짝수일 때",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(ii) n이 짝수일 때"
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl013",
+          "bbox": {
+            "x": 315.0,
+            "y": 1785.0,
+            "width": 743.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.129417,
+            "y": 0.581244,
+            "width": 0.305259,
+            "height": 0.017584
+          },
+          "reading_order_index": 12,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 14
+          },
+          "content_type": "TEXT",
+          "raw_text": "참고 방정식  $ x^n=0 $의 근은 0이므로  $ \\sqrt[n]{0}=0 $이다.",
+          "normalized_text": "참고 방정식  $ x^n=0 $의 근은 0이므로  $ \\sqrt[n]{0}=0 $이다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "참고 방정식  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "x^n=0",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Power",
+                  "base": {
+                    "type": "Identifier",
+                    "value": "x"
+                  },
+                  "exponent": {
+                    "type": "Identifier",
+                    "value": "n"
+                  }
+                },
+                "right": {
+                  "type": "Number",
+                  "value": "0"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "의 근은 0이므로  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\sqrt[n]{0}=0",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Radical",
+                  "radicand": {
+                    "type": "Number",
+                    "value": "0"
+                  },
+                  "index": {
+                    "type": "Identifier",
+                    "value": "n"
+                  }
+                },
+                "right": {
+                  "type": "Number",
+                  "value": "0"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "이다."
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl014",
+          "bbox": {
+            "x": 257.0,
+            "y": 1881.0,
+            "width": 374.0,
+            "height": 51.0
+          },
+          "normalized_bbox": {
+            "x": 0.105588,
+            "y": 0.612504,
+            "width": 0.153657,
+            "height": 0.016607
+          },
+          "reading_order_index": 13,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 16
+          },
+          "content_type": "TEXT",
+          "raw_text": "(3) 거듭제곱근의 성질",
+          "normalized_text": "(3) 거듭제곱근의 성질",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(3) 거듭제곱근의 성질"
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl015",
+          "bbox": {
+            "x": 313.0,
+            "y": 1953.0,
+            "width": 786.0,
+            "height": 53.0
+          },
+          "normalized_bbox": {
+            "x": 0.128595,
+            "y": 0.635949,
+            "width": 0.322925,
+            "height": 0.017258
+          },
+          "reading_order_index": 14,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 17
+          },
+          "content_type": "TEXT",
+          "raw_text": "a>0, b>0이고 m, n이 2 이상의 자연수일 때",
+          "normalized_text": "a>0, b>0이고 m, n이 2 이상의 자연수일 때",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "a>0, b>0이고 m, n이 2 이상의 자연수일 때"
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl016",
+          "bbox": {
+            "x": 320.0,
+            "y": 2023.0,
+            "width": 241.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.131471,
+            "y": 0.658743,
+            "width": 0.099014,
+            "height": 0.017584
+          },
+          "reading_order_index": 15,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "inline_formula",
+            "vl_block_id": 18
+          },
+          "content_type": "TEXT",
+          "raw_text": " $$ \\textcircled{1}\\;(\\sqrt[n]{a})^{n}{=}a $$ ",
+          "normalized_text": " $$ \\textcircled{1}\\;(\\sqrt[n]{a})^{n}{=}a $$ ",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": " "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\textcircled{1}\\;(\\sqrt[n]{a})^{n}{=}a",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Unknown",
+                "value": "\\textcircled{1}"
+              },
+              "unconsumed_tokens": [
+                "\\",
+                ";",
+                "(",
+                "sqrt",
+                "[",
+                "n",
+                "]",
+                "{",
+                "a",
+                "}",
+                ")",
+                "^",
+                "{",
+                "n",
+                "}",
+                "{",
+                "=",
+                "}",
+                "a"
+              ],
+              "ast_issues": [
+                {
+                  "code": "AST_UNCONSUMED_TOKENS",
+                  "severity": "warning",
+                  "message": "19 token(s) left over after parsing: '\\\\;(sqrt[n]{a})^{n}{=}a'"
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $: '\\\\textcircled{1}'."
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": " "
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl017",
+          "bbox": {
+            "x": 1209.0,
+            "y": 2019.0,
+            "width": 296.0,
+            "height": 58.0
+          },
+          "normalized_bbox": {
+            "x": 0.496713,
+            "y": 0.657441,
+            "width": 0.121611,
+            "height": 0.018886
+          },
+          "reading_order_index": 16,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 19
+          },
+          "content_type": "TEXT",
+          "raw_text": "②  $ \\sqrt[n]{a}\\sqrt[n]{b}=\\sqrt[n]{ab} $",
+          "normalized_text": "②  $ \\sqrt[n]{a}\\sqrt[n]{b}=\\sqrt[n]{ab} $",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "②  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\sqrt[n]{a}\\sqrt[n]{b}=\\sqrt[n]{ab}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Row",
+                  "children": [
+                    {
+                      "type": "Radical",
+                      "radicand": {
+                        "type": "Identifier",
+                        "value": "a"
+                      },
+                      "index": {
+                        "type": "Identifier",
+                        "value": "n"
+                      }
+                    },
+                    {
+                      "type": "Radical",
+                      "radicand": {
+                        "type": "Identifier",
+                        "value": "b"
+                      },
+                      "index": {
+                        "type": "Identifier",
+                        "value": "n"
+                      }
+                    }
+                  ]
+                },
+                "right": {
+                  "type": "Radical",
+                  "radicand": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "Identifier",
+                        "value": "a"
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "b"
+                      }
+                    ]
+                  },
+                  "index": {
+                    "type": "Identifier",
+                    "value": "n"
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl018",
+          "bbox": {
+            "x": 316.0,
+            "y": 2093.0,
+            "width": 254.0,
+            "height": 110.0
+          },
+          "normalized_bbox": {
+            "x": 0.129827,
+            "y": 0.681537,
+            "width": 0.104355,
+            "height": 0.035819
+          },
+          "reading_order_index": 17,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 20
+          },
+          "content_type": "TEXT",
+          "raw_text": "③  $ \\frac{\\sqrt[n]{a}}{\\sqrt[n]{b}} = \\sqrt[n]{\\frac{a}{b}} $",
+          "normalized_text": "③  $ \\frac{\\sqrt[n]{a}}{\\sqrt[n]{b}} = \\sqrt[n]{\\frac{a}{b}} $",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "③  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\frac{\\sqrt[n]{a}}{\\sqrt[n]{b}} = \\sqrt[n]{\\frac{a}{b}}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Fraction",
+                  "numerator": {
+                    "type": "Radical",
+                    "radicand": {
+                      "type": "Identifier",
+                      "value": "a"
+                    },
+                    "index": {
+                      "type": "Identifier",
+                      "value": "n"
+                    }
+                  },
+                  "denominator": {
+                    "type": "Radical",
+                    "radicand": {
+                      "type": "Identifier",
+                      "value": "b"
+                    },
+                    "index": {
+                      "type": "Identifier",
+                      "value": "n"
+                    }
+                  }
+                },
+                "right": {
+                  "type": "Radical",
+                  "radicand": {
+                    "type": "Fraction",
+                    "numerator": {
+                      "type": "Identifier",
+                      "value": "a"
+                    },
+                    "denominator": {
+                      "type": "Identifier",
+                      "value": "b"
+                    }
+                  },
+                  "index": {
+                    "type": "Identifier",
+                    "value": "n"
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl019",
+          "bbox": {
+            "x": 1210.0,
+            "y": 2114.0,
+            "width": 301.0,
+            "height": 63.0
+          },
+          "normalized_bbox": {
+            "x": 0.497124,
+            "y": 0.688375,
+            "width": 0.123665,
+            "height": 0.020514
+          },
+          "reading_order_index": 18,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 21
+          },
+          "content_type": "TEXT",
+          "raw_text": "④  $ (\\sqrt[n]{a})^{m}=\\sqrt[n]{a^{m}} $",
+          "normalized_text": "④  $ (\\sqrt[n]{a})^{m}=\\sqrt[n]{a^{m}} $",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "④  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "(\\sqrt[n]{a})^{m}=\\sqrt[n]{a^{m}}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Power",
+                  "base": {
+                    "type": "Parenthesized",
+                    "body": {
+                      "type": "Radical",
+                      "radicand": {
+                        "type": "Identifier",
+                        "value": "a"
+                      },
+                      "index": {
+                        "type": "Identifier",
+                        "value": "n"
+                      }
+                    },
+                    "delimiter": "("
+                  },
+                  "exponent": {
+                    "type": "Identifier",
+                    "value": "m"
+                  }
+                },
+                "right": {
+                  "type": "Radical",
+                  "radicand": {
+                    "type": "Power",
+                    "base": {
+                      "type": "Identifier",
+                      "value": "a"
+                    },
+                    "exponent": {
+                      "type": "Identifier",
+                      "value": "m"
+                    }
+                  },
+                  "index": {
+                    "type": "Identifier",
+                    "value": "n"
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl020",
+          "bbox": {
+            "x": 318.0,
+            "y": 2222.0,
+            "width": 269.0,
+            "height": 61.0
+          },
+          "normalized_bbox": {
+            "x": 0.130649,
+            "y": 0.723543,
+            "width": 0.110518,
+            "height": 0.019863
+          },
+          "reading_order_index": 19,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 22
+          },
+          "content_type": "TEXT",
+          "raw_text": " $ ⑤ \\sqrt[m]{n\\sqrt[n]{a}} = \\sqrt[mn]{a} $",
+          "normalized_text": " $ ⑤ \\sqrt[m]{n\\sqrt[n]{a}} = \\sqrt[mn]{a} $",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": " "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "⑤ \\sqrt[m]{n\\sqrt[n]{a}} = \\sqrt[mn]{a}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Row",
+                  "children": [
+                    {
+                      "type": "Unknown",
+                      "value": "⑤"
+                    },
+                    {
+                      "type": "Radical",
+                      "radicand": {
+                        "type": "Row",
+                        "children": [
+                          {
+                            "type": "Identifier",
+                            "value": "n"
+                          },
+                          {
+                            "type": "Radical",
+                            "radicand": {
+                              "type": "Identifier",
+                              "value": "a"
+                            },
+                            "index": {
+                              "type": "Identifier",
+                              "value": "n"
+                            }
+                          }
+                        ]
+                      },
+                      "index": {
+                        "type": "Identifier",
+                        "value": "m"
+                      }
+                    }
+                  ]
+                },
+                "right": {
+                  "type": "Radical",
+                  "radicand": {
+                    "type": "Identifier",
+                    "value": "a"
+                  },
+                  "index": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "Identifier",
+                        "value": "m"
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "n"
+                      }
+                    ]
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": [
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '⑤' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.children[0]: '⑤'."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl021",
+          "bbox": {
+            "x": 324.0,
+            "y": 2303.0,
+            "width": 308.0,
+            "height": 51.0
+          },
+          "normalized_bbox": {
+            "x": 0.133114,
+            "y": 0.749919,
+            "width": 0.126541,
+            "height": 0.016607
+          },
+          "reading_order_index": 20,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 23
+          },
+          "content_type": "TEXT",
+          "raw_text": "예 ①  $ (\\sqrt[3]{2})^3=2 $",
+          "normalized_text": "예 ①  $ (\\sqrt[3]{2})^3=2 $",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "예 ①  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "(\\sqrt[3]{2})^3=2",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Power",
+                  "base": {
+                    "type": "Parenthesized",
+                    "body": {
+                      "type": "Radical",
+                      "radicand": {
+                        "type": "Number",
+                        "value": "2"
+                      },
+                      "index": {
+                        "type": "Number",
+                        "value": "3"
+                      }
+                    },
+                    "delimiter": "("
+                  },
+                  "exponent": {
+                    "type": "Number",
+                    "value": "3"
+                  }
+                },
+                "right": {
+                  "type": "Number",
+                  "value": "2"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl022",
+          "bbox": {
+            "x": 1209.0,
+            "y": 2224.0,
+            "width": 576.0,
+            "height": 60.0
+          },
+          "normalized_bbox": {
+            "x": 0.496713,
+            "y": 0.724194,
+            "width": 0.236647,
+            "height": 0.019538
+          },
+          "reading_order_index": 21,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 24
+          },
+          "content_type": "TEXT",
+          "raw_text": "⑥  $ \\sqrt[n]{a^{m/p}} = \\sqrt[n]{a^m} $（단,  $ p $는 자연수）",
+          "normalized_text": "⑥  $ \\sqrt[n]{a^{m/p}} = \\sqrt[n]{a^m} $（단,  $ p $는 자연수）",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "⑥  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\sqrt[n]{a^{m/p}} = \\sqrt[n]{a^m}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Radical",
+                "radicand": {
+                  "type": "Power",
+                  "base": {
+                    "type": "Identifier",
+                    "value": "a"
+                  },
+                  "exponent": {
+                    "type": "Identifier",
+                    "value": "m"
+                  }
+                },
+                "index": {
+                  "type": "Identifier",
+                  "value": "n"
+                }
+              },
+              "unconsumed_tokens": [
+                "/",
+                "p",
+                "}",
+                "}",
+                "=",
+                "sqrt",
+                "[",
+                "n",
+                "]",
+                "{",
+                "a",
+                "^",
+                "m",
+                "}"
+              ],
+              "ast_issues": [
+                {
+                  "code": "AST_UNMATCHED_BRACE",
+                  "severity": "error",
+                  "message": "Missing closing '}' for a group."
+                },
+                {
+                  "code": "AST_UNMATCHED_BRACE",
+                  "severity": "error",
+                  "message": "Missing closing '}' for a group."
+                },
+                {
+                  "code": "AST_UNCONSUMED_TOKENS",
+                  "severity": "warning",
+                  "message": "14 token(s) left over after parsing: '/p}}=sqrt[n]{a^m}'"
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": "（단,  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "p",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "p"
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "는 자연수）"
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl023",
+          "bbox": {
+            "x": 427.0,
+            "y": 2372.0,
+            "width": 208.0,
+            "height": 93.0
+          },
+          "normalized_bbox": {
+            "x": 0.175431,
+            "y": 0.772387,
+            "width": 0.085456,
+            "height": 0.030283
+          },
+          "reading_order_index": 22,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "inline_formula",
+            "vl_block_id": 25
+          },
+          "content_type": "TEXT",
+          "raw_text": " $$ \\textcircled{3}\\frac{\\sqrt[3]{2}}{\\sqrt[3]{3}}={\\sqrt[3]{\\frac{2}{3}}} $$ ",
+          "normalized_text": " $$ \\textcircled{3}\\frac{\\sqrt[3]{2}}{\\sqrt[3]{3}}={\\sqrt[3]{\\frac{2}{3}}} $$ ",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": " "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\textcircled{3}\\frac{\\sqrt[3]{2}}{\\sqrt[3]{3}}={\\sqrt[3]{\\frac{2}{3}}}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Row",
+                  "children": [
+                    {
+                      "type": "Unknown",
+                      "value": "\\textcircled{3}"
+                    },
+                    {
+                      "type": "Fraction",
+                      "numerator": {
+                        "type": "Radical",
+                        "radicand": {
+                          "type": "Number",
+                          "value": "2"
+                        },
+                        "index": {
+                          "type": "Number",
+                          "value": "3"
+                        }
+                      },
+                      "denominator": {
+                        "type": "Radical",
+                        "radicand": {
+                          "type": "Number",
+                          "value": "3"
+                        },
+                        "index": {
+                          "type": "Number",
+                          "value": "3"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "right": {
+                  "type": "Radical",
+                  "radicand": {
+                    "type": "Fraction",
+                    "numerator": {
+                      "type": "Number",
+                      "value": "2"
+                    },
+                    "denominator": {
+                      "type": "Number",
+                      "value": "3"
+                    }
+                  },
+                  "index": {
+                    "type": "Number",
+                    "value": "3"
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": [
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.children[0]: '\\\\textcircled{3}'."
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": " "
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl024",
+          "bbox": {
+            "x": 1246.0,
+            "y": 2301.0,
+            "width": 410.0,
+            "height": 55.0
+          },
+          "normalized_bbox": {
+            "x": 0.511915,
+            "y": 0.749267,
+            "width": 0.168447,
+            "height": 0.017909
+          },
+          "reading_order_index": 23,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 26
+          },
+          "content_type": "TEXT",
+          "raw_text": "②  $ \\sqrt[3]{2} \\times \\sqrt[3]{3} = \\sqrt[3]{2 \\times 3} = \\sqrt[3]{6} $",
+          "normalized_text": "②  $ \\sqrt[3]{2} \\times \\sqrt[3]{3} = \\sqrt[3]{2 \\times 3} = \\sqrt[3]{6} $",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "②  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\sqrt[3]{2} \\times \\sqrt[3]{3} = \\sqrt[3]{2 \\times 3} = \\sqrt[3]{6}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Relation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "Radical",
+                        "radicand": {
+                          "type": "Number",
+                          "value": "2"
+                        },
+                        "index": {
+                          "type": "Number",
+                          "value": "3"
+                        }
+                      },
+                      {
+                        "type": "Radical",
+                        "radicand": {
+                          "type": "Number",
+                          "value": "3"
+                        },
+                        "index": {
+                          "type": "Number",
+                          "value": "3"
+                        }
+                      }
+                    ]
+                  },
+                  "right": {
+                    "type": "Radical",
+                    "radicand": {
+                      "type": "Row",
+                      "children": [
+                        {
+                          "type": "Number",
+                          "value": "2"
+                        },
+                        {
+                          "type": "Number",
+                          "value": "3"
+                        }
+                      ]
+                    },
+                    "index": {
+                      "type": "Number",
+                      "value": "3"
+                    }
+                  }
+                },
+                "right": {
+                  "type": "Radical",
+                  "radicand": {
+                    "type": "Number",
+                    "value": "6"
+                  },
+                  "index": {
+                    "type": "Number",
+                    "value": "3"
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl025",
+          "bbox": {
+            "x": 427.0,
+            "y": 2481.0,
+            "width": 306.0,
+            "height": 56.0
+          },
+          "normalized_bbox": {
+            "x": 0.175431,
+            "y": 0.80788,
+            "width": 0.125719,
+            "height": 0.018235
+          },
+          "reading_order_index": 24,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "inline_formula",
+            "vl_block_id": 27
+          },
+          "content_type": "TEXT",
+          "raw_text": " $$ \\textcircled{5}\\sqrt[3]{\\sqrt{3}}=3\\times2\\sqrt[3]{3}=\\sqrt[6]{3} $$ ",
+          "normalized_text": " $$ \\textcircled{5}\\sqrt[3]{\\sqrt{3}}=3\\times2\\sqrt[3]{3}=\\sqrt[6]{3} $$ ",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": " "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\textcircled{5}\\sqrt[3]{\\sqrt{3}}=3\\times2\\sqrt[3]{3}=\\sqrt[6]{3}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Relation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "Unknown",
+                        "value": "\\textcircled{5}"
+                      },
+                      {
+                        "type": "Radical",
+                        "radicand": {
+                          "type": "Radical",
+                          "radicand": {
+                            "type": "Number",
+                            "value": "3"
+                          }
+                        },
+                        "index": {
+                          "type": "Number",
+                          "value": "3"
+                        }
+                      }
+                    ]
+                  },
+                  "right": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "Number",
+                        "value": "3"
+                      },
+                      {
+                        "type": "Number",
+                        "value": "2"
+                      },
+                      {
+                        "type": "Radical",
+                        "radicand": {
+                          "type": "Number",
+                          "value": "3"
+                        },
+                        "index": {
+                          "type": "Number",
+                          "value": "3"
+                        }
+                      }
+                    ]
+                  }
+                },
+                "right": {
+                  "type": "Radical",
+                  "radicand": {
+                    "type": "Number",
+                    "value": "3"
+                  },
+                  "index": {
+                    "type": "Number",
+                    "value": "6"
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": [
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.left.children[0]: '\\\\textcircled{5}'."
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": " "
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl026",
+          "bbox": {
+            "x": 1251.0,
+            "y": 2387.0,
+            "width": 345.0,
+            "height": 58.0
+          },
+          "normalized_bbox": {
+            "x": 0.513969,
+            "y": 0.777271,
+            "width": 0.141742,
+            "height": 0.018886
+          },
+          "reading_order_index": 25,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 28
+          },
+          "content_type": "TEXT",
+          "raw_text": "④  $ (\\sqrt[3]{2})^4 = \\sqrt[3]{2^4} = \\sqrt[3]{16} $",
+          "normalized_text": "④  $ (\\sqrt[3]{2})^4 = \\sqrt[3]{2^4} = \\sqrt[3]{16} $",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "④  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "(\\sqrt[3]{2})^4 = \\sqrt[3]{2^4} = \\sqrt[3]{16}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Relation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Power",
+                    "base": {
+                      "type": "Parenthesized",
+                      "body": {
+                        "type": "Radical",
+                        "radicand": {
+                          "type": "Number",
+                          "value": "2"
+                        },
+                        "index": {
+                          "type": "Number",
+                          "value": "3"
+                        }
+                      },
+                      "delimiter": "("
+                    },
+                    "exponent": {
+                      "type": "Number",
+                      "value": "4"
+                    }
+                  },
+                  "right": {
+                    "type": "Radical",
+                    "radicand": {
+                      "type": "Power",
+                      "base": {
+                        "type": "Number",
+                        "value": "2"
+                      },
+                      "exponent": {
+                        "type": "Number",
+                        "value": "4"
+                      }
+                    },
+                    "index": {
+                      "type": "Number",
+                      "value": "3"
+                    }
+                  }
+                },
+                "right": {
+                  "type": "Radical",
+                  "radicand": {
+                    "type": "Number",
+                    "value": "16"
+                  },
+                  "index": {
+                    "type": "Number",
+                    "value": "3"
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl027",
+          "bbox": {
+            "x": 1250.0,
+            "y": 2478.0,
+            "width": 359.0,
+            "height": 58.0
+          },
+          "normalized_bbox": {
+            "x": 0.513558,
+            "y": 0.806903,
+            "width": 0.147494,
+            "height": 0.018886
+          },
+          "reading_order_index": 26,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 29
+          },
+          "content_type": "TEXT",
+          "raw_text": "⑥  $ \\sqrt[6]{3^{4}}=\\sqrt[3]{3^{2\\times2}}=\\sqrt[3]{3^{2}} $",
+          "normalized_text": "⑥  $ \\sqrt[6]{3^{4}}=\\sqrt[3]{3^{2\\times2}}=\\sqrt[3]{3^{2}} $",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "⑥  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\sqrt[6]{3^{4}}=\\sqrt[3]{3^{2\\times2}}=\\sqrt[3]{3^{2}}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Relation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Radical",
+                    "radicand": {
+                      "type": "Power",
+                      "base": {
+                        "type": "Number",
+                        "value": "3"
+                      },
+                      "exponent": {
+                        "type": "Number",
+                        "value": "4"
+                      }
+                    },
+                    "index": {
+                      "type": "Number",
+                      "value": "6"
+                    }
+                  },
+                  "right": {
+                    "type": "Radical",
+                    "radicand": {
+                      "type": "Power",
+                      "base": {
+                        "type": "Number",
+                        "value": "3"
+                      },
+                      "exponent": {
+                        "type": "Row",
+                        "children": [
+                          {
+                            "type": "Number",
+                            "value": "2"
+                          },
+                          {
+                            "type": "Number",
+                            "value": "2"
+                          }
+                        ]
+                      }
+                    },
+                    "index": {
+                      "type": "Number",
+                      "value": "3"
+                    }
+                  }
+                },
+                "right": {
+                  "type": "Radical",
+                  "radicand": {
+                    "type": "Power",
+                    "base": {
+                      "type": "Number",
+                      "value": "3"
+                    },
+                    "exponent": {
+                      "type": "Number",
+                      "value": "2"
+                    }
+                  },
+                  "index": {
+                    "type": "Number",
+                    "value": "3"
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl028",
+          "bbox": {
+            "x": 321.0,
+            "y": 971.0,
+            "width": 1307.0,
+            "height": 219.0
+          },
+          "normalized_bbox": {
+            "x": 0.131882,
+            "y": 0.316184,
+            "width": 0.536976,
+            "height": 0.071312
+          },
+          "reading_order_index": 27,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "table",
+            "vl_block_id": 9
+          },
+          "content_type": "TABLE",
+          "raw_html": "<table><tr><td></td><td>a&gt;0</td><td>a=0</td><td>a&lt;0</td></tr><tr><td>n이 흘수</td><td>$ \\sqrt[n]{a} $</td><td>0</td><td>$ \\sqrt[n]{a} $</td></tr><tr><td>n이 짝수</td><td>$ \\sqrt[n]{a}, -\\sqrt[n]{a} $</td><td>0</td><td>없다.</td></tr></table>",
+          "row_count": 3,
+          "column_count": 4,
+          "cells": [
+            {
+              "cell_id": "p004-vl028-r01c01",
+              "row_index": 1,
+              "column_index": 1,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 321.0,
+                "y": 971.0,
+                "width": 326.75,
+                "height": 73.0
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [],
+              "header_candidate": true
+            },
+            {
+              "cell_id": "p004-vl028-r01c02",
+              "row_index": 1,
+              "column_index": 2,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 647.75,
+                "y": 971.0,
+                "width": 326.75,
+                "height": 73.0
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p004-vl028-r01c02-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 647.75,
+                    "y": 971.0,
+                    "width": 326.75,
+                    "height": 73.0
+                  },
+                  "normalized_bbox": {
+                    "x": 0.266126,
+                    "y": 0.316184,
+                    "width": 0.134244,
+                    "height": 0.023771
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "a>0",
+                  "normalized_text": "a>0",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "a>0"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": true
+            },
+            {
+              "cell_id": "p004-vl028-r01c03",
+              "row_index": 1,
+              "column_index": 3,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 974.5,
+                "y": 971.0,
+                "width": 326.75,
+                "height": 73.0
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p004-vl028-r01c03-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 974.5,
+                    "y": 971.0,
+                    "width": 326.75,
+                    "height": 73.0
+                  },
+                  "normalized_bbox": {
+                    "x": 0.40037,
+                    "y": 0.316184,
+                    "width": 0.134244,
+                    "height": 0.023771
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "a=0",
+                  "normalized_text": "a=0",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "a=0"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": true
+            },
+            {
+              "cell_id": "p004-vl028-r01c04",
+              "row_index": 1,
+              "column_index": 4,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 1301.25,
+                "y": 971.0,
+                "width": 326.75,
+                "height": 73.0
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p004-vl028-r01c04-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 1301.25,
+                    "y": 971.0,
+                    "width": 326.75,
+                    "height": 73.0
+                  },
+                  "normalized_bbox": {
+                    "x": 0.534614,
+                    "y": 0.316184,
+                    "width": 0.134244,
+                    "height": 0.023771
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "a<0",
+                  "normalized_text": "a<0",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "a<0"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": true
+            },
+            {
+              "cell_id": "p004-vl028-r02c01",
+              "row_index": 2,
+              "column_index": 1,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 321.0,
+                "y": 1044.0,
+                "width": 326.75,
+                "height": 73.0
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p004-vl028-r02c01-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 321.0,
+                    "y": 1044.0,
+                    "width": 326.75,
+                    "height": 73.0
+                  },
+                  "normalized_bbox": {
+                    "x": 0.131882,
+                    "y": 0.339954,
+                    "width": 0.134244,
+                    "height": 0.023771
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "n이 흘수",
+                  "normalized_text": "n이 흘수",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "n이 흘수"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": false
+            },
+            {
+              "cell_id": "p004-vl028-r02c02",
+              "row_index": 2,
+              "column_index": 2,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 647.75,
+                "y": 1044.0,
+                "width": 326.75,
+                "height": 73.0
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p004-vl028-r02c02-content-01",
+                  "content_type": "MATH",
+                  "bbox": {
+                    "x": 647.75,
+                    "y": 1044.0,
+                    "width": 326.75,
+                    "height": 73.0
+                  },
+                  "normalized_bbox": {
+                    "x": 0.266126,
+                    "y": 0.339954,
+                    "width": 0.134244,
+                    "height": 0.023771
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_formula": "\\sqrt[n]{a}",
+                  "formula_format": "LATEX",
+                  "presentation_ast": {
+                    "type": "Radical",
+                    "radicand": {
+                      "type": "Identifier",
+                      "value": "a"
+                    },
+                    "index": {
+                      "type": "Identifier",
+                      "value": "n"
+                    }
+                  },
+                  "unconsumed_tokens": []
+                }
+              ],
+              "header_candidate": false
+            },
+            {
+              "cell_id": "p004-vl028-r02c03",
+              "row_index": 2,
+              "column_index": 3,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 974.5,
+                "y": 1044.0,
+                "width": 326.75,
+                "height": 73.0
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p004-vl028-r02c03-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 974.5,
+                    "y": 1044.0,
+                    "width": 326.75,
+                    "height": 73.0
+                  },
+                  "normalized_bbox": {
+                    "x": 0.40037,
+                    "y": 0.339954,
+                    "width": 0.134244,
+                    "height": 0.023771
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "0",
+                  "normalized_text": "0",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "0"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": false
+            },
+            {
+              "cell_id": "p004-vl028-r02c04",
+              "row_index": 2,
+              "column_index": 4,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 1301.25,
+                "y": 1044.0,
+                "width": 326.75,
+                "height": 73.0
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p004-vl028-r02c04-content-01",
+                  "content_type": "MATH",
+                  "bbox": {
+                    "x": 1301.25,
+                    "y": 1044.0,
+                    "width": 326.75,
+                    "height": 73.0
+                  },
+                  "normalized_bbox": {
+                    "x": 0.534614,
+                    "y": 0.339954,
+                    "width": 0.134244,
+                    "height": 0.023771
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_formula": "\\sqrt[n]{a}",
+                  "formula_format": "LATEX",
+                  "presentation_ast": {
+                    "type": "Radical",
+                    "radicand": {
+                      "type": "Identifier",
+                      "value": "a"
+                    },
+                    "index": {
+                      "type": "Identifier",
+                      "value": "n"
+                    }
+                  },
+                  "unconsumed_tokens": []
+                }
+              ],
+              "header_candidate": false
+            },
+            {
+              "cell_id": "p004-vl028-r03c01",
+              "row_index": 3,
+              "column_index": 1,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 321.0,
+                "y": 1117.0,
+                "width": 326.75,
+                "height": 73.0
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p004-vl028-r03c01-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 321.0,
+                    "y": 1117.0,
+                    "width": 326.75,
+                    "height": 73.0
+                  },
+                  "normalized_bbox": {
+                    "x": 0.131882,
+                    "y": 0.363725,
+                    "width": 0.134244,
+                    "height": 0.023771
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "n이 짝수",
+                  "normalized_text": "n이 짝수",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "n이 짝수"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": false
+            },
+            {
+              "cell_id": "p004-vl028-r03c02",
+              "row_index": 3,
+              "column_index": 2,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 647.75,
+                "y": 1117.0,
+                "width": 326.75,
+                "height": 73.0
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p004-vl028-r03c02-content-01",
+                  "content_type": "MATH",
+                  "bbox": {
+                    "x": 647.75,
+                    "y": 1117.0,
+                    "width": 326.75,
+                    "height": 73.0
+                  },
+                  "normalized_bbox": {
+                    "x": 0.266126,
+                    "y": 0.363725,
+                    "width": 0.134244,
+                    "height": 0.023771
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [
+                    {
+                      "code": "AST_UNCONSUMED_TOKENS",
+                      "severity": "warning",
+                      "message": "9 token(s) left over after parsing: ',-sqrt[n]{a}'"
+                    }
+                  ],
+                  "raw_formula": "\\sqrt[n]{a}, -\\sqrt[n]{a}",
+                  "formula_format": "LATEX",
+                  "presentation_ast": {
+                    "type": "Radical",
+                    "radicand": {
+                      "type": "Identifier",
+                      "value": "a"
+                    },
+                    "index": {
+                      "type": "Identifier",
+                      "value": "n"
+                    }
+                  },
+                  "unconsumed_tokens": [
+                    ",",
+                    "-",
+                    "sqrt",
+                    "[",
+                    "n",
+                    "]",
+                    "{",
+                    "a",
+                    "}"
+                  ]
+                }
+              ],
+              "header_candidate": false
+            },
+            {
+              "cell_id": "p004-vl028-r03c03",
+              "row_index": 3,
+              "column_index": 3,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 974.5,
+                "y": 1117.0,
+                "width": 326.75,
+                "height": 73.0
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p004-vl028-r03c03-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 974.5,
+                    "y": 1117.0,
+                    "width": 326.75,
+                    "height": 73.0
+                  },
+                  "normalized_bbox": {
+                    "x": 0.40037,
+                    "y": 0.363725,
+                    "width": 0.134244,
+                    "height": 0.023771
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "0",
+                  "normalized_text": "0",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "0"
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": false
+            },
+            {
+              "cell_id": "p004-vl028-r03c04",
+              "row_index": 3,
+              "column_index": 4,
+              "row_span": 1,
+              "column_span": 1,
+              "bbox": {
+                "x": 1301.25,
+                "y": 1117.0,
+                "width": 326.75,
+                "height": 73.0
+              },
+              "bbox_is_estimated": true,
+              "content_nodes": [
+                {
+                  "node_id": "p004-vl028-r03c04-content-01",
+                  "content_type": "TEXT",
+                  "bbox": {
+                    "x": 1301.25,
+                    "y": 1117.0,
+                    "width": 326.75,
+                    "height": 73.0
+                  },
+                  "normalized_bbox": {
+                    "x": 0.534614,
+                    "y": 0.363725,
+                    "width": 0.134244,
+                    "height": 0.023771
+                  },
+                  "confidence": 1.0,
+                  "source_engine": "paddleocr-vl",
+                  "issues": [],
+                  "raw_text": "없다.",
+                  "normalized_text": "없다.",
+                  "spans": [
+                    {
+                      "span_type": "TEXT",
+                      "text": "없다."
+                    }
+                  ]
+                }
+              ],
+              "header_candidate": false
+            }
+          ],
+          "structure_confidence": 0.9
+        },
+        {
+          "node_id": "p004-vl029",
+          "bbox": {
+            "x": 467.0,
+            "y": 1403.0,
+            "width": 515.0,
+            "height": 366.0
+          },
+          "normalized_bbox": {
+            "x": 0.191865,
+            "y": 0.456854,
+            "width": 0.211586,
+            "height": 0.119179
+          },
+          "reading_order_index": 28,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "image",
+            "vl_block_id": 12
+          },
+          "content_type": "UNSUPPORTED_VISUAL",
+          "visual_type_candidate": "GRAPH_OR_DIAGRAM",
+          "handling": "ANNOUNCE_AND_PRESERVE_TEXT",
+          "embedded_content_nodes": [
+            {
+              "node_id": "p004-vl029-embedded-01",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 467.0,
+                "y": 1403.0,
+                "width": 515.0,
+                "height": 366.0
+              },
+              "normalized_bbox": {
+                "x": 0.191865,
+                "y": 0.456854,
+                "width": 0.211586,
+                "height": 0.119179
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [
+                {
+                  "code": "AST_UNCONSUMED_TOKENS",
+                  "severity": "warning",
+                  "message": "1 token(s) left over after parsing: 'uparrow'"
+                }
+              ],
+              "raw_formula": "y \\uparrow",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "y"
+              },
+              "unconsumed_tokens": [
+                "uparrow"
+              ]
+            },
+            {
+              "node_id": "p004-vl029-embedded-02",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 467.0,
+                "y": 1403.0,
+                "width": 515.0,
+                "height": 366.0
+              },
+              "normalized_bbox": {
+                "x": 0.191865,
+                "y": 0.456854,
+                "width": 0.211586,
+                "height": 0.119179
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_formula": "y = x^n",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Identifier",
+                  "value": "y"
+                },
+                "right": {
+                  "type": "Power",
+                  "base": {
+                    "type": "Identifier",
+                    "value": "x"
+                  },
+                  "exponent": {
+                    "type": "Identifier",
+                    "value": "n"
+                  }
+                }
+              },
+              "unconsumed_tokens": []
+            },
+            {
+              "node_id": "p004-vl029-embedded-03",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 467.0,
+                "y": 1403.0,
+                "width": 515.0,
+                "height": 366.0
+              },
+              "normalized_bbox": {
+                "x": 0.191865,
+                "y": 0.456854,
+                "width": 0.211586,
+                "height": 0.119179
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_formula": "y = a (a > 0)",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Identifier",
+                  "value": "y"
+                },
+                "right": {
+                  "type": "Row",
+                  "children": [
+                    {
+                      "type": "Identifier",
+                      "value": "a"
+                    },
+                    {
+                      "type": "Parenthesized",
+                      "body": {
+                        "type": "Relation",
+                        "operator": ">",
+                        "left": {
+                          "type": "Identifier",
+                          "value": "a"
+                        },
+                        "right": {
+                          "type": "Number",
+                          "value": "0"
+                        }
+                      },
+                      "delimiter": "("
+                    }
+                  ]
+                }
+              },
+              "unconsumed_tokens": []
+            },
+            {
+              "node_id": "p004-vl029-embedded-04",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 467.0,
+                "y": 1403.0,
+                "width": 515.0,
+                "height": 366.0
+              },
+              "normalized_bbox": {
+                "x": 0.191865,
+                "y": 0.456854,
+                "width": 0.211586,
+                "height": 0.119179
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_formula": "\\sqrt[n]{a}",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Radical",
+                "radicand": {
+                  "type": "Identifier",
+                  "value": "a"
+                },
+                "index": {
+                  "type": "Identifier",
+                  "value": "n"
+                }
+              },
+              "unconsumed_tokens": []
+            },
+            {
+              "node_id": "p004-vl029-embedded-05",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 467.0,
+                "y": 1403.0,
+                "width": 515.0,
+                "height": 366.0
+              },
+              "normalized_bbox": {
+                "x": 0.191865,
+                "y": 0.456854,
+                "width": 0.211586,
+                "height": 0.119179
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_formula": "O",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "O"
+              },
+              "unconsumed_tokens": []
+            },
+            {
+              "node_id": "p004-vl029-embedded-06",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 467.0,
+                "y": 1403.0,
+                "width": 515.0,
+                "height": 366.0
+              },
+              "normalized_bbox": {
+                "x": 0.191865,
+                "y": 0.456854,
+                "width": 0.211586,
+                "height": 0.119179
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_formula": "\\sqrt[n]{a}",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Radical",
+                "radicand": {
+                  "type": "Identifier",
+                  "value": "a"
+                },
+                "index": {
+                  "type": "Identifier",
+                  "value": "n"
+                }
+              },
+              "unconsumed_tokens": []
+            },
+            {
+              "node_id": "p004-vl029-embedded-07",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 467.0,
+                "y": 1403.0,
+                "width": 515.0,
+                "height": 366.0
+              },
+              "normalized_bbox": {
+                "x": 0.191865,
+                "y": 0.456854,
+                "width": 0.211586,
+                "height": 0.119179
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_formula": "x",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "x"
+              },
+              "unconsumed_tokens": []
+            },
+            {
+              "node_id": "p004-vl029-embedded-08",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 467.0,
+                "y": 1403.0,
+                "width": 515.0,
+                "height": 366.0
+              },
+              "normalized_bbox": {
+                "x": 0.191865,
+                "y": 0.456854,
+                "width": 0.211586,
+                "height": 0.119179
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_formula": "y = a (a < 0)",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Identifier",
+                  "value": "y"
+                },
+                "right": {
+                  "type": "Row",
+                  "children": [
+                    {
+                      "type": "Identifier",
+                      "value": "a"
+                    },
+                    {
+                      "type": "Parenthesized",
+                      "body": {
+                        "type": "Relation",
+                        "operator": "<",
+                        "left": {
+                          "type": "Identifier",
+                          "value": "a"
+                        },
+                        "right": {
+                          "type": "Number",
+                          "value": "0"
+                        }
+                      },
+                      "delimiter": "("
+                    }
+                  ]
+                }
+              },
+              "unconsumed_tokens": []
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl030",
+          "bbox": {
+            "x": 1301.0,
+            "y": 1400.0,
+            "width": 532.0,
+            "height": 360.0
+          },
+          "normalized_bbox": {
+            "x": 0.534511,
+            "y": 0.455878,
+            "width": 0.21857,
+            "height": 0.117226
+          },
+          "reading_order_index": 29,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "image",
+            "vl_block_id": 15
+          },
+          "content_type": "UNSUPPORTED_VISUAL",
+          "visual_type_candidate": "GRAPH_OR_DIAGRAM",
+          "handling": "ANNOUNCE_AND_PRESERVE_TEXT",
+          "embedded_content_nodes": [
+            {
+              "node_id": "p004-vl030-embedded-01",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 1301.0,
+                "y": 1400.0,
+                "width": 532.0,
+                "height": 360.0
+              },
+              "normalized_bbox": {
+                "x": 0.534511,
+                "y": 0.455878,
+                "width": 0.21857,
+                "height": 0.117226
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [
+                {
+                  "code": "AST_UNCONSUMED_TOKENS",
+                  "severity": "warning",
+                  "message": "1 token(s) left over after parsing: 'uparrow'"
+                }
+              ],
+              "raw_formula": "y \\uparrow",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "y"
+              },
+              "unconsumed_tokens": [
+                "uparrow"
+              ]
+            },
+            {
+              "node_id": "p004-vl030-embedded-02",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 1301.0,
+                "y": 1400.0,
+                "width": 532.0,
+                "height": 360.0
+              },
+              "normalized_bbox": {
+                "x": 0.534511,
+                "y": 0.455878,
+                "width": 0.21857,
+                "height": 0.117226
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_formula": "y = x^n",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Identifier",
+                  "value": "y"
+                },
+                "right": {
+                  "type": "Power",
+                  "base": {
+                    "type": "Identifier",
+                    "value": "x"
+                  },
+                  "exponent": {
+                    "type": "Identifier",
+                    "value": "n"
+                  }
+                }
+              },
+              "unconsumed_tokens": []
+            },
+            {
+              "node_id": "p004-vl030-embedded-03",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 1301.0,
+                "y": 1400.0,
+                "width": 532.0,
+                "height": 360.0
+              },
+              "normalized_bbox": {
+                "x": 0.534511,
+                "y": 0.455878,
+                "width": 0.21857,
+                "height": 0.117226
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_formula": "y = a (a > 0)",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Identifier",
+                  "value": "y"
+                },
+                "right": {
+                  "type": "Row",
+                  "children": [
+                    {
+                      "type": "Identifier",
+                      "value": "a"
+                    },
+                    {
+                      "type": "Parenthesized",
+                      "body": {
+                        "type": "Relation",
+                        "operator": ">",
+                        "left": {
+                          "type": "Identifier",
+                          "value": "a"
+                        },
+                        "right": {
+                          "type": "Number",
+                          "value": "0"
+                        }
+                      },
+                      "delimiter": "("
+                    }
+                  ]
+                }
+              },
+              "unconsumed_tokens": []
+            },
+            {
+              "node_id": "p004-vl030-embedded-04",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 1301.0,
+                "y": 1400.0,
+                "width": 532.0,
+                "height": 360.0
+              },
+              "normalized_bbox": {
+                "x": 0.534511,
+                "y": 0.455878,
+                "width": 0.21857,
+                "height": 0.117226
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [
+                {
+                  "code": "AST_UNCONSUMED_TOKENS",
+                  "severity": "warning",
+                  "message": "9 token(s) left over after parsing: 'rightarrow-sqrt[n]{a}'"
+                }
+              ],
+              "raw_formula": "x \\rightarrow -\\sqrt[n]{a}",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Identifier",
+                "value": "x"
+              },
+              "unconsumed_tokens": [
+                "rightarrow",
+                "-",
+                "sqrt",
+                "[",
+                "n",
+                "]",
+                "{",
+                "a",
+                "}"
+              ]
+            },
+            {
+              "node_id": "p004-vl030-embedded-05",
+              "content_type": "TEXT",
+              "bbox": {
+                "x": 1301.0,
+                "y": 1400.0,
+                "width": 532.0,
+                "height": 360.0
+              },
+              "normalized_bbox": {
+                "x": 0.534511,
+                "y": 0.455878,
+                "width": 0.21857,
+                "height": 0.117226
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_text": "O",
+              "normalized_text": "O",
+              "spans": [
+                {
+                  "span_type": "TEXT",
+                  "text": "O"
+                }
+              ]
+            },
+            {
+              "node_id": "p004-vl030-embedded-06",
+              "content_type": "MATH",
+              "bbox": {
+                "x": 1301.0,
+                "y": 1400.0,
+                "width": 532.0,
+                "height": 360.0
+              },
+              "normalized_bbox": {
+                "x": 0.534511,
+                "y": 0.455878,
+                "width": 0.21857,
+                "height": 0.117226
+              },
+              "confidence": 1.0,
+              "source_engine": "paddleocr-vl",
+              "issues": [],
+              "raw_formula": "y = a (a < 0)",
+              "formula_format": "LATEX",
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Identifier",
+                  "value": "y"
+                },
+                "right": {
+                  "type": "Row",
+                  "children": [
+                    {
+                      "type": "Identifier",
+                      "value": "a"
+                    },
+                    {
+                      "type": "Parenthesized",
+                      "body": {
+                        "type": "Relation",
+                        "operator": "<",
+                        "left": {
+                          "type": "Identifier",
+                          "value": "a"
+                        },
+                        "right": {
+                          "type": "Number",
+                          "value": "0"
+                        }
+                      },
+                      "delimiter": "("
+                    }
+                  ]
+                }
+              },
+              "unconsumed_tokens": []
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl031",
+          "bbox": {
+            "x": 179.0,
+            "y": 2912.0,
+            "width": 385.0,
+            "height": 38.0
+          },
+          "normalized_bbox": {
+            "x": 0.073541,
+            "y": 0.948225,
+            "width": 0.158176,
+            "height": 0.012374
+          },
+          "reading_order_index": 30,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "footer",
+            "vl_block_id": 31
+          },
+          "content_type": "TEXT",
+          "raw_text": "2027학년도 EBS 수능특강 수학 I",
+          "normalized_text": "2027학년도 EBS 수능특강 수학 I",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "2027학년도 EBS 수능특강 수학 I"
+            }
+          ]
+        },
+        {
+          "node_id": "p004-vl032",
+          "bbox": {
+            "x": 126.0,
+            "y": 2915.0,
+            "width": 29.0,
+            "height": 38.0
+          },
+          "normalized_bbox": {
+            "x": 0.051767,
+            "y": 0.949202,
+            "width": 0.011915,
+            "height": 0.012374
+          },
+          "reading_order_index": 31,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "number",
+            "vl_block_id": 30
+          },
+          "content_type": "TEXT",
+          "raw_text": "4",
+          "normalized_text": "4",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "4"
+            }
+          ]
+        }
+      ],
+      "reading_order": [
+        "p004-vl001",
+        "p004-vl002",
+        "p004-vl003",
+        "p004-vl004",
+        "p004-vl005",
+        "p004-vl006",
+        "p004-vl007",
+        "p004-vl008",
+        "p004-vl009",
+        "p004-vl010",
+        "p004-vl011",
+        "p004-vl012",
+        "p004-vl013",
+        "p004-vl014",
+        "p004-vl015",
+        "p004-vl016",
+        "p004-vl017",
+        "p004-vl018",
+        "p004-vl019",
+        "p004-vl020",
+        "p004-vl021",
+        "p004-vl022",
+        "p004-vl023",
+        "p004-vl024",
+        "p004-vl025",
+        "p004-vl026",
+        "p004-vl027",
+        "p004-vl028",
+        "p004-vl029",
+        "p004-vl030",
+        "p004-vl031",
+        "p004-vl032"
+      ],
+      "parse_issues": [],
+      "quality_report": {
+        "status": "PASS_WITH_CORRECTION",
+        "issues": []
+      }
+    }
+  ],
+  "validation_summary": {
+    "schema_valid": true,
+    "validation_performed": true,
+    "coordinate_missing_node_count": 0,
+    "reading_order_cycle_count": 0,
+    "invalid_reading_order_ref_count": 0,
+    "missing_reading_order_node_count": 0,
+    "duplicate_node_id_count": 0,
+    "required_field_missing_count": 0,
+    "type_error_count": 0,
+    "bbox_invalid_count": 0,
+    "normalized_bbox_out_of_range_count": 0,
+    "confidence_invalid_count": 0,
+    "reading_order_index_mismatch_count": 0,
+    "invalid_embedded_text_ref_count": 0,
+    "quality_status_invalid_count": 0,
+    "issue_invalid_count": 0,
+    "page_count_mismatch": false,
+    "page_count": 1
+  }
+}
