@@ -1,0 +1,2473 @@
+{
+  "document_manifest": {
+    "book_id": "ebs-2027-math1",
+    "profile_hint": "EBS_SUNEUNG_TEUKGANG",
+    "page_count": 1
+  },
+  "pages": [
+    {
+      "page_id": "p004",
+      "page_geometry": {
+        "width": 2434,
+        "height": 3071
+      },
+      "nodes": [
+        {
+          "node_id": "p004-n001",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 259.0,
+            "y": 86.0,
+            "width": 671.0,
+            "height": 165.0
+          },
+          "normalized_bbox": {
+            "x": 0.106409,
+            "y": 0.028004,
+            "width": 0.275678,
+            "height": 0.053728
+          },
+          "reading_order_index": 0,
+          "confidence": 0.987963,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "01 지수와 로그",
+          "normalized_text": "01 지수와 로그",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "01 지수와 로그"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l001",
+            "source_token_count": 2,
+            "tokens": [
+              {
+                "text": "01",
+                "bbox": {
+                  "x": 259.0,
+                  "y": 86.0,
+                  "width": 175.0,
+                  "height": 165.0
+                }
+              },
+              {
+                "text": "지수와 로그",
+                "bbox": {
+                  "x": 504.0,
+                  "y": 144.0,
+                  "width": 426.0,
+                  "height": 107.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n002",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 264.0,
+            "y": 345.0,
+            "width": 286.0,
+            "height": 62.0
+          },
+          "normalized_bbox": {
+            "x": 0.108463,
+            "y": 0.112341,
+            "width": 0.117502,
+            "height": 0.020189
+          },
+          "reading_order_index": 1,
+          "confidence": 0.999812,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "1거듭제곱근",
+          "normalized_text": "1거듭제곱근",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "1거듭제곱근"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l002",
+            "source_token_count": 2,
+            "tokens": [
+              {
+                "text": "1",
+                "bbox": {
+                  "x": 264.0,
+                  "y": 349.0,
+                  "width": 54.0,
+                  "height": 54.0
+                }
+              },
+              {
+                "text": "거듭제곱근",
+                "bbox": {
+                  "x": 321.0,
+                  "y": 345.0,
+                  "width": 229.0,
+                  "height": 62.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n003",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 255.0,
+            "y": 445.0,
+            "width": 363.0,
+            "height": 52.0
+          },
+          "normalized_bbox": {
+            "x": 0.104766,
+            "y": 0.144904,
+            "width": 0.149137,
+            "height": 0.016933
+          },
+          "reading_order_index": 2,
+          "confidence": 0.957348,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "(1)실수 a의 n제곱근",
+          "normalized_text": "(1)실수 a의 n제곱근",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(1)실수 a의 n제곱근"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l003",
+            "source_token_count": 1,
+            "tokens": [
+              {
+                "text": "(1)실수 a의 n제곱근",
+                "bbox": {
+                  "x": 255.0,
+                  "y": 445.0,
+                  "width": 363.0,
+                  "height": 52.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n004",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 323.0,
+            "y": 516.0,
+            "width": 1771.0,
+            "height": 46.0
+          },
+          "normalized_bbox": {
+            "x": 0.132703,
+            "y": 0.168023,
+            "width": 0.727609,
+            "height": 0.014979
+          },
+          "reading_order_index": 3,
+          "confidence": 0.945035,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "실수 a와2 이상의 자연수 n에 대하여 n제곱하여 a가 되는 수.즉 방정식x\"=a의 근을 a의 n제곱근이라고",
+          "normalized_text": "실수 a와2 이상의 자연수 n에 대하여 n제곱하여 a가 되는 수.즉 방정식x\"=a의 근을 a의 n제곱근이라고",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "실수 a와2 이상의 자연수 n에 대하여 n제곱하여 a가 되는 수.즉 방정식x\"=a의 근을 a의 n제곱근이라고"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l004",
+            "source_token_count": 1,
+            "tokens": [
+              {
+                "text": "실수 a와2 이상의 자연수 n에 대하여 n제곱하여 a가 되는 수.즉 방정식x\"=a의 근을 a의 n제곱근이라고",
+                "bbox": {
+                  "x": 323.0,
+                  "y": 516.0,
+                  "width": 1771.0,
+                  "height": 46.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n005",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 323.0,
+            "y": 589.0,
+            "width": 1539.0,
+            "height": 46.0
+          },
+          "normalized_bbox": {
+            "x": 0.132703,
+            "y": 0.191794,
+            "width": 0.632293,
+            "height": 0.014979
+          },
+          "reading_order_index": 4,
+          "confidence": 0.987194,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "한다.이때 a의 제곱근,a의 세제곱근,a의 네제곱근,을 통틀어 a의 거듭제곱근이라고 한다.",
+          "normalized_text": "한다.이때 a의 제곱근,a의 세제곱근,a의 네제곱근,을 통틀어 a의 거듭제곱근이라고 한다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "한다.이때 a의 제곱근,a의 세제곱근,a의 네제곱근,을 통틀어 a의 거듭제곱근이라고 한다."
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l005",
+            "source_token_count": 1,
+            "tokens": [
+              {
+                "text": "한다.이때 a의 제곱근,a의 세제곱근,a의 네제곱근,을 통틀어 a의 거듭제곱근이라고 한다.",
+                "bbox": {
+                  "x": 323.0,
+                  "y": 589.0,
+                  "width": 1539.0,
+                  "height": 46.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n006",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 259.0,
+            "y": 685.0,
+            "width": 572.0,
+            "height": 46.0
+          },
+          "normalized_bbox": {
+            "x": 0.106409,
+            "y": 0.223054,
+            "width": 0.235004,
+            "height": 0.014979
+          },
+          "reading_order_index": 5,
+          "confidence": 0.980616,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "(2)실수 a의 n제곱근 중 실수인 것",
+          "normalized_text": "(2)실수 a의 n제곱근 중 실수인 것",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(2)실수 a의 n제곱근 중 실수인 것"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l006",
+            "source_token_count": 2,
+            "tokens": [
+              {
+                "text": "(2)",
+                "bbox": {
+                  "x": 259.0,
+                  "y": 685.0,
+                  "width": 70.0,
+                  "height": 44.0
+                }
+              },
+              {
+                "text": "실수 a의 n제곱근 중 실수인 것",
+                "bbox": {
+                  "x": 314.0,
+                  "y": 685.0,
+                  "width": 517.0,
+                  "height": 46.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n007",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 325.0,
+            "y": 754.0,
+            "width": 787.0,
+            "height": 46.0
+          },
+          "normalized_bbox": {
+            "x": 0.133525,
+            "y": 0.245523,
+            "width": 0.323336,
+            "height": 0.014979
+          },
+          "reading_order_index": 6,
+          "confidence": 0.965476,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "실수a의 n제곱근 중에서 실수인 것을x라 할 때",
+          "normalized_text": "실수a의 n제곱근 중에서 실수인 것을x라 할 때",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "실수a의 n제곱근 중에서 실수인 것을x라 할 때"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l007",
+            "source_token_count": 1,
+            "tokens": [
+              {
+                "text": "실수a의 n제곱근 중에서 실수인 것을x라 할 때",
+                "bbox": {
+                  "x": 325.0,
+                  "y": 754.0,
+                  "width": 787.0,
+                  "height": 46.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n008",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 323.0,
+            "y": 825.0,
+            "width": 1200.0,
+            "height": 46.0
+          },
+          "normalized_bbox": {
+            "x": 0.132703,
+            "y": 0.268642,
+            "width": 0.493016,
+            "height": 0.014979
+          },
+          "reading_order_index": 7,
+          "confidence": 0.952473,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "①n이 홀수이면 a의 값에 관계없이 실수 x는 항상 존재하고 x=\"a이다.",
+          "normalized_text": "①n이 홀수이면 a의 값에 관계없이 실수 x는 항상 존재하고 x=\"a이다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "①n이 홀수이면 a의 값에 관계없이 실수 x는 항상 존재하고 x=\"a이다."
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l008",
+            "source_token_count": 1,
+            "tokens": [
+              {
+                "text": "①n이 홀수이면 a의 값에 관계없이 실수 x는 항상 존재하고 x=\"a이다.",
+                "bbox": {
+                  "x": 323.0,
+                  "y": 825.0,
+                  "width": 1200.0,
+                  "height": 46.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n009",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 321.0,
+            "y": 894.0,
+            "width": 1322.0,
+            "height": 48.0
+          },
+          "normalized_bbox": {
+            "x": 0.131882,
+            "y": 0.29111,
+            "width": 0.543139,
+            "height": 0.01563
+          },
+          "reading_order_index": 8,
+          "confidence": 0.897032,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "2n이 짝수이면 a≥0일 때에만 실수 x가 존재하고 x=na 또는 x=-na이다.",
+          "normalized_text": "2n이 짝수이면 a≥0일 때에만 실수 x가 존재하고 x=na 또는 x=-na이다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "2n이 짝수이면 a≥0일 때에만 실수 x가 존재하고 x=na 또는 x=-na이다."
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l009",
+            "source_token_count": 1,
+            "tokens": [
+              {
+                "text": "2n이 짝수이면 a≥0일 때에만 실수 x가 존재하고 x=na 또는 x=-na이다.",
+                "bbox": {
+                  "x": 321.0,
+                  "y": 894.0,
+                  "width": 1322.0,
+                  "height": 48.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n010",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 692.0,
+            "y": 987.0,
+            "width": 799.0,
+            "height": 44.0
+          },
+          "normalized_bbox": {
+            "x": 0.284306,
+            "y": 0.321394,
+            "width": 0.328266,
+            "height": 0.014328
+          },
+          "reading_order_index": 9,
+          "confidence": 0.914109,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "a >0 a=0 a <0",
+          "normalized_text": "a >0 a=0 a <0",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "a >0 a=0 a <0"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l010",
+            "source_token_count": 3,
+            "tokens": [
+              {
+                "text": "a >0",
+                "bbox": {
+                  "x": 692.0,
+                  "y": 987.0,
+                  "width": 91.0,
+                  "height": 44.0
+                }
+              },
+              {
+                "text": "a=0",
+                "bbox": {
+                  "x": 1046.0,
+                  "y": 987.0,
+                  "width": 93.0,
+                  "height": 44.0
+                }
+              },
+              {
+                "text": "a <0",
+                "bbox": {
+                  "x": 1400.0,
+                  "y": 987.0,
+                  "width": 91.0,
+                  "height": 44.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n011",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 367.0,
+            "y": 1048.0,
+            "width": 745.0,
+            "height": 63.0
+          },
+          "normalized_bbox": {
+            "x": 0.150781,
+            "y": 0.341257,
+            "width": 0.306081,
+            "height": 0.020514
+          },
+          "reading_order_index": 10,
+          "confidence": 0.870643,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "n이홀수 √a 0",
+          "normalized_text": "n이홀수 √a 0",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "n이홀수 √a 0"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l011",
+            "source_token_count": 3,
+            "tokens": [
+              {
+                "text": "n이홀수",
+                "bbox": {
+                  "x": 367.0,
+                  "y": 1054.0,
+                  "width": 148.0,
+                  "height": 53.0
+                }
+              },
+              {
+                "text": "√a",
+                "bbox": {
+                  "x": 698.0,
+                  "y": 1048.0,
+                  "width": 80.0,
+                  "height": 63.0
+                }
+              },
+              {
+                "text": "0",
+                "bbox": {
+                  "x": 1072.0,
+                  "y": 1056.0,
+                  "width": 40.0,
+                  "height": 48.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n012",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 367.0,
+            "y": 1117.0,
+            "width": 745.0,
+            "height": 69.0
+          },
+          "normalized_bbox": {
+            "x": 0.150781,
+            "y": 0.363725,
+            "width": 0.306081,
+            "height": 0.022468
+          },
+          "reading_order_index": 11,
+          "confidence": 0.870218,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "n이 짝수 a, −na 0",
+          "normalized_text": "n이 짝수 a, −na 0",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "n이 짝수 a, −na 0"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l013",
+            "source_token_count": 3,
+            "tokens": [
+              {
+                "text": "n이 짝수",
+                "bbox": {
+                  "x": 367.0,
+                  "y": 1125.0,
+                  "width": 150.0,
+                  "height": 55.0
+                }
+              },
+              {
+                "text": "a, −na",
+                "bbox": {
+                  "x": 641.0,
+                  "y": 1117.0,
+                  "width": 192.0,
+                  "height": 69.0
+                }
+              },
+              {
+                "text": "0",
+                "bbox": {
+                  "x": 1072.0,
+                  "y": 1131.0,
+                  "width": 40.0,
+                  "height": 46.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n013",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 323.0,
+            "y": 1209.0,
+            "width": 1774.0,
+            "height": 52.0
+          },
+          "normalized_bbox": {
+            "x": 0.132703,
+            "y": 0.393683,
+            "width": 0.728841,
+            "height": 0.016933
+          },
+          "reading_order_index": 12,
+          "confidence": 0.914245,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "설명>n이2 이상의자연수일 때 실수a의n제곱근 중에서실수인것은방정식x^\"=a의근 중에서실수인것이므로이는",
+          "normalized_text": "설명>n이2 이상의자연수일 때 실수a의n제곱근 중에서실수인것은방정식x^\"=a의근 중에서실수인것이므로이는",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "설명>n이2 이상의자연수일 때 실수a의n제곱근 중에서실수인것은방정식x^\"=a의근 중에서실수인것이므로이는"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l015",
+            "source_token_count": 1,
+            "tokens": [
+              {
+                "text": "설명>n이2 이상의자연수일 때 실수a의n제곱근 중에서실수인것은방정식x^\"=a의근 중에서실수인것이므로이는",
+                "bbox": {
+                  "x": 323.0,
+                  "y": 1209.0,
+                  "width": 1774.0,
+                  "height": 52.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n014",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 422.0,
+            "y": 1273.0,
+            "width": 1571.0,
+            "height": 48.0
+          },
+          "normalized_bbox": {
+            "x": 0.173377,
+            "y": 0.414523,
+            "width": 0.64544,
+            "height": 0.01563
+          },
+          "reading_order_index": 13,
+          "confidence": 0.920613,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "함수y=x^\"의 그래프와 직선y=a의 교점의x좌표와 같다.이때 이 실수를 기호\\a를이용하여 나타낸다.",
+          "normalized_text": "함수y=x^\"의 그래프와 직선y=a의 교점의x좌표와 같다.이때 이 실수를 기호\\a를이용하여 나타낸다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "함수y=x^\"의 그래프와 직선y=a의 교점의x좌표와 같다.이때 이 실수를 기호\\a를이용하여 나타낸다."
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l016",
+            "source_token_count": 1,
+            "tokens": [
+              {
+                "text": "함수y=x^\"의 그래프와 직선y=a의 교점의x좌표와 같다.이때 이 실수를 기호\\a를이용하여 나타낸다.",
+                "bbox": {
+                  "x": 422.0,
+                  "y": 1273.0,
+                  "width": 1571.0,
+                  "height": 48.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n015",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 418.0,
+            "y": 1338.0,
+            "width": 270.0,
+            "height": 46.0
+          },
+          "normalized_bbox": {
+            "x": 0.171734,
+            "y": 0.435689,
+            "width": 0.110929,
+            "height": 0.014979
+          },
+          "reading_order_index": 14,
+          "confidence": 0.932003,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "(i)n이 홀수일 때",
+          "normalized_text": "(i)n이 홀수일 때",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(i)n이 홀수일 때"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l017",
+            "source_token_count": 1,
+            "tokens": [
+              {
+                "text": "(i)n이 홀수일 때",
+                "bbox": {
+                  "x": 418.0,
+                  "y": 1338.0,
+                  "width": 270.0,
+                  "height": 46.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n016",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 603.0,
+            "y": 1394.0,
+            "width": 209.0,
+            "height": 61.0
+          },
+          "normalized_bbox": {
+            "x": 0.24774,
+            "y": 0.453924,
+            "width": 0.085867,
+            "height": 0.019863
+          },
+          "reading_order_index": 15,
+          "confidence": 0.815313,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "y4 y=xn",
+          "normalized_text": "y4 y=xn",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "y4 y=xn"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l020",
+            "source_token_count": 2,
+            "tokens": [
+              {
+                "text": "y4",
+                "bbox": {
+                  "x": 603.0,
+                  "y": 1399.0,
+                  "width": 47.0,
+                  "height": 42.0
+                }
+              },
+              {
+                "text": "y=xn",
+                "bbox": {
+                  "x": 698.0,
+                  "y": 1394.0,
+                  "width": 114.0,
+                  "height": 61.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n017",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 605.0,
+            "y": 1472.0,
+            "width": 373.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.248562,
+            "y": 0.479323,
+            "width": 0.153246,
+            "height": 0.017584
+          },
+          "reading_order_index": 16,
+          "confidence": 0.863417,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "a -y=a (a>0)",
+          "normalized_text": "a -y=a (a>0)",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "a -y=a (a>0)"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l021",
+            "source_token_count": 2,
+            "tokens": [
+              {
+                "text": "a",
+                "bbox": {
+                  "x": 605.0,
+                  "y": 1472.0,
+                  "width": 32.0,
+                  "height": 35.0
+                }
+              },
+              {
+                "text": "-y=a (a>0)",
+                "bbox": {
+                  "x": 783.0,
+                  "y": 1476.0,
+                  "width": 195.0,
+                  "height": 50.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n018",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 508.0,
+            "y": 1553.0,
+            "width": 319.0,
+            "height": 88.0
+          },
+          "normalized_bbox": {
+            "x": 0.20871,
+            "y": 0.505698,
+            "width": 0.13106,
+            "height": 0.028655
+          },
+          "reading_order_index": 17,
+          "confidence": 0.803167,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "2a x",
+          "normalized_text": "2a x",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "2a x"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l023",
+            "source_token_count": 3,
+            "tokens": [
+              {
+                "text": "2",
+                "bbox": {
+                  "x": 508.0,
+                  "y": 1553.0,
+                  "width": 40.0,
+                  "height": 54.0
+                }
+              },
+              {
+                "text": "a",
+                "bbox": {
+                  "x": 536.0,
+                  "y": 1566.0,
+                  "width": 34.0,
+                  "height": 35.0
+                }
+              },
+              {
+                "text": "x",
+                "bbox": {
+                  "x": 789.0,
+                  "y": 1589.0,
+                  "width": 38.0,
+                  "height": 52.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n019",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1407.0,
+            "y": 1048.0,
+            "width": 78.0,
+            "height": 63.0
+          },
+          "normalized_bbox": {
+            "x": 0.578061,
+            "y": 0.341257,
+            "width": 0.032046,
+            "height": 0.020514
+          },
+          "reading_order_index": 18,
+          "confidence": 0.63759,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "√a",
+          "normalized_text": "√a",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "√a"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l012",
+            "source_token_count": 1,
+            "tokens": [
+              {
+                "text": "√a",
+                "bbox": {
+                  "x": 1407.0,
+                  "y": 1048.0,
+                  "width": 78.0,
+                  "height": 63.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n020",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1398.0,
+            "y": 1123.0,
+            "width": 93.0,
+            "height": 61.0
+          },
+          "normalized_bbox": {
+            "x": 0.574363,
+            "y": 0.365679,
+            "width": 0.038209,
+            "height": 0.019863
+          },
+          "reading_order_index": 19,
+          "confidence": 0.996047,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "없다",
+          "normalized_text": "없다",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "없다"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l014",
+            "source_token_count": 1,
+            "tokens": [
+              {
+                "text": "없다",
+                "bbox": {
+                  "x": 1398.0,
+                  "y": 1123.0,
+                  "width": 93.0,
+                  "height": 61.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n021",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1255.0,
+            "y": 1338.0,
+            "width": 270.0,
+            "height": 46.0
+          },
+          "normalized_bbox": {
+            "x": 0.515612,
+            "y": 0.435689,
+            "width": 0.110929,
+            "height": 0.014979
+          },
+          "reading_order_index": 20,
+          "confidence": 0.855803,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "(ii) n이 짝수일 때",
+          "normalized_text": "(ii) n이 짝수일 때",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(ii) n이 짝수일 때"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l018",
+            "source_token_count": 1,
+            "tokens": [
+              {
+                "text": "(ii) n이 짝수일 때",
+                "bbox": {
+                  "x": 1255.0,
+                  "y": 1338.0,
+                  "width": 270.0,
+                  "height": 46.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n022",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1447.0,
+            "y": 1392.0,
+            "width": 226.0,
+            "height": 57.0
+          },
+          "normalized_bbox": {
+            "x": 0.594495,
+            "y": 0.453273,
+            "width": 0.092851,
+            "height": 0.018561
+          },
+          "reading_order_index": 21,
+          "confidence": 0.628348,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "y4 y=n",
+          "normalized_text": "y4 y=n",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "y4 y=n"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l019",
+            "source_token_count": 3,
+            "tokens": [
+              {
+                "text": "y4",
+                "bbox": {
+                  "x": 1447.0,
+                  "y": 1399.0,
+                  "width": 50.0,
+                  "height": 41.0
+                }
+              },
+              {
+                "text": "y=",
+                "bbox": {
+                  "x": 1569.0,
+                  "y": 1407.0,
+                  "width": 61.0,
+                  "height": 36.0
+                }
+              },
+              {
+                "text": "n",
+                "bbox": {
+                  "x": 1607.0,
+                  "y": 1392.0,
+                  "width": 66.0,
+                  "height": 57.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n023",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1453.0,
+            "y": 1489.0,
+            "width": 375.0,
+            "height": 57.0
+          },
+          "normalized_bbox": {
+            "x": 0.59696,
+            "y": 0.484858,
+            "width": 0.154067,
+            "height": 0.018561
+          },
+          "reading_order_index": 22,
+          "confidence": 0.934587,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "a y =a (a>0)",
+          "normalized_text": "a y =a (a>0)",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "a y =a (a>0)"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l022",
+            "source_token_count": 2,
+            "tokens": [
+              {
+                "text": "a",
+                "bbox": {
+                  "x": 1453.0,
+                  "y": 1489.0,
+                  "width": 28.0,
+                  "height": 29.0
+                }
+              },
+              {
+                "text": "y =a (a>0)",
+                "bbox": {
+                  "x": 1635.0,
+                  "y": 1491.0,
+                  "width": 193.0,
+                  "height": 55.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n024",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1341.0,
+            "y": 1610.0,
+            "width": 327.0,
+            "height": 64.0
+          },
+          "normalized_bbox": {
+            "x": 0.550945,
+            "y": 0.524259,
+            "width": 0.134347,
+            "height": 0.02084
+          },
+          "reading_order_index": 23,
+          "confidence": 0.807648,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "a O a x→",
+          "normalized_text": "a O a x→",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "a O a x→"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l024",
+            "source_token_count": 5,
+            "tokens": [
+              {
+                "text": "a",
+                "bbox": {
+                  "x": 1341.0,
+                  "y": 1620.0,
+                  "width": 72.0,
+                  "height": 54.0
+                }
+              },
+              {
+                "text": "O",
+                "bbox": {
+                  "x": 1445.0,
+                  "y": 1624.0,
+                  "width": 36.0,
+                  "height": 34.0
+                }
+              },
+              {
+                "text": "a",
+                "bbox": {
+                  "x": 1574.0,
+                  "y": 1631.0,
+                  "width": 35.0,
+                  "height": 35.0
+                }
+              },
+              {
+                "text": "x",
+                "bbox": {
+                  "x": 1632.0,
+                  "y": 1626.0,
+                  "width": 34.0,
+                  "height": 32.0
+                }
+              },
+              {
+                "text": "→",
+                "bbox": {
+                  "x": 1639.0,
+                  "y": 1610.0,
+                  "width": 29.0,
+                  "height": 25.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n025",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1451.0,
+            "y": 1694.0,
+            "width": 377.0,
+            "height": 62.0
+          },
+          "normalized_bbox": {
+            "x": 0.596138,
+            "y": 0.551612,
+            "width": 0.154889,
+            "height": 0.020189
+          },
+          "reading_order_index": 24,
+          "confidence": 0.767392,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "a y =a (a<0)",
+          "normalized_text": "a y =a (a<0)",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "a y =a (a<0)"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l027",
+            "source_token_count": 2,
+            "tokens": [
+              {
+                "text": "a",
+                "bbox": {
+                  "x": 1451.0,
+                  "y": 1722.0,
+                  "width": 34.0,
+                  "height": 34.0
+                }
+              },
+              {
+                "text": "y =a (a<0)",
+                "bbox": {
+                  "x": 1635.0,
+                  "y": 1694.0,
+                  "width": 193.0,
+                  "height": 53.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n026",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 599.0,
+            "y": 1602.0,
+            "width": 160.0,
+            "height": 53.0
+          },
+          "normalized_bbox": {
+            "x": 0.246097,
+            "y": 0.521654,
+            "width": 0.065735,
+            "height": 0.017258
+          },
+          "reading_order_index": 25,
+          "confidence": 0.588992,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "O √a",
+          "normalized_text": "O √a",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "O √a"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l025",
+            "source_token_count": 3,
+            "tokens": [
+              {
+                "text": "O",
+                "bbox": {
+                  "x": 599.0,
+                  "y": 1610.0,
+                  "width": 34.0,
+                  "height": 33.0
+                }
+              },
+              {
+                "text": "√",
+                "bbox": {
+                  "x": 692.0,
+                  "y": 1602.0,
+                  "width": 42.0,
+                  "height": 53.0
+                }
+              },
+              {
+                "text": "a",
+                "bbox": {
+                  "x": 723.0,
+                  "y": 1614.0,
+                  "width": 36.0,
+                  "height": 37.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n027",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 608.0,
+            "y": 1670.0,
+            "width": 368.0,
+            "height": 61.0
+          },
+          "normalized_bbox": {
+            "x": 0.249795,
+            "y": 0.543797,
+            "width": 0.151191,
+            "height": 0.019863
+          },
+          "reading_order_index": 26,
+          "confidence": 0.943209,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "a y =a (a<0)",
+          "normalized_text": "a y =a (a<0)",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "a y =a (a<0)"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l026",
+            "source_token_count": 2,
+            "tokens": [
+              {
+                "text": "a",
+                "bbox": {
+                  "x": 608.0,
+                  "y": 1702.0,
+                  "width": 27.0,
+                  "height": 29.0
+                }
+              },
+              {
+                "text": "y =a (a<0)",
+                "bbox": {
+                  "x": 783.0,
+                  "y": 1670.0,
+                  "width": 193.0,
+                  "height": 52.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n028",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 321.0,
+            "y": 1785.0,
+            "width": 729.0,
+            "height": 50.0
+          },
+          "normalized_bbox": {
+            "x": 0.131882,
+            "y": 0.581244,
+            "width": 0.299507,
+            "height": 0.016281
+          },
+          "reading_order_index": 27,
+          "confidence": 0.882906,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "참고>방정식xn=0의 근은0이므로η0=0이다.",
+          "normalized_text": "참고>방정식xn=0의 근은0이므로η0=0이다.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "참고>방정식xn=0의 근은0이므로η0=0이다."
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l028",
+            "source_token_count": 1,
+            "tokens": [
+              {
+                "text": "참고>방정식xn=0의 근은0이므로η0=0이다.",
+                "bbox": {
+                  "x": 321.0,
+                  "y": 1785.0,
+                  "width": 729.0,
+                  "height": 50.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n029",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 255.0,
+            "y": 1879.0,
+            "width": 369.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.104766,
+            "y": 0.611853,
+            "width": 0.151602,
+            "height": 0.017584
+          },
+          "reading_order_index": 28,
+          "confidence": 0.975073,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "(3)거듭제곱근의 성질",
+          "normalized_text": "(3)거듭제곱근의 성질",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(3)거듭제곱근의 성질"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l029",
+            "source_token_count": 1,
+            "tokens": [
+              {
+                "text": "(3)거듭제곱근의 성질",
+                "bbox": {
+                  "x": 255.0,
+                  "y": 1879.0,
+                  "width": 369.0,
+                  "height": 54.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n030",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 321.0,
+            "y": 1954.0,
+            "width": 769.0,
+            "height": 46.0
+          },
+          "normalized_bbox": {
+            "x": 0.131882,
+            "y": 0.636275,
+            "width": 0.315941,
+            "height": 0.014979
+          },
+          "reading_order_index": 29,
+          "confidence": 0.961278,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "a>0,b>0이고 m,n이2이상의 자연수일 때",
+          "normalized_text": "a>0,b>0이고 m,n이2이상의 자연수일 때",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "a>0,b>0이고 m,n이2이상의 자연수일 때"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l030",
+            "source_token_count": 1,
+            "tokens": [
+              {
+                "text": "a>0,b>0이고 m,n이2이상의 자연수일 때",
+                "bbox": {
+                  "x": 321.0,
+                  "y": 1954.0,
+                  "width": 769.0,
+                  "height": 46.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n031",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 314.0,
+            "y": 2015.0,
+            "width": 245.0,
+            "height": 60.0
+          },
+          "normalized_bbox": {
+            "x": 0.129006,
+            "y": 0.656138,
+            "width": 0.100657,
+            "height": 0.019538
+          },
+          "reading_order_index": 30,
+          "confidence": 0.740534,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "① (na )n=a",
+          "normalized_text": "① (na )n=a",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "① (na )n=a"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l031",
+            "source_token_count": 1,
+            "tokens": [
+              {
+                "text": "① (na )n=a",
+                "bbox": {
+                  "x": 314.0,
+                  "y": 2015.0,
+                  "width": 245.0,
+                  "height": 60.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n032",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 319.0,
+            "y": 2096.0,
+            "width": 240.0,
+            "height": 73.0
+          },
+          "normalized_bbox": {
+            "x": 0.13106,
+            "y": 0.682514,
+            "width": 0.098603,
+            "height": 0.023771
+          },
+          "reading_order_index": 31,
+          "confidence": 0.868843,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "③n√a na",
+          "normalized_text": "③n√a na",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "③n√a na"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l033",
+            "source_token_count": 6,
+            "tokens": [
+              {
+                "text": "③",
+                "bbox": {
+                  "x": 319.0,
+                  "y": 2123.0,
+                  "width": 48.0,
+                  "height": 46.0
+                }
+              },
+              {
+                "text": "n",
+                "bbox": {
+                  "x": 375.0,
+                  "y": 2096.0,
+                  "width": 28.0,
+                  "height": 27.0
+                }
+              },
+              {
+                "text": "√",
+                "bbox": {
+                  "x": 380.0,
+                  "y": 2117.0,
+                  "width": 23.0,
+                  "height": 29.0
+                }
+              },
+              {
+                "text": "a",
+                "bbox": {
+                  "x": 403.0,
+                  "y": 2106.0,
+                  "width": 36.0,
+                  "height": 38.0
+                }
+              },
+              {
+                "text": "n",
+                "bbox": {
+                  "x": 475.0,
+                  "y": 2121.0,
+                  "width": 29.0,
+                  "height": 27.0
+                }
+              },
+              {
+                "text": "a",
+                "bbox": {
+                  "x": 508.0,
+                  "y": 2104.0,
+                  "width": 51.0,
+                  "height": 49.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n033",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1209.0,
+            "y": 2017.0,
+            "width": 291.0,
+            "height": 60.0
+          },
+          "normalized_bbox": {
+            "x": 0.496713,
+            "y": 0.656789,
+            "width": 0.119556,
+            "height": 0.019538
+          },
+          "reading_order_index": 32,
+          "confidence": 0.707216,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "② n a n b= nab",
+          "normalized_text": "② n a n b= nab",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "② n a n b= nab"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l032",
+            "source_token_count": 1,
+            "tokens": [
+              {
+                "text": "② n a n b= nab",
+                "bbox": {
+                  "x": 1209.0,
+                  "y": 2017.0,
+                  "width": 291.0,
+                  "height": 60.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n034",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1205.0,
+            "y": 2109.0,
+            "width": 307.0,
+            "height": 70.0
+          },
+          "normalized_bbox": {
+            "x": 0.49507,
+            "y": 0.686747,
+            "width": 0.12613,
+            "height": 0.022794
+          },
+          "reading_order_index": 33,
+          "confidence": 0.730438,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "④ (ηa )m=nαm",
+          "normalized_text": "④ (ηa )m=nαm",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "④ (ηa )m=nαm"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l034",
+            "source_token_count": 1,
+            "tokens": [
+              {
+                "text": "④ (ηa )m=nαm",
+                "bbox": {
+                  "x": 1205.0,
+                  "y": 2109.0,
+                  "width": 307.0,
+                  "height": 70.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n035",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1206.0,
+            "y": 2215.0,
+            "width": 578.0,
+            "height": 71.0
+          },
+          "normalized_bbox": {
+            "x": 0.495481,
+            "y": 0.721263,
+            "width": 0.237469,
+            "height": 0.02312
+          },
+          "reading_order_index": 34,
+          "confidence": 0.627394,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": " nα=nα (단, p는 자연수)",
+          "normalized_text": " nα=nα (단, p는 자연수)",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": " nα=nα (단, p는 자연수)"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l037",
+            "source_token_count": 1,
+            "tokens": [
+              {
+                "text": " nα=nα (단, p는 자연수)",
+                "bbox": {
+                  "x": 1206.0,
+                  "y": 2215.0,
+                  "width": 578.0,
+                  "height": 71.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n036",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1253.0,
+            "y": 2299.0,
+            "width": 399.0,
+            "height": 54.0
+          },
+          "normalized_bbox": {
+            "x": 0.51479,
+            "y": 0.748616,
+            "width": 0.163928,
+            "height": 0.017584
+          },
+          "reading_order_index": 35,
+          "confidence": 0.933156,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "②32×33=32×3=36",
+          "normalized_text": "②32×33=32×3=36",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "②32×33=32×3=36"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l039",
+            "source_token_count": 1,
+            "tokens": [
+              {
+                "text": "②32×33=32×3=36",
+                "bbox": {
+                  "x": 1253.0,
+                  "y": 2299.0,
+                  "width": 399.0,
+                  "height": 54.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n037",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 1249.0,
+            "y": 2386.0,
+            "width": 339.0,
+            "height": 58.0
+          },
+          "normalized_bbox": {
+            "x": 0.513147,
+            "y": 0.776946,
+            "width": 0.139277,
+            "height": 0.018886
+          },
+          "reading_order_index": 36,
+          "confidence": 0.920444,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "④ (32)4=324=316",
+          "normalized_text": "④ (32)4=324=316",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "④ (32)4=324=316"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l041",
+            "source_token_count": 1,
+            "tokens": [
+              {
+                "text": "④ (32)4=324=316",
+                "bbox": {
+                  "x": 1249.0,
+                  "y": 2386.0,
+                  "width": 339.0,
+                  "height": 58.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n038",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 375.0,
+            "y": 2148.0,
+            "width": 180.0,
+            "height": 55.0
+          },
+          "normalized_bbox": {
+            "x": 0.154067,
+            "y": 0.699446,
+            "width": 0.073952,
+            "height": 0.017909
+          },
+          "reading_order_index": 37,
+          "confidence": 0.830722,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "2?b √b",
+          "normalized_text": "2?b √b",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "2?b √b"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l035",
+            "source_token_count": 4,
+            "tokens": [
+              {
+                "text": "2?",
+                "bbox": {
+                  "x": 375.0,
+                  "y": 2152.0,
+                  "width": 34.0,
+                  "height": 51.0
+                }
+              },
+              {
+                "text": "b",
+                "bbox": {
+                  "x": 401.0,
+                  "y": 2152.0,
+                  "width": 40.0,
+                  "height": 48.0
+                }
+              },
+              {
+                "text": "√",
+                "bbox": {
+                  "x": 479.0,
+                  "y": 2159.0,
+                  "width": 25.0,
+                  "height": 33.0
+                }
+              },
+              {
+                "text": "b",
+                "bbox": {
+                  "x": 513.0,
+                  "y": 2148.0,
+                  "width": 42.0,
+                  "height": 48.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n039",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 318.0,
+            "y": 2223.0,
+            "width": 264.0,
+            "height": 57.0
+          },
+          "normalized_bbox": {
+            "x": 0.130649,
+            "y": 0.723868,
+            "width": 0.108463,
+            "height": 0.018561
+          },
+          "reading_order_index": 38,
+          "confidence": 0.659374,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "5nnα=mn√a",
+          "normalized_text": "5nnα=mn√a",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "5nnα=mn√a"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l036",
+            "source_token_count": 7,
+            "tokens": [
+              {
+                "text": "5",
+                "bbox": {
+                  "x": 318.0,
+                  "y": 2228.0,
+                  "width": 53.0,
+                  "height": 52.0
+                }
+              },
+              {
+                "text": "n",
+                "bbox": {
+                  "x": 358.0,
+                  "y": 2223.0,
+                  "width": 48.0,
+                  "height": 57.0
+                }
+              },
+              {
+                "text": "n",
+                "bbox": {
+                  "x": 401.0,
+                  "y": 2228.0,
+                  "width": 33.0,
+                  "height": 48.0
+                }
+              },
+              {
+                "text": "α=",
+                "bbox": {
+                  "x": 428.0,
+                  "y": 2236.0,
+                  "width": 76.0,
+                  "height": 42.0
+                }
+              },
+              {
+                "text": "mn",
+                "bbox": {
+                  "x": 493.0,
+                  "y": 2228.0,
+                  "width": 53.0,
+                  "height": 29.0
+                }
+              },
+              {
+                "text": "√",
+                "bbox": {
+                  "x": 525.0,
+                  "y": 2251.0,
+                  "width": 17.0,
+                  "height": 20.0
+                }
+              },
+              {
+                "text": "a",
+                "bbox": {
+                  "x": 546.0,
+                  "y": 2240.0,
+                  "width": 36.0,
+                  "height": 36.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n040",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 325.0,
+            "y": 2297.0,
+            "width": 305.0,
+            "height": 58.0
+          },
+          "normalized_bbox": {
+            "x": 0.133525,
+            "y": 0.747965,
+            "width": 0.125308,
+            "height": 0.018886
+          },
+          "reading_order_index": 39,
+          "confidence": 0.952375,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "예 ① (32)3=2",
+          "normalized_text": "예 ① (32)3=2",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "예 ① (32)3=2"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l038",
+            "source_token_count": 2,
+            "tokens": [
+              {
+                "text": "예",
+                "bbox": {
+                  "x": 325.0,
+                  "y": 2307.0,
+                  "width": 52.0,
+                  "height": 42.0
+                }
+              },
+              {
+                "text": "① (32)3=2",
+                "bbox": {
+                  "x": 416.0,
+                  "y": 2297.0,
+                  "width": 214.0,
+                  "height": 58.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n041",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 420.0,
+            "y": 2361.0,
+            "width": 213.0,
+            "height": 80.0
+          },
+          "normalized_bbox": {
+            "x": 0.172555,
+            "y": 0.768805,
+            "width": 0.08751,
+            "height": 0.02605
+          },
+          "reading_order_index": 40,
+          "confidence": 0.934996,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "③32 32",
+          "normalized_text": "③32 32",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "③32 32"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l040",
+            "source_token_count": 4,
+            "tokens": [
+              {
+                "text": "③",
+                "bbox": {
+                  "x": 420.0,
+                  "y": 2395.0,
+                  "width": 44.0,
+                  "height": 46.0
+                }
+              },
+              {
+                "text": "32",
+                "bbox": {
+                  "x": 464.0,
+                  "y": 2361.0,
+                  "width": 67.0,
+                  "height": 63.0
+                }
+              },
+              {
+                "text": "3",
+                "bbox": {
+                  "x": 557.0,
+                  "y": 2392.0,
+                  "width": 23.0,
+                  "height": 30.0
+                }
+              },
+              {
+                "text": "2",
+                "bbox": {
+                  "x": 591.0,
+                  "y": 2378.0,
+                  "width": 42.0,
+                  "height": 44.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n042",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 472.0,
+            "y": 2418.0,
+            "width": 159.0,
+            "height": 46.0
+          },
+          "normalized_bbox": {
+            "x": 0.193919,
+            "y": 0.787366,
+            "width": 0.065325,
+            "height": 0.014979
+          },
+          "reading_order_index": 41,
+          "confidence": 0.865133,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "33 √3",
+          "normalized_text": "33 √3",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "33 √3"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l042",
+            "source_token_count": 4,
+            "tokens": [
+              {
+                "text": "3",
+                "bbox": {
+                  "x": 472.0,
+                  "y": 2418.0,
+                  "width": 22.0,
+                  "height": 46.0
+                }
+              },
+              {
+                "text": "3",
+                "bbox": {
+                  "x": 493.0,
+                  "y": 2422.0,
+                  "width": 32.0,
+                  "height": 42.0
+                }
+              },
+              {
+                "text": "√",
+                "bbox": {
+                  "x": 561.0,
+                  "y": 2430.0,
+                  "width": 23.0,
+                  "height": 29.0
+                }
+              },
+              {
+                "text": "3",
+                "bbox": {
+                  "x": 595.0,
+                  "y": 2418.0,
+                  "width": 36.0,
+                  "height": 39.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n043",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 422.0,
+            "y": 2470.0,
+            "width": 1187.0,
+            "height": 70.0
+          },
+          "normalized_bbox": {
+            "x": 0.173377,
+            "y": 0.804298,
+            "width": 0.487675,
+            "height": 0.022794
+          },
+          "reading_order_index": 42,
+          "confidence": 0.808767,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "53?√33×23=3 ⑥ φ34=3×232x2=3 32",
+          "normalized_text": "53?√33×23=3 ⑥ φ34=3×232x2=3 32",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "53?√33×23=3 ⑥ φ34=3×232x2=3 32"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l043",
+            "source_token_count": 6,
+            "tokens": [
+              {
+                "text": "5",
+                "bbox": {
+                  "x": 422.0,
+                  "y": 2488.0,
+                  "width": 42.0,
+                  "height": 44.0
+                }
+              },
+              {
+                "text": "3?",
+                "bbox": {
+                  "x": 464.0,
+                  "y": 2486.0,
+                  "width": 23.0,
+                  "height": 44.0
+                }
+              },
+              {
+                "text": "√",
+                "bbox": {
+                  "x": 487.0,
+                  "y": 2501.0,
+                  "width": 23.0,
+                  "height": 27.0
+                }
+              },
+              {
+                "text": "3",
+                "bbox": {
+                  "x": 504.0,
+                  "y": 2486.0,
+                  "width": 40.0,
+                  "height": 46.0
+                }
+              },
+              {
+                "text": "3×23=3",
+                "bbox": {
+                  "x": 553.0,
+                  "y": 2472.0,
+                  "width": 185.0,
+                  "height": 68.0
+                }
+              },
+              {
+                "text": "⑥ φ34=3×232x2=3 32",
+                "bbox": {
+                  "x": 1245.0,
+                  "y": 2470.0,
+                  "width": 364.0,
+                  "height": 70.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node_id": "p004-n044",
+          "content_type": "TEXT",
+          "bbox": {
+            "x": 127.0,
+            "y": 2912.0,
+            "width": 432.0,
+            "height": 36.0
+          },
+          "normalized_bbox": {
+            "x": 0.052177,
+            "y": 0.948225,
+            "width": 0.177486,
+            "height": 0.011723
+          },
+          "reading_order_index": 43,
+          "confidence": 0.988406,
+          "source_engine": "paddleocr-general-ocr",
+          "issues": [],
+          "raw_text": "42027학년도 EBS 수능특강 수학I",
+          "normalized_text": "42027학년도 EBS 수능특강 수학I",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "42027학년도 EBS 수능특강 수학I"
+            }
+          ],
+          "layout": {
+            "line_id": "p004-l044",
+            "source_token_count": 2,
+            "tokens": [
+              {
+                "text": "4",
+                "bbox": {
+                  "x": 127.0,
+                  "y": 2914.0,
+                  "width": 38.0,
+                  "height": 34.0
+                }
+              },
+              {
+                "text": "2027학년도 EBS 수능특강 수학I",
+                "bbox": {
+                  "x": 177.0,
+                  "y": 2912.0,
+                  "width": 382.0,
+                  "height": 32.0
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "reading_order": [
+        "p004-n001",
+        "p004-n002",
+        "p004-n003",
+        "p004-n004",
+        "p004-n005",
+        "p004-n006",
+        "p004-n007",
+        "p004-n008",
+        "p004-n009",
+        "p004-n010",
+        "p004-n011",
+        "p004-n012",
+        "p004-n013",
+        "p004-n014",
+        "p004-n015",
+        "p004-n016",
+        "p004-n017",
+        "p004-n018",
+        "p004-n019",
+        "p004-n020",
+        "p004-n021",
+        "p004-n022",
+        "p004-n023",
+        "p004-n024",
+        "p004-n025",
+        "p004-n026",
+        "p004-n027",
+        "p004-n028",
+        "p004-n029",
+        "p004-n030",
+        "p004-n031",
+        "p004-n032",
+        "p004-n033",
+        "p004-n034",
+        "p004-n035",
+        "p004-n036",
+        "p004-n037",
+        "p004-n038",
+        "p004-n039",
+        "p004-n040",
+        "p004-n041",
+        "p004-n042",
+        "p004-n043",
+        "p004-n044"
+      ],
+      "parse_issues": [
+        {
+          "code": "OCR_LOW_CONFIDENCE",
+          "severity": "warning",
+          "message": "5 PaddleOCR tokens below confidence 0.50"
+        },
+        {
+          "code": "OCR_RAW_CACHE_WRITTEN",
+          "severity": "info",
+          "message": "D:\\Projects\\OCR\\.claude\\worktrees\\project-context-exploration-7f28b3\\document-parser\\data\\debug\\ocr_cache\\paddleocr-general-ocr\\p004-db48107be815ef22fd0144b5.json"
+        }
+      ],
+      "quality_report": {
+        "page_id": "p004",
+        "source": "D:\\Projects\\OCR\\.claude\\worktrees\\project-context-exploration-7f28b3\\document-parser\\data\\pages_pdf300\\ebs_2027_math1_p004.png",
+        "status": "PASS",
+        "width": 2434,
+        "height": 3071,
+        "mode": "RGB",
+        "image_format": "PNG",
+        "long_edge": 3071,
+        "aspect_ratio": 0.792576,
+        "blur_score": 978.34259,
+        "issues": []
+      }
+    }
+  ],
+  "engine_manifest": {
+    "general_ocr": {
+      "engine_id": "paddleocr-general-ocr",
+      "engine_version": "3.7.0"
+    },
+    "pipeline": {
+      "mode": "text_only",
+      "requires_pdf_text_layer": false,
+      "layout_mode": "token_line_block",
+      "visual_region_mode": "approval_gated_unsupported_page_candidates",
+      "reading_order_mode": "two_column_candidate_postprocess"
+    }
+  },
+  "validation_summary": {
+    "schema_valid": true,
+    "validation_performed": true,
+    "coordinate_missing_node_count": 0,
+    "reading_order_cycle_count": 0,
+    "invalid_reading_order_ref_count": 0,
+    "missing_reading_order_node_count": 0,
+    "duplicate_node_id_count": 0,
+    "required_field_missing_count": 0,
+    "type_error_count": 0,
+    "bbox_invalid_count": 0,
+    "normalized_bbox_out_of_range_count": 0,
+    "confidence_invalid_count": 0,
+    "reading_order_index_mismatch_count": 0,
+    "invalid_embedded_text_ref_count": 0,
+    "quality_status_invalid_count": 0,
+    "issue_invalid_count": 0,
+    "page_count_mismatch": false,
+    "page_count": 1
+  }
+}

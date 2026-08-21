@@ -7,9 +7,17 @@ end to end without crashing, including the real Unicode braille rendering
 that previously crashed on a non-UTF-8 console (cp949)."""
 
 import io
+import json
+import tempfile
 import unittest
+from pathlib import Path
 
-from document_parser.accessibility.cli import ConsoleTtsEngineAdapter, render_braille_frame, run
+from document_parser.accessibility.cli import (
+    BrailleFrameRecorder,
+    ConsoleTtsEngineAdapter,
+    render_braille_frame,
+    run,
+)
 from document_parser.accessibility.domain.accessible_document import (
     build_accessible_document,
     build_focus_item,
@@ -45,6 +53,45 @@ class ConsoleTtsEngineAdapterTests(unittest.TestCase):
         ConsoleTtsEngineAdapter().cancel()
 
 
+class BrailleFrameRecorderTests(unittest.TestCase):
+    """Debugging aid: dumps each distinct braille frame to a numbered .json
+    file so a test run leaves an inspectable, offline-readable record --
+    same motivation as PiperTtsEngineAdapter's record_dir for audio."""
+
+    def test_records_a_frame_as_json_with_unicode_rendering(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            recorder = BrailleFrameRecorder(tmp)
+            frame = {
+                "source_id": "m1", "offset": 0, "viewport_size": 20, "total_cell_count": 1,
+                "has_previous": False, "has_next": False, "cells": [1],
+            }
+            path = recorder.record(frame)
+            self.assertIsNotNone(path)
+            payload = json.loads(Path(path).read_text(encoding="utf-8"))
+            self.assertEqual(payload["source_id"], "m1")
+            self.assertEqual(payload["cells"], [1])
+            self.assertEqual(payload["unicode"], " ⠁ ")
+
+    def test_identical_consecutive_frames_are_not_rewritten(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            recorder = BrailleFrameRecorder(tmp)
+            frame = {"source_id": "m1", "offset": 0, "cells": [1], "has_previous": False, "has_next": False}
+            first = recorder.record(frame)
+            second = recorder.record(dict(frame))  # same content, different dict object
+            self.assertIsNotNone(first)
+            self.assertIsNone(second)
+            self.assertEqual(len(recorder.recorded_files), 1)
+
+    def test_a_changed_frame_gets_a_new_numbered_file(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            recorder = BrailleFrameRecorder(tmp)
+            recorder.record({"source_id": "m1", "offset": 0, "cells": [1], "has_previous": False, "has_next": False})
+            second = recorder.record({"source_id": "m1", "offset": 3, "cells": [2], "has_previous": True, "has_next": False})
+            self.assertIsNotNone(second)
+            self.assertEqual(len(recorder.recorded_files), 2)
+            self.assertNotEqual(recorder.recorded_files[0].name, recorder.recorded_files[1].name)
+
+
 class RunEndToEndTests(unittest.TestCase):
     """Runs the actual CLI `run()` loop against a real fixture and a
     hand-built document with an inline math span, driven by a fake stdin,
@@ -72,6 +119,20 @@ class RunEndToEndTests(unittest.TestCase):
         # No direct access to the controller from `run()` by design (it's a
         # thin CLI loop) -- this test's real value is exercising the exact
         # render_braille_frame() call path with real, non-empty cells.
+
+    def test_braille_recorder_captures_frames_across_a_run(self):
+        text_item = build_focus_item(
+            "t1", "TEXT", "p1", 0, ["t1"],
+            spans=[{"kind": "MATH", "text": "a", "presentation_ast": {"type": "Identifier", "value": "a"}, "unconsumed_tokens": [], "ast_status": "VALID"}],
+        )
+        document = build_accessible_document("doc", [build_page("p1", [text_item])])
+        engine = ConsoleTtsEngineAdapter()
+        commands = io.StringIO("q\n")
+        with tempfile.TemporaryDirectory() as tmp:
+            recorder = BrailleFrameRecorder(tmp)
+            run(document, engine, viewport_size=20, input_stream=commands, braille_recorder=recorder)
+            self.assertGreaterEqual(len(recorder.recorded_files), 1)
+            self.assertTrue(recorder.recorded_files[0].is_file())
 
 
 if __name__ == "__main__":

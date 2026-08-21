@@ -301,12 +301,26 @@ class _Parser:
         return left
 
     def parse_additive(self) -> dict[str, object]:
-        left = self.parse_multiplicative()
+        # Bug fix: this used to build a binary tree of
+        # {"type": "Operator", "operator": op, "left": ..., "right": ...} for
+        # chained +/-, which was never the shape math_translator.py/
+        # math_rules.py's "Operator" handler expects (a leaf node with a
+        # "value" field, used inside a Row's children -- see e.g.
+        # parse_multiplicative's Row of factors). That meant every chained
+        # addition/subtraction with 2+ terms (very common: "a+b-c",
+        # "m+n", "-a^2+6a-4") produced a node braille raised
+        # NotImplementedError on (via the empty `node.get("value", "")`
+        # lookup) and that TTS silently dropped (`OPERATOR_SPEECH.get("",
+        # "")` -> "" -> contributes nothing), a real silent-content-loss bug.
+        # Found via real OCR fixtures p008/p030, 2026-08-18.
+        children = [self.parse_multiplicative()]
         while self.peek() is not None and self.peek().kind == "char" and self.peek().text in {"+", "-"}:
             operator = self.advance().text
-            right = self.parse_multiplicative()
-            left = {"type": "Operator", "operator": operator, "left": left, "right": right}
-        return left
+            children.append({"type": "Operator", "value": operator})
+            children.append(self.parse_multiplicative())
+        if len(children) == 1:
+            return children[0]
+        return {"type": "Row", "children": children}
 
     def parse_multiplicative(self) -> dict[str, object]:
         factors = [self.parse_slash_fraction()]
@@ -650,7 +664,6 @@ REQUIRED_CHILDREN_BY_TYPE = {
     "Parenthesized": ("body",),
     "UnaryMinus": ("body",),
     "Relation": ("left", "right"),
-    "Operator": ("left", "right"),
     "FunctionApplication": ("argument",),
 }
 

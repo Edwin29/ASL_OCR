@@ -89,10 +89,12 @@ class LatexAstParserTests(unittest.TestCase):
         result = parse_latex_to_ast("a\\sin^{2}x+\\left|\\cos x-\\frac{1}{2a}\\right|")
 
         self.assertEqual(result.unconsumed_tokens, [])
-        abs_value = result.ast["right"]
+        self.assertEqual(result.ast["type"], "Row")
+        abs_value = result.ast["children"][2]
         self.assertEqual(abs_value["type"], "Parenthesized")
         self.assertEqual(abs_value["delimiter"], "|")
-        self.assertEqual(abs_value["body"]["right"]["type"], "Fraction")
+        self.assertEqual(abs_value["body"]["type"], "Row")
+        self.assertEqual(abs_value["body"]["children"][2]["type"], "Fraction")
 
     def test_overline_decoration_preserves_notation_without_dedicated_node_type(self):
         # \overline{BH} (segment notation) has no dedicated AST type in the
@@ -140,8 +142,10 @@ class LatexAstParserTests(unittest.TestCase):
         result = parse_latex_to_ast("180^{\\circ}-A")
 
         self.assertEqual(result.unconsumed_tokens, [])
-        self.assertEqual(result.ast["left"]["exponent"], {"type": "Unknown", "value": "\\circ"})
-        self.assertEqual(result.ast["right"], {"type": "Identifier", "value": "A"})
+        self.assertEqual(result.ast["type"], "Row")
+        self.assertEqual(result.ast["children"][0]["exponent"], {"type": "Unknown", "value": "\\circ"})
+        self.assertEqual(result.ast["children"][1], {"type": "Operator", "value": "-"})
+        self.assertEqual(result.ast["children"][2], {"type": "Identifier", "value": "A"})
 
     def test_piecewise_case_block_preserves_all_branch_content(self):
         # Full \left\{\begin{array}...\end{array}\right. case block. The
@@ -277,9 +281,12 @@ class BraceAndBracketDelimiterTests(unittest.TestCase):
             "type": "Parenthesized",
             "delimiter": "[",
             "body": {
-                "type": "Operator", "operator": "+",
-                "left": {"type": "Identifier", "value": "x"},
-                "right": {"type": "Number", "value": "1"},
+                "type": "Row",
+                "children": [
+                    {"type": "Identifier", "value": "x"},
+                    {"type": "Operator", "value": "+"},
+                    {"type": "Number", "value": "1"},
+                ],
             },
         })
 
@@ -328,8 +335,10 @@ class SlashFractionTests(unittest.TestCase):
         result = parse_latex_to_ast("1+2/3")
 
         self.assertEqual(result.unconsumed_tokens, [])
-        self.assertEqual(result.ast["type"], "Operator")
-        self.assertEqual(result.ast["right"]["type"], "Fraction")
+        self.assertEqual(result.ast["type"], "Row")
+        self.assertEqual(result.ast["children"][0], {"type": "Number", "value": "1"})
+        self.assertEqual(result.ast["children"][1], {"type": "Operator", "value": "+"})
+        self.assertEqual(result.ast["children"][2]["type"], "Fraction")
 
     def test_stacked_frac_is_unaffected_and_has_no_notation_field(self):
         result = parse_latex_to_ast("\\frac{1}{2}")

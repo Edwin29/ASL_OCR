@@ -1,0 +1,2295 @@
+{
+  "document_manifest": {
+    "book_id": "ebs-2027-math1",
+    "page_count": 1
+  },
+  "engine_manifest": {
+    "general_ocr": {
+      "engine_id": "paddleocr-vl",
+      "engine_version": "3.7.0"
+    },
+    "pipeline": {
+      "mode": "paddleocr_vl_baseline"
+    },
+    "problem_unit_detection": {
+      "mode": "text_pattern_stem_and_answer_structure",
+      "engine_id": "text-pattern-problem-unit-detector"
+    }
+  },
+  "pages": [
+    {
+      "page_id": "p008",
+      "page_geometry": {
+        "width": 2434,
+        "height": 3071
+      },
+      "nodes": [
+        {
+          "node_id": "p008-vl001",
+          "bbox": {
+            "x": 206.0,
+            "y": 85.0,
+            "width": 94.0,
+            "height": 87.0
+          },
+          "normalized_bbox": {
+            "x": 0.084634,
+            "y": 0.027678,
+            "width": 0.03862,
+            "height": 0.02833
+          },
+          "reading_order_index": 0,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "header",
+            "vl_block_id": 0
+          },
+          "content_type": "TEXT",
+          "raw_text": "01",
+          "normalized_text": "01",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "01"
+            }
+          ]
+        },
+        {
+          "node_id": "p008-vl002",
+          "bbox": {
+            "x": 343.0,
+            "y": 106.0,
+            "width": 230.0,
+            "height": 58.0
+          },
+          "normalized_bbox": {
+            "x": 0.14092,
+            "y": 0.034516,
+            "width": 0.094495,
+            "height": 0.018886
+          },
+          "reading_order_index": 1,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "header",
+            "vl_block_id": 1
+          },
+          "content_type": "TEXT",
+          "raw_text": "지수와 로그",
+          "normalized_text": "지수와 로그",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "지수와 로그"
+            }
+          ]
+        },
+        {
+          "node_id": "p008-vl003",
+          "bbox": {
+            "x": 257.0,
+            "y": 298.0,
+            "width": 447.0,
+            "height": 62.0
+          },
+          "normalized_bbox": {
+            "x": 0.105588,
+            "y": 0.097037,
+            "width": 0.183648,
+            "height": 0.020189
+          },
+          "reading_order_index": 2,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "paragraph_title",
+            "vl_block_id": 2
+          },
+          "content_type": "TEXT",
+          "raw_text": "5 로그의 정의와 성질",
+          "normalized_text": "5 로그의 정의와 성질",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "5 로그의 정의와 성질"
+            }
+          ]
+        },
+        {
+          "node_id": "p008-vl004",
+          "bbox": {
+            "x": 258.0,
+            "y": 400.0,
+            "width": 263.0,
+            "height": 49.0
+          },
+          "normalized_bbox": {
+            "x": 0.105998,
+            "y": 0.130251,
+            "width": 0.108053,
+            "height": 0.015956
+          },
+          "reading_order_index": 3,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "paragraph_title",
+            "vl_block_id": 3
+          },
+          "content_type": "TEXT",
+          "raw_text": "(1) 로그의 정의",
+          "normalized_text": "(1) 로그의 정의",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "(1) 로그의 정의"
+            }
+          ]
+        },
+        {
+          "node_id": "p008-vl005",
+          "bbox": {
+            "x": 263.0,
+            "y": 445.0,
+            "width": 1634.0,
+            "height": 1839.0
+          },
+          "normalized_bbox": {
+            "x": 0.108053,
+            "y": 0.144904,
+            "width": 0.671323,
+            "height": 0.598828
+          },
+          "reading_order_index": 4,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [
+            {
+              "code": "VL_POSSIBLE_CHOICE_OMISSION",
+              "severity": "warning",
+              "message": "Found 3 of 5 expected circled-number choice markers. PaddleOCR-VL has a verified failure mode of silently dropping a value or choice with no other signal; this block should be reviewed against the source image before trusting it."
+            }
+          ],
+          "layout": {
+            "vl_block_label": "algorithm",
+            "vl_block_id": 4
+          },
+          "content_type": "TEXT",
+          "raw_text": "a>0, a≠1, N>0일 때, a^x=N을 만족시키는 실수 x를 기호로\n $ \\log_a N $\n\n과 같이 나타낸다. 즉,\n $ a^x=N \\iff x=\\log_a N $\n\n이때  $ \\log_a N $에서 a를 밑, N을 진수라 하고,  $ \\log_a N $을 a를 밑으로 하는 N의 로그라고 한다.\n\n참고>  $ \\log_a N $이 정의되기 위한 조건은 a>0, a≠1, N>0이다.\n\n예 ① 2^0=1이므로  $ \\log_2 1=0 $\n② 2^1=2이므로  $ \\log_2 2=1 $\n③ 2^3=8이므로  $ \\log_2 8=3 $\n\n(2) 로그의 성질\na>0, a≠1이고 M>0, N>0일 때\n①  $ \\log_a MN=\\log_a M+\\log_a N $\n②  $ \\log_a \\frac{M}{N}=\\log_a M-\\log_a N $\n③  $ \\log_a M^r=r\\log_a M $ (단, r은 실수)\n\n설명>  $ \\log_a M=m $,  $ \\log_a N=n $이라 하면\n $ a^m=M $,  $ a^n=N $\n①  $ MN=a^m \\times a^n=a^{m+n} $이므로\n $ \\log_a MN=m+n=\\log_a M+\\log_a N $\n②  $ \\frac{M}{N}=a^m \\div a^n=a^{m-n} $이므로\n $ \\log_a \\frac{M}{N}=m-n=\\log_a M-\\log_a N $\n③  $ M^r=(a^m)^r=a^{mr} $이므로\n $ \\log_a M^r=mr=r\\log_a M $\n\n예 ①  $ \\log_2 6=\\log_2 (2 \\times 3)=\\log_2 2+\\log_2 3=1+\\log_2 3 $\n②  $ \\log_2 \\frac{2}{3}=\\log_2 2-\\log_2 3=1-\\log_2 3 $\n③  $ \\log_2 \\sqrt{2}=\\log_2 2^{\\frac{1}{2}}=\\frac{1}{2}\\log_2 2=\\frac{1}{2} \\times 1=\\frac{1}{2} $",
+          "normalized_text": "a>0, a≠1, N>0일 때, a^x=N을 만족시키는 실수 x를 기호로\n $ \\log_a N $\n\n과 같이 나타낸다. 즉,\n $ a^x=N \\iff x=\\log_a N $\n\n이때  $ \\log_a N $에서 a를 밑, N을 진수라 하고,  $ \\log_a N $을 a를 밑으로 하는 N의 로그라고 한다.\n\n참고>  $ \\log_a N $이 정의되기 위한 조건은 a>0, a≠1, N>0이다.\n\n예 ① 2^0=1이므로  $ \\log_2 1=0 $\n② 2^1=2이므로  $ \\log_2 2=1 $\n③ 2^3=8이므로  $ \\log_2 8=3 $\n\n(2) 로그의 성질\na>0, a≠1이고 M>0, N>0일 때\n①  $ \\log_a MN=\\log_a M+\\log_a N $\n②  $ \\log_a \\frac{M}{N}=\\log_a M-\\log_a N $\n③  $ \\log_a M^r=r\\log_a M $ (단, r은 실수)\n\n설명>  $ \\log_a M=m $,  $ \\log_a N=n $이라 하면\n $ a^m=M $,  $ a^n=N $\n①  $ MN=a^m \\times a^n=a^{m+n} $이므로\n $ \\log_a MN=m+n=\\log_a M+\\log_a N $\n②  $ \\frac{M}{N}=a^m \\div a^n=a^{m-n} $이므로\n $ \\log_a \\frac{M}{N}=m-n=\\log_a M-\\log_a N $\n③  $ M^r=(a^m)^r=a^{mr} $이므로\n $ \\log_a M^r=mr=r\\log_a M $\n\n예 ①  $ \\log_2 6=\\log_2 (2 \\times 3)=\\log_2 2+\\log_2 3=1+\\log_2 3 $\n②  $ \\log_2 \\frac{2}{3}=\\log_2 2-\\log_2 3=1-\\log_2 3 $\n③  $ \\log_2 \\sqrt{2}=\\log_2 2^{\\frac{1}{2}}=\\frac{1}{2}\\log_2 2=\\frac{1}{2} \\times 1=\\frac{1}{2} $",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "a>0, a≠1, N>0일 때, a^x=N을 만족시키는 실수 x를 기호로\n "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\log_a N",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Row",
+                "children": [
+                  {
+                    "type": "FunctionApplication",
+                    "name": "log",
+                    "argument": {
+                      "type": "Unknown",
+                      "value": "_"
+                    }
+                  },
+                  {
+                    "type": "Identifier",
+                    "value": "a"
+                  },
+                  {
+                    "type": "Identifier",
+                    "value": "N"
+                  }
+                ]
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": [
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.children[0].argument: '_'."
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": "\n\n과 같이 나타낸다. 즉,\n "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "a^x=N \\iff x=\\log_a N",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Power",
+                  "base": {
+                    "type": "Identifier",
+                    "value": "a"
+                  },
+                  "exponent": {
+                    "type": "Identifier",
+                    "value": "x"
+                  }
+                },
+                "right": {
+                  "type": "Identifier",
+                  "value": "N"
+                }
+              },
+              "unconsumed_tokens": [
+                "iff",
+                "x",
+                "=",
+                "log",
+                "_",
+                "a",
+                "N"
+              ],
+              "ast_issues": [
+                {
+                  "code": "AST_UNCONSUMED_TOKENS",
+                  "severity": "warning",
+                  "message": "7 token(s) left over after parsing: 'iffx=log_aN'"
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": "\n\n이때  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\log_a N",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Row",
+                "children": [
+                  {
+                    "type": "FunctionApplication",
+                    "name": "log",
+                    "argument": {
+                      "type": "Unknown",
+                      "value": "_"
+                    }
+                  },
+                  {
+                    "type": "Identifier",
+                    "value": "a"
+                  },
+                  {
+                    "type": "Identifier",
+                    "value": "N"
+                  }
+                ]
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": [
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.children[0].argument: '_'."
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": "에서 a를 밑, N을 진수라 하고,  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\log_a N",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Row",
+                "children": [
+                  {
+                    "type": "FunctionApplication",
+                    "name": "log",
+                    "argument": {
+                      "type": "Unknown",
+                      "value": "_"
+                    }
+                  },
+                  {
+                    "type": "Identifier",
+                    "value": "a"
+                  },
+                  {
+                    "type": "Identifier",
+                    "value": "N"
+                  }
+                ]
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": [
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.children[0].argument: '_'."
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": "을 a를 밑으로 하는 N의 로그라고 한다.\n\n참고>  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\log_a N",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Row",
+                "children": [
+                  {
+                    "type": "FunctionApplication",
+                    "name": "log",
+                    "argument": {
+                      "type": "Unknown",
+                      "value": "_"
+                    }
+                  },
+                  {
+                    "type": "Identifier",
+                    "value": "a"
+                  },
+                  {
+                    "type": "Identifier",
+                    "value": "N"
+                  }
+                ]
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": [
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.children[0].argument: '_'."
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": "이 정의되기 위한 조건은 a>0, a≠1, N>0이다.\n\n예 ① 2^0=1이므로  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\log_2 1=0",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Row",
+                  "children": [
+                    {
+                      "type": "FunctionApplication",
+                      "name": "log",
+                      "argument": {
+                        "type": "Unknown",
+                        "value": "_"
+                      }
+                    },
+                    {
+                      "type": "Number",
+                      "value": "2"
+                    },
+                    {
+                      "type": "Number",
+                      "value": "1"
+                    }
+                  ]
+                },
+                "right": {
+                  "type": "Number",
+                  "value": "0"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": [
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.children[0].argument: '_'."
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": "\n② 2^1=2이므로  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\log_2 2=1",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Row",
+                  "children": [
+                    {
+                      "type": "FunctionApplication",
+                      "name": "log",
+                      "argument": {
+                        "type": "Unknown",
+                        "value": "_"
+                      }
+                    },
+                    {
+                      "type": "Number",
+                      "value": "2"
+                    },
+                    {
+                      "type": "Number",
+                      "value": "2"
+                    }
+                  ]
+                },
+                "right": {
+                  "type": "Number",
+                  "value": "1"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": [
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.children[0].argument: '_'."
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": "\n③ 2^3=8이므로  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\log_2 8=3",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Row",
+                  "children": [
+                    {
+                      "type": "FunctionApplication",
+                      "name": "log",
+                      "argument": {
+                        "type": "Unknown",
+                        "value": "_"
+                      }
+                    },
+                    {
+                      "type": "Number",
+                      "value": "2"
+                    },
+                    {
+                      "type": "Number",
+                      "value": "8"
+                    }
+                  ]
+                },
+                "right": {
+                  "type": "Number",
+                  "value": "3"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": [
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.children[0].argument: '_'."
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": "\n\n(2) 로그의 성질\na>0, a≠1이고 M>0, N>0일 때\n①  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\log_a MN=\\log_a M+\\log_a N",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Row",
+                  "children": [
+                    {
+                      "type": "FunctionApplication",
+                      "name": "log",
+                      "argument": {
+                        "type": "Unknown",
+                        "value": "_"
+                      }
+                    },
+                    {
+                      "type": "Identifier",
+                      "value": "a"
+                    },
+                    {
+                      "type": "Identifier",
+                      "value": "M"
+                    },
+                    {
+                      "type": "Identifier",
+                      "value": "N"
+                    }
+                  ]
+                },
+                "right": {
+                  "type": "Operator",
+                  "operator": "+",
+                  "left": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "FunctionApplication",
+                        "name": "log",
+                        "argument": {
+                          "type": "Unknown",
+                          "value": "_"
+                        }
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "a"
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "M"
+                      }
+                    ]
+                  },
+                  "right": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "FunctionApplication",
+                        "name": "log",
+                        "argument": {
+                          "type": "Unknown",
+                          "value": "_"
+                        }
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "a"
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "N"
+                      }
+                    ]
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": [
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.children[0].argument: '_'."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.right.left.children[0].argument: '_'."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.right.right.children[0].argument: '_'."
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": "\n②  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\log_a \\frac{M}{N}=\\log_a M-\\log_a N",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Row",
+                  "children": [
+                    {
+                      "type": "FunctionApplication",
+                      "name": "log",
+                      "argument": {
+                        "type": "Unknown",
+                        "value": "_"
+                      }
+                    },
+                    {
+                      "type": "Identifier",
+                      "value": "a"
+                    },
+                    {
+                      "type": "Fraction",
+                      "numerator": {
+                        "type": "Identifier",
+                        "value": "M"
+                      },
+                      "denominator": {
+                        "type": "Identifier",
+                        "value": "N"
+                      }
+                    }
+                  ]
+                },
+                "right": {
+                  "type": "Operator",
+                  "operator": "-",
+                  "left": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "FunctionApplication",
+                        "name": "log",
+                        "argument": {
+                          "type": "Unknown",
+                          "value": "_"
+                        }
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "a"
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "M"
+                      }
+                    ]
+                  },
+                  "right": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "FunctionApplication",
+                        "name": "log",
+                        "argument": {
+                          "type": "Unknown",
+                          "value": "_"
+                        }
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "a"
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "N"
+                      }
+                    ]
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": [
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.children[0].argument: '_'."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.right.left.children[0].argument: '_'."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.right.right.children[0].argument: '_'."
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": "\n③  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\log_a M^r=r\\log_a M",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Row",
+                  "children": [
+                    {
+                      "type": "FunctionApplication",
+                      "name": "log",
+                      "argument": {
+                        "type": "Unknown",
+                        "value": "_"
+                      }
+                    },
+                    {
+                      "type": "Identifier",
+                      "value": "a"
+                    },
+                    {
+                      "type": "Power",
+                      "base": {
+                        "type": "Identifier",
+                        "value": "M"
+                      },
+                      "exponent": {
+                        "type": "Identifier",
+                        "value": "r"
+                      }
+                    }
+                  ]
+                },
+                "right": {
+                  "type": "Row",
+                  "children": [
+                    {
+                      "type": "Identifier",
+                      "value": "r"
+                    },
+                    {
+                      "type": "FunctionApplication",
+                      "name": "log",
+                      "argument": {
+                        "type": "Unknown",
+                        "value": "_"
+                      }
+                    },
+                    {
+                      "type": "Identifier",
+                      "value": "a"
+                    },
+                    {
+                      "type": "Identifier",
+                      "value": "M"
+                    }
+                  ]
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": [
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.children[0].argument: '_'."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.right.children[1].argument: '_'."
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": " (단, r은 실수)\n\n설명>  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\log_a M=m",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Row",
+                  "children": [
+                    {
+                      "type": "FunctionApplication",
+                      "name": "log",
+                      "argument": {
+                        "type": "Unknown",
+                        "value": "_"
+                      }
+                    },
+                    {
+                      "type": "Identifier",
+                      "value": "a"
+                    },
+                    {
+                      "type": "Identifier",
+                      "value": "M"
+                    }
+                  ]
+                },
+                "right": {
+                  "type": "Identifier",
+                  "value": "m"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": [
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.children[0].argument: '_'."
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": ",  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\log_a N=n",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Row",
+                  "children": [
+                    {
+                      "type": "FunctionApplication",
+                      "name": "log",
+                      "argument": {
+                        "type": "Unknown",
+                        "value": "_"
+                      }
+                    },
+                    {
+                      "type": "Identifier",
+                      "value": "a"
+                    },
+                    {
+                      "type": "Identifier",
+                      "value": "N"
+                    }
+                  ]
+                },
+                "right": {
+                  "type": "Identifier",
+                  "value": "n"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": [
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.children[0].argument: '_'."
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": "이라 하면\n "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "a^m=M",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Power",
+                  "base": {
+                    "type": "Identifier",
+                    "value": "a"
+                  },
+                  "exponent": {
+                    "type": "Identifier",
+                    "value": "m"
+                  }
+                },
+                "right": {
+                  "type": "Identifier",
+                  "value": "M"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": ",  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "a^n=N",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Power",
+                  "base": {
+                    "type": "Identifier",
+                    "value": "a"
+                  },
+                  "exponent": {
+                    "type": "Identifier",
+                    "value": "n"
+                  }
+                },
+                "right": {
+                  "type": "Identifier",
+                  "value": "N"
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "\n①  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "MN=a^m \\times a^n=a^{m+n}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Relation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "Identifier",
+                        "value": "M"
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "N"
+                      }
+                    ]
+                  },
+                  "right": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "Power",
+                        "base": {
+                          "type": "Identifier",
+                          "value": "a"
+                        },
+                        "exponent": {
+                          "type": "Identifier",
+                          "value": "m"
+                        }
+                      },
+                      {
+                        "type": "Power",
+                        "base": {
+                          "type": "Identifier",
+                          "value": "a"
+                        },
+                        "exponent": {
+                          "type": "Identifier",
+                          "value": "n"
+                        }
+                      }
+                    ]
+                  }
+                },
+                "right": {
+                  "type": "Power",
+                  "base": {
+                    "type": "Identifier",
+                    "value": "a"
+                  },
+                  "exponent": {
+                    "type": "Operator",
+                    "operator": "+",
+                    "left": {
+                      "type": "Identifier",
+                      "value": "m"
+                    },
+                    "right": {
+                      "type": "Identifier",
+                      "value": "n"
+                    }
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "이므로\n "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\log_a MN=m+n=\\log_a M+\\log_a N",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Relation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "FunctionApplication",
+                        "name": "log",
+                        "argument": {
+                          "type": "Unknown",
+                          "value": "_"
+                        }
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "a"
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "M"
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "N"
+                      }
+                    ]
+                  },
+                  "right": {
+                    "type": "Operator",
+                    "operator": "+",
+                    "left": {
+                      "type": "Identifier",
+                      "value": "m"
+                    },
+                    "right": {
+                      "type": "Identifier",
+                      "value": "n"
+                    }
+                  }
+                },
+                "right": {
+                  "type": "Operator",
+                  "operator": "+",
+                  "left": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "FunctionApplication",
+                        "name": "log",
+                        "argument": {
+                          "type": "Unknown",
+                          "value": "_"
+                        }
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "a"
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "M"
+                      }
+                    ]
+                  },
+                  "right": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "FunctionApplication",
+                        "name": "log",
+                        "argument": {
+                          "type": "Unknown",
+                          "value": "_"
+                        }
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "a"
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "N"
+                      }
+                    ]
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": [
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.left.children[0].argument: '_'."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.right.left.children[0].argument: '_'."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.right.right.children[0].argument: '_'."
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": "\n②  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\frac{M}{N}=a^m \\div a^n=a^{m-n}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Relation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Fraction",
+                    "numerator": {
+                      "type": "Identifier",
+                      "value": "M"
+                    },
+                    "denominator": {
+                      "type": "Identifier",
+                      "value": "N"
+                    }
+                  },
+                  "right": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "Power",
+                        "base": {
+                          "type": "Identifier",
+                          "value": "a"
+                        },
+                        "exponent": {
+                          "type": "Identifier",
+                          "value": "m"
+                        }
+                      },
+                      {
+                        "type": "Power",
+                        "base": {
+                          "type": "Identifier",
+                          "value": "a"
+                        },
+                        "exponent": {
+                          "type": "Identifier",
+                          "value": "n"
+                        }
+                      }
+                    ]
+                  }
+                },
+                "right": {
+                  "type": "Power",
+                  "base": {
+                    "type": "Identifier",
+                    "value": "a"
+                  },
+                  "exponent": {
+                    "type": "Operator",
+                    "operator": "-",
+                    "left": {
+                      "type": "Identifier",
+                      "value": "m"
+                    },
+                    "right": {
+                      "type": "Identifier",
+                      "value": "n"
+                    }
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "이므로\n "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\log_a \\frac{M}{N}=m-n=\\log_a M-\\log_a N",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Relation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "FunctionApplication",
+                        "name": "log",
+                        "argument": {
+                          "type": "Unknown",
+                          "value": "_"
+                        }
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "a"
+                      },
+                      {
+                        "type": "Fraction",
+                        "numerator": {
+                          "type": "Identifier",
+                          "value": "M"
+                        },
+                        "denominator": {
+                          "type": "Identifier",
+                          "value": "N"
+                        }
+                      }
+                    ]
+                  },
+                  "right": {
+                    "type": "Operator",
+                    "operator": "-",
+                    "left": {
+                      "type": "Identifier",
+                      "value": "m"
+                    },
+                    "right": {
+                      "type": "Identifier",
+                      "value": "n"
+                    }
+                  }
+                },
+                "right": {
+                  "type": "Operator",
+                  "operator": "-",
+                  "left": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "FunctionApplication",
+                        "name": "log",
+                        "argument": {
+                          "type": "Unknown",
+                          "value": "_"
+                        }
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "a"
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "M"
+                      }
+                    ]
+                  },
+                  "right": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "FunctionApplication",
+                        "name": "log",
+                        "argument": {
+                          "type": "Unknown",
+                          "value": "_"
+                        }
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "a"
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "N"
+                      }
+                    ]
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": [
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.left.children[0].argument: '_'."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.right.left.children[0].argument: '_'."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.right.right.children[0].argument: '_'."
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": "\n③  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "M^r=(a^m)^r=a^{mr}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Relation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Power",
+                    "base": {
+                      "type": "Identifier",
+                      "value": "M"
+                    },
+                    "exponent": {
+                      "type": "Identifier",
+                      "value": "r"
+                    }
+                  },
+                  "right": {
+                    "type": "Power",
+                    "base": {
+                      "type": "Parenthesized",
+                      "body": {
+                        "type": "Power",
+                        "base": {
+                          "type": "Identifier",
+                          "value": "a"
+                        },
+                        "exponent": {
+                          "type": "Identifier",
+                          "value": "m"
+                        }
+                      },
+                      "delimiter": "("
+                    },
+                    "exponent": {
+                      "type": "Identifier",
+                      "value": "r"
+                    }
+                  }
+                },
+                "right": {
+                  "type": "Power",
+                  "base": {
+                    "type": "Identifier",
+                    "value": "a"
+                  },
+                  "exponent": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "Identifier",
+                        "value": "m"
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "r"
+                      }
+                    ]
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": []
+            },
+            {
+              "span_type": "TEXT",
+              "text": "이므로\n "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\log_a M^r=mr=r\\log_a M",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Relation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "FunctionApplication",
+                        "name": "log",
+                        "argument": {
+                          "type": "Unknown",
+                          "value": "_"
+                        }
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "a"
+                      },
+                      {
+                        "type": "Power",
+                        "base": {
+                          "type": "Identifier",
+                          "value": "M"
+                        },
+                        "exponent": {
+                          "type": "Identifier",
+                          "value": "r"
+                        }
+                      }
+                    ]
+                  },
+                  "right": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "Identifier",
+                        "value": "m"
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "r"
+                      }
+                    ]
+                  }
+                },
+                "right": {
+                  "type": "Row",
+                  "children": [
+                    {
+                      "type": "Identifier",
+                      "value": "r"
+                    },
+                    {
+                      "type": "FunctionApplication",
+                      "name": "log",
+                      "argument": {
+                        "type": "Unknown",
+                        "value": "_"
+                      }
+                    },
+                    {
+                      "type": "Identifier",
+                      "value": "a"
+                    },
+                    {
+                      "type": "Identifier",
+                      "value": "M"
+                    }
+                  ]
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": [
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.left.children[0].argument: '_'."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.right.children[1].argument: '_'."
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": "\n\n예 ①  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\log_2 6=\\log_2 (2 \\times 3)=\\log_2 2+\\log_2 3=1+\\log_2 3",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Relation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Relation",
+                    "operator": "=",
+                    "left": {
+                      "type": "Row",
+                      "children": [
+                        {
+                          "type": "FunctionApplication",
+                          "name": "log",
+                          "argument": {
+                            "type": "Unknown",
+                            "value": "_"
+                          }
+                        },
+                        {
+                          "type": "Number",
+                          "value": "2"
+                        },
+                        {
+                          "type": "Number",
+                          "value": "6"
+                        }
+                      ]
+                    },
+                    "right": {
+                      "type": "Row",
+                      "children": [
+                        {
+                          "type": "FunctionApplication",
+                          "name": "log",
+                          "argument": {
+                            "type": "Unknown",
+                            "value": "_"
+                          }
+                        },
+                        {
+                          "type": "Number",
+                          "value": "2"
+                        },
+                        {
+                          "type": "Parenthesized",
+                          "body": {
+                            "type": "Row",
+                            "children": [
+                              {
+                                "type": "Number",
+                                "value": "2"
+                              },
+                              {
+                                "type": "Number",
+                                "value": "3"
+                              }
+                            ]
+                          },
+                          "delimiter": "("
+                        }
+                      ]
+                    }
+                  },
+                  "right": {
+                    "type": "Operator",
+                    "operator": "+",
+                    "left": {
+                      "type": "Row",
+                      "children": [
+                        {
+                          "type": "FunctionApplication",
+                          "name": "log",
+                          "argument": {
+                            "type": "Unknown",
+                            "value": "_"
+                          }
+                        },
+                        {
+                          "type": "Number",
+                          "value": "2"
+                        },
+                        {
+                          "type": "Number",
+                          "value": "2"
+                        }
+                      ]
+                    },
+                    "right": {
+                      "type": "Row",
+                      "children": [
+                        {
+                          "type": "FunctionApplication",
+                          "name": "log",
+                          "argument": {
+                            "type": "Unknown",
+                            "value": "_"
+                          }
+                        },
+                        {
+                          "type": "Number",
+                          "value": "2"
+                        },
+                        {
+                          "type": "Number",
+                          "value": "3"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "right": {
+                  "type": "Operator",
+                  "operator": "+",
+                  "left": {
+                    "type": "Number",
+                    "value": "1"
+                  },
+                  "right": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "FunctionApplication",
+                        "name": "log",
+                        "argument": {
+                          "type": "Unknown",
+                          "value": "_"
+                        }
+                      },
+                      {
+                        "type": "Number",
+                        "value": "2"
+                      },
+                      {
+                        "type": "Number",
+                        "value": "3"
+                      }
+                    ]
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": [
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.left.left.children[0].argument: '_'."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.left.right.children[0].argument: '_'."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.right.left.children[0].argument: '_'."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.right.right.children[0].argument: '_'."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.right.right.children[0].argument: '_'."
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": "\n②  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\log_2 \\frac{2}{3}=\\log_2 2-\\log_2 3=1-\\log_2 3",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Relation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "FunctionApplication",
+                        "name": "log",
+                        "argument": {
+                          "type": "Unknown",
+                          "value": "_"
+                        }
+                      },
+                      {
+                        "type": "Number",
+                        "value": "2"
+                      },
+                      {
+                        "type": "Fraction",
+                        "numerator": {
+                          "type": "Number",
+                          "value": "2"
+                        },
+                        "denominator": {
+                          "type": "Number",
+                          "value": "3"
+                        }
+                      }
+                    ]
+                  },
+                  "right": {
+                    "type": "Operator",
+                    "operator": "-",
+                    "left": {
+                      "type": "Row",
+                      "children": [
+                        {
+                          "type": "FunctionApplication",
+                          "name": "log",
+                          "argument": {
+                            "type": "Unknown",
+                            "value": "_"
+                          }
+                        },
+                        {
+                          "type": "Number",
+                          "value": "2"
+                        },
+                        {
+                          "type": "Number",
+                          "value": "2"
+                        }
+                      ]
+                    },
+                    "right": {
+                      "type": "Row",
+                      "children": [
+                        {
+                          "type": "FunctionApplication",
+                          "name": "log",
+                          "argument": {
+                            "type": "Unknown",
+                            "value": "_"
+                          }
+                        },
+                        {
+                          "type": "Number",
+                          "value": "2"
+                        },
+                        {
+                          "type": "Number",
+                          "value": "3"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "right": {
+                  "type": "Operator",
+                  "operator": "-",
+                  "left": {
+                    "type": "Number",
+                    "value": "1"
+                  },
+                  "right": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "FunctionApplication",
+                        "name": "log",
+                        "argument": {
+                          "type": "Unknown",
+                          "value": "_"
+                        }
+                      },
+                      {
+                        "type": "Number",
+                        "value": "2"
+                      },
+                      {
+                        "type": "Number",
+                        "value": "3"
+                      }
+                    ]
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": [
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.left.children[0].argument: '_'."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.right.left.children[0].argument: '_'."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.right.right.children[0].argument: '_'."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.right.right.children[0].argument: '_'."
+                }
+              ]
+            },
+            {
+              "span_type": "TEXT",
+              "text": "\n③  "
+            },
+            {
+              "span_type": "UNKNOWN",
+              "text": "\\log_2 \\sqrt{2}=\\log_2 2^{\\frac{1}{2}}=\\frac{1}{2}\\log_2 2=\\frac{1}{2} \\times 1=\\frac{1}{2}",
+              "math_span_candidate": true,
+              "presentation_ast": {
+                "type": "Relation",
+                "operator": "=",
+                "left": {
+                  "type": "Relation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Relation",
+                    "operator": "=",
+                    "left": {
+                      "type": "Relation",
+                      "operator": "=",
+                      "left": {
+                        "type": "Row",
+                        "children": [
+                          {
+                            "type": "FunctionApplication",
+                            "name": "log",
+                            "argument": {
+                              "type": "Unknown",
+                              "value": "_"
+                            }
+                          },
+                          {
+                            "type": "Number",
+                            "value": "2"
+                          },
+                          {
+                            "type": "Radical",
+                            "radicand": {
+                              "type": "Number",
+                              "value": "2"
+                            }
+                          }
+                        ]
+                      },
+                      "right": {
+                        "type": "Row",
+                        "children": [
+                          {
+                            "type": "FunctionApplication",
+                            "name": "log",
+                            "argument": {
+                              "type": "Unknown",
+                              "value": "_"
+                            }
+                          },
+                          {
+                            "type": "Number",
+                            "value": "2"
+                          },
+                          {
+                            "type": "Power",
+                            "base": {
+                              "type": "Number",
+                              "value": "2"
+                            },
+                            "exponent": {
+                              "type": "Fraction",
+                              "numerator": {
+                                "type": "Number",
+                                "value": "1"
+                              },
+                              "denominator": {
+                                "type": "Number",
+                                "value": "2"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "right": {
+                      "type": "Row",
+                      "children": [
+                        {
+                          "type": "Fraction",
+                          "numerator": {
+                            "type": "Number",
+                            "value": "1"
+                          },
+                          "denominator": {
+                            "type": "Number",
+                            "value": "2"
+                          }
+                        },
+                        {
+                          "type": "FunctionApplication",
+                          "name": "log",
+                          "argument": {
+                            "type": "Unknown",
+                            "value": "_"
+                          }
+                        },
+                        {
+                          "type": "Number",
+                          "value": "2"
+                        },
+                        {
+                          "type": "Number",
+                          "value": "2"
+                        }
+                      ]
+                    }
+                  },
+                  "right": {
+                    "type": "Row",
+                    "children": [
+                      {
+                        "type": "Fraction",
+                        "numerator": {
+                          "type": "Number",
+                          "value": "1"
+                        },
+                        "denominator": {
+                          "type": "Number",
+                          "value": "2"
+                        }
+                      },
+                      {
+                        "type": "Number",
+                        "value": "1"
+                      }
+                    ]
+                  }
+                },
+                "right": {
+                  "type": "Fraction",
+                  "numerator": {
+                    "type": "Number",
+                    "value": "1"
+                  },
+                  "denominator": {
+                    "type": "Number",
+                    "value": "2"
+                  }
+                }
+              },
+              "unconsumed_tokens": [],
+              "ast_issues": [
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_TOKEN",
+                  "severity": "warning",
+                  "message": "Unrecognized token '_' preserved as an Unknown node."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.left.left.left.children[0].argument: '_'."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.left.left.right.children[0].argument: '_'."
+                },
+                {
+                  "code": "AST_UNKNOWN_NODE",
+                  "severity": "info",
+                  "message": "Unparsed fragment at $.left.left.right.children[1].argument: '_'."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "node_id": "p008-vl006",
+          "bbox": {
+            "x": 126.0,
+            "y": 2913.0,
+            "width": 28.0,
+            "height": 40.0
+          },
+          "normalized_bbox": {
+            "x": 0.051767,
+            "y": 0.948551,
+            "width": 0.011504,
+            "height": 0.013025
+          },
+          "reading_order_index": 5,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "number",
+            "vl_block_id": 5
+          },
+          "content_type": "TEXT",
+          "raw_text": "8",
+          "normalized_text": "8",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "8"
+            }
+          ]
+        },
+        {
+          "node_id": "p008-vl007",
+          "bbox": {
+            "x": 181.0,
+            "y": 2913.0,
+            "width": 383.0,
+            "height": 37.0
+          },
+          "normalized_bbox": {
+            "x": 0.074363,
+            "y": 0.948551,
+            "width": 0.157354,
+            "height": 0.012048
+          },
+          "reading_order_index": 6,
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [],
+          "layout": {
+            "vl_block_label": "footer",
+            "vl_block_id": 6
+          },
+          "content_type": "TEXT",
+          "raw_text": "2027학년도 EBS 수능특강 수학 I",
+          "normalized_text": "2027학년도 EBS 수능특강 수학 I",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "2027학년도 EBS 수능특강 수학 I"
+            }
+          ]
+        }
+      ],
+      "reading_order": [
+        "p008-vl001",
+        "p008-vl002",
+        "p008-vl003",
+        "p008-vl004",
+        "p008-vl005",
+        "p008-vl006",
+        "p008-vl007"
+      ],
+      "parse_issues": [],
+      "quality_report": {
+        "status": "PASS_WITH_CORRECTION",
+        "issues": []
+      }
+    }
+  ],
+  "validation_summary": {
+    "schema_valid": true,
+    "validation_performed": true,
+    "coordinate_missing_node_count": 0,
+    "reading_order_cycle_count": 0,
+    "invalid_reading_order_ref_count": 0,
+    "missing_reading_order_node_count": 0,
+    "duplicate_node_id_count": 0,
+    "required_field_missing_count": 0,
+    "type_error_count": 0,
+    "bbox_invalid_count": 0,
+    "normalized_bbox_out_of_range_count": 0,
+    "confidence_invalid_count": 0,
+    "reading_order_index_mismatch_count": 0,
+    "invalid_embedded_text_ref_count": 0,
+    "quality_status_invalid_count": 0,
+    "issue_invalid_count": 0,
+    "page_count_mismatch": false,
+    "page_count": 1
+  }
+}

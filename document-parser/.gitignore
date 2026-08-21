@@ -2,3 +2,6 @@ __pycache__/
 *.py[cod]
 data/pages_pdf300/_render_work/
 .venv/
+*.egg-info/
+data/debug/model_home/
+data/debug/model_home_vl/

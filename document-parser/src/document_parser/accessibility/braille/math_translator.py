@@ -179,12 +179,24 @@ def _node_to_braille(node: object, translator: CharacterBrailleTranslator) -> li
         name = str(node.get("name", ""))
         indicator = FUNCTION_NAME_CELLS.get(name)
         if indicator is None:
-            raise NotImplementedError(
-                f"Function name {name!r} has no verified braille rule yet. "
-                "sin/cos/tan/csc/sec/cot (제47항), 로그(log, 제46항, 밑 없는 "
-                "형태만), ln/exp/lim(전용 기호 없이 로마자 그대로, 첨자 없는 "
-                "단순 lim(식) 형태만)는 verified."
-            )
+            # sin/log 같은 지정된 함수명이 아니라, 문제에서 임의로 정의한
+            # 단일 로마자 함수 기호(예: "함수 f(x)="의 f, g, h)인 경우 --
+            # `latex_ast.py`가 "단일 문자 뒤 괄호"를 전부 FunctionApplication
+            # 으로 만들기 때문에 실전 데이터에 아주 흔하다(ln/exp보다도 흔함,
+            # p030 실제 fixture에서 확인). 제12항(수식 내 로마자는 로마자표
+            # 없이 그대로 적는다)을 그대로 적용해 ln/exp와 동일한 논리로
+            # 한 글자를 그대로 적는다 -- 새 기호를 만드는 게 아니라 이미
+            # 검증된 ROMAN_LOWER_CELLS 재사용.
+            if len(name) == 1 and name.isascii() and name.isalpha():
+                indicator = translator.translate_math_symbol(name)
+            else:
+                raise NotImplementedError(
+                    f"Function name {name!r} has no verified braille rule yet. "
+                    "sin/cos/tan/csc/sec/cot (제47항), 로그(log, 제46항, 밑 없는 "
+                    "형태만), ln/exp/lim(전용 기호 없이 로마자 그대로, 첨자 없는 "
+                    "단순 lim(식) 형태만), 단일 로마자 함수 기호(f/g/h 등, 제12항 "
+                    "재사용)는 verified. 두 글자 이상의 미지정 함수명은 아직 미확인."
+                )
         return [*indicator, *_wrapped_operand_cells(node.get("argument"), translator)]
 
     if node_type == "AlignedRows":

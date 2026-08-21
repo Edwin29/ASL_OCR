@@ -1,0 +1,34 @@
+# Pinned, verified-working package set for running PaddleOCR-VL on GPU on
+# Windows. See docs/gpu-inference-setup.md for the full story -- in short,
+# this MUST be installed into its own virtual environment, and torch must
+# NEVER be installed alongside these packages (not even as someone else's
+# transitive dependency in the same environment). Installing torch here
+# reintroduces a real, reproduced bug: torch bundles its own copy of the
+# CUDA/cuDNN DLLs, and when both paddlepaddle-gpu's and torch's copies are
+# loaded into the same Windows process, they collide by DLL basename
+# ("cudnn64_9.dll" etc.) and the process crashes with WinError 127
+# ("procedure not found") deep inside paddlex's model-loading code.
+#
+# Install order matters: paddlepaddle-gpu comes from PaddlePaddle's own
+# package index (not PyPI), everything else from PyPI.
+#
+#   python -m venv <env-dir>
+#   <env-dir>/Scripts/pip install --upgrade pip
+#   <env-dir>/Scripts/pip install paddlepaddle-gpu==3.2.1 -i https://www.paddlepaddle.org.cn/packages/stable/cu126/
+#   <env-dir>/Scripts/pip install -r requirements-gpu.txt
+#
+# Verified against: NVIDIA GeForce RTX 4060, driver 591.86, CUDA Toolkit 13.0
+# installed system-wide (the GPU driver's own max-supported CUDA API version
+# was 13.1 -- paddlepaddle-gpu's cu126 build ran fine under it; the packages
+# below install their own bundled CUDA 12.6-era runtime regardless of what
+# CUDA Toolkit version, if any, is installed system-wide).
+
+paddlepaddle-gpu==3.2.1
+paddleocr==3.7.0
+paddlex[ocr]==3.7.2
+
+# `pip freeze` snapshot of the fully-installed, verified-working environment
+# (paddlepaddle-gpu + paddleocr + paddlex[ocr] above, resolved automatically)
+# is kept in this same directory as requirements-gpu.freeze.txt for exact
+# reproduction if a future paddlex/paddleocr release changes its transitive
+# pins in a way that breaks this again.

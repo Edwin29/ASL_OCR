@@ -79,6 +79,42 @@ def render_braille_frame(frame: dict[str, object]) -> str:
     return f"{left}{dots}{right}"
 
 
+class BrailleFrameRecorder:
+    """Debugging aid: writes every distinct braille frame (deduped by
+    content, since e.g. a boundary press that didn't move produces the same
+    frame again) to a numbered `.json` file -- source id/offset/dots/Unicode
+    rendering -- so a test run leaves an inspectable record, the same way
+    `PiperTtsEngineAdapter(record_dir=...)` does for audio."""
+
+    def __init__(self, output_dir: str | Path) -> None:
+        self._dir = Path(output_dir)
+        self._dir.mkdir(parents=True, exist_ok=True)
+        self._counter = 0
+        self._last_signature: tuple[object, ...] | None = None
+        self.recorded_files: list[Path] = []
+
+    def record(self, frame: dict[str, object]) -> Path | None:
+        signature = (frame.get("source_id"), frame.get("offset"), tuple(frame.get("cells") or ()))
+        if signature == self._last_signature:
+            return None
+        self._last_signature = signature
+        self._counter += 1
+        path = self._dir / f"braille_{self._counter:04d}.json"
+        payload = {
+            "source_id": frame.get("source_id"),
+            "offset": frame.get("offset"),
+            "viewport_size": frame.get("viewport_size"),
+            "total_cell_count": frame.get("total_cell_count"),
+            "has_previous": frame.get("has_previous"),
+            "has_next": frame.get("has_next"),
+            "cells": frame.get("cells"),
+            "unicode": render_braille_frame(frame),
+        }
+        path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        self.recorded_files.append(path)
+        return path
+
+
 def load_document(path: Path) -> dict[str, object]:
     payload = json.loads(path.read_text(encoding="utf-8"))
     return flatten_document(payload)
@@ -92,7 +128,10 @@ def build_engine(args: argparse.Namespace) -> TtsEngineAdapter:
             "실제 Piper 음성이 재생됩니다.)"
         )
         return ConsoleTtsEngineAdapter()
-    return PiperTtsEngineAdapter(args.piper_model, args.piper_espeak_data)
+    return PiperTtsEngineAdapter(
+        args.piper_model, args.piper_espeak_data,
+        record_dir=args.record_audio_dir, play_audio=not args.no_speaker,
+    )
 
 
 def run(
@@ -100,11 +139,14 @@ def run(
     engine: TtsEngineAdapter,
     viewport_size: int,
     input_stream: TextIO = sys.stdin,
+    braille_recorder: BrailleFrameRecorder | None = None,
 ) -> None:
     state = NavigationState(document_id=str(document.get("document_id", "doc")), page_index=0, node_index=0)
     controller = SpeechController(document, state, engine, braille_presenter=BraillePresenter(viewport_size=viewport_size))
     controller.speak_current()
     print(render_braille_frame(controller.braille_frame))
+    if braille_recorder is not None:
+        braille_recorder.record(controller.braille_frame)
     print("명령: up/down/left/right (SHORT), ul/dl/ll/rl (LONG), q(종료)")
 
     for line in input_stream:
@@ -125,6 +167,8 @@ def run(
             f"offset={state.braille_offset} gen={state.generation}"
         )
         print(render_braille_frame(controller.braille_frame))
+        if braille_recorder is not None:
+            braille_recorder.record(controller.braille_frame)
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -143,11 +187,32 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--piper-espeak-data", default=os.environ.get("PIPER_ESPEAK_DATA_DIR", ""))
     parser.add_argument("--no-audio", action="store_true", help="Skip real TTS playback; print what would be spoken instead.")
     parser.add_argument("--viewport-size", type=int, default=20)
+    parser.add_argument(
+        "--record-audio-dir", type=Path, default=None,
+        help="If set (and real Piper audio is active), also write each synthesized utterance to a numbered .wav "
+             "(+ matching .txt of the source text) in this directory, for offline debugging/listening.",
+    )
+    parser.add_argument(
+        "--record-braille-dir", type=Path, default=None,
+        help="If set, also write each distinct braille frame to a numbered .json (cells + Unicode rendering) "
+             "in this directory, for offline debugging.",
+    )
+    parser.add_argument(
+        "--no-speaker", action="store_true",
+        help="Synthesize (and still record, if --record-audio-dir is set) but skip live sounddevice playback.",
+    )
     args = parser.parse_args(argv)
 
     document = load_document(args.document)
     engine = build_engine(args)
-    run(document, engine, args.viewport_size)
+    braille_recorder = BrailleFrameRecorder(args.record_braille_dir) if args.record_braille_dir else None
+    run(document, engine, args.viewport_size, braille_recorder=braille_recorder)
+    # The last speak() runs in a daemon thread (PiperTtsEngineAdapter); without
+    # this, the process can exit (killing that thread) before a pending
+    # --record-audio-dir .wav write actually lands on disk.
+    wait_until_idle = getattr(engine, "wait_until_idle", None)
+    if callable(wait_until_idle):
+        wait_until_idle()
     return 0
 
 
