@@ -23,6 +23,13 @@ OPERATOR_SPEECH = {
     "\\times": "곱하기", "\\div": "나누기", "\\cdot": "곱하기",
 }
 
+# A lone "+"/"-" with no operand (부호표 sign-table cells, e.g. f'(x)의 부호)
+# reads as the sign itself, not as an operation -- "더하기"/"빼기" ("add"/
+# "subtract") only makes sense between two operands. Only used for the
+# top-level Operator case in `math_focus_item_to_speech` below, never for an
+# Operator embedded inside a Row (that's still a real binary connective).
+STANDALONE_SIGN_SPEECH = {"+": "플러스", "-": "마이너스"}
+
 # Full sentence templates, not bare words -- Korean inequality/equality
 # phrasing needs the right operand slotted between particles ("A는 B보다
 # 작다"), not just a word appended after both operands.
@@ -45,7 +52,16 @@ def math_focus_item_to_speech(item: dict[str, Any]) -> str:
     ast_status = item.get("ast_status")
     if ast_status == "INVALID":
         return "수식 인식이 불확실합니다."
-    body = math_ast_to_speech(item.get("presentation_ast"))
+    ast = item.get("presentation_ast")
+    if isinstance(ast, dict) and ast.get("type") == "Operator":
+        # A *top-level* Operator node (the whole formula, not a Row child)
+        # can only come from latex_ast.py's dedicated lone-sign special case
+        # -- every other grammar path embeds Operator inside a Row instead.
+        # Read it as a standalone sign, not a binary connective.
+        value = str(ast.get("value", ""))
+        body = STANDALONE_SIGN_SPEECH.get(value, value)
+    else:
+        body = math_ast_to_speech(ast)
     if ast_status == "PARTIAL":
         return f"일부 기호 인식이 불확실합니다. {body}"
     return body
