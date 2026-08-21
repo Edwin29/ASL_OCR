@@ -24,9 +24,9 @@ from document_parser.accessibility.braille.viewport import clear_frame
 from document_parser.accessibility.domain.commands import NavigationCommand
 from document_parser.accessibility.domain.events import NavigationResult
 from document_parser.accessibility.domain.navigation_state import NavigationState
+from document_parser.accessibility.speech import focus_item_announcement
 from document_parser.accessibility.speech.math_rules import math_focus_item_to_speech
-from document_parser.accessibility.speech.table_rules import table_cell_announcement, table_entry_announcement
-from document_parser.accessibility.speech.text_rules import text_focus_item_to_speech, visual_focus_item_to_speech
+from document_parser.accessibility.speech.table_rules import table_cell_announcement
 
 TABLE_ENTRY_BUTTON = "RIGHT"
 
@@ -199,13 +199,4 @@ class SpeechController:
         item = current_focus_item(self._document, state)
         if item is None:
             return ""
-        kind = item["kind"]
-        if kind == "TEXT":
-            return text_focus_item_to_speech(item)
-        if kind == "MATH":
-            return math_focus_item_to_speech(item)
-        if kind == "TABLE":
-            return table_entry_announcement(item)
-        if kind == "UNSUPPORTED_VISUAL":
-            return visual_focus_item_to_speech(item)
-        return str(item.get("text", ""))
+        return focus_item_announcement(item)

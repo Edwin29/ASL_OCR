@@ -624,12 +624,9 @@
                   "base": {
                     "type": "Parenthesized",
                     "body": {
-                      "type": "Operator",
-                      "operator": "-",
-                      "left": {
-                        "type": "Operator",
-                        "operator": "+",
-                        "left": {
+                      "type": "Row",
+                      "children": [
+                        {
                           "type": "UnaryMinus",
                           "body": {
                             "type": "Power",
@@ -643,7 +640,11 @@
                             }
                           }
                         },
-                        "right": {
+                        {
+                          "type": "Operator",
+                          "value": "+"
+                        },
+                        {
                           "type": "Row",
                           "children": [
                             {
@@ -655,12 +656,16 @@
                               "value": "a"
                             }
                           ]
+                        },
+                        {
+                          "type": "Operator",
+                          "value": "-"
+                        },
+                        {
+                          "type": "Number",
+                          "value": "4"
                         }
-                      },
-                      "right": {
-                        "type": "Number",
-                        "value": "4"
-                      }
+                      ]
                     },
                     "delimiter": "("
                   },
