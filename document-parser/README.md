@@ -74,9 +74,22 @@ flowchart TB
 - [`application/document_navigator.py`](src/document_parser/accessibility/application/document_navigator.py), [`application/table_navigator.py`](src/document_parser/accessibility/application/table_navigator.py) — 버튼 입력에 따른 상태 전이 규칙.
 - [`application/speech_controller.py`](src/document_parser/accessibility/application/speech_controller.py) — 위 상태 전이를 실제 "무엇을 말하고 점자판에 무엇을 띄울지"와 엮는 조정자.
 
-**직접 만져볼 수 있는 데모**: [`accessibility/cli.py`](src/document_parser/accessibility/cli.py) — 콘솔에서 화살표 커맨드로 점자/TTS 흐름을 확인할 수 있는 실행 가능한 진입점입니다.
+**직접 만져볼 수 있는 CLI 데모**: [`accessibility/cli.py`](src/document_parser/accessibility/cli.py) — Page IR JSON 파일 하나를 읽어 콘솔에서 직접 버튼을 눌러가며 점자/TTS 흐름을 확인할 수 있는, 실제로 실행 가능한 REPL입니다. `--no-audio`면 Piper 없이도 실행되고(무엇이 말해질지는 텍스트로 출력), `--piper-model`/`--piper-espeak-data`(또는 `PIPER_KOREAN_MODEL_PATH`/`PIPER_ESPEAK_DATA_DIR` 환경변수)를 주면 실제 음성이 재생됩니다.
+
 ```bash
 python -m document_parser.accessibility.cli tests/fixtures/accessibility/p019.json --no-audio
+```
+
+입력 가능한 명령: `up`/`down`/`left`/`right`(SHORT), `ul`/`dl`/`ll`/`rl`(LONG, 각 버튼 길게 누름), `q`(종료). 각 명령마다 현재 상태와 점자 프레임(유니코드 점자 문자)이 콘솔에 출력됩니다. 실제 실행 결과 예시:
+
+```
+$ printf 'down\nright\nq\n' | python -m document_parser.accessibility.cli tests/fixtures/accessibility/p019.json --no-audio
+[TTS] www.ebsi.co.kr
+(점자 없음)
+명령: up/down/left/right (SHORT), ul/dl/ll/rl (LONG), q(종료)
+[TTS] 대표 기출 문제
+[state] mode=DOCUMENT page=0 node=1 table=(None,None) span=0 offset=0 gen=1
+(점자 없음)
 ```
 
 ---
