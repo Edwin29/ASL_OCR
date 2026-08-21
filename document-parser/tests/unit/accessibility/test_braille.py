@@ -779,6 +779,59 @@ class TableBrailleTests(unittest.TestCase):
             cell(1, 2, 4, 6),
         ])
 
+    def test_math_cell_with_bare_number_ast_is_rendered(self):
+        # VL wraps a plain table value like "5" in $...$ in math-heavy tables
+        # (함수값 표 etc.) -- the AST is still just a Number leaf, so this
+        # should render exactly like the TEXT-digit case above, not raise.
+        math_node = {"kind": "MATH", "raw_formula": "5", "presentation_ast": {"type": "Number", "value": "5"}, "ast_status": "VALID"}
+        cell_item = {"row_index": 1, "column_index": 1, "content_nodes": [math_node]}
+        cells = table_cell_braille(cell_item)
+        self.assertEqual(cells, [
+            DIGIT_INDICATOR_CELL, DIGIT_CELLS["1"],
+            DIGIT_INDICATOR_CELL, DIGIT_CELLS["1"],
+            DIGIT_INDICATOR_CELL, DIGIT_CELLS["5"],
+        ])
+
+    def test_math_cell_with_bare_operator_ast_is_rendered(self):
+        # 부호표(sign table) cells are often just "+"/"-"/"0", math-wrapped.
+        math_node = {"kind": "MATH", "raw_formula": "+", "presentation_ast": {"type": "Operator", "value": "+"}, "ast_status": "VALID"}
+        cell_item = {"row_index": 1, "column_index": 1, "content_nodes": [math_node]}
+        cells = table_cell_braille(cell_item)
+        self.assertEqual(cells[-1:], math_focus_item_to_braille(math_node))
+
+    def test_math_cell_with_bare_identifier_ast_is_rendered(self):
+        math_node = {"kind": "MATH", "raw_formula": "a", "presentation_ast": {"type": "Identifier", "value": "a"}, "ast_status": "VALID"}
+        cell_item = {"row_index": 1, "column_index": 1, "content_nodes": [math_node]}
+        cells = table_cell_braille(cell_item)
+        self.assertEqual(cells[-1:], math_focus_item_to_braille(math_node))
+
+    def test_math_cell_with_structured_ast_still_raises(self):
+        # "a>0" (Relation) is real structure, not a bare leaf -- still
+        # deliberately rejected rather than guessed at.
+        math_node = {
+            "kind": "MATH", "raw_formula": "a>0", "ast_status": "VALID",
+            "presentation_ast": {
+                "type": "Relation", "operator": ">",
+                "left": {"type": "Identifier", "value": "a"},
+                "right": {"type": "Number", "value": "0"},
+            },
+        }
+        cell_item = {"row_index": 1, "column_index": 1, "content_nodes": [math_node]}
+        with self.assertRaises(NotImplementedError):
+            table_cell_braille(cell_item)
+
+    def test_math_cell_with_invalid_ast_status_renders_as_empty_not_a_crash(self):
+        # Even a bare-Number-shaped AST renders nothing if the parser itself
+        # flagged it INVALID -- matches math_focus_item_to_braille's own
+        # ast_status gate, not a special case here.
+        math_node = {"kind": "MATH", "raw_formula": "5", "presentation_ast": {"type": "Number", "value": "5"}, "ast_status": "INVALID"}
+        cell_item = {"row_index": 1, "column_index": 1, "content_nodes": [math_node]}
+        cells = table_cell_braille(cell_item)
+        self.assertEqual(cells, [
+            DIGIT_INDICATOR_CELL, DIGIT_CELLS["1"],
+            DIGIT_INDICATOR_CELL, DIGIT_CELLS["1"],
+        ])
+
 
 class BraillePresenterTests(unittest.TestCase):
     def setUp(self):
