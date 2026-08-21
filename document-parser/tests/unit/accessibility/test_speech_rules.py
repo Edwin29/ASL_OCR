@@ -104,6 +104,25 @@ class AstStatusFallbackTests(unittest.TestCase):
         self.assertTrue(speech.startswith("일부 기호 인식이 불확실합니다."))
         self.assertIn("5", speech)
 
+    def test_standalone_sign_reads_as_the_sign_not_an_operation(self):
+        # 부호표 cell: the whole formula is one bare "+"/"-", not a binary
+        # connective -- "더하기"("add") would be wrong here.
+        self.assertEqual(math_focus_item_to_speech(math_item({"type": "Operator", "value": "+"})), "플러스")
+        self.assertEqual(math_focus_item_to_speech(math_item({"type": "Operator", "value": "-"})), "마이너스")
+
+    def test_operator_embedded_in_a_row_still_reads_as_an_operation(self):
+        # Regression guard: only a *top-level* Operator node gets the
+        # standalone-sign wording -- "a+b" must still say "더하기".
+        ast = {
+            "type": "Row",
+            "children": [
+                {"type": "Identifier", "value": "a"},
+                {"type": "Operator", "value": "+"},
+                {"type": "Identifier", "value": "b"},
+            ],
+        }
+        self.assertEqual(math_focus_item_to_speech(math_item(ast)), "a 더하기 b")
+
 
 class TextFocusItemSpeechTests(unittest.TestCase):
     def test_assembles_mixed_text_and_math_spans_in_order(self):

@@ -77,6 +77,19 @@ class AstParseResult:
 
 def parse_latex_to_ast(raw_latex: str) -> AstParseResult:
     tokens = tokenize(raw_latex)
+    if len(tokens) == 1 and tokens[0].kind == "char" and tokens[0].text in {"+", "-"}:
+        # A lone "+"/"-" with no operand (e.g. a 부호표 sign-table cell) isn't
+        # a valid expression under the normal binary-operator grammar --
+        # every other rule in this file only recognizes +/- as the connective
+        # between two already-parsed operands (see parse_additive), so a
+        # single bare sign would otherwise fall through parse_primary's
+        # "unrecognized token" branch and become Unknown/PARTIAL. It's still
+        # one real, already braille- and speech-verified symbol (사칙연산
+        # 제2항), so treat "the whole formula is one bare sign" as its own
+        # case rather than routing it through the binary-expression grammar
+        # at all. Gated tightly (exactly one token) so this can never fire
+        # for any input that already parses successfully today.
+        return AstParseResult(ast={"type": "Operator", "value": tokens[0].text}, unconsumed_tokens=[], issues=[])
     parser = _Parser(tokens)
     ast = parser.parse_row()
     unconsumed = [tok.text for tok in tokens[parser.pos:]]

@@ -456,5 +456,48 @@ class AstValidatorTests(unittest.TestCase):
         self.assertEqual(unknown_issues[0]["severity"], "info")
 
 
+class StandaloneSignTests(unittest.TestCase):
+    """부호표(sign table) cells are often just a bare "+"/"-" with no operand
+    -- previously fell through to Unknown/PARTIAL since every grammar rule
+    for +/- expects an already-parsed left operand first."""
+
+    def test_bare_plus_parses_as_a_clean_operator_node(self):
+        result = parse_latex_to_ast("+")
+
+        self.assertEqual(result.ast, {"type": "Operator", "value": "+"})
+        self.assertEqual(result.unconsumed_tokens, [])
+        self.assertEqual(result.issues, [])
+
+    def test_bare_minus_parses_as_a_clean_operator_node(self):
+        result = parse_latex_to_ast("-")
+
+        self.assertEqual(result.ast, {"type": "Operator", "value": "-"})
+        self.assertEqual(result.unconsumed_tokens, [])
+        self.assertEqual(result.issues, [])
+
+    def test_surrounding_whitespace_does_not_prevent_the_special_case(self):
+        result = parse_latex_to_ast("  +  ")
+
+        self.assertEqual(result.ast, {"type": "Operator", "value": "+"})
+        self.assertEqual(result.unconsumed_tokens, [])
+
+    def test_binary_usage_is_unaffected(self):
+        # Regression guard: "a+b" must still go through the normal grammar
+        # (Row of [Identifier, Operator, Identifier]), not the lone-sign
+        # special case -- that only fires when the *entire* formula is one
+        # bare sign token.
+        result = parse_latex_to_ast("a+b")
+
+        self.assertEqual(result.unconsumed_tokens, [])
+        self.assertEqual(result.ast, {
+            "type": "Row",
+            "children": [
+                {"type": "Identifier", "value": "a"},
+                {"type": "Operator", "value": "+"},
+                {"type": "Identifier", "value": "b"},
+            ],
+        })
+
+
 if __name__ == "__main__":
     unittest.main()
