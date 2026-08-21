@@ -131,6 +131,31 @@ datapacks/
 - [`server/store.py`](src/document_parser/server/store.py) — `SessionStore`. 여러 학생/기기의 세션과, 이미 로드한 데이터팩을 메모리에 관리.
 - [`server/wire.py`](src/document_parser/server/wire.py) — `handle_wire_command(session, payload)`. **트랜스포트가 뭐든 상관없이 고정된 단 하나의 통합 지점**입니다. 입출력이 전부 JSON 가능한 dict라서, 어떤 프로토콜을 얹어도 이 함수를 얇게 감싸기만 하면 됩니다.
 
+**직접 만져볼 수 있는 CLI 데모**: [`server/cli.py`](src/document_parser/server/cli.py) — 실제 데이터팩을 로드해서, 콘솔에서 버튼을 눌러가며 서버 쪽 흐름을 직접 확인할 수 있는 REPL입니다. 이 CLI 자체가 하나의 "트랜스포트"입니다(그냥 stdin/stdout으로 구현된) — 그래서 이게 정상 작동한다는 건 `SessionStore`/`DatapackSession`/`DatapackTtsEngineAdapter`가 실제 데이터팩을 놓고 실제로 함께 잘 작동한다는 증거입니다. 2번의 `accessibility/cli.py`와 명령 체계가 동일하지만, 그때그때 TTS를 합성하는 대신 **매 턴마다 미리 합성된 어떤 wav 파일이 하드웨어로 전송될지**를 보여줍니다(`--play-audio`를 주면 그 파일을 실제로 로컬 스피커로 재생해볼 수도 있습니다).
+
+```bash
+python -m document_parser.server.cli datapacks/ my_book
+```
+
+실제 데이터팩(이 세션에서 실제 GPU OCR + 실제 Piper로 만든 것)으로 실행한 결과 예시:
+```
+$ printf 'down\ndown\nleft\nq\n' | python -m document_parser.server.cli datapacks/ verification_book
+[state] mode=DOCUMENT page=0 node=0 table=(None,None) span=0 offset=0 gen=0
+(점자 없음)
+[AUDIO] 01  (.../audio/p008-vl001.wav)
+명령: up/down/left/right (SHORT), ul/dl/ll/rl (LONG), q(종료)
+[state] mode=DOCUMENT page=0 node=1 table=(None,None) span=0 offset=0 gen=1
+(점자 없음)
+[AUDIO] 지수와 로그  (.../audio/p008-vl002.wav)
+[state] mode=DOCUMENT page=0 node=2 table=(None,None) span=0 offset=0 gen=2
+(점자 없음)
+[AUDIO] 1 거듭제곱근  (.../audio/p004-vl003.wav)
+[state] mode=DOCUMENT page=0 node=2 table=(None,None) span=0 offset=0 gen=3
+(점자 없음)
+[AUDIO] 이 항목에는 점자로 표시할 수식이 없습니다.  (.../datapacks/_system/audio/cfd266621fcd3738.wav)
+```
+마지막 줄이 `_system` 풀(책과 무관한 공용 경계 메시지)에서 온 오디오라는 것도 그대로 드러납니다 — 이 CLI 하나로 책 콘텐츠 오디오와 공용 풀 오디오가 실제로 잘 병합되어 조회된다는 것까지 눈으로 확인할 수 있습니다.
+
 ---
 
 ### 5. 트랜스포트 & 하드웨어 — 아직 미정
@@ -177,6 +202,9 @@ python -m document_parser.accessibility.cli tests/fixtures/accessibility/p019.js
 python -m document_parser.datapack.ingest my_book page1.png page2.png \
   --piper-model D:/models/piper-korean/ko_KR-kss-medium.onnx \
   --piper-espeak-data D:/espeak-ng-data
+
+# 서버 데모 (위에서 만든 데이터팩을 콘솔에서 버튼으로 탐색)
+python -m document_parser.server.cli datapacks/ my_book
 ```
 
 ## 현재 상태
@@ -186,7 +214,7 @@ python -m document_parser.datapack.ingest my_book page1.png page2.png \
 | 1. OCR (PaddleOCR-VL) | ✅ 완료, GPU 실측 검증(17페이지, 평균 62초/페이지) |
 | 2. 접근성 변환 (점자·음성 번역, 내비게이션) | ✅ 완료 |
 | 3. 데이터팩 (ingest/loader) | ✅ 완료, 실제 GPU+Piper e2e 검증 완료 |
-| 4. 서버 (세션 코어, wire 경계) | ✅ 완료 |
+| 4. 서버 (세션 코어, wire 경계, CLI 데모) | ✅ 완료, 실제 데이터팩으로 CLI 검증 완료 |
 | 5. 트랜스포트 프로토콜 | ❓ 미정 — 하드웨어 팀 협의 예정 |
 | 5. 하드웨어 (점자 디스플레이 제어, 이미지 캡처/업로드) | ❌ 미착수 |
 | 알려진 남은 갭 | 표 셀 안의 수식 점자 렌더링 미구현, 순수 텍스트 안의 비-한글 문자(라틴/숫자) 점자 변환 미흡 |
