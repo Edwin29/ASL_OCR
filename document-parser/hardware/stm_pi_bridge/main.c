@@ -6,12 +6,40 @@
 #include <stdlib.h>
 
 /* ============================================================
- * FINAL HARDWARE
+ * FINAL HARDWARE - ST MORPHO MALE PINS ONLY
  *
- * STM32F446RE <-> HC-05 : USART1
- * Tera Term debug       : USART2 / ST-LINK VCP
- * PCA9685 x2             : I2C1
- * Buttons                : PA0, PA1, PA4, PB0
+ * NUCLEO-F446RE의 수핀 헤더(ST Morpho CN7/CN10)만 외부 배선에 사용.
+ * Arduino 암헤더(A0/A1/A2/A3, D핀)는 외부 배선에 사용하지 않음.
+ *
+ * [CN10 - male]
+ * CN10-3  = PB8  = I2C1_SCL  -> PCA9685 #1/#2 SCL
+ * CN10-5  = PB9  = I2C1_SDA  -> PCA9685 #1/#2 SDA
+ * CN10-21 = PA9  = USART1_TX -> HC-05 RXD
+ * CN10-33 = PA10 = USART1_RX <- HC-05 TXD
+ *
+ * [CN7 - male]
+ * CN7-28 = PA0 = UP button
+ * CN7-30 = PA1 = DOWN button
+ * CN7-32 = PA4 = LEFT button
+ * CN7-34 = PB0 = RIGHT button
+ *
+ * Power examples on male Morpho header:
+ * CN7-16 = +3.3V
+ * CN7-18 = +5V
+ * CN7-8 / 19 / 20 / 22 = GND
+ * CN10-9 / 20 = GND
+ *
+ * Tera Term debug = USART2 / ST-LINK VCP
+ * PA2/PA3 are still configured for USART2, but no external jumper is needed.
+ *
+ * [Claude, 2026-08-22] This revision only relabels which physical header
+ * (ST Morpho CN7/CN10 vs the Arduino-compatible header) the same MCU pins
+ * are wired through -- PA0/PA1/PA4/PB0/PB8/PB9/PA9/PA10 are unchanged, and
+ * so is every line of code below (confirmed by diffing against the prior
+ * revision: only comments and Debug_Print() strings differ). No change
+ * needed in pi_bridge.py -- it only speaks the FRAME/NAV/HELLO line
+ * protocol and has no knowledge of which physical header anything is
+ * wired through.
  * ============================================================ */
 
 /* HC-05 data-mode UART baud.
@@ -121,14 +149,15 @@ static const uint8_t BOTTOM_REVERSE_LUT[8] =
 };
 
 /* ============================================================
- * Buttons
+ * Buttons - ST Morpho MALE header only
  *
- * A0 / PA0 = UP
- * A1 / PA1 = DOWN
- * A2 / PA4 = LEFT
- * A3 / PB0 = RIGHT
+ * CN7-28 / PA0 = UP
+ * CN7-30 / PA1 = DOWN
+ * CN7-32 / PA4 = LEFT
+ * CN7-34 / PB0 = RIGHT
  *
- * GPIO Input + Pull-up, opposite switch terminal -> GND
+ * GPIO Input + Pull-up.
+ * 각 버튼의 반대쪽 단자는 CN7 또는 CN10의 GND 수핀으로 공통 연결.
  * ============================================================ */
 #define BUTTON_DEBOUNCE_MS      30U
 #define BUTTON_LONG_MS          700U
@@ -741,10 +770,10 @@ int main(void)
 
     Debug_Print(
         "\r\nBUTTONS\r\n"
-        "A0 / PA0 = UP\r\n"
-        "A1 / PA1 = DOWN\r\n"
-        "A2 / PA4 = LEFT\r\n"
-        "A3 / PB0 = RIGHT\r\n"
+        "CN7-28 / PA0 = UP\r\n"
+        "CN7-30 / PA1 = DOWN\r\n"
+        "CN7-32 / PA4 = LEFT\r\n"
+        "CN7-34 / PB0 = RIGHT\r\n"
         "<700ms = SHORT, >=700ms = LONG\r\n\r\n");
 
     /* First connection attempt. Failure is NOT fatal. */
@@ -854,7 +883,10 @@ void SystemClock_Config(void)
 }
 
 /* ============================================================
- * I2C1: PB8 SCL / PB9 SDA / 100 kHz
+ * I2C1 via ST Morpho male CN10:
+ * CN10-3 = PB8 SCL
+ * CN10-5 = PB9 SDA
+ * 100 kHz
  * Pins are configured by CubeMX-generated HAL MSP code.
  * ============================================================ */
 static void MX_I2C1_Init(void)
