@@ -1,4 +1,11 @@
-"""Raspberry Pi <-> STM32 bridge for the physical braille display.
+"""Host <-> STM32 bridge for the physical braille display.
+
+"Host" here means whatever computer is Bluetooth-paired with the STM
+board's HC-05 module -- a real Raspberry Pi eventually, but just as well
+any PC (e.g. the same Windows machine a teammate already uses to submit
+images via remote_ingest_client.py, no file transfer needed since it's
+one machine). See README.md in this folder for OS-specific pairing/COM
+port setup (Windows and Linux both covered there).
 
 Speaks the exact line-based ASCII protocol implemented by the STM32
 firmware in this same folder (main.c, unmodified in behavior -- this
@@ -24,10 +31,10 @@ and on every reconnect attempt) must be answered with the session's
 *current* state/frame, without advancing navigation -- it is not a button
 press. That is exactly session.state / session.braille_frame, unmodified.
 
-Usage (on the Raspberry Pi, after pairing the HC-05 so it appears as a
-serial device -- e.g. `sudo rfcomm bind rfcomm0 <HC-05 MAC>`, not something
-this script does):
-    python pi_bridge.py --port /dev/rfcomm0 \\
+Usage (after pairing the HC-05 so it appears as a serial device -- an
+OS-level step this script does not perform itself; README.md covers both
+Windows COM ports and Linux rfcomm):
+    python pi_bridge.py --port COM5 \\
         --datapacks-dir /path/to/datapacks --book-id my_book
 """
 
@@ -138,10 +145,10 @@ def run_bridge(session: DatapackSession, transport: LineTransport, log: Callable
 class SerialLineTransport:
     """Real transport: a pyserial connection to the STM's Bluetooth serial
     port. Requires the `pyserial` package (not a core document-parser
-    dependency; install separately on the Pi: `pip install pyserial`).
-    Pairing the HC-05 so it shows up as a serial device at all (e.g.
-    `/dev/rfcomm0`) is an OS-level Bluetooth step this class does not
-    perform."""
+    dependency; install it separately: `pip install pyserial`). Pairing
+    the HC-05 so it shows up as a serial device at all (a Windows COM
+    port or a Linux device like `/dev/rfcomm0` -- see README.md) is an
+    OS-level Bluetooth step this class does not perform."""
 
     def __init__(self, port: str, baudrate: int = 9600, timeout: float = 5.0) -> None:
         import serial  # deferred: optional dependency, only needed for real hardware use
@@ -161,7 +168,7 @@ class SerialLineTransport:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--port", required=True, help="Serial device for the paired HC-05 (e.g. /dev/rfcomm0 on the Pi).")
+    parser.add_argument("--port", required=True, help="Serial device for the paired HC-05 (e.g. COM5 on Windows, /dev/rfcomm0 on Linux).")
     parser.add_argument("--baudrate", type=int, default=9600, help="Must match HC05_UART_BAUD in main.c.")
     parser.add_argument("--datapacks-dir", type=Path, required=True)
     parser.add_argument("--book-id", required=True)
