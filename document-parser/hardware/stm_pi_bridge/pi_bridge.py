@@ -3,49 +3,55 @@
 "Host" here means whatever computer is Bluetooth-paired with the STM
 board's HC-05 module -- a real Raspberry Pi eventually, but just as well
 any PC (e.g. the same Windows machine a teammate already uses to submit
-images via remote_ingest_client.py, no file transfer needed since it's
-one machine). See README.md in this folder for OS-specific pairing/COM
-port setup (Windows and Linux both covered there).
+images via remote_ingest_client.py). See README.md in this folder for
+OS-specific pairing/COM port setup (Windows and Linux both covered there).
+
+**The host holds no datapack of its own.** Every "FRAME,..." line sent to
+the STM is fetched live, over HTTP, from `document_parser.server.http_server`
+running on the GPU machine that actually has the datapacks. This bridge is
+a pure protocol translator between two wire formats -- the STM's line
+protocol and the server's HTTP/JSON one -- with no navigation/braille
+state of its own in between. (An earlier revision of this file read a
+locally-downloaded datapack directly; that assumed the host device had its
+own storage, which the real demo setup doesn't have -- see git history if
+you need that version for offline bench testing.)
 
 Speaks the exact line-based ASCII protocol implemented by the STM32
 firmware in this same folder (main.c, unmodified in behavior -- this
 bridge conforms to it, not the other way around):
-    Pi -> STM:  "FRAME,page,node,span,offset,gen,c0,c1,...,c9\\n"
-    STM -> Pi:  "NAV,<U|D|L|R>,<S|L>\\n"  or  "HELLO\\n"
-
-Wraps document_parser.server's existing session/navigation logic
-(DatapackSession via SessionStore) completely unchanged -- this file only
-translates between that Python API and the STM's line protocol. No new
-navigation/braille/audio logic lives here.
+    Host -> STM:  "FRAME,page,node,span,offset,gen,c0,c1,...,c9\\n"
+    STM -> Host:  "NAV,<U|D|L|R>,<S|L>\\n"  or  "HELLO\\n"
 
 CRITICAL: the physical display has exactly BRAILLE_CELL_COUNT (10) braille
-cells (see main.c). document_parser.accessibility.BraillePresenter's own
-default viewport size is 20 (DEFAULT_VIEWPORT_SIZE) -- this bridge MUST
-request viewport_size=10 when creating the session (see main() below), or
-every FRAME line sent will carry the wrong cell count and main.c's
-ReceiveFrameFromPi() will reject it outright (it parses exactly
-5 + BRAILLE_CELL_COUNT numeric fields, no more, no fewer).
+cells (see main.c). document_parser's BraillePresenter defaults to a
+20-cell viewport -- this bridge requests viewport_size=10 when it creates
+the remote session (see main() below), or every FRAME line sent would
+carry the wrong cell count and main.c's ReceiveFrameFromPi() would reject
+it outright (parses exactly 5 + BRAILLE_CELL_COUNT numeric fields).
 
 The HELLO handshake (main.c's TryBluetoothHandshake(), sent once at boot
-and on every reconnect attempt) must be answered with the session's
-*current* state/frame, without advancing navigation -- it is not a button
-press. That is exactly session.state / session.braille_frame, unmodified.
+and on every reconnect attempt) is answered with the session's *current*
+state/frame, fetched via GET (no navigation advance) -- it is not a
+button press.
 
 Usage (after pairing the HC-05 so it appears as a serial device -- an
 OS-level step this script does not perform itself; README.md covers both
-Windows COM ports and Linux rfcomm):
+Windows COM ports and Linux rfcomm; the server must already be running,
+see ../../src/document_parser/server/http_server.py):
     python pi_bridge.py --port COM5 \\
-        --datapacks-dir /path/to/datapacks --book-id my_book
+        --server https://<tunnel-or-LAN-address> --api-key <shared secret> \\
+        --book-id my_book
 """
 
 from __future__ import annotations
 
 import argparse
-from pathlib import Path
+import json
+import urllib.error
+import urllib.request
 from typing import Any, Callable, Protocol
 
-from document_parser.accessibility import BraillePresenter, NavigationCommand
-from document_parser.server import DatapackSession, SessionStore
+from document_parser.accessibility import NavigationCommand
 
 # Must match BRAILLE_CELL_COUNT in main.c exactly.
 BRAILLE_CELL_COUNT = 10
@@ -70,26 +76,45 @@ class LineTransport(Protocol):
     def write_line(self, line: str) -> None: ...
 
 
-def format_frame_line(state: Any, braille_frame: dict[str, Any]) -> str:
+class RemoteSession(Protocol):
+    """Whatever actually talks to document_parser.server.http_server --
+    kept as a narrow protocol (implemented for real by HttpRemoteSession
+    below) so the line-handling logic is testable without a real server or
+    network connection (see test_pi_bridge.py's FakeRemoteSession)."""
+
+    def get_current(self) -> dict[str, Any]:
+        """Current {"state": {...}, "braille_frame": {...}}, no navigation
+        applied -- the HELLO case."""
+        ...
+
+    def send_command(self, button: str, action: str) -> dict[str, Any]:
+        """Same shape, after the server handles this one button press."""
+        ...
+
+
+def format_frame_line(state: dict[str, Any], braille_frame: dict[str, Any]) -> str:
     """Build one `FRAME,page,node,span,offset,gen,c0,...,c9` line, exactly
     matching main.c's `ReceiveFrameFromPi()` parser (5 state fields, then
     exactly BRAILLE_CELL_COUNT cell values, comma-separated, no trailing
-    comma). Pads with 0 (a blank cell, no dots raised) if the actual
-    content is shorter than BRAILLE_CELL_COUNT (e.g. a one-symbol formula)
-    -- always emits exactly BRAILLE_CELL_COUNT cells. Never emits *more*
-    than that, but that guarantee only holds if the session's
-    BraillePresenter was actually constructed with viewport_size=10 (see
-    module docstring); this function does not itself enforce that.
+    comma). `state` is the wire-format dict document_parser.server.wire's
+    state_to_wire() produces (this bridge only ever sees state as JSON from
+    the HTTP server, never a real NavigationState object). Pads with 0 (a
+    blank cell, no dots raised) if the actual content is shorter than
+    BRAILLE_CELL_COUNT (e.g. a one-symbol formula) -- always emits exactly
+    BRAILLE_CELL_COUNT cells. Never emits *more* than that, but that
+    guarantee only holds if the session was actually created with
+    viewport_size=10 (see module docstring); this function does not itself
+    enforce that.
     """
     cells = list(braille_frame.get("cells") or [])[:BRAILLE_CELL_COUNT]
     cells += [0] * (BRAILLE_CELL_COUNT - len(cells))
     fields = [
         "FRAME",
-        str(state.page_index),
-        str(state.node_index),
-        str(state.math_span_index),
-        str(state.braille_offset),
-        str(state.generation),
+        str(state["page_index"]),
+        str(state["node_index"]),
+        str(state["math_span_index"]),
+        str(state["braille_offset"]),
+        str(state["generation"]),
         *(str(c) for c in cells),
     ]
     return ",".join(fields)
@@ -110,14 +135,14 @@ def parse_nav_line(line: str) -> NavigationCommand | None:
     return NavigationCommand(button=button, action=action)
 
 
-def run_bridge(session: DatapackSession, transport: LineTransport, log: Callable[[str], None] = print) -> None:
-    """Main line-protocol loop. `HELLO` -> reply with the current
-    state/frame, no navigation advance. `NAV,...` -> handle_button, then
-    reply with the resulting state/frame. Anything else (including
-    malformed NAV lines) is logged and ignored, never guessed at --
-    main.c never sends anything outside these two shapes, so seeing one
-    means something upstream is wrong and should be visible in the log,
-    not silently patched over.
+def run_bridge(remote: RemoteSession, transport: LineTransport, log: Callable[[str], None] = print) -> None:
+    """Main line-protocol loop. `HELLO` -> fetch the current state/frame
+    from the server (no navigation advance) and reply. `NAV,...` -> send
+    that button press to the server, reply with the resulting state/frame.
+    Anything else (including malformed NAV lines) is logged and ignored,
+    never guessed at -- main.c never sends anything outside these two
+    shapes, so seeing one means something upstream is wrong and should be
+    visible in the log, not silently patched over.
     """
     while True:
         line = transport.read_line()
@@ -128,8 +153,9 @@ def run_bridge(session: DatapackSession, transport: LineTransport, log: Callable
             continue  # e.g. a read timeout with nothing pending
 
         if line == "HELLO":
-            log(f"RX {line!r} -> replying with current state (no advance)")
-            transport.write_line(format_frame_line(session.state, session.braille_frame))
+            log(f"RX {line!r} -> fetching current state from server (no advance)")
+            current = remote.get_current()
+            transport.write_line(format_frame_line(current["state"], current["braille_frame"]))
             continue
 
         command = parse_nav_line(line)
@@ -138,7 +164,7 @@ def run_bridge(session: DatapackSession, transport: LineTransport, log: Callable
             continue
 
         log(f"RX {line!r} -> {command.button} {command.action}")
-        result = session.handle_button(command)
+        result = remote.send_command(command.button, command.action)
         transport.write_line(format_frame_line(result["state"], result["braille_frame"]))
 
 
@@ -166,26 +192,59 @@ class SerialLineTransport:
         self._conn.close()
 
 
+class HttpRemoteSession:
+    """Real RemoteSession: talks to a running document_parser.server.http_server
+    over HTTP. Uses only the standard library (urllib), matching
+    remote_ingest_client.py's no-extra-installs philosophy for this file's
+    own dependencies -- `pi_bridge.py` as a whole still needs the full
+    document_parser package installed (for NavigationCommand and, if you
+    swap in SerialLineTransport, pyserial), unlike remote_ingest_client.py.
+
+    Creates the session (POST /sessions) once, at construction time, and
+    reuses `session_id` for every subsequent call.
+    """
+
+    def __init__(self, server: str, api_key: str, session_id: str, book_id: str, viewport_size: int) -> None:
+        self._server = server.rstrip("/")
+        self._api_key = api_key
+        self._session_id = session_id
+        self._request("POST", "/sessions", {"session_id": session_id, "book_id": book_id, "viewport_size": viewport_size})
+
+    def get_current(self) -> dict[str, Any]:
+        return self._request("GET", f"/sessions/{self._session_id}")
+
+    def send_command(self, button: str, action: str) -> dict[str, Any]:
+        return self._request("POST", f"/sessions/{self._session_id}/command", {"button": button, "action": action})
+
+    def _request(self, method: str, path: str, body: dict[str, Any] | None = None) -> dict[str, Any]:
+        data = json.dumps(body).encode("utf-8") if body is not None else None
+        request = urllib.request.Request(
+            f"{self._server}{path}", data=data, method=method,
+            headers={"X-API-Key": self._api_key, "Content-Type": "application/json"},
+        )
+        try:
+            with urllib.request.urlopen(request) as response:
+                return json.loads(response.read())
+        except urllib.error.HTTPError as exc:
+            body_text = exc.read().decode("utf-8", errors="replace")
+            raise RuntimeError(f"{method} {path} -> HTTP {exc.code}: {body_text}") from exc
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--port", required=True, help="Serial device for the paired HC-05 (e.g. COM5 on Windows, /dev/rfcomm0 on Linux).")
     parser.add_argument("--baudrate", type=int, default=9600, help="Must match HC05_UART_BAUD in main.c.")
-    parser.add_argument("--datapacks-dir", type=Path, required=True)
+    parser.add_argument("--server", required=True, help="URL of a running document_parser.server.http_server (LAN address or tunnel URL).")
+    parser.add_argument("--api-key", required=True, help="Must match the running server's --api-key.")
     parser.add_argument("--book-id", required=True)
-    parser.add_argument("--session-id", default="stm-bridge", help="Only matters if this bridge ever serves more than one board.")
+    parser.add_argument("--session-id", default="stm-bridge", help="Only matters if the server ever serves more than one board.")
     args = parser.parse_args(argv)
 
-    store = SessionStore(args.datapacks_dir)
-    session = store.get_or_create_session(
-        args.session_id,
-        args.book_id,
-        braille_presenter=BraillePresenter(viewport_size=BRAILLE_CELL_COUNT),
-    )
-
+    remote = HttpRemoteSession(args.server, args.api_key, args.session_id, args.book_id, viewport_size=BRAILLE_CELL_COUNT)
     transport = SerialLineTransport(args.port, baudrate=args.baudrate)
-    print(f"listening on {args.port} @ {args.baudrate} baud, book={args.book_id!r}, viewport_size={BRAILLE_CELL_COUNT}", flush=True)
+    print(f"bridging {args.port} <-> {args.server} (book={args.book_id!r}, session={args.session_id!r}, viewport_size={BRAILLE_CELL_COUNT})", flush=True)
     try:
-        run_bridge(session, transport)
+        run_bridge(remote, transport)
     finally:
         transport.close()
     return 0

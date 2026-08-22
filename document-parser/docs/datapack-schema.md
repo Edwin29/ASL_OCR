@@ -146,3 +146,14 @@ datapacks/
 ## 코드 쪽 선행 작업 — 완료 (2026-08-21)
 
 `_focus_speech`의 kind별 텍스트 분기를 `SpeechController`의 private 메서드에서 [`document_parser.accessibility.speech.focus_item_announcement`](../src/document_parser/accessibility/speech/__init__.py)로 뽑아냈다. `SpeechController._focus_speech`는 이제 이 함수를 호출만 한다. 향후 ingest 잡은 문서의 모든 focus item에 대해 같은 `focus_item_announcement(item)`을 호출해 오디오를 미리 합성하면 되고, 서버(`SpeechController`)와 로직이 어긋날 일이 없다. 전체 유닛 테스트(423 passed / 4 skipped) 회귀 없음 확인.
+
+## 실제 트랜스포트(HTTP) 구현 — 완료 (2026-08-22)
+
+위 "이번 설계에서 의도적으로 제외한 것"의 실제 프로토콜 구현이 STM32 하드웨어 연동 작업 중 실제로 필요해져서 만들어졌다(점자 프레임 쪽만 — 오디오는 여전히 미룸).
+
+- [`src/document_parser/server/http_server.py`](../src/document_parser/server/http_server.py) — `handle_wire_command()`를 HTTP로 감싼 실제 구현. `POST /sessions`(세션 생성, `viewport_size` 지정 가능), `GET /sessions/<id>`(현재 상태 조회, 전진 없음 — HELLO용), `POST /sessions/<id>/command`(버튼 입력 처리). `X-API-Key` 인증, `remote_ingest.py`와 같은 Flask 패턴.
+- `document_parser.datapack.remote_ingest`(이미지→데이터팩)와는 완전히 별개 서버다 — 포트도 다르다(8420 vs 8421). 같은 컴퓨터에서 동시에 띄워 쓸 수 있다.
+- **왜 이 구조가 필요했는가**: `hardware/stm_pi_bridge/pi_bridge.py`(STM32 브리지)가 처음엔 로컬에 다운로드된 데이터팩 폴더를 직접 읽었는데, 실제 시연 환경엔 호스트 기기에 별도 저장장치가 없어서 이 방식이 안 맞았다. 데이터팩은 서버에만 있고, 호스트는 버튼마다 네트워크로 물어보는 구조로 바꿨다 — `pi_bridge.py`는 이제 완전한 stateless 프로토콜 통역기다.
+- 실제 서버를 띄우고 curl로 세션 생성 → 버튼 입력 → 수식 있는 항목까지 이동 → `viewport_size` 정확히 반영 확인 → `pi_bridge.py`의 `format_frame_line()`으로 STM이 기대하는 정확한 `FRAME` 줄이 나오는지까지 실제로 확인했다(자세한 내용은 `hardware/stm_pi_bridge/README.md`).
+- 검증: `tests/unit/test_server_http.py`(11, 실제 데이터팩 기반) + `hardware/stm_pi_bridge/test_pi_bridge.py`(12, 가짜 원격 세션 기반, 프로토콜 로직만). 전체 스위트 508 passed / 4 skipped.
+- 여전히 미정: 오디오(wav) 실시간 전달 방식(`audio_ref`는 여전히 서버 로컬 파일 경로만 담음), WebSocket/시리얼 등 다른 프로토콜 대안(HTTP로 이미 요구사항을 충족해서 당장 필요성 없음).
