@@ -24,8 +24,12 @@ A teammate then:
     curl http://<LAN-IP>:8420/jobs/<job_id> -H "X-API-Key: ..."
     # -> {"status": "running" | "done" | "error", ...}
     curl -OJ http://<LAN-IP>:8420/jobs/<job_id>/download -H "X-API-Key: ..."
-    # -> a .zip containing datapacks/{book_id}/ and datapacks/_system/,
-    #    ready to point document_parser.server.cli or SessionStore at.
+    # -> a .zip whose top level is {book_id}/ and _system/ side by side
+    #    (unzip it and point document_parser.server.cli or SessionStore
+    #    directly at that extraction folder -- no extra "datapacks/" layer).
+
+`tools/remote_ingest_client.py` automates that whole submit/poll/download
+sequence into one command for a teammate (stdlib-only, no install needed).
 """
 
 from __future__ import annotations
