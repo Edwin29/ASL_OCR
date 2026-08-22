@@ -55,7 +55,32 @@ python -m document_parser.server.cli <압축 푼 datapacks 폴더> my_test_book
 - 팀원 컴퓨터가 **실제로 같은 네트워크(같은 사무실 와이파이/유선, 또는 같은 VPN)에 있는지** — 다른 네트워크라면 이 IP로 아예 접속이 안 됩니다.
 - 공유기/네트워크 장비가 기기 간 통신을 막아두지 않았는지(예: 게스트 와이파이 격리) — 이건 네트워크 설정에 달려 있어서 로컬에서는 확인이 안 됩니다.
 
-**확인 방법**: 팀원에게 `curl http://<LAN IP>:8420/health` 를 실행해보라고 하면 됩니다. `{"status":"ok"}`가 오면 접근 가능한 것이고, 타임아웃/연결 거부가 나면 같은 네트워크가 아니거나 중간에 뭔가 막고 있는 겁니다 — 그 경우 VPN을 쓰거나, ngrok 같은 터널링 도구로 임시로 외부에 노출하는 걸 고려해야 합니다(이 문서는 그 경우까지는 다루지 않음, 필요하면 알려주세요).
+**확인 방법**: 팀원에게 `curl http://<LAN IP>:8420/health` 를 실행해보라고 하면 됩니다. `{"status":"ok"}`가 오면 접근 가능한 것이고, 타임아웃/연결 거부가 나면 같은 네트워크가 아닌 것입니다 — 아래 "다른 네트워크에 있는 팀원" 참고.
+
+## 다른 네트워크에 있는 팀원 (Cloudflare Tunnel)
+
+팀원이 같은 사무실/VPN이 아니라 완전히 다른 네트워크(집, 카페 등)에 있으면 LAN IP로는 접속이 안 됩니다. 이 경우 [Cloudflare Tunnel](https://github.com/cloudflare/cloudflared)의 "quick tunnel"을 씁니다 — 계정 가입 없이, 실행 파일 하나로 임시 공개 HTTPS 주소를 만들어서 로컬 포트로 그대로 전달합니다. 공유기 설정을 전혀 건드리지 않습니다(아웃바운드 연결만 만드는 방식).
+
+```bash
+# 1. cloudflared 다운로드 (Windows 64bit 기준, 한 번만)
+curl -L -o cloudflared.exe https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.exe
+
+# 2. remote_ingest 서버가 이미 떠 있는 상태에서, 터널 실행
+cloudflared.exe tunnel --url http://localhost:8420
+```
+
+몇 초 뒤 다음과 비슷한 출력이 나옵니다:
+```
+Your quick Tunnel has been created! Visit it at (it may take some time to be reachable):
+https://무작위-단어-4개.trycloudflare.com
+```
+
+이 `https://...trycloudflare.com` 주소를 팀원에게 LAN IP 대신 전달하면 됩니다 — 사용법(`/jobs`, `/jobs/<id>`, `/jobs/<id>/download`)은 완전히 동일하고, 주소만 바뀝니다. 실제로 이 주소로 업로드→상태확인→다운로드 전체 흐름이 정상 작동함을 확인했습니다(2026-08-22).
+
+**알아둘 점**:
+- 계정 없이 만든 임시 터널이라 **cloudflared 프로세스가 살아있는 동안만** 유효합니다. 껐다 다시 켜면 주소가 바뀝니다(고정 주소가 필요하면 Cloudflare 계정으로 "named tunnel"을 만들어야 하는데, 이 문서는 그 경우까진 다루지 않습니다).
+- 이 순간부터 **서버가 진짜로 인터넷에 공개됩니다.** 보호 수단은 여전히 `X-API-Key` 하나뿐입니다 — 주소와 키를 아는 사람은 누구든 이 컴퓨터의 GPU로 작업을 실행시킬 수 있습니다. URL과 키 둘 다 신뢰하는 팀 안에서만 공유하세요.
+- 터널도, 서버도 그걸 띄운 프로세스/세션이 끝나면 같이 내려갑니다.
 
 ## 알아둘 점
 

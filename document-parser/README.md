@@ -172,7 +172,25 @@ $ printf 'down\ndown\nleft\nq\n' | python -m document_parser.server.cli datapack
 
 ## 부록: GPU 없는 팀원을 위한 원격 ingest 도구
 
-위 A/B 파이프라인과는 무관한 **내부 테스트용 도구**입니다. GPU가 없는 팀원이 이미지를 이 GPU 머신으로 보내고 완성된 데이터팩을 받아갈 수 있게 하는 작은 HTTP 서버입니다(`document_parser.datapack.remote_ingest`) — 트랜스포트 프로토콜(5번)이 정해지길 기다릴 필요 없이 지금 쓸 수 있습니다. 자세한 사용법과 접근 확인 절차는 [docs/remote-ingest.md](docs/remote-ingest.md) 참고.
+위 A/B 파이프라인과는 무관한 **내부 테스트용 도구**입니다. GPU가 없는 팀원이 이미지를 이 GPU 머신으로 보내고 완성된 데이터팩을 받아갈 수 있게 하는 작은 HTTP 서버입니다(`document_parser.datapack.remote_ingest`) — 트랜스포트 프로토콜(5번)이 정해지길 기다릴 필요 없이 지금 쓸 수 있습니다.
+
+**GPU 머신에서 서버 실행**:
+```bash
+python -m document_parser.datapack.remote_ingest \
+  --api-key <아무 문자열> \
+  --piper-model D:/models/piper-korean/ko_KR-kss-medium.onnx \
+  --piper-espeak-data D:/espeak-ng-data
+```
+
+**팀원 쪽 사용법** (같은 네트워크가 아니면 LAN IP 대신 터널 주소 사용 — 아래 문서 참고):
+```bash
+curl -X POST http://<LAN IP 또는 터널 주소>:8420/jobs -H "X-API-Key: ..." -F "book_id=test" -F "images=@p1.png"
+curl http://<위와 동일>:8420/jobs/<job_id> -H "X-API-Key: ..."          # 상태 확인
+curl -OJ http://<위와 동일>:8420/jobs/<job_id>/download -H "X-API-Key: ..."  # 완료되면 다운로드
+python -m document_parser.server.cli <압축 푼 datapacks 폴더> test        # 팀원 컴퓨터에서, GPU 불필요
+```
+
+같은 네트워크가 아닌 팀원에게 노출하는 방법(Cloudflare Tunnel), 접근 확인 절차, 보안상 주의점은 [docs/remote-ingest.md](docs/remote-ingest.md)에 자세히 정리했습니다.
 
 ## 저장소 구조 요약
 
