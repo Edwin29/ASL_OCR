@@ -5,3 +5,4 @@ data/pages_pdf300/_render_work/
 *.egg-info/
 data/debug/model_home/
 data/debug/model_home_vl/
+remote_ingest_jobs/
