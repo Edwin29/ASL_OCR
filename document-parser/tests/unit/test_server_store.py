@@ -2,6 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from document_parser.accessibility import BraillePresenter
 from document_parser.datapack.ingest import build_datapack
 from document_parser.serialization.vl_page_ir import build_document_ir_from_vl
 from document_parser.server.store import SessionStore
@@ -50,6 +51,20 @@ class SessionStoreTests(unittest.TestCase):
 
             self.assertEqual(session.datapack.book_id, "book_a")
             self.assertIs(store.get_session("device-1"), session)
+
+    def test_braille_presenter_override_is_used_for_a_new_session(self):
+        # Real physical displays (e.g. a 10-cell STM32 board) need a
+        # non-default viewport size -- the server has no way to know the
+        # hardware's fixed cell count unless told explicitly.
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            write_book(root, root / "_system", "book_a")
+            store = SessionStore(root)
+            presenter = BraillePresenter(viewport_size=10)
+
+            session = store.get_or_create_session("device-1", "book_a", braille_presenter=presenter)
+
+            self.assertIs(session._controller._braille_presenter, presenter)
 
     def test_returns_the_same_session_instance_on_repeated_calls(self):
         with tempfile.TemporaryDirectory() as temp_dir:
