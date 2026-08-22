@@ -182,12 +182,11 @@ python -m document_parser.datapack.remote_ingest \
   --piper-espeak-data D:/espeak-ng-data
 ```
 
-**팀원 쪽 사용법** (같은 네트워크가 아니면 LAN IP 대신 터널 주소 사용 — 아래 문서 참고):
+**팀원 쪽 사용법** (같은 네트워크가 아니면 LAN IP 대신 터널 주소 사용 — 아래 문서 참고): [`tools/remote_ingest_client.py`](tools/remote_ingest_client.py) 하나면 제출→대기→다운로드가 자동으로 이어집니다(파이썬 표준 라이브러리만 사용, 설치 불필요).
 ```bash
-curl -X POST http://<LAN IP 또는 터널 주소>:8420/jobs -H "X-API-Key: ..." -F "book_id=test" -F "images=@p1.png"
-curl http://<위와 동일>:8420/jobs/<job_id> -H "X-API-Key: ..."          # 상태 확인
-curl -OJ http://<위와 동일>:8420/jobs/<job_id>/download -H "X-API-Key: ..."  # 완료되면 다운로드
-python -m document_parser.server.cli <압축 푼 datapacks 폴더> test        # 팀원 컴퓨터에서, GPU 불필요
+python remote_ingest_client.py --server <서버 주소> --api-key ... --book-id test p1.png
+# 완료되면 다음 명령어까지 화면에 출력해줍니다:
+python -m document_parser.server.cli <결과 폴더> test        # 팀원 컴퓨터에서, GPU 불필요
 ```
 
 같은 네트워크가 아닌 팀원에게 노출하는 방법(Cloudflare Tunnel), 접근 확인 절차, 보안상 주의점은 [docs/remote-ingest.md](docs/remote-ingest.md)에 자세히 정리했습니다.

@@ -24,24 +24,38 @@ python -m document_parser.datapack.remote_ingest \
 
 ## 팀원 쪽 사용법
 
+**추천: 자동 클라이언트 스크립트.** [`tools/remote_ingest_client.py`](../tools/remote_ingest_client.py)를 팀원에게 파일 하나로 전달하면 됩니다 — 파이썬 표준 라이브러리만 쓰기 때문에 이 프로젝트를 따로 설치할 필요가 없습니다. 제출 → 완료 대기(자동 재확인) → 다운로드 → 압축 해제까지 한 번에 처리합니다.
+
+```bash
+python remote_ingest_client.py \
+  --server <서버 주소 (LAN IP 또는 터널 주소)> \
+  --api-key <서버 운영자가 알려준 값> \
+  --book-id my_test_book \
+  p001.png p002.png
+```
+
+완료되면 결과 폴더 경로와, 그걸 확인하는 다음 명령어(`python -m document_parser.server.cli <결과폴더> my_test_book`)까지 화면에 그대로 출력해줍니다.
+
+**수동으로 하고 싶다면** (위 스크립트가 하는 일을 그대로 풀어놓은 것):
 ```bash
 # 1. 작업 제출
-curl -X POST http://<이 컴퓨터의 LAN IP>:8420/jobs \
+curl -X POST http://<서버 주소>:8420/jobs \
   -H "X-API-Key: <위에서 정한 값>" \
   -F "book_id=my_test_book" \
   -F "images=@p001.png" -F "images=@p002.png"
 # -> {"job_id": "...", "status": "queued"}
 
-# 2. 상태 확인 (몇십 초~몇 분 걸림, 페이지당 평균 1분 정도 -- docs/gpu-inference-setup.md 참고)
-curl http://<LAN IP>:8420/jobs/<job_id> -H "X-API-Key: ..."
+# 2. 상태 확인 (몇십 초~몇 분 걸림, 페이지당 평균 1분 정도 -- docs/gpu-inference-setup.md 참고).
+#    "done"이 나올 때까지 몇 초 간격으로 반복 실행.
+curl http://<서버 주소>:8420/jobs/<job_id> -H "X-API-Key: ..."
 # -> {"status": "queued" | "running" | "done" | "error", ...}
 
 # 3. 완료되면 다운로드
-curl -OJ http://<LAN IP>:8420/jobs/<job_id>/download -H "X-API-Key: ..."
-# -> my_test_book.zip 을 받음. 압축 풀면 datapacks/{book_id}/ 와 datapacks/_system/ 이 나옴.
+curl -OJ http://<서버 주소>:8420/jobs/<job_id>/download -H "X-API-Key: ..."
+# -> my_test_book.zip 을 받음. 압축 풀면 {book_id}/ 와 _system/ 이 바로(추가 폴더 없이) 나옴.
 
 # 4. 팀원이 자기 컴퓨터에서 바로 (GPU 불필요):
-python -m document_parser.server.cli <압축 푼 datapacks 폴더> my_test_book
+python -m document_parser.server.cli <압축 푼 폴더> my_test_book
 ```
 
 ## 접근 확인 (이 부분은 직접 해봐야 합니다)
