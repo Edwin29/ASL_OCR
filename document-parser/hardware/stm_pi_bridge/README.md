@@ -1,6 +1,8 @@
-# STM32 <-> Raspberry Pi 점자 디스플레이 브리지
+# STM32 <-> 호스트(라즈베리파이/PC) 점자 디스플레이 브리지
 
 이 폴더는 이 저장소(`document_parser.server`)와 팀이 만든 STM32 점자 디스플레이 보드를 연결하는 부분입니다.
+
+**"라즈베리파이"라고 부르지만, 실제로는 STM32와 블루투스(HC-05)로 연결될 수 있는 아무 컴퓨터나 됩니다** — 지금 팀 테스트에서는 이미지를 원격 ingest 서버로 보내는 그 팀원 PC가 이 역할을 그대로 겸합니다(파일을 따로 옮길 필요 없음, 같은 컴퓨터 안에서 다 처리됨). 아래 "윈도우 PC에서" 항목이 그 경우입니다.
 
 ## 이 폴더에 있는 것
 
@@ -15,11 +17,26 @@
 2. **파이썬 쪽 통역기 부재 (새로 만듦)**: `handle_wire_command()`는 JSON dict를 주고받는데, STM은 완전히 다른 텍스트 줄 프로토콜을 씁니다. 이 둘을 잇는 코드가 없었어서 `pi_bridge.py`를 새로 작성했습니다.
 3. **HELLO 처리**: STM이 부팅/재연결 시 보내는 `HELLO`는 버튼 입력이 아니라 "지금 상태 다시 보여줘"라는 뜻입니다. `pi_bridge.py`는 이걸 `session.handle_button()`을 호출하지 않고 `session.state`/`session.braille_frame`을 그대로 재전송하는 것으로 처리합니다(상태 전진 없음).
 
-## 실행 방법 (라즈베리파이에서)
+## 실행 방법
+
+**필요 조건 (공통)**: `pi_bridge.py`는 `remote_ingest_client.py`와 달리 이 저장소(`document_parser`)를 실제로 불러다 씁니다 — 파이썬만 있으면 되는 게 아니라, 이 저장소가 그 컴퓨터에도 있어야 하고(`git clone` 또는 폴더 복사) `document_parser`가 임포트 가능해야 합니다(예: 저장소 루트에서 `pip install -e document-parser` 또는 `PYTHONPATH`에 `document-parser/src` 추가). 그리고 `pip install pyserial`(시리얼 통신용, 이 저장소의 기본 의존성 아님)도 필요합니다.
+
+### 윈도우 PC에서 (지금 팀 테스트 환경)
+
+1. **윈도우 설정 → 블루투스 및 기타 디바이스**에서 STM 보드의 HC-05를 페어링합니다(핀 코드는 보통 `1234` 또는 `0000`).
+2. 페어링 후 **장치 관리자(Device Manager) → 포트(COM & LPT)**에서 방금 페어링된 장치의 COM 포트 번호를 확인합니다(예: `COM5`). 또는 블루투스 설정의 해당 기기 → "추가 COM 포트 설정 보기"에서도 확인 가능합니다 — **"발신(Outgoing)" 포트**를 써야 합니다.
+3. 실행:
+```bash
+pip install pyserial
+python hardware/stm_pi_bridge/pi_bridge.py --port COM5 --datapacks-dir <데이터팩 폴더> --book-id my_book
+```
+(`<데이터팩 폴더>`는 `remote_ingest_client.py`가 만든 `..._result` 폴더 — 그 폴더 바로 아래에 `{book_id}/`와 `_system/`이 있어야 합니다.)
+
+### 리눅스(진짜 라즈베리파이 등)에서
 
 ```bash
-pip install pyserial   # STM32와의 시리얼 통신용, 이 저장소의 기본 의존성이 아님
-sudo rfcomm bind rfcomm0 <HC-05의 블루투스 MAC 주소>   # HC-05를 시리얼 장치로 페어링 (한 번만, OS 설정)
+pip install pyserial
+sudo rfcomm bind rfcomm0 <HC-05의 블루투스 MAC 주소>   # 한 번만, OS 설정
 
 python pi_bridge.py --port /dev/rfcomm0 --datapacks-dir /path/to/datapacks --book-id my_book
 ```
