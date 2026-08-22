@@ -168,6 +168,12 @@ $ printf 'down\ndown\nleft\nq\n' | python -m document_parser.server.cli datapack
 
 ---
 
+---
+
+## 부록: GPU 없는 팀원을 위한 원격 ingest 도구
+
+위 A/B 파이프라인과는 무관한 **내부 테스트용 도구**입니다. GPU가 없는 팀원이 이미지를 이 GPU 머신으로 보내고 완성된 데이터팩을 받아갈 수 있게 하는 작은 HTTP 서버입니다(`document_parser.datapack.remote_ingest`) — 트랜스포트 프로토콜(5번)이 정해지길 기다릴 필요 없이 지금 쓸 수 있습니다. 자세한 사용법과 접근 확인 절차는 [docs/remote-ingest.md](docs/remote-ingest.md) 참고.
+
 ## 저장소 구조 요약
 
 ```
@@ -223,4 +229,5 @@ python -m document_parser.server.cli datapacks/ my_book
 
 - [docs/gpu-inference-setup.md](docs/gpu-inference-setup.md) — GPU 환경 구성 이유와 방법, 실측 타이밍.
 - [docs/datapack-schema.md](docs/datapack-schema.md) — 데이터팩 스키마 전체 설계와 근거.
+- [docs/remote-ingest.md](docs/remote-ingest.md) — GPU 없는 팀원을 위한 원격 ingest 서버(내부 테스트용, 제품과 무관).
 - [docs/implementation-status.md](docs/implementation-status.md), [docs/current-milestone.md](docs/current-milestone.md) — 레거시(토큰 단위 OCR) 파이프라인의 개발 이력.

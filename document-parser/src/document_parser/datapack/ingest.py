@@ -221,7 +221,7 @@ def build_datapack(
     return book_dir
 
 
-def _make_piper_synthesize_fn(voice: Any) -> SynthesizeFn:
+def make_piper_synthesize_fn(voice: Any) -> SynthesizeFn:
     def synthesize(text: str) -> tuple[bytes, int, int]:
         chunks = list(voice.synthesize(text))
         if not chunks:
@@ -260,7 +260,7 @@ def main() -> None:
 
     log("loading Piper voice")
     voice = load_piper_voice(args.piper_model, args.piper_espeak_data, use_cuda=args.piper_use_cuda)
-    synthesize = _make_piper_synthesize_fn(voice)
+    synthesize = make_piper_synthesize_fn(voice)
 
     log(f"OCR: building document IR ({args.device})")
     adapter = PaddleOcrVlAdapter(

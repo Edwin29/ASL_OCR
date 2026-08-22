@@ -22,6 +22,9 @@ tts = [
   "piper-tts",
   "sounddevice",
 ]
+remote-ingest = [
+  "flask",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]
