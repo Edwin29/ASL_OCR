@@ -11,6 +11,12 @@ and are expanded into one focus item per member, in role order
 re-read at the top level. TABLE cells and UNSUPPORTED_VISUAL preserved text
 are nested inside their one focus item and are not separately navigable until
 a caller enters table/visual mode.
+
+Every member expanded from one `PROBLEM_UNIT` carries that unit's own
+`node_id` as `problem_id`, so a caller can recognize "these several focus
+items are one physical problem" even though navigation only ever points at
+one focus item at a time. Items reached directly through `reading_order`
+(never part of a `PROBLEM_UNIT`) get `problem_id: None`.
 """
 
 from __future__ import annotations
@@ -85,6 +91,7 @@ def _flatten_node(
     page_id: str,
     reading_index: int,
     visited: set[str],
+    problem_id: str | None = None,
 ) -> list[dict[str, object]]:
     node_id = node.get("node_id")
     if not isinstance(node_id, str) or node_id in visited:
@@ -104,7 +111,7 @@ def _flatten_node(
         spans = node.get("spans") if isinstance(node.get("spans"), list) else []
         return [build_focus_item(
             node_id, "TEXT", page_id, reading_index, [node_id],
-            confidence=confidence, issues=issues,
+            confidence=confidence, issues=issues, problem_id=problem_id,
             spans=_flatten_spans(spans),
         )]
 
@@ -112,7 +119,7 @@ def _flatten_node(
         unconsumed = node.get("unconsumed_tokens") if isinstance(node.get("unconsumed_tokens"), list) else []
         return [build_focus_item(
             node_id, "MATH", page_id, reading_index, [node_id],
-            confidence=confidence, issues=issues,
+            confidence=confidence, issues=issues, problem_id=problem_id,
             raw_formula=node.get("raw_formula", ""),
             presentation_ast=node.get("presentation_ast"),
             unconsumed_tokens=unconsumed,
@@ -123,7 +130,7 @@ def _flatten_node(
         cells = node.get("cells") if isinstance(node.get("cells"), list) else []
         return [build_focus_item(
             node_id, "TABLE", page_id, reading_index, [node_id],
-            confidence=confidence, issues=issues,
+            confidence=confidence, issues=issues, problem_id=problem_id,
             row_count=node.get("row_count", 0),
             column_count=node.get("column_count", 0),
             structure_confidence=node.get("structure_confidence", 0.0),
@@ -134,7 +141,7 @@ def _flatten_node(
         embedded = node.get("embedded_content_nodes") if isinstance(node.get("embedded_content_nodes"), list) else []
         return [build_focus_item(
             node_id, "UNSUPPORTED_VISUAL", page_id, reading_index, [node_id],
-            confidence=confidence, issues=issues,
+            confidence=confidence, issues=issues, problem_id=problem_id,
             handling=node.get("handling", "ANNOUNCE_ONLY_NO_TEXT_CAPTURED"),
             preserved_content=[_describe_content_node(item) for item in embedded if isinstance(item, dict)],
         )]
@@ -145,7 +152,7 @@ def _flatten_node(
     text = node.get("normalized_text") or node.get("raw_text") or ""
     return [build_focus_item(
         node_id, "UNKNOWN", page_id, reading_index, [node_id],
-        confidence=confidence, issues=issues,
+        confidence=confidence, issues=issues, problem_id=problem_id,
         text=text,
     )]
 
@@ -158,6 +165,7 @@ def _flatten_problem_unit(
     visited: set[str],
 ) -> list[dict[str, object]]:
     layout = node["layout"]
+    problem_id = node.get("node_id") if isinstance(node.get("node_id"), str) else None
     role_order: list[str] = []
     marker_id = layout.get("problem_marker_node_id")
     if isinstance(marker_id, str):
@@ -180,7 +188,7 @@ def _flatten_problem_unit(
         member = node_by_id.get(member_id)
         if member is None:
             continue  # dangling reference; validate_document_ir flags this upstream
-        items.extend(_flatten_node(member, node_by_id, page_id, reading_index, visited))
+        items.extend(_flatten_node(member, node_by_id, page_id, reading_index, visited, problem_id=problem_id))
     return items
 
 

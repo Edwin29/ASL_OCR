@@ -66,6 +66,33 @@ class ProblemUnitExpansionTests(unittest.TestCase):
         self.assertNotIn("p018-problem-003", ids)
 
 
+class ProblemIdTaggingTests(unittest.TestCase):
+    def test_problem_unit_members_share_the_same_problem_id(self):
+        document = load_accessible_document("p018")
+        items_by_id = {item["id"]: item for item in document["pages"][0]["focus_items"]}
+        member_ids = ["p018-vl006", "p018-vl007-L01", "p018-vl007-L02", "p018-vl007-L03"]
+        problem_ids = {items_by_id[member_id]["problem_id"] for member_id in member_ids}
+        self.assertEqual(len(problem_ids), 1)
+        self.assertIsNotNone(next(iter(problem_ids)))
+
+    def test_document_has_three_distinct_problem_groups_on_p018(self):
+        # p018 is known to contain 3 detected problem units (see
+        # ProblemUnitExpansionTests.test_problem_unit_members_are_not_independently_reachable).
+        document = load_accessible_document("p018")
+        problem_ids = {
+            item["problem_id"]
+            for item in document["pages"][0]["focus_items"]
+            if item["problem_id"] is not None
+        }
+        self.assertEqual(len(problem_ids), 3)
+
+    def test_items_outside_any_problem_unit_have_null_problem_id(self):
+        document = load_accessible_document("p004")  # no PROBLEM_UNIT nodes in this fixture
+        focus_items = document["pages"][0]["focus_items"]
+        self.assertTrue(focus_items)
+        self.assertTrue(all(item["problem_id"] is None for item in focus_items))
+
+
 class TableFlatteningTests(unittest.TestCase):
     def test_table_cell_indices_and_content_are_preserved(self):
         document = load_accessible_document("p038")
