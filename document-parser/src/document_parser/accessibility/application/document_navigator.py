@@ -53,6 +53,33 @@ def previous_node(document: dict[str, object], state: NavigationState) -> Naviga
     return NavigationResult(state.advanced(), boundary_message="문서의 시작입니다.")
 
 
+def next_page(document: dict[str, object], state: NavigationState) -> NavigationResult:
+    """Jump straight to the next page's first focus item, skipping whatever
+    remains of the current page -- unlike `next_node`, which only crosses a
+    page boundary incidentally once it runs out of items. Always lands back
+    in DOCUMENT mode: a page jump made from inside a table would otherwise
+    leave stale `table_row`/`table_column` pointing at a table on a page
+    that's no longer current."""
+    pages = document["pages"]
+    if state.page_index + 1 < len(pages):
+        return NavigationResult(state.advanced(
+            page_index=state.page_index + 1, node_index=0, mode="DOCUMENT",
+            table_row=None, table_column=None, braille_offset=0, math_span_index=0,
+        ))
+    return NavigationResult(state.advanced(), boundary_message="문서의 마지막 페이지입니다.")
+
+
+def previous_page(document: dict[str, object], state: NavigationState) -> NavigationResult:
+    """Jump straight to the previous page's first focus item. See `next_page`
+    for why this always resets to DOCUMENT mode."""
+    if state.page_index - 1 >= 0:
+        return NavigationResult(state.advanced(
+            page_index=state.page_index - 1, node_index=0, mode="DOCUMENT",
+            table_row=None, table_column=None, braille_offset=0, math_span_index=0,
+        ))
+    return NavigationResult(state.advanced(), boundary_message="문서의 첫 페이지입니다.")
+
+
 def handle_command(document: dict[str, object], state: NavigationState, command: NavigationCommand) -> NavigationResult:
     """Dispatch a DOCUMENT-mode button command. Only UP/DOWN SHORT (previous/
     next node) are implemented in this phase; every other command is

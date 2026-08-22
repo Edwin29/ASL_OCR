@@ -133,6 +133,26 @@ class ServerHttpTests(unittest.TestCase):
             self.assertEqual(response.status_code, 200)
             self.assertEqual(response.get_json()["state"]["node_index"], 1)
 
+    def test_page_next_button_is_accepted_over_the_wire(self):
+        # This fixture book is single-page, so PAGE_NEXT hits the boundary --
+        # the point here is just that the dedicated page-turn button round-
+        # trips through command_from_wire/BUTTONS without being rejected as
+        # an unknown button (that used to be true for anything but UP/DOWN/
+        # LEFT/RIGHT).
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            write_book(root, root / "_system")
+            client = self._make_client(root)
+            client.post("/sessions", headers={"X-API-Key": "secret"}, json={"session_id": "s1", "book_id": "http-book"})
+
+            response = client.post(
+                "/sessions/s1/command", headers={"X-API-Key": "secret"},
+                json={"button": "PAGE_NEXT", "action": "SHORT"},
+            )
+
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.get_json()["state"]["page_index"], 0)
+
     def test_command_on_unknown_session_returns_404(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             client = self._make_client(Path(temp_dir))

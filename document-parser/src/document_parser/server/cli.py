@@ -43,6 +43,8 @@ _COMMANDS: dict[str, NavigationCommand] = {
     "dl": NavigationCommand("DOWN", "LONG"),
     "ll": NavigationCommand("LEFT", "LONG"),
     "rl": NavigationCommand("RIGHT", "LONG"),
+    "pn": NavigationCommand("PAGE_NEXT", "SHORT"),
+    "pp": NavigationCommand("PAGE_PREVIOUS", "SHORT"),
 }
 
 
@@ -87,7 +89,7 @@ def _report_turn(result: dict[str, Any], play_audio: bool) -> None:
 
 def run(session: DatapackSession, input_stream: TextIO = sys.stdin, play_audio: bool = False) -> None:
     _report_turn({"state": session.state, "braille_frame": session.braille_frame, "audio": session.audio}, play_audio)
-    print("명령: up/down/left/right (SHORT), ul/dl/ll/rl (LONG), q(종료)")
+    print("명령: up/down/left/right (SHORT), ul/dl/ll/rl (LONG), pn/pp(페이지 넘김), q(종료)")
 
     for line in input_stream:
         token = line.strip().lower()

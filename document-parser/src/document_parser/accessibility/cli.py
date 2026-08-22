@@ -11,7 +11,9 @@ Usage:
     python -m document_parser.accessibility.cli p019.json --piper-model D:/models/piper-korean/ko_KR-kss-medium.onnx --piper-espeak-data D:/espeak-ng-data
     python -m document_parser.accessibility.cli p019.json --no-audio   # console-only, no piper/sounddevice needed
 
-Commands at the prompt: up/down/left/right (SHORT), ul/dl/ll/rl (LONG), q to quit.
+Commands at the prompt: up/down/left/right (SHORT), ul/dl/ll/rl (LONG),
+pn/pp (dedicated page-turn buttons -- next/previous page, always SHORT),
+q to quit.
 """
 
 from __future__ import annotations
@@ -39,6 +41,8 @@ _COMMANDS: dict[str, NavigationCommand] = {
     "dl": NavigationCommand("DOWN", "LONG"),
     "ll": NavigationCommand("LEFT", "LONG"),
     "rl": NavigationCommand("RIGHT", "LONG"),
+    "pn": NavigationCommand("PAGE_NEXT", "SHORT"),
+    "pp": NavigationCommand("PAGE_PREVIOUS", "SHORT"),
 }
 
 
@@ -147,7 +151,7 @@ def run(
     print(render_braille_frame(controller.braille_frame))
     if braille_recorder is not None:
         braille_recorder.record(controller.braille_frame)
-    print("명령: up/down/left/right (SHORT), ul/dl/ll/rl (LONG), q(종료)")
+    print("명령: up/down/left/right (SHORT), ul/dl/ll/rl (LONG), pn/pp(페이지 넘김), q(종료)")
 
     for line in input_stream:
         token = line.strip().lower()

@@ -50,10 +50,12 @@ datapacks/{book_id}/document.json   # flatten_document(page_ir)의 출력, 그�
 
 최상위 MATH item은 별도 span 엔트리가 필요 없다 — `braille_scrollable_spans(item)`이 `[item]` 자신을 반환하므로 item-level 엔트리가 곧 span 0의 텍스트와 동일하다.
 
-**경계 메시지(boundary message)는 책과 무관한 고정 문자열 16종**이다(코드에서 전수 확인, `document_navigator.py`/`table_navigator.py`/`speech_controller.py`):
+**경계 메시지(boundary message)는 책과 무관한 고정 문자열 18종**이다(코드에서 전수 확인, `document_navigator.py`/`table_navigator.py`/`speech_controller.py`):
 
 ```
-문서의 끝입니다. / 문서의 시작입니다. / 이 버튼 입력은 아직 지원되지 않습니다. /
+문서의 끝입니다. / 문서의 시작입니다. /
+문서의 마지막 페이지입니다. / 문서의 첫 페이지입니다. /
+이 버튼 입력은 아직 지원되지 않습니다. /
 현재 항목을 찾을 수 없습니다. / 이 항목에는 점자로 표시할 수식이 없습니다. /
 더 이상 표시할 수식이 없습니다. / 이전에 표시할 수식이 없습니다. /
 표를 찾을 수 없습니다. / 표 구조를 인식하지 못했습니다. 표 탐색을 사용할 수 없습니다. /

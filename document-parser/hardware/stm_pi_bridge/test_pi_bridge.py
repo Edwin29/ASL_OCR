@@ -127,7 +127,10 @@ class FormatFrameLineTests(unittest.TestCase):
 
 class ParseNavLineTests(unittest.TestCase):
     def test_parses_all_valid_combinations(self):
-        expected = {"U": "UP", "D": "DOWN", "L": "LEFT", "R": "RIGHT"}
+        expected = {
+            "U": "UP", "D": "DOWN", "L": "LEFT", "R": "RIGHT",
+            "N": "PAGE_NEXT", "P": "PAGE_PREVIOUS",
+        }
         for direction, button in expected.items():
             for length, action in (("S", "SHORT"), ("L", "LONG")):
                 with self.subTest(direction=direction, length=length):

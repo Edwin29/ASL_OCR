@@ -20,7 +20,7 @@ from typing import Any
 from document_parser.accessibility import NavigationCommand, NavigationState
 from document_parser.server.session import DatapackSession
 
-BUTTONS = ("UP", "DOWN", "LEFT", "RIGHT")
+BUTTONS = ("UP", "DOWN", "LEFT", "RIGHT", "PAGE_NEXT", "PAGE_PREVIOUS")
 ACTIONS = ("SHORT", "LONG")
 
 

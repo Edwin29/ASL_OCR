@@ -130,6 +130,67 @@ class SpeechControllerTableModeTests(unittest.TestCase):
         self.assertEqual(self.controller.state.mode, "DOCUMENT")
 
 
+def build_two_page_document() -> dict:
+    """Sibling of build_test_document(), split across two pages, for the
+    dedicated page-turn buttons (build_test_document is single-page)."""
+    page_1_item = build_focus_item(
+        "t1", "TEXT", "p1", 0, ["t1"], spans=[{"kind": "TEXT", "text": "hello"}],
+    )
+    page_1_table = build_focus_item(
+        "tb1", "TABLE", "p1", 1, ["tb1"],
+        row_count=1, column_count=1, structure_confidence=0.95,
+        cells=[{"id": "c11", "row_index": 1, "column_index": 1, "row_span": 1, "column_span": 1, "content_nodes": [{"kind": "TEXT", "text": "1"}]}],
+    )
+    page_2_item = build_focus_item(
+        "u1", "TEXT", "p2", 0, ["u1"], spans=[{"kind": "TEXT", "text": "world"}],
+    )
+    return build_accessible_document("doc", [
+        build_page("p1", [page_1_item, page_1_table]),
+        build_page("p2", [page_2_item]),
+    ])
+
+
+class SpeechControllerPageTurnTests(unittest.TestCase):
+    def setUp(self):
+        self.document = build_two_page_document()
+        self.engine = FakeTtsEngineAdapter()
+        self.state = NavigationState(document_id="doc", page_index=0, node_index=0)
+        self.controller = SpeechController(self.document, self.state, self.engine)
+
+    def test_page_next_jumps_to_next_page_first_item_skipping_rest_of_current_page(self):
+        self.controller.handle_command(press("PAGE_NEXT"))
+        self.assertEqual((self.controller.state.page_index, self.controller.state.node_index), (1, 0))
+        self.assertIn("world", self.engine.spoken[-1][0])
+
+    def test_page_previous_at_document_start_speaks_boundary_message(self):
+        self.controller.handle_command(press("PAGE_PREVIOUS"))
+        self.assertEqual((self.controller.state.page_index, self.controller.state.node_index), (0, 0))
+        self.assertIn("첫", self.engine.spoken[-1][0])
+
+    def test_page_turn_from_table_mode_exits_table_and_jumps_page(self):
+        self.controller.handle_command(press("DOWN"))  # move to the TABLE item
+        self.controller.handle_command(press("RIGHT"))  # enter table mode
+        self.assertEqual(self.controller.state.mode, "TABLE")
+
+        self.controller.handle_command(press("PAGE_NEXT"))
+
+        self.assertEqual(self.controller.state.mode, "DOCUMENT")
+        self.assertEqual((self.controller.state.page_index, self.controller.state.node_index), (1, 0))
+        self.assertIn("world", self.engine.spoken[-1][0])
+
+    def test_page_turn_interrupts_continuous_reading(self):
+        self.controller.handle_command(press("DOWN", "LONG"))  # start continuous reading
+        self.assertTrue(self.controller.continuous_reading)
+        self.controller.handle_command(press("PAGE_NEXT"))
+        self.assertFalse(self.controller.continuous_reading)
+
+    def test_page_turn_updates_braille_frame(self):
+        self.controller.handle_command(press("PAGE_NEXT"))
+        # page 2's item is plain text with no math -- braille clears, but the
+        # frame's source_id must reflect the new item, not a stale one.
+        self.assertEqual(self.controller.braille_frame["source_id"], "u1")
+
+
 def build_document_with_inline_math() -> dict:
     """Sibling of `build_test_document()` -- kept separate so the braille
     좌우 연장 tests don't disturb the node indices/counts the existing

@@ -70,7 +70,14 @@ from document_parser.accessibility import NavigationCommand
 # Must match BRAILLE_CELL_COUNT in main.c exactly.
 BRAILLE_CELL_COUNT = 10
 
-_DIRECTION_TO_BUTTON = {"U": "UP", "D": "DOWN", "L": "LEFT", "R": "RIGHT"}
+# "N"/"P" (next/previous page) are placeholders for the two dedicated
+# page-turn buttons -- swap these for whatever single letters the firmware
+# team's NAV,<letter>,<S|L> protocol actually ends up sending once that
+# hardware exists; nothing else in this file needs to change to match.
+_DIRECTION_TO_BUTTON = {
+    "U": "UP", "D": "DOWN", "L": "LEFT", "R": "RIGHT",
+    "N": "PAGE_NEXT", "P": "PAGE_PREVIOUS",
+}
 _LENGTH_TO_ACTION = {"S": "SHORT", "L": "LONG"}
 
 
