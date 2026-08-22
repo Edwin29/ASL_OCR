@@ -4,7 +4,9 @@ from document_parser.accessibility.application import (
     handle_document_command,
     move_braille_cursor,
     next_node,
+    next_page,
     previous_node,
+    previous_page,
 )
 from document_parser.accessibility.domain import NavigationCommand, NavigationState
 
@@ -92,6 +94,70 @@ class DocumentNavigatorTests(unittest.TestCase):
         result = handle_document_command(self.document, self.start_state, press("LEFT"))
         self.assertEqual(result.state.node_index, self.start_state.node_index)
         self.assertIsNotNone(result.boundary_message)
+
+
+class NextPreviousPageTests(unittest.TestCase):
+    """Dedicated page-turn buttons: jump straight to the next/previous
+    page's first item, skipping whatever remains of the current page --
+    unlike next_node/previous_node, which only cross a page boundary
+    incidentally once they run out of items."""
+
+    def setUp(self):
+        self.document = {
+            "document_id": "doc",
+            "pages": [
+                {"page_id": "a", "focus_items": [{"id": "a1"}, {"id": "a2"}, {"id": "a3"}]},
+                {"page_id": "b", "focus_items": [{"id": "b1"}]},
+                {"page_id": "c", "focus_items": [{"id": "c1"}]},
+            ],
+        }
+
+    def test_next_page_skips_remaining_items_on_current_page(self):
+        state = NavigationState(document_id="doc", page_index=0, node_index=1)  # mid-page, not the last item
+        result = next_page(self.document, state)
+        self.assertEqual((result.state.page_index, result.state.node_index), (1, 0))
+        self.assertIsNone(result.boundary_message)
+        self.assertEqual(result.state.generation, state.generation + 1)
+
+    def test_previous_page_lands_on_first_item_not_last(self):
+        state = NavigationState(document_id="doc", page_index=1, node_index=0)
+        result = previous_page(self.document, state)
+        self.assertEqual((result.state.page_index, result.state.node_index), (0, 0))
+        self.assertIsNone(result.boundary_message)
+
+    def test_next_page_at_last_page_stays_put_with_message(self):
+        state = NavigationState(document_id="doc", page_index=2, node_index=0)
+        result = next_page(self.document, state)
+        self.assertEqual(result.state.page_index, 2)
+        self.assertEqual(result.boundary_message, "문서의 마지막 페이지입니다.")
+
+    def test_previous_page_at_first_page_stays_put_with_message(self):
+        state = NavigationState(document_id="doc", page_index=0, node_index=2)
+        result = previous_page(self.document, state)
+        self.assertEqual(result.state.page_index, 0)
+        self.assertEqual(result.boundary_message, "문서의 첫 페이지입니다.")
+
+    def test_next_page_from_table_mode_resets_to_document_mode(self):
+        state = NavigationState(
+            document_id="doc", page_index=0, node_index=1,
+            mode="TABLE", table_row=2, table_column=3, braille_offset=5, math_span_index=1,
+        )
+        result = next_page(self.document, state)
+        self.assertEqual(result.state.mode, "DOCUMENT")
+        self.assertIsNone(result.state.table_row)
+        self.assertIsNone(result.state.table_column)
+        self.assertEqual(result.state.braille_offset, 0)
+        self.assertEqual(result.state.math_span_index, 0)
+
+    def test_previous_page_from_table_mode_resets_to_document_mode(self):
+        state = NavigationState(
+            document_id="doc", page_index=1, node_index=0,
+            mode="TABLE", table_row=1, table_column=1,
+        )
+        result = previous_page(self.document, state)
+        self.assertEqual(result.state.mode, "DOCUMENT")
+        self.assertIsNone(result.state.table_row)
+        self.assertIsNone(result.state.table_column)
 
 
 class MoveBrailleCursorTests(unittest.TestCase):

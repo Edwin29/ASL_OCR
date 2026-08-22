@@ -80,15 +80,19 @@ flowchart TB
 python -m document_parser.accessibility.cli tests/fixtures/accessibility/p019.json --no-audio
 ```
 
-입력 가능한 명령: `up`/`down`/`left`/`right`(SHORT), `ul`/`dl`/`ll`/`rl`(LONG, 각 버튼 길게 누름), `q`(종료). 각 명령마다 현재 상태와 점자 프레임(유니코드 점자 문자)이 콘솔에 출력됩니다. 실제 실행 결과 예시:
+입력 가능한 명령: `up`/`down`/`left`/`right`(SHORT), `ul`/`dl`/`ll`/`rl`(LONG, 각 버튼 길게 누름), `pn`/`pp`(전용 페이지 넘김 버튼, 현재 페이지에 남은 항목을 건너뛰고 바로 다음/이전 페이지 첫 항목으로), `q`(종료). 각 명령마다 현재 상태와 점자 프레임(유니코드 점자 문자)이 콘솔에 출력됩니다. 실제 실행 결과 예시:
 
 ```
 $ printf 'down\nright\nq\n' | python -m document_parser.accessibility.cli tests/fixtures/accessibility/p019.json --no-audio
+(오디오 비활성화: --piper-model/--piper-espeak-data 옵션 또는 PIPER_KOREAN_MODEL_PATH/PIPER_ESPEAK_DATA_DIR 환경변수를 지정하면 실제 Piper 음성이 재생됩니다.)
 [TTS] www.ebsi.co.kr
 (점자 없음)
-명령: up/down/left/right (SHORT), ul/dl/ll/rl (LONG), q(종료)
+명령: up/down/left/right (SHORT), ul/dl/ll/rl (LONG), pn/pp(페이지 넘김), q(종료)
 [TTS] 대표 기출 문제
 [state] mode=DOCUMENT page=0 node=1 table=(None,None) span=0 offset=0 gen=1
+(점자 없음)
+[TTS] 이 항목에는 점자로 표시할 수식이 없습니다.
+[state] mode=DOCUMENT page=0 node=1 table=(None,None) span=0 offset=0 gen=2
 (점자 없음)
 ```
 
@@ -143,7 +147,7 @@ $ printf 'down\ndown\nleft\nq\n' | python -m document_parser.server.cli datapack
 [state] mode=DOCUMENT page=0 node=0 table=(None,None) span=0 offset=0 gen=0
 (점자 없음)
 [AUDIO] 01  (.../audio/p008-vl001.wav)
-명령: up/down/left/right (SHORT), ul/dl/ll/rl (LONG), q(종료)
+명령: up/down/left/right (SHORT), ul/dl/ll/rl (LONG), pn/pp(페이지 넘김), q(종료)
 [state] mode=DOCUMENT page=0 node=1 table=(None,None) span=0 offset=0 gen=1
 (점자 없음)
 [AUDIO] 지수와 로그  (.../audio/p008-vl002.wav)

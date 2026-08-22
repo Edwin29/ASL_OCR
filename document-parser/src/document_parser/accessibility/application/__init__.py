@@ -6,7 +6,9 @@ from document_parser.accessibility.application.document_navigator import (
     handle_command as handle_document_command,
     move_braille_cursor,
     next_node,
+    next_page,
     previous_node,
+    previous_page,
 )
 from document_parser.accessibility.application.table_navigator import (
     can_enter_table,
@@ -30,5 +32,7 @@ __all__ = [
     "move_table_braille_cursor",
     "move_table_cursor",
     "next_node",
+    "next_page",
     "previous_node",
+    "previous_page",
 ]

@@ -15,6 +15,7 @@ from document_parser.accessibility.adapters.tts_engine import TtsEngineAdapter
 from document_parser.accessibility.application.document_navigator import current_focus_item
 from document_parser.accessibility.application.document_navigator import handle_command as navigate_document
 from document_parser.accessibility.application.document_navigator import move_braille_cursor, next_node
+from document_parser.accessibility.application.document_navigator import next_page, previous_page
 from document_parser.accessibility.application.table_navigator import current_cell, enter_table, exit_table
 from document_parser.accessibility.application.table_navigator import move as move_table_cursor
 from document_parser.accessibility.application.table_navigator import move_table_braille_cursor
@@ -73,6 +74,23 @@ class SpeechController:
 
         # Any explicit navigation input interrupts continuous reading (§7.5).
         self._continuous_reading = False
+
+        # PAGE_NEXT/PAGE_PREVIOUS (dedicated page-turn buttons) are handled
+        # here, before the TABLE/DOCUMENT mode split below, because they must
+        # work the same regardless of current mode -- pressing one while
+        # inside a table jumps straight to the next/previous page's first
+        # item AND leaves table mode in the same step (see next_page's
+        # docstring for why it always resets to DOCUMENT), rather than
+        # requiring a separate "exit table" press first.
+        if command.button in ("PAGE_NEXT", "PAGE_PREVIOUS") and command.action == "SHORT":
+            result = (
+                next_page(self._document, self._state) if command.button == "PAGE_NEXT"
+                else previous_page(self._document, self._state)
+            )
+            self._state = result.state
+            self._engine.cancel()
+            self._speak_result(result)
+            return
 
         # LEFT/RIGHT braille viewport scroll (좌우 연장, Decision 2) is
         # intercepted here, before the generic cancel-then-speak-the-whole-
