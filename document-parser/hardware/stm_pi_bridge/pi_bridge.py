@@ -34,6 +34,19 @@ and on every reconnect attempt) is answered with the session's *current*
 state/frame, fetched via GET (no navigation advance) -- it is not a
 button press.
 
+**Audio playback is triggered from this same response**, right after the
+FRAME line is sent for it (see `_emit()`), never separately -- this is what
+guarantees the display and whatever is playing always correspond to the
+same content: there is no second code path that could react to a stale or
+different state. `audio_ref` in that response is a path on the GPU server's
+filesystem (see document_parser/server/wire.py's module docstring on why --
+byte-level audio delivery across machines is still an open design
+question), so this only actually plays sound today when this host can
+reach that path (typically: server and bridge on the same machine, e.g.
+local bench testing). On a different machine it just logs and moves on --
+see `--no-audio` to silence that log noise, or WinsoundAudioPlayer for the
+one playback backend implemented so far (Windows only).
+
 Usage (after pairing the HC-05 so it appears as a serial device -- an
 OS-level step this script does not perform itself; README.md covers both
 Windows COM ports and Linux rfcomm; the server must already be running,
@@ -47,6 +60,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import urllib.error
 import urllib.request
 from typing import Any, Callable, Protocol
@@ -83,13 +97,52 @@ class RemoteSession(Protocol):
     network connection (see test_pi_bridge.py's FakeRemoteSession)."""
 
     def get_current(self) -> dict[str, Any]:
-        """Current {"state": {...}, "braille_frame": {...}}, no navigation
-        applied -- the HELLO case."""
+        """Current {"state": {...}, "braille_frame": {...}, "audio": {...}
+        or None}, no navigation applied -- the HELLO case."""
         ...
 
     def send_command(self, button: str, action: str) -> dict[str, Any]:
         """Same shape, after the server handles this one button press."""
         ...
+
+
+class AudioPlayer(Protocol):
+    """Plays one WAV file, referenced by local filesystem path. Kept as a
+    narrow protocol (like LineTransport/RemoteSession) so run_bridge's
+    playback-trigger logic is testable without a real sound device (see
+    test_pi_bridge.py's FakeAudioPlayer)."""
+
+    def play(self, wav_path: str) -> None:
+        """Start playback and return immediately -- must not block the
+        bridge's line loop."""
+        ...
+
+
+class WinsoundAudioPlayer:
+    """Real AudioPlayer for Windows hosts -- the only OS this bridge has
+    actually been run on so far (see README.md's verification status).
+    Uses `winsound` (standard library, no extra install) rather than a
+    cross-platform audio package, since every host tested so far is
+    Windows; a Linux/real-Raspberry-Pi AudioPlayer is future work.
+
+    Checks the path exists before handing it to `winsound.PlaySound` and
+    raises `FileNotFoundError` if not -- verified on this machine that
+    `PlaySound` itself does *not* raise for a missing file (with or
+    without SND_ASYNC), it just silently plays nothing. Without this
+    check, a stale/unreachable `audio_ref` (the common case when the
+    bridge and server aren't on the same machine -- see module docstring)
+    would fail completely silently instead of being logged by `_emit()`.
+    """
+
+    def __init__(self) -> None:
+        import winsound  # stdlib, Windows-only -- deferred so import stays optional
+
+        self._winsound = winsound
+
+    def play(self, wav_path: str) -> None:
+        if not os.path.isfile(wav_path):
+            raise FileNotFoundError(f"no such file: {wav_path!r} (winsound.PlaySound fails silently on this, not loudly)")
+        self._winsound.PlaySound(wav_path, self._winsound.SND_FILENAME | self._winsound.SND_ASYNC)
 
 
 def format_frame_line(state: dict[str, Any], braille_frame: dict[str, Any]) -> str:
@@ -135,7 +188,12 @@ def parse_nav_line(line: str) -> NavigationCommand | None:
     return NavigationCommand(button=button, action=action)
 
 
-def run_bridge(remote: RemoteSession, transport: LineTransport, log: Callable[[str], None] = print) -> None:
+def run_bridge(
+    remote: RemoteSession,
+    transport: LineTransport,
+    log: Callable[[str], None] = print,
+    player: AudioPlayer | None = None,
+) -> None:
     """Main line-protocol loop. `HELLO` -> fetch the current state/frame
     from the server (no navigation advance) and reply. `NAV,...` -> send
     that button press to the server, reply with the resulting state/frame.
@@ -143,6 +201,16 @@ def run_bridge(remote: RemoteSession, transport: LineTransport, log: Callable[[s
     never guessed at -- main.c never sends anything outside these two
     shapes, so seeing one means something upstream is wrong and should be
     visible in the log, not silently patched over.
+
+    Every response -- HELLO's snapshot or a NAV command's result -- carries
+    its own `audio` alongside `state`/`braille_frame` (see wire.py's
+    `audio_to_wire`: `None` for a silent braille-only scroll, otherwise the
+    text this exact response's braille frame corresponds to). If `player`
+    is given, that audio is triggered right here, from that same response,
+    right after the FRAME line for it is sent -- this is what guarantees
+    "whatever the display just showed is what's playing", per the display/
+    audio consistency requirement: there is no separate audio pipeline that
+    could end up reacting to a different, later state.
     """
     while True:
         line = transport.read_line()
@@ -155,7 +223,7 @@ def run_bridge(remote: RemoteSession, transport: LineTransport, log: Callable[[s
         if line == "HELLO":
             log(f"RX {line!r} -> fetching current state from server (no advance)")
             current = remote.get_current()
-            transport.write_line(format_frame_line(current["state"], current["braille_frame"]))
+            _emit(current, transport, player, log)
             continue
 
         command = parse_nav_line(line)
@@ -165,7 +233,28 @@ def run_bridge(remote: RemoteSession, transport: LineTransport, log: Callable[[s
 
         log(f"RX {line!r} -> {command.button} {command.action}")
         result = remote.send_command(command.button, command.action)
-        transport.write_line(format_frame_line(result["state"], result["braille_frame"]))
+        _emit(result, transport, player, log)
+
+
+def _emit(
+    result: dict[str, Any],
+    transport: LineTransport,
+    player: AudioPlayer | None,
+    log: Callable[[str], None],
+) -> None:
+    transport.write_line(format_frame_line(result["state"], result["braille_frame"]))
+    audio = result.get("audio")
+    if audio is None or player is None:
+        return
+    wav_path = audio["audio_ref"]
+    try:
+        player.play(wav_path)
+    except Exception as exc:  # noqa: BLE001 -- best-effort: audio_ref is a
+        # server-local path (see wire.py's module docstring); it only
+        # resolves to a real file when this host can reach the server's
+        # filesystem. A missing/unplayable file must never stop the
+        # braille display (already sent above) from working.
+        log(f"audio playback failed for {wav_path!r}: {exc}")
 
 
 class SerialLineTransport:
@@ -230,6 +319,14 @@ class HttpRemoteSession:
             raise RuntimeError(f"{method} {path} -> HTTP {exc.code}: {body_text}") from exc
 
 
+def _build_default_audio_player(log: Callable[[str], None]) -> AudioPlayer | None:
+    try:
+        return WinsoundAudioPlayer()
+    except ImportError:
+        log("winsound unavailable on this OS -- audio playback disabled, braille display continues normally")
+        return None
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--port", required=True, help="Serial device for the paired HC-05 (e.g. COM5 on Windows, /dev/rfcomm0 on Linux).")
@@ -238,13 +335,24 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--api-key", required=True, help="Must match the running server's --api-key.")
     parser.add_argument("--book-id", required=True)
     parser.add_argument("--session-id", default="stm-bridge", help="Only matters if the server ever serves more than one board.")
+    parser.add_argument(
+        "--no-audio", action="store_true",
+        help="Skip audio playback entirely (braille-only). Useful when the server and this "
+             "host are on different machines, since audio_ref then never resolves to a local "
+             "file and every turn would otherwise log a playback failure.",
+    )
     args = parser.parse_args(argv)
 
     remote = HttpRemoteSession(args.server, args.api_key, args.session_id, args.book_id, viewport_size=BRAILLE_CELL_COUNT)
     transport = SerialLineTransport(args.port, baudrate=args.baudrate)
-    print(f"bridging {args.port} <-> {args.server} (book={args.book_id!r}, session={args.session_id!r}, viewport_size={BRAILLE_CELL_COUNT})", flush=True)
+    player = None if args.no_audio else _build_default_audio_player(print)
+    print(
+        f"bridging {args.port} <-> {args.server} (book={args.book_id!r}, session={args.session_id!r}, "
+        f"viewport_size={BRAILLE_CELL_COUNT}, audio={'off' if player is None else 'on'})",
+        flush=True,
+    )
     try:
-        run_bridge(remote, transport)
+        run_bridge(remote, transport, player=player)
     finally:
         transport.close()
     return 0

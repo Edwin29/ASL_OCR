@@ -24,12 +24,21 @@ def build_focus_item(
     confidence: float = 0.0,
     issues: list[dict[str, object]] | None = None,
     source_bbox: list[float] | None = None,
+    problem_id: str | None = None,
     **kind_fields: Any,
 ) -> dict[str, object]:
     """Build one focus item. `kind_fields` carries kind-specific data (e.g.
     `raw_formula`/`presentation_ast`/`ast_status` for MATH, `row_count`/
     `column_count`/`cells` for TABLE) merged in at the top level, matching the
     plan document's JSON examples.
+
+    `problem_id` is the enclosing PROBLEM_UNIT node's own `node_id` when this
+    item was expanded from one (marker/stem/condition/bogi/choices all get
+    the same value), or `None` for an item that reached the top level
+    directly through `reading_order`. This is the only thing that lets a
+    caller recognize "these several focus items are one physical problem" --
+    navigation state alone only ever identifies a single focus item, not the
+    problem it belongs to.
     """
     if kind not in FOCUS_KINDS:
         raise ValueError(f"Unknown focus item kind: {kind!r}")
@@ -41,6 +50,7 @@ def build_focus_item(
         "confidence": confidence,
         "issues": list(issues) if issues else [],
         "source_node_ids": list(source_node_ids),
+        "problem_id": problem_id,
     }
     if source_bbox is not None:
         item["source_bbox"] = source_bbox

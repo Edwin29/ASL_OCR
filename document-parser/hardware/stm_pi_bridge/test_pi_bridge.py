@@ -51,10 +51,11 @@ class FakeRemoteSession:
     fixed-size cell list, enough to exercise run_bridge's dispatch logic
     without needing a real server or a real fixture-built datapack."""
 
-    def __init__(self, cells=None):
+    def __init__(self, cells=None, audio=None):
         self.node_index = 0
         self.generation = 0
         self._cells = cells if cells is not None else [1, 2, 3]
+        self._audio = audio  # None by default, matching a silent braille-only scroll
         self.get_current_calls = 0
         self.send_command_calls: list[tuple[str, str]] = []
 
@@ -65,6 +66,7 @@ class FakeRemoteSession:
                 "braille_offset": 0, "generation": self.generation,
             },
             "braille_frame": {"cells": self._cells, "total_cell_count": len(self._cells)},
+            "audio": self._audio,
         }
 
     def get_current(self):
@@ -79,6 +81,20 @@ class FakeRemoteSession:
         elif button == "UP":
             self.node_index -= 1
         return self._snapshot()
+
+
+class FakeAudioPlayer:
+    """Stands in for WinsoundAudioPlayer -- records every path it was asked
+    to play instead of touching a real sound device."""
+
+    def __init__(self, fail_on: set[str] | None = None):
+        self.played: list[str] = []
+        self._fail_on = fail_on or set()
+
+    def play(self, wav_path):
+        if wav_path in self._fail_on:
+            raise RuntimeError(f"simulated playback failure for {wav_path!r}")
+        self.played.append(wav_path)
 
 
 class FormatFrameLineTests(unittest.TestCase):
@@ -178,6 +194,64 @@ class RunBridgeTests(unittest.TestCase):
         run_bridge(remote, transport, log=lambda msg: None)  # must not raise
 
         self.assertEqual(len(transport.sent), 1)  # only the valid NAV line got a reply
+
+
+class AudioTriggerTests(unittest.TestCase):
+    """Q2 solution: whatever audio the server's response says corresponds to
+    this exact braille frame is triggered from that same response, right
+    alongside the FRAME line -- never from a separate/later lookup."""
+
+    def test_triggers_playback_from_the_same_response_as_the_frame_line(self):
+        audio = {"text": "문제 1", "audio_ref": "/datapacks/book/audio/p1.wav", "duration_ms": 900, "sample_rate": 22050}
+        remote = FakeRemoteSession(audio=audio)
+        transport = FakeTransport(["NAV,D,S", None])
+        player = FakeAudioPlayer()
+
+        run_bridge(remote, transport, log=lambda msg: None, player=player)
+
+        self.assertEqual(len(transport.sent), 1)
+        self.assertEqual(player.played, ["/datapacks/book/audio/p1.wav"])
+
+    def test_silent_scroll_response_triggers_no_playback(self):
+        remote = FakeRemoteSession(audio=None)  # e.g. a within-span braille window scroll
+        transport = FakeTransport(["NAV,R,S", None])
+        player = FakeAudioPlayer()
+
+        run_bridge(remote, transport, log=lambda msg: None, player=player)
+
+        self.assertEqual(player.played, [])
+        self.assertEqual(len(transport.sent), 1)  # the FRAME line still went out
+
+    def test_hello_also_triggers_audio_for_the_current_state(self):
+        audio = {"text": "문제 1", "audio_ref": "/datapacks/book/audio/p1.wav", "duration_ms": 900, "sample_rate": 22050}
+        remote = FakeRemoteSession(audio=audio)
+        transport = FakeTransport(["HELLO", None])
+        player = FakeAudioPlayer()
+
+        run_bridge(remote, transport, log=lambda msg: None, player=player)
+
+        self.assertEqual(player.played, ["/datapacks/book/audio/p1.wav"])
+
+    def test_no_player_configured_skips_playback_without_error(self):
+        audio = {"text": "문제 1", "audio_ref": "/datapacks/book/audio/p1.wav", "duration_ms": 900, "sample_rate": 22050}
+        remote = FakeRemoteSession(audio=audio)
+        transport = FakeTransport(["NAV,D,S", None])
+
+        run_bridge(remote, transport, log=lambda msg: None)  # player defaults to None, must not raise
+
+        self.assertEqual(len(transport.sent), 1)
+
+    def test_playback_failure_is_logged_not_raised_and_frame_line_still_sent(self):
+        audio = {"text": "문제 1", "audio_ref": "/bad/path.wav", "duration_ms": 900, "sample_rate": 22050}
+        remote = FakeRemoteSession(audio=audio)
+        transport = FakeTransport(["NAV,D,S", "NAV,D,S", None])
+        player = FakeAudioPlayer(fail_on={"/bad/path.wav"})
+        logs = []
+
+        run_bridge(remote, transport, log=logs.append, player=player)
+
+        self.assertEqual(len(transport.sent), 2)  # both FRAME lines still sent despite playback failing
+        self.assertTrue(any("playback failed" in msg for msg in logs))
 
 
 if __name__ == "__main__":
