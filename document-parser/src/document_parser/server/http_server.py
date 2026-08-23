@@ -40,13 +40,14 @@ from document_parser.server.store import SessionStore
 from document_parser.server.wire import command_from_wire, result_to_wire
 
 
-def create_app(store: SessionStore, api_key: str):
-    """Flask app factory. Flask is imported here, not at module level, so
-    importing this module for `create_app`/tests never requires the
-    `remote-ingest` extra (Flask) to be installed unless actually used."""
-    from flask import Flask, abort, jsonify, request
-
-    app = Flask(__name__)
+def register_routes(app: Any, store: SessionStore, api_key: str) -> None:
+    """Registers this module's routes (`/health`, `/sessions`, `/sessions/
+    <id>`, `/sessions/<id>/command`) onto an existing Flask `app`. Split out
+    from `create_app()` so `document_parser.server.combined_server` can
+    register these alongside `document_parser.datapack.remote_ingest`'s
+    routes on one shared app -- neither module needs to know about the
+    other."""
+    from flask import abort, jsonify, request
 
     def _check_api_key() -> None:
         if request.headers.get("X-API-Key") != api_key:
@@ -58,7 +59,11 @@ def create_app(store: SessionStore, api_key: str):
         don't advance)."""
         return result_to_wire({"state": session.state, "braille_frame": session.braille_frame, "audio": session.audio})
 
-    @app.get("/health")
+    # endpoint= is explicit (not just the function name) because
+    # combined_server.py registers this alongside remote_ingest's own
+    # /health on the same app -- two view functions both named `health`
+    # would make Flask raise "overwriting an existing endpoint function".
+    @app.get("/health", endpoint="session_health")
     def health():
         return jsonify({"status": "ok"})
 
@@ -100,6 +105,15 @@ def create_app(store: SessionStore, api_key: str):
         result = session.handle_button(command)
         return jsonify(result_to_wire(result))
 
+
+def create_app(store: SessionStore, api_key: str):
+    """Flask app factory. Flask is imported here, not at module level, so
+    importing this module for `create_app`/tests never requires the
+    `remote-ingest` extra (Flask) to be installed unless actually used."""
+    from flask import Flask
+
+    app = Flask(__name__)
+    register_routes(app, store, api_key)
     return app
 
 

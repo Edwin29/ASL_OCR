@@ -112,8 +112,19 @@ class JobRegistry:
         synthesize: SynthesizeFn,
         tts_manifest: dict[str, Any],
         jobs_root: Path,
+        datapacks_dir: Path | None = None,
     ) -> None:
         self.jobs_root = jobs_root
+        # Standalone mode (default, datapacks_dir=None): each job writes to
+        # its own jobs_root/{job_id}/datapacks/ and gets zipped for download
+        # -- the caller has nowhere else to put it. `combined_server.py`
+        # passes datapacks_dir explicitly: a job then writes straight into
+        # that shared folder (datapacks_dir/{book_id}/ + datapacks_dir/
+        # _system/), the exact place a SessionStore rooted there already
+        # reads from -- no zip/download/extract round trip needed, since
+        # there's nowhere to move the result *to*, it's already where it
+        # needs to be.
+        self.datapacks_dir = datapacks_dir
         self._adapter = adapter
         self._synthesize = synthesize
         self._tts_manifest = tts_manifest
@@ -144,8 +155,12 @@ class JobRegistry:
             job.status = "running"
             image_paths = self._image_paths[job_id]
         job_dir = self.jobs_root / job_id
-        output_dir = job_dir / "datapacks"
-        system_dir = output_dir / "_system"
+        if self.datapacks_dir is not None:
+            output_dir = self.datapacks_dir
+            system_dir = self.datapacks_dir / "_system"
+        else:
+            output_dir = job_dir / "datapacks"
+            system_dir = output_dir / "_system"
         try:
             run_ingest_job(
                 book_id=job.book_id,
@@ -157,30 +172,35 @@ class JobRegistry:
                 tts_manifest=self._tts_manifest,
                 log_fn=lambda msg: print(f"[{job_id}] {msg}", flush=True),
             )
-            zip_path = zip_datapack_output(output_dir, job_dir / f"{job.book_id}.zip")
             with self._lock:
+                if self.datapacks_dir is None:
+                    job.zip_path = zip_datapack_output(output_dir, job_dir / f"{job.book_id}.zip")
                 job.status = "done"
-                job.zip_path = zip_path
         except Exception as exc:  # noqa: BLE001 -- report to the client, never crash the worker loop
             with self._lock:
                 job.status = "error"
                 job.error = str(exc)
 
 
-def create_app(registry: JobRegistry, api_key: str):
-    """Flask app factory. Flask is imported here, not at module level, so
-    importing this module for `run_ingest_job`/`JobRegistry` (e.g. from a
-    test) never requires the `remote-ingest` extra to be installed."""
-    from flask import Flask, abort, jsonify, request, send_file
+def register_routes(app: Any, registry: JobRegistry, api_key: str) -> None:
+    """Registers this module's routes (`/health`, `/jobs`, `/jobs/<id>`,
+    `/jobs/<id>/download`) onto an existing Flask `app`. Split out from
+    `create_app()` so `document_parser.server.combined_server` can register
+    these alongside `document_parser.server.http_server`'s routes on one
+    shared app -- neither module needs to know about the other."""
+    from flask import abort, jsonify, request, send_file
 
-    app = Flask(__name__)
     app.config["MAX_CONTENT_LENGTH"] = 200 * 1024 * 1024  # 200MB: generous for a page-image batch, not unbounded
 
     def _check_api_key() -> None:
         if request.headers.get("X-API-Key") != api_key:
             abort(401, description="missing or invalid X-API-Key header")
 
-    @app.get("/health")
+    # endpoint= is explicit (not just the function name) because
+    # combined_server.py registers this alongside http_server's own
+    # /health on the same app -- two view functions both named `health`
+    # would make Flask raise "overwriting an existing endpoint function".
+    @app.get("/health", endpoint="ingest_health")
     def health():
         return jsonify({"status": "ok"})
 
@@ -224,8 +244,20 @@ def create_app(registry: JobRegistry, api_key: str):
             return jsonify({"error": "unknown job_id"}), 404
         if job.status != "done":
             return jsonify({"error": f"job status is {job.status!r}, not done yet"}), 409
+        if job.zip_path is None:
+            return jsonify({"error": "this server was started in shared-datapacks-dir mode -- "
+                                      "the result was never zipped, see /datapacks and POST /sessions instead"}), 409
         return send_file(job.zip_path, as_attachment=True, download_name=f"{job.book_id}.zip")
 
+
+def create_app(registry: JobRegistry, api_key: str):
+    """Flask app factory. Flask is imported here, not at module level, so
+    importing this module for `run_ingest_job`/`JobRegistry` (e.g. from a
+    test) never requires the `remote-ingest` extra to be installed."""
+    from flask import Flask
+
+    app = Flask(__name__)
+    register_routes(app, registry, api_key)
     return app
 
 

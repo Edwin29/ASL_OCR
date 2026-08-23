@@ -326,7 +326,10 @@ class HttpRemoteSession:
             raise RuntimeError(f"{method} {path} -> HTTP {exc.code}: {body_text}") from exc
 
 
-def _build_default_audio_player(log: Callable[[str], None]) -> AudioPlayer | None:
+def build_default_audio_player(log: Callable[[str], None]) -> AudioPlayer | None:
+    """Best-effort AudioPlayer for whatever this host actually is. Shared
+    with test_client.py's console-simulated mode so both entry points pick
+    the same backend the same way."""
     try:
         return WinsoundAudioPlayer()
     except ImportError:
@@ -352,7 +355,7 @@ def main(argv: list[str] | None = None) -> int:
 
     remote = HttpRemoteSession(args.server, args.api_key, args.session_id, args.book_id, viewport_size=BRAILLE_CELL_COUNT)
     transport = SerialLineTransport(args.port, baudrate=args.baudrate)
-    player = None if args.no_audio else _build_default_audio_player(print)
+    player = None if args.no_audio else build_default_audio_player(print)
     print(
         f"bridging {args.port} <-> {args.server} (book={args.book_id!r}, session={args.session_id!r}, "
         f"viewport_size={BRAILLE_CELL_COUNT}, audio={'off' if player is None else 'on'})",

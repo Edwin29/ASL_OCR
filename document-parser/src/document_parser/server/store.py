@@ -26,6 +26,10 @@ class SessionStore:
         self._datapacks: dict[str, Datapack] = {}
         self._sessions: dict[str, DatapackSession] = {}
 
+    @property
+    def datapacks_dir(self) -> Path:
+        return self._datapacks_dir
+
     def get_session(self, session_id: str) -> DatapackSession | None:
         return self._sessions.get(session_id)
 

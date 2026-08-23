@@ -1,5 +1,7 @@
 # 원격 ingest 서버 (GPU 없는 팀원용 임시 도구)
 
+**하드웨어(점자 디스플레이)까지 한 번에 테스트하려면 이 문서 대신 [hardware/stm_pi_bridge/README.md](../hardware/stm_pi_bridge/README.md)의 `combined_server.py` + `test_client.py`를 쓰세요** — 이미지 업로드부터 디스플레이 테스트 모드 진입까지 한 번에 이어집니다. 아래는 GPU 없는 팀원이 하드웨어 없이 데이터팩 파일만 받아가고 싶을 때를 위한, 순수 이미지→데이터팩 변환 전용 흐름입니다(계속 유효합니다).
+
 **이건 제품의 일부가 아닙니다.** [`docs/datapack-schema.md`](datapack-schema.md)의 `document_parser.server`(Scenario B, 하드웨어 서빙용)와 완전히 무관합니다. GPU가 없는 팀원이 자기 이미지를 GPU 머신(이 문서 기준 사용자의 로컬 PC)으로 보내서 OCR+TTS 결과(데이터팩)를 대신 받기 위한, 순전히 내부 테스트용 도구입니다. 트랜스포트 프로토콜이 정해지는 것과도 무관하며, 그걸 기다릴 필요 없이 지금 바로 쓸 수 있습니다.
 
 ## 뭘 하는가

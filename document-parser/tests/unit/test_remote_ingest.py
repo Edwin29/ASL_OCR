@@ -70,6 +70,65 @@ class RunIngestJobTests(unittest.TestCase):
             self.assertIn("안녕하세요", datapack.audio_by_text)
 
 
+@unittest.skipUnless(FLASK_AVAILABLE, "flask not installed (pip install document-parser[remote-ingest])")
+class JobRegistrySharedDatapacksDirTests(unittest.TestCase):
+    """JobRegistry(datapacks_dir=...) -- combined_server.py's mode: a job
+    writes straight into the directory a SessionStore is already rooted at,
+    instead of its own job-specific folder, and skips the zip step (there's
+    nowhere to move the result to -- it's already in place)."""
+
+    def _wait_for_status(self, registry, job_id, target_statuses, timeout=5.0):
+        deadline = time.time() + timeout
+        while time.time() < deadline:
+            job = registry.get(job_id)
+            if job.status in target_statuses:
+                return job
+            time.sleep(0.02)
+        self.fail(f"job {job_id} did not reach {target_statuses} within {timeout}s")
+
+    def test_finished_job_lands_directly_in_the_shared_datapacks_dir(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            image_path = write_fake_page(root, "p001.png")
+            adapter = FixtureVlAdapter(fixture_result_for(image_path, text="공유 폴더 테스트"))
+            datapacks_dir = root / "datapacks"
+
+            registry = JobRegistry(
+                adapter=adapter, synthesize=FakeSynthesizer(), tts_manifest={"engine_id": "piper"},
+                jobs_root=root / "jobs", datapacks_dir=datapacks_dir,
+            )
+            registry.submit("job1", "shared_book", [image_path])
+            job = self._wait_for_status(registry, "job1", {"done", "error"})
+
+            self.assertEqual(job.status, "done", job.error)
+            self.assertIsNone(job.zip_path)  # never zipped in this mode
+            self.assertTrue((datapacks_dir / "shared_book").is_dir())
+            self.assertTrue((datapacks_dir / "_system").is_dir())
+
+            datapack = load_datapack(datapacks_dir / "shared_book", datapacks_dir / "_system")
+            self.assertIn("공유 폴더 테스트", datapack.audio_by_text)
+
+    def test_default_mode_still_writes_to_job_specific_folder_and_zips(self):
+        # Regression guard: datapacks_dir=None (the default) must keep the
+        # original per-job behavior remote_ingest.py's own standalone use
+        # relies on.
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            image_path = write_fake_page(root, "p001.png")
+            adapter = FixtureVlAdapter(fixture_result_for(image_path))
+
+            registry = JobRegistry(
+                adapter=adapter, synthesize=FakeSynthesizer(), tts_manifest={"engine_id": "piper"},
+                jobs_root=root / "jobs",
+            )
+            registry.submit("job1", "job_book", [image_path])
+            job = self._wait_for_status(registry, "job1", {"done", "error"})
+
+            self.assertEqual(job.status, "done", job.error)
+            self.assertIsNotNone(job.zip_path)
+            self.assertTrue(job.zip_path.exists())
+
+
 class ZipDatapackOutputTests(unittest.TestCase):
     def test_zip_contains_a_loadable_datapack(self):
         with tempfile.TemporaryDirectory() as temp_dir:
