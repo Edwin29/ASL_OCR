@@ -249,7 +249,9 @@ def _emit(
     player: AudioPlayer | None,
     log: Callable[[str], None],
 ) -> None:
-    transport.write_line(format_frame_line(result["state"], result["braille_frame"]))
+    frame_line = format_frame_line(result["state"], result["braille_frame"])
+    transport.write_line(frame_line)
+    log(f"TX {frame_line!r}")
     audio = result.get("audio")
     if audio is None or player is None:
         return
