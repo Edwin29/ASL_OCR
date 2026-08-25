@@ -1,0 +1,14 @@
+[project]
+name = "book-scanner"
+version = "0.2.0"
+description = "Repeated-capture, post-hoc transmittability judgment pipeline feeding document-parser."
+requires-python = ">=3.11"
+dependencies = [
+  "numpy",
+  "opencv-python",
+  "Pillow",
+  "requests",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

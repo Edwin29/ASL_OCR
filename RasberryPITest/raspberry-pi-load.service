@@ -1,0 +1,20 @@
+[Unit]
+Description=Bounded Raspberry Pi CPU and memory load controller
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /opt/raspberry-pi-load/raspberry_pi_load.py --cpu-target 84 --memory-target 84 --upper-limit 89 --temperature-limit 80 --minimum-available-mb 256
+Restart=on-failure
+RestartSec=5
+Nice=10
+OOMScoreAdjust=500
+KillSignal=SIGTERM
+TimeoutStopSec=10
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target
