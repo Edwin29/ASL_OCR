@@ -21,11 +21,17 @@ src/book_scanner/capture/
   types.py     # PageGeometry(측정 결과), CaptureVerdict/RejectReason(판정 결과)
   measure.py   # 순수 측정: 이미지 -> PageGeometry | None (OpenCV, 판단 로직 없음)
   judge.py     # 순수 판정: PageGeometry | None -> CaptureVerdict (OpenCV 없음)
+src/book_scanner/correct/
+  types.py      # Corners, CorrectionMetadata(원본/보정본 해시·촬영 식별자)
+  perspective.py # 순수 워프: 이미지 + Corners -> 보정된 배열 (파일 I/O 없음)
+  pipeline.py    # 오케스트레이션: 해시 검증 + 원자적 파일 쓰기 + 메타데이터 저장
 ```
 
 측정과 판정을 분리해 둔 이유: 검출 알고리즘(현재는 Canny+컨투어+`minAreaRect`)을
 나중에 바꾸더라도 판정 로직을 건드릴 필요가 없게 하기 위함. 페이지 판형(A4 등)이나
-흰색 여부는 가정하지 않는다 — 순전히 테두리 기하로만 판단한다.
+흰색 여부는 가정하지 않는다 — 순전히 테두리 기하로만 판단한다. `correct/`도 같은
+원칙으로 나눴다: 워프 수학(`perspective.py`)과 저장/해시/메타데이터 책임
+(`pipeline.py`)이 분리돼 있다.
 
 ## 실행
 
@@ -96,11 +102,48 @@ python tests/fixtures/generate_fixtures.py
 값이며, **물리적 거치대·책받침 가이드 확정 전 잠정값**이다. 실제 지그가 만들어지면
 그 조건에서 다시 측정해 갱신해야 한다.
 
+## Stage 6 (페이지 보정 및 스캔 산출물 생성) 진행 상황
+
+`problem_book_scanner_roadmap.md`의 Stage 6에 해당. `correct/` 모듈이 완료
+조건 중 하드웨어 없이 채울 수 있는 부분을 구현한다:
+
+- 네 꼭짓점 기반 원근 보정 (`perspective.py`)
+- 출력 크기는 검출된 사각형 자체의 실측 크기 그대로 — 업스케일로 해상도를
+  위장하지 않음
+- 원본 파일은 절대 쓰지 않음 (읽기 전/후 sha256 비교로 실제로 검증)
+- 보정본을 원본과 분리 저장, 각각 sha256 해시 + 촬영 식별자(`capture_id`)를
+  메타데이터 JSON에 기록 (`pipeline.py`의 `CorrectionMetadata`)
+- 저장은 임시 파일 쓰기 → `os.replace`로 원자적 교체 — 중간에 실패해도
+  불완전한 파일이 정상 산출물 자리에 남지 않음 (`test_failed_write_leaves_no_partial_output`로 검증)
+
+로드맵이 명시한 대로, 이 Stage는 원래 Stage 2(렌즈·촬영 평면 교정)가 끝난
+뒤를 전제로 한다. Stage 2는 물리적 거치대가 있어야 하므로, 지금은 건너뛰어
+아직 안 된 것들: **렌즈 왜곡(방사 왜곡) 보정**, **네 꼭짓점 자동 검출**
+(현재는 사람이 사진을 보고 좌표를 지정 — `capture/measure.py`의 자동 검출은
+이 세션에서 반복적으로 신뢰성 문제가 발견돼 아직 못 씀), 실질 300dpi 충족
+여부의 정식 검증.
+
+### 실측 검증: document-parser 파이프라인 통합 테스트
+
+실제 EBS 수능특강 수학Ⅰ 30페이지를 태블릿 PDF 뷰어 화면으로 촬영 →
+`perspective_correct.py`로 보정(사람이 좌표 지정) → document-parser의
+실제 OCR 파이프라인(PaddleOCR-VL)에 투입 → 기존 레퍼런스 렌더
+(`ebs_2027_math1_p030.png`)와 비교한 결과:
+
+- 노드 수(22), TEXT/UNKNOWN 분포(18/4), reading_order 길이(10), 문제 단위
+  인식(4개) **전부 일치**
+- 22개 노드 중 15개는 텍스트까지 완전 일치, 나머지 7개는 헤더/푸터 순서
+  뒤바뀜(내용은 정확) 또는 LaTeX 지수 표기(`x` vs `{x}`) 차이뿐 —
+  의미 있는 인식 오류 0건
+
+원근 보정만 정확하면(자동 검출 여부와 무관하게), document-parser는 촬영된
+사진에 대해 기존 PDF 렌더 이미지와 사실상 동일한 결과를 낸다는 것을 확인.
+
 ## 이번 범위에서 하지 않은 것
 
 - 휴대폰-Pi 실시간 연결/프리뷰 스트리밍 (하드웨어 없음)
-- 원근/렌즈 왜곡을 실제로 보정하는 이미지 warp
-- 300dpi 해상도 적합성 검사
+- 렌즈 왜곡(방사 왜곡) 보정, 네 꼭짓점 자동 검출 (위 Stage 6 절 참고)
+- 300dpi 해상도 적합성의 정식 검증 (Stage 2 교정 의존)
 - 이미지 방향(EXIF) 정규화
 - 실제 비프음/하드웨어 트리거 (거부 사유를 상태값으로 제공하는 데까지만)
 - 메인 서버 송신, 실패 시 로컬 보존/재시도
