@@ -24,6 +24,17 @@ from book_scanner.capture.types import PageGeometry
 # measurement-noise filter.
 _MIN_NOISE_AREA_RATIO = 0.01
 
+# Canny/blur/dilate below use fixed pixel-sized kernels, so they only find a
+# single closed outer contour within a fairly narrow resolution band. Phone
+# captures (3000-4000px on a side) are far outside that band: the same
+# kernels leave the page's outer edge broken into many small disconnected
+# edges instead of one loop. Detecting on a downscaled working copy first,
+# then mapping the result back to the original frame's coordinates, keeps
+# detection resolution-independent -- this also matches the project's own
+# "프리뷰는 가볍게 분석" intent (cheap analysis now, full-res only at actual
+# capture time).
+_WORKING_MAX_DIM = 1200
+
 
 def measure_page(frame: np.ndarray) -> PageGeometry | None:
     """Find the largest page-like region in `frame` (BGR or grayscale).
@@ -38,7 +49,14 @@ def measure_page(frame: np.ndarray) -> PageGeometry | None:
     frame_h, frame_w = gray.shape[:2]
     frame_area = float(frame_w * frame_h)
 
-    blurred = cv2.GaussianBlur(gray, (5, 5), 0)
+    scale = min(1.0, _WORKING_MAX_DIM / max(frame_w, frame_h))
+    working = (
+        cv2.resize(gray, (int(round(frame_w * scale)), int(round(frame_h * scale))), interpolation=cv2.INTER_AREA)
+        if scale < 1.0
+        else gray
+    )
+
+    blurred = cv2.GaussianBlur(working, (5, 5), 0)
     edges = cv2.Canny(blurred, 50, 150)
     edges = cv2.dilate(edges, np.ones((5, 5), np.uint8), iterations=1)
 
@@ -48,7 +66,8 @@ def measure_page(frame: np.ndarray) -> PageGeometry | None:
 
     largest = max(contours, key=cv2.contourArea)
     contour_area = cv2.contourArea(largest)
-    if frame_area <= 0 or contour_area / frame_area < _MIN_NOISE_AREA_RATIO:
+    working_area = float(working.shape[0] * working.shape[1])
+    if working_area <= 0 or contour_area / working_area < _MIN_NOISE_AREA_RATIO:
         return None
 
     rect = cv2.minAreaRect(largest)
@@ -56,13 +75,15 @@ def measure_page(frame: np.ndarray) -> PageGeometry | None:
     box = cv2.boxPoints(rect)
 
     rect_area = float(w) * float(h)
+    area_ratio = rect_area / working_area  # a ratio, so scale-invariant
 
+    inv_scale = 1.0 / scale
     return PageGeometry(
-        corners=tuple((float(x), float(y)) for x, y in box),
-        center=(float(cx), float(cy)),
-        size=(float(w), float(h)),
+        corners=tuple((float(x) * inv_scale, float(y) * inv_scale) for x, y in box),
+        center=(float(cx) * inv_scale, float(cy) * inv_scale),
+        size=(float(w) * inv_scale, float(h) * inv_scale),
         angle_deg=float(angle),
-        area_ratio=rect_area / frame_area,
+        area_ratio=area_ratio,
         frame_size=(frame_w, frame_h),
     )
 

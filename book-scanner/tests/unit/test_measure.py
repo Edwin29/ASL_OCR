@@ -58,3 +58,41 @@ def test_returns_none_for_noise_speck():
     frame = _blank_frame()
     cv2.rectangle(frame, (10, 10), (13, 13), (255, 255, 255), -1)
     assert measure_page(frame) is None
+
+
+def test_finds_page_in_full_resolution_phone_sized_frame():
+    """Resolution-independence check at real phone-capture size (~3000-4000px).
+
+    measure_page previously ran Canny/blur/dilate directly on the input
+    frame with fixed pixel-sized kernels: fine at the ~1200px fixture
+    resolution, but a real ~4000px phone photo (found during remote
+    testing) had its outer page boundary broken into many small
+    disconnected edges, so the largest contour picked up a small internal
+    block instead -- area_ratio 0.018 instead of the correct ~0.99. The fix
+    detects on an internally downscaled copy and maps the result back to
+    original-frame coordinates. This synthetic case (clean edges, no JPEG
+    compression noise) did not actually reproduce that failure either
+    before or after the fix -- it exists to pin down the coordinate
+    scale-back math at real resolution, not to reproduce the original bug.
+    The bug itself was confirmed and fixed against the real photo directly.
+    """
+    frame_w, frame_h = 3000, 4000
+    frame = np.zeros((frame_h, frame_w, 3), dtype=np.uint8)
+    rect_w, rect_h = 2800, 3800
+    box = cv2.boxPoints(((frame_w / 2, frame_h / 2), (rect_w, rect_h), 0.0)).astype(np.int32)
+    cv2.fillConvexPoly(frame, box, (255, 255, 255))
+
+    rng = np.random.default_rng(0)
+    for _ in range(400):
+        x = rng.integers(frame_w // 2 - rect_w // 2 + 20, frame_w // 2 + rect_w // 2 - 20)
+        y = rng.integers(frame_h // 2 - rect_h // 2 + 20, frame_h // 2 + rect_h // 2 - 20)
+        w = rng.integers(20, 120)
+        h = rng.integers(4, 20)
+        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 0), -1)
+
+    geometry = measure_page(frame)
+
+    assert geometry is not None
+    assert geometry.frame_size == (frame_w, frame_h)
+    expected_ratio = (rect_w * rect_h) / (frame_w * frame_h)
+    assert abs(geometry.area_ratio - expected_ratio) < 0.05
