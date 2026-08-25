@@ -27,7 +27,6 @@ class JudgeThresholds:
     max_skew_deg: float = 12.0
     min_area_ratio: float = 0.15
     max_area_ratio: float = 0.98
-    edge_margin_px: float = 4.0
 
 
 DEFAULT_THRESHOLDS = JudgeThresholds()
@@ -40,16 +39,6 @@ def _skew_deg(angle_deg: float) -> float:
     return min(mod, 90.0 - mod)
 
 
-def _touches_frame_edge(geometry: PageGeometry, margin_px: float) -> bool:
-    frame_w, frame_h = geometry.frame_size
-    for x, y in geometry.corners:
-        if x <= margin_px or y <= margin_px:
-            return True
-        if x >= frame_w - margin_px or y >= frame_h - margin_px:
-            return True
-    return False
-
-
 def judge_capture(
     geometry: PageGeometry | None,
     thresholds: JudgeThresholds = DEFAULT_THRESHOLDS,
@@ -58,7 +47,7 @@ def judge_capture(
     if geometry is None:
         return CaptureVerdict(allowed=False, reason=RejectReason.PAGE_NOT_FOUND, geometry=None)
 
-    if _touches_frame_edge(geometry, thresholds.edge_margin_px):
+    if geometry.touches_frame_edge:
         return CaptureVerdict(allowed=False, reason=RejectReason.OUT_OF_FRAME, geometry=geometry)
 
     if _skew_deg(geometry.angle_deg) > thresholds.max_skew_deg:

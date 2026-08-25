@@ -35,6 +35,10 @@ _MIN_NOISE_AREA_RATIO = 0.01
 # capture time).
 _WORKING_MAX_DIM = 1200
 
+# Margin (in working-resolution px) within which a raw contour point counts
+# as "touching" the visible frame boundary.
+_EDGE_TOUCH_MARGIN_PX = 2
+
 
 def measure_page(frame: np.ndarray) -> PageGeometry | None:
     """Find the largest page-like region in `frame` (BGR or grayscale).
@@ -66,7 +70,8 @@ def measure_page(frame: np.ndarray) -> PageGeometry | None:
 
     largest = max(contours, key=cv2.contourArea)
     contour_area = cv2.contourArea(largest)
-    working_area = float(working.shape[0] * working.shape[1])
+    working_h, working_w = working.shape[:2]
+    working_area = float(working_w * working_h)
     if working_area <= 0 or contour_area / working_area < _MIN_NOISE_AREA_RATIO:
         return None
 
@@ -77,6 +82,20 @@ def measure_page(frame: np.ndarray) -> PageGeometry | None:
     rect_area = float(w) * float(h)
     area_ratio = rect_area / working_area  # a ratio, so scale-invariant
 
+    # Whether the *actual detected blob* reaches the visible frame boundary.
+    # Deliberately checked against the raw contour points, not the fitted
+    # minAreaRect corners: a fitted rectangle's corners are a mathematical
+    # construct that can land outside the frame (or right at its edge) for a
+    # large, slightly rotated blob even when the blob itself has real margin
+    # -- found via a real phone photo during remote testing, where a
+    # well-margined page was rejected as OUT_OF_FRAME purely because of this.
+    touches_edge = bool(
+        (largest[:, 0, 0] <= _EDGE_TOUCH_MARGIN_PX).any()
+        or (largest[:, 0, 1] <= _EDGE_TOUCH_MARGIN_PX).any()
+        or (largest[:, 0, 0] >= working_w - 1 - _EDGE_TOUCH_MARGIN_PX).any()
+        or (largest[:, 0, 1] >= working_h - 1 - _EDGE_TOUCH_MARGIN_PX).any()
+    )
+
     inv_scale = 1.0 / scale
     return PageGeometry(
         corners=tuple((float(x) * inv_scale, float(y) * inv_scale) for x, y in box),
@@ -85,6 +104,7 @@ def measure_page(frame: np.ndarray) -> PageGeometry | None:
         angle_deg=float(angle),
         area_ratio=area_ratio,
         frame_size=(frame_w, frame_h),
+        touches_frame_edge=touches_edge,
     )
 
 

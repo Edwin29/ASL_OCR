@@ -28,6 +28,7 @@ def _geometry(
     angle_deg: float = 0.0,
     area_ratio: float = 0.5,
     corners: tuple[tuple[float, float], ...] | None = None,
+    touches_frame_edge: bool = False,
 ) -> PageGeometry:
     if corners is None:
         # a centered rectangle with generous margin from every frame edge
@@ -39,6 +40,7 @@ def _geometry(
         angle_deg=angle_deg,
         area_ratio=area_ratio,
         frame_size=FRAME,
+        touches_frame_edge=touches_frame_edge,
     )
 
 
@@ -75,11 +77,24 @@ def test_rejects_too_large_area_ratio():
     assert verdict.reason is RejectReason.TOO_LARGE
 
 
-def test_rejects_corner_touching_frame_edge():
-    corners = ((0.0, 50.0), (350.0, 50.0), (350.0, 250.0), (50.0, 250.0))
-    verdict = judge_capture(_geometry(angle_deg=0.0, area_ratio=0.5, corners=corners))
+def test_rejects_contour_touching_frame_edge():
+    verdict = judge_capture(_geometry(angle_deg=0.0, area_ratio=0.5, touches_frame_edge=True))
     assert not verdict.allowed
     assert verdict.reason is RejectReason.OUT_OF_FRAME
+
+
+def test_allows_fitted_corners_outside_frame_when_contour_itself_has_margin():
+    # A large, slightly rotated blob's *fitted* minAreaRect corners can
+    # mathematically land outside the frame even when the blob itself
+    # (the real detected contour) never touches the edge -- found via a
+    # real phone photo during remote testing. OUT_OF_FRAME must key off
+    # `touches_frame_edge` (computed from the raw contour in measure.py),
+    # not off `corners`, so a case like this is not a false reject.
+    corners = ((-10.0, 50.0), (350.0, 50.0), (350.0, 250.0), (50.0, 250.0))
+    verdict = judge_capture(
+        _geometry(angle_deg=0.0, area_ratio=0.5, corners=corners, touches_frame_edge=False)
+    )
+    assert verdict.allowed
 
 
 def test_thresholds_are_overridable():

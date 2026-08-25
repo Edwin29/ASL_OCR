@@ -41,6 +41,12 @@ class PageGeometry:
     angle_deg: float
     area_ratio: float  # fitted rectangle area / full frame area
     frame_size: tuple[int, int]  # (width, height) of the source frame, px
+    # Whether the *actual detected contour* reaches the frame boundary.
+    # Deliberately not inferred from `corners`: a minAreaRect fit's corners
+    # are a mathematical construct that can land outside the frame for a
+    # large, slightly rotated blob even when the blob itself has real
+    # margin, so judge.py's OUT_OF_FRAME check relies on this instead.
+    touches_frame_edge: bool = False
 
 
 @dataclass(frozen=True)
