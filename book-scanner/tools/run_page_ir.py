@@ -31,21 +31,32 @@ from document_parser.serialization import build_document_ir_from_vl
 
 
 def summarize(payload: dict) -> dict:
-    kind_counts: dict[str, int] = {}
-    problem_unit_count = 0
-    item_count = 0
+    """`build_document_ir_from_vl`'s raw Page IR shape: page["nodes"] is the
+    flat OCR node list (content_type e.g. TEXT/UNKNOWN/TABLE/...),
+    page["reading_order"] is a list of node_id strings AFTER problem-unit
+    grouping collapses a problem's stem/condition/choices into one entry
+    (so it's normally shorter than len(nodes)). page["parse_issues"] carries
+    info like "N problem units were detected". This is upstream of
+    accessibility.flattening's "focus_items" concept -- that doesn't exist
+    at this stage.
+    """
+    pages_summary = []
     for page in payload.get("pages", []):
-        for item in page.get("focus_items", []):
-            item_count += 1
-            kind = item.get("kind", "UNKNOWN")
-            kind_counts[kind] = kind_counts.get(kind, 0) + 1
-            if kind == "PROBLEM_UNIT":
-                problem_unit_count += 1
+        nodes = page.get("nodes", [])
+        content_type_counts: dict[str, int] = {}
+        for node in nodes:
+            ct = node.get("content_type", "UNKNOWN")
+            content_type_counts[ct] = content_type_counts.get(ct, 0) + 1
+        pages_summary.append({
+            "page_id": page.get("page_id"),
+            "node_count": len(nodes),
+            "content_type_counts": content_type_counts,
+            "reading_order_length": len(page.get("reading_order", [])),
+            "parse_issues": page.get("parse_issues", []),
+        })
     return {
         "page_count": len(payload.get("pages", [])),
-        "focus_item_count": item_count,
-        "kind_counts": kind_counts,
-        "problem_unit_count": problem_unit_count,
+        "pages": pages_summary,
         "validation_summary": payload.get("validation_summary", {}),
     }
 
