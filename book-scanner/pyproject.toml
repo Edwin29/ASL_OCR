@@ -1,0 +1,13 @@
+[project]
+name = "book-scanner"
+version = "0.1.0"
+description = "Page capture-suitability judgment for the phone-camera + Raspberry Pi book scanning pipeline."
+requires-python = ">=3.11"
+dependencies = [
+  "numpy",
+  "opencv-python",
+  "Pillow",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
