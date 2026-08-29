@@ -44,7 +44,31 @@ def register_background(frame: np.ndarray) -> BackgroundRef:
 def foreground_mask(frame: np.ndarray, background: BackgroundRef) -> np.ndarray:
     """Binary mask (255=changed/foreground, 0=background) of `frame`
     relative to `background`. Raises if `frame`'s size doesn't match the
-    registered background."""
+    registered background.
+
+    Thresholding is relative to the diff map's own median, not a fixed
+    absolute level. Motivated by a real concern raised about the current
+    (pre-final) reflective background material: placing the book can shift
+    the *whole* frame's reflected brightness together, not just the region
+    it covers. An earlier version of this function tried to cancel that by
+    rescaling the frame to match the background's mean brightness before
+    diffing -- that's unsound: a book large enough to occupy a real
+    fraction of the frame drags the mean toward itself, so "correcting" to
+    match the reference's mean over-corrects and turns genuinely unchanged
+    background pixels into false foreground (an existing unit test caught
+    this directly). The median is a better statistic here: as long as the
+    book covers under half the frame -- true by construction (there's
+    always capture-area margin around it) -- the median diff value reflects
+    the uniform background-only shift regardless of magnitude, since it
+    can't be dragged by a minority-sized outlier population the way a mean
+    can. Thresholding relative to that median cancels a uniform global
+    shift while still catching the book's much larger, localized diff.
+    This does NOT fix a *non-uniform* lighting change (a shadow or
+    highlight moving over only part of the frame) -- that's
+    indistinguishable from a real object using intensity alone, and is
+    exactly why the final rig is moving to a low-reflection black cloth
+    per the user's plan rather than relying on a software fix here.
+    """
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) if frame.ndim == 3 else frame
     h, w = gray.shape[:2]
     if (w, h) != background.frame_size:
@@ -52,7 +76,8 @@ def foreground_mask(frame: np.ndarray, background: BackgroundRef) -> np.ndarray:
 
     blurred = cv2.GaussianBlur(gray, _BLUR_KERNEL, 0)
     diff = cv2.absdiff(blurred, background.gray_blurred)
-    _, mask = cv2.threshold(diff, _DIFF_THRESHOLD, 255, cv2.THRESH_BINARY)
+    baseline = float(np.median(diff))
+    _, mask = cv2.threshold(diff, baseline + _DIFF_THRESHOLD, 255, cv2.THRESH_BINARY)
     # Close first to fill small internal holes (e.g. a very light-colored
     # region on the page that diffs weakly against a light background),
     # then open to drop small noise specks that survived thresholding.
