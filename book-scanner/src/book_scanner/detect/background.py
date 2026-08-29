@@ -19,11 +19,22 @@ import numpy as np
 
 from book_scanner.detect.types import BackgroundRef
 
-# Large blur: we want a smooth reference to diff against, not edges -- fine
-# texture (wood grain, cloth weave) should blur away so its natural minor
-# frame-to-frame flicker (JPEG noise, tiny lighting shifts) doesn't register
-# as a diff. This is deliberately different from v1's small blur, which was
-# tuned to preserve edges for Canny.
+# Diffing runs on a downscaled working copy, not the native capture
+# resolution -- see the resolution-dependence bug already found and fixed
+# once in detect/corners.py (and, before that, in v1's measure.py): fixed
+# pixel-sized kernels tuned against small test images fall apart at real
+# phone/camera resolution (~4000px). Confirmed here empirically against a
+# real 4000x3000 photo: at native resolution, the blur was too small
+# relative to printed text/graphics, so the diff came out mottled -- gaps
+# inside the book's own silhouette wherever a dark/colored page element
+# happened to sit -- instead of one solid blob.
+_WORKING_MAX_DIM = 1200
+
+# Large blur (relative to the working resolution): we want a smooth
+# reference to diff against, not edges -- fine texture (wood grain, cloth
+# weave) and printed page content should blur away so only genuine
+# region-level change registers as a diff. Deliberately different from
+# v1's small blur, which was tuned to preserve edges for Canny.
 _BLUR_KERNEL = (21, 21)
 
 # Minimum pixel intensity difference (0-255) to count as "changed".
@@ -32,12 +43,21 @@ _DIFF_THRESHOLD = 30
 _MORPH_KERNEL = np.ones((15, 15), np.uint8)
 
 
+def _to_working_gray(frame: np.ndarray) -> np.ndarray:
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) if frame.ndim == 3 else frame
+    h, w = gray.shape[:2]
+    scale = min(1.0, _WORKING_MAX_DIM / max(w, h))
+    if scale < 1.0:
+        gray = cv2.resize(gray, (int(round(w * scale)), int(round(h * scale))), interpolation=cv2.INTER_AREA)
+    return gray
+
+
 def register_background(frame: np.ndarray) -> BackgroundRef:
     """Store `frame` (expected to show the empty capture area, no book) as
     the reference to diff subsequent frames against."""
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) if frame.ndim == 3 else frame
-    blurred = cv2.GaussianBlur(gray, _BLUR_KERNEL, 0)
-    h, w = gray.shape[:2]
+    h, w = frame.shape[:2]
+    working = _to_working_gray(frame)
+    blurred = cv2.GaussianBlur(working, _BLUR_KERNEL, 0)
     return BackgroundRef(gray_blurred=blurred, frame_size=(w, h))
 
 
@@ -69,12 +89,12 @@ def foreground_mask(frame: np.ndarray, background: BackgroundRef) -> np.ndarray:
     exactly why the final rig is moving to a low-reflection black cloth
     per the user's plan rather than relying on a software fix here.
     """
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) if frame.ndim == 3 else frame
-    h, w = gray.shape[:2]
+    h, w = frame.shape[:2]
     if (w, h) != background.frame_size:
         raise ValueError(f"frame size {(w, h)} does not match registered background {background.frame_size}")
 
-    blurred = cv2.GaussianBlur(gray, _BLUR_KERNEL, 0)
+    working = _to_working_gray(frame)
+    blurred = cv2.GaussianBlur(working, _BLUR_KERNEL, 0)
     diff = cv2.absdiff(blurred, background.gray_blurred)
     baseline = float(np.median(diff))
     _, mask = cv2.threshold(diff, baseline + _DIFF_THRESHOLD, 255, cv2.THRESH_BINARY)
@@ -83,4 +103,7 @@ def foreground_mask(frame: np.ndarray, background: BackgroundRef) -> np.ndarray:
     # then open to drop small noise specks that survived thresholding.
     mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, _MORPH_KERNEL)
     mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, _MORPH_KERNEL)
+
+    if mask.shape[:2] != (h, w):
+        mask = cv2.resize(mask, (w, h), interpolation=cv2.INTER_NEAREST)
     return mask
