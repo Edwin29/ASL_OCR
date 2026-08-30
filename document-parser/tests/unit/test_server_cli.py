@@ -120,6 +120,38 @@ class RunEndToEndTests(unittest.TestCase):
             # even with zero commands issued.
             self.assertIn("[AUDIO]", buf.getvalue())
 
+    def test_confirm_short_replays_current_focus(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            datapack = build_and_load_datapack(Path(temp_dir))
+            session = DatapackSession(datapack)
+            commands = io.StringIO("c\nq\n")
+
+            buf = io.StringIO()
+            with contextlib.redirect_stdout(buf):
+                run(session, input_stream=commands)  # must not raise
+
+            # Same item (node 0) announced twice: the initial turn, then c's replay.
+            self.assertEqual(buf.getvalue().count("page=0 node=0"), 2)
+
+    def test_confirm_long_falls_through_to_speechcontrollers_unsupported_message(self):
+        # This bare CLI has no selection-screen orchestration layer (see
+        # device_flow.py, hardware/stm_pi_bridge/) to intercept CONFIRM
+        # LONG -- it reaches SpeechController like any other unrecognized
+        # command and gets the generic "not yet supported" boundary
+        # message. Must not crash (this exercises the same
+        # SYSTEM_BOUNDARY_MESSAGES/audio_by_text lookup a live datapack
+        # depends on).
+        with tempfile.TemporaryDirectory() as temp_dir:
+            datapack = build_and_load_datapack(Path(temp_dir))
+            session = DatapackSession(datapack)
+            commands = io.StringIO("cl\nq\n")
+
+            buf = io.StringIO()
+            with contextlib.redirect_stdout(buf):
+                run(session, input_stream=commands)  # must not raise
+
+            self.assertIn("아직 지원되지 않습니다", buf.getvalue())
+
 
 if __name__ == "__main__":
     unittest.main()

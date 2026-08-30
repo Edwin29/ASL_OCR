@@ -45,6 +45,8 @@ _COMMANDS: dict[str, NavigationCommand] = {
     "rl": NavigationCommand("RIGHT", "LONG"),
     "pn": NavigationCommand("PAGE_NEXT", "SHORT"),
     "pp": NavigationCommand("PAGE_PREVIOUS", "SHORT"),
+    "c": NavigationCommand("CONFIRM", "SHORT"),
+    "cl": NavigationCommand("CONFIRM", "LONG"),
 }
 
 
@@ -89,7 +91,10 @@ def _report_turn(result: dict[str, Any], play_audio: bool) -> None:
 
 def run(session: DatapackSession, input_stream: TextIO = sys.stdin, play_audio: bool = False) -> None:
     _report_turn({"state": session.state, "braille_frame": session.braille_frame, "audio": session.audio}, play_audio)
-    print("명령: up/down/left/right (SHORT), ul/dl/ll/rl (LONG), pn/pp(페이지 넘김), q(종료)")
+    print(
+        "명령: up/down/left/right (SHORT), ul/dl/ll/rl (LONG), pn/pp(페이지 넘김), c(확인/리플레이), "
+        "cl(데이터팩 선택 화면으로 -- 이 CLI에는 그 화면이 없어 '아직 지원되지 않는 버튼'으로 처리됨), q(종료)"
+    )
 
     for line in input_stream:
         token = line.strip().lower()
