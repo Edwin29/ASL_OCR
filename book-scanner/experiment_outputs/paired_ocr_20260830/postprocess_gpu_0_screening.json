@@ -1,0 +1,6 @@
+{
+  "status": "BLOCKED_PREREQUISITE",
+  "reason": "Phase B status is 'BLOCKED_DEVICE', not COMPLETE",
+  "selected_artifacts": [],
+  "full_batch_allowed": false
+}

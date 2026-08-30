@@ -1,0 +1,513 @@
+{
+  "phase": "extraction",
+  "status": "PARTIAL_FAILURE",
+  "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+  "model_home": "D:\\Projects\\OCR\\document-parser\\data\\debug\\model_home_vl",
+  "model_download_attempted": false,
+  "results": [
+    {
+      "artifact_id": "20260826_174943_left_oracle_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174943_left_oracle_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 1044,
+      "node_count": 6,
+      "braille_opportunity_count": 15,
+      "braille_error_count": 10
+    },
+    {
+      "artifact_id": "20260826_174943_left_overlap_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_174943_left_overlap_none_none.png",
+      "image_sha256": "f3ba7367373cdce4e75a3139f048d3c2fbd70b1a5afcd0d885aa5e2b61981720",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174943_left_overlap_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_174943_left_seam_confirmed_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_174943_left_seam_confirmed_none_none.png",
+      "image_sha256": "b65c19fd882cacb59c2d003ec1595f91f73ad4c374f00b50ef0083477a97ee38",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174943_left_seam_confirmed_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_174943_left_seam_conservative_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_174943_left_seam_conservative_none_none.png",
+      "image_sha256": "405ff8cab579c73886a1b6fafc093a65eb1325b0012ec644e62de91b54d6fdc1",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174943_left_seam_conservative_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_174943_right_oracle_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174943_right_oracle_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 573,
+      "node_count": 40,
+      "braille_opportunity_count": 0,
+      "braille_error_count": 0
+    },
+    {
+      "artifact_id": "20260826_174943_right_overlap_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_174943_right_overlap_none_none.png",
+      "image_sha256": "8e5a88647984e53ef59eebd605247e82ed1f15e4cf544ff227f92d9cd4590675",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174943_right_overlap_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_174943_right_seam_confirmed_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_174943_right_seam_confirmed_none_none.png",
+      "image_sha256": "1b4b53dcc5706306420701f5273be0f220bd0486ed94cb0115d813ddda55354a",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174943_right_seam_confirmed_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_174943_right_seam_conservative_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_174943_right_seam_conservative_none_none.png",
+      "image_sha256": "358bc5b98e1b1c1b72ed86ce11e679cfecb960166948ef3c61be25b2edf71e23",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174943_right_seam_conservative_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_174953_left_oracle_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174953_left_oracle_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 1039,
+      "node_count": 6,
+      "braille_opportunity_count": 15,
+      "braille_error_count": 10
+    },
+    {
+      "artifact_id": "20260826_174953_left_overlap_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_174953_left_overlap_none_none.png",
+      "image_sha256": "f85280180cd916cdeb2f6a18013a1f56d86f78bf45018d28c87c37f49bb4060a",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174953_left_overlap_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_174953_left_seam_confirmed_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_174953_left_seam_confirmed_none_none.png",
+      "image_sha256": "fe863e9717903346293d3aa8154afef0c61509fc4a8ef7d538b57c9670378e3d",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174953_left_seam_confirmed_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_174953_left_seam_conservative_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_174953_left_seam_conservative_none_none.png",
+      "image_sha256": "7e441cc5ca33088bcfbbe7771a8dcb543785b65e56f4ab2ae1ea9cd636e6dad8",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174953_left_seam_conservative_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_174953_right_oracle_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174953_right_oracle_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 496,
+      "node_count": 31,
+      "braille_opportunity_count": 0,
+      "braille_error_count": 0
+    },
+    {
+      "artifact_id": "20260826_174953_right_overlap_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_174953_right_overlap_none_none.png",
+      "image_sha256": "0b42d1daf3e6b4682ff6ad0a32c6e96b0ba7260da14ebabbd9760abf5f2519b6",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174953_right_overlap_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_174953_right_seam_confirmed_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_174953_right_seam_confirmed_none_none.png",
+      "image_sha256": "7fcfcc4273f3b076a7cd867381d3d96c1ca79724ce953a16f8dd717a3b08bb36",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174953_right_seam_confirmed_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_174953_right_seam_conservative_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_174953_right_seam_conservative_none_none.png",
+      "image_sha256": "d020998d06b295ae0d0c69cf617de72e9ec567ec67fdfcea0169607fde63106c",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174953_right_seam_conservative_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_174958_left_oracle_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174958_left_oracle_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 789,
+      "node_count": 8,
+      "braille_opportunity_count": 22,
+      "braille_error_count": 12
+    },
+    {
+      "artifact_id": "20260826_174958_left_overlap_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_174958_left_overlap_none_none.png",
+      "image_sha256": "d15453fcd244e88b43e576561757f9b35badb4673ddd82ad959eedb18c911d53",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174958_left_overlap_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_174958_left_seam_confirmed_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_174958_left_seam_confirmed_none_none.png",
+      "image_sha256": "41b6d3373d7382bade4280feb77d239f3bd5508ac0649e1e653aa5c50ff71a94",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174958_left_seam_confirmed_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_174958_left_seam_conservative_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_174958_left_seam_conservative_none_none.png",
+      "image_sha256": "5bb46ce3c0ae25ee5da3b9225f23f92e7b107c39a64dd51a5c0d9861caa82cc8",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174958_left_seam_conservative_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_174958_right_oracle_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174958_right_oracle_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 624,
+      "node_count": 12,
+      "braille_opportunity_count": 47,
+      "braille_error_count": 28
+    },
+    {
+      "artifact_id": "20260826_174958_right_overlap_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_174958_right_overlap_none_none.png",
+      "image_sha256": "65246f37dbed42e9d8a97adc2d1fd6eb5bbf0bbe71c9cac76ff66e58febec491",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174958_right_overlap_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_174958_right_seam_confirmed_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_174958_right_seam_confirmed_none_none.png",
+      "image_sha256": "f883c740fa709c75e279a051b35538e9786701f05c65b85eabadd5a2421ec7b5",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174958_right_seam_confirmed_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_174958_right_seam_conservative_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_174958_right_seam_conservative_none_none.png",
+      "image_sha256": "175c7431f18c63efc16944e9384f81a6661d168d4c34aa98c036d4979d7fd7fd",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174958_right_seam_conservative_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_175109_left_oracle_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_175109_left_oracle_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 428,
+      "node_count": 13,
+      "braille_opportunity_count": 0,
+      "braille_error_count": 0
+    },
+    {
+      "artifact_id": "20260826_175109_left_overlap_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_175109_left_overlap_none_none.png",
+      "image_sha256": "a9208c379b7e72ee43148530c6cbba1752a62d18b81397dc575cc83a4dd12b7c",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_175109_left_overlap_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_175109_left_seam_confirmed_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_175109_left_seam_confirmed_none_none.png",
+      "image_sha256": "196004592513ac0b36c38e604025e6326c1e1eda4397adde9c47cbbe76cacb70",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_175109_left_seam_confirmed_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_175109_left_seam_conservative_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_175109_left_seam_conservative_none_none.png",
+      "image_sha256": "85ecb2b7277be2c7354f5d74276a43bf179a74f2b192113ac8a1aac4e2249137",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_175109_left_seam_conservative_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_175109_right_oracle_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_175109_right_oracle_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 1362,
+      "node_count": 8,
+      "braille_opportunity_count": 0,
+      "braille_error_count": 0
+    },
+    {
+      "artifact_id": "20260826_175109_right_overlap_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_175109_right_overlap_none_none.png",
+      "image_sha256": "2b7cf350769b7e1ee8f31b3f1f5a473b105336780edd247b3a65225c4a731917",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_175109_right_overlap_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_175109_right_seam_confirmed_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_175109_right_seam_confirmed_none_none.png",
+      "image_sha256": "7dfb7f7905c34b9068fa3daaf22b87327adec8f9933ba87e09a0217b9a95c349",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_175109_right_seam_confirmed_none_none.json"
+    },
+    {
+      "artifact_id": "20260826_175109_right_seam_conservative_none_none",
+      "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_175109_right_seam_conservative_none_none.png",
+      "image_sha256": "a953ab5a9e10c093a30e91b45565b7ea7f4d5238ef84706beb1ede1916b71031",
+      "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+      "status": "OCR_FAILED",
+      "error": "ValueError: The device should not be <re.Match object; span=(0, 5), match='gpu:0'>, since PaddlePaddle is not compiled with CUDA",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_175109_right_seam_conservative_none_none.json"
+    }
+  ],
+  "comparisons": [
+    {
+      "capture": "20260826_174943",
+      "side": "left",
+      "extraction": "oracle",
+      "anchor_artifact_id": "20260826_174943_left_oracle_none_none",
+      "candidate_artifact_id": "20260826_174943_left_oracle_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 1.0,
+        "character_count": 1044,
+        "anchor_character_count": 1044,
+        "character_count_ratio": 1.0,
+        "character_count_drop_fraction": 0.0,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TABLE": 0,
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174943",
+      "side": "right",
+      "extraction": "oracle",
+      "anchor_artifact_id": "20260826_174943_right_oracle_none_none",
+      "candidate_artifact_id": "20260826_174943_right_oracle_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 1.0,
+        "character_count": 573,
+        "anchor_character_count": 573,
+        "character_count_ratio": 1.0,
+        "character_count_drop_fraction": 0.0,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174953",
+      "side": "left",
+      "extraction": "oracle",
+      "anchor_artifact_id": "20260826_174953_left_oracle_none_none",
+      "candidate_artifact_id": "20260826_174953_left_oracle_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 1.0,
+        "character_count": 1039,
+        "anchor_character_count": 1039,
+        "character_count_ratio": 1.0,
+        "character_count_drop_fraction": 0.0,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TABLE": 0,
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174953",
+      "side": "right",
+      "extraction": "oracle",
+      "anchor_artifact_id": "20260826_174953_right_oracle_none_none",
+      "candidate_artifact_id": "20260826_174953_right_oracle_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 1.0,
+        "character_count": 496,
+        "anchor_character_count": 496,
+        "character_count_ratio": 1.0,
+        "character_count_drop_fraction": 0.0,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174958",
+      "side": "left",
+      "extraction": "oracle",
+      "anchor_artifact_id": "20260826_174958_left_oracle_none_none",
+      "candidate_artifact_id": "20260826_174958_left_oracle_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 1.0,
+        "character_count": 789,
+        "anchor_character_count": 789,
+        "character_count_ratio": 1.0,
+        "character_count_drop_fraction": 0.0,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TABLE": 0,
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174958",
+      "side": "right",
+      "extraction": "oracle",
+      "anchor_artifact_id": "20260826_174958_right_oracle_none_none",
+      "candidate_artifact_id": "20260826_174958_right_oracle_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 1.0,
+        "character_count": 624,
+        "anchor_character_count": 624,
+        "character_count_ratio": 1.0,
+        "character_count_drop_fraction": 0.0,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TABLE": 0,
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_175109",
+      "side": "left",
+      "extraction": "oracle",
+      "anchor_artifact_id": "20260826_175109_left_oracle_none_none",
+      "candidate_artifact_id": "20260826_175109_left_oracle_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 1.0,
+        "character_count": 428,
+        "anchor_character_count": 428,
+        "character_count_ratio": 1.0,
+        "character_count_drop_fraction": 0.0,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_175109",
+      "side": "right",
+      "extraction": "oracle",
+      "anchor_artifact_id": "20260826_175109_right_oracle_none_none",
+      "candidate_artifact_id": "20260826_175109_right_oracle_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 1.0,
+        "character_count": 1362,
+        "anchor_character_count": 1362,
+        "character_count_ratio": 1.0,
+        "character_count_drop_fraction": 0.0,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    }
+  ],
+  "accuracy_claim_allowed": false,
+  "manual_golden_status": "MANUAL_GOLDEN_NOT_VERIFIED"
+}

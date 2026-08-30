@@ -1,0 +1,9 @@
+{
+  "phase": "geometry",
+  "status": "BLOCKED_DEVICE",
+  "device": "gpu:0",
+  "reason": "PaddlePaddle is not compiled with CUDA",
+  "model_download_attempted": false,
+  "results": [],
+  "comparisons": []
+}

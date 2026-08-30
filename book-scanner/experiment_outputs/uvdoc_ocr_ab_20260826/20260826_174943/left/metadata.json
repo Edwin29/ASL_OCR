@@ -1,0 +1,511 @@
+{
+  "page_id": "20260826_174943_left",
+  "annotation": {
+    "bbox_full": [
+      824,
+      344,
+      1351,
+      2333
+    ]
+  },
+  "variants": {
+    "crop_original_control": {
+      "success": true,
+      "source": "bbox_original",
+      "reason": null,
+      "diagnostics": {
+        "bbox_full": [
+          783,
+          274,
+          1433,
+          2473
+        ]
+      },
+      "artifact_path": "experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174943\\left\\variants\\crop_original_control.png",
+      "artifact_sha256": "69386c13704613236ce0c9cded512f6169c1a9ee4c3788031ecfc297e03a6d0b",
+      "image_metrics": {
+        "size": [
+          1433,
+          2473
+        ],
+        "aspect_ratio": 0.5794581479983826,
+        "full": {
+          "laplacian_variance": 678.9478759765625,
+          "tenengrad_mean": 11328.8544921875
+        },
+        "inner_5_percent": {
+          "laplacian_variance": 815.14306640625,
+          "tenengrad_mean": 13455.8515625
+        },
+        "proxy_long_edge": 1600,
+        "proxy_1600": {
+          "laplacian_variance": 946.0225830078125,
+          "tenengrad_mean": 9260.3681640625
+        }
+      },
+      "ocr_record_path": "experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174943\\left\\ocr\\crop_original_control.json",
+      "ocr_metrics": {
+        "token_count": 54,
+        "non_whitespace_character_count": 828,
+        "mean_confidence": 0.9482404137099231,
+        "median_confidence": 0.9630053043365479,
+        "min_confidence": 0.7235901951789856,
+        "p10_confidence": 0.8886349737644196,
+        "low_confidence_count": 0,
+        "low_confidence_rate": 0.0,
+        "ocr_processing_ms": 38411.62989998702,
+        "normalized_text": "(4)컴퓨터활용분야기업경영분야하는전자결재시스템이도입되어업무처리의효율을높이고있다.decisionsupportsystem)등은경영자가신속한의사결정을할수있도록도와준다.정보의(6)인터넷·컴퓨터보조교육(ca:computerasistedistrction):강의나학습에컴퓨터를아용하는것으·컴퓨터관리교육(cmi:computermanagedinstruction):학습지도자료의정리,성적관리,진로로학습자가프로그램을이용하여개인차에따라학습속도와학습시간을조절하여학습하는방식지도,교육계획등에활용하는방식-불건-사0-언ㅇ-불-저[4단행정분야민원처리,각종행정통계등의여러가지행정관련정보를데이터베이스화하여활용하고있다.소비자와기업모두에게이익을주고있다.교육분야기타분야워드프로세스,그래픽소프트웨어등의활용(5)정보처리절차산업분야동화하여생산성향상과원가절감,불량품감소등으로제품의경쟁력을높이고있다-개인-사이-인터정보의전략적기획이란정보관리의가장중요한단계이며보통은5w2h에따라기획을한다.what(무엇을?):정보입수대상의명확화정보의기획why(왜?):정보의필요목적을염두에둠how(어떻게?):정보수집방법검토howmuch(얼마나?):정보수집의비용성(효용성)중시[2단계]다양한정보원으로부터목적에적합한정보를입수하는것이다.·수집된다양한형태의정보(보통생정보)를어떤문제해결이나결론도출에사용하기쉬운형태로바꾸는일이다.[3단계][정보관리의3원칙]용이성:쉽게작업할수있어야한다.[1단계]where(어디에서?):정보소스(정보원)파악when(언제까지?):정보요구(수집)시점고려who(누가?):정보활동주체확정0출②실정보의수집·정보를관리할때는다음세가지를고려해야한다.정보의관리목적성:사용목적을명확히설명해야한다.유용성:즉시사용할수있어야한다.300제2편직업기초능력평가",
+        "issue_codes": [
+          "BELOW_RECOMMENDED_RESOLUTION",
+          "ASPECT_RATIO_OUT_OF_PROFILE"
+        ]
+      },
+      "ocr_cache_hit": false
+    },
+    "legacy_homography_control": {
+      "success": true,
+      "source": "oracle_mask_min_area_rect",
+      "reason": null,
+      "diagnostics": {},
+      "artifact_path": "experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174943\\left\\variants\\legacy_homography_control.png",
+      "artifact_sha256": "261aefb3a811428c1704e8d51c183d3c14bec6757a49a77464384614595bc200",
+      "image_metrics": {
+        "size": [
+          1336,
+          2334
+        ],
+        "aspect_ratio": 0.572407883461868,
+        "full": {
+          "laplacian_variance": 453.8394775390625,
+          "tenengrad_mean": 9948.5556640625
+        },
+        "inner_5_percent": {
+          "laplacian_variance": 541.8434448242188,
+          "tenengrad_mean": 11743.03515625
+        },
+        "proxy_long_edge": 1600,
+        "proxy_1600": {
+          "laplacian_variance": 695.5166015625,
+          "tenengrad_mean": 9084.443359375
+        }
+      },
+      "ocr_record_path": "experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174943\\left\\ocr\\legacy_homography_control.json",
+      "ocr_metrics": {
+        "token_count": 58,
+        "non_whitespace_character_count": 898,
+        "mean_confidence": 0.9473254742293522,
+        "median_confidence": 0.9636185169219971,
+        "min_confidence": 0.2517355680465698,
+        "p10_confidence": 0.9188216984272003,
+        "low_confidence_count": 1,
+        "low_confidence_rate": 0.017241379310344827,
+        "ocr_processing_ms": 29500.102299964055,
+        "normalized_text": "(4)컴퓨터활용분야decisionsupportsystem)등은경영자가신속한의사결정을할수있도록도와준다.하는전자결재시스템이도입되어업무처리의효율을높이고있다.정보의활용[4단계]기업경영분야행정분야민원처리,각종행정통계등의여러가지행정관련정보를데이터베이스화하여활용하고있다.소비자와기업모두에게이익을주고있다.(6)인터넷의문)산업분야컴퓨터를이용하여제품의수주에서부터설계제조,검사출하에이르기까지의모든제품공정을자동화하여생산성향상과원가절감,불량품감소등으로제품의경쟁력을높이고있다-개인정보-사이버지도,교육계획등에활용하는방식-인터넷-컴퓨-불건전정교육분야•컴퓨터보조교육(cai:computerassistedistruction):강의나학습에컴퓨터를이용하는것으·컴퓨터관리교육(cmi:computermanagedinstruction):학습지도자료의정리.성적관리,진로로,학습자가프로그램을이용하여개인차에따라학습속도와학습시간을조절하여학습하는방식-사이버-언어휘워드프로세스,그래픽소프트웨어등의활용-불건전-저작-해킹-스기타분야(5)정보처리절차정보의전략적기획이란정보관리의가장중요한단계이며보통은5w2h에따라기획을한다.what(무엇을?):정보입수대상의명확화[1단계]when(언제까지?):정보요구(수집)시점고려who(누가?):정보활동주체확정where(어디에서?):정보소스(정보원)파악정보의기획why(왜?):정보의필요목적을염두에둠how(어떻게?):정보수집방법검토howmuch(얼마나?):정보수집의비용성(효용성)중시[2단계]다양한정보원으로부터목적에적합한정보를입수하는것이다.·정보를관리할때는다음세가지를고려해야한다.태로바꾸는일이다.[3단계][정보관리의3원칙]목적성:사용목적을명확히설명해야한다.유용성:즉시사용할수있어야한다.0출@정보의수집·수집된다양한형태의정보(보통생정보)를어떤문제해결이나결론도출에사용하기쉬운형정보의관리용이성:쉽게작업할수있어야한다.300제2편직업기초능력평가",
+        "issue_codes": [
+          "BELOW_RECOMMENDED_RESOLUTION",
+          "ASPECT_RATIO_OUT_OF_PROFILE",
+          "OCR_LOW_CONFIDENCE"
+        ]
+      },
+      "ocr_cache_hit": false
+    },
+    "uvdoc_bilinear_original": {
+      "success": true,
+      "source": "bbox_original",
+      "reason": null,
+      "diagnostics": {
+        "success": true,
+        "reason": null,
+        "processing_ms": 274.3051000870764,
+        "input_size": [
+          1433,
+          2473
+        ],
+        "output_size": [
+          1433,
+          2473
+        ],
+        "diagnostics": {
+          "load_count": 1,
+          "load_ms": 1166.7399000143632,
+          "model_input_size": [
+            488,
+            712
+          ],
+          "grid_shape": [
+            1,
+            2,
+            45,
+            31
+          ],
+          "sampling_mode": "bilinear"
+        }
+      },
+      "artifact_path": "experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174943\\left\\variants\\uvdoc_bilinear_original.png",
+      "artifact_sha256": "6f05256b98f55c86f551f9415c0e77aacae7c7abff21fbb1b5234cf4e9924f8c",
+      "image_metrics": {
+        "size": [
+          1433,
+          2473
+        ],
+        "aspect_ratio": 0.5794581479983826,
+        "full": {
+          "laplacian_variance": 334.6526794433594,
+          "tenengrad_mean": 9860.4580078125
+        },
+        "inner_5_percent": {
+          "laplacian_variance": 412.00775146484375,
+          "tenengrad_mean": 12103.3583984375
+        },
+        "proxy_long_edge": 1600,
+        "proxy_1600": {
+          "laplacian_variance": 683.1200561523438,
+          "tenengrad_mean": 10259.484375
+        }
+      },
+      "ocr_record_path": "experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174943\\left\\ocr\\uvdoc_bilinear_original.json",
+      "ocr_metrics": {
+        "token_count": 45,
+        "non_whitespace_character_count": 1003,
+        "mean_confidence": 0.9488454262415568,
+        "median_confidence": 0.9664050340652466,
+        "min_confidence": 0.6053543090820312,
+        "p10_confidence": 0.9119022369384766,
+        "low_confidence_count": 0,
+        "low_confidence_rate": 0.0,
+        "ocr_processing_ms": 28061.262300005183,
+        "normalized_text": "(4)컴퓨터활용분야·경영정보시스템(mis:managementinformationsystem)이나의사결정지원시스(ss:decisionsupportsystem)등은경영자가신속한의사결정을할수있도록도와준다.기업경영분야·최근는생산에서소비과퓨로처리는자상거래:ectricommc하는전자결재시스템이도입되어업무처리의효율을높이고있다.·사무자동화(a:oficeutomatin)가이루어져문서작성과보관은물론컴퓨터로업무를같·가활성화되어기업은물비용을줄고소비는고질좋은제품을집서구매할수있어소비자와기업모두에게이익을주고있다행정분야민원처리,각종행정통계등의여러가지행정관련정보를데이터베이스화하여활용하고있다.산업분야컴퓨터를이용하여제품의수주에서부터설계,제조,검사,출하에이르기까지의모든제품공정을자동화하여생산성향상과원가절감,불량품감소등으로제품의경쟁력을높이고있다.·컴퓨터보조교육(cai:computerassistedinstruction):강의나학습에컴퓨터를이용하는것으·컴퓨터관리교육(cmi:computermanagedinstruction):학습지도자료의정리,성적관리,진로교육분야로,학습자가프로그램을이용하여개인차에따라학습속도와학습시간을조절하여학습하는방식지도,교육계획등에활용하는방식기타분야워드프로세스,그래픽소프트웨어등의활용(5)정보처리절차정보의전략적기획이란정보관리의가장중요한단계이며보통은5w2h에따라기획을한다.what(무엇을?):정보입수대상의명확화[1단계]when(언제까지?):정보요구(수집)시점고려where(어디에서?):정보소스(정보원)파악정보의기획why(왜?):정보의필요목적을염두에둠who(누가?):정보활동주체확정how(어떻게?):정보수집방법검토howmuch(얼마나?):정보수집의비용성(효용성)중시[2단계]다양한정보원으로부터목적에적합한정보를입수하는것이다.·수집된다양한형태의정보(보통생정보)를어떤문제해결이나결론도출에사용하기쉬운형태로바꾸는일이다·정보를관리할때는다음세가지를고려해야한다.정보의수집정보의관리[3단계][정보관리의3원칙]목적성:사용목적을명확히설명해야한다.용이성:쉽게작업할수있어야한다.유용성:즉시사용할수있어야한다.300제2편직업기초능력평가",
+        "issue_codes": [
+          "BELOW_RECOMMENDED_RESOLUTION",
+          "ASPECT_RATIO_OUT_OF_PROFILE"
+        ]
+      },
+      "ocr_cache_hit": false
+    },
+    "uvdoc_bilinear_neutralized": {
+      "success": true,
+      "source": "bbox_neutralized",
+      "reason": null,
+      "diagnostics": {
+        "success": true,
+        "reason": null,
+        "processing_ms": 254.34650003444403,
+        "input_size": [
+          1433,
+          2473
+        ],
+        "output_size": [
+          1433,
+          2473
+        ],
+        "diagnostics": {
+          "load_count": 1,
+          "load_ms": 1166.7399000143632,
+          "model_input_size": [
+            488,
+            712
+          ],
+          "grid_shape": [
+            1,
+            2,
+            45,
+            31
+          ],
+          "sampling_mode": "bilinear"
+        }
+      },
+      "artifact_path": "experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174943\\left\\variants\\uvdoc_bilinear_neutralized.png",
+      "artifact_sha256": "2d254d13e143607186c11c923d6fc9d83b08b86099e6a9f17e05ad2978a54f1d",
+      "image_metrics": {
+        "size": [
+          1433,
+          2473
+        ],
+        "aspect_ratio": 0.5794581479983826,
+        "full": {
+          "laplacian_variance": 328.6886291503906,
+          "tenengrad_mean": 10212.654296875
+        },
+        "inner_5_percent": {
+          "laplacian_variance": 400.0246887207031,
+          "tenengrad_mean": 12289.279296875
+        },
+        "proxy_long_edge": 1600,
+        "proxy_1600": {
+          "laplacian_variance": 688.1123046875,
+          "tenengrad_mean": 11007.763671875
+        }
+      },
+      "ocr_record_path": "experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174943\\left\\ocr\\uvdoc_bilinear_neutralized.json",
+      "ocr_metrics": {
+        "token_count": 45,
+        "non_whitespace_character_count": 1040,
+        "mean_confidence": 0.9759859244028727,
+        "median_confidence": 0.9812250137329102,
+        "min_confidence": 0.8992910385131836,
+        "p10_confidence": 0.941063916683197,
+        "low_confidence_count": 0,
+        "low_confidence_rate": 0.0,
+        "ocr_processing_ms": 29345.010299934074,
+        "normalized_text": "(4)컴퓨터활용분야·경영정보시스템(mis:managementinformationsystem)이나의사결정지원시스템(bss:·사무자동화(oa:officeautomation)가이루어져문서작성과보관은물론컴퓨터로업무를결재·최근에는생산에서소비까지전과정을컴퓨터로처리하는전자상거래(ec:electroniccommerce)decisionsupportsystem)등은경영자가신속한의사결정을할수있도록도와준다.기업경영분야하는전자결재시스템이도입되어업무처리의효율을높이고있다.가활성화되어기업은물류비용을줄이고,소비자는값싸고질좋은제품을집에서구매할수있어소비자와기업모두에게이익을주고있다.행정분야민원처리,각종행정통계등의여러가지행정관련정보를데이터베이스화하여활용하고있다.산업분야컴퓨터를이용하여제품의수주에서부터설계,제조,검사,출하에이르기까지의모든제품공정을자동화하여생산성향상과원가절감,불량품감소등으로제품의경쟁력을높이고있다.·컴퓨터보조교육(cai:computerassistedinstruction):강의나학습에컴퓨터를이용하는것으교육분야·컴퓨터관리교육(cmi:computermanagedinstruction):학습지도자료의정리,성적관리,진로로,학습자가프로그램을이용하여개인차에따라학습속도와학습시간을조절하여학습하는방식지도,교육계획등에활용하는방식기타분야워드프로세스,그래픽소프트웨어등의활용(5)정보처리절차정보의전략적기획이란정보관리의가장중요한단계이며보통은5w2h에따라기획을한다.what(무엇을?):정보입수대상의명확화[1단계]when(언제까지?):정보요귀(수집)시점고려where(어디에서?):정보소스(정보원)파악정보의기획why(왜?):정보의필요목적을염두에둠who(누가?):정보활동주체확정how(어떻게?):정보수집방법검토howmuch(얼마나?):정보수집의비용성(효용성)중시[2단계]다양한정보원으로부터목적에적합한정보를입수하는것이다.·수집된다양한형태의정보(보통생정보)를어떤문제해결이나결론도출에사용하기쉬운형태로바꾸는일이다.·정보를관리할때는다음세가지를고려해야한다.정보의관리[정보관리의3원칙]정보의수집[3단계]목적성:사용목적을명확히설명해야한다.용이성:쉽게작업할수있어야한다.유용성:즉시사용할수있어야한다.300제2편직업기초능력평가",
+        "issue_codes": [
+          "BELOW_RECOMMENDED_RESOLUTION",
+          "ASPECT_RATIO_OUT_OF_PROFILE"
+        ]
+      },
+      "ocr_cache_hit": false
+    },
+    "uvdoc_bicubic_original": {
+      "success": true,
+      "source": "bbox_original",
+      "reason": null,
+      "diagnostics": {
+        "success": true,
+        "reason": null,
+        "processing_ms": 393.77139997668564,
+        "input_size": [
+          1433,
+          2473
+        ],
+        "output_size": [
+          1433,
+          2473
+        ],
+        "diagnostics": {
+          "load_count": 1,
+          "load_ms": 1166.7399000143632,
+          "model_input_size": [
+            488,
+            712
+          ],
+          "grid_shape": [
+            1,
+            2,
+            45,
+            31
+          ],
+          "sampling_mode": "bicubic"
+        }
+      },
+      "artifact_path": "experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174943\\left\\variants\\uvdoc_bicubic_original.png",
+      "artifact_sha256": "1b7fcb276f3cd50eb0d7a0ea01eb5e99c26dc5912dad5bf024258ab5708fc7d1",
+      "image_metrics": {
+        "size": [
+          1433,
+          2473
+        ],
+        "aspect_ratio": 0.5794581479983826,
+        "full": {
+          "laplacian_variance": 489.458251953125,
+          "tenengrad_mean": 13221.14453125
+        },
+        "inner_5_percent": {
+          "laplacian_variance": 602.6481323242188,
+          "tenengrad_mean": 16235.833984375
+        },
+        "proxy_long_edge": 1600,
+        "proxy_1600": {
+          "laplacian_variance": 980.5960083007812,
+          "tenengrad_mean": 12693.2314453125
+        }
+      },
+      "ocr_record_path": "experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174943\\left\\ocr\\uvdoc_bicubic_original.json",
+      "ocr_metrics": {
+        "token_count": 45,
+        "non_whitespace_character_count": 999,
+        "mean_confidence": 0.9476359287897745,
+        "median_confidence": 0.9656683802604675,
+        "min_confidence": 0.6092953681945801,
+        "p10_confidence": 0.9117817163467408,
+        "low_confidence_count": 0,
+        "low_confidence_rate": 0.0,
+        "ocr_processing_ms": 28137.471899972297,
+        "normalized_text": "(4)컴퓨터활용분야·경영정보시스템(mis:managementinformationsystem)이나의사결정지원시스(ss:decisionsupportsystem)등은경영자가신속한의사결정을할수있도록도와준다.기업경영분야·최근는생산에서소비과퓨로처하는자거티:ectoicomc하는전자결재시스템이도입되어업무처리의효율을높이고있다.·사무자동화(a:ofcatomaon)가이루어져문서작성과보은물론컴퓨터로업무를겁·가활성화되어기업은물비용을줄고소비는값고질좋은제품을집에서구매할수있어소비자와기업모두에게이익을주고있다행정분야민원처리,각종행정통계등의여러가지행정관련정보를데이터베이스화하여활용하고있다.산업분야컴퓨터를이용하여제품의수주에서부터설계,제조,검사,출하에이르기까지의모든제품공정을자동화하여생산성향상과원가절감,불량품감소등으로제품의경쟁력을높이고있다.·컴퓨터보조교육(cai:computerassistedinstruction):강의나학습에컴퓨터를이용하는것으·컴퓨터관리교육(cmi:computermanagedinstruction):학습지도자료의정리,성적관리,진로교육분야로,학습자가프로그램을이용하여개인차에따라학습속도와학습시간을조절하여학습하는방식지도,교육계획등에활용하는방식기타분야워드프로세스,그래픽소프트웨어등의활용(5)정보처리절차정보의전략적기획이란정보관리의가장중요한단계이며보통은5w2h에따라기획을한다.what(무엇을?):정보입수대상의명확화[1단계]when(언제까지?):정보요구(수집)시점고려where(어디에서?):정보소스(정보원)파악정보의기획why(왜?):정보의필요목적을염두에둠who(누가?):정보활동주체확정how(어떻게?):정보수집방법검토howmuch(얼마나?):정보수집의비용성(효용성)중시[2단계]다양한정보원으로부터목적에적합한정보를입수하는것이다.·수집된다양한형태의정보(보통생정보)를어떤문제해결이나결론도출에사용하기쉬운형태로바꾸는일이다·정보를관리할때는다음세가지를고려해야한다.정보의수집정보의관리[3단계][정보관리의3원칙]목적성:사용목적을명확히설명해야한다.용이성:쉽게작업할수있어야한다.유용성:즉시사용할수있어야한다.300제2편직업기초능력평가",
+        "issue_codes": [
+          "BELOW_RECOMMENDED_RESOLUTION",
+          "ASPECT_RATIO_OUT_OF_PROFILE"
+        ]
+      },
+      "ocr_cache_hit": false
+    },
+    "uvdoc_bicubic_neutralized": {
+      "success": true,
+      "source": "bbox_neutralized",
+      "reason": null,
+      "diagnostics": {
+        "success": true,
+        "reason": null,
+        "processing_ms": 401.5463999239728,
+        "input_size": [
+          1433,
+          2473
+        ],
+        "output_size": [
+          1433,
+          2473
+        ],
+        "diagnostics": {
+          "load_count": 1,
+          "load_ms": 1166.7399000143632,
+          "model_input_size": [
+            488,
+            712
+          ],
+          "grid_shape": [
+            1,
+            2,
+            45,
+            31
+          ],
+          "sampling_mode": "bicubic"
+        }
+      },
+      "artifact_path": "experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174943\\left\\variants\\uvdoc_bicubic_neutralized.png",
+      "artifact_sha256": "947affe3f6c7826b7f7688c7826c1d63a459ed84b8b51f3957f811403bcf2144",
+      "image_metrics": {
+        "size": [
+          1433,
+          2473
+        ],
+        "aspect_ratio": 0.5794581479983826,
+        "full": {
+          "laplacian_variance": 480.2303771972656,
+          "tenengrad_mean": 13717.0068359375
+        },
+        "inner_5_percent": {
+          "laplacian_variance": 585.3895874023438,
+          "tenengrad_mean": 16563.31640625
+        },
+        "proxy_long_edge": 1600,
+        "proxy_1600": {
+          "laplacian_variance": 990.8742065429688,
+          "tenengrad_mean": 13642.77734375
+        }
+      },
+      "ocr_record_path": "experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174943\\left\\ocr\\uvdoc_bicubic_neutralized.json",
+      "ocr_metrics": {
+        "token_count": 45,
+        "non_whitespace_character_count": 1039,
+        "mean_confidence": 0.9729353944460551,
+        "median_confidence": 0.9752708077430725,
+        "min_confidence": 0.9302893280982971,
+        "p10_confidence": 0.9475258946418762,
+        "low_confidence_count": 0,
+        "low_confidence_rate": 0.0,
+        "ocr_processing_ms": 28735.83569994662,
+        "normalized_text": "(4)컴퓨터활용분야·경영정보시스템(mis:managementinformationsystem)이나의사결정지원시스템(bss:·사무자동화(oa:officeautomation)가이루어져문서작성과보관은물론컴퓨터로업무를결재·최근에는생산에서소비까지전과정을컴퓨터로처리하는전자상거래(ec:electroniccommerce)decisionsupporsystem)등은경영자가신속한의사결정을할수있도록도와준다.기업경영분야하는전자결재시스템이도입되어업무처리의효율을높이고있다.가활성화되어기업은물류비용을줄이고,소비자는값싸고질좋은제품을집에서구매할수있어소비자와기업모두에게이익을주고있다.행정분야민원처리,각종행정통계등의여러가지행정관련정보를데이터베이스화하여활용하고있다.산업분야컴퓨터를이용하여제품의수주에서부터설계,제조,검사,출하에이르기까지의모든제품공정을자동화하여생산성향상과원가절감,불량품감소등으로제품의경쟁력을높이고있다.·컴퓨터보조교육(cai:computerassistedinstruction):강의나학습에컴퓨터를이용하는것으·컴퓨터관리교육(cmi:computermanagedinstruction):학습지도자료의정리,성적관리,진로교육분야로,학습자가프로그램을이용하여개인차에따라학습속도와학습시간을조절하여학습하는방식지도,교육계획등에활용하는방식기타분야워드프로세스,그래픽소프트웨어등의활용(5)정보처리절차정보의전략적기획이란정보관리의가장중요한단계이며보통은5w2h에따라기획을한다.what(무엇을?):정보입수대상의명확화[1단계]where(어디에서?):정보소스(정보원)파악when(언제까지?):정보요귀(수집)시점고려정보의기획why(왜?):정보의필요목적을염두에둠who(누가?):정보활동주체확정how(어떻게?):정보수집방법검토howmuch(얼마나?):정보수집의비용성(효용성)중시[2단계]다양한정보원으로부터목적에적합한정보를입수하는것이다.·수집된다양한형태의정보(보통생정보)를어떤문제해결이나결론도출에사용하기쉬운형태로바꾸는일이다.·정보를관리할때는다음세가지를고려해야한다.정보의관리[정보관리의3원칙]정보의수집[3단계]목적성:사용목적을명확히설명해야한다.용이성:쉽게작업할수있어야한다.유용성:즉시사용할수있어야한다.300제2편직업기초능력평가",
+        "issue_codes": [
+          "BELOW_RECOMMENDED_RESOLUTION",
+          "ASPECT_RATIO_OUT_OF_PROFILE"
+        ]
+      },
+      "ocr_cache_hit": false
+    },
+    "uvdoc_unsharp_original": {
+      "success": true,
+      "source": "uvdoc_bilinear_original",
+      "reason": null,
+      "diagnostics": {
+        "processor_name": "luminance_unsharp",
+        "processing_ms": 126.77589990198612,
+        "sigma": 1.0,
+        "amount": 0.5,
+        "threshold": 3,
+        "selected_pixel_ratio": 0.13200598564990382
+      },
+      "artifact_path": "experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174943\\left\\variants\\uvdoc_unsharp_original.png",
+      "artifact_sha256": "f1ef3c7ffe3138830b62ad9bd2324c3d0020c853420b934665ca7d42e0cae300",
+      "image_metrics": {
+        "size": [
+          1433,
+          2473
+        ],
+        "aspect_ratio": 0.5794581479983826,
+        "full": {
+          "laplacian_variance": 584.878662109375,
+          "tenengrad_mean": 14290.224609375
+        },
+        "inner_5_percent": {
+          "laplacian_variance": 720.5225219726562,
+          "tenengrad_mean": 17564.982421875
+        },
+        "proxy_long_edge": 1600,
+        "proxy_1600": {
+          "laplacian_variance": 1065.6624755859375,
+          "tenengrad_mean": 13441.7001953125
+        }
+      },
+      "ocr_record_path": "experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174943\\left\\ocr\\uvdoc_unsharp_original.json",
+      "ocr_metrics": {
+        "token_count": 45,
+        "non_whitespace_character_count": 1008,
+        "mean_confidence": 0.9509408818350897,
+        "median_confidence": 0.970404326915741,
+        "min_confidence": 0.5928751826286316,
+        "p10_confidence": 0.904364013671875,
+        "low_confidence_count": 0,
+        "low_confidence_rate": 0.0,
+        "ocr_processing_ms": 27684.910199954174,
+        "normalized_text": "(4)컴퓨터활용분야·경영정보시스템(mis:managementinformationsystem)이나의사결정지원시스템(ss:decisionsupportsystem)등은경영자가신속한의사결정을할수있도록도와준다.기업경영분야·최근는생산에소비과퓨로처하는자거티:ectoicomec하는전자결재시스템이도입되어업무처리의효율을높이고있다.소비자와기업모두에게이익을주고있다.행정분야민원처리,각종행정통계등의여러가지행정관련정보를데이터베이스화하여활용하고있다.산업분야컴퓨터를이용하여제품의수주에서부터설계,제조,검사,출하에이르기까지의모든제품공정을자·사무자동화(a:oficeutomatin)가이루어져문서작성과보관은물론컴퓨터로업무를겁·가활성화되어기업은물류비용을줄이고소비지는값고질좋은제품을집에서구매할수있어동화하여생산성향상과원가절감,불량품감소등으로제품의경쟁력을높이고있다.·컴퓨터보조교육(cai:computerassistedinstruction):강의나학습에컴퓨터를이용하는것으·컴퓨터관리교육(cmi:computermanagedinstruction):학습지도자료의정리,성적관리,진로교육분야로,학습자가프로그램을이용하여개인차에따라학습속도와학습시간을조절하여학습하는방식지도,교육계획등에활용하는방식기타분야워드프로세스,그래픽소프트웨어등의활용(5)정보처리절차정보의전략적기획이란정보관리의가장중요한단계이며보통은5w2h에따라기획을한다.what(무엇을?):정보입수대상의명확화[1단계]when(언제까지?):정보요구(수집)시점고려where(어디에서?):정보소스(정보원)파악정보의기획why(왜?):정보의필요목적을염두에둠who(누가?):정보활동주체확정how(어떻게?):정보수집방법검토howmuch(얼마나?):정보수집의비용성(효용성)중시[2단계]다양한정보원으로부터목적에적합한정보를입수하는것이다.·수집된다양한형태의정보(보통생정보)를어떤문제해결이나결론도출에사용하기쉬운형태로바꾸는일이다·정보를관리할때는다음세가지를고려해야한다.정보의수집[3단계][정보관리의3원칙]목적성:사용목적을명확히설명해야한다.용이성:쉽게작업할수있어야한다.정보의관리유용성:즉시사용할수있어야한다.300제2편직업기초능력평가",
+        "issue_codes": [
+          "BELOW_RECOMMENDED_RESOLUTION",
+          "ASPECT_RATIO_OUT_OF_PROFILE"
+        ]
+      },
+      "ocr_cache_hit": false
+    },
+    "uvdoc_unsharp_neutralized": {
+      "success": true,
+      "source": "uvdoc_bilinear_neutralized",
+      "reason": null,
+      "diagnostics": {
+        "processor_name": "luminance_unsharp",
+        "processing_ms": 34.67129997443408,
+        "sigma": 1.0,
+        "amount": 0.5,
+        "threshold": 3,
+        "selected_pixel_ratio": 0.1374935838810726
+      },
+      "artifact_path": "experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174943\\left\\variants\\uvdoc_unsharp_neutralized.png",
+      "artifact_sha256": "61fc5c6023f8a5793e9164a8e12b2b6ca2db9dd107e9981502f1001e10c2d02e",
+      "image_metrics": {
+        "size": [
+          1433,
+          2473
+        ],
+        "aspect_ratio": 0.5794581479983826,
+        "full": {
+          "laplacian_variance": 570.2094116210938,
+          "tenengrad_mean": 14637.5810546875
+        },
+        "inner_5_percent": {
+          "laplacian_variance": 694.9558715820312,
+          "tenengrad_mean": 17712.376953125
+        },
+        "proxy_long_edge": 1600,
+        "proxy_1600": {
+          "laplacian_variance": 1064.6727294921875,
+          "tenengrad_mean": 14294.6396484375
+        }
+      },
+      "ocr_record_path": "experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174943\\left\\ocr\\uvdoc_unsharp_neutralized.json",
+      "ocr_metrics": {
+        "token_count": 45,
+        "non_whitespace_character_count": 1039,
+        "mean_confidence": 0.9734266546037462,
+        "median_confidence": 0.9756423830986023,
+        "min_confidence": 0.9103767275810242,
+        "p10_confidence": 0.9456127047538757,
+        "low_confidence_count": 0,
+        "low_confidence_rate": 0.0,
+        "ocr_processing_ms": 28580.960700055584,
+        "normalized_text": "(4)컴퓨터활용분야·경영정보시스템(mis:managementinformationsystem)이나의사결정지원시스템(bss:·사무자동화(oa:officeautomation)가이루어져문서작성과보관은물론컴퓨터로업무를결재·최근에는생산에서소비까지전과정을컴퓨터로처리하는전자상거래(ec:electroniccommerce)decisionsupporsystem)등은경영자가신속한의사결정을할수있도록도와준다.기업경영분야하는전자결재시스템이도입되어업무처리의효율을높이고있다.가활성화되어기업은물류비용을줄이고,소비자는값싸고질좋은제품을집에서구매할수있어소비자와기업모두에게이익을주고있다.행정분야민원처리,각종행정통계등의여러가지행정관련정보를데이터베이스화하여활용하고있다.산업분야컴퓨터를이용하여제품의수주에서부터설계,제조,검사,출하에이르기까지의모든제품공정을자동화하여생산성향상과원가절감,불량품감소등으로제품의경쟁력을높이고있다.·컴퓨터보조교육(cai:computerassistedinstruction):강의나학습에컴퓨터를이용하는것으교육분야·컴퓨터관리교육(cmi:computermanagedinstruction):학습지도자료의정리,성적관리,진로로,학습자가프로그램을이용하여개인차에따라학습속도와학습시간을조절하여학습하는방식지도,교육계획등에활용하는방식기타분야워드프로세스,그래픽소프트웨어등의활용(5)정보처리절차정보의전략적기획이란정보관리의가장중요한단계이며보통은5w2h에따라기획을한다.what(무엇을?):정보입수대상의명확화[1단계]when(언제까지?):정보요귀(수집)시점고려where(어디에서?):정보소스(정보원)파악정보의기획why(왜?):정보의필요목적을염두에둠who(누가?):정보활동주체확정how(어떻게?):정보수집방법검토howmuch(얼마나?):정보수집의비용성(효용성)중시[2단계]다양한정보원으로부터목적에적합한정보를입수하는것이다.·수집된다양한형태의정보(보통생정보)를어떤문제해결이나결론도출에사용하기쉬운형태로바꾸는일이다.·정보를관리할때는다음세가지를고려해야한다.정보의관리[정보관리의3원칙]정보의수집[3단계]목적성:사용목적을명확히설명해야한다.용이성:쉽게작업할수있어야한다.유용성:즉시사용할수있어야한다.300제2편직업기초능력평가",
+        "issue_codes": [
+          "BELOW_RECOMMENDED_RESOLUTION",
+          "ASPECT_RATIO_OUT_OF_PROFILE"
+        ]
+      },
+      "ocr_cache_hit": false
+    }
+  }
+}

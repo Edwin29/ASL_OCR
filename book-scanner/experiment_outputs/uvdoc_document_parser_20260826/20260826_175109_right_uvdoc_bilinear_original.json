@@ -1,0 +1,408 @@
+{
+  "artifact_id": "20260826_175109_right_uvdoc_bilinear_original",
+  "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_175109\\right\\variants\\uvdoc_bilinear_original.png",
+  "image_sha256": "39cf2b775fb21efb54b7bd388aa67ec90066cf51a109d69be516356e72de0fca",
+  "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+  "cache_hit": true,
+  "page_ir": {
+    "document_manifest": {
+      "book_id": "20260826_175109_right_uvdoc_bilinear_original",
+      "page_count": 1
+    },
+    "engine_manifest": {
+      "general_ocr": {
+        "engine_id": "paddleocr-vl",
+        "engine_version": "3.7.0"
+      },
+      "pipeline": {
+        "mode": "paddleocr_vl_baseline"
+      },
+      "problem_unit_detection": {
+        "mode": "text_pattern_stem_and_answer_structure",
+        "engine_id": "text-pattern-problem-unit-detector"
+      }
+    },
+    "pages": [
+      {
+        "page_id": "p001",
+        "page_geometry": {
+          "width": 1657,
+          "height": 2776
+        },
+        "nodes": [
+          {
+            "node_id": "p001-vl001",
+            "bbox": {
+              "x": 75.0,
+              "y": 184.0,
+              "width": 855.0,
+              "height": 92.0
+            },
+            "normalized_bbox": {
+              "x": 0.045263,
+              "y": 0.066282,
+              "width": 0.515993,
+              "height": 0.033141
+            },
+            "reading_order_index": 0,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "header",
+              "vl_block_id": 0
+            },
+            "content_type": "TEXT",
+            "raw_text": "4 다음에 제시된 사례에서 각 사례에 맞는 제목을 바르게 적은 것은?",
+            "normalized_text": "4 다음에 제시된 사례에서 각 사례에 맞는 제목을 바르게 적은 것은?",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "4 다음에 제시된 사례에서 각 사례에 맞는 제목을 바르게 적은 것은?"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl002",
+            "bbox": {
+              "x": 1022.0,
+              "y": 218.0,
+              "width": 323.0,
+              "height": 52.0
+            },
+            "normalized_bbox": {
+              "x": 0.616777,
+              "y": 0.07853,
+              "width": 0.194931,
+              "height": 0.018732
+            },
+            "reading_order_index": 1,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "header",
+              "vl_block_id": 1
+            },
+            "content_type": "TEXT",
+            "raw_text": "【NCS 직업기초능력 이론 참고】",
+            "normalized_text": "【NCS 직업기초능력 이론 참고】",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "【NCS 직업기초능력 이론 참고】"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl003",
+            "bbox": {
+              "x": 134.0,
+              "y": 331.0,
+              "width": 1152.0,
+              "height": 439.0
+            },
+            "normalized_bbox": {
+              "x": 0.080869,
+              "y": 0.119236,
+              "width": 0.695232,
+              "height": 0.158141
+            },
+            "reading_order_index": 2,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 2
+            },
+            "content_type": "TEXT",
+            "raw_text": "(1) K 과장은 영업부에서 유능한 세일즈맨으로 인정받고 있었다. 그는 적극적인 성격과 좋은 인상으로 처음 만나는 상대와도 쉽게 친해질 만큼 인간관계가 좋은 편이다. 특별히 뛰어난 능력이 있는 것은 아니지만 고객의 어려움을 직접 해결해주고 인간적으로 고객을 대해왔기 때문에 실적도 패좋은 편이다. 설득력 있는 화술과 자사 제품에 대한 깊은 지식으로 제품을 판매하는 기술도 뛰어나다. 따라서 K 과장은 자신의 영업성적이나 기술에 대해 자신감을 갖고 있었다. 그런데 최근 들어 기존의 고객들이 하나 둘씩 계약을 해지하고, 새로운 고객들에 대한 제품 판매도 여의치 않게 되었다.",
+            "normalized_text": "(1) K 과장은 영업부에서 유능한 세일즈맨으로 인정받고 있었다. 그는 적극적인 성격과 좋은 인상으로 처음 만나는 상대와도 쉽게 친해질 만큼 인간관계가 좋은 편이다. 특별히 뛰어난 능력이 있는 것은 아니지만 고객의 어려움을 직접 해결해주고 인간적으로 고객을 대해왔기 때문에 실적도 패좋은 편이다. 설득력 있는 화술과 자사 제품에 대한 깊은 지식으로 제품을 판매하는 기술도 뛰어나다. 따라서 K 과장은 자신의 영업성적이나 기술에 대해 자신감을 갖고 있었다. 그런데 최근 들어 기존의 고객들이 하나 둘씩 계약을 해지하고, 새로운 고객들에 대한 제품 판매도 여의치 않게 되었다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "(1) K 과장은 영업부에서 유능한 세일즈맨으로 인정받고 있었다. 그는 적극적인 성격과 좋은 인상으로 처음 만나는 상대와도 쉽게 친해질 만큼 인간관계가 좋은 편이다. 특별히 뛰어난 능력이 있는 것은 아니지만 고객의 어려움을 직접 해결해주고 인간적으로 고객을 대해왔기 때문에 실적도 패좋은 편이다. 설득력 있는 화술과 자사 제품에 대한 깊은 지식으로 제품을 판매하는 기술도 뛰어나다. 따라서 K 과장은 자신의 영업성적이나 기술에 대해 자신감을 갖고 있었다. 그런데 최근 들어 기존의 고객들이 하나 둘씩 계약을 해지하고, 새로운 고객들에 대한 제품 판매도 여의치 않게 되었다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl004",
+            "bbox": {
+              "x": 145.0,
+              "y": 771.0,
+              "width": 1153.0,
+              "height": 566.0
+            },
+            "normalized_bbox": {
+              "x": 0.087508,
+              "y": 0.277738,
+              "width": 0.695836,
+              "height": 0.20389
+            },
+            "reading_order_index": 3,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 3
+            },
+            "content_type": "TEXT",
+            "raw_text": "(2) 가전제품을 생산하는 A기업과 B기업은 30년 전부터 라이벌 기업으로 항상 경쟁해 오고 있다. 그러나 A기업은 항상 B기업에게 1위 자리를 뺏기고 있는 상황이다. A기업은 1위 자리를 탈환하기 위해서 문제상황이 발생할 때마다 많은 비용과 인력을 투입하고 있지만, B기업을 따라잡을 수가 없었다. 그러던 중 외국의 대형 가전회사가 국내시장에 진출하게 되었고, 외국 기업의 국내가전시장의 잠식으로 A기업은 점점 더 판매부진을 겪게 되었다. 그러나 B기업은 기존과 같은 판매실적을 올리고 있었고, 앞으로 계속 판매실적이 증가할 것으로 예상되었다. 이러한 상황을 이상하게 여긴 A기업의 경영자는 B기업이 계속해서 판매실적을 유지할 수 있는 원동력이 무엇인지를 분석하게 하였고, 그 결과 B기업은 외국 회사가 국내에 들어오기 전부터 외국 기업의 진출에 따른 문제를 인식하고, 이에 대한 대책을 마련해 왔다는 것을 알게 되었다.",
+            "normalized_text": "(2) 가전제품을 생산하는 A기업과 B기업은 30년 전부터 라이벌 기업으로 항상 경쟁해 오고 있다. 그러나 A기업은 항상 B기업에게 1위 자리를 뺏기고 있는 상황이다. A기업은 1위 자리를 탈환하기 위해서 문제상황이 발생할 때마다 많은 비용과 인력을 투입하고 있지만, B기업을 따라잡을 수가 없었다. 그러던 중 외국의 대형 가전회사가 국내시장에 진출하게 되었고, 외국 기업의 국내가전시장의 잠식으로 A기업은 점점 더 판매부진을 겪게 되었다. 그러나 B기업은 기존과 같은 판매실적을 올리고 있었고, 앞으로 계속 판매실적이 증가할 것으로 예상되었다. 이러한 상황을 이상하게 여긴 A기업의 경영자는 B기업이 계속해서 판매실적을 유지할 수 있는 원동력이 무엇인지를 분석하게 하였고, 그 결과 B기업은 외국 회사가 국내에 들어오기 전부터 외국 기업의 진출에 따른 문제를 인식하고, 이에 대한 대책을 마련해 왔다는 것을 알게 되었다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "(2) 가전제품을 생산하는 A기업과 B기업은 30년 전부터 라이벌 기업으로 항상 경쟁해 오고 있다. 그러나 A기업은 항상 B기업에게 1위 자리를 뺏기고 있는 상황이다. A기업은 1위 자리를 탈환하기 위해서 문제상황이 발생할 때마다 많은 비용과 인력을 투입하고 있지만, B기업을 따라잡을 수가 없었다. 그러던 중 외국의 대형 가전회사가 국내시장에 진출하게 되었고, 외국 기업의 국내가전시장의 잠식으로 A기업은 점점 더 판매부진을 겪게 되었다. 그러나 B기업은 기존과 같은 판매실적을 올리고 있었고, 앞으로 계속 판매실적이 증가할 것으로 예상되었다. 이러한 상황을 이상하게 여긴 A기업의 경영자는 B기업이 계속해서 판매실적을 유지할 수 있는 원동력이 무엇인지를 분석하게 하였고, 그 결과 B기업은 외국 회사가 국내에 들어오기 전부터 외국 기업의 진출에 따른 문제를 인식하고, 이에 대한 대책을 마련해 왔다는 것을 알게 되었다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl005",
+            "bbox": {
+              "x": 133.0,
+              "y": 1337.0,
+              "width": 1170.0,
+              "height": 690.0
+            },
+            "normalized_bbox": {
+              "x": 0.080266,
+              "y": 0.481628,
+              "width": 0.706095,
+              "height": 0.248559
+            },
+            "reading_order_index": 4,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 4
+            },
+            "content_type": "TEXT",
+            "raw_text": "(3) P부장은 의류회사의 판매부서에서 근무하고 있다. 판매부서에서는 디자인과 소재가 타사 제품보다 상당히 개선된 신제품을 출시하였다. 신제품은 고급품 이미지와 함께 의류회사 전체적으로 크게 기대를 걸고 있는 상품이다. 그러나 그런 기대만큼 판매가 부진하다는 문제가 발생하였다. P부장은 담당책임자인 K과장을 불러 매상이 부진한 이유를 조사하라고 지시하였다. 며칠 후 K과장은 가격이 너무 비싸기 때문이라고 보고했다. P부장은 그렇게 간단한 이유 때문이 아니라고 생각하고, 판매부 직원들을 소집하여 판매부진에 대한 회의를 열었다. 회의에서 다양한 의견들이 제시되었고, 그러한 의견들을 종합한 결과, 판매부진의 원인들이 다음과 같이 제시되었다.\n“판매방식의 문제, 광고와 홍보 부족, 실용성 부족, 타사 제품에 비해 가격경쟁력 약화.” P부장은 이러한 원인들에 대한 해결책들을 찾아서 각 지점들에서 적용해보라는 지시를 내렸고, 그 원인은 광고와 홍보 부족 때문인 것으로 밝혀졌다. 결국 판매부서에서는 광고와 홍보를 위한 전략을 세웠고, 얼마 후 판매실적이 서서히 오르기 시작했다.",
+            "normalized_text": "(3) P부장은 의류회사의 판매부서에서 근무하고 있다. 판매부서에서는 디자인과 소재가 타사 제품보다 상당히 개선된 신제품을 출시하였다. 신제품은 고급품 이미지와 함께 의류회사 전체적으로 크게 기대를 걸고 있는 상품이다. 그러나 그런 기대만큼 판매가 부진하다는 문제가 발생하였다. P부장은 담당책임자인 K과장을 불러 매상이 부진한 이유를 조사하라고 지시하였다. 며칠 후 K과장은 가격이 너무 비싸기 때문이라고 보고했다. P부장은 그렇게 간단한 이유 때문이 아니라고 생각하고, 판매부 직원들을 소집하여 판매부진에 대한 회의를 열었다. 회의에서 다양한 의견들이 제시되었고, 그러한 의견들을 종합한 결과, 판매부진의 원인들이 다음과 같이 제시되었다.\n“판매방식의 문제, 광고와 홍보 부족, 실용성 부족, 타사 제품에 비해 가격경쟁력 약화.” P부장은 이러한 원인들에 대한 해결책들을 찾아서 각 지점들에서 적용해보라는 지시를 내렸고, 그 원인은 광고와 홍보 부족 때문인 것으로 밝혀졌다. 결국 판매부서에서는 광고와 홍보를 위한 전략을 세웠고, 얼마 후 판매실적이 서서히 오르기 시작했다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "(3) P부장은 의류회사의 판매부서에서 근무하고 있다. 판매부서에서는 디자인과 소재가 타사 제품보다 상당히 개선된 신제품을 출시하였다. 신제품은 고급품 이미지와 함께 의류회사 전체적으로 크게 기대를 걸고 있는 상품이다. 그러나 그런 기대만큼 판매가 부진하다는 문제가 발생하였다. P부장은 담당책임자인 K과장을 불러 매상이 부진한 이유를 조사하라고 지시하였다. 며칠 후 K과장은 가격이 너무 비싸기 때문이라고 보고했다. P부장은 그렇게 간단한 이유 때문이 아니라고 생각하고, 판매부 직원들을 소집하여 판매부진에 대한 회의를 열었다. 회의에서 다양한 의견들이 제시되었고, 그러한 의견들을 종합한 결과, 판매부진의 원인들이 다음과 같이 제시되었다.\n“판매방식의 문제, 광고와 홍보 부족, 실용성 부족, 타사 제품에 비해 가격경쟁력 약화.” P부장은 이러한 원인들에 대한 해결책들을 찾아서 각 지점들에서 적용해보라는 지시를 내렸고, 그 원인은 광고와 홍보 부족 때문인 것으로 밝혀졌다. 결국 판매부서에서는 광고와 홍보를 위한 전략을 세웠고, 얼마 후 판매실적이 서서히 오르기 시작했다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl006",
+            "bbox": {
+              "x": 123.0,
+              "y": 2022.0,
+              "width": 1188.0,
+              "height": 398.0
+            },
+            "normalized_bbox": {
+              "x": 0.074231,
+              "y": 0.728386,
+              "width": 0.716958,
+              "height": 0.143372
+            },
+            "reading_order_index": 5,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 5
+            },
+            "content_type": "TEXT",
+            "raw_text": "(4) 설계, 기술, 영업, 서비스 각 부문의 핵심인력들이 모여 최근에 경합하고 있는 C사에 추월당할 우려가 있다는 상황에 대해 회의가 열렸다. 설계부서에서는 우리 회사의 기술이 상대적으로 뒤처져 있는 것을 지적하였으며, 영업부서에서는 제품의 결합이 문제라고 지적하였다. 서비스 부서에서는 매출목표를 달성할 수 없다는 문제를 지적하였으며, 설계부서에는 고객의 클레임에 대한 대응이 너무 느리다는 지적이 있었다. 결국 이 회의는 서로의 문제만을 지적하고 특별한 해결책을 제시하지 못한 채 끝나고 말았다.",
+            "normalized_text": "(4) 설계, 기술, 영업, 서비스 각 부문의 핵심인력들이 모여 최근에 경합하고 있는 C사에 추월당할 우려가 있다는 상황에 대해 회의가 열렸다. 설계부서에서는 우리 회사의 기술이 상대적으로 뒤처져 있는 것을 지적하였으며, 영업부서에서는 제품의 결합이 문제라고 지적하였다. 서비스 부서에서는 매출목표를 달성할 수 없다는 문제를 지적하였으며, 설계부서에는 고객의 클레임에 대한 대응이 너무 느리다는 지적이 있었다. 결국 이 회의는 서로의 문제만을 지적하고 특별한 해결책을 제시하지 못한 채 끝나고 말았다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "(4) 설계, 기술, 영업, 서비스 각 부문의 핵심인력들이 모여 최근에 경합하고 있는 C사에 추월당할 우려가 있다는 상황에 대해 회의가 열렸다. 설계부서에서는 우리 회사의 기술이 상대적으로 뒤처져 있는 것을 지적하였으며, 영업부서에서는 제품의 결합이 문제라고 지적하였다. 서비스 부서에서는 매출목표를 달성할 수 없다는 문제를 지적하였으며, 설계부서에는 고객의 클레임에 대한 대응이 너무 느리다는 지적이 있었다. 결국 이 회의는 서로의 문제만을 지적하고 특별한 해결책을 제시하지 못한 채 끝나고 말았다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl007",
+            "bbox": {
+              "x": 1440.0,
+              "y": 150.0,
+              "width": 213.0,
+              "height": 2305.0
+            },
+            "normalized_bbox": {
+              "x": 0.86904,
+              "y": 0.054035,
+              "width": 0.128546,
+              "height": 0.830331
+            },
+            "reading_order_index": 6,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "aside_text",
+              "vl_block_id": 6
+            },
+            "content_type": "TEXT",
+            "raw_text": "제2편 직업기초능력평가 1의사소통능력 2수리능력 3문제해결능력 4자기개발능력 5자원관리능력 6대인관계능력 7정보능력 8기술능력 9조직이해능력 10직업윤리 살련모의고사 정답 및 해설",
+            "normalized_text": "제2편 직업기초능력평가 1의사소통능력 2수리능력 3문제해결능력 4자기개발능력 5자원관리능력 6대인관계능력 7정보능력 8기술능력 9조직이해능력 10직업윤리 살련모의고사 정답 및 해설",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "제2편 직업기초능력평가 1의사소통능력 2수리능력 3문제해결능력 4자기개발능력 5자원관리능력 6대인관계능력 7정보능력 8기술능력 9조직이해능력 10직업윤리 살련모의고사 정답 및 해설"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl008",
+            "bbox": {
+              "x": 1334.0,
+              "y": 2568.0,
+              "width": 52.0,
+              "height": 45.0
+            },
+            "normalized_bbox": {
+              "x": 0.805069,
+              "y": 0.925072,
+              "width": 0.031382,
+              "height": 0.01621
+            },
+            "reading_order_index": 7,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "number",
+              "vl_block_id": 8
+            },
+            "content_type": "TEXT",
+            "raw_text": "151",
+            "normalized_text": "151",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "151"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl009",
+            "bbox": {
+              "x": 1093.0,
+              "y": 2572.0,
+              "width": 209.0,
+              "height": 43.0
+            },
+            "normalized_bbox": {
+              "x": 0.659626,
+              "y": 0.926513,
+              "width": 0.126132,
+              "height": 0.01549
+            },
+            "reading_order_index": 8,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "footer",
+              "vl_block_id": 7
+            },
+            "content_type": "TEXT",
+            "raw_text": "제3장 문제해결능력",
+            "normalized_text": "제3장 문제해결능력",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "제3장 문제해결능력"
+              }
+            ]
+          }
+        ],
+        "reading_order": [
+          "p001-vl001",
+          "p001-vl002",
+          "p001-vl003",
+          "p001-vl004",
+          "p001-vl005",
+          "p001-vl006",
+          "p001-vl007",
+          "p001-vl008",
+          "p001-vl009"
+        ],
+        "parse_issues": [],
+        "quality_report": {
+          "status": "PASS_WITH_CORRECTION",
+          "issues": []
+        }
+      }
+    ],
+    "validation_summary": {
+      "schema_valid": true,
+      "validation_performed": true,
+      "coordinate_missing_node_count": 0,
+      "reading_order_cycle_count": 0,
+      "invalid_reading_order_ref_count": 0,
+      "missing_reading_order_node_count": 0,
+      "duplicate_node_id_count": 0,
+      "required_field_missing_count": 0,
+      "type_error_count": 0,
+      "bbox_invalid_count": 0,
+      "normalized_bbox_out_of_range_count": 0,
+      "confidence_invalid_count": 0,
+      "reading_order_index_mismatch_count": 0,
+      "invalid_embedded_text_ref_count": 0,
+      "quality_status_invalid_count": 0,
+      "issue_invalid_count": 0,
+      "page_count_mismatch": false,
+      "page_count": 1
+    }
+  },
+  "braille_evaluation": {
+    "schema_valid": true,
+    "validation_summary": {
+      "schema_valid": true,
+      "validation_performed": true,
+      "coordinate_missing_node_count": 0,
+      "reading_order_cycle_count": 0,
+      "invalid_reading_order_ref_count": 0,
+      "missing_reading_order_node_count": 0,
+      "duplicate_node_id_count": 0,
+      "required_field_missing_count": 0,
+      "type_error_count": 0,
+      "bbox_invalid_count": 0,
+      "normalized_bbox_out_of_range_count": 0,
+      "confidence_invalid_count": 0,
+      "reading_order_index_mismatch_count": 0,
+      "invalid_embedded_text_ref_count": 0,
+      "quality_status_invalid_count": 0,
+      "issue_invalid_count": 0,
+      "page_count_mismatch": false,
+      "page_count": 1
+    },
+    "page_count": 1,
+    "focus_item_count": 9,
+    "node_type_counts": {
+      "TEXT": 9
+    },
+    "preserved_text_character_count": 1380,
+    "normalized_content_text": "4다음에제시된사례에서각사례에맞는제목을바르게적은것은?【ncs직업기초능력이론참고】(1)k과장은영업부에서유능한세일즈맨으로인정받고있었다.그는적극적인성격과좋은인상으로처음만나는상대와도쉽게친해질만큼인간관계가좋은편이다.특별히뛰어난능력이있는것은아니지만고객의어려움을직접해결해주고인간적으로고객을대해왔기때문에실적도패좋은편이다.설득력있는화술과자사제품에대한깊은지식으로제품을판매하는기술도뛰어나다.따라서k과장은자신의영업성적이나기술에대해자신감을갖고있었다.그런데최근들어기존의고객들이하나둘씩계약을해지하고,새로운고객들에대한제품판매도여의치않게되었다.(2)가전제품을생산하는a기업과b기업은30년전부터라이벌기업으로항상경쟁해오고있다.그러나a기업은항상b기업에게1위자리를뺏기고있는상황이다.a기업은1위자리를탈환하기위해서문제상황이발생할때마다많은비용과인력을투입하고있지만,b기업을따라잡을수가없었다.그러던중외국의대형가전회사가국내시장에진출하게되었고,외국기업의국내가전시장의잠식으로a기업은점점더판매부진을겪게되었다.그러나b기업은기존과같은판매실적을올리고있었고,앞으로계속판매실적이증가할것으로예상되었다.이러한상황을이상하게여긴a기업의경영자는b기업이계속해서판매실적을유지할수있는원동력이무엇인지를분석하게하였고,그결과b기업은외국회사가국내에들어오기전부터외국기업의진출에따른문제를인식하고,이에대한대책을마련해왔다는것을알게되었다.(3)p부장은의류회사의판매부서에서근무하고있다.판매부서에서는디자인과소재가타사제품보다상당히개선된신제품을출시하였다.신제품은고급품이미지와함께의류회사전체적으로크게기대를걸고있는상품이다.그러나그런기대만큼판매가부진하다는문제가발생하였다.p부장은담당책임자인k과장을불러매상이부진한이유를조사하라고지시하였다.며칠후k과장은가격이너무비싸기때문이라고보고했다.p부장은그렇게간단한이유때문이아니라고생각하고,판매부직원들을소집하여판매부진에대한회의를열었다.회의에서다양한의견들이제시되었고,그러한의견들을종합한결과,판매부진의원인들이다음과같이제시되었다.“판매방식의문제,광고와홍보부족,실용성부족,타사제품에비해가격경쟁력약화.”p부장은이러한원인들에대한해결책들을찾아서각지점들에서적용해보라는지시를내렸고,그원인은광고와홍보부족때문인것으로밝혀졌다.결국판매부서에서는광고와홍보를위한전략을세웠고,얼마후판매실적이서서히오르기시작했다.(4)설계,기술,영업,서비스각부문의핵심인력들이모여최근에경합하고있는c사에추월당할우려가있다는상황에대해회의가열렸다.설계부서에서는우리회사의기술이상대적으로뒤처져있는것을지적하였으며,영업부서에서는제품의결합이문제라고지적하였다.서비스부서에서는매출목표를달성할수없다는문제를지적하였으며,설계부서에는고객의클레임에대한대응이너무느리다는지적이있었다.결국이회의는서로의문제만을지적하고특별한해결책을제시하지못한채끝나고말았다.제2편직업기초능력평가1의사소통능력2수리능력3문제해결능력4자기개발능력5자원관리능력6대인관계능력7정보능력8기술능력9조직이해능력10직업윤리살련모의고사정답및해설151제3장문제해결능력",
+    "parse_issue_codes": {},
+    "parse_issue_count": 0,
+    "braille_opportunity_count": 0,
+    "braille_translated_count": 0,
+    "braille_withheld_count": 0,
+    "braille_error_count": 0,
+    "braille_translation_rate": null,
+    "translations": []
+  },
+  "reference_comparison": {
+    "verdict": "NOT_APPLICABLE_NO_BRAILLE_CONTENT",
+    "same_content": false,
+    "cell_similarity": null,
+    "candidate_braille_opportunity_count": 0,
+    "reference_braille_opportunity_count": 31,
+    "translation_rate_delta": null,
+    "note": "Different source content: schema/translation coverage is comparable, exact braille cells are not."
+  }
+}

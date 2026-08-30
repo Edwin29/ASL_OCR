@@ -1,0 +1,2813 @@
+{
+  "artifact_id": "20260826_174958_right_overlap_none_none",
+  "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_174958_right_overlap_none_none.png",
+  "image_sha256": "65246f37dbed42e9d8a97adc2d1fd6eb5bbf0bbe71c9cac76ff66e58febec491",
+  "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+  "cache_hit": true,
+  "cache_source": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174958_right_overlap_none_none.json",
+  "page_ir": {
+    "document_manifest": {
+      "book_id": "20260826_174958_right_overlap_none_none",
+      "page_count": 1
+    },
+    "engine_manifest": {
+      "general_ocr": {
+        "engine_id": "paddleocr-vl",
+        "engine_version": "3.7.0"
+      },
+      "pipeline": {
+        "mode": "paddleocr_vl_baseline"
+      },
+      "problem_unit_detection": {
+        "mode": "text_pattern_stem_and_answer_structure",
+        "engine_id": "text-pattern-problem-unit-detector"
+      }
+    },
+    "pages": [
+      {
+        "page_id": "p001",
+        "page_geometry": {
+          "width": 2059,
+          "height": 2759
+        },
+        "nodes": [
+          {
+            "node_id": "p001-vl001",
+            "bbox": {
+              "x": 0.0,
+              "y": 598.0,
+              "width": 38.0,
+              "height": 41.0
+            },
+            "normalized_bbox": {
+              "x": 0.0,
+              "y": 0.216745,
+              "width": 0.018456,
+              "height": 0.01486
+            },
+            "reading_order_index": 0,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 0
+            },
+            "content_type": "TEXT",
+            "raw_text": "한다.",
+            "normalized_text": "한다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "한다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl002",
+            "bbox": {
+              "x": 0.0,
+              "y": 636.0,
+              "width": 114.0,
+              "height": 55.0
+            },
+            "normalized_bbox": {
+              "x": 0.0,
+              "y": 0.230518,
+              "width": 0.055367,
+              "height": 0.019935
+            },
+            "reading_order_index": 1,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 1
+            },
+            "content_type": "TEXT",
+            "raw_text": "하게 써야 한다.",
+            "normalized_text": "하게 써야 한다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "하게 써야 한다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl003",
+            "bbox": {
+              "x": 0.0,
+              "y": 672.0,
+              "width": 309.0,
+              "height": 154.0
+            },
+            "normalized_bbox": {
+              "x": 0.0,
+              "y": 0.243567,
+              "width": 0.150073,
+              "height": 0.055817
+            },
+            "reading_order_index": 2,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 2
+            },
+            "content_type": "TEXT",
+            "raw_text": ")—성명, 직위, 단체명, 예일 주소, 전화번호 등—",
+            "normalized_text": ")—성명, 직위, 단체명, 예일 주소, 전화번호 등—",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": ")—성명, 직위, 단체명, 예일 주소, 전화번호 등—"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl004",
+            "bbox": {
+              "x": 0.0,
+              "y": 768.0,
+              "width": 65.0,
+              "height": 46.0
+            },
+            "normalized_bbox": {
+              "x": 0.0,
+              "y": 0.278362,
+              "width": 0.031569,
+              "height": 0.016673
+            },
+            "reading_order_index": 3,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 3
+            },
+            "content_type": "TEXT",
+            "raw_text": "임한다.",
+            "normalized_text": "임한다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "임한다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl005",
+            "bbox": {
+              "x": 1.0,
+              "y": 808.0,
+              "width": 249.0,
+              "height": 85.0
+            },
+            "normalized_bbox": {
+              "x": 0.000486,
+              "y": 0.29286,
+              "width": 0.120932,
+              "height": 0.030808
+            },
+            "reading_order_index": 4,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 4
+            },
+            "content_type": "TEXT",
+            "raw_text": "!대화의 내용과 분위기를 경청한다.",
+            "normalized_text": "!대화의 내용과 분위기를 경청한다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "!대화의 내용과 분위기를 경청한다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl006",
+            "bbox": {
+              "x": 0.0,
+              "y": 842.0,
+              "width": 65.0,
+              "height": 42.0
+            },
+            "normalized_bbox": {
+              "x": 0.0,
+              "y": 0.305183,
+              "width": 0.031569,
+              "height": 0.015223
+            },
+            "reading_order_index": 5,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 5
+            },
+            "content_type": "TEXT",
+            "raw_text": "않는다.",
+            "normalized_text": "않는다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "않는다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl007",
+            "bbox": {
+              "x": 0.0,
+              "y": 904.0,
+              "width": 38.0,
+              "height": 39.0
+            },
+            "normalized_bbox": {
+              "x": 0.0,
+              "y": 0.327655,
+              "width": 0.018456,
+              "height": 0.014136
+            },
+            "reading_order_index": 6,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 6
+            },
+            "content_type": "TEXT",
+            "raw_text": "한다.",
+            "normalized_text": "한다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "한다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl008",
+            "bbox": {
+              "x": 0.0,
+              "y": 939.0,
+              "width": 160.0,
+              "height": 59.0
+            },
+            "normalized_bbox": {
+              "x": 0.0,
+              "y": 0.340341,
+              "width": 0.077708,
+              "height": 0.021385
+            },
+            "reading_order_index": 7,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 7
+            },
+            "content_type": "TEXT",
+            "raw_text": "물이 없는지 확인한다",
+            "normalized_text": "물이 없는지 확인한다",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "물이 없는지 확인한다"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl009",
+            "bbox": {
+              "x": 0.0,
+              "y": 978.0,
+              "width": 118.0,
+              "height": 50.0
+            },
+            "normalized_bbox": {
+              "x": 0.0,
+              "y": 0.354476,
+              "width": 0.057309,
+              "height": 0.018123
+            },
+            "reading_order_index": 8,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 8
+            },
+            "content_type": "TEXT",
+            "raw_text": "올리지 않는다",
+            "normalized_text": "올리지 않는다",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "올리지 않는다"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl010",
+            "bbox": {
+              "x": 0.0,
+              "y": 1078.0,
+              "width": 95.0,
+              "height": 46.0
+            },
+            "normalized_bbox": {
+              "x": 0.0,
+              "y": 0.390721,
+              "width": 0.046139,
+              "height": 0.016673
+            },
+            "reading_order_index": 9,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 9
+            },
+            "content_type": "TEXT",
+            "raw_text": "적 압축한다.",
+            "normalized_text": "적 압축한다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "적 압축한다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl011",
+            "bbox": {
+              "x": 0.0,
+              "y": 1115.0,
+              "width": 215.0,
+              "height": 62.0
+            },
+            "normalized_bbox": {
+              "x": 0.0,
+              "y": 0.404132,
+              "width": 0.10442,
+              "height": 0.022472
+            },
+            "reading_order_index": 10,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 10
+            },
+            "content_type": "TEXT",
+            "raw_text": "이러스 감염 여부를 점검한다.",
+            "normalized_text": "이러스 감염 여부를 점검한다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "이러스 감염 여부를 점검한다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl012",
+            "bbox": {
+              "x": 0.0,
+              "y": 1215.0,
+              "width": 115.0,
+              "height": 46.0
+            },
+            "normalized_bbox": {
+              "x": 0.0,
+              "y": 0.440377,
+              "width": 0.055852,
+              "height": 0.016673
+            },
+            "reading_order_index": 11,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 11
+            },
+            "content_type": "TEXT",
+            "raw_text": "끝나야 한다.",
+            "normalized_text": "끝나야 한다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "끝나야 한다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl013",
+            "bbox": {
+              "x": 0.0,
+              "y": 1253.0,
+              "width": 192.0,
+              "height": 53.0
+            },
+            "normalized_bbox": {
+              "x": 0.0,
+              "y": 0.45415,
+              "width": 0.093249,
+              "height": 0.01921
+            },
+            "reading_order_index": 12,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 12
+            },
+            "content_type": "TEXT",
+            "raw_text": "포츠맨십을 가져야 한다.",
+            "normalized_text": "포츠맨십을 가져야 한다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "포츠맨십을 가져야 한다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl014",
+            "bbox": {
+              "x": 0.0,
+              "y": 1488.0,
+              "width": 334.0,
+              "height": 106.0
+            },
+            "normalized_bbox": {
+              "x": 0.0,
+              "y": 0.539326,
+              "width": 0.162215,
+              "height": 0.03842
+            },
+            "reading_order_index": 13,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 13
+            },
+            "content_type": "TEXT",
+            "raw_text": "함되어 있는 성명, 주민등록번호 등의사",
+            "normalized_text": "함되어 있는 성명, 주민등록번호 등의사",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "함되어 있는 성명, 주민등록번호 등의사"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl015",
+            "bbox": {
+              "x": 0.0,
+              "y": 1580.0,
+              "width": 333.0,
+              "height": 100.0
+            },
+            "normalized_bbox": {
+              "x": 0.0,
+              "y": 0.572671,
+              "width": 0.161729,
+              "height": 0.036245
+            },
+            "reading_order_index": 14,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 14
+            },
+            "content_type": "TEXT",
+            "raw_text": "가른 정보와 용이하게 결합하여 식별할수",
+            "normalized_text": "가른 정보와 용이하게 결합하여 식별할수",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "가른 정보와 용이하게 결합하여 식별할수"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl016",
+            "bbox": {
+              "x": 403.0,
+              "y": 1018.0,
+              "width": 198.0,
+              "height": 97.0
+            },
+            "normalized_bbox": {
+              "x": 0.195726,
+              "y": 0.368974,
+              "width": 0.096163,
+              "height": 0.035158
+            },
+            "reading_order_index": 15,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "paragraph_title",
+              "vl_block_id": 17
+            },
+            "content_type": "TEXT",
+            "raw_text": "② 개인정보 유출방지대책",
+            "normalized_text": "② 개인정보 유출방지대책",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "② 개인정보 유출방지대책"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl017",
+            "bbox": {
+              "x": 413.0,
+              "y": 1030.0,
+              "width": 329.0,
+              "height": 117.0
+            },
+            "normalized_bbox": {
+              "x": 0.200583,
+              "y": 0.373324,
+              "width": 0.159786,
+              "height": 0.042407
+            },
+            "reading_order_index": 16,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 18
+            },
+            "content_type": "TEXT",
+            "raw_text": "-회원가입 시 이용약관을 확인한다.",
+            "normalized_text": "-회원가입 시 이용약관을 확인한다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "-회원가입 시 이용약관을 확인한다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl018",
+            "bbox": {
+              "x": 421.0,
+              "y": 1037.0,
+              "width": 494.0,
+              "height": 152.0
+            },
+            "normalized_bbox": {
+              "x": 0.204468,
+              "y": 0.375861,
+              "width": 0.239922,
+              "height": 0.055092
+            },
+            "reading_order_index": 17,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 19
+            },
+            "content_type": "TEXT",
+            "raw_text": "- 이용목적에 부합하는 정보를 요구하는지 확인한다.",
+            "normalized_text": "- 이용목적에 부합하는 정보를 요구하는지 확인한다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "- 이용목적에 부합하는 정보를 요구하는지 확인한다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl019",
+            "bbox": {
+              "x": 424.0,
+              "y": 1044.0,
+              "width": 699.0,
+              "height": 192.0
+            },
+            "normalized_bbox": {
+              "x": 0.205925,
+              "y": 0.378398,
+              "width": 0.339485,
+              "height": 0.06959
+            },
+            "reading_order_index": 18,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 20
+            },
+            "content_type": "TEXT",
+            "raw_text": "-비밀번호는 쉽게 알 수 있는 것으로 하지 말고, 정기적으로 교체한다.",
+            "normalized_text": "-비밀번호는 쉽게 알 수 있는 것으로 하지 말고, 정기적으로 교체한다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "-비밀번호는 쉽게 알 수 있는 것으로 하지 말고, 정기적으로 교체한다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl020",
+            "bbox": {
+              "x": 427.0,
+              "y": 1180.0,
+              "width": 294.0,
+              "height": 96.0
+            },
+            "normalized_bbox": {
+              "x": 0.207382,
+              "y": 0.427691,
+              "width": 0.142788,
+              "height": 0.034795
+            },
+            "reading_order_index": 19,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 21
+            },
+            "content_type": "TEXT",
+            "raw_text": "-정체불명의 사이트는 멀리한다.",
+            "normalized_text": "-정체불명의 사이트는 멀리한다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "-정체불명의 사이트는 멀리한다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl021",
+            "bbox": {
+              "x": 428.0,
+              "y": 1212.0,
+              "width": 378.0,
+              "height": 111.0
+            },
+            "normalized_bbox": {
+              "x": 0.207868,
+              "y": 0.43929,
+              "width": 0.183584,
+              "height": 0.040232
+            },
+            "reading_order_index": 20,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 22
+            },
+            "content_type": "TEXT",
+            "raw_text": "-가입해지 시 정보파기 여부를 확인한다.",
+            "normalized_text": "-가입해지 시 정보파기 여부를 확인한다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "-가입해지 시 정보파기 여부를 확인한다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl022",
+            "bbox": {
+              "x": 459.0,
+              "y": 1322.0,
+              "width": 640.0,
+              "height": 131.0
+            },
+            "normalized_bbox": {
+              "x": 0.222924,
+              "y": 0.479159,
+              "width": 0.310831,
+              "height": 0.047481
+            },
+            "reading_order_index": 21,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "paragraph_title",
+              "vl_block_id": 23
+            },
+            "content_type": "TEXT",
+            "raw_text": "전자상거래(Electronic Commerce)에 관한 설명으로 옳은 것만 묶은 것은?",
+            "normalized_text": "전자상거래(Electronic Commerce)에 관한 설명으로 옳은 것만 묶은 것은?",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "전자상거래(Electronic Commerce)에 관한 설명으로 옳은 것만 묶은 것은?"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl023",
+            "bbox": {
+              "x": 1210.0,
+              "y": 1274.0,
+              "width": 219.0,
+              "height": 73.0
+            },
+            "normalized_bbox": {
+              "x": 0.587664,
+              "y": 0.461762,
+              "width": 0.106362,
+              "height": 0.026459
+            },
+            "reading_order_index": 22,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 24
+            },
+            "content_type": "TEXT",
+            "raw_text": "【NCS 예제 변형】",
+            "normalized_text": "【NCS 예제 변형】",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "【NCS 예제 변형】"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl024",
+            "bbox": {
+              "x": 482.0,
+              "y": 1448.0,
+              "width": 433.0,
+              "height": 92.0
+            },
+            "normalized_bbox": {
+              "x": 0.234094,
+              "y": 0.524828,
+              "width": 0.210296,
+              "height": 0.033345
+            },
+            "reading_order_index": 23,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 25
+            },
+            "content_type": "TEXT",
+            "raw_text": "7. 내가 가진 소장품도 전자상거래 상품이 될 수 있다.",
+            "normalized_text": "7. 내가 가진 소장품도 전자상거래 상품이 될 수 있다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "7. 내가 가진 소장품도 전자상거래 상품이 될 수 있다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl025",
+            "bbox": {
+              "x": 483.0,
+              "y": 1500.0,
+              "width": 450.0,
+              "height": 85.0
+            },
+            "normalized_bbox": {
+              "x": 0.23458,
+              "y": 0.543675,
+              "width": 0.218553,
+              "height": 0.030808
+            },
+            "reading_order_index": 24,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 26
+            },
+            "content_type": "TEXT",
+            "raw_text": "L. 인터넷 쇼핑, 홈뱅킹 등도 전자상거래의 한 유형이다.",
+            "normalized_text": "L. 인터넷 쇼핑, 홈뱅킹 등도 전자상거래의 한 유형이다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "L. 인터넷 쇼핑, 홈뱅킹 등도 전자상거래의 한 유형이다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl026",
+            "bbox": {
+              "x": 484.0,
+              "y": 1555.0,
+              "width": 401.0,
+              "height": 75.0
+            },
+            "normalized_bbox": {
+              "x": 0.235066,
+              "y": 0.56361,
+              "width": 0.194755,
+              "height": 0.027184
+            },
+            "reading_order_index": 25,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 27
+            },
+            "content_type": "TEXT",
+            "raw_text": "C.공공기관이나 정부는 전자상거래를 할 수 없다.",
+            "normalized_text": "C.공공기관이나 정부는 전자상거래를 할 수 없다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "C.공공기관이나 정부는 전자상거래를 할 수 없다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl027",
+            "bbox": {
+              "x": 483.0,
+              "y": 1596.0,
+              "width": 549.0,
+              "height": 80.0
+            },
+            "normalized_bbox": {
+              "x": 0.23458,
+              "y": 0.57847,
+              "width": 0.266634,
+              "height": 0.028996
+            },
+            "reading_order_index": 26,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 28
+            },
+            "content_type": "TEXT",
+            "raw_text": "2. 팩스나 전자우편 등을 이용하게 되면 전자상거래가 될 수 없다.",
+            "normalized_text": "2. 팩스나 전자우편 등을 이용하게 되면 전자상거래가 될 수 없다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "2. 팩스나 전자우편 등을 이용하게 되면 전자상거래가 될 수 없다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl028",
+            "bbox": {
+              "x": 474.0,
+              "y": 1726.0,
+              "width": 74.0,
+              "height": 42.0
+            },
+            "normalized_bbox": {
+              "x": 0.230209,
+              "y": 0.625589,
+              "width": 0.03594,
+              "height": 0.015223
+            },
+            "reading_order_index": 27,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 29
+            },
+            "content_type": "TEXT",
+            "raw_text": "①7, 2",
+            "normalized_text": "①7, 2",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "①7, 2"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl029",
+            "bbox": {
+              "x": 881.0,
+              "y": 1707.0,
+              "width": 102.0,
+              "height": 39.0
+            },
+            "normalized_bbox": {
+              "x": 0.427878,
+              "y": 0.618702,
+              "width": 0.049539,
+              "height": 0.014136
+            },
+            "reading_order_index": 28,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 30
+            },
+            "content_type": "TEXT",
+            "raw_text": "② 7. C",
+            "normalized_text": "② 7. C",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "② 7. C"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl030",
+            "bbox": {
+              "x": 884.0,
+              "y": 1759.0,
+              "width": 101.0,
+              "height": 39.0
+            },
+            "normalized_bbox": {
+              "x": 0.429335,
+              "y": 0.63755,
+              "width": 0.049053,
+              "height": 0.014136
+            },
+            "reading_order_index": 29,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 31
+            },
+            "content_type": "TEXT",
+            "raw_text": "④し，こ",
+            "normalized_text": "④し，こ",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "④し，こ"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl031",
+            "bbox": {
+              "x": 479.0,
+              "y": 1848.0,
+              "width": 65.0,
+              "height": 38.0
+            },
+            "normalized_bbox": {
+              "x": 0.232637,
+              "y": 0.669808,
+              "width": 0.031569,
+              "height": 0.013773
+            },
+            "reading_order_index": 30,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 32
+            },
+            "content_type": "TEXT",
+            "raw_text": "정답 ①",
+            "normalized_text": "정답 ①",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "정답 ①"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl032",
+            "bbox": {
+              "x": 477.0,
+              "y": 1879.0,
+              "width": 921.0,
+              "height": 47.0
+            },
+            "normalized_bbox": {
+              "x": 0.231666,
+              "y": 0.681044,
+              "width": 0.447305,
+              "height": 0.017035
+            },
+            "reading_order_index": 31,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 33
+            },
+            "content_type": "TEXT",
+            "raw_text": "해설 공공기관이나 정부도 전자상거래를 할 수 있으며, 팩스나 전자우편 등을 이용하여 전자상거래를 할 수 있다.",
+            "normalized_text": "해설 공공기관이나 정부도 전자상거래를 할 수 있으며, 팩스나 전자우편 등을 이용하여 전자상거래를 할 수 있다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "해설 공공기관이나 정부도 전자상거래를 할 수 있으며, 팩스나 전자우편 등을 이용하여 전자상거래를 할 수 있다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl033",
+            "bbox": {
+              "x": 0.0,
+              "y": 1778.0,
+              "width": 349.0,
+              "height": 444.0
+            },
+            "normalized_bbox": {
+              "x": 0.0,
+              "y": 0.644436,
+              "width": 0.1695,
+              "height": 0.160928
+            },
+            "reading_order_index": 32,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "table",
+              "vl_block_id": 15
+            },
+            "content_type": "TABLE",
+            "raw_html": "<table><tr><td>내용</td></tr><tr><td>화번호, 생년월일, 출생지, 본적지, 성별, 국적등</td></tr><tr><td>출생지등</td></tr><tr><td>훈련 프로그램, 서클 활동, 상벌사항, 성격/행태보</td></tr><tr><td>드, 주식 및 채권, 수집품, 고가의 예술품, 보석등</td></tr></table>",
+            "row_count": 5,
+            "column_count": 1,
+            "cells": [
+              {
+                "cell_id": "p001-vl033-r01c01",
+                "row_index": 1,
+                "column_index": 1,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 0.0,
+                  "y": 1778.0,
+                  "width": 349.0,
+                  "height": 88.8
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl033-r01c01-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 0.0,
+                      "y": 1778.0,
+                      "width": 349.0,
+                      "height": 88.8
+                    },
+                    "normalized_bbox": {
+                      "x": 0.0,
+                      "y": 0.644436,
+                      "width": 0.1695,
+                      "height": 0.032186
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "내용",
+                    "normalized_text": "내용",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "내용"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": true
+              },
+              {
+                "cell_id": "p001-vl033-r02c01",
+                "row_index": 2,
+                "column_index": 1,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 0.0,
+                  "y": 1866.8,
+                  "width": 349.0,
+                  "height": 88.8
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl033-r02c01-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 0.0,
+                      "y": 1866.8,
+                      "width": 349.0,
+                      "height": 88.8
+                    },
+                    "normalized_bbox": {
+                      "x": 0.0,
+                      "y": 0.676622,
+                      "width": 0.1695,
+                      "height": 0.032186
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "화번호, 생년월일, 출생지, 본적지, 성별, 국적등",
+                    "normalized_text": "화번호, 생년월일, 출생지, 본적지, 성별, 국적등",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "화번호, 생년월일, 출생지, 본적지, 성별, 국적등"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl033-r03c01",
+                "row_index": 3,
+                "column_index": 1,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 0.0,
+                  "y": 1955.6,
+                  "width": 349.0,
+                  "height": 88.8
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl033-r03c01-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 0.0,
+                      "y": 1955.6,
+                      "width": 349.0,
+                      "height": 88.8
+                    },
+                    "normalized_bbox": {
+                      "x": 0.0,
+                      "y": 0.708808,
+                      "width": 0.1695,
+                      "height": 0.032186
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "출생지등",
+                    "normalized_text": "출생지등",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "출생지등"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl033-r04c01",
+                "row_index": 4,
+                "column_index": 1,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 0.0,
+                  "y": 2044.4,
+                  "width": 349.0,
+                  "height": 88.8
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl033-r04c01-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 0.0,
+                      "y": 2044.4,
+                      "width": 349.0,
+                      "height": 88.8
+                    },
+                    "normalized_bbox": {
+                      "x": 0.0,
+                      "y": 0.740993,
+                      "width": 0.1695,
+                      "height": 0.032186
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "훈련 프로그램, 서클 활동, 상벌사항, 성격/행태보",
+                    "normalized_text": "훈련 프로그램, 서클 활동, 상벌사항, 성격/행태보",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "훈련 프로그램, 서클 활동, 상벌사항, 성격/행태보"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl033-r05c01",
+                "row_index": 5,
+                "column_index": 1,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 0.0,
+                  "y": 2133.2,
+                  "width": 349.0,
+                  "height": 88.8
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl033-r05c01-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 0.0,
+                      "y": 2133.2,
+                      "width": 349.0,
+                      "height": 88.8
+                    },
+                    "normalized_bbox": {
+                      "x": 0.0,
+                      "y": 0.773179,
+                      "width": 0.1695,
+                      "height": 0.032186
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "드, 주식 및 채권, 수집품, 고가의 예술품, 보석등",
+                    "normalized_text": "드, 주식 및 채권, 수집품, 고가의 예술품, 보석등",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "드, 주식 및 채권, 수집품, 고가의 예술품, 보석등"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              }
+            ],
+            "structure_confidence": 0.9
+          },
+          {
+            "node_id": "p001-vl034",
+            "bbox": {
+              "x": 388.0,
+              "y": 306.0,
+              "width": 1017.0,
+              "height": 723.0
+            },
+            "normalized_bbox": {
+              "x": 0.188441,
+              "y": 0.11091,
+              "width": 0.493929,
+              "height": 0.262051
+            },
+            "reading_order_index": 33,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "table",
+              "vl_block_id": 16
+            },
+            "content_type": "TABLE",
+            "raw_html": "<table><tr><td>소득정보</td><td>연봉, 소득의 원천, 소득세 지불 현황 등</td></tr><tr><td>기타 수익정보</td><td>보험기입 현황, 수익자, 회사의 판공비 등</td></tr><tr><td>신용정보</td><td>대부상황, 저당, 신용카드, 담보설정 여부 등</td></tr><tr><td>고용정보</td><td>고용주, 회사 주소, 상관의 이름, 직무수행평가 기록, 훈련 기록, 상벌 기록 등</td></tr><tr><td>법적정보</td><td>전과 기록, 구속 기록, 이혼 기록 등</td></tr><tr><td>의료정보</td><td>가족병력 기록, 과거 의료 기록, 신체장애, 혈액형 등</td></tr><tr><td>조직정보</td><td>노조 가입, 정당 가입, 클럽 회원, 종교단체 활동 등</td></tr><tr><td>습관 및 취미 정보</td><td>흡연/음주량, 여가활동, 도박 성향, 비디오 대여 기록 등</td></tr></table>",
+            "row_count": 8,
+            "column_count": 2,
+            "cells": [
+              {
+                "cell_id": "p001-vl034-r01c01",
+                "row_index": 1,
+                "column_index": 1,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 388.0,
+                  "y": 306.0,
+                  "width": 508.5,
+                  "height": 90.375
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl034-r01c01-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 388.0,
+                      "y": 306.0,
+                      "width": 508.5,
+                      "height": 90.375
+                    },
+                    "normalized_bbox": {
+                      "x": 0.188441,
+                      "y": 0.11091,
+                      "width": 0.246965,
+                      "height": 0.032756
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "소득정보",
+                    "normalized_text": "소득정보",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "소득정보"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": true
+              },
+              {
+                "cell_id": "p001-vl034-r01c02",
+                "row_index": 1,
+                "column_index": 2,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 896.5,
+                  "y": 306.0,
+                  "width": 508.5,
+                  "height": 90.375
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl034-r01c02-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 896.5,
+                      "y": 306.0,
+                      "width": 508.5,
+                      "height": 90.375
+                    },
+                    "normalized_bbox": {
+                      "x": 0.435406,
+                      "y": 0.11091,
+                      "width": 0.246965,
+                      "height": 0.032756
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "연봉, 소득의 원천, 소득세 지불 현황 등",
+                    "normalized_text": "연봉, 소득의 원천, 소득세 지불 현황 등",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "연봉, 소득의 원천, 소득세 지불 현황 등"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": true
+              },
+              {
+                "cell_id": "p001-vl034-r02c01",
+                "row_index": 2,
+                "column_index": 1,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 388.0,
+                  "y": 396.375,
+                  "width": 508.5,
+                  "height": 90.375
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl034-r02c01-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 388.0,
+                      "y": 396.375,
+                      "width": 508.5,
+                      "height": 90.375
+                    },
+                    "normalized_bbox": {
+                      "x": 0.188441,
+                      "y": 0.143666,
+                      "width": 0.246965,
+                      "height": 0.032756
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "기타 수익정보",
+                    "normalized_text": "기타 수익정보",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "기타 수익정보"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl034-r02c02",
+                "row_index": 2,
+                "column_index": 2,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 896.5,
+                  "y": 396.375,
+                  "width": 508.5,
+                  "height": 90.375
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl034-r02c02-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 896.5,
+                      "y": 396.375,
+                      "width": 508.5,
+                      "height": 90.375
+                    },
+                    "normalized_bbox": {
+                      "x": 0.435406,
+                      "y": 0.143666,
+                      "width": 0.246965,
+                      "height": 0.032756
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "보험기입 현황, 수익자, 회사의 판공비 등",
+                    "normalized_text": "보험기입 현황, 수익자, 회사의 판공비 등",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "보험기입 현황, 수익자, 회사의 판공비 등"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl034-r03c01",
+                "row_index": 3,
+                "column_index": 1,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 388.0,
+                  "y": 486.75,
+                  "width": 508.5,
+                  "height": 90.375
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl034-r03c01-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 388.0,
+                      "y": 486.75,
+                      "width": 508.5,
+                      "height": 90.375
+                    },
+                    "normalized_bbox": {
+                      "x": 0.188441,
+                      "y": 0.176423,
+                      "width": 0.246965,
+                      "height": 0.032756
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "신용정보",
+                    "normalized_text": "신용정보",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "신용정보"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl034-r03c02",
+                "row_index": 3,
+                "column_index": 2,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 896.5,
+                  "y": 486.75,
+                  "width": 508.5,
+                  "height": 90.375
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl034-r03c02-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 896.5,
+                      "y": 486.75,
+                      "width": 508.5,
+                      "height": 90.375
+                    },
+                    "normalized_bbox": {
+                      "x": 0.435406,
+                      "y": 0.176423,
+                      "width": 0.246965,
+                      "height": 0.032756
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "대부상황, 저당, 신용카드, 담보설정 여부 등",
+                    "normalized_text": "대부상황, 저당, 신용카드, 담보설정 여부 등",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "대부상황, 저당, 신용카드, 담보설정 여부 등"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl034-r04c01",
+                "row_index": 4,
+                "column_index": 1,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 388.0,
+                  "y": 577.125,
+                  "width": 508.5,
+                  "height": 90.375
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl034-r04c01-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 388.0,
+                      "y": 577.125,
+                      "width": 508.5,
+                      "height": 90.375
+                    },
+                    "normalized_bbox": {
+                      "x": 0.188441,
+                      "y": 0.209179,
+                      "width": 0.246965,
+                      "height": 0.032756
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "고용정보",
+                    "normalized_text": "고용정보",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "고용정보"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl034-r04c02",
+                "row_index": 4,
+                "column_index": 2,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 896.5,
+                  "y": 577.125,
+                  "width": 508.5,
+                  "height": 90.375
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl034-r04c02-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 896.5,
+                      "y": 577.125,
+                      "width": 508.5,
+                      "height": 90.375
+                    },
+                    "normalized_bbox": {
+                      "x": 0.435406,
+                      "y": 0.209179,
+                      "width": 0.246965,
+                      "height": 0.032756
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "고용주, 회사 주소, 상관의 이름, 직무수행평가 기록, 훈련 기록, 상벌 기록 등",
+                    "normalized_text": "고용주, 회사 주소, 상관의 이름, 직무수행평가 기록, 훈련 기록, 상벌 기록 등",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "고용주, 회사 주소, 상관의 이름, 직무수행평가 기록, 훈련 기록, 상벌 기록 등"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl034-r05c01",
+                "row_index": 5,
+                "column_index": 1,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 388.0,
+                  "y": 667.5,
+                  "width": 508.5,
+                  "height": 90.375
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl034-r05c01-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 388.0,
+                      "y": 667.5,
+                      "width": 508.5,
+                      "height": 90.375
+                    },
+                    "normalized_bbox": {
+                      "x": 0.188441,
+                      "y": 0.241935,
+                      "width": 0.246965,
+                      "height": 0.032756
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "법적정보",
+                    "normalized_text": "법적정보",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "법적정보"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl034-r05c02",
+                "row_index": 5,
+                "column_index": 2,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 896.5,
+                  "y": 667.5,
+                  "width": 508.5,
+                  "height": 90.375
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl034-r05c02-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 896.5,
+                      "y": 667.5,
+                      "width": 508.5,
+                      "height": 90.375
+                    },
+                    "normalized_bbox": {
+                      "x": 0.435406,
+                      "y": 0.241935,
+                      "width": 0.246965,
+                      "height": 0.032756
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "전과 기록, 구속 기록, 이혼 기록 등",
+                    "normalized_text": "전과 기록, 구속 기록, 이혼 기록 등",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "전과 기록, 구속 기록, 이혼 기록 등"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl034-r06c01",
+                "row_index": 6,
+                "column_index": 1,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 388.0,
+                  "y": 757.875,
+                  "width": 508.5,
+                  "height": 90.375
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl034-r06c01-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 388.0,
+                      "y": 757.875,
+                      "width": 508.5,
+                      "height": 90.375
+                    },
+                    "normalized_bbox": {
+                      "x": 0.188441,
+                      "y": 0.274692,
+                      "width": 0.246965,
+                      "height": 0.032756
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "의료정보",
+                    "normalized_text": "의료정보",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "의료정보"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl034-r06c02",
+                "row_index": 6,
+                "column_index": 2,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 896.5,
+                  "y": 757.875,
+                  "width": 508.5,
+                  "height": 90.375
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl034-r06c02-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 896.5,
+                      "y": 757.875,
+                      "width": 508.5,
+                      "height": 90.375
+                    },
+                    "normalized_bbox": {
+                      "x": 0.435406,
+                      "y": 0.274692,
+                      "width": 0.246965,
+                      "height": 0.032756
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "가족병력 기록, 과거 의료 기록, 신체장애, 혈액형 등",
+                    "normalized_text": "가족병력 기록, 과거 의료 기록, 신체장애, 혈액형 등",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "가족병력 기록, 과거 의료 기록, 신체장애, 혈액형 등"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl034-r07c01",
+                "row_index": 7,
+                "column_index": 1,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 388.0,
+                  "y": 848.25,
+                  "width": 508.5,
+                  "height": 90.375
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl034-r07c01-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 388.0,
+                      "y": 848.25,
+                      "width": 508.5,
+                      "height": 90.375
+                    },
+                    "normalized_bbox": {
+                      "x": 0.188441,
+                      "y": 0.307448,
+                      "width": 0.246965,
+                      "height": 0.032756
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "조직정보",
+                    "normalized_text": "조직정보",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "조직정보"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl034-r07c02",
+                "row_index": 7,
+                "column_index": 2,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 896.5,
+                  "y": 848.25,
+                  "width": 508.5,
+                  "height": 90.375
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl034-r07c02-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 896.5,
+                      "y": 848.25,
+                      "width": 508.5,
+                      "height": 90.375
+                    },
+                    "normalized_bbox": {
+                      "x": 0.435406,
+                      "y": 0.307448,
+                      "width": 0.246965,
+                      "height": 0.032756
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "노조 가입, 정당 가입, 클럽 회원, 종교단체 활동 등",
+                    "normalized_text": "노조 가입, 정당 가입, 클럽 회원, 종교단체 활동 등",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "노조 가입, 정당 가입, 클럽 회원, 종교단체 활동 등"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl034-r08c01",
+                "row_index": 8,
+                "column_index": 1,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 388.0,
+                  "y": 938.625,
+                  "width": 508.5,
+                  "height": 90.375
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl034-r08c01-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 388.0,
+                      "y": 938.625,
+                      "width": 508.5,
+                      "height": 90.375
+                    },
+                    "normalized_bbox": {
+                      "x": 0.188441,
+                      "y": 0.340205,
+                      "width": 0.246965,
+                      "height": 0.032756
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "습관 및 취미 정보",
+                    "normalized_text": "습관 및 취미 정보",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "습관 및 취미 정보"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl034-r08c02",
+                "row_index": 8,
+                "column_index": 2,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 896.5,
+                  "y": 938.625,
+                  "width": 508.5,
+                  "height": 90.375
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl034-r08c02-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 896.5,
+                      "y": 938.625,
+                      "width": 508.5,
+                      "height": 90.375
+                    },
+                    "normalized_bbox": {
+                      "x": 0.435406,
+                      "y": 0.340205,
+                      "width": 0.246965,
+                      "height": 0.032756
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "흡연/음주량, 여가활동, 도박 성향, 비디오 대여 기록 등",
+                    "normalized_text": "흡연/음주량, 여가활동, 도박 성향, 비디오 대여 기록 등",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "흡연/음주량, 여가활동, 도박 성향, 비디오 대여 기록 등"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              }
+            ],
+            "structure_confidence": 0.9
+          },
+          {
+            "node_id": "p001-vl035",
+            "bbox": {
+              "x": 1511.0,
+              "y": 196.0,
+              "width": 349.0,
+              "height": 2153.0
+            },
+            "normalized_bbox": {
+              "x": 0.733851,
+              "y": 0.07104,
+              "width": 0.1695,
+              "height": 0.780355
+            },
+            "reading_order_index": 34,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "aside_text",
+              "vl_block_id": 35
+            },
+            "content_type": "TEXT",
+            "raw_text": "제2편 직업기초능력평가\n1 의사소통능력\n2 수리능력\n3 문제해결능력\n4 자기개발능력\n5 자원관리능력\n6 대인관계능력",
+            "normalized_text": "제2편 직업기초능력평가\n1 의사소통능력\n2 수리능력\n3 문제해결능력\n4 자기개발능력\n5 자원관리능력\n6 대인관계능력",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "제2편 직업기초능력평가\n1 의사소통능력\n2 수리능력\n3 문제해결능력\n4 자기개발능력\n5 자원관리능력\n6 대인관계능력"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl036",
+            "bbox": {
+              "x": 1643.0,
+              "y": 1497.0,
+              "width": 38.0,
+              "height": 118.0
+            },
+            "normalized_bbox": {
+              "x": 0.79796,
+              "y": 0.542588,
+              "width": 0.018456,
+              "height": 0.042769
+            },
+            "reading_order_index": 35,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "aside_text",
+              "vl_block_id": 36
+            },
+            "content_type": "TEXT",
+            "raw_text": "7정보능력",
+            "normalized_text": "7정보능력",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "7정보능력"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl037",
+            "bbox": {
+              "x": 1657.0,
+              "y": 1670.0,
+              "width": 41.0,
+              "height": 119.0
+            },
+            "normalized_bbox": {
+              "x": 0.80476,
+              "y": 0.605292,
+              "width": 0.019913,
+              "height": 0.043132
+            },
+            "reading_order_index": 36,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "aside_text",
+              "vl_block_id": 37
+            },
+            "content_type": "TEXT",
+            "raw_text": "8 기술능력",
+            "normalized_text": "8 기술능력",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "8 기술능력"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl038",
+            "bbox": {
+              "x": 1670.0,
+              "y": 1823.0,
+              "width": 47.0,
+              "height": 162.0
+            },
+            "normalized_bbox": {
+              "x": 0.811073,
+              "y": 0.660747,
+              "width": 0.022827,
+              "height": 0.058717
+            },
+            "reading_order_index": 37,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "aside_text",
+              "vl_block_id": 38
+            },
+            "content_type": "TEXT",
+            "raw_text": "9조직이해능력",
+            "normalized_text": "9조직이해능력",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "9조직이해능력"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl039",
+            "bbox": {
+              "x": 1689.0,
+              "y": 2020.0,
+              "width": 43.0,
+              "height": 130.0
+            },
+            "normalized_bbox": {
+              "x": 0.820301,
+              "y": 0.732149,
+              "width": 0.020884,
+              "height": 0.047119
+            },
+            "reading_order_index": 38,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "aside_text",
+              "vl_block_id": 39
+            },
+            "content_type": "TEXT",
+            "raw_text": "10 직업윤리",
+            "normalized_text": "10 직업윤리",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "10 직업윤리"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl040",
+            "bbox": {
+              "x": 1671.0,
+              "y": 2193.0,
+              "width": 77.0,
+              "height": 148.0
+            },
+            "normalized_bbox": {
+              "x": 0.811559,
+              "y": 0.794853,
+              "width": 0.037397,
+              "height": 0.053643
+            },
+            "reading_order_index": 39,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "aside_text",
+              "vl_block_id": 40
+            },
+            "content_type": "TEXT",
+            "raw_text": "실전모의고사\n정달 및 해설",
+            "normalized_text": "실전모의고사\n정달 및 해설",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "실전모의고사\n정달 및 해설"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl041",
+            "bbox": {
+              "x": 1266.0,
+              "y": 2393.0,
+              "width": 182.0,
+              "height": 58.0
+            },
+            "normalized_bbox": {
+              "x": 0.614862,
+              "y": 0.867343,
+              "width": 0.088392,
+              "height": 0.021022
+            },
+            "reading_order_index": 40,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "footer",
+              "vl_block_id": 34
+            },
+            "content_type": "TEXT",
+            "raw_text": "제7장 정보능력",
+            "normalized_text": "제7장 정보능력",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "제7장 정보능력"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl042",
+            "bbox": {
+              "x": 1483.0,
+              "y": 2416.0,
+              "width": 69.0,
+              "height": 47.0
+            },
+            "normalized_bbox": {
+              "x": 0.720253,
+              "y": 0.87568,
+              "width": 0.033511,
+              "height": 0.017035
+            },
+            "reading_order_index": 41,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "number",
+              "vl_block_id": 41
+            },
+            "content_type": "TEXT",
+            "raw_text": "303",
+            "normalized_text": "303",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "303"
+              }
+            ]
+          }
+        ],
+        "reading_order": [
+          "p001-vl001",
+          "p001-vl002",
+          "p001-vl003",
+          "p001-vl004",
+          "p001-vl005",
+          "p001-vl006",
+          "p001-vl007",
+          "p001-vl008",
+          "p001-vl009",
+          "p001-vl010",
+          "p001-vl011",
+          "p001-vl012",
+          "p001-vl013",
+          "p001-vl014",
+          "p001-vl015",
+          "p001-vl016",
+          "p001-vl017",
+          "p001-vl018",
+          "p001-vl019",
+          "p001-vl020",
+          "p001-vl021",
+          "p001-vl022",
+          "p001-vl023",
+          "p001-vl024",
+          "p001-vl025",
+          "p001-vl026",
+          "p001-vl027",
+          "p001-vl028",
+          "p001-vl029",
+          "p001-vl030",
+          "p001-vl031",
+          "p001-vl032",
+          "p001-vl033",
+          "p001-vl034",
+          "p001-vl035",
+          "p001-vl036",
+          "p001-vl037",
+          "p001-vl038",
+          "p001-vl039",
+          "p001-vl040",
+          "p001-vl041",
+          "p001-vl042"
+        ],
+        "parse_issues": [],
+        "quality_report": {
+          "status": "PASS_WITH_CORRECTION",
+          "issues": []
+        }
+      }
+    ],
+    "validation_summary": {
+      "schema_valid": true,
+      "validation_performed": true,
+      "coordinate_missing_node_count": 0,
+      "reading_order_cycle_count": 0,
+      "invalid_reading_order_ref_count": 0,
+      "missing_reading_order_node_count": 0,
+      "duplicate_node_id_count": 0,
+      "required_field_missing_count": 0,
+      "type_error_count": 0,
+      "bbox_invalid_count": 0,
+      "normalized_bbox_out_of_range_count": 0,
+      "confidence_invalid_count": 0,
+      "reading_order_index_mismatch_count": 0,
+      "invalid_embedded_text_ref_count": 0,
+      "quality_status_invalid_count": 0,
+      "issue_invalid_count": 0,
+      "page_count_mismatch": false,
+      "page_count": 1
+    }
+  },
+  "evaluation": {
+    "schema_valid": true,
+    "validation_summary": {
+      "schema_valid": true,
+      "validation_performed": true,
+      "coordinate_missing_node_count": 0,
+      "reading_order_cycle_count": 0,
+      "invalid_reading_order_ref_count": 0,
+      "missing_reading_order_node_count": 0,
+      "duplicate_node_id_count": 0,
+      "required_field_missing_count": 0,
+      "type_error_count": 0,
+      "bbox_invalid_count": 0,
+      "normalized_bbox_out_of_range_count": 0,
+      "confidence_invalid_count": 0,
+      "reading_order_index_mismatch_count": 0,
+      "invalid_embedded_text_ref_count": 0,
+      "quality_status_invalid_count": 0,
+      "issue_invalid_count": 0,
+      "page_count_mismatch": false,
+      "page_count": 1
+    },
+    "page_count": 1,
+    "focus_item_count": 42,
+    "node_type_counts": {
+      "TABLE": 2,
+      "TEXT": 40
+    },
+    "preserved_text_character_count": 848,
+    "normalized_content_text": "한다.하게써야한다.)—성명,직위,단체명,예일주소,전화번호등—임한다.!대화의내용과분위기를경청한다.않는다.한다.물이없는지확인한다올리지않는다적압축한다.이러스감염여부를점검한다.끝나야한다.포츠맨십을가져야한다.함되어있는성명,주민등록번호등의사가른정보와용이하게결합하여식별할수②개인정보유출방지대책-회원가입시이용약관을확인한다.-이용목적에부합하는정보를요구하는지확인한다.-비밀번호는쉽게알수있는것으로하지말고,정기적으로교체한다.-정체불명의사이트는멀리한다.-가입해지시정보파기여부를확인한다.전자상거래(electroniccommerce)에관한설명으로옳은것만묶은것은?【ncs예제변형】7.내가가진소장품도전자상거래상품이될수있다.l.인터넷쇼핑,홈뱅킹등도전자상거래의한유형이다.c.공공기관이나정부는전자상거래를할수없다.2.팩스나전자우편등을이용하게되면전자상거래가될수없다.①7,2②7.c④し，こ정답①해설공공기관이나정부도전자상거래를할수있으며,팩스나전자우편등을이용하여전자상거래를할수있다.내용화번호,생년월일,출생지,본적지,성별,국적등출생지등훈련프로그램,서클활동,상벌사항,성격/행태보드,주식및채권,수집품,고가의예술품,보석등소득정보연봉,소득의원천,소득세지불현황등기타수익정보보험기입현황,수익자,회사의판공비등신용정보대부상황,저당,신용카드,담보설정여부등고용정보고용주,회사주소,상관의이름,직무수행평가기록,훈련기록,상벌기록등법적정보전과기록,구속기록,이혼기록등의료정보가족병력기록,과거의료기록,신체장애,혈액형등조직정보노조가입,정당가입,클럽회원,종교단체활동등습관및취미정보흡연/음주량,여가활동,도박성향,비디오대여기록등제2편직업기초능력평가1의사소통능력2수리능력3문제해결능력4자기개발능력5자원관리능력6대인관계능력7정보능력8기술능력9조직이해능력10직업윤리실전모의고사정달및해설제7장정보능력303",
+    "parse_issue_codes": {},
+    "parse_issue_count": 0,
+    "braille_opportunity_count": 21,
+    "braille_translated_count": 10,
+    "braille_withheld_count": 0,
+    "braille_error_count": 11,
+    "braille_translation_rate": 0.47619047619047616,
+    "translations": [
+      {
+        "source_id": "p001-vl033-r01c01",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "cells": [
+          60,
+          1,
+          60,
+          1,
+          9,
+          23,
+          44,
+          54
+        ],
+        "unicode": "⠼⠁⠼⠁⠉⠗⠬⠶",
+        "cell_count": 8,
+        "status": "TRANSLATED",
+        "error": null
+      },
+      {
+        "source_id": "p001-vl033-r02c01",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character ',' in '화번호, 생년월일, 출생지, 본적지, 성별, 국적등' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      },
+      {
+        "source_id": "p001-vl033-r03c01",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "cells": [
+          60,
+          1,
+          60,
+          9,
+          48,
+          13,
+          2,
+          32,
+          23,
+          54,
+          40,
+          21,
+          10,
+          42,
+          54
+        ],
+        "unicode": "⠼⠁⠼⠉⠰⠍⠂⠠⠗⠶⠨⠕⠊⠪⠶",
+        "cell_count": 15,
+        "status": "TRANSLATED",
+        "error": null
+      },
+      {
+        "source_id": "p001-vl033-r04c01",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character ',' in '훈련 프로그램, 서클 활동, 상벌사항, 성격/행태보' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      },
+      {
+        "source_id": "p001-vl033-r05c01",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character ',' in '드, 주식 및 채권, 수집품, 고가의 예술품, 보석등' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      },
+      {
+        "source_id": "p001-vl034-r01c01",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "cells": [
+          60,
+          1,
+          60,
+          1,
+          32,
+          37,
+          10,
+          42,
+          1,
+          40,
+          59,
+          24,
+          37
+        ],
+        "unicode": "⠼⠁⠼⠁⠠⠥⠊⠪⠁⠨⠻⠘⠥",
+        "cell_count": 13,
+        "status": "TRANSLATED",
+        "error": null
+      },
+      {
+        "source_id": "p001-vl034-r01c02",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character ',' in '연봉, 소득의 원천, 소득세 지불 현황 등' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      },
+      {
+        "source_id": "p001-vl034-r02c01",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "cells": [
+          60,
+          1,
+          60,
+          3,
+          8,
+          21,
+          19,
+          32,
+          13,
+          21,
+          1,
+          40,
+          59,
+          24,
+          37
+        ],
+        "unicode": "⠼⠁⠼⠃⠈⠕⠓⠠⠍⠕⠁⠨⠻⠘⠥",
+        "cell_count": 15,
+        "status": "TRANSLATED",
+        "error": null
+      },
+      {
+        "source_id": "p001-vl034-r02c02",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character ',' in '보험기입 현황, 수익자, 회사의 판공비 등' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      },
+      {
+        "source_id": "p001-vl034-r03c01",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "cells": [
+          60,
+          1,
+          60,
+          9,
+          32,
+          21,
+          18,
+          44,
+          54,
+          40,
+          59,
+          24,
+          37
+        ],
+        "unicode": "⠼⠁⠼⠉⠠⠕⠒⠬⠶⠨⠻⠘⠥",
+        "cell_count": 13,
+        "status": "TRANSLATED",
+        "error": null
+      },
+      {
+        "source_id": "p001-vl034-r03c02",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character ',' in '대부상황, 저당, 신용카드, 담보설정 여부 등' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      },
+      {
+        "source_id": "p001-vl034-r04c01",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "cells": [
+          60,
+          1,
+          60,
+          25,
+          8,
+          37,
+          44,
+          54,
+          40,
+          59,
+          24,
+          37
+        ],
+        "unicode": "⠼⠁⠼⠙⠈⠥⠬⠶⠨⠻⠘⠥",
+        "cell_count": 12,
+        "status": "TRANSLATED",
+        "error": null
+      },
+      {
+        "source_id": "p001-vl034-r04c02",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character ',' in '고용주, 회사 주소, 상관의 이름, 직무수행평가 기록, 훈련 기록, 상벌 기록 등' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      },
+      {
+        "source_id": "p001-vl034-r05c01",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "cells": [
+          60,
+          1,
+          60,
+          17,
+          24,
+          14,
+          3,
+          40,
+          14,
+          1,
+          40,
+          59,
+          24,
+          37
+        ],
+        "unicode": "⠼⠁⠼⠑⠘⠎⠃⠨⠎⠁⠨⠻⠘⠥",
+        "cell_count": 14,
+        "status": "TRANSLATED",
+        "error": null
+      },
+      {
+        "source_id": "p001-vl034-r05c02",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character ',' in '전과 기록, 구속 기록, 이혼 기록 등' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      },
+      {
+        "source_id": "p001-vl034-r06c01",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "cells": [
+          60,
+          1,
+          60,
+          11,
+          58,
+          16,
+          44,
+          40,
+          59,
+          24,
+          37
+        ],
+        "unicode": "⠼⠁⠼⠋⠺⠐⠬⠨⠻⠘⠥",
+        "cell_count": 11,
+        "status": "TRANSLATED",
+        "error": null
+      },
+      {
+        "source_id": "p001-vl034-r06c02",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character ',' in '가족병력 기록, 과거 의료 기록, 신체장애, 혈액형 등' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      },
+      {
+        "source_id": "p001-vl034-r07c01",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "cells": [
+          60,
+          1,
+          60,
+          27,
+          40,
+          37,
+          40,
+          21,
+          1,
+          40,
+          59,
+          24,
+          37
+        ],
+        "unicode": "⠼⠁⠼⠛⠨⠥⠨⠕⠁⠨⠻⠘⠥",
+        "cell_count": 13,
+        "status": "TRANSLATED",
+        "error": null
+      },
+      {
+        "source_id": "p001-vl034-r07c02",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character ',' in '노조 가입, 정당 가입, 클럽 회원, 종교단체 활동 등' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      },
+      {
+        "source_id": "p001-vl034-r08c01",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "cells": [
+          60,
+          1,
+          60,
+          19,
+          32,
+          42,
+          3,
+          8,
+          39,
+          18,
+          17,
+          21,
+          6,
+          48,
+          13,
+          23,
+          17,
+          21,
+          40,
+          59,
+          24,
+          37
+        ],
+        "unicode": "⠼⠁⠼⠓⠠⠪⠃⠈⠧⠒⠑⠕⠆⠰⠍⠗⠑⠕⠨⠻⠘⠥",
+        "cell_count": 22,
+        "status": "TRANSLATED",
+        "error": null
+      },
+      {
+        "source_id": "p001-vl034-r08c02",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character '/' in '흡연/음주량, 여가활동, 도박 성향, 비디오 대여 기록 등' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      }
+    ],
+    "node_type_sequence": [
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TABLE",
+      "TABLE",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT"
+    ],
+    "node_count": 42,
+    "page_ir_sha256": "50ed8db7cd954cd710b39e3026d76b2fdf04e323dd5c248764c23a3b80df4b76"
+  }
+}

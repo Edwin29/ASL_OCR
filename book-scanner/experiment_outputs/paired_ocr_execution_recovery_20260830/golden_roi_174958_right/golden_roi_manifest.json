@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "status": "MANUAL_GOLDEN_NOT_VERIFIED",
+  "capture": "20260826_174958",
+  "side": "right",
+  "source_image_path": "D:\\Projects\\OCR\\book-scanner\\TESTIMAGES\\20260826_174958.jpg",
+  "source_image_sha256": "4fdf2bb63ef95851bb3b0fc9ce278067538220f511fd9947cf87cdbbc28143a1",
+  "roi_full_frame_bbox": [
+    2090,
+    1260,
+    1120,
+    720
+  ],
+  "roi_selection_provenance": {
+    "method": "prior_oracle_page_ir_table_bbox_with_fixed_context_padding",
+    "source_record": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\uvdoc_document_parser_20260826\\20260826_174958_right_crop_original_control.json",
+    "source_record_sha256": "7cae72052a2ccd133c5f8f8ed2aa4325ebfbce70a455c398ef48429c76b919ad",
+    "is_transcription_truth": false
+  },
+  "artifacts": [
+    {
+      "variant": "raw_frame",
+      "artifact_id": null,
+      "path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_execution_recovery_20260830\\golden_roi_174958_right\\raw_frame_roi.png",
+      "sha256": "3f4d11056cda486d33452912a107f1982be7e037319a949a65f60514a54e5c88",
+      "full_frame_bbox": [
+        2090,
+        1260,
+        1120,
+        720
+      ]
+    },
+    {
+      "variant": "oracle",
+      "artifact_id": "20260826_174958_right_oracle_none_none",
+      "path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_execution_recovery_20260830\\golden_roi_174958_right\\oracle_roi.png",
+      "sha256": "3f4d11056cda486d33452912a107f1982be7e037319a949a65f60514a54e5c88",
+      "artifact_bbox_full": [
+        1992,
+        0,
+        1582,
+        2762
+      ],
+      "local_bbox": [
+        98,
+        1260,
+        1120,
+        720
+      ],
+      "full_frame_bbox": [
+        2090,
+        1260,
+        1120,
+        720
+      ]
+    },
+    {
+      "variant": "overlap",
+      "artifact_id": "20260826_174958_right_overlap_none_none",
+      "path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_execution_recovery_20260830\\golden_roi_174958_right\\overlap_roi.png",
+      "sha256": "3f4d11056cda486d33452912a107f1982be7e037319a949a65f60514a54e5c88",
+      "artifact_bbox_full": [
+        1702,
+        0,
+        2059,
+        2759
+      ],
+      "local_bbox": [
+        388,
+        1260,
+        1120,
+        720
+      ],
+      "full_frame_bbox": [
+        2090,
+        1260,
+        1120,
+        720
+      ]
+    },
+    {
+      "variant": "seam_confirmed",
+      "artifact_id": "20260826_174958_right_seam_confirmed_none_none",
+      "path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_execution_recovery_20260830\\golden_roi_174958_right\\seam_confirmed_roi.png",
+      "sha256": "3f4d11056cda486d33452912a107f1982be7e037319a949a65f60514a54e5c88",
+      "artifact_bbox_full": [
+        1981,
+        0,
+        1772,
+        2759
+      ],
+      "local_bbox": [
+        109,
+        1260,
+        1120,
+        720
+      ],
+      "full_frame_bbox": [
+        2090,
+        1260,
+        1120,
+        720
+      ]
+    },
+    {
+      "variant": "seam_conservative",
+      "artifact_id": "20260826_174958_right_seam_conservative_none_none",
+      "path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_execution_recovery_20260830\\golden_roi_174958_right\\seam_conservative_roi.png",
+      "sha256": "3f4d11056cda486d33452912a107f1982be7e037319a949a65f60514a54e5c88",
+      "artifact_bbox_full": [
+        1972,
+        0,
+        1781,
+        2759
+      ],
+      "local_bbox": [
+        118,
+        1260,
+        1120,
+        720
+      ],
+      "full_frame_bbox": [
+        2090,
+        1260,
+        1120,
+        720
+      ]
+    }
+  ],
+  "contact_sheet_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_execution_recovery_20260830\\golden_roi_174958_right\\contact_sheet.png",
+  "contact_sheet_sha256": "9178c5c1e5157ee3d1113e7c3916ae52eb56e345f6d1843857482e99995546ad",
+  "verification": {
+    "giyeok_item": {
+      "verified_presence": null,
+      "verified_transcription": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    "nieun_item": {
+      "verified_presence": null,
+      "verified_transcription": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    "digeut_item": {
+      "verified_presence": null,
+      "verified_transcription": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    "rieul_item": {
+      "verified_presence": null,
+      "verified_transcription": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    "choice_1": {
+      "verified_presence": null,
+      "verified_transcription": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    "choice_2": {
+      "verified_presence": null,
+      "verified_transcription": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    "choice_3": {
+      "verified_presence": null,
+      "verified_transcription": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    "choice_4": {
+      "verified_presence": null,
+      "verified_transcription": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    "answer_label_and_value": {
+      "verified_presence": null,
+      "verified_transcription": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    "explanation_label_and_text": {
+      "verified_presence": null,
+      "verified_transcription": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    "table_structure": {
+      "verified_presence": null,
+      "verified_transcription": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    "important_formula": {
+      "verified_presence": null,
+      "verified_transcription": null,
+      "reviewer": null,
+      "reviewed_at": null
+    }
+  },
+  "verification_policy": "Null fields are unverified. OCR output and prior report observations must not be copied as truth."
+}

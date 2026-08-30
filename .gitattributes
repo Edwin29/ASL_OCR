@@ -1,0 +1,2 @@
+book-scanner/experiment_outputs/**/*.png filter=lfs diff=lfs merge=lfs -text
+book-scanner/experiment_outputs/**/*.jpg filter=lfs diff=lfs merge=lfs -text

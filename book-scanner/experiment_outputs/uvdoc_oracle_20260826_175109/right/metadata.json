@@ -1,0 +1,153 @@
+{
+  "annotation": {
+    "label": "right_page",
+    "bbox_full": [
+      2022,
+      14,
+      1563,
+      2682
+    ],
+    "area_px": 3310931,
+    "area_ratio": 0.2759109166666667,
+    "winding": "counterclockwise",
+    "touches_frame_edge": false
+  },
+  "variants": {
+    "bbox_original": {
+      "success": true,
+      "adapter_name": "uvdoc",
+      "device": "cpu",
+      "processing_ms": 294.0037000225857,
+      "input_size": [
+        1657,
+        2776
+      ],
+      "output_size": [
+        1657,
+        2776
+      ],
+      "reason": null,
+      "diagnostics": {
+        "load_count": 1,
+        "load_ms": 1244.198300060816,
+        "model_input_size": [
+          488,
+          712
+        ],
+        "grid_shape": [
+          1,
+          2,
+          45,
+          31
+        ]
+      },
+      "artifact_path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\right\\uvdoc_bbox_original.png",
+      "artifact_sha256": "39cf2b775fb21efb54b7bd388aa67ec90066cf51a109d69be516356e72de0fca",
+      "quality_block_reason": null
+    },
+    "bbox_neutralized": {
+      "success": true,
+      "adapter_name": "uvdoc",
+      "device": "cpu",
+      "processing_ms": 254.03459998779,
+      "input_size": [
+        1657,
+        2776
+      ],
+      "output_size": [
+        1657,
+        2776
+      ],
+      "reason": null,
+      "diagnostics": {
+        "load_count": 1,
+        "load_ms": 1244.198300060816,
+        "model_input_size": [
+          488,
+          712
+        ],
+        "grid_shape": [
+          1,
+          2,
+          45,
+          31
+        ]
+      },
+      "artifact_path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\right\\uvdoc_bbox_neutralized.png",
+      "artifact_sha256": "99d3b723e821400c7fef85405cf7381e35bd2a7ff3df6d964bd7b66898e1cd7f",
+      "quality_block_reason": null
+    }
+  },
+  "artifacts": [
+    {
+      "kind": "mask",
+      "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\right\\mask.png",
+      "sha256": "9858f9e3f99a170b04aea3a335f5e45509fc9e561220da310d064f4019cbef64",
+      "size": [
+        4000,
+        3000
+      ],
+      "quality_block_reason": null
+    },
+    {
+      "kind": "overlay",
+      "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\right\\overlay.png",
+      "sha256": "80468d7053527c783b3eadd12a79c1f4685c898dc6df4e6ae863ccb4bca3df0c",
+      "size": [
+        4000,
+        3000
+      ],
+      "quality_block_reason": null
+    },
+    {
+      "kind": "bbox_original",
+      "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\right\\bbox_original.png",
+      "sha256": "7ac1c068b38c3f0857557acf31bc77acd626366242d2070abad3f30f5979e93a",
+      "size": [
+        1657,
+        2776
+      ],
+      "quality_block_reason": null
+    },
+    {
+      "kind": "uvdoc_bbox_original",
+      "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\right\\uvdoc_bbox_original.png",
+      "sha256": "39cf2b775fb21efb54b7bd388aa67ec90066cf51a109d69be516356e72de0fca",
+      "size": [
+        1657,
+        2776
+      ],
+      "quality_block_reason": null
+    },
+    {
+      "kind": "bbox_neutralized",
+      "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\right\\bbox_neutralized.png",
+      "sha256": "afa50dd839580006046362f33d6a51367ec4540c4a142dc8cf9f4d656ce9e4d1",
+      "size": [
+        1657,
+        2776
+      ],
+      "quality_block_reason": null
+    },
+    {
+      "kind": "uvdoc_bbox_neutralized",
+      "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\right\\uvdoc_bbox_neutralized.png",
+      "sha256": "99d3b723e821400c7fef85405cf7381e35bd2a7ff3df6d964bd7b66898e1cd7f",
+      "size": [
+        1657,
+        2776
+      ],
+      "quality_block_reason": null
+    },
+    {
+      "kind": "legacy_homography",
+      "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\right\\legacy_homography.png",
+      "sha256": "bae2da977427299f19ad32be6d358b635417df9ab8a99581f52b95df4f71f7cd",
+      "size": [
+        1470,
+        2688
+      ],
+      "quality_block_reason": null
+    }
+  ]
+}

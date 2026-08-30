@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "verdict": "EXTRACTION_INCONCLUSIVE_NO_GROUND_TRUTH",
+  "criteria": {
+    "phase_a_32_complete": true,
+    "schema_valid_32_of_32": true,
+    "seam_conservative_character_drop_at_most_20_percent": true,
+    "seam_conservative_reduces_opposite_page_inclusion": true,
+    "repeat_text_stability_not_below_overlap": true,
+    "repeat_node_stability_not_below_overlap": false,
+    "manual_golden_verified": false
+  },
+  "oracle_relative_metrics": {
+    "oracle": {
+      "count": 8,
+      "mean_text_similarity": 1.0,
+      "min_text_similarity": 1.0,
+      "max_character_drop_fraction": 0.0,
+      "mean_node_sequence_similarity": 1.0,
+      "min_node_sequence_similarity": 1.0
+    },
+    "overlap": {
+      "count": 8,
+      "mean_text_similarity": 0.7708711405510827,
+      "min_text_similarity": 0.5149456521739131,
+      "max_character_drop_fraction": -0.041116005873715125,
+      "mean_node_sequence_similarity": 0.6349818295387212,
+      "min_node_sequence_similarity": 0.37037037037037035
+    },
+    "seam_confirmed": {
+      "count": 8,
+      "mean_text_similarity": 0.9029690549711268,
+      "min_text_similarity": 0.56215360253365,
+      "max_character_drop_fraction": 0.07476635514018691,
+      "mean_node_sequence_similarity": 0.8731477994526876,
+      "min_node_sequence_similarity": 0.6060606060606061
+    },
+    "seam_conservative": {
+      "count": 8,
+      "mean_text_similarity": 0.9429863530245396,
+      "min_text_similarity": 0.9001203369434416,
+      "max_character_drop_fraction": 0.05841121495327103,
+      "mean_node_sequence_similarity": 0.860810341159347,
+      "min_node_sequence_similarity": 0.4444444444444444
+    }
+  },
+  "repeat_capture_metrics": {
+    "oracle": {
+      "count": 2,
+      "mean_text_similarity": 0.95287612715883,
+      "mean_node_sequence_similarity": 0.9366197183098591,
+      "details": [
+        {
+          "schema_valid": true,
+          "anchor_schema_valid": true,
+          "text_similarity": 0.9908785405664906,
+          "character_count": 1039,
+          "anchor_character_count": 1044,
+          "character_count_ratio": 0.9952107279693486,
+          "character_count_drop_fraction": 0.004789272030651341,
+          "node_sequence_similarity": 1.0,
+          "node_type_count_delta": {
+            "TABLE": 0,
+            "TEXT": 0
+          },
+          "parse_issue_count_delta": 0,
+          "braille_opportunity_delta": 0,
+          "braille_error_delta": 0,
+          "accuracy_claim_allowed": false
+        },
+        {
+          "schema_valid": true,
+          "anchor_schema_valid": true,
+          "text_similarity": 0.9148737137511693,
+          "character_count": 496,
+          "anchor_character_count": 573,
+          "character_count_ratio": 0.8656195462478184,
+          "character_count_drop_fraction": 0.1343804537521815,
+          "node_sequence_similarity": 0.8732394366197183,
+          "node_type_count_delta": {
+            "TEXT": -9
+          },
+          "parse_issue_count_delta": 0,
+          "braille_opportunity_delta": 0,
+          "braille_error_delta": 0,
+          "accuracy_claim_allowed": false
+        }
+      ]
+    },
+    "overlap": {
+      "count": 2,
+      "mean_text_similarity": 0.6308845109692567,
+      "mean_node_sequence_similarity": 0.9316569954867827,
+      "details": [
+        {
+          "schema_valid": true,
+          "anchor_schema_valid": true,
+          "text_similarity": 0.926271186440678,
+          "character_count": 1218,
+          "anchor_character_count": 1142,
+          "character_count_ratio": 1.0665499124343258,
+          "character_count_drop_fraction": -0.06654991243432574,
+          "node_sequence_similarity": 0.8936170212765957,
+          "node_type_count_delta": {
+            "TABLE": -1,
+            "TEXT": 4
+          },
+          "parse_issue_count_delta": 0,
+          "braille_opportunity_delta": -6,
+          "braille_error_delta": -6,
+          "accuracy_claim_allowed": false
+        },
+        {
+          "schema_valid": true,
+          "anchor_schema_valid": true,
+          "text_similarity": 0.3354978354978355,
+          "character_count": 857,
+          "anchor_character_count": 991,
+          "character_count_ratio": 0.8647830474268415,
+          "character_count_drop_fraction": 0.13521695257315844,
+          "node_sequence_similarity": 0.9696969696969697,
+          "node_type_count_delta": {
+            "TABLE": -1,
+            "TEXT": -2
+          },
+          "parse_issue_count_delta": 0,
+          "braille_opportunity_delta": -5,
+          "braille_error_delta": -4,
+          "accuracy_claim_allowed": false
+        }
+      ]
+    },
+    "seam_confirmed": {
+      "count": 2,
+      "mean_text_similarity": 0.9450871103397637,
+      "mean_node_sequence_similarity": 0.9,
+      "details": [
+        {
+          "schema_valid": true,
+          "anchor_schema_valid": true,
+          "text_similarity": 0.9535545023696682,
+          "character_count": 1065,
+          "anchor_character_count": 1045,
+          "character_count_ratio": 1.0191387559808613,
+          "character_count_drop_fraction": -0.019138755980861243,
+          "node_sequence_similarity": 0.8,
+          "node_type_count_delta": {
+            "TABLE": 0,
+            "TEXT": 3
+          },
+          "parse_issue_count_delta": 0,
+          "braille_opportunity_delta": 3,
+          "braille_error_delta": 3,
+          "accuracy_claim_allowed": false
+        },
+        {
+          "schema_valid": true,
+          "anchor_schema_valid": true,
+          "text_similarity": 0.9366197183098591,
+          "character_count": 567,
+          "anchor_character_count": 569,
+          "character_count_ratio": 0.9964850615114236,
+          "character_count_drop_fraction": 0.0035149384885764497,
+          "node_sequence_similarity": 1.0,
+          "node_type_count_delta": {
+            "TEXT": 0
+          },
+          "parse_issue_count_delta": 0,
+          "braille_opportunity_delta": 0,
+          "braille_error_delta": 0,
+          "accuracy_claim_allowed": false
+        }
+      ]
+    },
+    "seam_conservative": {
+      "count": 2,
+      "mean_text_similarity": 0.9289241622574955,
+      "mean_node_sequence_similarity": 0.75,
+      "details": [
+        {
+          "schema_valid": true,
+          "anchor_schema_valid": true,
+          "text_similarity": 0.9142857142857143,
+          "character_count": 1142,
+          "anchor_character_count": 993,
+          "character_count_ratio": 1.150050352467271,
+          "character_count_drop_fraction": -0.1500503524672709,
+          "node_sequence_similarity": 0.5,
+          "node_type_count_delta": {
+            "TABLE": 0,
+            "TEXT": 14
+          },
+          "parse_issue_count_delta": 0,
+          "braille_opportunity_delta": 1,
+          "braille_error_delta": 1,
+          "accuracy_claim_allowed": false
+        },
+        {
+          "schema_valid": true,
+          "anchor_schema_valid": true,
+          "text_similarity": 0.9435626102292769,
+          "character_count": 558,
+          "anchor_character_count": 576,
+          "character_count_ratio": 0.96875,
+          "character_count_drop_fraction": 0.03125,
+          "node_sequence_similarity": 1.0,
+          "node_type_count_delta": {
+            "TEXT": 0
+          },
+          "parse_issue_count_delta": 0,
+          "braille_opportunity_delta": 0,
+          "braille_error_delta": 0,
+          "accuracy_claim_allowed": false
+        }
+      ]
+    }
+  },
+  "mask_metrics": {
+    "oracle": {
+      "mean_own_page_recall": 1.0,
+      "min_own_page_recall": 1.0,
+      "mean_opposite_page_inclusion_ratio": 0.0
+    },
+    "overlap": {
+      "mean_own_page_recall": 0.9983137992415031,
+      "min_own_page_recall": 0.9965073364990559,
+      "mean_opposite_page_inclusion_ratio": 0.11382934953981196
+    },
+    "seam_confirmed": {
+      "mean_own_page_recall": 0.9964494210873994,
+      "min_own_page_recall": 0.9937167097345508,
+      "mean_opposite_page_inclusion_ratio": 0.0015872028276540532
+    },
+    "seam_conservative": {
+      "mean_own_page_recall": 0.9969914179684498,
+      "min_own_page_recall": 0.9940464290592889,
+      "mean_opposite_page_inclusion_ratio": 0.005163206675858689
+    }
+  },
+  "accuracy_claim_allowed": false,
+  "manual_golden_status": "MANUAL_GOLDEN_NOT_VERIFIED",
+  "interpretation": "Seam-conservative is the leading automatic crop candidate, but repeat node segmentation is less stable than overlap and exact golden transcription is absent."
+}

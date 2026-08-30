@@ -1,0 +1,657 @@
+{
+  "artifact_id": "20260826_175109_left_overlap_none_none",
+  "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_175109_left_overlap_none_none.png",
+  "image_sha256": "a9208c379b7e72ee43148530c6cbba1752a62d18b81397dc575cc83a4dd12b7c",
+  "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+  "cache_hit": true,
+  "cache_source": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_175109_left_overlap_none_none.json",
+  "page_ir": {
+    "document_manifest": {
+      "book_id": "20260826_175109_left_overlap_none_none",
+      "page_count": 1
+    },
+    "engine_manifest": {
+      "general_ocr": {
+        "engine_id": "paddleocr-vl",
+        "engine_version": "3.7.0"
+      },
+      "pipeline": {
+        "mode": "paddleocr_vl_baseline"
+      },
+      "problem_unit_detection": {
+        "mode": "text_pattern_stem_and_answer_structure",
+        "engine_id": "text-pattern-problem-unit-detector"
+      }
+    },
+    "pages": [
+      {
+        "page_id": "p001",
+        "page_geometry": {
+          "width": 1825,
+          "height": 2789
+        },
+        "nodes": [
+          {
+            "node_id": "p001-vl001",
+            "bbox": {
+              "x": 491.0,
+              "y": 367.0,
+              "width": 145.0,
+              "height": 90.0
+            },
+            "normalized_bbox": {
+              "x": 0.269041,
+              "y": 0.131588,
+              "width": 0.079452,
+              "height": 0.03227
+            },
+            "reading_order_index": 0,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "paragraph_title",
+              "vl_block_id": 0
+            },
+            "content_type": "TEXT",
+            "raw_text": "제3절",
+            "normalized_text": "제3절",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "제3절"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl002",
+            "bbox": {
+              "x": 1150.0,
+              "y": 580.0,
+              "width": 376.0,
+              "height": 175.0
+            },
+            "normalized_bbox": {
+              "x": 0.630137,
+              "y": 0.20796,
+              "width": 0.206027,
+              "height": 0.062747
+            },
+            "reading_order_index": 1,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "doc_title",
+              "vl_block_id": 1
+            },
+            "content_type": "TEXT",
+            "raw_text": "기출응용 예상문제",
+            "normalized_text": "기출응용 예상문제",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "기출응용 예상문제"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl003",
+            "bbox": {
+              "x": 1457.0,
+              "y": 749.0,
+              "width": 79.0,
+              "height": 58.0
+            },
+            "normalized_bbox": {
+              "x": 0.798356,
+              "y": 0.268555,
+              "width": 0.043288,
+              "height": 0.020796
+            },
+            "reading_order_index": 2,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 2
+            },
+            "content_type": "TEXT",
+            "raw_text": "འབྲིན་ཅིང་།་ཡང",
+            "normalized_text": "འབྲིན་ཅིང་།་ཡང",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "འབྲིན་ཅིང་།་ཡང"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl004",
+            "bbox": {
+              "x": 433.0,
+              "y": 655.0,
+              "width": 1039.0,
+              "height": 434.0
+            },
+            "normalized_bbox": {
+              "x": 0.23726,
+              "y": 0.234851,
+              "width": 0.569315,
+              "height": 0.155611
+            },
+            "reading_order_index": 3,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [
+              {
+                "code": "VL_POSSIBLE_CHOICE_OMISSION",
+                "severity": "warning",
+                "message": "Found 4 of 5 expected circled-number choice markers. PaddleOCR-VL has a verified failure mode of silently dropping a value or choice with no other signal; this block should be reviewed against the source image before trusting it."
+              }
+            ],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 3
+            },
+            "content_type": "TEXT",
+            "raw_text": "다음은 창의적 문제와 분석적 문제에 대한 특징을 열거하였다. 성격이 다른 것을 고르시오.\n① 현재 문제가 없더라도 보다 나은 방법을 찾기 위한 문제\n② 분석, 논리, 귀납과 같은 방법을 사용하여 해결하는 문제\n③ 정답의 수가 적으며, 한정되어 있는 문제\n④ 미래의 문제로 예견될 것에 대한 문제",
+            "normalized_text": "다음은 창의적 문제와 분석적 문제에 대한 특징을 열거하였다. 성격이 다른 것을 고르시오.\n① 현재 문제가 없더라도 보다 나은 방법을 찾기 위한 문제\n② 분석, 논리, 귀납과 같은 방법을 사용하여 해결하는 문제\n③ 정답의 수가 적으며, 한정되어 있는 문제\n④ 미래의 문제로 예견될 것에 대한 문제",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "다음은 창의적 문제와 분석적 문제에 대한 특징을 열거하였다. 성격이 다른 것을 고르시오.\n① 현재 문제가 없더라도 보다 나은 방법을 찾기 위한 문제\n② 분석, 논리, 귀납과 같은 방법을 사용하여 해결하는 문제\n③ 정답의 수가 적으며, 한정되어 있는 문제\n④ 미래의 문제로 예견될 것에 대한 문제"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl005",
+            "bbox": {
+              "x": 429.0,
+              "y": 1026.0,
+              "width": 653.0,
+              "height": 124.0
+            },
+            "normalized_bbox": {
+              "x": 0.235068,
+              "y": 0.367874,
+              "width": 0.357808,
+              "height": 0.04446
+            },
+            "reading_order_index": 4,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "paragraph_title",
+              "vl_block_id": 4
+            },
+            "content_type": "TEXT",
+            "raw_text": "2 문제해결 절차에서 다음 내용에 해당하는 것은?",
+            "normalized_text": "2 문제해결 절차에서 다음 내용에 해당하는 것은?",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "2 문제해결 절차에서 다음 내용에 해당하는 것은?"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl006",
+            "bbox": {
+              "x": 427.0,
+              "y": 1132.0,
+              "width": 1021.0,
+              "height": 403.0
+            },
+            "normalized_bbox": {
+              "x": 0.233973,
+              "y": 0.40588,
+              "width": 0.559452,
+              "height": 0.144496
+            },
+            "reading_order_index": 5,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 5
+            },
+            "content_type": "TEXT",
+            "raw_text": "(1) 해결방안 개발을 통해 만들어진 실행계획을 실제상황에 적용하는 활동\n(2) 당초 장애가 되는 문제의 원인들을 해결방안을 사용하여 제거하는 단계\n① 문제도출 ② 원인분석 ③ 문제인식\n④ 해결방안 개발 ⑤ 실행 및 평가",
+            "normalized_text": "(1) 해결방안 개발을 통해 만들어진 실행계획을 실제상황에 적용하는 활동\n(2) 당초 장애가 되는 문제의 원인들을 해결방안을 사용하여 제거하는 단계\n① 문제도출 ② 원인분석 ③ 문제인식\n④ 해결방안 개발 ⑤ 실행 및 평가",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "(1) 해결방안 개발을 통해 만들어진 실행계획을 실제상황에 적용하는 활동\n(2) 당초 장애가 되는 문제의 원인들을 해결방안을 사용하여 제거하는 단계\n① 문제도출 ② 원인분석 ③ 문제인식\n④ 해결방안 개발 ⑤ 실행 및 평가"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl007",
+            "bbox": {
+              "x": 417.0,
+              "y": 1600.0,
+              "width": 901.0,
+              "height": 55.0
+            },
+            "normalized_bbox": {
+              "x": 0.228493,
+              "y": 0.573682,
+              "width": 0.493699,
+              "height": 0.01972
+            },
+            "reading_order_index": 6,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "paragraph_title",
+              "vl_block_id": 6
+            },
+            "content_type": "TEXT",
+            "raw_text": "3 퍼실리테이션(facilitation)의 기본역량에 해당하는 것을 모두 묶은 것은?",
+            "normalized_text": "3 퍼실리테이션(facilitation)의 기본역량에 해당하는 것을 모두 묶은 것은?",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "3 퍼실리테이션(facilitation)의 기본역량에 해당하는 것을 모두 묶은 것은?"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl008",
+            "bbox": {
+              "x": 469.0,
+              "y": 1678.0,
+              "width": 910.0,
+              "height": 333.0
+            },
+            "normalized_bbox": {
+              "x": 0.256986,
+              "y": 0.601649,
+              "width": 0.49863,
+              "height": 0.119398
+            },
+            "reading_order_index": 7,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 7
+            },
+            "content_type": "TEXT",
+            "raw_text": "가 인간관계능력이 탁월하다.\n나 문제를 탐색하고 발견한다.\n다 현상에 대한 분석력이 뛰어나다.\n라 문제해결을 위한 구성원간의 커뮤니케이션 조정능력이 있다.\n마 합의를 도출하기 위한 구성원들 사이의 갈등을 효과적으로 관리한다.",
+            "normalized_text": "가 인간관계능력이 탁월하다.\n나 문제를 탐색하고 발견한다.\n다 현상에 대한 분석력이 뛰어나다.\n라 문제해결을 위한 구성원간의 커뮤니케이션 조정능력이 있다.\n마 합의를 도출하기 위한 구성원들 사이의 갈등을 효과적으로 관리한다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "가 인간관계능력이 탁월하다.\n나 문제를 탐색하고 발견한다.\n다 현상에 대한 분석력이 뛰어나다.\n라 문제해결을 위한 구성원간의 커뮤니케이션 조정능력이 있다.\n마 합의를 도출하기 위한 구성원들 사이의 갈등을 효과적으로 관리한다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl009",
+            "bbox": {
+              "x": 489.0,
+              "y": 2034.0,
+              "width": 950.0,
+              "height": 202.0
+            },
+            "normalized_bbox": {
+              "x": 0.267945,
+              "y": 0.729294,
+              "width": 0.520548,
+              "height": 0.072427
+            },
+            "reading_order_index": 8,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 8
+            },
+            "content_type": "TEXT",
+            "raw_text": "①가, 나 ②나, 라, 마 ③나, 다, 라\n④가, 나, 다, 라 ⑤가, 나, 다, 라, 마",
+            "normalized_text": "①가, 나 ②나, 라, 마 ③나, 다, 라\n④가, 나, 다, 라 ⑤가, 나, 다, 라, 마",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "①가, 나 ②나, 라, 마 ③나, 다, 라\n④가, 나, 다, 라 ⑤가, 나, 다, 라, 마"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl010",
+            "bbox": {
+              "x": 1590.0,
+              "y": 499.0,
+              "width": 234.0,
+              "height": 156.0
+            },
+            "normalized_bbox": {
+              "x": 0.871233,
+              "y": 0.178917,
+              "width": 0.128219,
+              "height": 0.055934
+            },
+            "reading_order_index": 9,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "paragraph_title",
+              "vl_block_id": 9
+            },
+            "content_type": "TEXT",
+            "raw_text": "다음에 재시된 사례에서 각 사례",
+            "normalized_text": "다음에 재시된 사례에서 각 사례",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "다음에 재시된 사례에서 각 사례"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl011",
+            "bbox": {
+              "x": 1599.0,
+              "y": 589.0,
+              "width": 224.0,
+              "height": 394.0
+            },
+            "normalized_bbox": {
+              "x": 0.876164,
+              "y": 0.211187,
+              "width": 0.12274,
+              "height": 0.141269
+            },
+            "reading_order_index": 10,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 10
+            },
+            "content_type": "TEXT",
+            "raw_text": "1) K과장은 영업부에서 유능으로 처음 만나는 상대와도 쉽게은 아니지만 고객의 어려움은 편이다. 설득력 있는 나다. 따라서 K과장은 자성이 기존의 고객들이 하나 들되었다.",
+            "normalized_text": "1) K과장은 영업부에서 유능으로 처음 만나는 상대와도 쉽게은 아니지만 고객의 어려움은 편이다. 설득력 있는 나다. 따라서 K과장은 자성이 기존의 고객들이 하나 들되었다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "1) K과장은 영업부에서 유능으로 처음 만나는 상대와도 쉽게은 아니지만 고객의 어려움은 편이다. 설득력 있는 나다. 따라서 K과장은 자성이 기존의 고객들이 하나 들되었다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl012",
+            "bbox": {
+              "x": 1611.0,
+              "y": 929.0,
+              "width": 212.0,
+              "height": 448.0
+            },
+            "normalized_bbox": {
+              "x": 0.88274,
+              "y": 0.333094,
+              "width": 0.116164,
+              "height": 0.160631
+            },
+            "reading_order_index": 11,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 11
+            },
+            "content_type": "TEXT",
+            "raw_text": "되었다.\n(2) 가전제품을 생산하는 A기 그러나 A기업은 항상 B가 하기 위해서 문제상황이 벌수가 없었다. 그러던 중 오가전시장의 잠식으로 A가 판매실적을 올리고 있었고 이상하게 여긴 A기업의 인지를 분석하게 하였고, 출에 따른 문제를 인식하",
+            "normalized_text": "되었다.\n(2) 가전제품을 생산하는 A기 그러나 A기업은 항상 B가 하기 위해서 문제상황이 벌수가 없었다. 그러던 중 오가전시장의 잠식으로 A가 판매실적을 올리고 있었고 이상하게 여긴 A기업의 인지를 분석하게 하였고, 출에 따른 문제를 인식하",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "되었다.\n(2) 가전제품을 생산하는 A기 그러나 A기업은 항상 B가 하기 위해서 문제상황이 벌수가 없었다. 그러던 중 오가전시장의 잠식으로 A가 판매실적을 올리고 있었고 이상하게 여긴 A기업의 인지를 분석하게 하였고, 출에 따른 문제를 인식하"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl013",
+            "bbox": {
+              "x": 1624.0,
+              "y": 1353.0,
+              "width": 200.0,
+              "height": 540.0
+            },
+            "normalized_bbox": {
+              "x": 0.889863,
+              "y": 0.48512,
+              "width": 0.109589,
+              "height": 0.193618
+            },
+            "reading_order_index": 12,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 12
+            },
+            "content_type": "TEXT",
+            "raw_text": "(3) P부장은 의류회사의 판모보다 상당히 개선된 신자로 크게 기대를 걸고 있다. P부장은 담당책임자 K과장은 가격이 너무 비고 생각하고, 판매부 직들이 제시되었고, 그러한“판매방식의 문제, 광고이러한 원인들에 대한 은광고와 홍보 부족이 세웠고, 얼마 후 판매실",
+            "normalized_text": "(3) P부장은 의류회사의 판모보다 상당히 개선된 신자로 크게 기대를 걸고 있다. P부장은 담당책임자 K과장은 가격이 너무 비고 생각하고, 판매부 직들이 제시되었고, 그러한“판매방식의 문제, 광고이러한 원인들에 대한 은광고와 홍보 부족이 세웠고, 얼마 후 판매실",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "(3) P부장은 의류회사의 판모보다 상당히 개선된 신자로 크게 기대를 걸고 있다. P부장은 담당책임자 K과장은 가격이 너무 비고 생각하고, 판매부 직들이 제시되었고, 그러한“판매방식의 문제, 광고이러한 원인들에 대한 은광고와 홍보 부족이 세웠고, 얼마 후 판매실"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl014",
+            "bbox": {
+              "x": 1634.0,
+              "y": 1879.0,
+              "width": 191.0,
+              "height": 309.0
+            },
+            "normalized_bbox": {
+              "x": 0.895342,
+              "y": 0.673718,
+              "width": 0.104658,
+              "height": 0.110792
+            },
+            "reading_order_index": 13,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 13
+            },
+            "content_type": "TEXT",
+            "raw_text": "(4) 설계, 기술, 영업, 서비우려가 있다는 상황에 처져 있는 것을 지적하세서는 매출목표를 한 대응이 너무 느리다 책을 제시하지 못한 책",
+            "normalized_text": "(4) 설계, 기술, 영업, 서비우려가 있다는 상황에 처져 있는 것을 지적하세서는 매출목표를 한 대응이 너무 느리다 책을 제시하지 못한 책",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "(4) 설계, 기술, 영업, 서비우려가 있다는 상황에 처져 있는 것을 지적하세서는 매출목표를 한 대응이 너무 느리다 책을 제시하지 못한 책"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl015",
+            "bbox": {
+              "x": 508.0,
+              "y": 2408.0,
+              "width": 278.0,
+              "height": 81.0
+            },
+            "normalized_bbox": {
+              "x": 0.278356,
+              "y": 0.863392,
+              "width": 0.152329,
+              "height": 0.029043
+            },
+            "reading_order_index": 14,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "footer",
+              "vl_block_id": 15
+            },
+            "content_type": "TEXT",
+            "raw_text": "제2편 직업기초능력평가",
+            "normalized_text": "제2편 직업기초능력평가",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "제2편 직업기초능력평가"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl016",
+            "bbox": {
+              "x": 408.0,
+              "y": 2457.0,
+              "width": 67.0,
+              "height": 51.0
+            },
+            "normalized_bbox": {
+              "x": 0.223562,
+              "y": 0.880961,
+              "width": 0.036712,
+              "height": 0.018286
+            },
+            "reading_order_index": 15,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "number",
+              "vl_block_id": 14
+            },
+            "content_type": "TEXT",
+            "raw_text": "150",
+            "normalized_text": "150",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "150"
+              }
+            ]
+          }
+        ],
+        "reading_order": [
+          "p001-vl001",
+          "p001-vl002",
+          "p001-vl003",
+          "p001-vl004",
+          "p001-vl005",
+          "p001-vl006",
+          "p001-vl007",
+          "p001-vl008",
+          "p001-vl009",
+          "p001-vl010",
+          "p001-vl011",
+          "p001-vl012",
+          "p001-vl013",
+          "p001-vl014",
+          "p001-vl015",
+          "p001-vl016"
+        ],
+        "parse_issues": [],
+        "quality_report": {
+          "status": "PASS_WITH_CORRECTION",
+          "issues": []
+        }
+      }
+    ],
+    "validation_summary": {
+      "schema_valid": true,
+      "validation_performed": true,
+      "coordinate_missing_node_count": 0,
+      "reading_order_cycle_count": 0,
+      "invalid_reading_order_ref_count": 0,
+      "missing_reading_order_node_count": 0,
+      "duplicate_node_id_count": 0,
+      "required_field_missing_count": 0,
+      "type_error_count": 0,
+      "bbox_invalid_count": 0,
+      "normalized_bbox_out_of_range_count": 0,
+      "confidence_invalid_count": 0,
+      "reading_order_index_mismatch_count": 0,
+      "invalid_embedded_text_ref_count": 0,
+      "quality_status_invalid_count": 0,
+      "issue_invalid_count": 0,
+      "page_count_mismatch": false,
+      "page_count": 1
+    }
+  },
+  "evaluation": {
+    "schema_valid": true,
+    "validation_summary": {
+      "schema_valid": true,
+      "validation_performed": true,
+      "coordinate_missing_node_count": 0,
+      "reading_order_cycle_count": 0,
+      "invalid_reading_order_ref_count": 0,
+      "missing_reading_order_node_count": 0,
+      "duplicate_node_id_count": 0,
+      "required_field_missing_count": 0,
+      "type_error_count": 0,
+      "bbox_invalid_count": 0,
+      "normalized_bbox_out_of_range_count": 0,
+      "confidence_invalid_count": 0,
+      "reading_order_index_mismatch_count": 0,
+      "invalid_embedded_text_ref_count": 0,
+      "quality_status_invalid_count": 0,
+      "issue_invalid_count": 0,
+      "page_count_mismatch": false,
+      "page_count": 1
+    },
+    "page_count": 1,
+    "focus_item_count": 16,
+    "node_type_counts": {
+      "TEXT": 16
+    },
+    "preserved_text_character_count": 807,
+    "normalized_content_text": "제3절기출응용예상문제འབྲིན་ཅིང་།་ཡང다음은창의적문제와분석적문제에대한특징을열거하였다.성격이다른것을고르시오.①현재문제가없더라도보다나은방법을찾기위한문제②분석,논리,귀납과같은방법을사용하여해결하는문제③정답의수가적으며,한정되어있는문제④미래의문제로예견될것에대한문제2문제해결절차에서다음내용에해당하는것은?(1)해결방안개발을통해만들어진실행계획을실제상황에적용하는활동(2)당초장애가되는문제의원인들을해결방안을사용하여제거하는단계①문제도출②원인분석③문제인식④해결방안개발⑤실행및평가3퍼실리테이션(facilitation)의기본역량에해당하는것을모두묶은것은?가인간관계능력이탁월하다.나문제를탐색하고발견한다.다현상에대한분석력이뛰어나다.라문제해결을위한구성원간의커뮤니케이션조정능력이있다.마합의를도출하기위한구성원들사이의갈등을효과적으로관리한다.①가,나②나,라,마③나,다,라④가,나,다,라⑤가,나,다,라,마다음에재시된사례에서각사례1)k과장은영업부에서유능으로처음만나는상대와도쉽게은아니지만고객의어려움은편이다.설득력있는나다.따라서k과장은자성이기존의고객들이하나들되었다.되었다.(2)가전제품을생산하는a기그러나a기업은항상b가하기위해서문제상황이벌수가없었다.그러던중오가전시장의잠식으로a가판매실적을올리고있었고이상하게여긴a기업의인지를분석하게하였고,출에따른문제를인식하(3)p부장은의류회사의판모보다상당히개선된신자로크게기대를걸고있다.p부장은담당책임자k과장은가격이너무비고생각하고,판매부직들이제시되었고,그러한“판매방식의문제,광고이러한원인들에대한은광고와홍보부족이세웠고,얼마후판매실(4)설계,기술,영업,서비우려가있다는상황에처져있는것을지적하세서는매출목표를한대응이너무느리다책을제시하지못한책제2편직업기초능력평가150",
+    "parse_issue_codes": {},
+    "parse_issue_count": 0,
+    "braille_opportunity_count": 0,
+    "braille_translated_count": 0,
+    "braille_withheld_count": 0,
+    "braille_error_count": 0,
+    "braille_translation_rate": null,
+    "translations": [],
+    "node_type_sequence": [
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT"
+    ],
+    "node_count": 16,
+    "page_ir_sha256": "d0cc368cb819605e51c31c49c0801b8e31dd59fc0ceb07f1ad0f4b477b86cddc"
+  }
+}

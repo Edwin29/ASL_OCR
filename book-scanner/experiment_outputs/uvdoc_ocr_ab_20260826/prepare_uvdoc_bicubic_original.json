@@ -1,0 +1,216 @@
+{
+  "variant": "uvdoc_bicubic_original",
+  "expected_page_count": 8,
+  "success_count": 8,
+  "uvdoc_load_count": 1,
+  "records": [
+    {
+      "capture": "20260826_174943",
+      "side": "left",
+      "variant": "uvdoc_bicubic_original",
+      "source_image_sha256": "b4a59406bbdc36909bf6d9fabfdceef23a0876c5fb7d71c3f9116d3d4e73ff73",
+      "label_sha256": "100f3c8a33027338353936ebf1de6ac74e54c1da5e1524915c7467214bd422a8",
+      "success": true,
+      "reason": null,
+      "diagnostics": {
+        "load_count": 1,
+        "load_ms": 1219.9593000113964,
+        "model_input_size": [
+          488,
+          712
+        ],
+        "grid_shape": [
+          1,
+          2,
+          45,
+          31
+        ],
+        "sampling_mode": "bicubic"
+      },
+      "artifact_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174943\\left\\variants\\uvdoc_bicubic_original.png",
+      "artifact_sha256": "1b7fcb276f3cd50eb0d7a0ea01eb5e99c26dc5912dad5bf024258ab5708fc7d1"
+    },
+    {
+      "capture": "20260826_174943",
+      "side": "right",
+      "variant": "uvdoc_bicubic_original",
+      "source_image_sha256": "b4a59406bbdc36909bf6d9fabfdceef23a0876c5fb7d71c3f9116d3d4e73ff73",
+      "label_sha256": "100f3c8a33027338353936ebf1de6ac74e54c1da5e1524915c7467214bd422a8",
+      "success": true,
+      "reason": null,
+      "diagnostics": {
+        "load_count": 1,
+        "load_ms": 1219.9593000113964,
+        "model_input_size": [
+          488,
+          712
+        ],
+        "grid_shape": [
+          1,
+          2,
+          45,
+          31
+        ],
+        "sampling_mode": "bicubic"
+      },
+      "artifact_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174943\\right\\variants\\uvdoc_bicubic_original.png",
+      "artifact_sha256": "90ae07e4e0af43f9d8320c828d89803a8af4ba05ee87e5ede2700a9d7a687574"
+    },
+    {
+      "capture": "20260826_174953",
+      "side": "left",
+      "variant": "uvdoc_bicubic_original",
+      "source_image_sha256": "0e2a53929fcf06bba5b45010e02d8da296142788a9a8bd34388e9d7e3d3b567b",
+      "label_sha256": "b191637cca629915380c2efec7d50857b12638f068a64e1ec07df4eb062a3b67",
+      "success": true,
+      "reason": null,
+      "diagnostics": {
+        "load_count": 1,
+        "load_ms": 1219.9593000113964,
+        "model_input_size": [
+          488,
+          712
+        ],
+        "grid_shape": [
+          1,
+          2,
+          45,
+          31
+        ],
+        "sampling_mode": "bicubic"
+      },
+      "artifact_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174953\\left\\variants\\uvdoc_bicubic_original.png",
+      "artifact_sha256": "accea72170fe6bb5f5112405377d48ee887f25faba7a7de75c586de31cc01e69"
+    },
+    {
+      "capture": "20260826_174953",
+      "side": "right",
+      "variant": "uvdoc_bicubic_original",
+      "source_image_sha256": "0e2a53929fcf06bba5b45010e02d8da296142788a9a8bd34388e9d7e3d3b567b",
+      "label_sha256": "b191637cca629915380c2efec7d50857b12638f068a64e1ec07df4eb062a3b67",
+      "success": true,
+      "reason": null,
+      "diagnostics": {
+        "load_count": 1,
+        "load_ms": 1219.9593000113964,
+        "model_input_size": [
+          488,
+          712
+        ],
+        "grid_shape": [
+          1,
+          2,
+          45,
+          31
+        ],
+        "sampling_mode": "bicubic"
+      },
+      "artifact_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174953\\right\\variants\\uvdoc_bicubic_original.png",
+      "artifact_sha256": "ae75215bdc0a7090ee42798d4411e9e08b13b1f58861b76e2eac8a40ff122da3"
+    },
+    {
+      "capture": "20260826_174958",
+      "side": "left",
+      "variant": "uvdoc_bicubic_original",
+      "source_image_sha256": "4fdf2bb63ef95851bb3b0fc9ce278067538220f511fd9947cf87cdbbc28143a1",
+      "label_sha256": "51110dbeb404fd61f9c24086fca90fb670ad7fd2b2bdaa5fda3c268762c110d0",
+      "success": true,
+      "reason": null,
+      "diagnostics": {
+        "load_count": 1,
+        "load_ms": 1219.9593000113964,
+        "model_input_size": [
+          488,
+          712
+        ],
+        "grid_shape": [
+          1,
+          2,
+          45,
+          31
+        ],
+        "sampling_mode": "bicubic"
+      },
+      "artifact_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174958\\left\\variants\\uvdoc_bicubic_original.png",
+      "artifact_sha256": "0580fd463febafd08a33426f79c7de3dc515489d9e26b0d8ed4ade1ec9ecdd1b"
+    },
+    {
+      "capture": "20260826_174958",
+      "side": "right",
+      "variant": "uvdoc_bicubic_original",
+      "source_image_sha256": "4fdf2bb63ef95851bb3b0fc9ce278067538220f511fd9947cf87cdbbc28143a1",
+      "label_sha256": "51110dbeb404fd61f9c24086fca90fb670ad7fd2b2bdaa5fda3c268762c110d0",
+      "success": true,
+      "reason": null,
+      "diagnostics": {
+        "load_count": 1,
+        "load_ms": 1219.9593000113964,
+        "model_input_size": [
+          488,
+          712
+        ],
+        "grid_shape": [
+          1,
+          2,
+          45,
+          31
+        ],
+        "sampling_mode": "bicubic"
+      },
+      "artifact_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174958\\right\\variants\\uvdoc_bicubic_original.png",
+      "artifact_sha256": "a585bfb3cd5485b7c360668405f2820ee607ac926ee76d5ff586a101697d2d05"
+    },
+    {
+      "capture": "20260826_175109",
+      "side": "left",
+      "variant": "uvdoc_bicubic_original",
+      "source_image_sha256": "22b51152e67dc668ffe053ddbb30da14ad78839026b60ea5a2e54d9239b5ea93",
+      "label_sha256": "afb4ddc1a816ad78ba8fc3f40eb892876015e834c15284f7484cf8ee48e7df44",
+      "success": true,
+      "reason": null,
+      "diagnostics": {
+        "load_count": 1,
+        "load_ms": 1219.9593000113964,
+        "model_input_size": [
+          488,
+          712
+        ],
+        "grid_shape": [
+          1,
+          2,
+          45,
+          31
+        ],
+        "sampling_mode": "bicubic"
+      },
+      "artifact_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_175109\\left\\variants\\uvdoc_bicubic_original.png",
+      "artifact_sha256": "852a4a7f75c8f0186e06200e94b0f11b29056d17a2e1645dd1433db2ff8edb68"
+    },
+    {
+      "capture": "20260826_175109",
+      "side": "right",
+      "variant": "uvdoc_bicubic_original",
+      "source_image_sha256": "22b51152e67dc668ffe053ddbb30da14ad78839026b60ea5a2e54d9239b5ea93",
+      "label_sha256": "afb4ddc1a816ad78ba8fc3f40eb892876015e834c15284f7484cf8ee48e7df44",
+      "success": true,
+      "reason": null,
+      "diagnostics": {
+        "load_count": 1,
+        "load_ms": 1219.9593000113964,
+        "model_input_size": [
+          488,
+          712
+        ],
+        "grid_shape": [
+          1,
+          2,
+          45,
+          31
+        ],
+        "sampling_mode": "bicubic"
+      },
+      "artifact_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_175109\\right\\variants\\uvdoc_bicubic_original.png",
+      "artifact_sha256": "0798f22e445d2e32b47fbb776fc41f3def22f863491cf24a02e15fb09af2572d"
+    }
+  ]
+}

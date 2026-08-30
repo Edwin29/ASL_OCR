@@ -1,0 +1,592 @@
+{
+  "schema_valid": true,
+  "validation_summary": {
+    "schema_valid": true,
+    "validation_performed": true,
+    "coordinate_missing_node_count": 0,
+    "reading_order_cycle_count": 0,
+    "invalid_reading_order_ref_count": 0,
+    "missing_reading_order_node_count": 0,
+    "duplicate_node_id_count": 0,
+    "required_field_missing_count": 0,
+    "type_error_count": 0,
+    "bbox_invalid_count": 0,
+    "normalized_bbox_out_of_range_count": 0,
+    "confidence_invalid_count": 0,
+    "reading_order_index_mismatch_count": 0,
+    "invalid_embedded_text_ref_count": 0,
+    "quality_status_invalid_count": 0,
+    "issue_invalid_count": 0,
+    "page_count_mismatch": false,
+    "page_count": 1
+  },
+  "page_count": 1,
+  "focus_item_count": 18,
+  "node_type_counts": {
+    "TEXT": 18,
+    "UNKNOWN": 4
+  },
+  "preserved_text_character_count": 706,
+  "parse_issue_codes": {
+    "PROBLEM_UNITS_DETECTED": 1
+  },
+  "parse_issue_count": 1,
+  "braille_opportunity_count": 31,
+  "braille_translated_count": 31,
+  "braille_withheld_count": 0,
+  "braille_error_count": 0,
+  "braille_translation_rate": 1.0,
+  "translations": [
+    {
+      "source_id": "p030-vl006-L01#0",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        11,
+        38,
+        45,
+        52,
+        18,
+        18,
+        60,
+        3,
+        24,
+        20,
+        45
+      ],
+      "unicode": "⠋⠦⠭⠴⠒⠒⠼⠃⠘⠔⠭",
+      "cell_count": 11,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl006-L01#1",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        61,
+        18,
+        18,
+        11,
+        38,
+        45,
+        52
+      ],
+      "unicode": "⠽⠒⠒⠋⠦⠭⠴",
+      "cell_count": 7,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl006-L01#2",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        61
+      ],
+      "unicode": "⠽",
+      "cell_count": 1,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl006-L01#3",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        45,
+        18,
+        18,
+        60,
+        3
+      ],
+      "unicode": "⠭⠒⠒⠼⠃",
+      "cell_count": 5,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl006-L02#0",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        60,
+        25,
+        12,
+        28,
+        60,
+        27,
+        1
+      ],
+      "unicode": "⠼⠙⠌⠜⠼⠛⠁",
+      "cell_count": 7,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl006-L02#1",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        60,
+        3,
+        12,
+        55,
+        60,
+        9,
+        28,
+        60,
+        3,
+        62
+      ],
+      "unicode": "⠼⠃⠌⠷⠼⠉⠜⠼⠃⠾",
+      "cell_count": 10,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl006-L02#2",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        60,
+        25,
+        12,
+        28,
+        60,
+        27,
+        9
+      ],
+      "unicode": "⠼⠙⠌⠜⠼⠛⠉",
+      "cell_count": 7,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl006-L02#3",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        60,
+        25,
+        12,
+        28,
+        60,
+        27,
+        25
+      ],
+      "unicode": "⠼⠙⠌⠜⠼⠛⠙",
+      "cell_count": 7,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl006-L02#4",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        60,
+        25,
+        12,
+        55,
+        60,
+        17,
+        28,
+        60,
+        9,
+        62
+      ],
+      "unicode": "⠼⠙⠌⠷⠼⠑⠜⠼⠉⠾",
+      "cell_count": 10,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl008-L01#0",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        11,
+        38,
+        45,
+        52,
+        18,
+        18,
+        38,
+        20,
+        1,
+        24,
+        60,
+        3,
+        34,
+        60,
+        11,
+        1,
+        20,
+        60,
+        25,
+        52,
+        24,
+        45
+      ],
+      "unicode": "⠋⠦⠭⠴⠒⠒⠦⠔⠁⠘⠼⠃⠢⠼⠋⠁⠔⠼⠙⠴⠘⠭",
+      "cell_count": 22,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl008-L01#1",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        45,
+        34,
+        34,
+        60,
+        26
+      ],
+      "unicode": "⠭⠢⠢⠼⠚",
+      "cell_count": 5,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl008-L01#2",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        11,
+        38,
+        45,
+        52,
+        34,
+        34,
+        60,
+        1
+      ],
+      "unicode": "⠋⠦⠭⠴⠢⠢⠼⠁",
+      "cell_count": 8,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl008-L01#3",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        1
+      ],
+      "unicode": "⠁",
+      "cell_count": 1,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl010-L01#0",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        11,
+        38,
+        45,
+        52,
+        18,
+        18,
+        60,
+        3,
+        24,
+        45
+      ],
+      "unicode": "⠋⠦⠭⠴⠒⠒⠼⠃⠘⠭",
+      "cell_count": 10,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl010-L01#1",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        27,
+        38,
+        45,
+        52,
+        18,
+        18,
+        60,
+        9,
+        24,
+        20,
+        45
+      ],
+      "unicode": "⠛⠦⠭⠴⠒⠒⠼⠉⠘⠔⠭",
+      "cell_count": 11,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl010-L01#2",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        19,
+        38,
+        45,
+        52,
+        18,
+        18,
+        27,
+        38,
+        45,
+        52,
+        12,
+        11,
+        38,
+        45,
+        52
+      ],
+      "unicode": "⠓⠦⠭⠴⠒⠒⠛⠦⠭⠴⠌⠋⠦⠭⠴",
+      "cell_count": 15,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl010-L01#3",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        20,
+        60,
+        3,
+        22,
+        22,
+        45,
+        22,
+        22,
+        60,
+        1
+      ],
+      "unicode": "⠔⠼⠃⠖⠖⠭⠖⠖⠼⠁",
+      "cell_count": 10,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl010-L01#4",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        19,
+        38,
+        45,
+        52
+      ],
+      "unicode": "⠓⠦⠭⠴",
+      "cell_count": 4,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl010-L01#5",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        32,
+        13
+      ],
+      "unicode": "⠠⠍",
+      "cell_count": 2,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl010-L01#6",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        13
+      ],
+      "unicode": "⠍",
+      "cell_count": 1,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl010-L01#7",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        32,
+        13,
+        13
+      ],
+      "unicode": "⠠⠍⠍",
+      "cell_count": 3,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl010-L02#0",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        60,
+        9,
+        11,
+        12,
+        60,
+        1
+      ],
+      "unicode": "⠼⠉⠋⠌⠼⠁",
+      "cell_count": 6,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl010-L02#1",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        60,
+        11,
+        12,
+        60,
+        1
+      ],
+      "unicode": "⠼⠋⠌⠼⠁",
+      "cell_count": 5,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl010-L02#2",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        60,
+        1
+      ],
+      "unicode": "⠼⠁",
+      "cell_count": 2,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl010-L02#3",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        60,
+        11
+      ],
+      "unicode": "⠼⠋",
+      "cell_count": 2,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl010-L02#4",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        60,
+        9,
+        11
+      ],
+      "unicode": "⠼⠉⠋",
+      "cell_count": 3,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl012-L02#0",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        20,
+        60,
+        19,
+        12,
+        60,
+        1,
+        1
+      ],
+      "unicode": "⠔⠼⠓⠌⠼⠁⠁",
+      "cell_count": 7,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl012-L02#1",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        20,
+        60,
+        3,
+        12,
+        60,
+        9
+      ],
+      "unicode": "⠔⠼⠃⠌⠼⠉",
+      "cell_count": 6,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl012-L02#2",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        20,
+        60,
+        19,
+        12,
+        60,
+        1,
+        9
+      ],
+      "unicode": "⠔⠼⠓⠌⠼⠁⠉",
+      "cell_count": 7,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl012-L02#3",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        20,
+        60,
+        25,
+        12,
+        60,
+        27
+      ],
+      "unicode": "⠔⠼⠙⠌⠼⠛",
+      "cell_count": 6,
+      "status": "TRANSLATED",
+      "error": null
+    },
+    {
+      "source_id": "p030-vl012-L02#4",
+      "source_kind": "MATH_SPAN",
+      "ast_status": "VALID",
+      "cells": [
+        20,
+        60,
+        19,
+        12,
+        60,
+        1,
+        17
+      ],
+      "unicode": "⠔⠼⠓⠌⠼⠁⠑",
+      "cell_count": 7,
+      "status": "TRANSLATED",
+      "error": null
+    }
+  ],
+  "page_ir_path": "D:\\Projects\\OCR\\document-parser\\tests\\fixtures\\accessibility\\p030.json",
+  "page_ir_sha256": "68438d7ac09644fb2879d550300290fdd2d48dbd79a596c37d3d5b531395eaf0"
+}

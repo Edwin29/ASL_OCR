@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "verdict": "PILOT_NO_CLEAR_REGRESSION",
+  "criteria": {
+    "expected_12_complete": true,
+    "schema_valid_12_of_12": true,
+    "character_drop_at_most_20_percent": true,
+    "no_additional_table_formula_omission_vs_overlap": true,
+    "node_sequence_not_repeatedly_markedly_lower": true,
+    "174958_right_key_blocks_present": true,
+    "single_adapter_batch_contract": true
+  },
+  "missing_artifact_ids": [],
+  "character_drop_fractions": [
+    -0.041666666666666664,
+    0.05841121495327103,
+    0.038913362701908955
+  ],
+  "structure_checks": [
+    {
+      "capture": "20260826_174958",
+      "side": "right",
+      "passed": true,
+      "deltas": {
+        "TABLE": {
+          "seam_conservative": -1,
+          "overlap": -2
+        },
+        "FORMULA": {
+          "seam_conservative": 0,
+          "overlap": 0
+        }
+      }
+    },
+    {
+      "capture": "20260826_175109",
+      "side": "left",
+      "passed": true,
+      "deltas": {
+        "TABLE": {
+          "seam_conservative": 0,
+          "overlap": 0
+        },
+        "FORMULA": {
+          "seam_conservative": 0,
+          "overlap": 0
+        }
+      }
+    },
+    {
+      "capture": "20260826_175109",
+      "side": "right",
+      "passed": true,
+      "deltas": {
+        "TABLE": {
+          "seam_conservative": 0,
+          "overlap": 0
+        },
+        "FORMULA": {
+          "seam_conservative": 0,
+          "overlap": 0
+        }
+      }
+    }
+  ],
+  "sequence_checks": [
+    {
+      "capture": "20260826_174958",
+      "side": "right",
+      "seam_conservative": 0.9166666666666666,
+      "overlap": 0.37037037037037035,
+      "lower_by_more_than_0_10": false
+    },
+    {
+      "capture": "20260826_175109",
+      "side": "left",
+      "seam_conservative": 0.7878787878787878,
+      "overlap": 0.896551724137931,
+      "lower_by_more_than_0_10": true
+    },
+    {
+      "capture": "20260826_175109",
+      "side": "right",
+      "seam_conservative": 0.9411764705882353,
+      "overlap": 0.6666666666666666,
+      "lower_by_more_than_0_10": false
+    }
+  ],
+  "key_block_presence": {
+    "내가가진소장품도전자상거래상품이될수있다": true,
+    "인터넷쇼핑,홈뱅킹": true,
+    "공공기관이나정부": true,
+    "팩스나전자우편": true,
+    "정답": true,
+    "해설": true
+  },
+  "manual_golden_status": "MANUAL_GOLDEN_NOT_VERIFIED",
+  "accuracy_claim_allowed": false,
+  "note": "Block presence does not verify exact glyph transcription. The 174958 right candidate differs from oracle OCR in some item/choice glyphs and remains manually unverified."
+}

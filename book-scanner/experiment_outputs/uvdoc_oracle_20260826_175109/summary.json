@@ -1,0 +1,352 @@
+{
+  "input": {
+    "image_path": "TESTIMAGES\\20260826_175109.jpg",
+    "image_sha256": "22b51152e67dc668ffe053ddbb30da14ad78839026b60ea5a2e54d9239b5ea93",
+    "label_path": "TESTIMAGES\\20260826_175109.json",
+    "label_sha256": "afb4ddc1a816ad78ba8fc3f40eb892876015e834c15284f7484cf8ee48e7df44",
+    "image_size": [
+      4000,
+      3000
+    ]
+  },
+  "runtime": {
+    "runtime_path": "D:\\Projects\\OCR\\tmp\\uvdoc-runtime",
+    "runtime_commit": "4c9b82b537057aff2526e6dd118a847cdd072e82",
+    "checkpoint_path": "D:\\Projects\\OCR\\tmp\\uvdoc-runtime\\model\\best_model.pkl",
+    "checkpoint_sha256": "7e90861b8a516eb4bc51f84bd889cb77275743d2d1d3ca8091951ec9f2b7da23"
+  },
+  "annotation_diagnostics": {
+    "overlap_px": 1785,
+    "overlap_ratio_full_frame": 0.00014875,
+    "winding_mismatch": true,
+    "unknown_labels": []
+  },
+  "raw_artifact": {
+    "kind": "raw",
+    "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\raw.png",
+    "sha256": "ebab865c04957a6188c20bd661c25641015a6504c1422fa8bef59dafbe2d50e6",
+    "size": [
+      4000,
+      3000
+    ],
+    "quality_block_reason": null
+  },
+  "sides": {
+    "left": {
+      "annotation": {
+        "label": "left_page",
+        "bbox_full": [
+          603,
+          92,
+          1480,
+          2639
+        ],
+        "area_px": 3253391,
+        "area_ratio": 0.2711159166666667,
+        "winding": "clockwise",
+        "touches_frame_edge": false
+      },
+      "variants": {
+        "bbox_original": {
+          "success": true,
+          "adapter_name": "uvdoc",
+          "device": "cpu",
+          "processing_ms": 329.8222000012174,
+          "input_size": [
+            1568,
+            2797
+          ],
+          "output_size": [
+            1568,
+            2797
+          ],
+          "reason": null,
+          "diagnostics": {
+            "load_count": 1,
+            "load_ms": 1244.198300060816,
+            "model_input_size": [
+              488,
+              712
+            ],
+            "grid_shape": [
+              1,
+              2,
+              45,
+              31
+            ]
+          },
+          "artifact_path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\left\\uvdoc_bbox_original.png",
+          "artifact_sha256": "64a6cd748397fbd6c9293de7ec7ec60782e5389d8e0a3035b5c2914bf1a77c29",
+          "quality_block_reason": null
+        },
+        "bbox_neutralized": {
+          "success": true,
+          "adapter_name": "uvdoc",
+          "device": "cpu",
+          "processing_ms": 306.8139998940751,
+          "input_size": [
+            1568,
+            2797
+          ],
+          "output_size": [
+            1568,
+            2797
+          ],
+          "reason": null,
+          "diagnostics": {
+            "load_count": 1,
+            "load_ms": 1244.198300060816,
+            "model_input_size": [
+              488,
+              712
+            ],
+            "grid_shape": [
+              1,
+              2,
+              45,
+              31
+            ]
+          },
+          "artifact_path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\left\\uvdoc_bbox_neutralized.png",
+          "artifact_sha256": "6945e7d3b8f3c8c78736e7a6635ecc31b5c9f29be26834dfdcee4cfa33012ddc",
+          "quality_block_reason": null
+        }
+      },
+      "artifacts": [
+        {
+          "kind": "mask",
+          "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\left\\mask.png",
+          "sha256": "fb7a0280fd5338a6a01a2297789baf9c4b068f0ad44b9bd1d57a5faadf1b3b1e",
+          "size": [
+            4000,
+            3000
+          ],
+          "quality_block_reason": null
+        },
+        {
+          "kind": "overlay",
+          "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\left\\overlay.png",
+          "sha256": "76b8cb73315ac258662b887ab402f2b29d3790acdf67b4249afc10084ded341d",
+          "size": [
+            4000,
+            3000
+          ],
+          "quality_block_reason": null
+        },
+        {
+          "kind": "bbox_original",
+          "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\left\\bbox_original.png",
+          "sha256": "63cd054b80257fac34ee7b04bf3c120ad8c3354df84040daffdcb8f248b4ce11",
+          "size": [
+            1568,
+            2797
+          ],
+          "quality_block_reason": null
+        },
+        {
+          "kind": "uvdoc_bbox_original",
+          "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\left\\uvdoc_bbox_original.png",
+          "sha256": "64a6cd748397fbd6c9293de7ec7ec60782e5389d8e0a3035b5c2914bf1a77c29",
+          "size": [
+            1568,
+            2797
+          ],
+          "quality_block_reason": null
+        },
+        {
+          "kind": "bbox_neutralized",
+          "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\left\\bbox_neutralized.png",
+          "sha256": "f19b97c46c4f291c5b064d938f843347c1b76138d5f372d01988aad3b6ab3aab",
+          "size": [
+            1568,
+            2797
+          ],
+          "quality_block_reason": null
+        },
+        {
+          "kind": "uvdoc_bbox_neutralized",
+          "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\left\\uvdoc_bbox_neutralized.png",
+          "sha256": "6945e7d3b8f3c8c78736e7a6635ecc31b5c9f29be26834dfdcee4cfa33012ddc",
+          "size": [
+            1568,
+            2797
+          ],
+          "quality_block_reason": null
+        },
+        {
+          "kind": "legacy_homography",
+          "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\left\\legacy_homography.png",
+          "sha256": "b6b92a7ffa8cb8f8207c5a9bb3216762d09e08727292739da4a30b92911fbb0a",
+          "size": [
+            1467,
+            2638
+          ],
+          "quality_block_reason": null
+        }
+      ]
+    },
+    "right": {
+      "annotation": {
+        "label": "right_page",
+        "bbox_full": [
+          2022,
+          14,
+          1563,
+          2682
+        ],
+        "area_px": 3310931,
+        "area_ratio": 0.2759109166666667,
+        "winding": "counterclockwise",
+        "touches_frame_edge": false
+      },
+      "variants": {
+        "bbox_original": {
+          "success": true,
+          "adapter_name": "uvdoc",
+          "device": "cpu",
+          "processing_ms": 294.0037000225857,
+          "input_size": [
+            1657,
+            2776
+          ],
+          "output_size": [
+            1657,
+            2776
+          ],
+          "reason": null,
+          "diagnostics": {
+            "load_count": 1,
+            "load_ms": 1244.198300060816,
+            "model_input_size": [
+              488,
+              712
+            ],
+            "grid_shape": [
+              1,
+              2,
+              45,
+              31
+            ]
+          },
+          "artifact_path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\right\\uvdoc_bbox_original.png",
+          "artifact_sha256": "39cf2b775fb21efb54b7bd388aa67ec90066cf51a109d69be516356e72de0fca",
+          "quality_block_reason": null
+        },
+        "bbox_neutralized": {
+          "success": true,
+          "adapter_name": "uvdoc",
+          "device": "cpu",
+          "processing_ms": 254.03459998779,
+          "input_size": [
+            1657,
+            2776
+          ],
+          "output_size": [
+            1657,
+            2776
+          ],
+          "reason": null,
+          "diagnostics": {
+            "load_count": 1,
+            "load_ms": 1244.198300060816,
+            "model_input_size": [
+              488,
+              712
+            ],
+            "grid_shape": [
+              1,
+              2,
+              45,
+              31
+            ]
+          },
+          "artifact_path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\right\\uvdoc_bbox_neutralized.png",
+          "artifact_sha256": "99d3b723e821400c7fef85405cf7381e35bd2a7ff3df6d964bd7b66898e1cd7f",
+          "quality_block_reason": null
+        }
+      },
+      "artifacts": [
+        {
+          "kind": "mask",
+          "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\right\\mask.png",
+          "sha256": "9858f9e3f99a170b04aea3a335f5e45509fc9e561220da310d064f4019cbef64",
+          "size": [
+            4000,
+            3000
+          ],
+          "quality_block_reason": null
+        },
+        {
+          "kind": "overlay",
+          "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\right\\overlay.png",
+          "sha256": "80468d7053527c783b3eadd12a79c1f4685c898dc6df4e6ae863ccb4bca3df0c",
+          "size": [
+            4000,
+            3000
+          ],
+          "quality_block_reason": null
+        },
+        {
+          "kind": "bbox_original",
+          "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\right\\bbox_original.png",
+          "sha256": "7ac1c068b38c3f0857557acf31bc77acd626366242d2070abad3f30f5979e93a",
+          "size": [
+            1657,
+            2776
+          ],
+          "quality_block_reason": null
+        },
+        {
+          "kind": "uvdoc_bbox_original",
+          "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\right\\uvdoc_bbox_original.png",
+          "sha256": "39cf2b775fb21efb54b7bd388aa67ec90066cf51a109d69be516356e72de0fca",
+          "size": [
+            1657,
+            2776
+          ],
+          "quality_block_reason": null
+        },
+        {
+          "kind": "bbox_neutralized",
+          "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\right\\bbox_neutralized.png",
+          "sha256": "afa50dd839580006046362f33d6a51367ec4540c4a142dc8cf9f4d656ce9e4d1",
+          "size": [
+            1657,
+            2776
+          ],
+          "quality_block_reason": null
+        },
+        {
+          "kind": "uvdoc_bbox_neutralized",
+          "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\right\\uvdoc_bbox_neutralized.png",
+          "sha256": "99d3b723e821400c7fef85405cf7381e35bd2a7ff3df6d964bd7b66898e1cd7f",
+          "size": [
+            1657,
+            2776
+          ],
+          "quality_block_reason": null
+        },
+        {
+          "kind": "legacy_homography",
+          "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\right\\legacy_homography.png",
+          "sha256": "bae2da977427299f19ad32be6d358b635417df9ab8a99581f52b95df4f71f7cd",
+          "size": [
+            1470,
+            2688
+          ],
+          "quality_block_reason": null
+        }
+      ]
+    }
+  },
+  "contact_sheet": {
+    "kind": "contact_sheet",
+    "path": "experiment_outputs\\uvdoc_oracle_20260826_175109\\contact_sheet.png",
+    "sha256": "918062c72bd643f8b605e20f98d6377519c29e37eddc23a8dae8467cd402e411",
+    "size": [
+      2300,
+      1200
+    ],
+    "quality_block_reason": null
+  }
+}

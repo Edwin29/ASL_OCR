@@ -1,0 +1,1338 @@
+{
+  "phase": "extraction",
+  "status": "COMPLETE",
+  "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+  "model_home": "D:\\Projects\\OCR\\document-parser\\data\\debug\\model_home_vl",
+  "model_download_attempted": false,
+  "adapter_instance_count": 1,
+  "adapter_reused_across_artifacts": true,
+  "results": [
+    {
+      "artifact_id": "20260826_174943_left_oracle_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174943_left_oracle_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 1044,
+      "node_count": 6,
+      "braille_opportunity_count": 15,
+      "braille_error_count": 10
+    },
+    {
+      "artifact_id": "20260826_174943_left_overlap_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174943_left_overlap_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 1142,
+      "node_count": 22,
+      "braille_opportunity_count": 21,
+      "braille_error_count": 16
+    },
+    {
+      "artifact_id": "20260826_174943_left_seam_confirmed_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174943_left_seam_confirmed_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 1045,
+      "node_count": 6,
+      "braille_opportunity_count": 12,
+      "braille_error_count": 7
+    },
+    {
+      "artifact_id": "20260826_174943_left_seam_conservative_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174943_left_seam_conservative_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 993,
+      "node_count": 7,
+      "braille_opportunity_count": 15,
+      "braille_error_count": 10
+    },
+    {
+      "artifact_id": "20260826_174943_right_oracle_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174943_right_oracle_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 573,
+      "node_count": 40,
+      "braille_opportunity_count": 0,
+      "braille_error_count": 0
+    },
+    {
+      "artifact_id": "20260826_174943_right_overlap_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174943_right_overlap_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 991,
+      "node_count": 51,
+      "braille_opportunity_count": 5,
+      "braille_error_count": 4
+    },
+    {
+      "artifact_id": "20260826_174943_right_seam_confirmed_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174943_right_seam_confirmed_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 569,
+      "node_count": 40,
+      "braille_opportunity_count": 0,
+      "braille_error_count": 0
+    },
+    {
+      "artifact_id": "20260826_174943_right_seam_conservative_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174943_right_seam_conservative_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 576,
+      "node_count": 40,
+      "braille_opportunity_count": 0,
+      "braille_error_count": 0
+    },
+    {
+      "artifact_id": "20260826_174953_left_oracle_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174953_left_oracle_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 1039,
+      "node_count": 6,
+      "braille_opportunity_count": 15,
+      "braille_error_count": 10
+    },
+    {
+      "artifact_id": "20260826_174953_left_overlap_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174953_left_overlap_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 1218,
+      "node_count": 25,
+      "braille_opportunity_count": 15,
+      "braille_error_count": 10
+    },
+    {
+      "artifact_id": "20260826_174953_left_seam_confirmed_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174953_left_seam_confirmed_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 1065,
+      "node_count": 9,
+      "braille_opportunity_count": 15,
+      "braille_error_count": 10
+    },
+    {
+      "artifact_id": "20260826_174953_left_seam_conservative_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174953_left_seam_conservative_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 1142,
+      "node_count": 21,
+      "braille_opportunity_count": 16,
+      "braille_error_count": 11
+    },
+    {
+      "artifact_id": "20260826_174953_right_oracle_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174953_right_oracle_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 496,
+      "node_count": 31,
+      "braille_opportunity_count": 0,
+      "braille_error_count": 0
+    },
+    {
+      "artifact_id": "20260826_174953_right_overlap_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174953_right_overlap_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 857,
+      "node_count": 48,
+      "braille_opportunity_count": 0,
+      "braille_error_count": 0
+    },
+    {
+      "artifact_id": "20260826_174953_right_seam_confirmed_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174953_right_seam_confirmed_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 567,
+      "node_count": 40,
+      "braille_opportunity_count": 0,
+      "braille_error_count": 0
+    },
+    {
+      "artifact_id": "20260826_174953_right_seam_conservative_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174953_right_seam_conservative_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 558,
+      "node_count": 40,
+      "braille_opportunity_count": 0,
+      "braille_error_count": 0
+    },
+    {
+      "artifact_id": "20260826_174958_left_oracle_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174958_left_oracle_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 789,
+      "node_count": 8,
+      "braille_opportunity_count": 22,
+      "braille_error_count": 12
+    },
+    {
+      "artifact_id": "20260826_174958_left_overlap_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174958_left_overlap_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 962,
+      "node_count": 16,
+      "braille_opportunity_count": 55,
+      "braille_error_count": 20
+    },
+    {
+      "artifact_id": "20260826_174958_left_seam_confirmed_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174958_left_seam_confirmed_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 789,
+      "node_count": 8,
+      "braille_opportunity_count": 22,
+      "braille_error_count": 12
+    },
+    {
+      "artifact_id": "20260826_174958_left_seam_conservative_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174958_left_seam_conservative_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 789,
+      "node_count": 8,
+      "braille_opportunity_count": 22,
+      "braille_error_count": 12
+    },
+    {
+      "artifact_id": "20260826_174958_right_oracle_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174958_right_oracle_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 624,
+      "node_count": 12,
+      "braille_opportunity_count": 47,
+      "braille_error_count": 28
+    },
+    {
+      "artifact_id": "20260826_174958_right_overlap_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174958_right_overlap_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 848,
+      "node_count": 42,
+      "braille_opportunity_count": 21,
+      "braille_error_count": 11
+    },
+    {
+      "artifact_id": "20260826_174958_right_seam_confirmed_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174958_right_seam_confirmed_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 639,
+      "node_count": 21,
+      "braille_opportunity_count": 19,
+      "braille_error_count": 10
+    },
+    {
+      "artifact_id": "20260826_174958_right_seam_conservative_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174958_right_seam_conservative_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 650,
+      "node_count": 12,
+      "braille_opportunity_count": 34,
+      "braille_error_count": 22
+    },
+    {
+      "artifact_id": "20260826_175109_left_oracle_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_175109_left_oracle_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 428,
+      "node_count": 13,
+      "braille_opportunity_count": 0,
+      "braille_error_count": 0
+    },
+    {
+      "artifact_id": "20260826_175109_left_overlap_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_175109_left_overlap_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 807,
+      "node_count": 16,
+      "braille_opportunity_count": 0,
+      "braille_error_count": 0
+    },
+    {
+      "artifact_id": "20260826_175109_left_seam_confirmed_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_175109_left_seam_confirmed_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 396,
+      "node_count": 21,
+      "braille_opportunity_count": 0,
+      "braille_error_count": 0
+    },
+    {
+      "artifact_id": "20260826_175109_left_seam_conservative_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_175109_left_seam_conservative_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 403,
+      "node_count": 20,
+      "braille_opportunity_count": 0,
+      "braille_error_count": 0
+    },
+    {
+      "artifact_id": "20260826_175109_right_oracle_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_175109_right_oracle_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 1362,
+      "node_count": 8,
+      "braille_opportunity_count": 0,
+      "braille_error_count": 0
+    },
+    {
+      "artifact_id": "20260826_175109_right_overlap_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_175109_right_overlap_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 1418,
+      "node_count": 16,
+      "braille_opportunity_count": 0,
+      "braille_error_count": 0
+    },
+    {
+      "artifact_id": "20260826_175109_right_seam_confirmed_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_175109_right_seam_confirmed_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 1346,
+      "node_count": 9,
+      "braille_opportunity_count": 0,
+      "braille_error_count": 0
+    },
+    {
+      "artifact_id": "20260826_175109_right_seam_conservative_none_none",
+      "status": "COMPLETE",
+      "record_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_175109_right_seam_conservative_none_none.json",
+      "cache_hit": true,
+      "schema_valid": true,
+      "character_count": 1309,
+      "node_count": 9,
+      "braille_opportunity_count": 0,
+      "braille_error_count": 0
+    }
+  ],
+  "comparisons": [
+    {
+      "capture": "20260826_174943",
+      "side": "left",
+      "extraction": "oracle",
+      "anchor_artifact_id": "20260826_174943_left_oracle_none_none",
+      "candidate_artifact_id": "20260826_174943_left_oracle_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 1.0,
+        "character_count": 1044,
+        "anchor_character_count": 1044,
+        "character_count_ratio": 1.0,
+        "character_count_drop_fraction": 0.0,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TABLE": 0,
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174943",
+      "side": "left",
+      "extraction": "overlap",
+      "anchor_artifact_id": "20260826_174943_left_oracle_none_none",
+      "candidate_artifact_id": "20260826_174943_left_overlap_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.898444647758463,
+        "character_count": 1142,
+        "anchor_character_count": 1044,
+        "character_count_ratio": 1.0938697318007662,
+        "character_count_drop_fraction": -0.09386973180076628,
+        "node_sequence_similarity": 0.42857142857142855,
+        "node_type_count_delta": {
+          "TABLE": 1,
+          "TEXT": 15
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 6,
+        "braille_error_delta": 6,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174943",
+      "side": "left",
+      "extraction": "seam_confirmed",
+      "anchor_artifact_id": "20260826_174943_left_oracle_none_none",
+      "candidate_artifact_id": "20260826_174943_left_seam_confirmed_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9727142173288655,
+        "character_count": 1045,
+        "anchor_character_count": 1044,
+        "character_count_ratio": 1.0009578544061302,
+        "character_count_drop_fraction": -0.0009578544061302681,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TABLE": 0,
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": -3,
+        "braille_error_delta": -3,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174943",
+      "side": "left",
+      "extraction": "seam_conservative",
+      "anchor_artifact_id": "20260826_174943_left_oracle_none_none",
+      "candidate_artifact_id": "20260826_174943_left_seam_conservative_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9631811487481591,
+        "character_count": 993,
+        "anchor_character_count": 1044,
+        "character_count_ratio": 0.9511494252873564,
+        "character_count_drop_fraction": 0.04885057471264368,
+        "node_sequence_similarity": 0.9230769230769231,
+        "node_type_count_delta": {
+          "TABLE": 0,
+          "TEXT": 1
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174943",
+      "side": "right",
+      "extraction": "oracle",
+      "anchor_artifact_id": "20260826_174943_right_oracle_none_none",
+      "candidate_artifact_id": "20260826_174943_right_oracle_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 1.0,
+        "character_count": 573,
+        "anchor_character_count": 573,
+        "character_count_ratio": 1.0,
+        "character_count_drop_fraction": 0.0,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174943",
+      "side": "right",
+      "extraction": "overlap",
+      "anchor_artifact_id": "20260826_174943_right_oracle_none_none",
+      "candidate_artifact_id": "20260826_174943_right_overlap_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.6892583120204604,
+        "character_count": 991,
+        "anchor_character_count": 573,
+        "character_count_ratio": 1.7294938917975566,
+        "character_count_drop_fraction": -0.7294938917975567,
+        "node_sequence_similarity": 0.8791208791208791,
+        "node_type_count_delta": {
+          "TABLE": 1,
+          "TEXT": 10
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 5,
+        "braille_error_delta": 4,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174943",
+      "side": "right",
+      "extraction": "seam_confirmed",
+      "anchor_artifact_id": "20260826_174943_right_oracle_none_none",
+      "candidate_artifact_id": "20260826_174943_right_seam_confirmed_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9422066549912435,
+        "character_count": 569,
+        "anchor_character_count": 573,
+        "character_count_ratio": 0.9930191972076788,
+        "character_count_drop_fraction": 0.006980802792321117,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174943",
+      "side": "right",
+      "extraction": "seam_conservative",
+      "anchor_artifact_id": "20260826_174943_right_oracle_none_none",
+      "candidate_artifact_id": "20260826_174943_right_seam_conservative_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9434290687554395,
+        "character_count": 576,
+        "anchor_character_count": 573,
+        "character_count_ratio": 1.0052356020942408,
+        "character_count_drop_fraction": -0.005235602094240838,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174953",
+      "side": "left",
+      "extraction": "oracle",
+      "anchor_artifact_id": "20260826_174953_left_oracle_none_none",
+      "candidate_artifact_id": "20260826_174953_left_oracle_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 1.0,
+        "character_count": 1039,
+        "anchor_character_count": 1039,
+        "character_count_ratio": 1.0,
+        "character_count_drop_fraction": 0.0,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TABLE": 0,
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174953",
+      "side": "left",
+      "extraction": "overlap",
+      "anchor_artifact_id": "20260826_174953_left_oracle_none_none",
+      "candidate_artifact_id": "20260826_174953_left_overlap_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9144882587505538,
+        "character_count": 1218,
+        "anchor_character_count": 1039,
+        "character_count_ratio": 1.1722810394610201,
+        "character_count_drop_fraction": -0.17228103946102022,
+        "node_sequence_similarity": 0.3870967741935484,
+        "node_type_count_delta": {
+          "TABLE": 0,
+          "TEXT": 19
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174953",
+      "side": "left",
+      "extraction": "seam_confirmed",
+      "anchor_artifact_id": "20260826_174953_left_oracle_none_none",
+      "candidate_artifact_id": "20260826_174953_left_seam_confirmed_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9771863117870723,
+        "character_count": 1065,
+        "anchor_character_count": 1039,
+        "character_count_ratio": 1.02502406159769,
+        "character_count_drop_fraction": -0.025024061597690085,
+        "node_sequence_similarity": 0.8,
+        "node_type_count_delta": {
+          "TABLE": 0,
+          "TEXT": 3
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174953",
+      "side": "left",
+      "extraction": "seam_conservative",
+      "anchor_artifact_id": "20260826_174953_left_oracle_none_none",
+      "candidate_artifact_id": "20260826_174953_left_seam_conservative_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.938101788170564,
+        "character_count": 1142,
+        "anchor_character_count": 1039,
+        "character_count_ratio": 1.0991337824831569,
+        "character_count_drop_fraction": -0.09913378248315688,
+        "node_sequence_similarity": 0.4444444444444444,
+        "node_type_count_delta": {
+          "TABLE": 0,
+          "TEXT": 15
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 1,
+        "braille_error_delta": 1,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174953",
+      "side": "right",
+      "extraction": "oracle",
+      "anchor_artifact_id": "20260826_174953_right_oracle_none_none",
+      "candidate_artifact_id": "20260826_174953_right_oracle_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 1.0,
+        "character_count": 496,
+        "anchor_character_count": 496,
+        "character_count_ratio": 1.0,
+        "character_count_drop_fraction": 0.0,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174953",
+      "side": "right",
+      "extraction": "overlap",
+      "anchor_artifact_id": "20260826_174953_right_oracle_none_none",
+      "candidate_artifact_id": "20260826_174953_right_overlap_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.7124907612712491,
+        "character_count": 857,
+        "anchor_character_count": 496,
+        "character_count_ratio": 1.7278225806451613,
+        "character_count_drop_fraction": -0.7278225806451613,
+        "node_sequence_similarity": 0.7848101265822784,
+        "node_type_count_delta": {
+          "TEXT": 17
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174953",
+      "side": "right",
+      "extraction": "seam_confirmed",
+      "anchor_artifact_id": "20260826_174953_right_oracle_none_none",
+      "candidate_artifact_id": "20260826_174953_right_seam_confirmed_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9275634995296331,
+        "character_count": 567,
+        "anchor_character_count": 496,
+        "character_count_ratio": 1.1431451612903225,
+        "character_count_drop_fraction": -0.1431451612903226,
+        "node_sequence_similarity": 0.8732394366197183,
+        "node_type_count_delta": {
+          "TEXT": 9
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174953",
+      "side": "right",
+      "extraction": "seam_conservative",
+      "anchor_artifact_id": "20260826_174953_right_oracle_none_none",
+      "candidate_artifact_id": "20260826_174953_right_seam_conservative_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9392789373814042,
+        "character_count": 558,
+        "anchor_character_count": 496,
+        "character_count_ratio": 1.125,
+        "character_count_drop_fraction": -0.125,
+        "node_sequence_similarity": 0.8732394366197183,
+        "node_type_count_delta": {
+          "TEXT": 9
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174958",
+      "side": "left",
+      "extraction": "oracle",
+      "anchor_artifact_id": "20260826_174958_left_oracle_none_none",
+      "candidate_artifact_id": "20260826_174958_left_oracle_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 1.0,
+        "character_count": 789,
+        "anchor_character_count": 789,
+        "character_count_ratio": 1.0,
+        "character_count_drop_fraction": 0.0,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TABLE": 0,
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174958",
+      "side": "left",
+      "extraction": "overlap",
+      "anchor_artifact_id": "20260826_174958_left_oracle_none_none",
+      "candidate_artifact_id": "20260826_174958_left_overlap_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.8989149057681325,
+        "character_count": 962,
+        "anchor_character_count": 789,
+        "character_count_ratio": 1.2192648922686946,
+        "character_count_drop_fraction": -0.21926489226869456,
+        "node_sequence_similarity": 0.6666666666666666,
+        "node_type_count_delta": {
+          "TABLE": 2,
+          "TEXT": 6
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 33,
+        "braille_error_delta": 8,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174958",
+      "side": "left",
+      "extraction": "seam_confirmed",
+      "anchor_artifact_id": "20260826_174958_left_oracle_none_none",
+      "candidate_artifact_id": "20260826_174958_left_seam_confirmed_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9974651457541192,
+        "character_count": 789,
+        "anchor_character_count": 789,
+        "character_count_ratio": 1.0,
+        "character_count_drop_fraction": 0.0,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TABLE": 0,
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174958",
+      "side": "left",
+      "extraction": "seam_conservative",
+      "anchor_artifact_id": "20260826_174958_left_oracle_none_none",
+      "candidate_artifact_id": "20260826_174958_left_seam_conservative_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9974651457541192,
+        "character_count": 789,
+        "anchor_character_count": 789,
+        "character_count_ratio": 1.0,
+        "character_count_drop_fraction": 0.0,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TABLE": 0,
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174958",
+      "side": "right",
+      "extraction": "oracle",
+      "anchor_artifact_id": "20260826_174958_right_oracle_none_none",
+      "candidate_artifact_id": "20260826_174958_right_oracle_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 1.0,
+        "character_count": 624,
+        "anchor_character_count": 624,
+        "character_count_ratio": 1.0,
+        "character_count_drop_fraction": 0.0,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TABLE": 0,
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174958",
+      "side": "right",
+      "extraction": "overlap",
+      "anchor_artifact_id": "20260826_174958_right_oracle_none_none",
+      "candidate_artifact_id": "20260826_174958_right_overlap_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.5149456521739131,
+        "character_count": 848,
+        "anchor_character_count": 624,
+        "character_count_ratio": 1.358974358974359,
+        "character_count_drop_fraction": -0.358974358974359,
+        "node_sequence_similarity": 0.37037037037037035,
+        "node_type_count_delta": {
+          "TABLE": -2,
+          "TEXT": 32
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": -26,
+        "braille_error_delta": -17,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174958",
+      "side": "right",
+      "extraction": "seam_confirmed",
+      "anchor_artifact_id": "20260826_174958_right_oracle_none_none",
+      "candidate_artifact_id": "20260826_174958_right_seam_confirmed_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.56215360253365,
+        "character_count": 639,
+        "anchor_character_count": 624,
+        "character_count_ratio": 1.0240384615384615,
+        "character_count_drop_fraction": -0.02403846153846154,
+        "node_sequence_similarity": 0.6060606060606061,
+        "node_type_count_delta": {
+          "TABLE": -2,
+          "TEXT": 11
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": -28,
+        "braille_error_delta": -18,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_174958",
+      "side": "right",
+      "extraction": "seam_conservative",
+      "anchor_artifact_id": "20260826_174958_right_oracle_none_none",
+      "candidate_artifact_id": "20260826_174958_right_seam_conservative_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.945054945054945,
+        "character_count": 650,
+        "anchor_character_count": 624,
+        "character_count_ratio": 1.0416666666666667,
+        "character_count_drop_fraction": -0.041666666666666664,
+        "node_sequence_similarity": 0.9166666666666666,
+        "node_type_count_delta": {
+          "TABLE": -1,
+          "TEXT": 1
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": -13,
+        "braille_error_delta": -6,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_175109",
+      "side": "left",
+      "extraction": "oracle",
+      "anchor_artifact_id": "20260826_175109_left_oracle_none_none",
+      "candidate_artifact_id": "20260826_175109_left_oracle_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 1.0,
+        "character_count": 428,
+        "anchor_character_count": 428,
+        "character_count_ratio": 1.0,
+        "character_count_drop_fraction": 0.0,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_175109",
+      "side": "left",
+      "extraction": "overlap",
+      "anchor_artifact_id": "20260826_175109_left_oracle_none_none",
+      "candidate_artifact_id": "20260826_175109_left_overlap_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.6607287449392713,
+        "character_count": 807,
+        "anchor_character_count": 428,
+        "character_count_ratio": 1.8855140186915889,
+        "character_count_drop_fraction": -0.8855140186915887,
+        "node_sequence_similarity": 0.896551724137931,
+        "node_type_count_delta": {
+          "TEXT": 3
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_175109",
+      "side": "left",
+      "extraction": "seam_confirmed",
+      "anchor_artifact_id": "20260826_175109_left_oracle_none_none",
+      "candidate_artifact_id": "20260826_175109_left_seam_confirmed_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9101941747572816,
+        "character_count": 396,
+        "anchor_character_count": 428,
+        "character_count_ratio": 0.9252336448598131,
+        "character_count_drop_fraction": 0.07476635514018691,
+        "node_sequence_similarity": 0.7647058823529411,
+        "node_type_count_delta": {
+          "TEXT": 8
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_175109",
+      "side": "left",
+      "extraction": "seam_conservative",
+      "anchor_artifact_id": "20260826_175109_left_oracle_none_none",
+      "candidate_artifact_id": "20260826_175109_left_seam_conservative_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9001203369434416,
+        "character_count": 403,
+        "anchor_character_count": 428,
+        "character_count_ratio": 0.9415887850467289,
+        "character_count_drop_fraction": 0.05841121495327103,
+        "node_sequence_similarity": 0.7878787878787878,
+        "node_type_count_delta": {
+          "TEXT": 7
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_175109",
+      "side": "right",
+      "extraction": "oracle",
+      "anchor_artifact_id": "20260826_175109_right_oracle_none_none",
+      "candidate_artifact_id": "20260826_175109_right_oracle_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 1.0,
+        "character_count": 1362,
+        "anchor_character_count": 1362,
+        "character_count_ratio": 1.0,
+        "character_count_drop_fraction": 0.0,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_175109",
+      "side": "right",
+      "extraction": "overlap",
+      "anchor_artifact_id": "20260826_175109_right_oracle_none_none",
+      "candidate_artifact_id": "20260826_175109_right_overlap_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.8776978417266187,
+        "character_count": 1418,
+        "anchor_character_count": 1362,
+        "character_count_ratio": 1.0411160058737152,
+        "character_count_drop_fraction": -0.041116005873715125,
+        "node_sequence_similarity": 0.6666666666666666,
+        "node_type_count_delta": {
+          "TEXT": 8
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_175109",
+      "side": "right",
+      "extraction": "seam_confirmed",
+      "anchor_artifact_id": "20260826_175109_right_oracle_none_none",
+      "candidate_artifact_id": "20260826_175109_right_seam_confirmed_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9342688330871491,
+        "character_count": 1346,
+        "anchor_character_count": 1362,
+        "character_count_ratio": 0.9882525697503671,
+        "character_count_drop_fraction": 0.011747430249632892,
+        "node_sequence_similarity": 0.9411764705882353,
+        "node_type_count_delta": {
+          "TEXT": 1
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    },
+    {
+      "capture": "20260826_175109",
+      "side": "right",
+      "extraction": "seam_conservative",
+      "anchor_artifact_id": "20260826_175109_right_oracle_none_none",
+      "candidate_artifact_id": "20260826_175109_right_seam_conservative_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9172594533882441,
+        "character_count": 1309,
+        "anchor_character_count": 1362,
+        "character_count_ratio": 0.9610866372980911,
+        "character_count_drop_fraction": 0.038913362701908955,
+        "node_sequence_similarity": 0.9411764705882353,
+        "node_type_count_delta": {
+          "TEXT": 1
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      }
+    }
+  ],
+  "repeated_capture_comparisons": [
+    {
+      "first_artifact_id": "20260826_174943_left_oracle_none_none",
+      "second_artifact_id": "20260826_174953_left_oracle_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9908785405664906,
+        "character_count": 1039,
+        "anchor_character_count": 1044,
+        "character_count_ratio": 0.9952107279693486,
+        "character_count_drop_fraction": 0.004789272030651341,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TABLE": 0,
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      },
+      "interpretation": "repeat_stability_only_not_accuracy"
+    },
+    {
+      "first_artifact_id": "20260826_174943_left_overlap_none_none",
+      "second_artifact_id": "20260826_174953_left_overlap_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.926271186440678,
+        "character_count": 1218,
+        "anchor_character_count": 1142,
+        "character_count_ratio": 1.0665499124343258,
+        "character_count_drop_fraction": -0.06654991243432574,
+        "node_sequence_similarity": 0.8936170212765957,
+        "node_type_count_delta": {
+          "TABLE": -1,
+          "TEXT": 4
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": -6,
+        "braille_error_delta": -6,
+        "accuracy_claim_allowed": false
+      },
+      "interpretation": "repeat_stability_only_not_accuracy"
+    },
+    {
+      "first_artifact_id": "20260826_174943_left_seam_confirmed_none_none",
+      "second_artifact_id": "20260826_174953_left_seam_confirmed_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9535545023696682,
+        "character_count": 1065,
+        "anchor_character_count": 1045,
+        "character_count_ratio": 1.0191387559808613,
+        "character_count_drop_fraction": -0.019138755980861243,
+        "node_sequence_similarity": 0.8,
+        "node_type_count_delta": {
+          "TABLE": 0,
+          "TEXT": 3
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 3,
+        "braille_error_delta": 3,
+        "accuracy_claim_allowed": false
+      },
+      "interpretation": "repeat_stability_only_not_accuracy"
+    },
+    {
+      "first_artifact_id": "20260826_174943_left_seam_conservative_none_none",
+      "second_artifact_id": "20260826_174953_left_seam_conservative_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9142857142857143,
+        "character_count": 1142,
+        "anchor_character_count": 993,
+        "character_count_ratio": 1.150050352467271,
+        "character_count_drop_fraction": -0.1500503524672709,
+        "node_sequence_similarity": 0.5,
+        "node_type_count_delta": {
+          "TABLE": 0,
+          "TEXT": 14
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 1,
+        "braille_error_delta": 1,
+        "accuracy_claim_allowed": false
+      },
+      "interpretation": "repeat_stability_only_not_accuracy"
+    },
+    {
+      "first_artifact_id": "20260826_174943_right_oracle_none_none",
+      "second_artifact_id": "20260826_174953_right_oracle_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9148737137511693,
+        "character_count": 496,
+        "anchor_character_count": 573,
+        "character_count_ratio": 0.8656195462478184,
+        "character_count_drop_fraction": 0.1343804537521815,
+        "node_sequence_similarity": 0.8732394366197183,
+        "node_type_count_delta": {
+          "TEXT": -9
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      },
+      "interpretation": "repeat_stability_only_not_accuracy"
+    },
+    {
+      "first_artifact_id": "20260826_174943_right_overlap_none_none",
+      "second_artifact_id": "20260826_174953_right_overlap_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.3354978354978355,
+        "character_count": 857,
+        "anchor_character_count": 991,
+        "character_count_ratio": 0.8647830474268415,
+        "character_count_drop_fraction": 0.13521695257315844,
+        "node_sequence_similarity": 0.9696969696969697,
+        "node_type_count_delta": {
+          "TABLE": -1,
+          "TEXT": -2
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": -5,
+        "braille_error_delta": -4,
+        "accuracy_claim_allowed": false
+      },
+      "interpretation": "repeat_stability_only_not_accuracy"
+    },
+    {
+      "first_artifact_id": "20260826_174943_right_seam_confirmed_none_none",
+      "second_artifact_id": "20260826_174953_right_seam_confirmed_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9366197183098591,
+        "character_count": 567,
+        "anchor_character_count": 569,
+        "character_count_ratio": 0.9964850615114236,
+        "character_count_drop_fraction": 0.0035149384885764497,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      },
+      "interpretation": "repeat_stability_only_not_accuracy"
+    },
+    {
+      "first_artifact_id": "20260826_174943_right_seam_conservative_none_none",
+      "second_artifact_id": "20260826_174953_right_seam_conservative_none_none",
+      "comparison": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9435626102292769,
+        "character_count": 558,
+        "anchor_character_count": 576,
+        "character_count_ratio": 0.96875,
+        "character_count_drop_fraction": 0.03125,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TEXT": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      },
+      "interpretation": "repeat_stability_only_not_accuracy"
+    }
+  ],
+  "accuracy_claim_allowed": false,
+  "manual_golden_status": "MANUAL_GOLDEN_NOT_VERIFIED",
+  "requested_artifact_ids": [],
+  "requested_capture_sides": [],
+  "selected_artifact_count": 32
+}

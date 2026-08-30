@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "status": "GPU_ENV_READY",
+  "read_only_audit": true,
+  "install_or_download_attempted": false,
+  "gpu": {
+    "nvidia_smi_path": "C:\\WINDOWS\\system32\\nvidia-smi.EXE",
+    "query": {
+      "returncode": 0,
+      "stdout": "NVIDIA GeForce RTX 4060, 591.86, 8188",
+      "stderr": ""
+    }
+  },
+  "python_candidates": [
+    {
+      "requested_executable": "D:\\venvs\\gpu_ocr_test\\Scripts\\python.exe",
+      "probe": {
+        "returncode": 0,
+        "stdout": "{\"executable\": \"D:\\\\venvs\\\\gpu_ocr_test\\\\Scripts\\\\python.exe\", \"version\": \"3.11.8 (tags/v3.11.8:db85d51, Feb  6 2024, 22:03:32) [MSC v.1937 64 bit (AMD64)]\", \"architecture\": \"64bit\", \"paddle_installed\": true, \"paddleocr_installed\": true, \"paddlepaddle_version\": null, \"paddlepaddle-gpu_version\": \"3.2.1\", \"paddleocr_version\": \"3.7.0\", \"torch_version\": null, \"paddle_import_ok\": true, \"cuda_compiled\": true, \"cuda_device_count\": 1}",
+        "stderr": "INFO: Could not find files for the given pattern(s).\nD:\\venvs\\gpu_ocr_test\\Lib\\site-packages\\paddle\\utils\\cpp_extension\\extension_utils.py:718: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md\n  warnings.warn(warning_message)"
+      },
+      "executable": "D:\\venvs\\gpu_ocr_test\\Scripts\\python.exe",
+      "version": "3.11.8 (tags/v3.11.8:db85d51, Feb  6 2024, 22:03:32) [MSC v.1937 64 bit (AMD64)]",
+      "architecture": "64bit",
+      "paddle_installed": true,
+      "paddleocr_installed": true,
+      "paddlepaddle_version": null,
+      "paddlepaddle-gpu_version": "3.2.1",
+      "paddleocr_version": "3.7.0",
+      "torch_version": null,
+      "paddle_import_ok": true,
+      "cuda_compiled": true,
+      "cuda_device_count": 1,
+      "gpu_ready": true
+    },
+    {
+      "requested_executable": "D:\\venvs\\paddleocr-vl\\Scripts\\python.exe",
+      "probe": {
+        "returncode": 0,
+        "stdout": "{\"executable\": \"D:\\\\venvs\\\\paddleocr-vl\\\\Scripts\\\\python.exe\", \"version\": \"3.11.8 (tags/v3.11.8:db85d51, Feb  6 2024, 22:03:32) [MSC v.1937 64 bit (AMD64)]\", \"architecture\": \"64bit\", \"paddle_installed\": true, \"paddleocr_installed\": true, \"paddlepaddle_version\": null, \"paddlepaddle-gpu_version\": \"3.2.1\", \"paddleocr_version\": \"3.7.0\", \"torch_version\": null, \"paddle_import_ok\": true, \"cuda_compiled\": true, \"cuda_device_count\": 1}",
+        "stderr": "INFO: Could not find files for the given pattern(s).\nD:\\venvs\\paddleocr-vl\\Lib\\site-packages\\paddle\\utils\\cpp_extension\\extension_utils.py:718: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md\n  warnings.warn(warning_message)"
+      },
+      "executable": "D:\\venvs\\paddleocr-vl\\Scripts\\python.exe",
+      "version": "3.11.8 (tags/v3.11.8:db85d51, Feb  6 2024, 22:03:32) [MSC v.1937 64 bit (AMD64)]",
+      "architecture": "64bit",
+      "paddle_installed": true,
+      "paddleocr_installed": true,
+      "paddlepaddle_version": null,
+      "paddlepaddle-gpu_version": "3.2.1",
+      "paddleocr_version": "3.7.0",
+      "torch_version": null,
+      "paddle_import_ok": true,
+      "cuda_compiled": true,
+      "cuda_device_count": 1,
+      "gpu_ready": true
+    },
+    {
+      "requested_executable": "C:\\Users\\<redacted>\\.pyenv\\pyenv-win\\versions\\3.11.8\\python.exe",
+      "probe": {
+        "returncode": 0,
+        "stdout": "{\"executable\": \"C:\\\\Users\\\\<redacted>\\\\.pyenv\\\\pyenv-win\\\\versions\\\\3.11.8\\\\python.exe\", \"version\": \"3.11.8 (tags/v3.11.8:db85d51, Feb  6 2024, 22:03:32) [MSC v.1937 64 bit (AMD64)]\", \"architecture\": \"64bit\", \"paddle_installed\": true, \"paddleocr_installed\": true, \"paddlepaddle_version\": \"3.3.1\", \"paddlepaddle-gpu_version\": null, \"paddleocr_version\": \"3.7.0\", \"torch_version\": \"2.5.1+cu121\", \"paddle_import_ok\": true, \"cuda_compiled\": false, \"cuda_device_count\": 0}",
+        "stderr": "INFO: Could not find files for the given pattern(s).\nC:\\Users\\<redacted>\\.pyenv\\pyenv-win\\versions\\3.11.8\\Lib\\site-packages\\paddle\\utils\\cpp_extension\\extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md\n  warnings.warn(warning_message)"
+      },
+      "executable": "C:\\Users\\<redacted>\\.pyenv\\pyenv-win\\versions\\3.11.8\\python.exe",
+      "version": "3.11.8 (tags/v3.11.8:db85d51, Feb  6 2024, 22:03:32) [MSC v.1937 64 bit (AMD64)]",
+      "architecture": "64bit",
+      "paddle_installed": true,
+      "paddleocr_installed": true,
+      "paddlepaddle_version": "3.3.1",
+      "paddlepaddle-gpu_version": null,
+      "paddleocr_version": "3.7.0",
+      "torch_version": "2.5.1+cu121",
+      "paddle_import_ok": true,
+      "cuda_compiled": false,
+      "cuda_device_count": 0,
+      "gpu_ready": false
+    },
+    {
+      "requested_executable": "D:\\Projects\\OCR\\document-parser\\.venv\\Scripts\\python.exe",
+      "probe": {
+        "returncode": 0,
+        "stdout": "{\"executable\": \"D:\\\\Projects\\\\OCR\\\\document-parser\\\\.venv\\\\Scripts\\\\python.exe\", \"version\": \"3.11.8 (tags/v3.11.8:db85d51, Feb  6 2024, 22:03:32) [MSC v.1937 64 bit (AMD64)]\", \"architecture\": \"64bit\", \"paddle_installed\": true, \"paddleocr_installed\": true, \"paddlepaddle_version\": \"3.3.1\", \"paddlepaddle-gpu_version\": null, \"paddleocr_version\": \"3.7.0\", \"torch_version\": \"2.13.0\", \"paddle_import_ok\": true, \"cuda_compiled\": false, \"cuda_device_count\": 0}",
+        "stderr": "INFO: Could not find files for the given pattern(s).\nD:\\Projects\\OCR\\document-parser\\.venv\\Lib\\site-packages\\paddle\\utils\\cpp_extension\\extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md\n  warnings.warn(warning_message)"
+      },
+      "executable": "D:\\Projects\\OCR\\document-parser\\.venv\\Scripts\\python.exe",
+      "version": "3.11.8 (tags/v3.11.8:db85d51, Feb  6 2024, 22:03:32) [MSC v.1937 64 bit (AMD64)]",
+      "architecture": "64bit",
+      "paddle_installed": true,
+      "paddleocr_installed": true,
+      "paddlepaddle_version": "3.3.1",
+      "paddlepaddle-gpu_version": null,
+      "paddleocr_version": "3.7.0",
+      "torch_version": "2.13.0",
+      "paddle_import_ok": true,
+      "cuda_compiled": false,
+      "cuda_device_count": 0,
+      "gpu_ready": false
+    }
+  ],
+  "other_existing_runtimes": {
+    "conda_on_path": null,
+    "docker_on_path": null,
+    "wsl_on_path": "C:\\WINDOWS\\system32\\wsl.EXE"
+  },
+  "model_home": "D:\\Projects\\OCR\\document-parser\\data\\debug\\model_home_vl",
+  "model_assets": {
+    "PaddleOCR-VL-1.6": true,
+    "PP-DocLayoutV3": true
+  },
+  "uvdoc_checkpoint": "D:\\Projects\\OCR\\tmp\\uvdoc-runtime\\model\\best_model.pkl",
+  "uvdoc_checkpoint_sha256": "7e90861b8a516eb4bc51f84bd889cb77275743d2d1d3ca8091951ec9f2b7da23",
+  "next_action": "GPU smoke may proceed with the ready candidate."
+}

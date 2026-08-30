@@ -1,0 +1,1473 @@
+{
+  "artifact_id": "20260826_174943_right_seam_conservative_none_none",
+  "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\images\\20260826_174943_right_seam_conservative_none_none.png",
+  "image_sha256": "358bc5b98e1b1c1b72ed86ce11e679cfecb960166948ef3c61be25b2edf71e23",
+  "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+  "cache_hit": true,
+  "cache_source": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\paired_ocr_20260830\\ocr\\extraction\\20260826_174943_right_seam_conservative_none_none.json",
+  "page_ir": {
+    "document_manifest": {
+      "book_id": "20260826_174943_right_seam_conservative_none_none",
+      "page_count": 1
+    },
+    "engine_manifest": {
+      "general_ocr": {
+        "engine_id": "paddleocr-vl",
+        "engine_version": "3.7.0"
+      },
+      "pipeline": {
+        "mode": "paddleocr_vl_baseline"
+      },
+      "problem_unit_detection": {
+        "mode": "text_pattern_stem_and_answer_structure",
+        "engine_id": "text-pattern-problem-unit-detector"
+      }
+    },
+    "pages": [
+      {
+        "page_id": "p001",
+        "page_geometry": {
+          "width": 1751,
+          "height": 2640
+        },
+        "nodes": [
+          {
+            "node_id": "p001-vl001",
+            "bbox": {
+              "x": 140.0,
+              "y": 730.0,
+              "width": 68.0,
+              "height": 91.0
+            },
+            "normalized_bbox": {
+              "x": 0.079954,
+              "y": 0.276515,
+              "width": 0.038835,
+              "height": 0.03447
+            },
+            "reading_order_index": 0,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "paragraph_title",
+              "vl_block_id": 0
+            },
+            "content_type": "TEXT",
+            "raw_text": "[4단계]\n정보의 활용",
+            "normalized_text": "[4단계]\n정보의 활용",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "[4단계]\n정보의 활용"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl002",
+            "bbox": {
+              "x": 238.0,
+              "y": 361.0,
+              "width": 733.0,
+              "height": 343.0
+            },
+            "normalized_bbox": {
+              "x": 0.135922,
+              "y": 0.136742,
+              "width": 0.418618,
+              "height": 0.129924
+            },
+            "reading_order_index": 1,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 1
+            },
+            "content_type": "TEXT",
+            "raw_text": "· 정보기기에 대한 이해나 최신 정보기술이 제공하는 주요 기능, 특성에 대한 지식을 아는 능력\n· 정보가 필요하는 문제상황은 이미한 수 있는 누럽",
+            "normalized_text": "· 정보기기에 대한 이해나 최신 정보기술이 제공하는 주요 기능, 특성에 대한 지식을 아는 능력\n· 정보가 필요하는 문제상황은 이미한 수 있는 누럽",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "· 정보기기에 대한 이해나 최신 정보기술이 제공하는 주요 기능, 특성에 대한 지식을 아는 능력\n· 정보가 필요하는 문제상황은 이미한 수 있는 누럽"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl003",
+            "bbox": {
+              "x": 243.0,
+              "y": 540.0,
+              "width": 386.0,
+              "height": 172.0
+            },
+            "normalized_bbox": {
+              "x": 0.138778,
+              "y": 0.204545,
+              "width": 0.220445,
+              "height": 0.065152
+            },
+            "reading_order_index": 2,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 2
+            },
+            "content_type": "TEXT",
+            "raw_text": "정보가 필요하다는 문제상황을 인지할 수 있는 능력",
+            "normalized_text": "정보가 필요하다는 문제상황을 인지할 수 있는 능력",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "정보가 필요하다는 문제상황을 인지할 수 있는 능력"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl004",
+            "bbox": {
+              "x": 246.0,
+              "y": 628.0,
+              "width": 334.0,
+              "height": 152.0
+            },
+            "normalized_bbox": {
+              "x": 0.140491,
+              "y": 0.237879,
+              "width": 0.190748,
+              "height": 0.057576
+            },
+            "reading_order_index": 3,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 3
+            },
+            "content_type": "TEXT",
+            "raw_text": "·찾은 정보를 문제해결에 적용할 수 있는 능력",
+            "normalized_text": "·찾은 정보를 문제해결에 적용할 수 있는 능력",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "·찾은 정보를 문제해결에 적용할 수 있는 능력"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl005",
+            "bbox": {
+              "x": 247.0,
+              "y": 613.0,
+              "width": 449.0,
+              "height": 205.0
+            },
+            "normalized_bbox": {
+              "x": 0.141062,
+              "y": 0.232197,
+              "width": 0.256425,
+              "height": 0.077652
+            },
+            "reading_order_index": 4,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 4
+            },
+            "content_type": "TEXT",
+            "raw_text": "·윤리의식을 가지고 합법적으로 정보를 활용할 수 있는 능력",
+            "normalized_text": "·윤리의식을 가지고 합법적으로 정보를 활용할 수 있는 능력",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "·윤리의식을 가지고 합법적으로 정보를 활용할 수 있는 능력"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl006",
+            "bbox": {
+              "x": 108.0,
+              "y": 900.0,
+              "width": 206.0,
+              "height": 123.0
+            },
+            "normalized_bbox": {
+              "x": 0.061679,
+              "y": 0.340909,
+              "width": 0.117647,
+              "height": 0.046591
+            },
+            "reading_order_index": 5,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "paragraph_title",
+              "vl_block_id": 5
+            },
+            "content_type": "TEXT",
+            "raw_text": "(6)인터넷의 문제점(역기능)",
+            "normalized_text": "(6)인터넷의 문제점(역기능)",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "(6)인터넷의 문제점(역기능)"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl007",
+            "bbox": {
+              "x": 129.0,
+              "y": 990.0,
+              "width": 157.0,
+              "height": 93.0
+            },
+            "normalized_bbox": {
+              "x": 0.073672,
+              "y": 0.375,
+              "width": 0.089663,
+              "height": 0.035227
+            },
+            "reading_order_index": 6,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 6
+            },
+            "content_type": "TEXT",
+            "raw_text": "-불건전 정보의 유통",
+            "normalized_text": "-불건전 정보의 유통",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "-불건전 정보의 유통"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl008",
+            "bbox": {
+              "x": 132.0,
+              "y": 1047.0,
+              "width": 116.0,
+              "height": 77.0
+            },
+            "normalized_bbox": {
+              "x": 0.075385,
+              "y": 0.396591,
+              "width": 0.066248,
+              "height": 0.029167
+            },
+            "reading_order_index": 7,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 7
+            },
+            "content_type": "TEXT",
+            "raw_text": "-개인정보 유출",
+            "normalized_text": "-개인정보 유출",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "-개인정보 유출"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl009",
+            "bbox": {
+              "x": 136.0,
+              "y": 1084.0,
+              "width": 116.0,
+              "height": 77.0
+            },
+            "normalized_bbox": {
+              "x": 0.07767,
+              "y": 0.410606,
+              "width": 0.066248,
+              "height": 0.029167
+            },
+            "reading_order_index": 8,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 8
+            },
+            "content_type": "TEXT",
+            "raw_text": "-사이버 성폭력",
+            "normalized_text": "-사이버 성폭력",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "-사이버 성폭력"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl010",
+            "bbox": {
+              "x": 139.0,
+              "y": 1123.0,
+              "width": 131.0,
+              "height": 72.0
+            },
+            "normalized_bbox": {
+              "x": 0.079383,
+              "y": 0.425379,
+              "width": 0.074814,
+              "height": 0.027273
+            },
+            "reading_order_index": 9,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 9
+            },
+            "content_type": "TEXT",
+            "raw_text": "-사이버 언어폭력",
+            "normalized_text": "-사이버 언어폭력",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "-사이버 언어폭력"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl011",
+            "bbox": {
+              "x": 141.0,
+              "y": 1181.0,
+              "width": 80.0,
+              "height": 57.0
+            },
+            "normalized_bbox": {
+              "x": 0.080525,
+              "y": 0.447348,
+              "width": 0.045688,
+              "height": 0.021591
+            },
+            "reading_order_index": 10,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 10
+            },
+            "content_type": "TEXT",
+            "raw_text": "-언어 훼손",
+            "normalized_text": "-언어 훼손",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "-언어 훼손"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl012",
+            "bbox": {
+              "x": 143.0,
+              "y": 1216.0,
+              "width": 97.0,
+              "height": 65.0
+            },
+            "normalized_bbox": {
+              "x": 0.081668,
+              "y": 0.460606,
+              "width": 0.055397,
+              "height": 0.024621
+            },
+            "reading_order_index": 11,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 11
+            },
+            "content_type": "TEXT",
+            "raw_text": "-인터넷 중독",
+            "normalized_text": "-인터넷 중독",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "-인터넷 중독"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl013",
+            "bbox": {
+              "x": 144.0,
+              "y": 1252.0,
+              "width": 119.0,
+              "height": 69.0
+            },
+            "normalized_bbox": {
+              "x": 0.082239,
+              "y": 0.474242,
+              "width": 0.067961,
+              "height": 0.026136
+            },
+            "reading_order_index": 12,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 12
+            },
+            "content_type": "TEXT",
+            "raw_text": "-불건전한 교제",
+            "normalized_text": "-불건전한 교제",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "-불건전한 교제"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl014",
+            "bbox": {
+              "x": 147.0,
+              "y": 1298.0,
+              "width": 101.0,
+              "height": 64.0
+            },
+            "normalized_bbox": {
+              "x": 0.083952,
+              "y": 0.491667,
+              "width": 0.057681,
+              "height": 0.024242
+            },
+            "reading_order_index": 13,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 13
+            },
+            "content_type": "TEXT",
+            "raw_text": "-저작권 침해",
+            "normalized_text": "-저작권 침해",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "-저작권 침해"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl015",
+            "bbox": {
+              "x": 144.0,
+              "y": 1334.0,
+              "width": 139.0,
+              "height": 66.0
+            },
+            "normalized_bbox": {
+              "x": 0.082239,
+              "y": 0.505303,
+              "width": 0.079383,
+              "height": 0.025
+            },
+            "reading_order_index": 14,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 14
+            },
+            "content_type": "TEXT",
+            "raw_text": "-컴퓨터 바이러스",
+            "normalized_text": "-컴퓨터 바이러스",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "-컴퓨터 바이러스"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl016",
+            "bbox": {
+              "x": 148.0,
+              "y": 1382.0,
+              "width": 115.0,
+              "height": 60.0
+            },
+            "normalized_bbox": {
+              "x": 0.084523,
+              "y": 0.523485,
+              "width": 0.065677,
+              "height": 0.022727
+            },
+            "reading_order_index": 15,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 15
+            },
+            "content_type": "TEXT",
+            "raw_text": "- 해킹(hacking)",
+            "normalized_text": "- 해킹(hacking)",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "- 해킹(hacking)"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl017",
+            "bbox": {
+              "x": 153.0,
+              "y": 1414.0,
+              "width": 171.0,
+              "height": 67.0
+            },
+            "normalized_bbox": {
+              "x": 0.087379,
+              "y": 0.535606,
+              "width": 0.097658,
+              "height": 0.025379
+            },
+            "reading_order_index": 16,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 16
+            },
+            "content_type": "TEXT",
+            "raw_text": "-스팸 메일(spam mail)",
+            "normalized_text": "-스팸 메일(spam mail)",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "-스팸 메일(spam mail)"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl018",
+            "bbox": {
+              "x": 416.0,
+              "y": 1500.0,
+              "width": 236.0,
+              "height": 69.0
+            },
+            "normalized_bbox": {
+              "x": 0.237579,
+              "y": 0.568182,
+              "width": 0.13478,
+              "height": 0.026136
+            },
+            "reading_order_index": 17,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "paragraph_title",
+              "vl_block_id": 17
+            },
+            "content_type": "TEXT",
+            "raw_text": "컴퓨터 바이러스 예방법",
+            "normalized_text": "컴퓨터 바이러스 예방법",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "컴퓨터 바이러스 예방법"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl019",
+            "bbox": {
+              "x": 140.0,
+              "y": 1522.0,
+              "width": 887.0,
+              "height": 149.0
+            },
+            "normalized_bbox": {
+              "x": 0.079954,
+              "y": 0.576515,
+              "width": 0.506568,
+              "height": 0.056439
+            },
+            "reading_order_index": 18,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [
+              {
+                "code": "VL_POSSIBLE_PROBLEM_NUMBER_PREFIX",
+                "severity": "warning",
+                "message": "Block starts with a bare digit directly touching the next character. PaddleOCR-VL inconsistently merges the left-margin problem-number glyph into the stem text instead of keeping it as a separate block (verified: \"1\" + \"4 이하의...\" -> \"14 이하의...\"). This may be a real leading digit or a merged problem number; not auto-corrected."
+              }
+            ],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 18
+            },
+            "content_type": "TEXT",
+            "raw_text": "0 출처가 분명하지 않은 전자우편의 첨부파일은 백신 프로그램으로 바이러스 검사 후 사용한다.",
+            "normalized_text": "0 출처가 분명하지 않은 전자우편의 첨부파일은 백신 프로그램으로 바이러스 검사 후 사용한다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "0 출처가 분명하지 않은 전자우편의 첨부파일은 백신 프로그램으로 바이러스 검사 후 사용한다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl020",
+            "bbox": {
+              "x": 143.0,
+              "y": 1592.0,
+              "width": 707.0,
+              "height": 115.0
+            },
+            "normalized_bbox": {
+              "x": 0.081668,
+              "y": 0.60303,
+              "width": 0.403769,
+              "height": 0.043561
+            },
+            "reading_order_index": 19,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 19
+            },
+            "content_type": "TEXT",
+            "raw_text": "실시간 감시기능이 있는 백신 프로그램을 설치하고 정기적으로 업데이트한다.",
+            "normalized_text": "실시간 감시기능이 있는 백신 프로그램을 설치하고 정기적으로 업데이트한다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "실시간 감시기능이 있는 백신 프로그램을 설치하고 정기적으로 업데이트한다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl021",
+            "bbox": {
+              "x": 147.0,
+              "y": 1654.0,
+              "width": 532.0,
+              "height": 92.0
+            },
+            "normalized_bbox": {
+              "x": 0.083952,
+              "y": 0.626515,
+              "width": 0.303826,
+              "height": 0.034848
+            },
+            "reading_order_index": 20,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 20
+            },
+            "content_type": "TEXT",
+            "raw_text": "바이러스가 활동하는 날에는 시스템을 사전에 미리 검사한다.",
+            "normalized_text": "바이러스가 활동하는 날에는 시스템을 사전에 미리 검사한다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "바이러스가 활동하는 날에는 시스템을 사전에 미리 검사한다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl022",
+            "bbox": {
+              "x": 149.0,
+              "y": 1717.0,
+              "width": 317.0,
+              "height": 63.0
+            },
+            "normalized_bbox": {
+              "x": 0.085094,
+              "y": 0.650379,
+              "width": 0.181039,
+              "height": 0.023864
+            },
+            "reading_order_index": 21,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 21
+            },
+            "content_type": "TEXT",
+            "raw_text": "4정품소프트웨어를 구입하여 사용한다.",
+            "normalized_text": "4정품소프트웨어를 구입하여 사용한다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "4정품소프트웨어를 구입하여 사용한다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl023",
+            "bbox": {
+              "x": 149.0,
+              "y": 1741.0,
+              "width": 545.0,
+              "height": 78.0
+            },
+            "normalized_bbox": {
+              "x": 0.085094,
+              "y": 0.65947,
+              "width": 0.311251,
+              "height": 0.029545
+            },
+            "reading_order_index": 22,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 22
+            },
+            "content_type": "TEXT",
+            "raw_text": "중요한 파일은 별도의 보조기억장치에 미리 백업을 해 놓는다.",
+            "normalized_text": "중요한 파일은 별도의 보조기억장치에 미리 백업을 해 놓는다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "중요한 파일은 별도의 보조기억장치에 미리 백업을 해 놓는다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl024",
+            "bbox": {
+              "x": 152.0,
+              "y": 1790.0,
+              "width": 494.0,
+              "height": 66.0
+            },
+            "normalized_bbox": {
+              "x": 0.086808,
+              "y": 0.67803,
+              "width": 0.282125,
+              "height": 0.025
+            },
+            "reading_order_index": 23,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 23
+            },
+            "content_type": "TEXT",
+            "raw_text": "⑨ 프로그램을 복사할 때는 바이러스 감염 여부를 확인한다.",
+            "normalized_text": "⑨ 프로그램을 복사할 때는 바이러스 감염 여부를 확인한다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "⑨ 프로그램을 복사할 때는 바이러스 감염 여부를 확인한다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl025",
+            "bbox": {
+              "x": 156.0,
+              "y": 1955.0,
+              "width": 302.0,
+              "height": 49.0
+            },
+            "normalized_bbox": {
+              "x": 0.089092,
+              "y": 0.74053,
+              "width": 0.172473,
+              "height": 0.018561
+            },
+            "reading_order_index": 24,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "paragraph_title",
+              "vl_block_id": 24
+            },
+            "content_type": "TEXT",
+            "raw_text": "(7) 사이버 공간에서 지켜야 할 예절",
+            "normalized_text": "(7) 사이버 공간에서 지켜야 할 예절",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "(7) 사이버 공간에서 지켜야 할 예절"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl026",
+            "bbox": {
+              "x": 146.0,
+              "y": 2040.0,
+              "width": 1078.0,
+              "height": 108.0
+            },
+            "normalized_bbox": {
+              "x": 0.083381,
+              "y": 0.772727,
+              "width": 0.615648,
+              "height": 0.040909
+            },
+            "reading_order_index": 25,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "text",
+              "vl_block_id": 25
+            },
+            "content_type": "TEXT",
+            "raw_text": "네티켓은 통신망을 뜻하는 네트워크와 예절을 뜻하는 에티켓의 합성어로, 네티즌이 사이버 공간에서 지켜야 할 예절이다.",
+            "normalized_text": "네티켓은 통신망을 뜻하는 네트워크와 예절을 뜻하는 에티켓의 합성어로, 네티즌이 사이버 공간에서 지켜야 할 예절이다.",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "네티켓은 통신망을 뜻하는 네트워크와 예절을 뜻하는 에티켓의 합성어로, 네티즌이 사이버 공간에서 지켜야 할 예절이다."
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl027",
+            "bbox": {
+              "x": 1152.0,
+              "y": 275.0,
+              "width": 52.0,
+              "height": 212.0
+            },
+            "normalized_bbox": {
+              "x": 0.65791,
+              "y": 0.104167,
+              "width": 0.029697,
+              "height": 0.080303
+            },
+            "reading_order_index": 26,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "aside_text",
+              "vl_block_id": 27
+            },
+            "content_type": "TEXT",
+            "raw_text": "제2편 직업기초능력평가",
+            "normalized_text": "제2편 직업기초능력평가",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "제2편 직업기초능력평가"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl028",
+            "bbox": {
+              "x": 1176.0,
+              "y": 497.0,
+              "width": 48.0,
+              "height": 139.0
+            },
+            "normalized_bbox": {
+              "x": 0.671616,
+              "y": 0.188258,
+              "width": 0.027413,
+              "height": 0.052652
+            },
+            "reading_order_index": 27,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "aside_text",
+              "vl_block_id": 28
+            },
+            "content_type": "TEXT",
+            "raw_text": "1의사소통능력",
+            "normalized_text": "1의사소통능력",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "1의사소통능력"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl029",
+            "bbox": {
+              "x": 1202.0,
+              "y": 658.0,
+              "width": 38.0,
+              "height": 108.0
+            },
+            "normalized_bbox": {
+              "x": 0.686465,
+              "y": 0.249242,
+              "width": 0.021702,
+              "height": 0.040909
+            },
+            "reading_order_index": 28,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "aside_text",
+              "vl_block_id": 29
+            },
+            "content_type": "TEXT",
+            "raw_text": "2수리능력",
+            "normalized_text": "2수리능력",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "2수리능력"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl030",
+            "bbox": {
+              "x": 1218.0,
+              "y": 790.0,
+              "width": 48.0,
+              "height": 144.0
+            },
+            "normalized_bbox": {
+              "x": 0.695603,
+              "y": 0.299242,
+              "width": 0.027413,
+              "height": 0.054545
+            },
+            "reading_order_index": 29,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "aside_text",
+              "vl_block_id": 30
+            },
+            "content_type": "TEXT",
+            "raw_text": "3 문제해결능력",
+            "normalized_text": "3 문제해결능력",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "3 문제해결능력"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl031",
+            "bbox": {
+              "x": 1240.0,
+              "y": 942.0,
+              "width": 47.0,
+              "height": 144.0
+            },
+            "normalized_bbox": {
+              "x": 0.708167,
+              "y": 0.356818,
+              "width": 0.026842,
+              "height": 0.054545
+            },
+            "reading_order_index": 30,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "aside_text",
+              "vl_block_id": 31
+            },
+            "content_type": "TEXT",
+            "raw_text": "4자기개발능력",
+            "normalized_text": "4자기개발능력",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "4자기개발능력"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl032",
+            "bbox": {
+              "x": 1259.0,
+              "y": 1096.0,
+              "width": 49.0,
+              "height": 146.0
+            },
+            "normalized_bbox": {
+              "x": 0.719018,
+              "y": 0.415152,
+              "width": 0.027984,
+              "height": 0.055303
+            },
+            "reading_order_index": 31,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "aside_text",
+              "vl_block_id": 32
+            },
+            "content_type": "TEXT",
+            "raw_text": "5자원관리능력",
+            "normalized_text": "5자원관리능력",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "5자원관리능력"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl033",
+            "bbox": {
+              "x": 1280.0,
+              "y": 1252.0,
+              "width": 50.0,
+              "height": 146.0
+            },
+            "normalized_bbox": {
+              "x": 0.731011,
+              "y": 0.474242,
+              "width": 0.028555,
+              "height": 0.055303
+            },
+            "reading_order_index": 32,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "aside_text",
+              "vl_block_id": 33
+            },
+            "content_type": "TEXT",
+            "raw_text": "6대인관계능력",
+            "normalized_text": "6대인관계능력",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "6대인관계능력"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl034",
+            "bbox": {
+              "x": 1305.0,
+              "y": 1427.0,
+              "width": 40.0,
+              "height": 116.0
+            },
+            "normalized_bbox": {
+              "x": 0.745288,
+              "y": 0.54053,
+              "width": 0.022844,
+              "height": 0.043939
+            },
+            "reading_order_index": 33,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "aside_text",
+              "vl_block_id": 34
+            },
+            "content_type": "TEXT",
+            "raw_text": "7정보능력",
+            "normalized_text": "7정보능력",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "7정보능력"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl035",
+            "bbox": {
+              "x": 1325.0,
+              "y": 1590.0,
+              "width": 44.0,
+              "height": 117.0
+            },
+            "normalized_bbox": {
+              "x": 0.75671,
+              "y": 0.602273,
+              "width": 0.025128,
+              "height": 0.044318
+            },
+            "reading_order_index": 34,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "aside_text",
+              "vl_block_id": 35
+            },
+            "content_type": "TEXT",
+            "raw_text": "8 가슴농력",
+            "normalized_text": "8 가슴농력",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "8 가슴농력"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl036",
+            "bbox": {
+              "x": 1342.0,
+              "y": 1738.0,
+              "width": 53.0,
+              "height": 157.0
+            },
+            "normalized_bbox": {
+              "x": 0.766419,
+              "y": 0.658333,
+              "width": 0.030268,
+              "height": 0.05947
+            },
+            "reading_order_index": 35,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "aside_text",
+              "vl_block_id": 36
+            },
+            "content_type": "TEXT",
+            "raw_text": "9조작이생성",
+            "normalized_text": "9조작이생성",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "9조작이생성"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl037",
+            "bbox": {
+              "x": 1369.0,
+              "y": 1923.0,
+              "width": 45.0,
+              "height": 129.0
+            },
+            "normalized_bbox": {
+              "x": 0.781839,
+              "y": 0.728409,
+              "width": 0.0257,
+              "height": 0.048864
+            },
+            "reading_order_index": 36,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "aside_text",
+              "vl_block_id": 37
+            },
+            "content_type": "TEXT",
+            "raw_text": "윤용성 이",
+            "normalized_text": "윤용성 이",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "윤용성 이"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl038",
+            "bbox": {
+              "x": 1357.0,
+              "y": 2091.0,
+              "width": 82.0,
+              "height": 146.0
+            },
+            "normalized_bbox": {
+              "x": 0.774986,
+              "y": 0.792045,
+              "width": 0.04683,
+              "height": 0.055303
+            },
+            "reading_order_index": 37,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "aside_text",
+              "vl_block_id": 38
+            },
+            "content_type": "TEXT",
+            "raw_text": "京邮限公司\n个口限公司",
+            "normalized_text": "京邮限公司\n个口限公司",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "京邮限公司\n个口限公司"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl039",
+            "bbox": {
+              "x": 983.0,
+              "y": 2307.0,
+              "width": 174.0,
+              "height": 50.0
+            },
+            "normalized_bbox": {
+              "x": 0.561393,
+              "y": 0.873864,
+              "width": 0.099372,
+              "height": 0.018939
+            },
+            "reading_order_index": 38,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "footer",
+              "vl_block_id": 26
+            },
+            "content_type": "TEXT",
+            "raw_text": "제7장 정보능력",
+            "normalized_text": "제7장 정보능력",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "제7장 정보능력"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl040",
+            "bbox": {
+              "x": 1190.0,
+              "y": 2320.0,
+              "width": 61.0,
+              "height": 45.0
+            },
+            "normalized_bbox": {
+              "x": 0.679612,
+              "y": 0.878788,
+              "width": 0.034837,
+              "height": 0.017045
+            },
+            "reading_order_index": 39,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "number",
+              "vl_block_id": 39
+            },
+            "content_type": "TEXT",
+            "raw_text": "301",
+            "normalized_text": "301",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "301"
+              }
+            ]
+          }
+        ],
+        "reading_order": [
+          "p001-vl001",
+          "p001-vl002",
+          "p001-vl003",
+          "p001-vl004",
+          "p001-vl005",
+          "p001-vl006",
+          "p001-vl007",
+          "p001-vl008",
+          "p001-vl009",
+          "p001-vl010",
+          "p001-vl011",
+          "p001-vl012",
+          "p001-vl013",
+          "p001-vl014",
+          "p001-vl015",
+          "p001-vl016",
+          "p001-vl017",
+          "p001-vl018",
+          "p001-vl019",
+          "p001-vl020",
+          "p001-vl021",
+          "p001-vl022",
+          "p001-vl023",
+          "p001-vl024",
+          "p001-vl025",
+          "p001-vl026",
+          "p001-vl027",
+          "p001-vl028",
+          "p001-vl029",
+          "p001-vl030",
+          "p001-vl031",
+          "p001-vl032",
+          "p001-vl033",
+          "p001-vl034",
+          "p001-vl035",
+          "p001-vl036",
+          "p001-vl037",
+          "p001-vl038",
+          "p001-vl039",
+          "p001-vl040"
+        ],
+        "parse_issues": [],
+        "quality_report": {
+          "status": "PASS_WITH_CORRECTION",
+          "issues": []
+        }
+      }
+    ],
+    "validation_summary": {
+      "schema_valid": true,
+      "validation_performed": true,
+      "coordinate_missing_node_count": 0,
+      "reading_order_cycle_count": 0,
+      "invalid_reading_order_ref_count": 0,
+      "missing_reading_order_node_count": 0,
+      "duplicate_node_id_count": 0,
+      "required_field_missing_count": 0,
+      "type_error_count": 0,
+      "bbox_invalid_count": 0,
+      "normalized_bbox_out_of_range_count": 0,
+      "confidence_invalid_count": 0,
+      "reading_order_index_mismatch_count": 0,
+      "invalid_embedded_text_ref_count": 0,
+      "quality_status_invalid_count": 0,
+      "issue_invalid_count": 0,
+      "page_count_mismatch": false,
+      "page_count": 1
+    }
+  },
+  "evaluation": {
+    "schema_valid": true,
+    "validation_summary": {
+      "schema_valid": true,
+      "validation_performed": true,
+      "coordinate_missing_node_count": 0,
+      "reading_order_cycle_count": 0,
+      "invalid_reading_order_ref_count": 0,
+      "missing_reading_order_node_count": 0,
+      "duplicate_node_id_count": 0,
+      "required_field_missing_count": 0,
+      "type_error_count": 0,
+      "bbox_invalid_count": 0,
+      "normalized_bbox_out_of_range_count": 0,
+      "confidence_invalid_count": 0,
+      "reading_order_index_mismatch_count": 0,
+      "invalid_embedded_text_ref_count": 0,
+      "quality_status_invalid_count": 0,
+      "issue_invalid_count": 0,
+      "page_count_mismatch": false,
+      "page_count": 1
+    },
+    "page_count": 1,
+    "focus_item_count": 40,
+    "node_type_counts": {
+      "TEXT": 40
+    },
+    "preserved_text_character_count": 576,
+    "normalized_content_text": "[4단계]정보의활용·정보기기에대한이해나최신정보기술이제공하는주요기능,특성에대한지식을아는능력·정보가필요하는문제상황은이미한수있는누럽정보가필요하다는문제상황을인지할수있는능력·찾은정보를문제해결에적용할수있는능력·윤리의식을가지고합법적으로정보를활용할수있는능력(6)인터넷의문제점(역기능)-불건전정보의유통-개인정보유출-사이버성폭력-사이버언어폭력-언어훼손-인터넷중독-불건전한교제-저작권침해-컴퓨터바이러스-해킹(hacking)-스팸메일(spammail)컴퓨터바이러스예방법0출처가분명하지않은전자우편의첨부파일은백신프로그램으로바이러스검사후사용한다.실시간감시기능이있는백신프로그램을설치하고정기적으로업데이트한다.바이러스가활동하는날에는시스템을사전에미리검사한다.4정품소프트웨어를구입하여사용한다.중요한파일은별도의보조기억장치에미리백업을해놓는다.⑨프로그램을복사할때는바이러스감염여부를확인한다.(7)사이버공간에서지켜야할예절네티켓은통신망을뜻하는네트워크와예절을뜻하는에티켓의합성어로,네티즌이사이버공간에서지켜야할예절이다.제2편직업기초능력평가1의사소통능력2수리능력3문제해결능력4자기개발능력5자원관리능력6대인관계능력7정보능력8가슴농력9조작이생성윤용성이京邮限公司个口限公司제7장정보능력301",
+    "parse_issue_codes": {},
+    "parse_issue_count": 0,
+    "braille_opportunity_count": 0,
+    "braille_translated_count": 0,
+    "braille_withheld_count": 0,
+    "braille_error_count": 0,
+    "braille_translation_rate": null,
+    "translations": [],
+    "node_type_sequence": [
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT"
+    ],
+    "node_count": 40,
+    "page_ir_sha256": "685e3d32a0c17cf5328aa68355c8f673727c2617f876e5ef89680fdacb57ef90"
+  }
+}

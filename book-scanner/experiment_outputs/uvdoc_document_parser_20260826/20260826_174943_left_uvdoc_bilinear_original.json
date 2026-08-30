@@ -1,0 +1,1240 @@
+{
+  "artifact_id": "20260826_174943_left_uvdoc_bilinear_original",
+  "image_path": "D:\\Projects\\OCR\\book-scanner\\experiment_outputs\\uvdoc_ocr_ab_20260826\\20260826_174943\\left\\variants\\uvdoc_bilinear_original.png",
+  "image_sha256": "6f05256b98f55c86f551f9415c0e77aacae7c7abff21fbb1b5234cf4e9924f8c",
+  "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+  "cache_hit": true,
+  "page_ir": {
+    "document_manifest": {
+      "book_id": "20260826_174943_left_uvdoc_bilinear_original",
+      "page_count": 1
+    },
+    "engine_manifest": {
+      "general_ocr": {
+        "engine_id": "paddleocr-vl",
+        "engine_version": "3.7.0"
+      },
+      "pipeline": {
+        "mode": "paddleocr_vl_baseline"
+      },
+      "problem_unit_detection": {
+        "mode": "text_pattern_stem_and_answer_structure",
+        "engine_id": "text-pattern-problem-unit-detector"
+      }
+    },
+    "pages": [
+      {
+        "page_id": "p001",
+        "page_geometry": {
+          "width": 1433,
+          "height": 2473
+        },
+        "nodes": [
+          {
+            "node_id": "p001-vl001",
+            "bbox": {
+              "x": 242.0,
+              "y": 171.0,
+              "width": 233.0,
+              "height": 55.0
+            },
+            "normalized_bbox": {
+              "x": 0.168876,
+              "y": 0.069147,
+              "width": 0.162596,
+              "height": 0.02224
+            },
+            "reading_order_index": 0,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "paragraph_title",
+              "vl_block_id": 0
+            },
+            "content_type": "TEXT",
+            "raw_text": "(4)컴퓨터 활용분야",
+            "normalized_text": "(4)컴퓨터 활용분야",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "(4)컴퓨터 활용분야"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl002",
+            "bbox": {
+              "x": 218.0,
+              "y": 1173.0,
+              "width": 219.0,
+              "height": 48.0
+            },
+            "normalized_bbox": {
+              "x": 0.152128,
+              "y": 0.474323,
+              "width": 0.152826,
+              "height": 0.01941
+            },
+            "reading_order_index": 1,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "paragraph_title",
+              "vl_block_id": 2
+            },
+            "content_type": "TEXT",
+            "raw_text": "(5)정보처리 절차",
+            "normalized_text": "(5)정보처리 절차",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "(5)정보처리 절차"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl003",
+            "bbox": {
+              "x": 268.0,
+              "y": 267.0,
+              "width": 1052.0,
+              "height": 814.0
+            },
+            "normalized_bbox": {
+              "x": 0.18702,
+              "y": 0.107966,
+              "width": 0.734124,
+              "height": 0.329155
+            },
+            "reading_order_index": 2,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "table",
+              "vl_block_id": 1
+            },
+            "content_type": "TABLE",
+            "raw_html": "<table><tr><td>기업경영 분야</td><td>• 경영정보 시스템(MIS: Management Information System)이나 의사결정지원 시스템(DSS: Decision Support System) 등은 경영자가 신속한 의사결정을 할 수 있도록 도와준다.• 사무자동화(OA: Office Automation)가 이루어져 문서 작성과 보관은 물론 컴퓨터로 업무를 검색하는 전자결재 시스템이 도입되어 업무처리의 효율을 높이고 있다.• 최근에는 생산에서 소비까지 전 과정을 컴퓨터로 처리하는 전자상거래(EC: Electronic Commerce)가 활성화되어 기업은 물류비용을 줄이고, 소비자는 값싸고 질 좋은 제품을 집에서 구매할 수 있어 소비자와 기업 모두에게 이익을 주고 있다.</td></tr><tr><td>행정 분야</td><td>민원처리, 각종 행정통계 등의 여러 가지 행정 관련 정보를 데이터베이스화하여 활용하고 있다.</td></tr><tr><td>산업 분야</td><td>컴퓨터를 이용하여 제품의 수주에서부터 설계, 제조, 검사, 출하에 이르기까지 모든 제품 공정을 자동화하여 생산성 향상과 원가 절감, 불량품 감소 등으로 제품의 경쟁력을 높이고 있다.</td></tr><tr><td>교육 분야</td><td>• 컴퓨터 보조교육(CAI: Computer Assisted Instruction): 강의나 학습에 컴퓨터를 이용하는 것으로, 학습자가 프로그램을 이용하여 개인차에 따라 학습 속도와 학습 시간을 조절하여 학습하는 방식·컴퓨터 관리교육(CMI: Computer Managed Instruction): 학습지도 자료의 정리, 성적관리, 진로 지도, 교육계획 등에 활용하는 방식</td></tr><tr><td>기타 분야</td><td>워드프로세스, 그래픽 소프트웨어 등의 활용</td></tr></table>",
+            "row_count": 5,
+            "column_count": 2,
+            "cells": [
+              {
+                "cell_id": "p001-vl003-r01c01",
+                "row_index": 1,
+                "column_index": 1,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 268.0,
+                  "y": 267.0,
+                  "width": 526.0,
+                  "height": 162.8
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl003-r01c01-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 268.0,
+                      "y": 267.0,
+                      "width": 526.0,
+                      "height": 162.8
+                    },
+                    "normalized_bbox": {
+                      "x": 0.18702,
+                      "y": 0.107966,
+                      "width": 0.367062,
+                      "height": 0.065831
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "기업경영 분야",
+                    "normalized_text": "기업경영 분야",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "기업경영 분야"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": true
+              },
+              {
+                "cell_id": "p001-vl003-r01c02",
+                "row_index": 1,
+                "column_index": 2,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 794.0,
+                  "y": 267.0,
+                  "width": 526.0,
+                  "height": 162.8
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl003-r01c02-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 794.0,
+                      "y": 267.0,
+                      "width": 526.0,
+                      "height": 162.8
+                    },
+                    "normalized_bbox": {
+                      "x": 0.554082,
+                      "y": 0.107966,
+                      "width": 0.367062,
+                      "height": 0.065831
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "• 경영정보 시스템(MIS: Management Information System)이나 의사결정지원 시스템(DSS: Decision Support System) 등은 경영자가 신속한 의사결정을 할 수 있도록 도와준다.• 사무자동화(OA: Office Automation)가 이루어져 문서 작성과 보관은 물론 컴퓨터로 업무를 검색하는 전자결재 시스템이 도입되어 업무처리의 효율을 높이고 있다.• 최근에는 생산에서 소비까지 전 과정을 컴퓨터로 처리하는 전자상거래(EC: Electronic Commerce)가 활성화되어 기업은 물류비용을 줄이고, 소비자는 값싸고 질 좋은 제품을 집에서 구매할 수 있어 소비자와 기업 모두에게 이익을 주고 있다.",
+                    "normalized_text": "• 경영정보 시스템(MIS: Management Information System)이나 의사결정지원 시스템(DSS: Decision Support System) 등은 경영자가 신속한 의사결정을 할 수 있도록 도와준다.• 사무자동화(OA: Office Automation)가 이루어져 문서 작성과 보관은 물론 컴퓨터로 업무를 검색하는 전자결재 시스템이 도입되어 업무처리의 효율을 높이고 있다.• 최근에는 생산에서 소비까지 전 과정을 컴퓨터로 처리하는 전자상거래(EC: Electronic Commerce)가 활성화되어 기업은 물류비용을 줄이고, 소비자는 값싸고 질 좋은 제품을 집에서 구매할 수 있어 소비자와 기업 모두에게 이익을 주고 있다.",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "• 경영정보 시스템(MIS: Management Information System)이나 의사결정지원 시스템(DSS: Decision Support System) 등은 경영자가 신속한 의사결정을 할 수 있도록 도와준다.• 사무자동화(OA: Office Automation)가 이루어져 문서 작성과 보관은 물론 컴퓨터로 업무를 검색하는 전자결재 시스템이 도입되어 업무처리의 효율을 높이고 있다.• 최근에는 생산에서 소비까지 전 과정을 컴퓨터로 처리하는 전자상거래(EC: Electronic Commerce)가 활성화되어 기업은 물류비용을 줄이고, 소비자는 값싸고 질 좋은 제품을 집에서 구매할 수 있어 소비자와 기업 모두에게 이익을 주고 있다."
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": true
+              },
+              {
+                "cell_id": "p001-vl003-r02c01",
+                "row_index": 2,
+                "column_index": 1,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 268.0,
+                  "y": 429.8,
+                  "width": 526.0,
+                  "height": 162.8
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl003-r02c01-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 268.0,
+                      "y": 429.8,
+                      "width": 526.0,
+                      "height": 162.8
+                    },
+                    "normalized_bbox": {
+                      "x": 0.18702,
+                      "y": 0.173797,
+                      "width": 0.367062,
+                      "height": 0.065831
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "행정 분야",
+                    "normalized_text": "행정 분야",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "행정 분야"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl003-r02c02",
+                "row_index": 2,
+                "column_index": 2,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 794.0,
+                  "y": 429.8,
+                  "width": 526.0,
+                  "height": 162.8
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl003-r02c02-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 794.0,
+                      "y": 429.8,
+                      "width": 526.0,
+                      "height": 162.8
+                    },
+                    "normalized_bbox": {
+                      "x": 0.554082,
+                      "y": 0.173797,
+                      "width": 0.367062,
+                      "height": 0.065831
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "민원처리, 각종 행정통계 등의 여러 가지 행정 관련 정보를 데이터베이스화하여 활용하고 있다.",
+                    "normalized_text": "민원처리, 각종 행정통계 등의 여러 가지 행정 관련 정보를 데이터베이스화하여 활용하고 있다.",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "민원처리, 각종 행정통계 등의 여러 가지 행정 관련 정보를 데이터베이스화하여 활용하고 있다."
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl003-r03c01",
+                "row_index": 3,
+                "column_index": 1,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 268.0,
+                  "y": 592.6,
+                  "width": 526.0,
+                  "height": 162.8
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl003-r03c01-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 268.0,
+                      "y": 592.6,
+                      "width": 526.0,
+                      "height": 162.8
+                    },
+                    "normalized_bbox": {
+                      "x": 0.18702,
+                      "y": 0.239628,
+                      "width": 0.367062,
+                      "height": 0.065831
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "산업 분야",
+                    "normalized_text": "산업 분야",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "산업 분야"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl003-r03c02",
+                "row_index": 3,
+                "column_index": 2,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 794.0,
+                  "y": 592.6,
+                  "width": 526.0,
+                  "height": 162.8
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl003-r03c02-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 794.0,
+                      "y": 592.6,
+                      "width": 526.0,
+                      "height": 162.8
+                    },
+                    "normalized_bbox": {
+                      "x": 0.554082,
+                      "y": 0.239628,
+                      "width": 0.367062,
+                      "height": 0.065831
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "컴퓨터를 이용하여 제품의 수주에서부터 설계, 제조, 검사, 출하에 이르기까지 모든 제품 공정을 자동화하여 생산성 향상과 원가 절감, 불량품 감소 등으로 제품의 경쟁력을 높이고 있다.",
+                    "normalized_text": "컴퓨터를 이용하여 제품의 수주에서부터 설계, 제조, 검사, 출하에 이르기까지 모든 제품 공정을 자동화하여 생산성 향상과 원가 절감, 불량품 감소 등으로 제품의 경쟁력을 높이고 있다.",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "컴퓨터를 이용하여 제품의 수주에서부터 설계, 제조, 검사, 출하에 이르기까지 모든 제품 공정을 자동화하여 생산성 향상과 원가 절감, 불량품 감소 등으로 제품의 경쟁력을 높이고 있다."
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl003-r04c01",
+                "row_index": 4,
+                "column_index": 1,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 268.0,
+                  "y": 755.4,
+                  "width": 526.0,
+                  "height": 162.8
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl003-r04c01-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 268.0,
+                      "y": 755.4,
+                      "width": 526.0,
+                      "height": 162.8
+                    },
+                    "normalized_bbox": {
+                      "x": 0.18702,
+                      "y": 0.305459,
+                      "width": 0.367062,
+                      "height": 0.065831
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "교육 분야",
+                    "normalized_text": "교육 분야",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "교육 분야"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl003-r04c02",
+                "row_index": 4,
+                "column_index": 2,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 794.0,
+                  "y": 755.4,
+                  "width": 526.0,
+                  "height": 162.8
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl003-r04c02-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 794.0,
+                      "y": 755.4,
+                      "width": 526.0,
+                      "height": 162.8
+                    },
+                    "normalized_bbox": {
+                      "x": 0.554082,
+                      "y": 0.305459,
+                      "width": 0.367062,
+                      "height": 0.065831
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "• 컴퓨터 보조교육(CAI: Computer Assisted Instruction): 강의나 학습에 컴퓨터를 이용하는 것으로, 학습자가 프로그램을 이용하여 개인차에 따라 학습 속도와 학습 시간을 조절하여 학습하는 방식·컴퓨터 관리교육(CMI: Computer Managed Instruction): 학습지도 자료의 정리, 성적관리, 진로 지도, 교육계획 등에 활용하는 방식",
+                    "normalized_text": "• 컴퓨터 보조교육(CAI: Computer Assisted Instruction): 강의나 학습에 컴퓨터를 이용하는 것으로, 학습자가 프로그램을 이용하여 개인차에 따라 학습 속도와 학습 시간을 조절하여 학습하는 방식·컴퓨터 관리교육(CMI: Computer Managed Instruction): 학습지도 자료의 정리, 성적관리, 진로 지도, 교육계획 등에 활용하는 방식",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "• 컴퓨터 보조교육(CAI: Computer Assisted Instruction): 강의나 학습에 컴퓨터를 이용하는 것으로, 학습자가 프로그램을 이용하여 개인차에 따라 학습 속도와 학습 시간을 조절하여 학습하는 방식·컴퓨터 관리교육(CMI: Computer Managed Instruction): 학습지도 자료의 정리, 성적관리, 진로 지도, 교육계획 등에 활용하는 방식"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl003-r05c01",
+                "row_index": 5,
+                "column_index": 1,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 268.0,
+                  "y": 918.2,
+                  "width": 526.0,
+                  "height": 162.8
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl003-r05c01-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 268.0,
+                      "y": 918.2,
+                      "width": 526.0,
+                      "height": 162.8
+                    },
+                    "normalized_bbox": {
+                      "x": 0.18702,
+                      "y": 0.37129,
+                      "width": 0.367062,
+                      "height": 0.065831
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "기타 분야",
+                    "normalized_text": "기타 분야",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "기타 분야"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl003-r05c02",
+                "row_index": 5,
+                "column_index": 2,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 794.0,
+                  "y": 918.2,
+                  "width": 526.0,
+                  "height": 162.8
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl003-r05c02-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 794.0,
+                      "y": 918.2,
+                      "width": 526.0,
+                      "height": 162.8
+                    },
+                    "normalized_bbox": {
+                      "x": 0.554082,
+                      "y": 0.37129,
+                      "width": 0.367062,
+                      "height": 0.065831
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "워드프로세스, 그래픽 소프트웨어 등의 활용",
+                    "normalized_text": "워드프로세스, 그래픽 소프트웨어 등의 활용",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "워드프로세스, 그래픽 소프트웨어 등의 활용"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              }
+            ],
+            "structure_confidence": 0.9
+          },
+          {
+            "node_id": "p001-vl004",
+            "bbox": {
+              "x": 259.0,
+              "y": 1268.0,
+              "width": 1087.0,
+              "height": 915.0
+            },
+            "normalized_bbox": {
+              "x": 0.18074,
+              "y": 0.512738,
+              "width": 0.758548,
+              "height": 0.369996
+            },
+            "reading_order_index": 3,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "table",
+              "vl_block_id": 3
+            },
+            "content_type": "TABLE",
+            "raw_html": "<table><tr><td>[1단계]정보의 기획</td><td>정보의 전략적 기획이란 정보관리의 가장 중요한 단계이며 보통은 5W 2H에 따라 기획을 한다.What(무엇을?):정보 입수 대상의 명확화Where(어디에서?):정보 소스(정보원) 파악When(언제까지?):정보 요구(수집) 시점 고려Why(왜?) : 정보의 필요 목적을 염두에 둠Who(누가?) : 정보활동 주체 확정How(어떻게?) : 정보 수집 방법 검토How Much(얼마나?) : 정보 수집의 비용성(효용성) 중시</td></tr><tr><td>[2단계]정보의 수집</td><td>다양한 정보원으로부터 목적에 적합한 정보를 입수하는 것이다.</td></tr><tr><td>[3단계]정보의 관리</td><td>• 수집된 다양한 형태의 정보(보통 생정보)를 어떤 문제 해결이나 결론 도출에 사용하기 쉬운 형태로 바꾸는 일이다.• 정보를 관리할 때는 다음 세 가지를 고려해야 한다. [정보관리의 3원칙]목적성:사용목적을 명확히 설명해야 한다.용이성:쉽게 작업할 수 있어야 한다.유용성:즉시 사용할 수 있어야 한다.</td></tr></table>",
+            "row_count": 3,
+            "column_count": 2,
+            "cells": [
+              {
+                "cell_id": "p001-vl004-r01c01",
+                "row_index": 1,
+                "column_index": 1,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 259.0,
+                  "y": 1268.0,
+                  "width": 543.5,
+                  "height": 305.0
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl004-r01c01-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 259.0,
+                      "y": 1268.0,
+                      "width": 543.5,
+                      "height": 305.0
+                    },
+                    "normalized_bbox": {
+                      "x": 0.18074,
+                      "y": 0.512738,
+                      "width": 0.379274,
+                      "height": 0.123332
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "[1단계]정보의 기획",
+                    "normalized_text": "[1단계]정보의 기획",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "[1단계]정보의 기획"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": true
+              },
+              {
+                "cell_id": "p001-vl004-r01c02",
+                "row_index": 1,
+                "column_index": 2,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 802.5,
+                  "y": 1268.0,
+                  "width": 543.5,
+                  "height": 305.0
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl004-r01c02-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 802.5,
+                      "y": 1268.0,
+                      "width": 543.5,
+                      "height": 305.0
+                    },
+                    "normalized_bbox": {
+                      "x": 0.560014,
+                      "y": 0.512738,
+                      "width": 0.379274,
+                      "height": 0.123332
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "정보의 전략적 기획이란 정보관리의 가장 중요한 단계이며 보통은 5W 2H에 따라 기획을 한다.What(무엇을?):정보 입수 대상의 명확화Where(어디에서?):정보 소스(정보원) 파악When(언제까지?):정보 요구(수집) 시점 고려Why(왜?) : 정보의 필요 목적을 염두에 둠Who(누가?) : 정보활동 주체 확정How(어떻게?) : 정보 수집 방법 검토How Much(얼마나?) : 정보 수집의 비용성(효용성) 중시",
+                    "normalized_text": "정보의 전략적 기획이란 정보관리의 가장 중요한 단계이며 보통은 5W 2H에 따라 기획을 한다.What(무엇을?):정보 입수 대상의 명확화Where(어디에서?):정보 소스(정보원) 파악When(언제까지?):정보 요구(수집) 시점 고려Why(왜?) : 정보의 필요 목적을 염두에 둠Who(누가?) : 정보활동 주체 확정How(어떻게?) : 정보 수집 방법 검토How Much(얼마나?) : 정보 수집의 비용성(효용성) 중시",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "정보의 전략적 기획이란 정보관리의 가장 중요한 단계이며 보통은 5W 2H에 따라 기획을 한다.What(무엇을?):정보 입수 대상의 명확화Where(어디에서?):정보 소스(정보원) 파악When(언제까지?):정보 요구(수집) 시점 고려Why(왜?) : 정보의 필요 목적을 염두에 둠Who(누가?) : 정보활동 주체 확정How(어떻게?) : 정보 수집 방법 검토How Much(얼마나?) : 정보 수집의 비용성(효용성) 중시"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": true
+              },
+              {
+                "cell_id": "p001-vl004-r02c01",
+                "row_index": 2,
+                "column_index": 1,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 259.0,
+                  "y": 1573.0,
+                  "width": 543.5,
+                  "height": 305.0
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl004-r02c01-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 259.0,
+                      "y": 1573.0,
+                      "width": 543.5,
+                      "height": 305.0
+                    },
+                    "normalized_bbox": {
+                      "x": 0.18074,
+                      "y": 0.63607,
+                      "width": 0.379274,
+                      "height": 0.123332
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "[2단계]정보의 수집",
+                    "normalized_text": "[2단계]정보의 수집",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "[2단계]정보의 수집"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl004-r02c02",
+                "row_index": 2,
+                "column_index": 2,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 802.5,
+                  "y": 1573.0,
+                  "width": 543.5,
+                  "height": 305.0
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl004-r02c02-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 802.5,
+                      "y": 1573.0,
+                      "width": 543.5,
+                      "height": 305.0
+                    },
+                    "normalized_bbox": {
+                      "x": 0.560014,
+                      "y": 0.63607,
+                      "width": 0.379274,
+                      "height": 0.123332
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "다양한 정보원으로부터 목적에 적합한 정보를 입수하는 것이다.",
+                    "normalized_text": "다양한 정보원으로부터 목적에 적합한 정보를 입수하는 것이다.",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "다양한 정보원으로부터 목적에 적합한 정보를 입수하는 것이다."
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl004-r03c01",
+                "row_index": 3,
+                "column_index": 1,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 259.0,
+                  "y": 1878.0,
+                  "width": 543.5,
+                  "height": 305.0
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl004-r03c01-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 259.0,
+                      "y": 1878.0,
+                      "width": 543.5,
+                      "height": 305.0
+                    },
+                    "normalized_bbox": {
+                      "x": 0.18074,
+                      "y": 0.759402,
+                      "width": 0.379274,
+                      "height": 0.123332
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "[3단계]정보의 관리",
+                    "normalized_text": "[3단계]정보의 관리",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "[3단계]정보의 관리"
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              },
+              {
+                "cell_id": "p001-vl004-r03c02",
+                "row_index": 3,
+                "column_index": 2,
+                "row_span": 1,
+                "column_span": 1,
+                "bbox": {
+                  "x": 802.5,
+                  "y": 1878.0,
+                  "width": 543.5,
+                  "height": 305.0
+                },
+                "bbox_is_estimated": true,
+                "content_nodes": [
+                  {
+                    "node_id": "p001-vl004-r03c02-content-01",
+                    "content_type": "TEXT",
+                    "bbox": {
+                      "x": 802.5,
+                      "y": 1878.0,
+                      "width": 543.5,
+                      "height": 305.0
+                    },
+                    "normalized_bbox": {
+                      "x": 0.560014,
+                      "y": 0.759402,
+                      "width": 0.379274,
+                      "height": 0.123332
+                    },
+                    "confidence": 1.0,
+                    "source_engine": "paddleocr-vl",
+                    "issues": [],
+                    "raw_text": "• 수집된 다양한 형태의 정보(보통 생정보)를 어떤 문제 해결이나 결론 도출에 사용하기 쉬운 형태로 바꾸는 일이다.• 정보를 관리할 때는 다음 세 가지를 고려해야 한다. [정보관리의 3원칙]목적성:사용목적을 명확히 설명해야 한다.용이성:쉽게 작업할 수 있어야 한다.유용성:즉시 사용할 수 있어야 한다.",
+                    "normalized_text": "• 수집된 다양한 형태의 정보(보통 생정보)를 어떤 문제 해결이나 결론 도출에 사용하기 쉬운 형태로 바꾸는 일이다.• 정보를 관리할 때는 다음 세 가지를 고려해야 한다. [정보관리의 3원칙]목적성:사용목적을 명확히 설명해야 한다.용이성:쉽게 작업할 수 있어야 한다.유용성:즉시 사용할 수 있어야 한다.",
+                    "spans": [
+                      {
+                        "span_type": "TEXT",
+                        "text": "• 수집된 다양한 형태의 정보(보통 생정보)를 어떤 문제 해결이나 결론 도출에 사용하기 쉬운 형태로 바꾸는 일이다.• 정보를 관리할 때는 다음 세 가지를 고려해야 한다. [정보관리의 3원칙]목적성:사용목적을 명확히 설명해야 한다.용이성:쉽게 작업할 수 있어야 한다.유용성:즉시 사용할 수 있어야 한다."
+                      }
+                    ]
+                  }
+                ],
+                "header_candidate": false
+              }
+            ],
+            "structure_confidence": 0.9
+          },
+          {
+            "node_id": "p001-vl005",
+            "bbox": {
+              "x": 183.0,
+              "y": 2295.0,
+              "width": 50.0,
+              "height": 37.0
+            },
+            "normalized_bbox": {
+              "x": 0.127704,
+              "y": 0.928023,
+              "width": 0.034892,
+              "height": 0.014962
+            },
+            "reading_order_index": 4,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "number",
+              "vl_block_id": 4
+            },
+            "content_type": "TEXT",
+            "raw_text": "300",
+            "normalized_text": "300",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "300"
+              }
+            ]
+          },
+          {
+            "node_id": "p001-vl006",
+            "bbox": {
+              "x": 257.0,
+              "y": 2295.0,
+              "width": 224.0,
+              "height": 38.0
+            },
+            "normalized_bbox": {
+              "x": 0.179344,
+              "y": 0.928023,
+              "width": 0.156315,
+              "height": 0.015366
+            },
+            "reading_order_index": 5,
+            "confidence": 1.0,
+            "source_engine": "paddleocr-vl",
+            "issues": [],
+            "layout": {
+              "vl_block_label": "footer",
+              "vl_block_id": 5
+            },
+            "content_type": "TEXT",
+            "raw_text": "제2편 직업기초능력평가",
+            "normalized_text": "제2편 직업기초능력평가",
+            "spans": [
+              {
+                "span_type": "TEXT",
+                "text": "제2편 직업기초능력평가"
+              }
+            ]
+          }
+        ],
+        "reading_order": [
+          "p001-vl001",
+          "p001-vl002",
+          "p001-vl003",
+          "p001-vl004",
+          "p001-vl005",
+          "p001-vl006"
+        ],
+        "parse_issues": [],
+        "quality_report": {
+          "status": "PASS_WITH_CORRECTION",
+          "issues": []
+        }
+      }
+    ],
+    "validation_summary": {
+      "schema_valid": true,
+      "validation_performed": true,
+      "coordinate_missing_node_count": 0,
+      "reading_order_cycle_count": 0,
+      "invalid_reading_order_ref_count": 0,
+      "missing_reading_order_node_count": 0,
+      "duplicate_node_id_count": 0,
+      "required_field_missing_count": 0,
+      "type_error_count": 0,
+      "bbox_invalid_count": 0,
+      "normalized_bbox_out_of_range_count": 0,
+      "confidence_invalid_count": 0,
+      "reading_order_index_mismatch_count": 0,
+      "invalid_embedded_text_ref_count": 0,
+      "quality_status_invalid_count": 0,
+      "issue_invalid_count": 0,
+      "page_count_mismatch": false,
+      "page_count": 1
+    }
+  },
+  "braille_evaluation": {
+    "schema_valid": true,
+    "validation_summary": {
+      "schema_valid": true,
+      "validation_performed": true,
+      "coordinate_missing_node_count": 0,
+      "reading_order_cycle_count": 0,
+      "invalid_reading_order_ref_count": 0,
+      "missing_reading_order_node_count": 0,
+      "duplicate_node_id_count": 0,
+      "required_field_missing_count": 0,
+      "type_error_count": 0,
+      "bbox_invalid_count": 0,
+      "normalized_bbox_out_of_range_count": 0,
+      "confidence_invalid_count": 0,
+      "reading_order_index_mismatch_count": 0,
+      "invalid_embedded_text_ref_count": 0,
+      "quality_status_invalid_count": 0,
+      "issue_invalid_count": 0,
+      "page_count_mismatch": false,
+      "page_count": 1
+    },
+    "page_count": 1,
+    "focus_item_count": 6,
+    "node_type_counts": {
+      "TABLE": 2,
+      "TEXT": 4
+    },
+    "preserved_text_character_count": 1039,
+    "normalized_content_text": "(4)컴퓨터활용분야(5)정보처리절차기업경영분야•경영정보시스템(mis:managementinformationsystem)이나의사결정지원시스템(dss:decisionsupportsystem)등은경영자가신속한의사결정을할수있도록도와준다.•사무자동화(oa:officeautomation)가이루어져문서작성과보관은물론컴퓨터로업무를검색하는전자결재시스템이도입되어업무처리의효율을높이고있다.•최근에는생산에서소비까지전과정을컴퓨터로처리하는전자상거래(ec:electroniccommerce)가활성화되어기업은물류비용을줄이고,소비자는값싸고질좋은제품을집에서구매할수있어소비자와기업모두에게이익을주고있다.행정분야민원처리,각종행정통계등의여러가지행정관련정보를데이터베이스화하여활용하고있다.산업분야컴퓨터를이용하여제품의수주에서부터설계,제조,검사,출하에이르기까지모든제품공정을자동화하여생산성향상과원가절감,불량품감소등으로제품의경쟁력을높이고있다.교육분야•컴퓨터보조교육(cai:computerassistedinstruction):강의나학습에컴퓨터를이용하는것으로,학습자가프로그램을이용하여개인차에따라학습속도와학습시간을조절하여학습하는방식·컴퓨터관리교육(cmi:computermanagedinstruction):학습지도자료의정리,성적관리,진로지도,교육계획등에활용하는방식기타분야워드프로세스,그래픽소프트웨어등의활용[1단계]정보의기획정보의전략적기획이란정보관리의가장중요한단계이며보통은5w2h에따라기획을한다.what(무엇을?):정보입수대상의명확화where(어디에서?):정보소스(정보원)파악when(언제까지?):정보요구(수집)시점고려why(왜?):정보의필요목적을염두에둠who(누가?):정보활동주체확정how(어떻게?):정보수집방법검토howmuch(얼마나?):정보수집의비용성(효용성)중시[2단계]정보의수집다양한정보원으로부터목적에적합한정보를입수하는것이다.[3단계]정보의관리•수집된다양한형태의정보(보통생정보)를어떤문제해결이나결론도출에사용하기쉬운형태로바꾸는일이다.•정보를관리할때는다음세가지를고려해야한다.[정보관리의3원칙]목적성:사용목적을명확히설명해야한다.용이성:쉽게작업할수있어야한다.유용성:즉시사용할수있어야한다.300제2편직업기초능력평가",
+    "parse_issue_codes": {},
+    "parse_issue_count": 0,
+    "braille_opportunity_count": 16,
+    "braille_translated_count": 5,
+    "braille_withheld_count": 0,
+    "braille_error_count": 11,
+    "braille_translation_rate": 0.3125,
+    "translations": [
+      {
+        "source_id": "p001-vl003-r01c01",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "cells": [
+          60,
+          1,
+          60,
+          1,
+          8,
+          21,
+          14,
+          3,
+          8,
+          49,
+          54,
+          59,
+          24,
+          13,
+          18,
+          28
+        ],
+        "unicode": "⠼⠁⠼⠁⠈⠕⠎⠃⠈⠱⠶⠻⠘⠍⠒⠜",
+        "cell_count": 16,
+        "status": "TRANSLATED",
+        "error": null
+      },
+      {
+        "source_id": "p001-vl003-r01c02",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character '•' in '• 경영정보 시스템(MIS: Management Information System)이나 의사결정지원 시스템(DSS: Decision Support System) 등은 경영자가 신속한 의사결정을 할 수 있도록 도와준다.• 사무자동화(OA: Office Automation)가 이루어져 문서 작성과 보관은 물론 컴퓨터로 업무를 검색하는 전자결재 시스템이 도입되어 업무처리의 효율을 높이고 있다.• 최근에는 생산에서 소비까지 전 과정을 컴퓨터로 처리하는 전자상거래(EC: Electronic Commerce)가 활성화되어 기업은 물류비용을 줄이고, 소비자는 값싸고 질 좋은 제품을 집에서 구매할 수 있어 소비자와 기업 모두에게 이익을 주고 있다.' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      },
+      {
+        "source_id": "p001-vl003-r02c01",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "cells": [
+          60,
+          1,
+          60,
+          3,
+          26,
+          23,
+          54,
+          40,
+          59,
+          24,
+          13,
+          18,
+          28
+        ],
+        "unicode": "⠼⠁⠼⠃⠚⠗⠶⠨⠻⠘⠍⠒⠜",
+        "cell_count": 13,
+        "status": "TRANSLATED",
+        "error": null
+      },
+      {
+        "source_id": "p001-vl003-r02c02",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character ',' in '민원처리, 각종 행정통계 등의 여러 가지 행정 관련 정보를 데이터베이스화하여 활용하고 있다.' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      },
+      {
+        "source_id": "p001-vl003-r03c01",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "cells": [
+          60,
+          1,
+          60,
+          9,
+          7,
+          18,
+          14,
+          3,
+          24,
+          13,
+          18,
+          28
+        ],
+        "unicode": "⠼⠁⠼⠉⠇⠒⠎⠃⠘⠍⠒⠜",
+        "cell_count": 12,
+        "status": "TRANSLATED",
+        "error": null
+      },
+      {
+        "source_id": "p001-vl003-r03c02",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character ',' in '컴퓨터를 이용하여 제품의 수주에서부터 설계, 제조, 검사, 출하에 이르기까지 모든 제품 공정을 자동화하여 생산성 향상과 원가 절감, 불량품 감소 등으로 제품의 경쟁력을 높이고 있다.' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      },
+      {
+        "source_id": "p001-vl003-r04c01",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "cells": [
+          60,
+          1,
+          60,
+          25,
+          8,
+          44,
+          41,
+          1,
+          24,
+          13,
+          18,
+          28
+        ],
+        "unicode": "⠼⠁⠼⠙⠈⠬⠩⠁⠘⠍⠒⠜",
+        "cell_count": 12,
+        "status": "TRANSLATED",
+        "error": null
+      },
+      {
+        "source_id": "p001-vl003-r04c02",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character '•' in '• 컴퓨터 보조교육(CAI: Computer Assisted Instruction): 강의나 학습에 컴퓨터를 이용하는 것으로, 학습자가 프로그램을 이용하여 개인차에 따라 학습 속도와 학습 시간을 조절하여 학습하는 방식·컴퓨터 관리교육(CMI: Computer Managed Instruction): 학습지도 자료의 정리, 성적관리, 진로 지도, 교육계획 등에 활용하는 방식' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      },
+      {
+        "source_id": "p001-vl003-r05c01",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "cells": [
+          60,
+          1,
+          60,
+          17,
+          8,
+          21,
+          19,
+          24,
+          13,
+          18,
+          28
+        ],
+        "unicode": "⠼⠁⠼⠑⠈⠕⠓⠘⠍⠒⠜",
+        "cell_count": 11,
+        "status": "TRANSLATED",
+        "error": null
+      },
+      {
+        "source_id": "p001-vl003-r05c02",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character ',' in '워드프로세스, 그래픽 소프트웨어 등의 활용' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      },
+      {
+        "source_id": "p001-vl004-r01c01",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character '[' in '[1단계]정보의 기획' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      },
+      {
+        "source_id": "p001-vl004-r01c02",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character '5' in '정보의 전략적 기획이란 정보관리의 가장 중요한 단계이며 보통은 5W 2H에 따라 기획을 한다.What(무엇을?):정보 입수 대상의 명확화Where(어디에서?):정보 소스(정보원) 파악When(언제까지?):정보 요구(수집) 시점 고려Why(왜?) : 정보의 필요 목적을 염두에 둠Who(누가?) : 정보활동 주체 확정How(어떻게?) : 정보 수집 방법 검토How Much(얼마나?) : 정보 수집의 비용성(효용성) 중시' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      },
+      {
+        "source_id": "p001-vl004-r02c01",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character '[' in '[2단계]정보의 수집' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      },
+      {
+        "source_id": "p001-vl004-r02c02",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character '.' in '다양한 정보원으로부터 목적에 적합한 정보를 입수하는 것이다.' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      },
+      {
+        "source_id": "p001-vl004-r03c01",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character '[' in '[3단계]정보의 관리' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      },
+      {
+        "source_id": "p001-vl004-r03c02",
+        "source_kind": "TABLE_CELL",
+        "ast_status": null,
+        "status": "ERROR",
+        "cells": [],
+        "unicode": "",
+        "cell_count": 0,
+        "error": "NotImplementedError: Character '•' in '• 수집된 다양한 형태의 정보(보통 생정보)를 어떤 문제 해결이나 결론 도출에 사용하기 쉬운 형태로 바꾸는 일이다.• 정보를 관리할 때는 다음 세 가지를 고려해야 한다. [정보관리의 3원칙]목적성:사용목적을 명확히 설명해야 한다.용이성:쉽게 작업할 수 있어야 한다.유용성:즉시 사용할 수 있어야 한다.' is not a decodable Hangul syllable and no other verified rule applies here (digits/Latin/punctuation inside Hangul text are not handled by this function)."
+      }
+    ]
+  },
+  "reference_comparison": {
+    "verdict": "FAIL_TRANSLATION_ERROR",
+    "same_content": false,
+    "cell_similarity": null,
+    "candidate_braille_opportunity_count": 16,
+    "reference_braille_opportunity_count": 31,
+    "translation_rate_delta": -0.6875,
+    "note": "Different source content: schema/translation coverage is comparable, exact braille cells are not."
+  }
+}
