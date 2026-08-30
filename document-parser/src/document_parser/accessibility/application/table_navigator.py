@@ -41,9 +41,14 @@ def enter_table(table_item: dict[str, object], state: NavigationState) -> Naviga
 
 
 def exit_table(state: NavigationState) -> NavigationResult:
-    return NavigationResult(state.advanced(
-        mode="DOCUMENT", table_row=None, table_column=None, braille_offset=0, math_span_index=0,
-    ))
+    # Explicit announcement rather than falling through to _speak_result's
+    # default (a full re-read of the now-refocused DOCUMENT-mode item, i.e.
+    # the table itself) -- the user should hear a clear "exited" confirmation,
+    # not the table's whole announcement replayed.
+    return NavigationResult(
+        state.advanced(mode="DOCUMENT", table_row=None, table_column=None, braille_offset=0, math_span_index=0),
+        boundary_message="표에서 나갑니다.",
+    )
 
 
 def current_cell(table_item: dict[str, object], state: NavigationState) -> dict[str, object] | None:

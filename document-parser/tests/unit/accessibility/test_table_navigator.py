@@ -38,6 +38,14 @@ class TableNavigatorTests(unittest.TestCase):
         self.assertIsNone(result.state.table_row)
         self.assertIsNone(result.state.table_column)
 
+    def test_exit_table_announces_explicitly(self):
+        """Explicit "exited" confirmation, not a fallback re-read of the
+        table item itself (SpeechController._speak_result's default when
+        no boundary_message is set)."""
+        entered = enter_table(self.table, self.state).state
+        result = exit_table(entered)
+        self.assertEqual(result.boundary_message, "표에서 나갑니다.")
+
     def test_move_right_then_down_reaches_expected_cell(self):
         state = enter_table(self.table, self.state).state
         state = move_table_cursor(self.table, state, "RIGHT").state

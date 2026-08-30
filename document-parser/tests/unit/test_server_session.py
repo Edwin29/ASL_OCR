@@ -172,8 +172,71 @@ class DatapackSessionTests(unittest.TestCase):
 
             session.handle_button(NavigationCommand("RIGHT", "SHORT"))  # enter table
             self.assertEqual(session.state.mode, "TABLE")
-            session.handle_button(NavigationCommand("UP", "LONG"))  # exit table
+            result = session.handle_button(NavigationCommand("UP", "LONG"))  # exit table
             self.assertEqual(session.state.mode, "DOCUMENT")
+
+            # The wire-level guarantee: exiting must produce an explicit
+            # "exited" announcement, not silence and not a fallback re-read
+            # of the table item itself (user-requested behavior).
+            self.assertIsNotNone(result["audio"])
+            self.assertEqual(result["audio"]["text"], "표에서 나갑니다.")
+
+    def test_every_node_to_node_move_always_carries_audio(self):
+        """User-stated requirement: every UP/DOWN SHORT step (node-to-node
+        movement) must unconditionally play the newly-focused node's TTS --
+        `audio` must never be null on these turns, unlike the deliberately
+        silent within-span braille scroll (see
+        test_silent_within_span_scroll_reports_no_new_audio)."""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            datapack = build_and_load_datapack(Path(temp_dir))
+            session = DatapackSession(datapack)
+
+            for step in range(len(datapack.document["pages"][0]["focus_items"]) + 2):
+                result = session.handle_button(NavigationCommand("DOWN", "SHORT"))
+                self.assertIsNotNone(result["audio"], f"DOWN step {step} produced no audio")
+
+            for step in range(len(datapack.document["pages"][0]["focus_items"]) + 2):
+                result = session.handle_button(NavigationCommand("UP", "SHORT"))
+                self.assertIsNotNone(result["audio"], f"UP step {step} produced no audio")
+
+    def test_page_turn_always_carries_audio(self):
+        """PAGE_NEXT/PAGE_PREVIOUS had no audio-field assertion anywhere --
+        only `page_index` was checked at the wire-server level. The fixture
+        document has one page, so both directions hit a boundary message,
+        which must still carry audio (never null)."""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            datapack = build_and_load_datapack(Path(temp_dir))
+            session = DatapackSession(datapack)
+
+            next_result = session.handle_button(NavigationCommand("PAGE_NEXT", "SHORT"))
+            self.assertIsNotNone(next_result["audio"])
+            self.assertEqual(next_result["audio"]["text"], "문서의 마지막 페이지입니다.")
+
+            previous_result = session.handle_button(NavigationCommand("PAGE_PREVIOUS", "SHORT"))
+            self.assertIsNotNone(previous_result["audio"])
+            self.assertEqual(previous_result["audio"]["text"], "문서의 첫 페이지입니다.")
+
+    def test_table_cell_navigation_always_carries_audio(self):
+        """Cell-to-cell moves (and the boundary messages a 1x1 table's moves
+        hit immediately) had no audio-field assertion anywhere -- only
+        mode/no-exception were checked."""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            datapack = build_and_load_datapack(Path(temp_dir))
+            session = DatapackSession(datapack)
+
+            for _ in range(10):
+                if session.state.node_index < len(datapack.document["pages"][0]["focus_items"]):
+                    item = datapack.document["pages"][0]["focus_items"][session.state.node_index]
+                    if item["kind"] == "TABLE":
+                        break
+                session.handle_button(NavigationCommand("DOWN", "SHORT"))
+
+            entry_result = session.handle_button(NavigationCommand("RIGHT", "SHORT"))  # enter table
+            self.assertIsNotNone(entry_result["audio"])
+
+            for button in ("DOWN", "RIGHT", "UP", "LEFT"):
+                result = session.handle_button(NavigationCommand(button, "SHORT"))
+                self.assertIsNotNone(result["audio"], f"table {button} SHORT produced no audio")
 
 
 if __name__ == "__main__":
