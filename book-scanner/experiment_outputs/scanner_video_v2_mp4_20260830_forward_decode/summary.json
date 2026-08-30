@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETE",
+  "scope": "v2_local_artifact_replay_only",
+  "automatic_stable_selection_validated": false,
+  "selection_note": "Timestamps were selected by human visual review. This result does not validate the V1 automatic candidate/stability gate.",
+  "source_video": {
+    "path": "C:\\Users\\왕원철\\Downloads\\20260830_133526.mp4",
+    "size_bytes": 242882956,
+    "sha256": "16c57970bc493abcef4a1db0f1917b22956bf5ca1a2ee8b4565fde1f6574e6f8",
+    "width": 3840,
+    "height": 2160,
+    "fps": 59.69965076707844,
+    "frame_count": 2677,
+    "duration_seconds": 44.84113333333334
+  },
+  "sampling_mode": "bilinear",
+  "record_count": 2,
+  "final_uvdoc_load_count": 1,
+  "records": [
+    {
+      "requested_timestamp_seconds": 13.07,
+      "actual_timestamp_seconds": 13.06540306313037,
+      "frame_index": 780,
+      "source_frame_id": "video-frame-000780",
+      "selection_basis": "manual_visual_review_hand_free_stable",
+      "state": "prepared",
+      "reasons": [],
+      "metrics": {
+        "processing_ms": 2875.657,
+        "seam_confidence": 0.016174448579590717,
+        "uvdoc_load_count": 1,
+        "left_uvdoc_ms": 255.686,
+        "right_uvdoc_ms": 68.684
+      },
+      "artifact_id": "spread-f9386f359454e3fd956176879d568575",
+      "manifest_path": "ready\\spread-f9386f359454e3fd956176879d568575\\manifest.json",
+      "same_source_frame": true,
+      "left_bbox_full": [
+        614,
+        0,
+        1453,
+        2146
+      ],
+      "right_bbox_full": [
+        1903,
+        0,
+        1434,
+        2089
+      ],
+      "left_uvdoc_sha256": "d05661bbaff10c2d7a40d12dc29e63f4a7af97e70775ce0028c1fb61c99c5ef6",
+      "right_uvdoc_sha256": "6bfa70a7421ddc194e066992ded13289572fa13daa3a578bc559b1bfcd171b28",
+      "uvdoc_load_count": 1,
+      "bundle_size_bytes": 2794024
+    },
+    {
+      "requested_timestamp_seconds": 37.19,
+      "actual_timestamp_seconds": 37.18614717967875,
+      "frame_index": 2220,
+      "source_frame_id": "video-frame-002220",
+      "selection_basis": "manual_visual_review_hand_free_stable",
+      "state": "prepared",
+      "reasons": [],
+      "metrics": {
+        "processing_ms": 1032.237,
+        "seam_confidence": 0.030279777348027892,
+        "uvdoc_load_count": 1,
+        "left_uvdoc_ms": 63.635,
+        "right_uvdoc_ms": 69.994
+      },
+      "artifact_id": "spread-30e4c222733ecff0bd03374ec6da2a89",
+      "manifest_path": "ready\\spread-30e4c222733ecff0bd03374ec6da2a89\\manifest.json",
+      "same_source_frame": true,
+      "left_bbox_full": [
+        459,
+        0,
+        1480,
+        2160
+      ],
+      "right_bbox_full": [
+        1790,
+        0,
+        1452,
+        2112
+      ],
+      "left_uvdoc_sha256": "d304586a740958e3129033d494d85add9b37a4e1d85155c6bdee2c5fec7e2627",
+      "right_uvdoc_sha256": "8c6b57300920dc2be51e40edb534c6fb4280a122614b6ab55725f2038fa6a610",
+      "uvdoc_load_count": 1,
+      "bundle_size_bytes": 2665800
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "bbox_full": [
+    614,
+    0,
+    1453,
+    2146
+  ],
+  "detector_bbox_full": [
+    655,
+    53,
+    1495,
+    2032
+  ],
+  "detector_confidence": 0.8862894466708825,
+  "edge_contacts": {
+    "bottom": false,
+    "outer": false,
+    "spine": true,
+    "top": false
+  },
+  "extraction": {
+    "crop_mask_coverage": 0.7841304650403542,
+    "mask_pixels": 2445027
+  },
+  "local_readiness": {
+    "aspect_ratio": 0.6770736253494875,
+    "outer_contacts_are_hard_gate": false,
+    "outer_frame_contact_warnings": [],
+    "ready": true,
+    "reasons": [],
+    "uvdoc_size": [
+      1453,
+      2146
+    ]
+  },
+  "padding_px": [
+    41,
+    61
+  ],
+  "side": "left",
+  "uvdoc": {
+    "adapter_name": "uvdoc",
+    "device": "cuda",
+    "diagnostics": {
+      "grid_shape": [
+        1,
+        2,
+        45,
+        31
+      ],
+      "load_count": 1,
+      "load_ms": 1634.7427999135107,
+      "model_input_size": [
+        488,
+        712
+      ],
+      "sampling_mode": "bilinear"
+    },
+    "input_size": [
+      1453,
+      2146
+    ],
+    "output_size": [
+      1453,
+      2146
+    ],
+    "processing_ms": 255.68610010668635,
+    "reason": null,
+    "success": true
+  }
+}
