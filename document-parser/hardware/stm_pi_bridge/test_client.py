@@ -80,6 +80,8 @@ _COMMANDS: dict[str, tuple[str, str]] = {
     "rl": ("RIGHT", "LONG"),
     "pn": ("PAGE_NEXT", "SHORT"),
     "pp": ("PAGE_PREVIOUS", "SHORT"),
+    "c": ("CONFIRM", "SHORT"),
+    "cl": ("CONFIRM", "LONG"),
 }
 
 
@@ -177,7 +179,7 @@ def _report_turn(result: dict[str, Any], player: AudioPlayer | None, log) -> Non
         return
     try:
         player.play(audio["audio_ref"])
-    except Exception as exc:  # noqa: BLE001 -- same rationale as pi_bridge.py's _emit(): best-effort, never fatal
+    except Exception as exc:  # noqa: BLE001 -- same rationale as pi_bridge.py's emit_response(): best-effort, never fatal
         log(f"audio playback failed for {audio['audio_ref']!r}: {exc}")
 
 
@@ -188,7 +190,7 @@ def run_console_test_mode(remote: RemoteSession, player: AudioPlayer | None, inp
     local DatapackSession directly and sees real NavigationState objects;
     this one only ever sees JSON off the wire)."""
     _report_turn(remote.get_current(), player, print)
-    print("명령: up/down/left/right (SHORT), ul/dl/ll/rl (LONG), pn/pp(페이지 넘김), q(종료)")
+    print("명령: up/down/left/right (SHORT), ul/dl/ll/rl (LONG, 일괄 이동), pn/pp(페이지 넘김), c(확인/리플레이), cl(선택 화면으로), q(종료)")
     for line in input_stream:
         token = line.strip().lower()
         if not token:

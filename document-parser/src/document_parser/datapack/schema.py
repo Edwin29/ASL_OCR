@@ -20,6 +20,15 @@ from typing import Any
 
 SCHEMA_VERSION = 1
 
+# Reserved audio_index.json utterance key for the book's own title, used by
+# the datapack-selection screen (hardware/stm_pi_bridge/device_flow.py) to
+# speak each book's name while browsing, without live TTS synthesis on the
+# device. Not derived from any real focus-item id (utterance_key_for_item
+# returns str(item["id"]), which never produces this literal string in
+# practice), but dunder-wrapped anyway to make a collision structurally
+# implausible rather than merely unlikely.
+TITLE_UTTERANCE_KEY = "__title__"
+
 # The complete, book-independent set of boundary_message strings the
 # navigation state machine can produce -- verified by grepping every
 # `boundary_message=` call site in `application/document_navigator.py`,
@@ -97,15 +106,22 @@ def build_manifest(
     engine_manifest: dict[str, object],
     tts_manifest: dict[str, object],
     validation_summary: dict[str, object],
+    title_audio: str | None = None,
 ) -> dict[str, object]:
     """Build a datapack's `manifest.json`. `page_ids` must match
     `document.json`'s page order exactly -- kept as a separate top-level list
     so a book-selection UI can read just this small file instead of parsing
-    the full (potentially large) `document.json` for page count/order."""
+    the full (potentially large) `document.json` for page count/order.
+    `title_audio` is that same book-selection UI's pre-synthesized "speak
+    this book's title" WAV (relative path, same convention as an
+    `audio_index.json` entry's "wav" field) -- also kept here rather than
+    requiring a manifest reader to separately look it up by a reserved
+    utterance key, for the same "read just this small file" reason."""
     return {
         "schema_version": SCHEMA_VERSION,
         "book_id": book_id,
         "title": title,
+        "title_audio": title_audio,
         "page_ids": list(page_ids),
         "created_at": created_at,
         "engine_manifest": engine_manifest,

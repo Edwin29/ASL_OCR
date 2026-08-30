@@ -35,7 +35,7 @@ state/frame, fetched via GET (no navigation advance) -- it is not a
 button press.
 
 **Audio playback is triggered from this same response**, right after the
-FRAME line is sent for it (see `_emit()`), never separately -- this is what
+FRAME line is sent for it (see `emit_response()`), never separately -- this is what
 guarantees the display and whatever is playing always correspond to the
 same content: there is no second code path that could react to a stale or
 different state. `audio_ref` in that response is a path on the GPU server's
@@ -70,13 +70,15 @@ from document_parser.accessibility import NavigationCommand
 # Must match BRAILLE_CELL_COUNT in main.c exactly.
 BRAILLE_CELL_COUNT = 10
 
-# "N"/"P" (next/previous page) are placeholders for the two dedicated
-# page-turn buttons -- swap these for whatever single letters the firmware
-# team's NAV,<letter>,<S|L> protocol actually ends up sending once that
-# hardware exists; nothing else in this file needs to change to match.
+# "N"/"P"/"C" (next/previous page, confirm) are placeholders for buttons
+# that don't have real GPIO wiring yet -- swap these for whatever single
+# letters the firmware team's NAV,<letter>,<S|L> protocol actually ends up
+# sending once that hardware exists; nothing else in this file needs to
+# change to match.
 _DIRECTION_TO_BUTTON = {
     "U": "UP", "D": "DOWN", "L": "LEFT", "R": "RIGHT",
     "N": "PAGE_NEXT", "P": "PAGE_PREVIOUS",
+    "C": "CONFIRM",
 }
 _LENGTH_TO_ACTION = {"S": "SHORT", "L": "LONG"}
 
@@ -138,7 +140,7 @@ class WinsoundAudioPlayer:
     without SND_ASYNC), it just silently plays nothing. Without this
     check, a stale/unreachable `audio_ref` (the common case when the
     bridge and server aren't on the same machine -- see module docstring)
-    would fail completely silently instead of being logged by `_emit()`.
+    would fail completely silently instead of being logged by `emit_response()`.
     """
 
     def __init__(self) -> None:
@@ -230,7 +232,7 @@ def run_bridge(
         if line == "HELLO":
             log(f"RX {line!r} -> fetching current state from server (no advance)")
             current = remote.get_current()
-            _emit(current, transport, player, log)
+            emit_response(current, transport, player, log)
             continue
 
         command = parse_nav_line(line)
@@ -240,15 +242,19 @@ def run_bridge(
 
         log(f"RX {line!r} -> {command.button} {command.action}")
         result = remote.send_command(command.button, command.action)
-        _emit(result, transport, player, log)
+        emit_response(result, transport, player, log)
 
 
-def _emit(
+def emit_response(
     result: dict[str, Any],
     transport: LineTransport,
     player: AudioPlayer | None,
     log: Callable[[str], None],
 ) -> None:
+    """Sends one FRAME line then triggers its audio (see module docstring).
+    Public (not `run_bridge`-only) because `device_flow.py`'s reading loop
+    needs the exact same "send the frame, then play its audio" behavior
+    when re-entering a reading session after the datapack-selection screen."""
     frame_line = format_frame_line(result["state"], result["braille_frame"])
     transport.write_line(frame_line)
     log(f"TX {frame_line!r}")

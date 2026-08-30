@@ -62,7 +62,9 @@ class CombinedServerTests(unittest.TestCase):
             root = Path(temp_dir)
             client = self._make_client(datapacks_dir=root / "datapacks", jobs_dir=root / "jobs")
 
-            self.assertEqual(client.get("/datapacks", headers={"X-API-Key": "secret"}).get_json(), {"book_ids": []})
+            empty_listing = client.get("/datapacks", headers={"X-API-Key": "secret"}).get_json()
+            self.assertEqual(empty_listing["book_ids"], [])
+            self.assertEqual(empty_listing["books"], [])
 
             response = client.post(
                 "/jobs", headers={"X-API-Key": "secret"},
@@ -77,6 +79,15 @@ class CombinedServerTests(unittest.TestCase):
 
             listing = client.get("/datapacks", headers={"X-API-Key": "secret"}).get_json()
             self.assertEqual(listing["book_ids"], ["merged_book"])
+            # The book-selection screen's title/title_audio_ref, sourced
+            # from manifest.json -- real end-to-end proof that build_datapack
+            # actually wrote a resolvable title_audio (not just that the
+            # field exists as a key).
+            book_summary = listing["books"][0]
+            self.assertEqual(book_summary["book_id"], "merged_book")
+            self.assertEqual(book_summary["title"], "merged_book")
+            self.assertIsNotNone(book_summary["title_audio_ref"])
+            self.assertTrue(Path(book_summary["title_audio_ref"]).is_file())
 
             create_response = client.post(
                 "/sessions", headers={"X-API-Key": "secret"},

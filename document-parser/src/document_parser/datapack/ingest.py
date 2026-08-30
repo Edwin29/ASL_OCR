@@ -33,6 +33,7 @@ from document_parser.accessibility.speech import (
 from document_parser.datapack.schema import (
     SCHEMA_VERSION,
     SYSTEM_BOUNDARY_MESSAGES,
+    TITLE_UTTERANCE_KEY,
     build_audio_index_entry,
     build_manifest,
     system_message_key,
@@ -192,7 +193,8 @@ def build_datapack(
     log_fn(f"flattened: {len(page_ids)} pages")
 
     utterances = enumerate_utterances(document)
-    log_fn(f"enumerated {len(utterances)} distinct utterances")
+    utterances[TITLE_UTTERANCE_KEY] = title  # book-selection screen speaks this without live synthesis
+    log_fn(f"enumerated {len(utterances)} distinct utterances (including title)")
 
     book_dir = output_dir / book_id
     audio_index_path = book_dir / "audio_index.json"
@@ -211,6 +213,7 @@ def build_datapack(
         engine_manifest=page_ir.get("engine_manifest", {}),
         tts_manifest=tts_manifest,
         validation_summary=validation,
+        title_audio=audio_index.get(TITLE_UTTERANCE_KEY, {}).get("wav"),
     )
 
     book_dir.mkdir(parents=True, exist_ok=True)

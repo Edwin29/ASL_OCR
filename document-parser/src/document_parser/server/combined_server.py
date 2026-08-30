@@ -37,7 +37,10 @@ version of this):
     POST /jobs                    multipart: book_id, images=@p1.png ...
         -> 202 {"job_id": "...", "status": "queued"}
     GET  /jobs/<job_id>           -> {"status": "queued"|"running"|"done"|"error", ...}
-    GET  /datapacks                -> {"book_ids": [...]}   -- includes book_id once its job is "done"
+    GET  /datapacks                -> {"book_ids": [...], "books": [{"book_id","title","title_audio_ref"}, ...]}
+                                       -- includes book_id once its job is "done"; title_audio_ref is an
+                                          absolute path (same convention as a command response's audio_ref),
+                                          null only if that book predates the title_audio manifest field
     POST /sessions                {"session_id": "...", "book_id": "...", "viewport_size": 10}
         -> 201 {"state": {...}, "braille_frame": {...}, "audio": {...}|null}
     POST /sessions/<session_id>/command   {"button": "UP", "action": "SHORT"}
@@ -47,6 +50,7 @@ version of this):
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 
 from document_parser.datapack.remote_ingest import JobRegistry
@@ -65,6 +69,22 @@ def create_app(registry: JobRegistry, store: SessionStore, api_key: str):
     register_ingest_routes(app, registry, api_key)  # /health, /jobs, /jobs/<id>, /jobs/<id>/download
     register_session_routes(app, store, api_key)  # /sessions, /sessions/<id>, /sessions/<id>/command
 
+    def _book_summary(book_id: str) -> dict:
+        manifest_path = store.datapacks_dir / book_id / "manifest.json"
+        try:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        except (FileNotFoundError, json.JSONDecodeError):
+            # A directory under datapacks_dir with no valid manifest.json --
+            # not a real ingest-produced book (build_datapack always writes
+            # one), but the listing itself shouldn't break because of it.
+            return {"book_id": book_id, "title": book_id, "title_audio_ref": None}
+        title_audio = manifest.get("title_audio")
+        return {
+            "book_id": book_id,
+            "title": manifest.get("title", book_id),
+            "title_audio_ref": str((store.datapacks_dir / book_id / title_audio).resolve()) if title_audio else None,
+        }
+
     @app.get("/datapacks")
     def list_datapacks():
         if request.headers.get("X-API-Key") != api_key:
@@ -73,7 +93,13 @@ def create_app(registry: JobRegistry, store: SessionStore, api_key: str):
             p.name for p in store.datapacks_dir.iterdir()
             if p.is_dir() and p.name != "_system"
         ) if store.datapacks_dir.is_dir() else []
-        return jsonify({"book_ids": book_ids})
+        # `books` carries title/title_audio (from manifest.json) alongside
+        # each book_id, for a book-selection UI (hardware/stm_pi_bridge/
+        # device_flow.py) to browse and speak book names without loading a
+        # full session per candidate. `book_ids` is kept too, unchanged, so
+        # any existing caller reading only that key is unaffected.
+        books = [_book_summary(book_id) for book_id in book_ids]
+        return jsonify({"book_ids": book_ids, "books": books})
 
     return app
 
