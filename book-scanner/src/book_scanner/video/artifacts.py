@@ -8,6 +8,9 @@ import os
 import shutil
 from pathlib import Path
 
+import cv2
+import numpy as np
+
 from .types import (
     PageArtifactRef,
     PreparedPageArtifact,
@@ -146,6 +149,45 @@ class FilesystemArtifactStore:
                 raise ArtifactCommitError(
                     f"manifest lineage mismatch for {key}: {manifest.get(key)!r} != {expected_value!r}"
                 )
+        files = manifest.get("files")
+        if files is not None:
+            if not isinstance(files, list) or not files:
+                raise ArtifactCommitError("manifest files must be a non-empty list")
+            listed_paths: set[str] = set()
+            for record in files:
+                if not isinstance(record, dict):
+                    raise ArtifactCommitError("manifest file record must be an object")
+                relative = record.get("path")
+                expected_hash = record.get("sha256")
+                if not isinstance(relative, str) or not isinstance(expected_hash, str):
+                    raise ArtifactCommitError("manifest file record needs path and sha256")
+                if relative in listed_paths:
+                    raise ArtifactCommitError(f"manifest file path is duplicated: {relative}")
+                listed_paths.add(relative)
+                path = _safe_relative(root, relative)
+                if not path.is_file() or _sha256_file(path) != expected_hash:
+                    raise ArtifactCommitError(f"manifest file is missing or corrupt: {relative}")
+                expected_size = record.get("size_bytes")
+                if isinstance(expected_size, int) and path.stat().st_size != expected_size:
+                    raise ArtifactCommitError(f"manifest file size mismatch: {relative}")
+                if str(record.get("mime_type", "")).startswith("image/"):
+                    decoded = cv2.imdecode(
+                        np.fromfile(str(path), dtype=np.uint8),
+                        cv2.IMREAD_UNCHANGED,
+                    )
+                    if decoded is None:
+                        raise ArtifactCommitError(f"manifest image cannot be decoded: {relative}")
+                    if (
+                        record.get("width") != decoded.shape[1]
+                        or record.get("height") != decoded.shape[0]
+                    ):
+                        raise ArtifactCommitError(f"manifest image dimensions mismatch: {relative}")
+            required = {
+                prepared.left.image_relative_path,
+                prepared.right.image_relative_path,
+            }
+            if not required.issubset(listed_paths):
+                raise ArtifactCommitError("manifest files omit a prepared page image")
 
 
 def _artifact_ref(prepared: PreparedSpreadArtifact, root: Path) -> SpreadArtifactRef:

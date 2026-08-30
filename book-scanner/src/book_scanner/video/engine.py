@@ -241,6 +241,7 @@ class SampledFrameEngine:
                 self._selected.frame,
                 self._selected_spread,
                 self._active_job_id,
+                self.session_id,
             )
             return tuple(events)
 
@@ -307,6 +308,7 @@ class SampledFrameEngine:
             or decision.job_id != self._active_job_id
         ):
             self._discard_prepared(decision)
+            self._discard_processing_job()
             self._fail(ReadinessReason.FRAME_DECODE_FAILED, events)
             return
         events.append(
@@ -319,6 +321,7 @@ class SampledFrameEngine:
             )
         )
         if decision.state is PreparationState.RETRY_LOCAL:
+            self._discard_processing_job()
             self._complete_local_retry(decision.reasons[0], events, decision.retry_after_ms)
             return
         if decision.state is PreparationState.PREPARED and decision.prepared is not None:
@@ -326,6 +329,7 @@ class SampledFrameEngine:
                 self._active_job_id != decision.prepared.job_id
                 or decision.prepared.session_id != self.session_id
             ):
+                self._discard_prepared(decision)
                 self._fail(ReadinessReason.FRAME_DECODE_FAILED, events)
                 return
             try:
@@ -357,6 +361,7 @@ class SampledFrameEngine:
             self._transition(VideoSessionState.READY_FOR_SERVER_PREFLIGHT, events)
             return
         reason = decision.reasons[0] if decision.reasons else ReadinessReason.FRAME_DECODE_FAILED
+        self._discard_processing_job()
         self._fail(reason, events)
 
     def _complete_local_retry(

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETE_P030_JPEG_GPU_REGRESSION",
+  "date": "2026-08-30",
+  "pipeline": "seam-conservative+uvdoc-bilinear-v2",
+  "device": "cuda",
+  "checkpoint_sha256": "7e90861b8a516eb4bc51f84bd889cb77275743d2d1d3ca8091951ec9f2b7da23",
+  "runtime_model_sha256": "a439a20fdb503589ddeacd56fc38ccac17eceddefe41c77c6c4e2ae711a3197d",
+  "final_uvdoc_load_count": 1,
+  "pc_performance_sample": {
+    "method": "10 ms process RSS sampling plus torch.cuda peak stats; includes Python/OpenCV/Torch and bundle encoding",
+    "process_rss_peak_bytes": [1129426944, 1293541376, 1311490048],
+    "process_rss_after_bytes": [938258432, 937242624, 942284800],
+    "cuda_peak_allocated_bytes": [310034944, 289607680, 313908736],
+    "cuda_peak_reserved_bytes": [358612992, 358612992, 358612992]
+  },
+  "records": [
+    {
+      "capture": "20260830_111919",
+      "state": "prepared",
+      "processing_ms": 4899.243,
+      "left_uvdoc_ms": 587.976,
+      "right_uvdoc_ms": 95.658,
+      "left_bbox_full": [393, 84, 1869, 2751],
+      "right_bbox_full": [2076, 0, 1789, 2828],
+      "left_uvdoc_sha256": "b043b49389a4773255fc5465cbca0e8ee46962d83a53f5f7ed263fdbcf27a00f",
+      "right_uvdoc_sha256": "609a911407a22a8a6078c7ca99af5173f5a0673d4caa6191309b72c0f598473b",
+      "bundle_size_bytes": 5125316,
+      "left_reference_mae": 0.3258,
+      "left_reference_psnr_db": 51.276
+    },
+    {
+      "capture": "20260830_112000",
+      "state": "prepared",
+      "processing_ms": 1529.622,
+      "left_uvdoc_ms": 87.323,
+      "right_uvdoc_ms": 105.572,
+      "left_bbox_full": [448, 79, 1737, 2719],
+      "right_bbox_full": [2000, 37, 1762, 2708],
+      "left_uvdoc_sha256": "31b9f5e04dcc8d940f0cbacf2f65df6c283129b4cb3fed112cce13881dc751cd",
+      "right_uvdoc_sha256": "ccce89d20c3ba9d82d785346c90824179444d323bb3f5476e388fd9eac63410c",
+      "bundle_size_bytes": 7073327,
+      "left_reference_mae": 0.4979,
+      "left_reference_psnr_db": 49.162
+    },
+    {
+      "capture": "20260830_112042",
+      "state": "prepared",
+      "processing_ms": 1506.963,
+      "left_uvdoc_ms": 93.136,
+      "right_uvdoc_ms": 121.867,
+      "left_bbox_full": [499, 21, 1689, 2714],
+      "right_bbox_full": [2055, 10, 1850, 2793],
+      "left_uvdoc_sha256": "85b710ad5c5098697d70e42768dc1818f3ed892fdfa2a6a988c5d84dc5e900c3",
+      "right_uvdoc_sha256": "152dace3c8ebe5937a26492e497432a6075af1ecf27d11c3ca5a6ec3085f4630",
+      "bundle_size_bytes": 5246960,
+      "left_reference_mae": 0.4274,
+      "left_reference_psnr_db": 48.464
+    }
+  ],
+  "scope_notes": {
+    "document_parser_rerun": false,
+    "reason": "V2 validates local artifact preparation; the existing human-verified p30 parser result remains the golden reference.",
+    "actual_mp4_replay": "BLOCKED_VIDEO_NOT_AVAILABLE",
+    "raspberry_pi": "NOT_TESTED"
+  }
+}

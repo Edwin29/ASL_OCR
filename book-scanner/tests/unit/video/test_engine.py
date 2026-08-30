@@ -44,13 +44,13 @@ def _policy(**overrides: object) -> CandidatePolicy:
     return CandidatePolicy(**values)
 
 
-def _ready(frame: FrameSample[np.ndarray], spread_id, job_id) -> PreparationDecision:
+def _ready(frame: FrameSample[np.ndarray], spread_id, job_id, session_id) -> PreparationDecision:
     prepared = make_prepared(
         frame.frame_id.value,
         artifact_name=f"artifact-{job_id.value}",
         spread=spread_id.value,
         job=job_id.value,
-        session=job_id.value.rsplit("-job-", 1)[0],
+        session=session_id,
     )
     return PreparationDecision(
         PreparationState.PREPARED,
@@ -154,7 +154,7 @@ def test_local_retry_clears_window_then_next_same_frame_pair_succeeds() -> None:
     clock = ManualClock()
     calls = 0
 
-    def result(frame, spread_id, job_id):
+    def result(frame, spread_id, job_id, session_id):
         nonlocal calls
         calls += 1
         if calls == 1:
@@ -166,14 +166,15 @@ def test_local_retry_clears_window_then_next_same_frame_pair_succeeds() -> None:
                 source_frame_id=frame.frame_id,
                 spread_id=spread_id,
             )
-        return _ready(frame, spread_id, job_id)
+        return _ready(frame, spread_id, job_id, session_id)
 
     preparer = FakeSpreadPreparer(result)
+    store = FakeArtifactStore()
     engine = SampledFrameEngine(
         FakeCameraSource(_frames(6)),
         OpenCVCandidateAnalyzer(),
         preparer,
-        FakeArtifactStore(),
+        store,
         session_id="test-session",
         clock=clock,
         policy=_policy(),
@@ -191,6 +192,7 @@ def test_local_retry_clears_window_then_next_same_frame_pair_succeeds() -> None:
     assert preparer.calls[0][0].frame_id == FrameId("f-3")
     assert preparer.calls[1][0].frame_id == FrameId("f-6")
     assert engine.diagnostics.frames_processed == 2
+    assert len(store.discarded_jobs) == 1
     engine.close()
 
 
@@ -199,10 +201,10 @@ def test_cancel_during_processing_releases_camera_and_discards_result() -> None:
     entered = threading.Event()
     release = threading.Event()
 
-    def blocking(frame, spread_id, job_id):
+    def blocking(frame, spread_id, job_id, session_id):
         entered.set()
         release.wait(2)
-        return _ready(frame, spread_id, job_id)
+        return _ready(frame, spread_id, job_id, session_id)
 
     camera = FakeCameraSource(_frames(3))
     store = FakeArtifactStore()
@@ -236,9 +238,9 @@ def test_cancel_during_processing_releases_camera_and_discards_result() -> None:
 def test_processor_cannot_return_another_source_frame() -> None:
     clock = ManualClock()
 
-    def wrong_frame(_frame, spread_id, job_id):
+    def wrong_frame(_frame, spread_id, job_id, session_id):
         prepared = make_prepared(
-            "other-frame", spread=spread_id.value, job=job_id.value
+            "other-frame", spread=spread_id.value, job=job_id.value, session=session_id
         )
         return PreparationDecision(
             PreparationState.PREPARED,
@@ -308,8 +310,8 @@ def test_cancel_after_prepare_before_poll_discards_without_commit() -> None:
     clock = ManualClock()
     prepared_done = threading.Event()
 
-    def immediate(frame, spread_id, job_id):
-        decision = _ready(frame, spread_id, job_id)
+    def immediate(frame, spread_id, job_id, session_id):
+        decision = _ready(frame, spread_id, job_id, session_id)
         prepared_done.set()
         return decision
 
@@ -399,7 +401,7 @@ def test_job_and_spread_ids_are_namespaced_by_explicit_session() -> None:
 def test_prepare_exception_discards_job_staging_before_local_retry() -> None:
     clock = ManualClock()
 
-    def broken(_frame, _spread_id, _job_id):
+    def broken(_frame, _spread_id, _job_id, _session_id):
         raise RuntimeError("prepare failed after partial staging")
 
     store = FakeArtifactStore()

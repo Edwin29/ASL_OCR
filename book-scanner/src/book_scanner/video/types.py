@@ -86,6 +86,8 @@ class ReadinessReason(str, Enum):
 
     SEAM_FAILED = "seam_failed"
     UVDOC_FAILED = "uvdoc_failed"
+    UVDOC_CONFIGURATION_FAILED = "uvdoc_configuration_failed"
+    UVDOC_INVALID_OUTPUT = "uvdoc_invalid_output"
 
     ARTIFACT_COMMIT_FAILED = "artifact_commit_failed"
     ARTIFACT_COLLISION = "artifact_collision"
@@ -122,6 +124,8 @@ _REASON_CATEGORIES: dict[ReadinessReason, ReasonCategory] = {
     ReadinessReason.WARP_ARTIFACT: ReasonCategory.QUALITY,
     ReadinessReason.SEAM_FAILED: ReasonCategory.CORRECTION,
     ReadinessReason.UVDOC_FAILED: ReasonCategory.CORRECTION,
+    ReadinessReason.UVDOC_CONFIGURATION_FAILED: ReasonCategory.CORRECTION,
+    ReadinessReason.UVDOC_INVALID_OUTPUT: ReasonCategory.CORRECTION,
     ReadinessReason.ARTIFACT_COMMIT_FAILED: ReasonCategory.STORAGE,
     ReadinessReason.ARTIFACT_COLLISION: ReasonCategory.STORAGE,
     ReadinessReason.PARSER_QUALITY_REJECTED: ReasonCategory.PARSER,

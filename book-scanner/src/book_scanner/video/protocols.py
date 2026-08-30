@@ -83,6 +83,7 @@ class SpreadPreparer(Protocol[FramePayloadT]):
         frame: FrameSample[FramePayloadT],
         spread_id: SpreadId,
         job_id: ProcessingJobId,
+        session_id: str,
     ) -> PreparationDecision: ...
 
 

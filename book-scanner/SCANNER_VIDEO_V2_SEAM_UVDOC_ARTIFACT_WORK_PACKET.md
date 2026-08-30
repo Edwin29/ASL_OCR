@@ -1,6 +1,6 @@
 # Scanner Video V2 — seam-conservative + UVDoc artifact 작업 패킷
 
-상태: **승인됨 — 미구현**
+상태: **구현됨 — 로컬 JPEG/GPU 검증 완료, 실제 MP4 replay 미검증**
 작성일: 2026-08-30
 선행 조건: V0 계약, V1 연속 프레임 엔진 및 V1.1 runtime 하드닝 완료
 채택 경로: `seam-conservative + UVDoc bilinear`

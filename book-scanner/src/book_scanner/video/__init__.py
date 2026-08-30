@@ -31,6 +31,11 @@ from .candidate import (
     StableWindowAssessor,
 )
 from .engine import FrameEngineDiagnostics, SampledFrameEngine
+from .spread_preparer import (
+    SeamUVDocPreparerConfig,
+    SeamUVDocSpreadPreparer,
+    V2_BUNDLE_SCHEMA_VERSION,
+)
 from .protocols import (
     ArtifactStore,
     ButtonCommand,
@@ -122,6 +127,8 @@ __all__ = [
     "ReasonCategory",
     "ScannerPipelineConfig",
     "SampledFrameEngine",
+    "SeamUVDocPreparerConfig",
+    "SeamUVDocSpreadPreparer",
     "StabilityAssessment",
     "StableWindowAssessor",
     "SpreadArtifactRef",
@@ -130,6 +137,7 @@ __all__ = [
     "SpreadProcessor",
     "SystemClock",
     "VIDEO_SCHEMA_VERSION",
+    "V2_BUNDLE_SCHEMA_VERSION",
     "VideoEvent",
     "VideoEventType",
     "VideoScannerConfig",

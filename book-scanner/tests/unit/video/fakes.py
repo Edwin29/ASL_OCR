@@ -84,20 +84,21 @@ class FakeSpreadPreparer(Generic[PayloadT]):
     def __init__(
         self,
         result_factory: Callable[
-            [FrameSample[PayloadT], SpreadId, ProcessingJobId], PreparationDecision
+            [FrameSample[PayloadT], SpreadId, ProcessingJobId, str], PreparationDecision
         ],
     ):
         self._result_factory = result_factory
-        self.calls: list[tuple[FrameSample[PayloadT], SpreadId, ProcessingJobId]] = []
+        self.calls: list[tuple[FrameSample[PayloadT], SpreadId, ProcessingJobId, str]] = []
 
     def prepare(
         self,
         frame: FrameSample[PayloadT],
         spread_id: SpreadId,
         job_id: ProcessingJobId,
+        session_id: str,
     ) -> PreparationDecision:
-        self.calls.append((frame, spread_id, job_id))
-        return self._result_factory(frame, spread_id, job_id)
+        self.calls.append((frame, spread_id, job_id, session_id))
+        return self._result_factory(frame, spread_id, job_id, session_id)
 
 
 class FakeArtifactStore:
