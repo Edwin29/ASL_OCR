@@ -1,0 +1,5 @@
+# Verified on Windows / Python 3.11.8 / CPU on 2026-08-30.
+# UVDoc source and checkpoint are supplied separately and are not vendored here.
+numpy==2.3.5
+opencv-python-headless==5.0.0.93
+torch==2.13.0
