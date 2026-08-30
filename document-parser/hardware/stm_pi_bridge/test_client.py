@@ -1,8 +1,22 @@
 """One-command test entry point for the testing PC: optionally send an
 image (or several) -> wait for `document_parser.server.combined_server` to
-finish building the datapack -> list what's currently stored on the server
--> pick one -> enter display test mode (real STM board over serial, or a
-console-simulated fallback with no hardware attached).
+finish building the datapack -> select a datapack -> enter display test
+mode (real STM board over serial, or a console-simulated fallback with no
+hardware attached).
+
+Datapack selection differs by path, deliberately:
+- **Real board (`--port` given)**: selection happens through real UP/DOWN/
+  CONFIRM button presses, exactly like the eventual production device --
+  `device_flow.run_device_flow` drives both the selection screen and the
+  reading session as one continuous loop (CONFIRM LONG returns to
+  selection). No console input is read at all once this starts.
+- **Console-simulated (no `--port`)**: keeps the original numbered-menu
+  picker (`choose_book_id`) for developer convenience -- typing a number is
+  faster than simulating button presses one at a time with no physical
+  buttons to press. `main()` wraps this in the same kind of loop
+  `run_device_flow` uses: `run_console_test_mode` returns "selecting" when
+  the user types `cl` (CONFIRM LONG's console equivalent), and `main()`
+  goes back to the numbered menu instead of exiting.
 
 Specifically talks to `document_parser.server.combined_server`, not the
 standalone `remote_ingest.py`/`http_server.py` -- this script relies on a
@@ -11,18 +25,27 @@ servable via `POST /sessions` on the *same* server, with no download/
 extract step in between (see combined_server.py's module docstring for why
 that's now possible).
 
-Reuses this same folder's pi_bridge.py building blocks unchanged
-(`HttpRemoteSession`, `SerialLineTransport`, `run_bridge`,
+Reuses this same folder's pi_bridge.py/device_flow.py building blocks
+unchanged (`HttpRemoteSession`, `SerialLineTransport`, `run_device_flow`,
 `build_default_audio_player`) for the real-hardware path, and
 `accessibility.cli.render_braille_frame` for the console-simulated path --
-no protocol/navigation logic is duplicated here, only the upload -> list ->
-select orchestration around it. The multipart upload/poll helpers below
-mirror `tools/remote_ingest_client.py`'s (not imported from there: that
-script is deliberately stdlib-only/zero-install for a teammate machine
-without document_parser, whereas this one already needs document_parser
-installed for pi_bridge.py's pieces -- same reasoning `_COMMANDS` is
-duplicated across accessibility/cli.py and server/cli.py rather than
-shared).
+no protocol/navigation logic is duplicated here, only the upload -> select
+orchestration around it. The multipart upload/poll helpers below mirror
+`tools/remote_ingest_client.py`'s (not imported from there: that script is
+deliberately stdlib-only/zero-install for a teammate machine without
+document_parser, whereas this one already needs document_parser installed
+for pi_bridge.py's pieces -- same reasoning `_COMMANDS` is duplicated
+across accessibility/cli.py and server/cli.py rather than shared).
+
+Future scan mode: a "새로 스캔" (scan new document) entry doesn't exist
+yet -- book-scanner (a separate project, see ../../../book-scanner/) owns
+the capture loop and its own transmit client, and no agent has wired the
+two together. When that lands, the natural hook is here: on the console
+side, `choose_book_id`'s numbered menu gaining one more choice that
+triggers book-scanner's session loop instead of returning a book_id; on
+the real-board side, `device_flow.SelectionScreen`/`run_selecting_screen`
+gaining an equivalent non-book choice. Neither exists today -- this is
+just where it would go, not a stub for it.
 
 Usage:
     # upload a new image, then pick from the list and test on a real board:
@@ -49,6 +72,7 @@ import uuid
 from pathlib import Path
 from typing import Any
 
+from device_flow import run_device_flow
 from pi_bridge import (
     BRAILLE_CELL_COUNT,
     AudioPlayer,
@@ -56,7 +80,6 @@ from pi_bridge import (
     RemoteSession,
     SerialLineTransport,
     build_default_audio_player,
-    run_bridge,
 )
 
 from document_parser.accessibility.cli import render_braille_frame
@@ -183,12 +206,22 @@ def _report_turn(result: dict[str, Any], player: AudioPlayer | None, log) -> Non
         log(f"audio playback failed for {audio['audio_ref']!r}: {exc}")
 
 
-def run_console_test_mode(remote: RemoteSession, player: AudioPlayer | None, input_stream=sys.stdin) -> None:
+def run_console_test_mode(remote: RemoteSession, player: AudioPlayer | None, input_stream=sys.stdin) -> str:
     """Drives `remote` from the keyboard instead of a real STM board --
     same command vocabulary and turn reporting as `server/cli.py`, adapted
     to the wire-format dicts HttpRemoteSession returns (that CLI drives a
     local DatapackSession directly and sees real NavigationState objects;
-    this one only ever sees JSON off the wire)."""
+    this one only ever sees JSON off the wire).
+
+    CONFIRM LONG (`cl`) is intercepted right here rather than forwarded to
+    the server -- same rule as `device_flow.run_reading_screen`'s
+    real-hardware path: "go back to datapack selection" abandons this
+    session entirely, which is a concern of whatever orchestrates this
+    function (see `main()`), not the server (`SpeechController` doesn't
+    handle CONFIRM LONG at all -- see its docstring). Returns `"selecting"`
+    in that case, `"quit"` once the user types q/quit/exit or the input
+    stream runs out -- `main()` loops back to the picker on `"selecting"`
+    and exits on `"quit"`."""
     _report_turn(remote.get_current(), player, print)
     print("명령: up/down/left/right (SHORT), ul/dl/ll/rl (LONG, 일괄 이동), pn/pp(페이지 넘김), c(확인/리플레이), cl(선택 화면으로), q(종료)")
     for line in input_stream:
@@ -196,13 +229,17 @@ def run_console_test_mode(remote: RemoteSession, player: AudioPlayer | None, inp
         if not token:
             continue
         if token in ("q", "quit", "exit"):
-            return
+            return "quit"
         command = _COMMANDS.get(token)
         if command is None:
             print(f"알 수 없는 명령: {token!r}")
             continue
         button, action = command
+        if button == "CONFIRM" and action == "LONG":
+            print("선택 화면으로 돌아갑니다.")
+            return "selecting"
         _report_turn(remote.send_command(button, action), player, print)
+    return "quit"
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -237,27 +274,50 @@ def main(argv: list[str] | None = None) -> int:
         print("이미지 파일이 주어졌지만 --upload-book-id가 없습니다 -- 이름을 정해서 --upload-book-id로 주세요.", file=sys.stderr)
         return 1
 
-    try:
-        book_ids = list_datapacks(server, args.api_key)
-        book_id = choose_book_id(book_ids, preselected=args.upload_book_id)
-    except (urllib.error.HTTPError, urllib.error.URLError, ValueError) as exc:
-        print(f"{exc}", file=sys.stderr)
-        return 1
-
-    remote = HttpRemoteSession(server, args.api_key, args.session_id, book_id, viewport_size=BRAILLE_CELL_COUNT)
     player = None if args.no_audio else build_default_audio_player(print)
 
     if args.port:
-        print(f"디스플레이 테스트 모드 시작 (실제 보드: {args.port}, book={book_id!r}, audio={'off' if player is None else 'on'})")
+        # Real board: selection AND reading both happen through actual
+        # button presses -- device_flow.run_device_flow owns the whole
+        # loop (selection -> reading -> CONFIRM LONG -> selection -> ...),
+        # so there's no console picker step here at all. args.upload_book_id
+        # isn't passed through as a "just uploaded" marker (no equivalent
+        # of choose_book_id's menu annotation on this screen) -- the newly
+        # uploaded book is simply one more entry to navigate to with UP/DOWN.
+        print(f"디스플레이 테스트 모드 시작 (실제 보드: {args.port}, audio={'off' if player is None else 'on'})")
+        print("데이터팩 선택은 실제 상/하/확인 버튼으로 진행합니다 (콘솔 번호 입력 없음).")
         transport = SerialLineTransport(args.port, baudrate=args.baudrate)
         try:
-            run_bridge(remote, transport, player=player)
+            run_device_flow(
+                server, args.api_key, transport, player,
+                session_id=args.session_id, viewport_size=BRAILLE_CELL_COUNT, log=_log,
+            )
         finally:
             transport.close()
-    else:
+        return 0
+
+    # Console-simulated: keeps the original numbered-menu picker (faster
+    # for a developer at a keyboard than simulating button presses one at
+    # a time) but now loops the same way run_device_flow does -- typing
+    # `cl` (CONFIRM LONG) inside run_console_test_mode returns "selecting"
+    # instead of exiting, and this loop goes back to the menu instead of
+    # quitting. `preselected` only marks the just-uploaded book once, on
+    # the first pass through the menu.
+    preselected = args.upload_book_id
+    while True:
+        try:
+            book_ids = list_datapacks(server, args.api_key)
+            book_id = choose_book_id(book_ids, preselected=preselected)
+        except (urllib.error.HTTPError, urllib.error.URLError, ValueError) as exc:
+            print(f"{exc}", file=sys.stderr)
+            return 1
+        preselected = None
+
+        remote = HttpRemoteSession(server, args.api_key, args.session_id, book_id, viewport_size=BRAILLE_CELL_COUNT)
         print(f"디스플레이 테스트 모드 시작 (콘솔 시뮬레이션 -- 보드 없음, book={book_id!r}, audio={'off' if player is None else 'on'})")
-        run_console_test_mode(remote, player)
-    return 0
+        outcome = run_console_test_mode(remote, player)
+        if outcome != "selecting":
+            return 0
 
 
 if __name__ == "__main__":

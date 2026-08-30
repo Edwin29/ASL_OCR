@@ -129,6 +129,40 @@ class RunConsoleTestModeTests(unittest.TestCase):
         stream = io.StringIO("q\n")
         run_console_test_mode(remote, player=player, input_stream=stream)  # must not raise
 
+    def test_q_returns_quit(self):
+        remote = FakeRemoteSession()
+        stream = io.StringIO("q\n")
+        self.assertEqual(run_console_test_mode(remote, player=None, input_stream=stream), "quit")
+
+    def test_exhausted_input_stream_returns_quit(self):
+        remote = FakeRemoteSession()
+        stream = io.StringIO("down\n")  # no q -- just runs out
+        self.assertEqual(run_console_test_mode(remote, player=None, input_stream=stream), "quit")
+
+    def test_confirm_long_returns_selecting_without_forwarding_to_server(self):
+        remote = FakeRemoteSession()
+        stream = io.StringIO("cl\n")
+        outcome = run_console_test_mode(remote, player=None, input_stream=stream)
+        self.assertEqual(outcome, "selecting")
+        self.assertEqual(remote.send_command_calls, [])
+
+    def test_confirm_long_stops_processing_remaining_lines_in_this_call(self):
+        # main() is expected to open a *new* remote session and call this
+        # function again on "selecting" -- within one call, "cl" must exit
+        # immediately, not keep consuming the rest of the stream.
+        remote = FakeRemoteSession()
+        stream = io.StringIO("cl\ndown\nq\n")
+        run_console_test_mode(remote, player=None, input_stream=stream)
+        self.assertEqual(remote.send_command_calls, [])
+
+    def test_confirm_short_is_still_forwarded_to_the_server_as_a_replay(self):
+        # Unlike CONFIRM LONG, CONFIRM SHORT has no local meaning here --
+        # SpeechController handles it server-side (replay current focus).
+        remote = FakeRemoteSession()
+        stream = io.StringIO("c\nq\n")
+        run_console_test_mode(remote, player=None, input_stream=stream)
+        self.assertEqual(remote.send_command_calls, [("CONFIRM", "SHORT")])
+
 
 if __name__ == "__main__":
     unittest.main()
