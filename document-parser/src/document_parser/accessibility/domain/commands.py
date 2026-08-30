@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Literal
 
-Button = Literal["UP", "DOWN", "LEFT", "RIGHT", "PAGE_NEXT", "PAGE_PREVIOUS"]
+Button = Literal["UP", "DOWN", "LEFT", "RIGHT", "PAGE_NEXT", "PAGE_PREVIOUS", "CONFIRM"]
 ButtonAction = Literal["SHORT", "LONG"]
 
 

@@ -73,7 +73,7 @@ class SpeechControllerDocumentModeTests(unittest.TestCase):
         self.controller.handle_command(press("DOWN"))  # move to m1
         stale_generation = self.controller.state.generation
         self.controller.handle_command(press("DOWN"))  # move to tb1; the m1 generation is now stale
-        self.controller.handle_command(press("DOWN", "LONG"))  # turn on continuous reading (re-announces tb1)
+        self.controller._toggle_continuous_reading()  # turn on continuous reading (re-announces tb1)
         spoken_before = len(self.engine.spoken)
         node_index_before = self.controller.state.node_index
 
@@ -83,7 +83,10 @@ class SpeechControllerDocumentModeTests(unittest.TestCase):
         self.assertEqual(self.controller.state.node_index, node_index_before)
 
     def test_continuous_reading_advances_on_complete_and_stops_at_document_end(self):
-        self.controller.handle_command(press("DOWN", "LONG"))  # start continuous reading from t1
+        # No longer reachable from a button (DOWN LONG is burst node
+        # movement now) -- the mechanism itself is untouched, so exercised
+        # directly.
+        self.controller._toggle_continuous_reading()  # start continuous reading from t1
         self.assertTrue(self.controller.continuous_reading)
         spoken_count_after_start = len(self.engine.spoken)
 
@@ -99,10 +102,38 @@ class SpeechControllerDocumentModeTests(unittest.TestCase):
         self.assertIn("끝", self.engine.spoken[-1][0])
 
     def test_any_navigation_input_interrupts_continuous_reading(self):
-        self.controller.handle_command(press("DOWN", "LONG"))
+        self.controller._toggle_continuous_reading()
         self.assertTrue(self.controller.continuous_reading)
         self.controller.handle_command(press("UP"))
         self.assertFalse(self.controller.continuous_reading)
+
+    def test_confirm_short_replays_current_focus_without_moving(self):
+        self.controller.handle_command(press("DOWN"))  # move to m1
+        node_index_before = self.controller.state.node_index
+        spoken_before = len(self.engine.spoken)
+        cancels_before = self.engine.cancel_count
+
+        self.controller.handle_command(press("CONFIRM"))
+
+        self.assertEqual(self.controller.state.node_index, node_index_before)  # no movement
+        self.assertEqual(len(self.engine.spoken), spoken_before + 1)
+        self.assertEqual(self.engine.spoken[-1][0], "x")  # m1's text, replayed
+        self.assertGreater(self.engine.cancel_count, cancels_before)
+
+    def test_down_long_bursts_several_nodes_speaking_only_the_final_one(self):
+        spoken_before = len(self.engine.spoken)
+        self.controller.handle_command(press("DOWN", "LONG"))  # t1 -> m1 -> tb1 (only 2 steps possible)
+        self.assertEqual(self.controller.state.node_index, 2)  # stopped at tb1, the last node
+        self.assertEqual(len(self.engine.spoken), spoken_before + 1)  # one utterance, not one per step
+        self.assertIn("표", self.engine.spoken[-1][0])  # tb1's own announcement (a TABLE entry summary)
+        self.assertNotIn("끝", self.engine.spoken[-1][0])  # not the boundary probe that immediately followed it
+
+    def test_up_long_at_document_start_bursts_zero_steps_and_speaks_boundary(self):
+        spoken_before = len(self.engine.spoken)
+        self.controller.handle_command(press("UP", "LONG"))
+        self.assertEqual(self.controller.state.node_index, 0)
+        self.assertEqual(len(self.engine.spoken), spoken_before + 1)
+        self.assertIn("시작", self.engine.spoken[-1][0])
 
 
 class SpeechControllerTableModeTests(unittest.TestCase):
@@ -179,7 +210,7 @@ class SpeechControllerPageTurnTests(unittest.TestCase):
         self.assertIn("world", self.engine.spoken[-1][0])
 
     def test_page_turn_interrupts_continuous_reading(self):
-        self.controller.handle_command(press("DOWN", "LONG"))  # start continuous reading
+        self.controller._toggle_continuous_reading()  # start continuous reading
         self.assertTrue(self.controller.continuous_reading)
         self.controller.handle_command(press("PAGE_NEXT"))
         self.assertFalse(self.controller.continuous_reading)

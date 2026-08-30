@@ -1,8 +1,11 @@
 """DOCUMENT-mode navigation over an AccessibleDocument's flattened focus items.
 
 Position is `(page_index, node_index)`, not a single flat index, matching the
-plan document's navigation-state shape -- moving past the last item on a page
-rolls over to the first item of the next page rather than stopping.
+plan document's navigation-state shape. Moving past the last/first item on a
+page stops there with a boundary message -- it never rolls onto the next/
+previous page on its own (project decision: page crossing is exclusively
+`next_page`/`previous_page`'s job, triggered only by the dedicated page-turn
+button).
 """
 
 from __future__ import annotations
@@ -28,28 +31,29 @@ def current_focus_item(document: dict[str, object], state: NavigationState) -> d
 
 
 def next_node(document: dict[str, object], state: NavigationState) -> NavigationResult:
+    """Stops at the current page's last item -- never rolls onto the next
+    page on its own. Page crossing is `next_page`'s exclusive job (dedicated
+    PAGE_NEXT button, per project decision): a page boundary and the
+    document's actual end are reported as distinct boundary messages so the
+    user knows whether the page-turn button would help."""
     pages = document["pages"]
     page = pages[state.page_index]
     if state.node_index + 1 < len(page["focus_items"]):
         return NavigationResult(state.advanced(node_index=state.node_index + 1, braille_offset=0, math_span_index=0))
-    if state.page_index + 1 < len(pages):
-        return NavigationResult(state.advanced(
-            page_index=state.page_index + 1, node_index=0, braille_offset=0, math_span_index=0,
-        ))
     # Boundary: still bump generation so a stale in-flight callback from
     # before this button press cannot be mistaken for the current focus.
+    if state.page_index + 1 < len(pages):
+        return NavigationResult(state.advanced(), boundary_message="페이지의 끝입니다.")
     return NavigationResult(state.advanced(), boundary_message="문서의 끝입니다.")
 
 
 def previous_node(document: dict[str, object], state: NavigationState) -> NavigationResult:
+    """See `next_node` -- symmetric: stops at the current page's first item,
+    never rolls onto the previous page on its own."""
     if state.node_index - 1 >= 0:
         return NavigationResult(state.advanced(node_index=state.node_index - 1, braille_offset=0, math_span_index=0))
     if state.page_index - 1 >= 0:
-        previous_page = document["pages"][state.page_index - 1]
-        last_index = max(len(previous_page["focus_items"]) - 1, 0)
-        return NavigationResult(state.advanced(
-            page_index=state.page_index - 1, node_index=last_index, braille_offset=0, math_span_index=0,
-        ))
+        return NavigationResult(state.advanced(), boundary_message="페이지의 시작입니다.")
     return NavigationResult(state.advanced(), boundary_message="문서의 시작입니다.")
 
 

@@ -69,9 +69,12 @@ class DocumentNavigatorTests(unittest.TestCase):
         self.assertEqual(result.state.node_index, self.total_items - 1)
         self.assertEqual(result.boundary_message, "문서의 끝입니다.")
 
-    def test_next_node_rolls_over_to_next_page(self):
+    def test_next_node_stops_at_page_boundary_instead_of_rolling_over(self):
         # p018 is a single-page fixture; build a tiny two-page document to
-        # exercise page-boundary rollover directly.
+        # exercise page-boundary behavior directly. Project decision: page
+        # crossing is exclusively the dedicated PAGE_NEXT button's job (see
+        # NextPreviousPageTests below) -- next_node must stop and report the
+        # boundary, not advance into the next page on its own.
         two_page_document = {
             "document_id": "doc",
             "pages": [
@@ -81,8 +84,21 @@ class DocumentNavigatorTests(unittest.TestCase):
         }
         state = NavigationState(document_id="doc", page_index=0, node_index=1)
         result = next_node(two_page_document, state)
+        self.assertEqual((result.state.page_index, result.state.node_index), (0, 1))
+        self.assertEqual(result.boundary_message, "페이지의 끝입니다.")
+
+    def test_previous_node_stops_at_page_boundary_instead_of_rolling_over(self):
+        two_page_document = {
+            "document_id": "doc",
+            "pages": [
+                {"page_id": "a", "focus_items": [{"id": "a1"}, {"id": "a2"}]},
+                {"page_id": "b", "focus_items": [{"id": "b1"}]},
+            ],
+        }
+        state = NavigationState(document_id="doc", page_index=1, node_index=0)
+        result = previous_node(two_page_document, state)
         self.assertEqual((result.state.page_index, result.state.node_index), (1, 0))
-        self.assertIsNone(result.boundary_message)
+        self.assertEqual(result.boundary_message, "페이지의 시작입니다.")
 
     def test_handle_command_routes_up_down(self):
         down_result = handle_document_command(self.document, self.start_state, press("DOWN"))
