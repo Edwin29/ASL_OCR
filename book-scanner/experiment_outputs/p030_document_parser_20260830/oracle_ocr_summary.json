@@ -1,0 +1,1629 @@
+{
+  "schema_version": 1,
+  "phase": "oracle",
+  "status": "COMPLETE",
+  "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+  "adapter_instance_count": 1,
+  "adapter_reused_across_artifacts": true,
+  "model_download_attempted": false,
+  "reference_path": "${WORKSPACE_ROOT}\\document-parser\\tests\\fixtures\\accessibility\\p030.json",
+  "reference_sha256": "79f2bb54ff9e793999a4ec6a7de4f177fbbff41e1eaa9ce6e04644348c23d792",
+  "reference_is_human_golden": false,
+  "absolute_accuracy_claim_allowed": false,
+  "results": [
+    {
+      "artifact_id": "20260830_111919_left_oracle_none_none",
+      "status": "COMPLETE",
+      "record_path": "${WORKSPACE_ROOT}\\book-scanner\\experiment_outputs\\p030_document_parser_20260830\\ocr\\oracle\\20260830_111919_left_oracle_none_none.json",
+      "cache_hit": false,
+      "schema_valid": true,
+      "character_count": 718,
+      "node_count": 18,
+      "braille_opportunity_count": 37,
+      "braille_error_count": 0,
+      "capture": "20260830_111919",
+      "side": "left",
+      "extraction": "oracle",
+      "geometry": "none",
+      "postprocess": "none",
+      "comparison": {
+        "comparison_kind": "same_printed_source_pipeline_regression",
+        "reference_is_human_golden": false,
+        "absolute_accuracy_claim_allowed": false,
+        "schema_valid": true,
+        "overall_text_similarity": 0.949438202247191,
+        "character_count": 718,
+        "reference_character_count": 706,
+        "node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "reference_node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "parse_issue_count": 1,
+        "reference_parse_issue_count": 1,
+        "braille": {
+          "verdict": "SIMILAR_PIPELINE_HEALTH",
+          "same_content": true,
+          "cell_similarity": 0.8219780219780219,
+          "candidate_braille_opportunity_count": 37,
+          "reference_braille_opportunity_count": 31,
+          "translation_rate_delta": 0.0,
+          "note": "Same source content: exact translated cell sequence was compared."
+        },
+        "candidate_braille_error_count": 0,
+        "reference_braille_error_count": 0,
+        "anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": false,
+          "problem_unit_count": 3,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": false
+        },
+        "reference_anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "problem_comparisons": [
+          {
+            "ordinal": 1,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 2,
+            "reference_problem_number": 1,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.28368794326241137
+          },
+          {
+            "ordinal": 2,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 3,
+            "reference_problem_number": 2,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.3643724696356275
+          },
+          {
+            "ordinal": 3,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 4,
+            "reference_problem_number": 3,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.22113022113022113
+          },
+          {
+            "ordinal": 4,
+            "candidate_present": false,
+            "reference_present": true,
+            "candidate_problem_number": null,
+            "reference_problem_number": 4,
+            "candidate_choice_count": 0,
+            "reference_choice_count": 5,
+            "text_similarity": 0.0
+          }
+        ],
+        "hard_gate_passed": false,
+        "verdict": "P030_HARD_REGRESSION_OR_OMISSION"
+      }
+    },
+    {
+      "artifact_id": "20260830_111919_left_oracle_coarse_none",
+      "status": "COMPLETE",
+      "record_path": "${WORKSPACE_ROOT}\\book-scanner\\experiment_outputs\\p030_document_parser_20260830\\ocr\\oracle\\20260830_111919_left_oracle_coarse_none.json",
+      "cache_hit": false,
+      "schema_valid": true,
+      "character_count": 733,
+      "node_count": 22,
+      "braille_opportunity_count": 42,
+      "braille_error_count": 0,
+      "capture": "20260830_111919",
+      "side": "left",
+      "extraction": "oracle",
+      "geometry": "coarse",
+      "postprocess": "none",
+      "comparison": {
+        "comparison_kind": "same_printed_source_pipeline_regression",
+        "reference_is_human_golden": false,
+        "absolute_accuracy_claim_allowed": false,
+        "schema_valid": true,
+        "overall_text_similarity": 0.965948575399583,
+        "character_count": 733,
+        "reference_character_count": 706,
+        "node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "reference_node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "parse_issue_count": 1,
+        "reference_parse_issue_count": 1,
+        "braille": {
+          "verdict": "SIMILAR_PIPELINE_HEALTH",
+          "same_content": true,
+          "cell_similarity": 0.8946236559139785,
+          "candidate_braille_opportunity_count": 42,
+          "reference_braille_opportunity_count": 31,
+          "translation_rate_delta": 0.0,
+          "note": "Same source content: exact translated cell sequence was compared."
+        },
+        "candidate_braille_error_count": 0,
+        "reference_braille_error_count": 0,
+        "anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "reference_anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "problem_comparisons": [
+          {
+            "ordinal": 1,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 1,
+            "reference_problem_number": 1,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 1.0
+          },
+          {
+            "ordinal": 2,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 2,
+            "reference_problem_number": 2,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.975609756097561
+          },
+          {
+            "ordinal": 3,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 3,
+            "reference_problem_number": 3,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9886363636363636
+          },
+          {
+            "ordinal": 4,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 4,
+            "reference_problem_number": 4,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.8914027149321267
+          }
+        ],
+        "hard_gate_passed": true,
+        "verdict": "P030_NO_CLEAR_REGRESSION"
+      }
+    },
+    {
+      "artifact_id": "20260830_111919_left_oracle_uvdoc_bilinear_none",
+      "status": "COMPLETE",
+      "record_path": "${WORKSPACE_ROOT}\\book-scanner\\experiment_outputs\\p030_document_parser_20260830\\ocr\\oracle\\20260830_111919_left_oracle_uvdoc_bilinear_none.json",
+      "cache_hit": false,
+      "schema_valid": true,
+      "character_count": 729,
+      "node_count": 24,
+      "braille_opportunity_count": 42,
+      "braille_error_count": 0,
+      "capture": "20260830_111919",
+      "side": "left",
+      "extraction": "oracle",
+      "geometry": "uvdoc_bilinear",
+      "postprocess": "none",
+      "comparison": {
+        "comparison_kind": "same_printed_source_pipeline_regression",
+        "reference_is_human_golden": false,
+        "absolute_accuracy_claim_allowed": false,
+        "schema_valid": true,
+        "overall_text_similarity": 0.9588850174216028,
+        "character_count": 729,
+        "reference_character_count": 706,
+        "node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "reference_node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "parse_issue_count": 1,
+        "reference_parse_issue_count": 1,
+        "braille": {
+          "verdict": "SIMILAR_PIPELINE_HEALTH",
+          "same_content": true,
+          "cell_similarity": 0.8884120171673819,
+          "candidate_braille_opportunity_count": 42,
+          "reference_braille_opportunity_count": 31,
+          "translation_rate_delta": 0.0,
+          "note": "Same source content: exact translated cell sequence was compared."
+        },
+        "candidate_braille_error_count": 0,
+        "reference_braille_error_count": 0,
+        "anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "reference_anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "problem_comparisons": [
+          {
+            "ordinal": 1,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 1,
+            "reference_problem_number": 1,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9974683544303797
+          },
+          {
+            "ordinal": 2,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 2,
+            "reference_problem_number": 2,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9634146341463414
+          },
+          {
+            "ordinal": 3,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 3,
+            "reference_problem_number": 3,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9857549857549858
+          },
+          {
+            "ordinal": 4,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 4,
+            "reference_problem_number": 4,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.8888888888888888
+          }
+        ],
+        "hard_gate_passed": true,
+        "verdict": "P030_NO_CLEAR_REGRESSION"
+      }
+    },
+    {
+      "artifact_id": "20260830_112000_left_oracle_none_none",
+      "status": "COMPLETE",
+      "record_path": "${WORKSPACE_ROOT}\\book-scanner\\experiment_outputs\\p030_document_parser_20260830\\ocr\\oracle\\20260830_112000_left_oracle_none_none.json",
+      "cache_hit": false,
+      "schema_valid": true,
+      "character_count": 733,
+      "node_count": 23,
+      "braille_opportunity_count": 42,
+      "braille_error_count": 0,
+      "capture": "20260830_112000",
+      "side": "left",
+      "extraction": "oracle",
+      "geometry": "none",
+      "postprocess": "none",
+      "comparison": {
+        "comparison_kind": "same_printed_source_pipeline_regression",
+        "reference_is_human_golden": false,
+        "absolute_accuracy_claim_allowed": false,
+        "schema_valid": true,
+        "overall_text_similarity": 0.9576094510076442,
+        "character_count": 733,
+        "reference_character_count": 706,
+        "node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "reference_node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "parse_issue_count": 1,
+        "reference_parse_issue_count": 1,
+        "braille": {
+          "verdict": "SIMILAR_PIPELINE_HEALTH",
+          "same_content": true,
+          "cell_similarity": 0.8946236559139785,
+          "candidate_braille_opportunity_count": 42,
+          "reference_braille_opportunity_count": 31,
+          "translation_rate_delta": 0.0,
+          "note": "Same source content: exact translated cell sequence was compared."
+        },
+        "candidate_braille_error_count": 0,
+        "reference_braille_error_count": 0,
+        "anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "reference_anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "problem_comparisons": [
+          {
+            "ordinal": 1,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 1,
+            "reference_problem_number": 1,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9949494949494949
+          },
+          {
+            "ordinal": 2,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 2,
+            "reference_problem_number": 2,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.975609756097561
+          },
+          {
+            "ordinal": 3,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 3,
+            "reference_problem_number": 3,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9829545454545454
+          },
+          {
+            "ordinal": 4,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 4,
+            "reference_problem_number": 4,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.8914027149321267
+          }
+        ],
+        "hard_gate_passed": true,
+        "verdict": "P030_NO_CLEAR_REGRESSION"
+      }
+    },
+    {
+      "artifact_id": "20260830_112000_left_oracle_coarse_none",
+      "status": "COMPLETE",
+      "record_path": "${WORKSPACE_ROOT}\\book-scanner\\experiment_outputs\\p030_document_parser_20260830\\ocr\\oracle\\20260830_112000_left_oracle_coarse_none.json",
+      "cache_hit": false,
+      "schema_valid": true,
+      "character_count": 719,
+      "node_count": 21,
+      "braille_opportunity_count": 42,
+      "braille_error_count": 0,
+      "capture": "20260830_112000",
+      "side": "left",
+      "extraction": "oracle",
+      "geometry": "coarse",
+      "postprocess": "none",
+      "comparison": {
+        "comparison_kind": "same_printed_source_pipeline_regression",
+        "reference_is_human_golden": false,
+        "absolute_accuracy_claim_allowed": false,
+        "schema_valid": true,
+        "overall_text_similarity": 0.9571929824561404,
+        "character_count": 719,
+        "reference_character_count": 706,
+        "node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "reference_node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "parse_issue_count": 1,
+        "reference_parse_issue_count": 1,
+        "braille": {
+          "verdict": "SIMILAR_PIPELINE_HEALTH",
+          "same_content": true,
+          "cell_similarity": 0.8946236559139785,
+          "candidate_braille_opportunity_count": 42,
+          "reference_braille_opportunity_count": 31,
+          "translation_rate_delta": 0.0,
+          "note": "Same source content: exact translated cell sequence was compared."
+        },
+        "candidate_braille_error_count": 0,
+        "reference_braille_error_count": 0,
+        "anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            3,
+            4
+          ],
+          "problem_order_complete": false,
+          "problem_unit_count": 3,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": false,
+          "choice_counts": [
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": false
+        },
+        "reference_anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "problem_comparisons": [
+          {
+            "ordinal": 1,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 1,
+            "reference_problem_number": 1,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 1.0
+          },
+          {
+            "ordinal": 2,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 3,
+            "reference_problem_number": 2,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.3779527559055118
+          },
+          {
+            "ordinal": 3,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 4,
+            "reference_problem_number": 3,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.22113022113022113
+          },
+          {
+            "ordinal": 4,
+            "candidate_present": false,
+            "reference_present": true,
+            "candidate_problem_number": null,
+            "reference_problem_number": 4,
+            "candidate_choice_count": 0,
+            "reference_choice_count": 5,
+            "text_similarity": 0.0
+          }
+        ],
+        "hard_gate_passed": false,
+        "verdict": "P030_HARD_REGRESSION_OR_OMISSION"
+      }
+    },
+    {
+      "artifact_id": "20260830_112000_left_oracle_uvdoc_bilinear_none",
+      "status": "COMPLETE",
+      "record_path": "${WORKSPACE_ROOT}\\book-scanner\\experiment_outputs\\p030_document_parser_20260830\\ocr\\oracle\\20260830_112000_left_oracle_uvdoc_bilinear_none.json",
+      "cache_hit": false,
+      "schema_valid": true,
+      "character_count": 730,
+      "node_count": 26,
+      "braille_opportunity_count": 42,
+      "braille_error_count": 0,
+      "capture": "20260830_112000",
+      "side": "left",
+      "extraction": "oracle",
+      "geometry": "uvdoc_bilinear",
+      "postprocess": "none",
+      "comparison": {
+        "comparison_kind": "same_printed_source_pipeline_regression",
+        "reference_is_human_golden": false,
+        "absolute_accuracy_claim_allowed": false,
+        "schema_valid": true,
+        "overall_text_similarity": 0.967966573816156,
+        "character_count": 730,
+        "reference_character_count": 706,
+        "node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "reference_node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "parse_issue_count": 1,
+        "reference_parse_issue_count": 1,
+        "braille": {
+          "verdict": "SIMILAR_PIPELINE_HEALTH",
+          "same_content": true,
+          "cell_similarity": 0.8946236559139785,
+          "candidate_braille_opportunity_count": 42,
+          "reference_braille_opportunity_count": 31,
+          "translation_rate_delta": 0.0,
+          "note": "Same source content: exact translated cell sequence was compared."
+        },
+        "candidate_braille_error_count": 0,
+        "reference_braille_error_count": 0,
+        "anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "reference_anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "problem_comparisons": [
+          {
+            "ordinal": 1,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 1,
+            "reference_problem_number": 1,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9974683544303797
+          },
+          {
+            "ordinal": 2,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 2,
+            "reference_problem_number": 2,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.975609756097561
+          },
+          {
+            "ordinal": 3,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 3,
+            "reference_problem_number": 3,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9828571428571429
+          },
+          {
+            "ordinal": 4,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 4,
+            "reference_problem_number": 4,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.8843537414965986
+          }
+        ],
+        "hard_gate_passed": true,
+        "verdict": "P030_NO_CLEAR_REGRESSION"
+      }
+    },
+    {
+      "artifact_id": "20260830_112042_left_oracle_none_none",
+      "status": "COMPLETE",
+      "record_path": "${WORKSPACE_ROOT}\\book-scanner\\experiment_outputs\\p030_document_parser_20260830\\ocr\\oracle\\20260830_112042_left_oracle_none_none.json",
+      "cache_hit": false,
+      "schema_valid": true,
+      "character_count": 728,
+      "node_count": 24,
+      "braille_opportunity_count": 42,
+      "braille_error_count": 0,
+      "capture": "20260830_112042",
+      "side": "left",
+      "extraction": "oracle",
+      "geometry": "none",
+      "postprocess": "none",
+      "comparison": {
+        "comparison_kind": "same_printed_source_pipeline_regression",
+        "reference_is_human_golden": false,
+        "absolute_accuracy_claim_allowed": false,
+        "schema_valid": true,
+        "overall_text_similarity": 0.9344490934449093,
+        "character_count": 728,
+        "reference_character_count": 706,
+        "node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "reference_node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "parse_issue_count": 1,
+        "reference_parse_issue_count": 1,
+        "braille": {
+          "verdict": "SIMILAR_PIPELINE_HEALTH",
+          "same_content": true,
+          "cell_similarity": 0.8946236559139785,
+          "candidate_braille_opportunity_count": 42,
+          "reference_braille_opportunity_count": 31,
+          "translation_rate_delta": 0.0,
+          "note": "Same source content: exact translated cell sequence was compared."
+        },
+        "candidate_braille_error_count": 0,
+        "reference_braille_error_count": 0,
+        "anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "reference_anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "problem_comparisons": [
+          {
+            "ordinal": 1,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 1,
+            "reference_problem_number": 1,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9874055415617129
+          },
+          {
+            "ordinal": 2,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 2,
+            "reference_problem_number": 2,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9634146341463414
+          },
+          {
+            "ordinal": 3,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 3,
+            "reference_problem_number": 3,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.98005698005698
+          },
+          {
+            "ordinal": 4,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 4,
+            "reference_problem_number": 4,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.8752834467120182
+          }
+        ],
+        "hard_gate_passed": true,
+        "verdict": "P030_NO_CLEAR_REGRESSION"
+      }
+    },
+    {
+      "artifact_id": "20260830_112042_left_oracle_coarse_none",
+      "status": "COMPLETE",
+      "record_path": "${WORKSPACE_ROOT}\\book-scanner\\experiment_outputs\\p030_document_parser_20260830\\ocr\\oracle\\20260830_112042_left_oracle_coarse_none.json",
+      "cache_hit": false,
+      "schema_valid": true,
+      "character_count": 717,
+      "node_count": 20,
+      "braille_opportunity_count": 40,
+      "braille_error_count": 0,
+      "capture": "20260830_112042",
+      "side": "left",
+      "extraction": "oracle",
+      "geometry": "coarse",
+      "postprocess": "none",
+      "comparison": {
+        "comparison_kind": "same_printed_source_pipeline_regression",
+        "reference_is_human_golden": false,
+        "absolute_accuracy_claim_allowed": false,
+        "schema_valid": true,
+        "overall_text_similarity": 0.9388615600843289,
+        "character_count": 717,
+        "reference_character_count": 706,
+        "node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "reference_node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "parse_issue_count": 1,
+        "reference_parse_issue_count": 1,
+        "braille": {
+          "verdict": "SIMILAR_PIPELINE_HEALTH",
+          "same_content": true,
+          "cell_similarity": 0.8496732026143791,
+          "candidate_braille_opportunity_count": 40,
+          "reference_braille_opportunity_count": 31,
+          "translation_rate_delta": 0.0,
+          "note": "Same source content: exact translated cell sequence was compared."
+        },
+        "candidate_braille_error_count": 0,
+        "reference_braille_error_count": 0,
+        "anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            3,
+            4
+          ],
+          "problem_order_complete": false,
+          "problem_unit_count": 3,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": false,
+          "choice_counts": [
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": false
+        },
+        "reference_anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "problem_comparisons": [
+          {
+            "ordinal": 1,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 1,
+            "reference_problem_number": 1,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 1.0
+          },
+          {
+            "ordinal": 2,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 3,
+            "reference_problem_number": 2,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.3515625
+          },
+          {
+            "ordinal": 3,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 4,
+            "reference_problem_number": 3,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.20638820638820637
+          },
+          {
+            "ordinal": 4,
+            "candidate_present": false,
+            "reference_present": true,
+            "candidate_problem_number": null,
+            "reference_problem_number": 4,
+            "candidate_choice_count": 0,
+            "reference_choice_count": 5,
+            "text_similarity": 0.0
+          }
+        ],
+        "hard_gate_passed": false,
+        "verdict": "P030_HARD_REGRESSION_OR_OMISSION"
+      }
+    },
+    {
+      "artifact_id": "20260830_112042_left_oracle_uvdoc_bilinear_none",
+      "status": "COMPLETE",
+      "record_path": "${WORKSPACE_ROOT}\\book-scanner\\experiment_outputs\\p030_document_parser_20260830\\ocr\\oracle\\20260830_112042_left_oracle_uvdoc_bilinear_none.json",
+      "cache_hit": false,
+      "schema_valid": true,
+      "character_count": 723,
+      "node_count": 22,
+      "braille_opportunity_count": 39,
+      "braille_error_count": 0,
+      "capture": "20260830_112042",
+      "side": "left",
+      "extraction": "oracle",
+      "geometry": "uvdoc_bilinear",
+      "postprocess": "none",
+      "comparison": {
+        "comparison_kind": "same_printed_source_pipeline_regression",
+        "reference_is_human_golden": false,
+        "absolute_accuracy_claim_allowed": false,
+        "schema_valid": true,
+        "overall_text_similarity": 0.947515745276417,
+        "character_count": 723,
+        "reference_character_count": 706,
+        "node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "reference_node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "parse_issue_count": 1,
+        "reference_parse_issue_count": 1,
+        "braille": {
+          "verdict": "SIMILAR_PIPELINE_HEALTH",
+          "same_content": true,
+          "cell_similarity": 0.8777292576419214,
+          "candidate_braille_opportunity_count": 39,
+          "reference_braille_opportunity_count": 31,
+          "translation_rate_delta": 0.0,
+          "note": "Same source content: exact translated cell sequence was compared."
+        },
+        "candidate_braille_error_count": 0,
+        "reference_braille_error_count": 0,
+        "anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "reference_anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "problem_comparisons": [
+          {
+            "ordinal": 1,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 1,
+            "reference_problem_number": 1,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9924050632911392
+          },
+          {
+            "ordinal": 2,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 2,
+            "reference_problem_number": 2,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.975609756097561
+          },
+          {
+            "ordinal": 3,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 3,
+            "reference_problem_number": 3,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9681159420289855
+          },
+          {
+            "ordinal": 4,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 4,
+            "reference_problem_number": 4,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.8888888888888888
+          }
+        ],
+        "hard_gate_passed": true,
+        "verdict": "P030_NO_CLEAR_REGRESSION"
+      }
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "status": "STRICT_VALID",
+  "capture_count": 3,
+  "target_side": "left",
+  "target_printed_page": 30,
+  "records": [
+    {
+      "capture": "20260830_111919",
+      "status": "STRICT_VALID",
+      "image_path": "${P030_INPUT_ROOT}\\20260830_111919.jpg",
+      "image_sha256": "98bf20f188cc442b534a14ac9e992e80fc87fa650d400e79389504289ff64d8c",
+      "label_path": "${P030_INPUT_ROOT}\\20260830_111919.json",
+      "label_sha256": "1ef27632784a3a163c92f9725cc7ab341a697b73c6d9a2d9d8a1533be074e9b5",
+      "image_size": [
+        4000,
+        3000
+      ],
+      "pages": {
+        "left": {
+          "point_count": 14,
+          "bbox_full": [
+            525,
+            167,
+            1678,
+            2585
+          ],
+          "area_ratio": 0.33154125,
+          "winding": "clockwise",
+          "touches_frame_edge": false
+        },
+        "right": {
+          "point_count": 19,
+          "bbox_full": [
+            2142,
+            78,
+            1512,
+            2669
+          ],
+          "area_ratio": 0.29444575,
+          "winding": "counterclockwise",
+          "touches_frame_edge": false
+        }
+      },
+      "overlap_px": 1202,
+      "diagnostics": {
+        "overlap_px": 1202,
+        "overlap_ratio_full_frame": 0.00010016666666666667,
+        "winding_mismatch": true,
+        "unknown_labels": []
+      }
+    },
+    {
+      "capture": "20260830_112000",
+      "status": "STRICT_VALID",
+      "image_path": "${P030_INPUT_ROOT}\\20260830_112000.jpg",
+      "image_sha256": "58a46d8780b3fde55c7defce46b4746ec79cae9816bb54af69eed34a4bfc7511",
+      "label_path": "${P030_INPUT_ROOT}\\20260830_112000.json",
+      "label_sha256": "0b0d57a295f15c936f4ab75d81d3e7770a191aad84fe7395c630a195ae9fb734",
+      "image_size": [
+        4000,
+        3000
+      ],
+      "pages": {
+        "left": {
+          "point_count": 15,
+          "bbox_full": [
+            536,
+            156,
+            1595,
+            2564
+          ],
+          "area_ratio": 0.2941194166666667,
+          "winding": "clockwise",
+          "touches_frame_edge": false
+        },
+        "right": {
+          "point_count": 24,
+          "bbox_full": [
+            2066,
+            116,
+            1505,
+            2553
+          ],
+          "area_ratio": 0.26596716666666664,
+          "winding": "counterclockwise",
+          "touches_frame_edge": false
+        }
+      },
+      "overlap_px": 1209,
+      "diagnostics": {
+        "overlap_px": 1209,
+        "overlap_ratio_full_frame": 0.00010075,
+        "winding_mismatch": true,
+        "unknown_labels": []
+      }
+    },
+    {
+      "capture": "20260830_112042",
+      "status": "STRICT_VALID",
+      "image_path": "${P030_INPUT_ROOT}\\20260830_112042.jpg",
+      "image_sha256": "accce69e70b22fe8fd193cdef9ad997f0e4236ccb5d6212cc183b5b0edd9b202",
+      "label_path": "${P030_INPUT_ROOT}\\20260830_112042.json",
+      "label_sha256": "39bda0042c2871c8f46f4049e9d0f7c5ffb1ea030aaad2766d73b289caf362cc",
+      "image_size": [
+        4000,
+        3000
+      ],
+      "pages": {
+        "left": {
+          "point_count": 19,
+          "bbox_full": [
+            614,
+            101,
+            1519,
+            2558
+          ],
+          "area_ratio": 0.28663916666666667,
+          "winding": "clockwise",
+          "touches_frame_edge": false
+        },
+        "right": {
+          "point_count": 21,
+          "bbox_full": [
+            2121,
+            88,
+            1519,
+            2638
+          ],
+          "area_ratio": 0.28841075,
+          "winding": "counterclockwise",
+          "touches_frame_edge": false
+        }
+      },
+      "overlap_px": 551,
+      "diagnostics": {
+        "overlap_px": 551,
+        "overlap_ratio_full_frame": 4.591666666666667e-05,
+        "winding_mismatch": true,
+        "unknown_labels": []
+      }
+    }
+  ],
+  "package": {
+    "file_name": "testimages.zip",
+    "size_bytes": 11306253,
+    "sha256": "ff1de586b2acae9cf7540ebfdea9cbc868deb85e18f189a336ff5f1f0ca9f1df"
+  }
+}

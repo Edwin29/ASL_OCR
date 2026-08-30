@@ -158,30 +158,94 @@ def prepare_extraction_manifest(
     output_dir: Path,
     captures: Iterable[str] = LABELED_CAPTURES,
     padding_fraction: float = 0.03,
+    *,
+    sides: Iterable[PageSide] = tuple(PageSide),
+    extraction_variants: Iterable[str] = EXTRACTION_VARIANTS,
+    control_capture: str | None = CONTROL_CAPTURE,
+    fallback_stress_captures: Iterable[str] = FALLBACK_STRESS_CAPTURES,
+    oracle_independent_of_automatic: bool = False,
+    automatic_gate_scope: str = "spread",
 ) -> dict[str, object]:
     """Generate Phase A artifacts and explicit fallback skip records."""
     image_dir, output_dir = Path(image_dir), Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
+    capture_list = tuple(captures)
+    selected_sides = tuple(PageSide(side) for side in sides)
+    selected_extractions = tuple(str(value) for value in extraction_variants)
+    unknown_extractions = sorted(set(selected_extractions) - set(EXTRACTION_VARIANTS))
+    if unknown_extractions:
+        raise ValueError(f"unsupported extraction variants: {unknown_extractions}")
+    if automatic_gate_scope not in {"spread", "selected_sides"}:
+        raise ValueError(f"unsupported automatic gate scope: {automatic_gate_scope}")
+    fallback_capture_list = tuple(fallback_stress_captures)
     records: list[dict[str, object]] = []
     fallback_records: list[dict[str, object]] = []
     configs = {
         "padding_fraction": padding_fraction,
+        "sides": [side.value for side in selected_sides],
+        "extraction_variants": list(selected_extractions),
+        "oracle_independent_of_automatic": oracle_independent_of_automatic,
+        "automatic_gate_scope": automatic_gate_scope,
         "roi": asdict(ROIConfig(spine_overlap_fraction=0.06)),
         "segmenter": asdict(ContrastSpatialPageSegmenter().config),
         "seam": asdict(SpineSeamConfig(centerline_fraction=0.5, uncertainty_band_px=8)),
         "ownership_policy": "union-preserving",
     }
 
-    for capture in captures:
+    for capture in capture_list:
         image_path, label_path = image_dir / f"{capture}.jpg", image_dir / f"{capture}.json"
         frame = read_image(image_path)
         labels = load_labelme_pages(image_path, label_path)
         masks, extraction_diag, fallback, detected, ownership = _automatic_state(frame)
         fallback_payload = _fallback_payload(fallback)
-        if not fallback.accepted:
+        selected_sides_accepted = all(
+            fallback.sides.get(side.value) is not None and fallback.sides[side.value].accepted
+            for side in selected_sides
+        ) if fallback.sides else fallback.accepted
+        fallback_gate_accepted = fallback.accepted if automatic_gate_scope == "spread" else selected_sides_accepted
+        automatic_ready = fallback_gate_accepted and detected.seam is not None and ownership is not None
+        if not automatic_ready and oracle_independent_of_automatic and "oracle" in selected_extractions:
+            for side in selected_sides:
+                annotation = labels.pages[side]
+                oracle = build_oracle_crops(frame, annotation, padding_fraction)["bbox_original"]
+                records.append(_write_artifact(
+                    output_dir,
+                    capture=capture,
+                    side=side,
+                    extraction="oracle",
+                    geometry="none",
+                    postprocess="none",
+                    crop=CropResult(oracle.image, oracle.mask, oracle.bbox_full),
+                    source={
+                        "image_path": str(image_path.resolve()),
+                        "image_sha256": sha256_file(image_path),
+                        "label_path": str(label_path.resolve()),
+                        "label_sha256": sha256_file(label_path),
+                        "mask_provenance": "labelme_oracle",
+                        "extraction_diagnostics": extraction_diag,
+                        "seam_confidence": detected.seam.confidence if detected.seam is not None else None,
+                        "seam_method": detected.seam.method if detected.seam is not None else None,
+                        "ownership_diagnostics": dict(ownership.diagnostics) if ownership is not None else {},
+                        "label_metrics": {
+                            "own_page_recall": 1.0,
+                            "opposite_page_inclusion_px": 0,
+                            "opposite_page_inclusion_ratio": 0.0,
+                        },
+                    },
+                    fallback=fallback_payload,
+                ))
+        if not fallback_gate_accepted:
+            scoped_reasons = list(fallback.reasons)
+            if automatic_gate_scope == "selected_sides":
+                scoped_reasons = [
+                    f"{side.value}:{reason}"
+                    for side in selected_sides
+                    for reason in fallback.sides[side.value].reasons
+                ]
             fallback_records.append({
                 "capture": capture,
-                "status": "SKIPPED_FALLBACK_" + "__".join(fallback.reasons),
+                "status": "SKIPPED_FALLBACK_" + "__".join(scoped_reasons),
+                "automatic_gate_scope": automatic_gate_scope,
                 "fallback": fallback_payload,
             })
             continue
@@ -193,7 +257,7 @@ def prepare_extraction_manifest(
                 "seam_diagnostics": dict(detected.diagnostics),
             })
             continue
-        for side in PageSide:
+        for side in selected_sides:
             oracle = build_oracle_crops(frame, labels.pages[side], padding_fraction)["bbox_original"]
             confirmed_mask = ownership.left_mask if side is PageSide.LEFT else ownership.right_mask
             conservative_mask = (
@@ -205,7 +269,8 @@ def prepare_extraction_manifest(
                 "seam_confirmed": (crop_with_mask(frame, confirmed_mask, padding_fraction), confirmed_mask),
                 "seam_conservative": (crop_with_mask(frame, conservative_mask, padding_fraction), conservative_mask),
             }
-            for extraction_name, (crop, full_mask) in crop_sources.items():
+            for extraction_name in selected_extractions:
+                crop, full_mask = crop_sources[extraction_name]
                 if crop is None:
                     records.append({
                         "artifact_id": artifact_id(capture, side.value, extraction_name, "none", "none"),
@@ -229,6 +294,8 @@ def prepare_extraction_manifest(
                     "seam_confidence": detected.seam.confidence,
                     "seam_method": detected.seam.method,
                     "ownership_diagnostics": dict(ownership.diagnostics),
+                    "automatic_gate_scope": automatic_gate_scope,
+                    "selected_sides_accepted": selected_sides_accepted,
                     "label_metrics": {
                         "own_page_recall": int(np.count_nonzero(selected & truth)) / max(1, truth_count),
                         "opposite_page_inclusion_px": int(np.count_nonzero(selected & opposite & ~truth)),
@@ -251,7 +318,8 @@ def prepare_extraction_manifest(
 
     # Unlabelled images are fallback/control diagnostics only.  They never get
     # silently included in the labeled paired denominator.
-    for capture in (CONTROL_CAPTURE, *FALLBACK_STRESS_CAPTURES):
+    diagnostic_captures = (() if control_capture is None else (control_capture,)) + fallback_capture_list
+    for capture in diagnostic_captures:
         image_path = image_dir / f"{capture}.jpg"
         frame = read_image(image_path)
         masks, extraction_diag, fallback, detected, ownership = _automatic_state(frame)
@@ -270,7 +338,7 @@ def prepare_extraction_manifest(
         }
         if status == "AUTOMATIC_CONTROL_READY":
             record["artifacts"] = []
-            for side in PageSide:
+            for side in selected_sides:
                 mask = ownership.left_conservative_mask if side is PageSide.LEFT else ownership.right_conservative_mask
                 crop = crop_with_mask(frame, mask, padding_fraction)
                 if crop is not None:
@@ -290,7 +358,7 @@ def prepare_extraction_manifest(
         "phase": "extraction",
         "status": "PREPARED",
         "configs": configs,
-        "labeled_capture_count": len(tuple(captures)),
+        "labeled_capture_count": len(capture_list),
         "artifacts": records,
         "fallback_records": fallback_records,
     }
@@ -303,13 +371,22 @@ def prepare_geometry_manifest(
     extraction_manifest_path: Path,
     output_dir: Path,
     uvdoc: UVDocAdapter,
+    *,
+    sides: Iterable[PageSide] = tuple(PageSide),
+    extractions: Iterable[str] = ("oracle", "seam_conservative"),
 ) -> dict[str, object]:
     """Generate Phase B coarse and UVDoc artifacts from two fixed anchors."""
     extraction_manifest_path, output_dir = Path(extraction_manifest_path), Path(output_dir)
     base = json.loads(extraction_manifest_path.read_text(encoding="utf-8"))
+    selected_sides = {PageSide(side).value for side in sides}
+    selected_extractions = {str(value) for value in extractions}
     records: list[dict[str, object]] = []
     for source in base.get("artifacts", []):
-        if source.get("status") != "READY" or source.get("extraction") not in {"oracle", "seam_conservative"}:
+        if (
+            source.get("status") != "READY"
+            or source.get("extraction") not in selected_extractions
+            or source.get("side") not in selected_sides
+        ):
             continue
         image = read_image(Path(source["image_path"]))
         mask = cv2.imread(str(source["mask_path"]), cv2.IMREAD_GRAYSCALE)
@@ -355,6 +432,7 @@ def prepare_geometry_manifest(
     manifest = {
         "schema_version": 1, "phase": "geometry", "status": "PREPARED",
         "source_manifest": str(extraction_manifest_path.resolve()),
+        "sides": sorted(selected_sides), "extractions": sorted(selected_extractions),
         "uvdoc_load_count": uvdoc.load_count, "artifacts": records,
     }
     (output_dir / "geometry_manifest.json").write_text(

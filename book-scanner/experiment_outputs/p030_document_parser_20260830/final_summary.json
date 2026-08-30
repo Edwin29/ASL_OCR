@@ -1,0 +1,388 @@
+{
+  "schema_version": 1,
+  "status": "EXECUTION_COMPLETE_NOT_HUMAN_GOLDEN",
+  "reference_is_human_golden": false,
+  "absolute_accuracy_claim_allowed": false,
+  "phases": {
+    "oracle": {
+      "status": "COMPLETE",
+      "result_count": 9
+    },
+    "automatic": {
+      "status": "COMPLETE",
+      "result_count": 9
+    }
+  },
+  "postprocess_screening": {
+    "schema_version": 1,
+    "status": "POSTPROCESS_NOT_TRIGGERED",
+    "selected_artifact_ids": [],
+    "approved_max_new_ocr": 6
+  },
+  "automatic_vs_oracle": [
+    {
+      "capture": "20260830_111919",
+      "geometry": "coarse",
+      "oracle_artifact_id": "20260830_111919_left_oracle_coarse_none",
+      "automatic_artifact_id": "20260830_111919_left_seam_conservative_coarse_none",
+      "automatic_vs_oracle": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9897330595482546,
+        "character_count": 728,
+        "anchor_character_count": 733,
+        "character_count_ratio": 0.9931787175989086,
+        "character_count_drop_fraction": 0.0068212824010914054,
+        "node_sequence_similarity": 0.9767441860465116,
+        "node_type_count_delta": {
+          "TEXT": -1,
+          "UNKNOWN": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      },
+      "automatic_vs_oracle_braille": {
+        "verdict": "SIMILAR_PIPELINE_HEALTH",
+        "same_content": true,
+        "cell_similarity": 1.0,
+        "candidate_braille_opportunity_count": 42,
+        "reference_braille_opportunity_count": 42,
+        "translation_rate_delta": 0.0,
+        "note": "Same source content: exact translated cell sequence was compared."
+      },
+      "oracle_reference_text_similarity": 0.965948575399583,
+      "automatic_reference_text_similarity": 0.9651324965132496,
+      "oracle_reference_cell_similarity": 0.8946236559139785,
+      "automatic_reference_cell_similarity": 0.8946236559139785
+    },
+    {
+      "capture": "20260830_111919",
+      "geometry": "none",
+      "oracle_artifact_id": "20260830_111919_left_oracle_none_none",
+      "automatic_artifact_id": "20260830_111919_left_seam_conservative_none_none",
+      "automatic_vs_oracle": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.8888888888888888,
+        "character_count": 668,
+        "anchor_character_count": 718,
+        "character_count_ratio": 0.9303621169916435,
+        "character_count_drop_fraction": 0.06963788300835655,
+        "node_sequence_similarity": 0.782608695652174,
+        "node_type_count_delta": {
+          "TEXT": 9,
+          "UNKNOWN": 1
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      },
+      "automatic_vs_oracle_braille": {
+        "verdict": "SIMILAR_PIPELINE_HEALTH",
+        "same_content": true,
+        "cell_similarity": 0.8814968814968815,
+        "candidate_braille_opportunity_count": 37,
+        "reference_braille_opportunity_count": 37,
+        "translation_rate_delta": 0.0,
+        "note": "Same source content: exact translated cell sequence was compared."
+      },
+      "oracle_reference_text_similarity": 0.949438202247191,
+      "automatic_reference_text_similarity": 0.6972343522561864,
+      "oracle_reference_cell_similarity": 0.8219780219780219,
+      "automatic_reference_cell_similarity": 0.832579185520362
+    },
+    {
+      "capture": "20260830_111919",
+      "geometry": "uvdoc_bilinear",
+      "oracle_artifact_id": "20260830_111919_left_oracle_uvdoc_bilinear_none",
+      "automatic_artifact_id": "20260830_111919_left_seam_conservative_uvdoc_bilinear_none",
+      "automatic_vs_oracle": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9735376044568245,
+        "character_count": 707,
+        "anchor_character_count": 729,
+        "character_count_ratio": 0.9698216735253772,
+        "character_count_drop_fraction": 0.03017832647462277,
+        "node_sequence_similarity": 0.9565217391304348,
+        "node_type_count_delta": {
+          "TEXT": -2,
+          "UNKNOWN": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": -11,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      },
+      "automatic_vs_oracle_braille": {
+        "verdict": "SIMILAR_PIPELINE_HEALTH",
+        "same_content": true,
+        "cell_similarity": 0.8884120171673819,
+        "candidate_braille_opportunity_count": 31,
+        "reference_braille_opportunity_count": 42,
+        "translation_rate_delta": 0.0,
+        "note": "Same source content: exact translated cell sequence was compared."
+      },
+      "oracle_reference_text_similarity": 0.9588850174216028,
+      "automatic_reference_text_similarity": 0.9837225760792639,
+      "oracle_reference_cell_similarity": 0.8884120171673819,
+      "automatic_reference_cell_similarity": 1.0
+    },
+    {
+      "capture": "20260830_112000",
+      "geometry": "coarse",
+      "oracle_artifact_id": "20260830_112000_left_oracle_coarse_none",
+      "automatic_artifact_id": "20260830_112000_left_seam_conservative_coarse_none",
+      "automatic_vs_oracle": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9749652294853964,
+        "character_count": 719,
+        "anchor_character_count": 719,
+        "character_count_ratio": 1.0,
+        "character_count_drop_fraction": 0.0,
+        "node_sequence_similarity": 1.0,
+        "node_type_count_delta": {
+          "TEXT": 0,
+          "UNKNOWN": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      },
+      "automatic_vs_oracle_braille": {
+        "verdict": "SIMILAR_PIPELINE_HEALTH",
+        "same_content": true,
+        "cell_similarity": 1.0,
+        "candidate_braille_opportunity_count": 42,
+        "reference_braille_opportunity_count": 42,
+        "translation_rate_delta": 0.0,
+        "note": "Same source content: exact translated cell sequence was compared."
+      },
+      "oracle_reference_text_similarity": 0.9571929824561404,
+      "automatic_reference_text_similarity": 0.9543859649122807,
+      "oracle_reference_cell_similarity": 0.8946236559139785,
+      "automatic_reference_cell_similarity": 0.8946236559139785
+    },
+    {
+      "capture": "20260830_112000",
+      "geometry": "none",
+      "oracle_artifact_id": "20260830_112000_left_oracle_none_none",
+      "automatic_artifact_id": "20260830_112000_left_seam_conservative_none_none",
+      "automatic_vs_oracle": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.977961432506887,
+        "character_count": 719,
+        "anchor_character_count": 733,
+        "character_count_ratio": 0.9809004092769441,
+        "character_count_drop_fraction": 0.019099590723055934,
+        "node_sequence_similarity": 0.9777777777777777,
+        "node_type_count_delta": {
+          "TEXT": 0,
+          "UNKNOWN": -1
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      },
+      "automatic_vs_oracle_braille": {
+        "verdict": "SIMILAR_PIPELINE_HEALTH",
+        "same_content": true,
+        "cell_similarity": 1.0,
+        "candidate_braille_opportunity_count": 42,
+        "reference_braille_opportunity_count": 42,
+        "translation_rate_delta": 0.0,
+        "note": "Same source content: exact translated cell sequence was compared."
+      },
+      "oracle_reference_text_similarity": 0.9576094510076442,
+      "automatic_reference_text_similarity": 0.9445614035087719,
+      "oracle_reference_cell_similarity": 0.8946236559139785,
+      "automatic_reference_cell_similarity": 0.8946236559139785
+    },
+    {
+      "capture": "20260830_112000",
+      "geometry": "uvdoc_bilinear",
+      "oracle_artifact_id": "20260830_112000_left_oracle_uvdoc_bilinear_none",
+      "automatic_artifact_id": "20260830_112000_left_seam_conservative_uvdoc_bilinear_none",
+      "automatic_vs_oracle": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9917808219178083,
+        "character_count": 730,
+        "anchor_character_count": 730,
+        "character_count_ratio": 1.0,
+        "character_count_drop_fraction": 0.0,
+        "node_sequence_similarity": 0.96,
+        "node_type_count_delta": {
+          "TEXT": -2,
+          "UNKNOWN": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 0,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      },
+      "automatic_vs_oracle_braille": {
+        "verdict": "SIMILAR_PIPELINE_HEALTH",
+        "same_content": true,
+        "cell_similarity": 1.0,
+        "candidate_braille_opportunity_count": 42,
+        "reference_braille_opportunity_count": 42,
+        "translation_rate_delta": 0.0,
+        "note": "Same source content: exact translated cell sequence was compared."
+      },
+      "oracle_reference_text_similarity": 0.967966573816156,
+      "automatic_reference_text_similarity": 0.9623955431754875,
+      "oracle_reference_cell_similarity": 0.8946236559139785,
+      "automatic_reference_cell_similarity": 0.8946236559139785
+    },
+    {
+      "capture": "20260830_112042",
+      "geometry": "coarse",
+      "oracle_artifact_id": "20260830_112042_left_oracle_coarse_none",
+      "automatic_artifact_id": "20260830_112042_left_seam_conservative_coarse_none",
+      "automatic_vs_oracle": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9694444444444444,
+        "character_count": 723,
+        "anchor_character_count": 717,
+        "character_count_ratio": 1.00836820083682,
+        "character_count_drop_fraction": -0.008368200836820083,
+        "node_sequence_similarity": 0.9523809523809523,
+        "node_type_count_delta": {
+          "TEXT": 1,
+          "UNKNOWN": 1
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 1,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      },
+      "automatic_vs_oracle_braille": {
+        "verdict": "SIMILAR_PIPELINE_HEALTH",
+        "same_content": true,
+        "cell_similarity": 0.9980119284294234,
+        "candidate_braille_opportunity_count": 41,
+        "reference_braille_opportunity_count": 40,
+        "translation_rate_delta": 0.0,
+        "note": "Same source content: exact translated cell sequence was compared."
+      },
+      "oracle_reference_text_similarity": 0.9388615600843289,
+      "automatic_reference_text_similarity": 0.9531140657802659,
+      "oracle_reference_cell_similarity": 0.8496732026143791,
+      "automatic_reference_cell_similarity": 0.8826086956521739
+    },
+    {
+      "capture": "20260830_112042",
+      "geometry": "none",
+      "oracle_artifact_id": "20260830_112042_left_oracle_none_none",
+      "automatic_artifact_id": "20260830_112042_left_seam_conservative_none_none",
+      "automatic_vs_oracle": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.965470548408937,
+        "character_count": 749,
+        "anchor_character_count": 728,
+        "character_count_ratio": 1.0288461538461537,
+        "character_count_drop_fraction": -0.028846153846153848,
+        "node_sequence_similarity": 0.9795918367346939,
+        "node_type_count_delta": {
+          "TEXT": 1,
+          "UNKNOWN": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": -3,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      },
+      "automatic_vs_oracle_braille": {
+        "verdict": "SIMILAR_PIPELINE_HEALTH",
+        "same_content": true,
+        "cell_similarity": 0.9862475442043221,
+        "candidate_braille_opportunity_count": 39,
+        "reference_braille_opportunity_count": 42,
+        "translation_rate_delta": 0.0,
+        "note": "Same source content: exact translated cell sequence was compared."
+      },
+      "oracle_reference_text_similarity": 0.9344490934449093,
+      "automatic_reference_text_similarity": 0.9127147766323024,
+      "oracle_reference_cell_similarity": 0.8946236559139785,
+      "automatic_reference_cell_similarity": 0.8782608695652174
+    },
+    {
+      "capture": "20260830_112042",
+      "geometry": "uvdoc_bilinear",
+      "oracle_artifact_id": "20260830_112042_left_oracle_uvdoc_bilinear_none",
+      "automatic_artifact_id": "20260830_112042_left_seam_conservative_uvdoc_bilinear_none",
+      "automatic_vs_oracle": {
+        "schema_valid": true,
+        "anchor_schema_valid": true,
+        "text_similarity": 0.9827705031013094,
+        "character_count": 728,
+        "anchor_character_count": 723,
+        "character_count_ratio": 1.0069156293222683,
+        "character_count_drop_fraction": -0.006915629322268326,
+        "node_sequence_similarity": 0.9777777777777777,
+        "node_type_count_delta": {
+          "TEXT": 1,
+          "UNKNOWN": 0
+        },
+        "parse_issue_count_delta": 0,
+        "braille_opportunity_delta": 3,
+        "braille_error_delta": 0,
+        "accuracy_claim_allowed": false
+      },
+      "automatic_vs_oracle_braille": {
+        "verdict": "SIMILAR_PIPELINE_HEALTH",
+        "same_content": true,
+        "cell_similarity": 0.9861932938856016,
+        "candidate_braille_opportunity_count": 42,
+        "reference_braille_opportunity_count": 39,
+        "translation_rate_delta": 0.0,
+        "note": "Same source content: exact translated cell sequence was compared."
+      },
+      "oracle_reference_text_similarity": 0.947515745276417,
+      "automatic_reference_text_similarity": 0.9539748953974896,
+      "oracle_reference_cell_similarity": 0.8777292576419214,
+      "automatic_reference_cell_similarity": 0.8946236559139785
+    }
+  ],
+  "geometry_summary": {
+    "none": {
+      "result_count": 6,
+      "hard_gate_pass_count": 3,
+      "mean_reference_text_similarity": 0.8993345465161676,
+      "mean_reference_cell_similarity": 0.8694481741342561,
+      "braille_error_count": 0
+    },
+    "coarse": {
+      "result_count": 6,
+      "hard_gate_pass_count": 3,
+      "mean_reference_text_similarity": 0.9557726075243081,
+      "mean_reference_cell_similarity": 0.8851294203204111,
+      "braille_error_count": 0
+    },
+    "uvdoc_bilinear": {
+      "result_count": 6,
+      "hard_gate_pass_count": 6,
+      "mean_reference_text_similarity": 0.9624100585277361,
+      "mean_reference_cell_similarity": 0.9083353737585398,
+      "braille_error_count": 0
+    }
+  },
+  "geometry_candidate": "uvdoc_bilinear",
+  "geometry_verdict": "ORACLE_AND_AUTOMATIC_GEOMETRY_CANDIDATE_UVDOC_BILINEAR",
+  "seam_conservative_verdict": "SEAM_CONSERVATIVE_NO_CLEAR_REGRESSION_P030",
+  "review_sheets": [
+    "review/none_oracle_vs_seam_conservative.jpg",
+    "review/coarse_oracle_vs_seam_conservative.jpg",
+    "review/uvdoc_bilinear_oracle_vs_seam_conservative.jpg"
+  ]
+}

@@ -171,6 +171,22 @@ python tools/run_paired_ocr_input_experiment.py --phase geometry --device gpu:0
 python tools/run_paired_ocr_input_experiment.py --phase postprocess --device gpu:0
 ```
 
+실제 수능특강 수학 I p30 촬영본을 기존 p030 회귀 fixture와 동일 원문으로 비교하는 staged
+실험은 다음 runner를 사용한다. `prepare`는 UVDoc이 있는 CPU 환경에서, OCR 단계는 기존
+GPU PaddleOCR-VL 환경에서 실행한다. 모델은 자동 다운로드하지 않는다.
+
+```bash
+python tools/run_p030_document_parser_validation.py prepare --image-dir <labelme-input-dir>
+python tools/run_p030_document_parser_validation.py oracle --device gpu:0
+python tools/run_p030_document_parser_validation.py automatic --device gpu:0
+python tools/run_p030_document_parser_validation.py postprocess-prepare
+python tools/run_p030_document_parser_validation.py report
+```
+
+`postprocess-prepare`가 `POSTPROCESS_NOT_TRIGGERED`를 반환하면 bicubic/unsharp OCR은 실행하지
+않는다. p030 fixture는 인간 golden이 아니므로 이 실험은 동일 원문 회귀와 variant 상대
+비교만 제공한다.
+
 현재 작은 라벨 집합의 영상 지표, 실제 실행된 OCR 범위, device 차단 및 아직 검증하지
 못한 결론은 `PAIRED_OCR_INPUT_EXPERIMENT_REPORT.md`에 분리해 기록했다.
 

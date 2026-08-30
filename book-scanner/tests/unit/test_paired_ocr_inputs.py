@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 import json
+from types import SimpleNamespace
 
 import cv2
 import numpy as np
@@ -13,6 +14,7 @@ from book_scanner.evaluation.paired_ocr_inputs import (
     artifact_id,
     crop_with_mask,
     prepare_postprocess_manifest,
+    prepare_extraction_manifest,
 )
 
 
@@ -86,3 +88,55 @@ def test_phase_c_prepares_only_selected_control_and_fixed_unsharp(tmp_path: Path
     assert len(manifest["artifacts"]) == 2
     assert manifest["artifacts"][0]["phase_c_control_reused"] is True
     assert manifest["artifacts"][1]["postprocess"] == "luminance_unsharp_fixed"
+
+
+def test_extraction_manifest_accepts_p030_left_only_without_legacy_fallbacks(
+    tmp_path: Path, monkeypatch,
+):
+    image_dir = tmp_path / "inputs"
+    image_dir.mkdir()
+    image = np.full((100, 160, 3), 220, dtype=np.uint8)
+    cv2.imwrite(str(image_dir / "capture.jpg"), image)
+    (image_dir / "capture.json").write_text(json.dumps({
+        "imagePath": "capture.jpg", "imageWidth": 160, "imageHeight": 100,
+        "shapes": [
+            {"label": "left_page", "shape_type": "polygon",
+             "points": [[5, 5], [78, 5], [78, 95], [5, 95]]},
+            {"label": "right_page", "shape_type": "polygon",
+             "points": [[82, 5], [155, 5], [155, 95], [82, 95]]},
+        ],
+    }), encoding="utf-8")
+    left = np.zeros((100, 160), dtype=np.uint8)
+    right = np.zeros((100, 160), dtype=np.uint8)
+    left[5:96, 5:79] = 255
+    right[5:96, 82:156] = 255
+    assessment = SimpleNamespace(
+        accepted=True, reasons=(), sides={}, diagnostics={},
+    )
+    detected = SimpleNamespace(
+        seam=SimpleNamespace(confidence=0.9, method="fake"), reason=None, diagnostics={},
+    )
+    ownership = SimpleNamespace(
+        left_mask=left, right_mask=right,
+        left_conservative_mask=left, right_conservative_mask=right,
+        diagnostics={},
+    )
+    monkeypatch.setattr(
+        "book_scanner.evaluation.paired_ocr_inputs._automatic_state",
+        lambda _frame: (
+            {PageSide.LEFT: left, PageSide.RIGHT: right}, {}, assessment, detected, ownership,
+        ),
+    )
+
+    manifest = prepare_extraction_manifest(
+        image_dir, tmp_path / "out", captures=("capture",),
+        sides=(PageSide.LEFT,), extraction_variants=("oracle",),
+        control_capture=None, fallback_stress_captures=(),
+    )
+
+    assert manifest["labeled_capture_count"] == 1
+    assert manifest["fallback_records"] == []
+    assert manifest["configs"]["sides"] == ["left"]
+    assert [item["artifact_id"] for item in manifest["artifacts"]] == [
+        "capture_left_oracle_none_none"
+    ]

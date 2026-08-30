@@ -1,0 +1,1639 @@
+{
+  "schema_version": 1,
+  "phase": "automatic",
+  "status": "COMPLETE",
+  "engine_signature": "paddleocr-vl:3.7.0:device=gpu:0:use_ocr_for_image_block=true:pipeline=paddleocr_vl_baseline",
+  "adapter_instance_count": 1,
+  "adapter_reused_across_artifacts": true,
+  "model_download_attempted": false,
+  "reference_path": "${WORKSPACE_ROOT}\\document-parser\\tests\\fixtures\\accessibility\\p030.json",
+  "reference_sha256": "79f2bb54ff9e793999a4ec6a7de4f177fbbff41e1eaa9ce6e04644348c23d792",
+  "reference_is_human_golden": false,
+  "absolute_accuracy_claim_allowed": false,
+  "results": [
+    {
+      "artifact_id": "20260830_111919_left_seam_conservative_none_none",
+      "status": "COMPLETE",
+      "record_path": "${WORKSPACE_ROOT}\\book-scanner\\experiment_outputs\\p030_document_parser_20260830\\ocr\\automatic\\20260830_111919_left_seam_conservative_none_none.json",
+      "cache_hit": false,
+      "schema_valid": true,
+      "character_count": 668,
+      "node_count": 28,
+      "braille_opportunity_count": 37,
+      "braille_error_count": 0,
+      "capture": "20260830_111919",
+      "side": "left",
+      "extraction": "seam_conservative",
+      "geometry": "none",
+      "postprocess": "none",
+      "comparison": {
+        "comparison_kind": "same_printed_source_pipeline_regression",
+        "reference_is_human_golden": false,
+        "absolute_accuracy_claim_allowed": false,
+        "schema_valid": true,
+        "overall_text_similarity": 0.6972343522561864,
+        "character_count": 668,
+        "reference_character_count": 706,
+        "node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "reference_node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "parse_issue_count": 1,
+        "reference_parse_issue_count": 1,
+        "braille": {
+          "verdict": "SIMILAR_PIPELINE_HEALTH",
+          "same_content": true,
+          "cell_similarity": 0.832579185520362,
+          "candidate_braille_opportunity_count": 37,
+          "reference_braille_opportunity_count": 31,
+          "translation_rate_delta": 0.0,
+          "note": "Same source content: exact translated cell sequence was compared."
+        },
+        "candidate_braille_error_count": 0,
+        "reference_braille_error_count": 0,
+        "anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "reference_anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "problem_comparisons": [
+          {
+            "ordinal": 1,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 1,
+            "reference_problem_number": 1,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.7663551401869159
+          },
+          {
+            "ordinal": 2,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 2,
+            "reference_problem_number": 2,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.975609756097561
+          },
+          {
+            "ordinal": 3,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 3,
+            "reference_problem_number": 3,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9828571428571429
+          },
+          {
+            "ordinal": 4,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 4,
+            "reference_problem_number": 4,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.8914027149321267
+          }
+        ],
+        "hard_gate_passed": true,
+        "verdict": "P030_NO_CLEAR_REGRESSION"
+      }
+    },
+    {
+      "artifact_id": "20260830_111919_left_seam_conservative_coarse_none",
+      "status": "COMPLETE",
+      "record_path": "${WORKSPACE_ROOT}\\book-scanner\\experiment_outputs\\p030_document_parser_20260830\\ocr\\automatic\\20260830_111919_left_seam_conservative_coarse_none.json",
+      "cache_hit": false,
+      "schema_valid": true,
+      "character_count": 728,
+      "node_count": 21,
+      "braille_opportunity_count": 42,
+      "braille_error_count": 0,
+      "capture": "20260830_111919",
+      "side": "left",
+      "extraction": "seam_conservative",
+      "geometry": "coarse",
+      "postprocess": "none",
+      "comparison": {
+        "comparison_kind": "same_printed_source_pipeline_regression",
+        "reference_is_human_golden": false,
+        "absolute_accuracy_claim_allowed": false,
+        "schema_valid": true,
+        "overall_text_similarity": 0.9651324965132496,
+        "character_count": 728,
+        "reference_character_count": 706,
+        "node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "reference_node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "parse_issue_count": 1,
+        "reference_parse_issue_count": 1,
+        "braille": {
+          "verdict": "SIMILAR_PIPELINE_HEALTH",
+          "same_content": true,
+          "cell_similarity": 0.8946236559139785,
+          "candidate_braille_opportunity_count": 42,
+          "reference_braille_opportunity_count": 31,
+          "translation_rate_delta": 0.0,
+          "note": "Same source content: exact translated cell sequence was compared."
+        },
+        "candidate_braille_error_count": 0,
+        "reference_braille_error_count": 0,
+        "anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "reference_anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "problem_comparisons": [
+          {
+            "ordinal": 1,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 1,
+            "reference_problem_number": 1,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 1.0
+          },
+          {
+            "ordinal": 2,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 2,
+            "reference_problem_number": 2,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.975609756097561
+          },
+          {
+            "ordinal": 3,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 3,
+            "reference_problem_number": 3,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9886363636363636
+          },
+          {
+            "ordinal": 4,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 4,
+            "reference_problem_number": 4,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.8914027149321267
+          }
+        ],
+        "hard_gate_passed": true,
+        "verdict": "P030_NO_CLEAR_REGRESSION"
+      }
+    },
+    {
+      "artifact_id": "20260830_111919_left_seam_conservative_uvdoc_bilinear_none",
+      "status": "COMPLETE",
+      "record_path": "${WORKSPACE_ROOT}\\book-scanner\\experiment_outputs\\p030_document_parser_20260830\\ocr\\automatic\\20260830_111919_left_seam_conservative_uvdoc_bilinear_none.json",
+      "cache_hit": false,
+      "schema_valid": true,
+      "character_count": 707,
+      "node_count": 22,
+      "braille_opportunity_count": 31,
+      "braille_error_count": 0,
+      "capture": "20260830_111919",
+      "side": "left",
+      "extraction": "seam_conservative",
+      "geometry": "uvdoc_bilinear",
+      "postprocess": "none",
+      "comparison": {
+        "comparison_kind": "same_printed_source_pipeline_regression",
+        "reference_is_human_golden": false,
+        "absolute_accuracy_claim_allowed": false,
+        "schema_valid": true,
+        "overall_text_similarity": 0.9837225760792639,
+        "character_count": 707,
+        "reference_character_count": 706,
+        "node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "reference_node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "parse_issue_count": 1,
+        "reference_parse_issue_count": 1,
+        "braille": {
+          "verdict": "SIMILAR_PIPELINE_HEALTH",
+          "same_content": true,
+          "cell_similarity": 1.0,
+          "candidate_braille_opportunity_count": 31,
+          "reference_braille_opportunity_count": 31,
+          "translation_rate_delta": 0.0,
+          "note": "Same source content: exact translated cell sequence was compared."
+        },
+        "candidate_braille_error_count": 0,
+        "reference_braille_error_count": 0,
+        "anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "reference_anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "problem_comparisons": [
+          {
+            "ordinal": 1,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 1,
+            "reference_problem_number": 1,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9974683544303797
+          },
+          {
+            "ordinal": 2,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 2,
+            "reference_problem_number": 2,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.975609756097561
+          },
+          {
+            "ordinal": 3,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 3,
+            "reference_problem_number": 3,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9914040114613181
+          },
+          {
+            "ordinal": 4,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 4,
+            "reference_problem_number": 4,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9976133651551312
+          }
+        ],
+        "hard_gate_passed": true,
+        "verdict": "P030_NO_CLEAR_REGRESSION"
+      }
+    },
+    {
+      "artifact_id": "20260830_112000_left_seam_conservative_none_none",
+      "status": "COMPLETE",
+      "record_path": "${WORKSPACE_ROOT}\\book-scanner\\experiment_outputs\\p030_document_parser_20260830\\ocr\\automatic\\20260830_112000_left_seam_conservative_none_none.json",
+      "cache_hit": false,
+      "schema_valid": true,
+      "character_count": 719,
+      "node_count": 22,
+      "braille_opportunity_count": 42,
+      "braille_error_count": 0,
+      "capture": "20260830_112000",
+      "side": "left",
+      "extraction": "seam_conservative",
+      "geometry": "none",
+      "postprocess": "none",
+      "comparison": {
+        "comparison_kind": "same_printed_source_pipeline_regression",
+        "reference_is_human_golden": false,
+        "absolute_accuracy_claim_allowed": false,
+        "schema_valid": true,
+        "overall_text_similarity": 0.9445614035087719,
+        "character_count": 719,
+        "reference_character_count": 706,
+        "node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "reference_node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "parse_issue_count": 1,
+        "reference_parse_issue_count": 1,
+        "braille": {
+          "verdict": "SIMILAR_PIPELINE_HEALTH",
+          "same_content": true,
+          "cell_similarity": 0.8946236559139785,
+          "candidate_braille_opportunity_count": 42,
+          "reference_braille_opportunity_count": 31,
+          "translation_rate_delta": 0.0,
+          "note": "Same source content: exact translated cell sequence was compared."
+        },
+        "candidate_braille_error_count": 0,
+        "reference_braille_error_count": 0,
+        "anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            4
+          ],
+          "problem_order_complete": false,
+          "problem_unit_count": 3,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0045"
+          ],
+          "problem_codes_complete": false,
+          "choice_counts": [
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": false
+        },
+        "reference_anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "problem_comparisons": [
+          {
+            "ordinal": 1,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 1,
+            "reference_problem_number": 1,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 1.0
+          },
+          {
+            "ordinal": 2,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 2,
+            "reference_problem_number": 2,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.975609756097561
+          },
+          {
+            "ordinal": 3,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 4,
+            "reference_problem_number": 3,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.22113022113022113
+          },
+          {
+            "ordinal": 4,
+            "candidate_present": false,
+            "reference_present": true,
+            "candidate_problem_number": null,
+            "reference_problem_number": 4,
+            "candidate_choice_count": 0,
+            "reference_choice_count": 5,
+            "text_similarity": 0.0
+          }
+        ],
+        "hard_gate_passed": false,
+        "verdict": "P030_HARD_REGRESSION_OR_OMISSION"
+      }
+    },
+    {
+      "artifact_id": "20260830_112000_left_seam_conservative_coarse_none",
+      "status": "COMPLETE",
+      "record_path": "${WORKSPACE_ROOT}\\book-scanner\\experiment_outputs\\p030_document_parser_20260830\\ocr\\automatic\\20260830_112000_left_seam_conservative_coarse_none.json",
+      "cache_hit": false,
+      "schema_valid": true,
+      "character_count": 719,
+      "node_count": 21,
+      "braille_opportunity_count": 42,
+      "braille_error_count": 0,
+      "capture": "20260830_112000",
+      "side": "left",
+      "extraction": "seam_conservative",
+      "geometry": "coarse",
+      "postprocess": "none",
+      "comparison": {
+        "comparison_kind": "same_printed_source_pipeline_regression",
+        "reference_is_human_golden": false,
+        "absolute_accuracy_claim_allowed": false,
+        "schema_valid": true,
+        "overall_text_similarity": 0.9543859649122807,
+        "character_count": 719,
+        "reference_character_count": 706,
+        "node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "reference_node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "parse_issue_count": 1,
+        "reference_parse_issue_count": 1,
+        "braille": {
+          "verdict": "SIMILAR_PIPELINE_HEALTH",
+          "same_content": true,
+          "cell_similarity": 0.8946236559139785,
+          "candidate_braille_opportunity_count": 42,
+          "reference_braille_opportunity_count": 31,
+          "translation_rate_delta": 0.0,
+          "note": "Same source content: exact translated cell sequence was compared."
+        },
+        "candidate_braille_error_count": 0,
+        "reference_braille_error_count": 0,
+        "anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            4
+          ],
+          "problem_order_complete": false,
+          "problem_unit_count": 3,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0045"
+          ],
+          "problem_codes_complete": false,
+          "choice_counts": [
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": false
+        },
+        "reference_anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "problem_comparisons": [
+          {
+            "ordinal": 1,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 1,
+            "reference_problem_number": 1,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 1.0
+          },
+          {
+            "ordinal": 2,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 2,
+            "reference_problem_number": 2,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.975609756097561
+          },
+          {
+            "ordinal": 3,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 4,
+            "reference_problem_number": 3,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.22113022113022113
+          },
+          {
+            "ordinal": 4,
+            "candidate_present": false,
+            "reference_present": true,
+            "candidate_problem_number": null,
+            "reference_problem_number": 4,
+            "candidate_choice_count": 0,
+            "reference_choice_count": 5,
+            "text_similarity": 0.0
+          }
+        ],
+        "hard_gate_passed": false,
+        "verdict": "P030_HARD_REGRESSION_OR_OMISSION"
+      }
+    },
+    {
+      "artifact_id": "20260830_112000_left_seam_conservative_uvdoc_bilinear_none",
+      "status": "COMPLETE",
+      "record_path": "${WORKSPACE_ROOT}\\book-scanner\\experiment_outputs\\p030_document_parser_20260830\\ocr\\automatic\\20260830_112000_left_seam_conservative_uvdoc_bilinear_none.json",
+      "cache_hit": false,
+      "schema_valid": true,
+      "character_count": 730,
+      "node_count": 24,
+      "braille_opportunity_count": 42,
+      "braille_error_count": 0,
+      "capture": "20260830_112000",
+      "side": "left",
+      "extraction": "seam_conservative",
+      "geometry": "uvdoc_bilinear",
+      "postprocess": "none",
+      "comparison": {
+        "comparison_kind": "same_printed_source_pipeline_regression",
+        "reference_is_human_golden": false,
+        "absolute_accuracy_claim_allowed": false,
+        "schema_valid": true,
+        "overall_text_similarity": 0.9623955431754875,
+        "character_count": 730,
+        "reference_character_count": 706,
+        "node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "reference_node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "parse_issue_count": 1,
+        "reference_parse_issue_count": 1,
+        "braille": {
+          "verdict": "SIMILAR_PIPELINE_HEALTH",
+          "same_content": true,
+          "cell_similarity": 0.8946236559139785,
+          "candidate_braille_opportunity_count": 42,
+          "reference_braille_opportunity_count": 31,
+          "translation_rate_delta": 0.0,
+          "note": "Same source content: exact translated cell sequence was compared."
+        },
+        "candidate_braille_error_count": 0,
+        "reference_braille_error_count": 0,
+        "anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "reference_anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "problem_comparisons": [
+          {
+            "ordinal": 1,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 1,
+            "reference_problem_number": 1,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9974683544303797
+          },
+          {
+            "ordinal": 2,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 2,
+            "reference_problem_number": 2,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.975609756097561
+          },
+          {
+            "ordinal": 3,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 3,
+            "reference_problem_number": 3,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9828571428571429
+          },
+          {
+            "ordinal": 4,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 4,
+            "reference_problem_number": 4,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.8843537414965986
+          }
+        ],
+        "hard_gate_passed": true,
+        "verdict": "P030_NO_CLEAR_REGRESSION"
+      }
+    },
+    {
+      "artifact_id": "20260830_112042_left_seam_conservative_none_none",
+      "status": "COMPLETE",
+      "record_path": "${WORKSPACE_ROOT}\\book-scanner\\experiment_outputs\\p030_document_parser_20260830\\ocr\\automatic\\20260830_112042_left_seam_conservative_none_none.json",
+      "cache_hit": false,
+      "schema_valid": true,
+      "character_count": 749,
+      "node_count": 25,
+      "braille_opportunity_count": 39,
+      "braille_error_count": 0,
+      "capture": "20260830_112042",
+      "side": "left",
+      "extraction": "seam_conservative",
+      "geometry": "none",
+      "postprocess": "none",
+      "comparison": {
+        "comparison_kind": "same_printed_source_pipeline_regression",
+        "reference_is_human_golden": false,
+        "absolute_accuracy_claim_allowed": false,
+        "schema_valid": true,
+        "overall_text_similarity": 0.9127147766323024,
+        "character_count": 749,
+        "reference_character_count": 706,
+        "node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "reference_node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "parse_issue_count": 1,
+        "reference_parse_issue_count": 1,
+        "braille": {
+          "verdict": "SIMILAR_PIPELINE_HEALTH",
+          "same_content": true,
+          "cell_similarity": 0.8782608695652174,
+          "candidate_braille_opportunity_count": 39,
+          "reference_braille_opportunity_count": 31,
+          "translation_rate_delta": 0.0,
+          "note": "Same source content: exact translated cell sequence was compared."
+        },
+        "candidate_braille_error_count": 0,
+        "reference_braille_error_count": 0,
+        "anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            null,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": false,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "reference_anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "problem_comparisons": [
+          {
+            "ordinal": 1,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": null,
+            "reference_problem_number": 1,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9481481481481482
+          },
+          {
+            "ordinal": 2,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 2,
+            "reference_problem_number": 2,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9634146341463414
+          },
+          {
+            "ordinal": 3,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 3,
+            "reference_problem_number": 3,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9742120343839542
+          },
+          {
+            "ordinal": 4,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 4,
+            "reference_problem_number": 4,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.8868778280542986
+          }
+        ],
+        "hard_gate_passed": false,
+        "verdict": "P030_HARD_REGRESSION_OR_OMISSION"
+      }
+    },
+    {
+      "artifact_id": "20260830_112042_left_seam_conservative_coarse_none",
+      "status": "COMPLETE",
+      "record_path": "${WORKSPACE_ROOT}\\book-scanner\\experiment_outputs\\p030_document_parser_20260830\\ocr\\automatic\\20260830_112042_left_seam_conservative_coarse_none.json",
+      "cache_hit": false,
+      "schema_valid": true,
+      "character_count": 723,
+      "node_count": 22,
+      "braille_opportunity_count": 41,
+      "braille_error_count": 0,
+      "capture": "20260830_112042",
+      "side": "left",
+      "extraction": "seam_conservative",
+      "geometry": "coarse",
+      "postprocess": "none",
+      "comparison": {
+        "comparison_kind": "same_printed_source_pipeline_regression",
+        "reference_is_human_golden": false,
+        "absolute_accuracy_claim_allowed": false,
+        "schema_valid": true,
+        "overall_text_similarity": 0.9531140657802659,
+        "character_count": 723,
+        "reference_character_count": 706,
+        "node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "reference_node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "parse_issue_count": 1,
+        "reference_parse_issue_count": 1,
+        "braille": {
+          "verdict": "SIMILAR_PIPELINE_HEALTH",
+          "same_content": true,
+          "cell_similarity": 0.8826086956521739,
+          "candidate_braille_opportunity_count": 41,
+          "reference_braille_opportunity_count": 31,
+          "translation_rate_delta": 0.0,
+          "note": "Same source content: exact translated cell sequence was compared."
+        },
+        "candidate_braille_error_count": 0,
+        "reference_braille_error_count": 0,
+        "anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "reference_anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "problem_comparisons": [
+          {
+            "ordinal": 1,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 1,
+            "reference_problem_number": 1,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9949494949494949
+          },
+          {
+            "ordinal": 2,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 2,
+            "reference_problem_number": 2,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9433962264150944
+          },
+          {
+            "ordinal": 3,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 3,
+            "reference_problem_number": 3,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9799426934097422
+          },
+          {
+            "ordinal": 4,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 4,
+            "reference_problem_number": 4,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.8868778280542986
+          }
+        ],
+        "hard_gate_passed": true,
+        "verdict": "P030_NO_CLEAR_REGRESSION"
+      }
+    },
+    {
+      "artifact_id": "20260830_112042_left_seam_conservative_uvdoc_bilinear_none",
+      "status": "COMPLETE",
+      "record_path": "${WORKSPACE_ROOT}\\book-scanner\\experiment_outputs\\p030_document_parser_20260830\\ocr\\automatic\\20260830_112042_left_seam_conservative_uvdoc_bilinear_none.json",
+      "cache_hit": false,
+      "schema_valid": true,
+      "character_count": 728,
+      "node_count": 23,
+      "braille_opportunity_count": 42,
+      "braille_error_count": 0,
+      "capture": "20260830_112042",
+      "side": "left",
+      "extraction": "seam_conservative",
+      "geometry": "uvdoc_bilinear",
+      "postprocess": "none",
+      "comparison": {
+        "comparison_kind": "same_printed_source_pipeline_regression",
+        "reference_is_human_golden": false,
+        "absolute_accuracy_claim_allowed": false,
+        "schema_valid": true,
+        "overall_text_similarity": 0.9539748953974896,
+        "character_count": 728,
+        "reference_character_count": 706,
+        "node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "reference_node_type_sequence": [
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "TEXT",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN",
+          "UNKNOWN"
+        ],
+        "parse_issue_count": 1,
+        "reference_parse_issue_count": 1,
+        "braille": {
+          "verdict": "SIMILAR_PIPELINE_HEALTH",
+          "same_content": true,
+          "cell_similarity": 0.8946236559139785,
+          "candidate_braille_opportunity_count": 42,
+          "reference_braille_opportunity_count": 31,
+          "translation_rate_delta": 0.0,
+          "note": "Same source content: exact translated cell sequence was compared."
+        },
+        "candidate_braille_error_count": 0,
+        "reference_braille_error_count": 0,
+        "anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "reference_anchors": {
+          "page_number_30_exact_node": true,
+          "problem_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "problem_order_complete": true,
+          "problem_unit_count": 4,
+          "problem_codes_found": [
+            "26008-0042",
+            "26008-0043",
+            "26008-0044",
+            "26008-0045"
+          ],
+          "problem_codes_complete": true,
+          "choice_counts": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "all_problem_units_have_choices": true
+        },
+        "problem_comparisons": [
+          {
+            "ordinal": 1,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 1,
+            "reference_problem_number": 1,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.9924050632911392
+          },
+          {
+            "ordinal": 2,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 2,
+            "reference_problem_number": 2,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.975609756097561
+          },
+          {
+            "ordinal": 3,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 3,
+            "reference_problem_number": 3,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.98005698005698
+          },
+          {
+            "ordinal": 4,
+            "candidate_present": true,
+            "reference_present": true,
+            "candidate_problem_number": 4,
+            "reference_problem_number": 4,
+            "candidate_choice_count": 5,
+            "reference_choice_count": 5,
+            "text_similarity": 0.8843537414965986
+          }
+        ],
+        "hard_gate_passed": true,
+        "verdict": "P030_NO_CLEAR_REGRESSION"
+      }
+    }
+  ]
+}
