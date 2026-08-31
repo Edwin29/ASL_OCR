@@ -20,6 +20,7 @@ class VideoSessionState(str, Enum):
     ARMING = "arming"
     SEARCHING = "searching"
     SETTLING = "settling"
+    VERIFYING_IDENTITY = "verifying_identity"
     PROCESSING_CANDIDATE = "processing_candidate"
     LOCAL_RETRY = "local_retry"
     READY_FOR_SERVER_PREFLIGHT = "ready_for_server_preflight"
@@ -81,6 +82,7 @@ class ReadinessReason(str, Enum):
     SHADOW_UNEVEN = "shadow_uneven"
 
     BLUR = "blur"
+    CONTENT_OCCLUDED = "content_occluded"
     INSUFFICIENT_RESOLUTION = "insufficient_resolution"
     WARP_ARTIFACT = "warp_artifact"
 
@@ -91,6 +93,9 @@ class ReadinessReason(str, Enum):
 
     ARTIFACT_COMMIT_FAILED = "artifact_commit_failed"
     ARTIFACT_COLLISION = "artifact_collision"
+    IDENTITY_FAILED = "identity_failed"
+    FOOTER_IDENTITY_UNAVAILABLE = "footer_identity_unavailable"
+    PAGE_NUMBER_FAILED = "page_number_failed"
 
     PARSER_QUALITY_REJECTED = "parser_quality_rejected"
     STRUCTURE_PREFLIGHT_FAILED = "structure_preflight_failed"
@@ -120,6 +125,7 @@ _REASON_CATEGORIES: dict[ReadinessReason, ReasonCategory] = {
     ReadinessReason.GLARE: ReasonCategory.ILLUMINATION,
     ReadinessReason.SHADOW_UNEVEN: ReasonCategory.ILLUMINATION,
     ReadinessReason.BLUR: ReasonCategory.QUALITY,
+    ReadinessReason.CONTENT_OCCLUDED: ReasonCategory.QUALITY,
     ReadinessReason.INSUFFICIENT_RESOLUTION: ReasonCategory.QUALITY,
     ReadinessReason.WARP_ARTIFACT: ReasonCategory.QUALITY,
     ReadinessReason.SEAM_FAILED: ReasonCategory.CORRECTION,
@@ -128,6 +134,9 @@ _REASON_CATEGORIES: dict[ReadinessReason, ReasonCategory] = {
     ReadinessReason.UVDOC_INVALID_OUTPUT: ReasonCategory.CORRECTION,
     ReadinessReason.ARTIFACT_COMMIT_FAILED: ReasonCategory.STORAGE,
     ReadinessReason.ARTIFACT_COLLISION: ReasonCategory.STORAGE,
+    ReadinessReason.IDENTITY_FAILED: ReasonCategory.STORAGE,
+    ReadinessReason.FOOTER_IDENTITY_UNAVAILABLE: ReasonCategory.QUALITY,
+    ReadinessReason.PAGE_NUMBER_FAILED: ReasonCategory.QUALITY,
     ReadinessReason.PARSER_QUALITY_REJECTED: ReasonCategory.PARSER,
     ReadinessReason.STRUCTURE_PREFLIGHT_FAILED: ReasonCategory.PARSER,
     ReadinessReason.NETWORK_UNAVAILABLE: ReasonCategory.TRANSPORT,

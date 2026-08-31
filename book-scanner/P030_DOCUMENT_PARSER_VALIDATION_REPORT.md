@@ -1,10 +1,14 @@
 # 수능특강 수학 I p30 추출·보정·Document Parser 동일 원문 검증 보고서
 
 작성일: 2026-08-30
-실행 상태: **`EXECUTION_COMPLETE_NOT_HUMAN_GOLDEN`**
+실행 상태: **`EXECUTION_COMPLETE_HUMAN_VERIFIED_GOLDEN`**
 보정 판정: **`ORACLE_AND_AUTOMATIC_GEOMETRY_CANDIDATE_UVDOC_BILINEAR`**
 자동 crop 판정: **`SEAM_CONSERVATIVE_NO_CLEAR_REGRESSION_P030`**
 후보정 판정: **`POSTPROCESS_NOT_TRIGGERED`**
+
+후속 아키텍처 결정(2026-08-30): **영상 Scanner 기본 경로로
+`seam-conservative + UVDoc bilinear` 채택**. 실험 당시의 제한된 verdict는 그대로 보존하며,
+영상 runtime 통합과 Pi 4 성능은 별도 검증 대상으로 남긴다.
 
 ## 1. 결론
 
@@ -62,6 +66,7 @@ p030 reference:
 - `document-parser/tests/fixtures/accessibility/p030.json`
 - SHA-256:
   `79f2bb54ff9e793999a4ec6a7de4f177fbbff41e1eaa9ce6e04644348c23d792`
+- Document Parser 개발 과정에서 사람이 직접 검증한 p30 golden
 - 기존 평가: braille opportunity 31, translated 31, error 0
 
 UVDoc checkpoint SHA-256:
@@ -85,7 +90,7 @@ UVDoc checkpoint SHA-256:
 이는 오른쪽 실패를 성공으로 바꾼 것이 아니다. 이번 정량 OCR queue의 목표 side를 왼쪽으로
 제한한 것이다. 실제 양면 production 처리에서는 오른쪽 조명 정책을 별도로 해결해야 한다.
 
-## 4. 동일 원문 기준의 한계
+## 4. 동일 원문 golden의 지위와 한계
 
 이번 촬영본은 p030 fixture와 같은 인쇄 원문이므로 이전 실험에서 불가능했던 다음 비교를
 수행했다.
@@ -96,9 +101,13 @@ UVDoc checkpoint SHA-256:
 - 실제 점역 기회/오류
 - packed braille cell sequence similarity
 
-그러나 p030 fixture는 사람이 전사한 독립 golden이 아니라 기존 파이프라인의 회귀 fixture다.
-따라서 아래 수치는 기존 테스트 당시 결과의 재현성과 variant 간 상대 비교다. 인간 정답 대비
-CER/WER 또는 절대 점역 정확도가 아니다.
+p030 fixture는 Document Parser 개발 과정에서 사람이 직접 검증한 동일 원문 golden이다.
+따라서 아래 text/cell similarity와 구조 gate는 p30 golden 대비 결과로 해석할 수 있다.
+
+다만 이번 비교기는 정규화 SequenceMatcher 유사도와 packed cell sequence similarity를
+사용했으며 CER/WER이나 별도의 cell error rate를 계산하지 않았다. 따라서 보고되지 않은
+정확도 지표를 계산한 것처럼 표현하지 않으며, p30 golden의 지위를 다른 페이지나 책으로
+일반화하지 않는다.
 
 ## 5. 전체 geometry 집계
 
@@ -171,6 +180,19 @@ UVDoc 동일 geometry에서 automatic 대 oracle은 다음과 같다.
 `111919`은 automatic UVDoc이 reference cell sequence와 1.0000으로 일치했지만, oracle과
 automatic 사이의 opportunity 수가 42 대 31로 달라 두 결과의 직접 cell similarity는
 0.8884였다. cell similarity 하나만 보지 않고 문제 구조, 기회 수, 오류 수를 함께 봐야 한다.
+
+### 8.1 Golden 공통 수식 셀과 후보 추가 셀 분리 평가
+
+후속 AST 정렬 평가에서 `seam-conservative + UVDoc` 세 결과는 golden 공통 수식 span
+93/93개와 공통 점자 셀 624/624개를 정확히 보존했다. golden-only 누락은 0 span/0 cell이다.
+
+`112000`과 `112042`에는 각각 문제 4의 수식 11개가 추가 점역되어 49셀이 늘었다. 추가된
+22개 span/98셀은 모두 golden 문제 4의 일반 텍스트에 실제 표현이 존재한다. 즉 기존 전체
+셀 유사도 0.8946은 golden 셀 오역이 아니라 source-backed 수식 promotion을 차이로 계산한
+값이다.
+
+상세 근거는 `P030_MATH_BRAILLE_ALIGNMENT_REPORT.md`와
+`math_braille_alignment_summary.json`에 분리해 기록했다.
 
 ## 9. 선명도와 후보정 판단
 
@@ -271,11 +293,11 @@ cuDNN 9.9 빌드와 시스템 9.5 차이 경고는 이전 GPU 실험과 동일�
 - p30 반복 촬영 3장에서 oracle/automatic UVDoc이 실제 Document Parser 구조를 보존함
 - 자동 crop이 oracle label mask 본문을 보존하고 반대 페이지를 포함하지 않음
 - 영상 부드러움이 이번 OCR 결과의 실패를 의미하지 않음
+- 사람이 검증한 p30 golden 대비 UVDoc이 세 geometry 중 가장 높은 평균 text/cell similarity를 보임
 
 확인하지 못한 것:
 
-- 인간 전사 대비 절대 OCR/CER/WER
-- 인간 정답 대비 절대 점역 cell 정확도
+- 별도 CER/WER 및 cell error rate 계산
 - 다른 페이지와 다른 책으로의 일반화
 - 오른쪽 p309의 uneven illumination fallback 처리
 - 그림자·frame 잘림·빈 배경에서의 자동 복구

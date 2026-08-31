@@ -3,10 +3,17 @@
 from __future__ import annotations
 
 from collections.abc import Callable, Iterable, Iterator
+import hashlib
 from dataclasses import dataclass
 from typing import Generic, TypeVar
 
 from book_scanner.video.events import GuidanceRequest
+from book_scanner.video.identity import (
+    PageIdentity,
+    SpreadIdentity,
+    SpreadVisualFingerprint,
+    VisualFingerprint,
+)
 from book_scanner.video.protocols import ButtonCommand, FrameSample
 from book_scanner.video.types import (
     ArtifactId,
@@ -122,6 +129,55 @@ class FakeArtifactStore:
         self.discarded_jobs.append(job_id)
 
 
+class FakeIdentityProvider:
+    def __init__(
+        self,
+        artifact_tokens: dict[str, int] | None = None,
+        preview_tokens: Iterable[int] = (),
+    ) -> None:
+        self.artifact_tokens = artifact_tokens or {}
+        self.preview_tokens = list(preview_tokens)
+        self.artifact_calls: list[ArtifactId] = []
+        self.preview_calls = 0
+
+    def fingerprint_artifact(self, artifact: SpreadArtifactRef) -> SpreadIdentity:
+        self.artifact_calls.append(artifact.artifact_id)
+        token = self.artifact_tokens.get(artifact.artifact_id.value, 0)
+        source_sha = hashlib.sha256(f"source-{token}".encode()).hexdigest()
+        return SpreadIdentity(
+            "page-identity-v3a-1",
+            source_sha,
+            hashlib.sha256(f"manifest-{token}".encode()).hexdigest(),
+            PageIdentity(
+                PageSide.LEFT,
+                hashlib.sha256(f"corrected-left-{token}".encode()).hexdigest(),
+                hashlib.sha256(f"crop-left-{token}".encode()).hexdigest(),
+                source_sha,
+                artifact.left.width,
+                artifact.left.height,
+                "fake-extractor-v1",
+                "fake-correction-v1",
+                _visual(token),
+            ),
+            PageIdentity(
+                PageSide.RIGHT,
+                hashlib.sha256(f"corrected-right-{token}".encode()).hexdigest(),
+                hashlib.sha256(f"crop-right-{token}".encode()).hexdigest(),
+                source_sha,
+                artifact.right.width,
+                artifact.right.height,
+                "fake-extractor-v1",
+                "fake-correction-v1",
+                _visual(token + 100),
+            ),
+        )
+
+    def fingerprint_preview(self, _gray: object, _mask: object, _seam: float | None) -> SpreadVisualFingerprint:
+        self.preview_calls += 1
+        token = self.preview_tokens.pop(0) if self.preview_tokens else 0
+        return SpreadVisualFingerprint("page-identity-v3a-1", _visual(token), _visual(token + 100))
+
+
 @dataclass(frozen=True, slots=True)
 class ParserResponseSpec:
     state: ReadinessState
@@ -219,4 +275,17 @@ def make_prepared(
         left=PreparedPageArtifact(PageSide.LEFT, frame_id, "left/uvdoc.jpg", "a" * 64, 100, 200),
         right=PreparedPageArtifact(PageSide.RIGHT, frame_id, "right/uvdoc.jpg", "b" * 64, 100, 200),
         evaluator_version="prepared-evaluator-v1",
+    )
+
+
+def _visual(token: int) -> VisualFingerprint:
+    digest = hashlib.sha256(f"visual-{token}".encode()).hexdigest()[:16]
+    level = 30 if token == 0 or token == 100 else 220
+    return VisualFingerprint(
+        "page-identity-v3a-1",
+        digest,
+        (level,) * 16,
+        (level,) * 16,
+        256,
+        384,
     )

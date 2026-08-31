@@ -34,12 +34,27 @@ class VideoEventType(str, Enum):
     CANDIDATE_SELECTED = "candidate_selected"
     CANDIDATE_PROCESSED = "candidate_processed"
     GUIDANCE_REQUESTED = "guidance_requested"
+    SPREAD_IDENTITY_CREATED = "spread_identity_created"
+    DUPLICATE_SUPPRESSED = "duplicate_suppressed"
+    IDENTITY_AMBIGUOUS = "identity_ambiguous"
+    OPAQUE_IDENTITY_COLLECTION_STARTED = "opaque_identity_collection_started"
+    OPAQUE_IDENTITY_OBSERVED = "opaque_identity_observed"
+    OPAQUE_IDENTITY_DECIDED = "opaque_identity_decided"
+    OPAQUE_IDENTITY_BANK_PENDING = "opaque_identity_bank_pending"
+    OPAQUE_IDENTITY_BANK_ACCEPTED = "opaque_identity_bank_accepted"
+    OPAQUE_IDENTITY_BANK_DISCARDED = "opaque_identity_bank_discarded"
+    PAGE_NUMBER_OBSERVED = "page_number_observed"
+    SPREAD_PAGE_KEY_CREATED = "spread_page_key_created"
+    PAGE_NUMBER_IDENTITY_CONFLICT = "page_number_identity_conflict"
     ARTIFACT_READY = "artifact_ready"
     UPLOAD_QUEUED = "upload_queued"
     UPLOAD_RETRYING = "upload_retrying"
     PARSER_REJECTED = "parser_rejected"
     DELIVERY_CONFIRMED = "delivery_confirmed"
     WAITING_FOR_PAGE_CHANGE = "waiting_for_page_change"
+    PAGE_CHANGE_OBSERVED = "page_change_observed"
+    PAGE_CHANGE_NUMBER_EVIDENCE = "page_change_number_evidence"
+    PAGE_NUMBER_VERIFICATION_DECISION = "page_number_verification_decision"
     PAGE_CHANGED = "page_changed"
 
 
@@ -47,9 +62,29 @@ _FRAME_EVENTS = {
     VideoEventType.CANDIDATE_OBSERVED,
     VideoEventType.CANDIDATE_SELECTED,
     VideoEventType.CANDIDATE_PROCESSED,
+    VideoEventType.SPREAD_IDENTITY_CREATED,
+    VideoEventType.DUPLICATE_SUPPRESSED,
+    VideoEventType.IDENTITY_AMBIGUOUS,
+    VideoEventType.OPAQUE_IDENTITY_COLLECTION_STARTED,
+    VideoEventType.OPAQUE_IDENTITY_OBSERVED,
+    VideoEventType.OPAQUE_IDENTITY_DECIDED,
+    VideoEventType.PAGE_NUMBER_OBSERVED,
+    VideoEventType.SPREAD_PAGE_KEY_CREATED,
+    VideoEventType.PAGE_NUMBER_IDENTITY_CONFLICT,
     VideoEventType.ARTIFACT_READY,
+    VideoEventType.PAGE_CHANGE_OBSERVED,
+    VideoEventType.PAGE_CHANGE_NUMBER_EVIDENCE,
+    VideoEventType.PAGE_NUMBER_VERIFICATION_DECISION,
 }
 _ARTIFACT_EVENTS = {
+    VideoEventType.SPREAD_IDENTITY_CREATED,
+    VideoEventType.DUPLICATE_SUPPRESSED,
+    VideoEventType.IDENTITY_AMBIGUOUS,
+    VideoEventType.OPAQUE_IDENTITY_BANK_PENDING,
+    VideoEventType.OPAQUE_IDENTITY_BANK_ACCEPTED,
+    VideoEventType.OPAQUE_IDENTITY_BANK_DISCARDED,
+    VideoEventType.SPREAD_PAGE_KEY_CREATED,
+    VideoEventType.PAGE_NUMBER_IDENTITY_CONFLICT,
     VideoEventType.ARTIFACT_READY,
     VideoEventType.UPLOAD_QUEUED,
     VideoEventType.UPLOAD_RETRYING,

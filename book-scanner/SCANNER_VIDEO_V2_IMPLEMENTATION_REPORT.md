@@ -52,8 +52,9 @@ OpenCV의 임의 `CAP_PROP_POS_MSEC` seek는 이 파일에서 후반부 decode�
 source는 원래 순차 sampling이므로 영향을 받지 않지만, 실험 도구도 임의 seek를 사용하지 않고
 요청 timestamp들을 한 번의 forward decode로 먼저 확보하도록 고쳤다.
 
-사람이 영상에서 손이 없고 책이 정지했다고 확인한 두 프레임을 production V2 preparer로 처리했다.
-이는 V2 artifact 경로 검증이며 자동 안정 프레임 선택 성공을 뜻하지 않는다.
+Codex가 진단용으로 제안한 두 프레임을 production V2 preparer로 처리했고, 이후 사용자가
+두 프레임 모두 `CLEAN_TRANSFERABLE`이라고 확인했다. 이는 V2 artifact 경로와 positive anchor를
+확인한 결과이며 자동 안정 프레임 선택 성공을 뜻하지 않는다.
 
 | frame | 내용 | V2 상태 | 총 처리 | 좌/우 UVDoc | bundle | seam confidence |
 |---|---|---|---:|---:|---:|---:|

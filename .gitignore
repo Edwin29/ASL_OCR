@@ -1,0 +1,15 @@
+# Codex/local attachments and disposable experiment workspaces
+/.codex-remote-attachments/
+/tmp/
+
+# Python/test caches
+**/__pycache__/
+**/.pytest_cache/
+**/*.py[cod]
+/book-scanner/.test-tmp-*/
+/book-scanner/tmp*/
+
+# User-provided source captures stay local/Drive; committed experiment outputs
+# contain the reproducible manifests, hashes, summaries, and selected artifacts.
+/book-scanner/TESTIMAGES/
+/book-scanner/TESTIMAGES.zip

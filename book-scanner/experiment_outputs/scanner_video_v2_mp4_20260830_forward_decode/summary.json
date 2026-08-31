@@ -3,7 +3,7 @@
   "status": "COMPLETE",
   "scope": "v2_local_artifact_replay_only",
   "automatic_stable_selection_validated": false,
-  "selection_note": "Timestamps were selected by human visual review. This result does not validate the V1 automatic candidate/stability gate.",
+  "selection_note": "Codex proposed the timestamps for diagnostic replay; the user subsequently confirmed both source frames as CLEAN_TRANSFERABLE. This does not validate the V1 automatic candidate/stability gate.",
   "source_video": {
     "path": "C:\\Users\\왕원철\\Downloads\\20260830_133526.mp4",
     "size_bytes": 242882956,
@@ -23,7 +23,9 @@
       "actual_timestamp_seconds": 13.06540306313037,
       "frame_index": 780,
       "source_frame_id": "video-frame-000780",
-      "selection_basis": "manual_visual_review_hand_free_stable",
+      "selection_basis": "codex_proposed_user_confirmed_clean_transferable",
+      "anchor_label": "CLEAN_TRANSFERABLE",
+      "anchor_label_source": "user_confirmation_2026-08-30",
       "state": "prepared",
       "reasons": [],
       "metrics": {
@@ -58,7 +60,9 @@
       "actual_timestamp_seconds": 37.18614717967875,
       "frame_index": 2220,
       "source_frame_id": "video-frame-002220",
-      "selection_basis": "manual_visual_review_hand_free_stable",
+      "selection_basis": "codex_proposed_user_confirmed_clean_transferable",
+      "anchor_label": "CLEAN_TRANSFERABLE",
+      "anchor_label_source": "user_confirmation_2026-08-30",
       "state": "prepared",
       "reasons": [],
       "metrics": {

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "model_name": "en_PP-OCRv5_mobile_rec",
+  "runtime_role": "recognition_only_on_prelocated_bottom_footer_components",
+  "source": "PaddleOCR official model package already present in the local development environment",
+  "license": "Apache-2.0",
+  "license_evidence": "model README.md front matter",
+  "checked_into_repository": false,
+  "evaluation_path": "tmp/page-number-models/en_PP-OCRv5_mobile_rec",
+  "total_bytes": 8012929,
+  "files": {
+    "config.json": "16103ac291a82fca50f0bb000d62a4b8168f6042f03c89c44cf32f241d1eb1f2",
+    "inference.json": "fd1b6ec722ea841a72d3ba43e527df1d1066d5d7808e0503ee3eec7265188753",
+    "inference.pdiparams": "3ec8a97ed6cefe8568d3e2ee90bb193299b566a7661aa4fd52d224b96b59f66b",
+    "inference.yml": "27e91d0582f40168aa218303c76e184bc78fa7a5d105aad0cfbad8458b441067",
+    "README.md": "4c1cfd6e103b0966fe97505b5254cfa35a931d47d7effca97a9db47fb57dd699"
+  },
+  "runtime_download_allowed": false,
+  "raspberry_pi_4_compatibility_verified": false,
+  "production_selected": false,
+  "validated": false,
+  "provenance": "v3a3_reuses_v3a1_verified_local_asset"
+}

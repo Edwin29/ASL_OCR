@@ -141,8 +141,9 @@ V1에서 등록한 `20260830_133526.mp4`의 사람이 확인한 `STABLE_SPREAD` 
 영상이 여전히 재생·다운로드 불가하면 실제 replay 항목은 blocked로 남기고 synthetic/기존 JPEG
 검증만으로 영상 검증 완료를 선언하지 않는다.
 
-구현 후 실제 MP4를 확보해 사람이 확인한 13.065초와 37.186초 프레임을 replay했다. 두 프레임
-모두 V2 bundle을 만들었고 좌우 동일 frame lineage 및 UVDoc load reuse를 확인했다. 다만 V1
+구현 후 실제 MP4를 확보해 Codex가 제안하고 사용자가 `CLEAN_TRANSFERABLE`로 확인한
+13.065초와 37.186초 프레임을 replay했다. 두 프레임 모두 V2 bundle을 만들었고 좌우 동일
+frame lineage 및 UVDoc load reuse를 확인했다. 다만 V1
 자동 선택은 기본 정책에서 stable 0건이었고, 진단상 임계값 완화는 정지 손 가림을 통과시킬 수
 있었다. 따라서 V2 artifact 항목과 자동 영상 통합 상태를 분리해 기록한다.
 

@@ -6,6 +6,7 @@ from pathlib import Path
 
 from book_scanner.evaluation.p030_reference import (
     EXPECTED_PROBLEM_CODES,
+    compare_p030_math_braille_alignment,
     compare_p030_page_ir,
     extract_problem_units,
     p030_anchor_diagnostics,
@@ -21,17 +22,82 @@ def _reference() -> dict[str, object]:
     return json.loads(P030.read_text(encoding="utf-8"))
 
 
-def test_p030_fixture_self_comparison_enables_same_source_cells_without_accuracy_claim():
+def test_p030_fixture_self_comparison_uses_human_verified_golden():
     reference = _reference()
     result = compare_p030_page_ir(reference, reference)
 
-    assert result["comparison_kind"] == "same_printed_source_pipeline_regression"
-    assert result["reference_is_human_golden"] is False
-    assert result["absolute_accuracy_claim_allowed"] is False
+    assert result["comparison_kind"] == "same_printed_source_human_verified_golden"
+    assert result["reference_is_human_golden"] is True
+    assert result["absolute_accuracy_claim_allowed"] is True
+    assert result["golden_provenance"] == "human_verified_during_document_parser_development"
+    assert result["golden_scope"] == "exact_printed_p30_fixture_text_structure_and_braille"
     assert result["overall_text_similarity"] == 1.0
     assert result["braille"]["same_content"] is True
     assert result["braille"]["cell_similarity"] == 1.0
+    assert result["math_braille_alignment"]["common_span_count"] == 31
+    assert result["math_braille_alignment"]["common_reference_cell_count"] == 208
+    assert result["math_braille_alignment"]["candidate_added_span_count"] == 0
+    assert result["math_braille_alignment"]["reference_only_span_count"] == 0
+    assert result["math_braille_alignment"]["verdict"] == "EXACT_GOLDEN_MATH_CELLS"
     assert result["hard_gate_passed"] is True
+
+
+def test_p030_math_alignment_separates_plain_text_math_promotion():
+    reference = _reference()
+    candidate = copy.deepcopy(reference)
+    problem_four = next(
+        node for node in candidate["pages"][0]["nodes"]
+        if node.get("node_id") == "p030-vl012-L01"
+    )
+    problem_four["spans"].append({
+        "span_type": "UNKNOWN",
+        "text": "y=m",
+        "math_span_candidate": True,
+        "presentation_ast": {
+            "type": "Relation",
+            "operator": "=",
+            "left": {"type": "Identifier", "value": "y"},
+            "right": {"type": "Identifier", "value": "m"},
+        },
+        "unconsumed_tokens": [],
+        "ast_issues": [],
+    })
+
+    result = compare_p030_math_braille_alignment(candidate, reference)
+
+    assert result["common_span_count"] == 31
+    assert result["common_cell_similarity"] == 1.0
+    assert result["reference_only_span_count"] == 0
+    assert result["candidate_added_span_count"] == 1
+    assert result["candidate_added_cell_count"] == 4
+    assert result["candidate_added_present_in_reference_plain_text_count"] == 1
+    assert result["candidate_added_spans"][0]["text"] == "y=m"
+    assert result["verdict"] == "GOLDEN_COMMON_EXACT_WITH_REFERENCE_PLAIN_TEXT_PROMOTIONS"
+
+
+def test_p030_math_alignment_reports_missing_golden_span():
+    reference = _reference()
+    candidate = copy.deepcopy(reference)
+    removed = False
+    for node in candidate["pages"][0]["nodes"]:
+        spans = node.get("spans")
+        if not isinstance(spans, list):
+            continue
+        for index, span in enumerate(spans):
+            if isinstance(span, dict) and span.get("math_span_candidate") is True:
+                del spans[index]
+                removed = True
+                break
+        if removed:
+            break
+    assert removed is True
+
+    result = compare_p030_math_braille_alignment(candidate, reference)
+
+    assert result["common_span_count"] == 30
+    assert result["reference_only_span_count"] == 1
+    assert result["reference_span_coverage"] < 1.0
+    assert result["verdict"] == "GOLDEN_COMMON_REGRESSION_OR_MISSING_SPANS"
 
 
 def test_p030_fixture_exposes_four_ordered_problem_units_and_anchors():

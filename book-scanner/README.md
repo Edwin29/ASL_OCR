@@ -1,33 +1,32 @@
-# book-scanner v2
+# book-scanner
 
 문제집 페이지를 개조 휴대폰/PC 카메라로 스캔해 `document-parser`에 input으로 넘기는
-파이프라인. **v1(단일 프레임 사전 촬영-가능 판정)은 폐기하고 처음부터 다시 설계했다** —
-v1은 배경(책상/천)과 페이지가 하나의 컨투어로 뭉개지는 문제, 페이지 내부 인쇄물이
-실제 페이지 경계보다 강한 엣지로 경쟁하는 문제 때문에 실사진 신뢰도가 낮았다.
+파이프라인. 단일 프레임을 촬영 전에 판정하는 초기 설계는 폐기했다. 현재 저장소에는
+배경 차감 기반 legacy session loop와, 오프라인에서 검증한 `seam-conservative + UVDoc`
+구현이 함께 있다. 연속 영상 runtime은 V0 계약, V1/V1.1/V1.2 PC 표본 frame engine,
+V2 `seam-conservative + UVDoc bilinear` atomic artifact, V3-A/V3-A.5의 identity·ACK 이후
+page-change까지 구현됐다. 실제 HTTP 송신과 durable outbox는 후속 범위다.
 
 ## 핵심 전환: "촬영가능여부" → "전송가능여부"
 
 v1은 촬영 *전에* "찍어도 되는가"를 저해상도 프리뷰 한 장으로 실시간 판단하려 했다.
-v2는 다르다: 카메라가 고정된 환경에서 프레임을 **반복적으로 캡쳐**하고, 각 캡쳐+
-후보정 결과에 대해 "**전송 가능한가**"를 사후 판단한다. 카메라 고정이라는 제약을
-실제로 활용해서, 세션 시작 시 찍어둔 "책 없는 빈 프레임"과 각 캡쳐 프레임을
-배경 차감(background subtraction)으로 비교한다 — 배경 텍스처가 무엇이든, 인쇄물이
-페이지 위에 뭐가 있든 상관없이 "달라진 영역 = 책"으로 분리되므로 v1의 두 실패 원인이
-구조적으로 사라진다.
+새 runtime의 기준은 카메라 프레임을 **반복적으로 획득**하고, 이미 획득해 실제 crop과
+후보정까지 만든 artifact가 전송 계약을 만족하는지 사후 판단하는 것이다. 기존 loop의
+빈 프레임 기반 배경 차감은 비교 가능한 legacy 경로로 보존하지만, 그림자·책 이동·빈
+배경 갱신에 민감하므로 새 기본 검출 근거로 채택하지 않는다.
 
-## 전송가능여부의 세 축
+## 전송 준비도의 세 계층
 
-1. **기하** (`judge/geometry_judge.py`) — 회전/크기/프레임경계. v1 `judge.py` 계승.
-2. **안정성** (`judge/stability_judge.py`) — 최근 N프레임의 코너/면적이 일관되는지
-   (책이 정지했는지). 반복 캡쳐 구조라서 처음으로 구현 가능해진 축(로드맵 Stage 4의
-   원래 취지).
-3. **화질** (`judge/quality_judge.py`) — document-parser 자신의
-   `document_parser.preprocess.quality.ImageQualityGate`를 그대로 재실행. 새 화질
-   기준을 만들지 않는다 — document-parser가 실제로 무엇을 안정적으로 받는지의
-   권위있는 기준이 이미 거기 있다.
+1. **후보 준비도** — 매 camera frame이 아니라 설정 주기로 최신 frame을 표본화하고,
+   motion·잘림·blur·노출·최근 안정성을 저비용으로 평가해 비싼 처리를 시도할 frame을
+   고른다. 최종 전송 판정은 아니다.
+2. **artifact 준비도** — 같은 full-spread frame에서 좌우 seam crop과 UVDoc 결과를
+   만들고 영상·기하·lineage를 검증한다.
+3. **parser 인수 및 전달 확인** — 서버가 실제 Document Parser 입력 계약을 검사하고
+   artifact를 내구성 있게 접수한 뒤 job ID를 반환한다.
 
-세 축 모두 실패해야 최종적으로 전송 거부(`TransmitBlockReason`), 어느 하나만
-실패해도 그 프레임은 재시도 대상이 된다.
+단일 bool이나 포괄적인 `LOW_QUALITY`로 합치지 않는다. 로컬 재촬영 사유, 네트워크 재시도,
+parser 거부를 분리해야 사용자에게 잘못된 물리 조정 안내를 하지 않는다.
 
 ## 두 페이지 스프레드
 
@@ -35,12 +34,10 @@ v2는 다르다: 카메라가 고정된 환경에서 프레임을 **반복적으
 카메라를 책등 중심에 고정). 실제 예시 사진으로 확인한 것: 단순한 "사다리꼴 두 장
 접붙인 리본" 모양이 아니라 책등 근처가 진짜 곡면으로 휘어 있다(로드맵이 이미 위험
 요소로 짚어둔 문제). 물리적 V자 받침이 아직 없어 정확한 형상을 모델링할 수 없으므로,
-**곡면을 직접 푸는 대신 중심선으로 프레임을 좌/우로 나누고 각각에 단일 페이지
-파이프라인을 독립적으로 적용**한다(`detect/spread.py`). 왼쪽 페이지 전송 완료 →
-오른쪽 페이지 → 둘 다 끝나면 다음 스프레드 감시로 자동 복귀.
-
-중심선 위치는 이번 라운드에서 자동 검출하지 않고 세션 설정값(기본 50%)으로 취급한다
-— 실제 받침이 없어 검증할 수 없는 상태에서 새 검출 알고리즘을 또 만들지 않기 위해서.
+곡면 자체를 사각형으로 가정하지 않고 luminance-valley 기반 spine seam과 보수적 소유권
+분리를 적용한 뒤 각 페이지를 UVDoc으로 보정한다. 좌우는 반드시 **같은 full-spread
+frame**에서 만들고 한 `SpreadArtifact`로 묶는다. 현재 `session/loop.py`의 왼쪽 완료 후
+오른쪽을 별도 frame에서 처리하는 방식은 legacy이며 새 runtime에서 교체할 대상이다.
 
 ## 구조
 
@@ -65,6 +62,11 @@ src/book_scanner/
   transmit/
     client.py           # document-parser의 기존 remote_ingest 업로드 API 얇은 래퍼
                          # (책임 모듈 위치는 미정 -- 양쪽 다 옮기기 쉽게 분리해 둠)
+  video/
+    sources.py          # PC camera, MP4, image sequence의 표본 frame source
+    candidate.py        # bounded 안정 window와 hard gate/best-frame 선택
+    engine.py           # start/cancel/retry/ready 비동기 sampled-frame 상태 엔진
+    types.py            # 같은 full-spread frame lineage와 readiness 계약
 ```
 
 ## 실행
@@ -114,8 +116,9 @@ mask가 있으면 `--ground-truth-dir`로 IoU/Dice/boundary F1을 계산할 수 
 `PAGE_SEPARATION_EXTRACTION_EXPERIMENT_REPORT.md`에 기록했다. 자동 LabelMe 출력은
 사람이 검수하기 전에는 정답으로 취급하지 않는다.
 좌우 overlap의 spine seam 및 소유권 분리 실험은
-`SPINE_SEAM_DETECTION_EXPERIMENT_REPORT.md`를 참고한다. 현재 luminance-valley는
-작은 라벨 집합에서만 `SEAM_CANDIDATE`이며 session 기본 경로에는 통합되지 않았다.
+`SPINE_SEAM_DETECTION_EXPERIMENT_REPORT.md`를 참고한다. 2026-08-30 결정으로
+`seam-conservative + UVDoc bilinear`를 영상 Scanner의 기본 처리 경로로 채택했다. 현재
+offline 구현과 p30 검증은 완료됐지만 session 영상 runtime 통합은 아직 진행 전이다.
 비라벨 stress 이미지는 정상 성공 표본이 아니라 오배치·부분 이탈·그림자·빈 받침대의
 offline fallback 진단에 사용하며, 진단을 통과한 입력만 후속 OCR 후보로 취급한다.
 
@@ -184,20 +187,83 @@ python tools/run_p030_document_parser_validation.py report
 ```
 
 `postprocess-prepare`가 `POSTPROCESS_NOT_TRIGGERED`를 반환하면 bicubic/unsharp OCR은 실행하지
-않는다. p030 fixture는 인간 golden이 아니므로 이 실험은 동일 원문 회귀와 variant 상대
-비교만 제공한다.
+않는다. p030 fixture는 Document Parser 개발 과정에서 사람이 직접 검증한 p30 golden이다.
+p30 밖의 다른 페이지에 그 지위를 자동으로 일반화하지 않는다.
+
+연속 영상, 버튼 start/cancel, 같은 full-spread frame의 좌우 처리, 전송 준비도 계층,
+guidance, durable outbox와 PC→Pi 4 확장 설계는
+`SCANNER_CONTINUOUS_TRANSFER_READINESS_DESIGN.md`를 기준으로 한다.
+승인된 첫 구현 범위는 `SCANNER_VIDEO_V0_CONTRACT_WORK_PACKET.md`,
+`SCANNER_VIDEO_V1_FRAME_ENGINE_WORK_PACKET.md`,
+`SCANNER_VIDEO_V1_1_RUNTIME_HARDENING_WORK_PACKET.md`,
+`SCANNER_VIDEO_V2_SEAM_UVDOC_ARTIFACT_WORK_PACKET.md`,
+`SCANNER_VIDEO_V3_A_PAGE_IDENTITY_CHANGE_GATE_WORK_PACKET.md`,
+`SCANNER_VIDEO_V3_A_1_BOTTOM_ROI_PAGE_NUMBER_IDENTITY_WORK_PACKET.md`로 분리했다.
+V0~V2의 PC sampled-frame 및 `seam-conservative + UVDoc bilinear` atomic artifact 경로와,
+V3-A의 동일 실행 중 page identity·single in-flight·ACK 이후 page-change gate를 구현했다.
+V3-A의 실제 p30 identity 결과와 검증 한계는 `SCANNER_VIDEO_V3_A_IMPLEMENTATION_REPORT.md`를
+참조한다. V3-A.1의 bottom ROI page-number 계약·fusion은 구현됐으나 production recognizer는
+아직 선발되지 않았다. V3-A.2에서 71KiB OpenCV-DNN 숫자 모델을 구현했고 corrected p30 왼쪽
+golden과 PC resource budget은 통과했지만, 1920px preview의 붙은 숫자 분할로 temporal consensus
+release가 0건이었다. 따라서 provider는 여전히 opt-in이며 visual fallback을 유지한다. backend별
+p30 정확도·PC 지연은 `SCANNER_VIDEO_V3_A_1_IMPLEMENTATION_REPORT.md`, V3-A.2 모델·500/750/1000ms
+replay와 선발 보류 근거는 `SCANNER_VIDEO_V3_A_2_IMPLEMENTATION_REPORT.md`를 참조한다.
+V3-A.3에서는 로컬 Paddle recognition-only와 명시적 호출 scheduler를 구현해 CandidateGate와
+VisualGate의 절감률을 분리했다. 기본 750ms에서 VisualGate의 추가 Paddle 요청 억제는 22.2%로
+사전 30% 가치 gate를 통과하지 못했고 page-key K=3 release도 0건이었다. 500ms에서는 37.5% 절감과
+진단 release 1건이 있었지만 `316/317` 및 안정 구간이 사람 golden이 아니므로 default를 바꾸지
+않았다. 상세 결과는 `SCANNER_VIDEO_V3_A_3_IMPLEMENTATION_REPORT.md`를 참조한다.
 
 현재 작은 라벨 집합의 영상 지표, 실제 실행된 OCR 범위, device 차단 및 아직 검증하지
 못한 결론은 `PAIRED_OCR_INPUT_EXPERIMENT_REPORT.md`에 분리해 기록했다.
 
-## 이번에 하지 않은 것
+V3-A.2의 offline 재현 도구는 다음과 같다. 학습용 PyTorch/ONNX는 production dependency가 아니며,
+runtime은 hash-pinned ONNX를 기존 OpenCV DNN으로만 읽는다.
 
-실제 Pi 카메라 제어, 실제 버튼 GPIO 입력, 실제 비프음 회로/TTS 오디오 출력(문구
-매핑까지만), document-parser 전달 책임 모듈의 최종 위치 확정, 동일 페이지 중복 스캔
-방지(로드맵 Stage 7), 중심선(책등) 자동 검출(설정값으로만 처리), 책등 곡면의 실제
-복원/평탄화(원근 보정은 여전히 평면 가정 — 좌/우 분할이 곡률 문제 자체를 없애주지는
-않고, 물리적 완화에 기댄다).
+```bash
+python tools/generate_page_number_synthetic_dataset.py --help
+python tools/train_page_number_digit_model.py --help
+python tools/run_scanner_video_v3a2_backend_evaluation.py --help
+python tools/run_scanner_video_v3a2_temporal_replay.py --help
+python tools/run_scanner_video_v3a3_paddle_capture.py --help
+python tools/run_scanner_video_v3a3_scheduler_replay.py --help
+python tools/summarize_scanner_video_v3a3_value.py --help
+python tools/run_scanner_video_v3a4_footer_capture.py --help
+python tools/run_scanner_video_v3a4_footer_replay.py --help
+python tools/summarize_scanner_video_v3a4_footer_identity.py --help
+python tools/run_page_number_stage_paired_experiment.py --help
+```
 
-물리적 V자 받침이 만들어지면: 실제 스프레드 사진으로 중심선 설정값이 맞는지, 좌/우
-분할 후 각 파이프라인이 신뢰할 만하게 동작하는지, 안정성/화질 임곗값이 실측과 맞는지
-재검증이 필요하다 — 지금은 전부 하드웨어 부재로 미검증 상태다.
+V3-A.4에서는 정확한 번호 대신 좌우 bottom ROI의 raw OCR pair를 opaque identity로 반복 비교했다.
+현재 두 spread의 disjoint 100ms/N=5 진단에서 native raw pair는 `p_same=0.90`, 관찰
+`p_diff=0.00`이었고 기존 full-page VisualGate의 `p_same=0.70`보다 높았다. 다만 different identity가
+두 개뿐이므로 `PROVISIONAL_CANDIDATE_DATA_INSUFFICIENT`이며 일반화 검증은 완료되지 않았다.
+V3-A.5에서는 표본 확보가 통합 개발을 막지 않도록 이 M1을 `validated=false` 기본 runtime 전략으로
+연결했다. 안정 후보 뒤 native bottom ROI를 100ms 간격, N=5, `K_same=1/K_diff=0`으로 확인하고,
+SAME이면 V2 전에 억제하며 서버 ACK만 pending bank를 accepted bank로 승격한다. 명시적
+`LEGACY_VISUAL` rollback과 hash-pinned local Paddle fail-fast composition도 유지한다. 상세 수치와
+N=10 미측정 사유는 `SCANNER_VIDEO_V3_A_4_IMPLEMENTATION_REPORT.md`, 구현 결과는
+`SCANNER_VIDEO_V3_A_5_IMPLEMENTATION_REPORT.md`를 참조한다.
+
+번호 인식 시점을 1920 preview/native preview/seam crop/UVDoc 후로 고정 비교한 결과와,
+missing-side만 native로 재시도하는 보수적 후보의 근거는
+`PAGE_NUMBER_RECOGNITION_STAGE_PAIRED_EXPERIMENT_REPORT.md`에 기록했다. UVDoc 뒤 인식이나
+native 전면 전환은 이 표본에서 개선으로 입증되지 않았다.
+
+## 아직 완료하지 않은 것
+
+durable outbox, 실제 HTTP 송신·서버 멱등성, parser preflight API, 실제 비프음/TTS,
+Pi 카메라·GPIO, Pi 4에서의 UVDoc 위치와 성능은 아직 구현·검증하지 않았다. V3-A identity와
+page-change 임곗값도 충분한 held-out spread 및 MP4 page-change timeline으로 calibration하지
+않았다. M1은 기본 구성이나 `validated=false`이며, semantic page-number 정확도나 일반적인
+false-duplicate율을 입증한 것으로 보지 않는다. Paddle 모델 경로·manifest가 없는 M1 구성은
+시각 방식으로 자동 fallback하지 않고 실패한다. seam과 UVDoc의 p30 채택 근거를 다른 책·조명·그림자·
+부분 잘림에 자동 일반화하지 않는다.
+
+V3-A.5 이후 우선순위는 중복 판정 실험에서 본래 통합 흐름으로 복귀한다: Server S0 persistent
+catalog·scan session·reading progress, Server S1 fragment append·seal, Scanner V3-B + Server V4
+durable outbox·HTTP ingest, 마지막으로 STM/camera/audio/Pi 4 device integration이다. 추가 M1 표본
+검증은 병행 backlog이며 이 순서의 선행 blocker가 아니다.
+
+세부 상태, 책임 경계, 실패 이유, 구현 단계와 검증 기준은
+`SCANNER_CONTINUOUS_TRANSFER_READINESS_DESIGN.md`를 따른다.

@@ -91,7 +91,7 @@ def main() -> int:
             "actual_timestamp_seconds": actual_timestamp,
             "frame_index": frame_index,
             "source_frame_id": frame_id.value,
-            "selection_basis": "manual_visual_review_hand_free_stable",
+            "selection_basis": "externally_supplied_timestamp",
             "state": decision.state.value,
             "reasons": [reason.value for reason in decision.reasons],
             "metrics": dict(decision.metrics),
@@ -132,8 +132,8 @@ def main() -> int:
         "scope": "v2_local_artifact_replay_only",
         "automatic_stable_selection_validated": False,
         "selection_note": (
-            "Timestamps were selected by human visual review. This result does not validate "
-            "the V1 automatic candidate/stability gate."
+            "Timestamps are externally supplied diagnostic inputs. Any ground-truth label must "
+            "be recorded separately; this result does not validate the V1 automatic gate."
         ),
         "source_video": {
             "path": str(video),

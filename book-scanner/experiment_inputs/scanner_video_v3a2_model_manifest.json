@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "model_id": "tiny-page-digit-cnn-v1",
+  "format": "ONNX",
+  "opset": 17,
+  "runtime": "opencv-dnn",
+  "runtime_dependencies": [
+    "opencv-python",
+    "numpy"
+  ],
+  "training_dependencies": {
+    "torch": "2.13.0+cpu",
+    "onnx": "1.18.0",
+    "production_imported": false
+  },
+  "seed": 20260831,
+  "architecture": "conv12-conv24-conv32-maxpool-linear10",
+  "parameter_count": 17370,
+  "input_shape": [
+    1,
+    48,
+    32
+  ],
+  "class_order": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "confidence_temperature": 0.775,
+  "dataset": {
+    "path": "tmp\\page-number-training\\page_digit_synthetic_v2.npz",
+    "sha256": "73f74340e9b8098575666079138c45d0427689116c0c54463c5460054bfa0ad0",
+    "generator_version": "opencv-freetype-page-digit-v2",
+    "train_samples": 12000,
+    "validation_samples": 3000,
+    "font_family_overlap": []
+  },
+  "training": {
+    "epochs": 12,
+    "batch_size": 256,
+    "wall_seconds": 24.500985200000287,
+    "best_validation_accuracy": 0.9679999947547913,
+    "history": [
+      {
+        "epoch": 1,
+        "train_loss": 1.4895583090782165,
+        "train_accuracy": 0.48583333333333334,
+        "validation_accuracy": 0.7730000019073486
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.29474121713638307,
+        "train_accuracy": 0.92725,
+        "validation_accuracy": 0.9190000295639038
+      },
+      {
+        "epoch": 3,
+        "train_loss": 0.10545934490362803,
+        "train_accuracy": 0.9759166666666667,
+        "validation_accuracy": 0.9426666498184204
+      },
+      {
+        "epoch": 4,
+        "train_loss": 0.05862146689494451,
+        "train_accuracy": 0.98675,
+        "validation_accuracy": 0.9643333554267883
+      },
+      {
+        "epoch": 5,
+        "train_loss": 0.038871829549471534,
+        "train_accuracy": 0.99175,
+        "validation_accuracy": 0.9610000252723694
+      },
+      {
+        "epoch": 6,
+        "train_loss": 0.02787424051761627,
+        "train_accuracy": 0.9945,
+        "validation_accuracy": 0.9599999785423279
+      },
+      {
+        "epoch": 7,
+        "train_loss": 0.024092131555080415,
+        "train_accuracy": 0.9943333333333333,
+        "validation_accuracy": 0.9486666917800903
+      },
+      {
+        "epoch": 8,
+        "train_loss": 0.18597229748964308,
+        "train_accuracy": 0.9711666666666666,
+        "validation_accuracy": 0.7606666684150696
+      },
+      {
+        "epoch": 9,
+        "train_loss": 0.19316921203335127,
+        "train_accuracy": 0.9569166666666666,
+        "validation_accuracy": 0.9539999961853027
+      },
+      {
+        "epoch": 10,
+        "train_loss": 0.03772602907816569,
+        "train_accuracy": 0.9935833333333334,
+        "validation_accuracy": 0.9679999947547913
+      },
+      {
+        "epoch": 11,
+        "train_loss": 0.02183730302999417,
+        "train_accuracy": 0.99725,
+        "validation_accuracy": 0.9660000205039978
+      },
+      {
+        "epoch": 12,
+        "train_loss": 0.01479740526030461,
+        "train_accuracy": 0.9985833333333334,
+        "validation_accuracy": 0.9643333554267883
+      }
+    ]
+  },
+  "onnx_parity": {
+    "sample_count": 128,
+    "argmax_agreement": 1.0,
+    "max_abs_logit_error": 1.52587890625e-05
+  },
+  "asset": {
+    "path": "book-scanner\\models\\page_number_digit_v1.onnx",
+    "bytes": 71718,
+    "sha256": "729dd868d622a28a9486d7edccc7351cc5ca8e995e4ca5dfe1e96efb47837c4c",
+    "runtime_download_required": false
+  },
+  "license": {
+    "training_font_source": {
+      "sources": [
+        {
+          "family": "DejaVu Sans",
+          "license": "Bitstream-Vera-and-DejaVu-fonts-license",
+          "source": "local_file_not_redistributed",
+          "file_name": "DejaVuSans.ttf",
+          "sha256": "7da195a74c55bef988d0d48f9508bd5d849425c1770dba5d7bfc6ce9ed848954"
+        },
+        {
+          "family": "Liberation Sans",
+          "license": "SIL-OFL-1.1",
+          "source": "local_file_not_redistributed",
+          "file_name": "LiberationSans-Regular.ttf",
+          "sha256": "f8ace1f892b2bd9dc1792ba7f097fa7588f84fed48321480e04de5390828221f"
+        },
+        {
+          "family": "Ubuntu",
+          "license": "Ubuntu-Font-License-1.0",
+          "source": "local_file_not_redistributed",
+          "file_name": "Ubuntu-R.ttf",
+          "sha256": "52c1afa489ae7bfd893af6cdd9f1af258005703600449e70d338caabcff507e5"
+        },
+        {
+          "family": "Noto Sans KR",
+          "license": "SIL-OFL-1.1",
+          "source": "local_file_not_redistributed",
+          "file_name": "NotoSansKR-VF.ttf",
+          "sha256": "018174e8cdd366aff67c8d366c7dc806a7babbe7f2819fc23b00d59f7b8353d0"
+        },
+        {
+          "family": "Source Code Pro",
+          "license": "SIL-OFL-1.1",
+          "source": "local_file_not_redistributed",
+          "file_name": "SourceCodePro-Regular.ttf",
+          "sha256": "f144137f557805c7327fc4b14d1d730f6e1822e0124170251ff1bcd723a693f1"
+        },
+        {
+          "family": "Inconsolata",
+          "license": "SIL-OFL-1.1",
+          "source": "local_file_not_redistributed",
+          "file_name": "Inconsolata-Regular.ttf",
+          "sha256": "127875d255d4c5973ca57267a43bb9d1c04397e6c7d236984a595b6cdcb12b7c"
+        }
+      ],
+      "redistributed_font_files": false,
+      "opencv_version": "5.0.0"
+    },
+    "model_project_license_inheritance": true,
+    "external_model_weights_used": false
+  },
+  "validated": false,
+  "scope_note": "Synthetic validation is not real-page production evidence."
+}

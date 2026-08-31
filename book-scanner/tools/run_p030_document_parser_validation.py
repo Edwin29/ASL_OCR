@@ -29,6 +29,10 @@ from book_scanner.annotations.labelme import load_labelme_pages  # noqa: E402
 from book_scanner.correct.uvdoc_adapter import UVDocAdapter, UVDocConfig  # noqa: E402
 from book_scanner.detect.roi import PageSide  # noqa: E402
 from book_scanner.evaluation.p030_reference import (  # noqa: E402
+    P030_ABSOLUTE_ACCURACY_CLAIM_ALLOWED,
+    P030_GOLDEN_PROVENANCE,
+    P030_GOLDEN_SCOPE,
+    P030_REFERENCE_IS_HUMAN_GOLDEN,
     compare_p030_page_ir,
     select_uvdoc_postprocess_sources,
 )
@@ -208,7 +212,9 @@ def _run_ocr_phase(
             comparison = compare_p030_page_ir(record["page_ir"], reference)
             record["p030_reference_comparison"] = comparison
             record["same_printed_source_asserted"] = True
-            record["reference_is_human_golden"] = False
+            record["reference_is_human_golden"] = P030_REFERENCE_IS_HUMAN_GOLDEN
+            record["golden_provenance"] = P030_GOLDEN_PROVENANCE
+            record["golden_scope"] = P030_GOLDEN_SCOPE
             _write_json(record_path, record)
             enriched["comparison"] = comparison
         results.append(enriched)
@@ -224,8 +230,10 @@ def _run_ocr_phase(
         "model_download_attempted": False,
         "reference_path": str(reference_path.resolve()),
         "reference_sha256": sha256_file(reference_path),
-        "reference_is_human_golden": False,
-        "absolute_accuracy_claim_allowed": False,
+        "reference_is_human_golden": P030_REFERENCE_IS_HUMAN_GOLDEN,
+        "absolute_accuracy_claim_allowed": P030_ABSOLUTE_ACCURACY_CLAIM_ALLOWED,
+        "golden_provenance": P030_GOLDEN_PROVENANCE,
+        "golden_scope": P030_GOLDEN_SCOPE,
         "results": results,
     }
     _write_json(output_dir / f"{phase}_ocr_summary.json", summary)
@@ -355,8 +363,10 @@ def _final_summary(output_dir: Path) -> dict[str, object]:
     payload: dict[str, object] = {
         "schema_version": 1,
         "status": "INCOMPLETE",
-        "reference_is_human_golden": False,
-        "absolute_accuracy_claim_allowed": False,
+        "reference_is_human_golden": P030_REFERENCE_IS_HUMAN_GOLDEN,
+        "absolute_accuracy_claim_allowed": P030_ABSOLUTE_ACCURACY_CLAIM_ALLOWED,
+        "golden_provenance": P030_GOLDEN_PROVENANCE,
+        "golden_scope": P030_GOLDEN_SCOPE,
         "phases": {},
     }
     for phase in ("oracle", "automatic", "postprocess"):
@@ -425,6 +435,66 @@ def _final_summary(output_dir: Path) -> dict[str, object]:
             if len(all_items) == 6 and hard_passes == 6:
                 candidates.append(geometry)
         payload["geometry_summary"] = geometry_summary
+        math_alignment_summary: dict[str, object] = {}
+        for extraction, result_map in (
+            ("oracle", oracle_results),
+            ("seam_conservative", automatic_results),
+        ):
+            by_geometry: dict[str, object] = {}
+            for geometry in ("none", "coarse", "uvdoc_bilinear"):
+                alignments = [
+                    item["comparison"]["math_braille_alignment"]
+                    for item in result_map.values()
+                    if item.get("geometry") == geometry
+                ]
+                common_cells = sum(
+                    int(item.get("common_reference_cell_count", 0)) for item in alignments
+                )
+                weighted_similarity = (
+                    sum(
+                        float(item.get("common_cell_similarity") or 0.0)
+                        * int(item.get("common_reference_cell_count", 0))
+                        for item in alignments
+                    ) / common_cells
+                    if common_cells else None
+                )
+                by_geometry[geometry] = {
+                    "result_count": len(alignments),
+                    "reference_span_count": sum(
+                        int(item.get("reference_span_count", 0)) for item in alignments
+                    ),
+                    "common_span_count": sum(
+                        int(item.get("common_span_count", 0)) for item in alignments
+                    ),
+                    "exact_common_span_count": sum(
+                        int(item.get("exact_common_span_count", 0)) for item in alignments
+                    ),
+                    "common_reference_cell_count": common_cells,
+                    "weighted_common_cell_similarity": weighted_similarity,
+                    "reference_only_span_count": sum(
+                        int(item.get("reference_only_span_count", 0)) for item in alignments
+                    ),
+                    "reference_only_cell_count": sum(
+                        int(item.get("reference_only_cell_count", 0)) for item in alignments
+                    ),
+                    "candidate_added_span_count": sum(
+                        int(item.get("candidate_added_span_count", 0)) for item in alignments
+                    ),
+                    "candidate_added_cell_count": sum(
+                        int(item.get("candidate_added_cell_count", 0)) for item in alignments
+                    ),
+                    "candidate_added_present_in_reference_plain_text_count": sum(
+                        int(item.get("candidate_added_present_in_reference_plain_text_count", 0))
+                        for item in alignments
+                    ),
+                    "candidate_added_present_in_reference_plain_text_cell_count": sum(
+                        int(item.get("candidate_added_present_in_reference_plain_text_cell_count", 0))
+                        for item in alignments
+                    ),
+                    "verdicts": sorted({str(item.get("verdict")) for item in alignments}),
+                }
+            math_alignment_summary[extraction] = by_geometry
+        payload["math_braille_alignment_summary"] = math_alignment_summary
         payload["geometry_candidate"] = candidates[0] if len(candidates) == 1 else None
         payload["geometry_verdict"] = (
             f"ORACLE_AND_AUTOMATIC_GEOMETRY_CANDIDATE_{candidates[0].upper()}"
@@ -469,7 +539,7 @@ def _final_summary(output_dir: Path) -> dict[str, object]:
             or phases.get("postprocess", {}).get("status") == "COMPLETE"
         )
         if postprocess_done:
-            payload["status"] = "EXECUTION_COMPLETE_NOT_HUMAN_GOLDEN"
+            payload["status"] = "EXECUTION_COMPLETE_HUMAN_VERIFIED_GOLDEN"
     _write_json(output_dir / "final_summary.json", payload)
     return payload
 

@@ -1,0 +1,14 @@
+[project]
+name = "asl-device-runtime"
+version = "0.1.0"
+description = "Pure device-flow coordination contracts for ASL OCR."
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+

@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "status": "PRE_REGISTERED_DIAGNOSTIC",
+  "source_video": {
+    "file_name": "20260830_133526.mp4",
+    "sha256": "16c57970bc493abcef4a1db0f1917b22956bf5ca1a2ee8b4565fde1f6574e6f8",
+    "fps": 59.69965076707844,
+    "frame_count": 2677,
+    "duration_seconds": 44.84113333333334
+  },
+  "paddle_model_manifest": "scanner_video_v3a3_paddle_model_manifest.json",
+  "capture": {
+    "frame_selection": "all_frames_inside_pre_registered_blocks",
+    "preview_stages": [
+      "preview_1920",
+      "preview_native"
+    ],
+    "save_image_frame_indices": [
+      720,
+      780,
+      810,
+      2190,
+      2220,
+      2250
+    ],
+    "runtime_download_allowed": false,
+    "uvdoc_allowed": false,
+    "document_parser_allowed": false
+  },
+  "blocks": {
+    "p030_reference": {
+      "spread_label": "p030_spread",
+      "start_frame_inclusive": 690,
+      "end_frame_inclusive": 744,
+      "boundary_status": "DIAGNOSTIC_FROM_AUTOMATED_STABLE_WINDOW",
+      "role": "reference"
+    },
+    "p030_query": {
+      "spread_label": "p030_spread",
+      "start_frame_inclusive": 756,
+      "end_frame_inclusive": 810,
+      "boundary_status": "DIAGNOSTIC_FROM_AUTOMATED_STABLE_WINDOW",
+      "role": "query"
+    },
+    "p316_reference": {
+      "spread_label": "p316_spread",
+      "start_frame_inclusive": 2190,
+      "end_frame_inclusive": 2214,
+      "boundary_status": "DIAGNOSTIC_FROM_AUTOMATED_STABLE_WINDOW",
+      "role": "reference"
+    },
+    "p316_query": {
+      "spread_label": "p316_spread",
+      "start_frame_inclusive": 2226,
+      "end_frame_inclusive": 2250,
+      "boundary_status": "DIAGNOSTIC_FROM_AUTOMATED_STABLE_WINDOW",
+      "role": "query"
+    }
+  },
+  "relations": [
+    {
+      "relation_id": "same_p030",
+      "reference_block": "p030_reference",
+      "query_block": "p030_query",
+      "expected": "same"
+    },
+    {
+      "relation_id": "same_p316",
+      "reference_block": "p316_reference",
+      "query_block": "p316_query",
+      "expected": "same"
+    },
+    {
+      "relation_id": "different_p030_to_p316",
+      "reference_block": "p030_reference",
+      "query_block": "p316_query",
+      "expected": "different"
+    },
+    {
+      "relation_id": "different_p316_to_p030",
+      "reference_block": "p316_reference",
+      "query_block": "p030_query",
+      "expected": "different"
+    }
+  ],
+  "methods": [
+    "semantic_key",
+    "selected_raw_token",
+    "variant_token_set",
+    "visual_fingerprint",
+    "hybrid"
+  ],
+  "cadence_ms": [
+    100,
+    250,
+    500,
+    750,
+    1000
+  ],
+  "nominal_n": [
+    3,
+    5,
+    8,
+    10,
+    14,
+    20
+  ],
+  "threshold_grid": "all_0_le_k_different_lt_k_same_le_n",
+  "visual_policy": {
+    "hamming_max": 8,
+    "hamming_relaxed_max": 18,
+    "projection_mae_max": 0.03,
+    "projection_relaxed_mae_max": 0.06,
+    "ncc_min": 0.9,
+    "ncc_relaxed_min": 0.78,
+    "full_page_different_hamming_min": 20,
+    "full_page_different_projection_min": 0.06,
+    "threshold_status": "PRE_REGISTERED_REUSED_FROM_V3A_BANDS_NO_HOLDOUT_RETUNING"
+  },
+  "statistics": {
+    "confidence": 0.95,
+    "block_bootstrap_iterations": 2000,
+    "block_duration_ms": 500,
+    "seed": 3404,
+    "n_squared_pairs_are_independent_trials": false
+  },
+  "candidate_gate": {
+    "false_duplicate_count": 0,
+    "false_different_count": 0,
+    "p_same_point_estimate_gt_p_diff_in_every_fold": true,
+    "max_nominal_n": 14,
+    "max_visual_descriptor_median_ms_per_side": 10.0,
+    "production_activation_allowed": false
+  },
+  "limitations": [
+    "Only p030 left page number is explicit user golden; semantic accuracy is not the V3-A.4 target.",
+    "The stable block boundaries and p316 labels are diagnostic, not frame-by-frame human golden.",
+    "Only two spread identities are available, so zero observed false duplicates cannot validate a general error rate.",
+    "Cadence/N combinations that do not fit disjoint blocks must be reported as NOT_MEASURED_INSUFFICIENT_WINDOW."
+  ]
+}

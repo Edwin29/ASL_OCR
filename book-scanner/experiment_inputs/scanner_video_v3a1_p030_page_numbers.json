@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "spread_source": "tmp/v3a-p030-identity-artifacts/ready",
+  "artifact_ids": [
+    "spread-22f8f500551892e6837960254defa18e",
+    "spread-34d8c4795d71c73e4ea889ae83659425",
+    "spread-91b6c25f3b19cf7388fa160f9b098719"
+  ],
+  "labels": {
+    "left": {
+      "value": "30",
+      "source": "user_confirmed_left_page_is_p30"
+    },
+    "right": {
+      "value": "309",
+      "source": "visually_legible_in_supplied_images_not_explicitly_user_confirmed",
+      "golden": false
+    }
+  },
+  "scope_note": "All three captures are the same spread. This manifest is not different-page negative evidence."
+}

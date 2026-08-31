@@ -7,9 +7,11 @@ import numpy as np
 import pytest
 
 from book_scanner.video.candidate import OpenCVCandidateAnalyzer
-from book_scanner.video.config import CandidatePolicy
-from book_scanner.video.engine import SampledFrameEngine
+from book_scanner.video.config import CandidatePolicy, IdentityPolicy, PageChangePolicy
+from book_scanner.video.engine import SampledFrameEngine as ProductionSampledFrameEngine
 from book_scanner.video.events import VideoEventType
+from book_scanner.video.identity import InMemoryPageIdentityLedger
+from book_scanner.video.page_change import HysteresisPageChangeGate
 from book_scanner.video.protocols import FrameSample
 from book_scanner.video.types import (
     FrameId,
@@ -22,11 +24,25 @@ from book_scanner.video.types import (
 from .fakes import (
     FakeArtifactStore,
     FakeCameraSource,
+    FakeIdentityProvider,
     FakeSpreadPreparer,
     ManualClock,
     make_prepared,
 )
 from .test_candidate import spread_frame
+
+
+def SampledFrameEngine(*args, **kwargs):
+    """Give legacy engine tests deterministic V3-A boundaries."""
+
+    identity_policy = IdentityPolicy()
+    kwargs.setdefault("identity_provider", FakeIdentityProvider())
+    kwargs.setdefault("identity_ledger", InMemoryPageIdentityLedger(identity_policy))
+    kwargs.setdefault(
+        "page_change_gate",
+        HysteresisPageChangeGate(identity_policy, PageChangePolicy()),
+    )
+    return ProductionSampledFrameEngine(*args, **kwargs)
 
 
 def _frames(count: int) -> list[FrameSample[np.ndarray]]:
@@ -95,7 +111,7 @@ def test_start_stable_select_process_and_release_camera() -> None:
         clock.advance(0.1)
     events = _poll_until(engine, VideoSessionState.READY_FOR_SERVER_PREFLIGHT)
 
-    assert camera.stopped
+    assert camera.started and not camera.stopped
     assert preparer.calls[0][0].frame_id == FrameId("f-3")
     ready_event = next(event for event in events if event.event_type is VideoEventType.ARTIFACT_READY)
     assert ready_event.source_frame_id == preparer.calls[0][0].frame_id
@@ -103,7 +119,7 @@ def test_start_stable_select_process_and_release_camera() -> None:
     assert len(store.commits) == 1
     assert engine.diagnostics.frames_received == 3
     assert engine.diagnostics.frames_selected == 1
-    assert engine.diagnostics.camera_resource_released
+    assert not engine.diagnostics.camera_resource_released
     engine.close()
 
 

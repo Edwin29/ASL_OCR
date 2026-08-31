@@ -34,7 +34,7 @@ class FixtureVlAdapter:
 
 @unittest.skipUnless(FLASK_AVAILABLE, "flask not installed (pip install document-parser[remote-ingest])")
 class CombinedServerTests(unittest.TestCase):
-    def _make_client(self, datapacks_dir: Path, jobs_dir: Path, api_key="secret"):
+    def _make_client(self, datapacks_dir: Path, jobs_dir: Path, api_key="secret", with_s0=False):
         from document_parser.server.combined_server import create_app
 
         registry = JobRegistry(
@@ -42,7 +42,15 @@ class CombinedServerTests(unittest.TestCase):
             jobs_root=jobs_dir, datapacks_dir=datapacks_dir,
         )
         store = SessionStore(datapacks_dir)
-        app = create_app(registry, store, api_key=api_key)
+        control_plane = None
+        if with_s0:
+            from document_parser.server.s0_services import S0ControlPlane
+            from document_parser.server.s0_store import S0Store
+
+            control_plane = S0ControlPlane(
+                S0Store(datapacks_dir / "_server" / "state.sqlite3", datapacks_dir)
+            )
+        app = create_app(registry, store, api_key=api_key, control_plane=control_plane)
         return app.test_client()
 
     def _wait_for_status(self, client, job_id, target_statuses, timeout=5.0):
@@ -125,6 +133,23 @@ class CombinedServerTests(unittest.TestCase):
             client = self._make_client(datapacks_dir=root / "datapacks", jobs_dir=root / "jobs")
             response = client.get("/datapacks")
             self.assertEqual(response.status_code, 401)
+
+    def test_s0_json_limit_does_not_limit_legacy_image_uploads(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            client = self._make_client(
+                datapacks_dir=root / "datapacks", jobs_dir=root / "jobs", with_s0=True
+            )
+
+            response = client.post(
+                "/jobs",
+                headers={"X-API-Key": "secret"},
+                data={"book_id": "large-image", "images": (io.BytesIO(b"x" * 70000), "p1.png")},
+                content_type="multipart/form-data",
+            )
+
+            self.assertEqual(response.status_code, 202)
+            self._wait_for_status(client, response.get_json()["job_id"], {"done", "error"})
 
 
 if __name__ == "__main__":

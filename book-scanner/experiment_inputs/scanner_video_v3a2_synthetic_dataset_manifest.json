@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "generator_version": "opencv-freetype-page-digit-v2",
+  "seed": 20260831,
+  "output_sha256": "73f74340e9b8098575666079138c45d0427689116c0c54463c5460054bfa0ad0",
+  "input_shape": [
+    1,
+    48,
+    32
+  ],
+  "normalization": "binary_foreground_0_or_1_centered_with_8px_margin",
+  "splits": {
+    "train": {
+      "samples": 12000,
+      "per_digit": 1200,
+      "font_families": [
+        "DejaVu Sans",
+        "Liberation Sans",
+        "Noto Sans KR",
+        "Ubuntu"
+      ]
+    },
+    "validation": {
+      "samples": 3000,
+      "per_digit": 300,
+      "font_families": [
+        "Inconsolata",
+        "Source Code Pro"
+      ]
+    },
+    "font_family_overlap": []
+  },
+  "font_license": {
+    "sources": [
+      {
+        "family": "DejaVu Sans",
+        "license": "Bitstream-Vera-and-DejaVu-fonts-license",
+        "source": "local_file_not_redistributed",
+        "file_name": "DejaVuSans.ttf",
+        "sha256": "7da195a74c55bef988d0d48f9508bd5d849425c1770dba5d7bfc6ce9ed848954"
+      },
+      {
+        "family": "Liberation Sans",
+        "license": "SIL-OFL-1.1",
+        "source": "local_file_not_redistributed",
+        "file_name": "LiberationSans-Regular.ttf",
+        "sha256": "f8ace1f892b2bd9dc1792ba7f097fa7588f84fed48321480e04de5390828221f"
+      },
+      {
+        "family": "Ubuntu",
+        "license": "Ubuntu-Font-License-1.0",
+        "source": "local_file_not_redistributed",
+        "file_name": "Ubuntu-R.ttf",
+        "sha256": "52c1afa489ae7bfd893af6cdd9f1af258005703600449e70d338caabcff507e5"
+      },
+      {
+        "family": "Noto Sans KR",
+        "license": "SIL-OFL-1.1",
+        "source": "local_file_not_redistributed",
+        "file_name": "NotoSansKR-VF.ttf",
+        "sha256": "018174e8cdd366aff67c8d366c7dc806a7babbe7f2819fc23b00d59f7b8353d0"
+      },
+      {
+        "family": "Source Code Pro",
+        "license": "SIL-OFL-1.1",
+        "source": "local_file_not_redistributed",
+        "file_name": "SourceCodePro-Regular.ttf",
+        "sha256": "f144137f557805c7327fc4b14d1d730f6e1822e0124170251ff1bcd723a693f1"
+      },
+      {
+        "family": "Inconsolata",
+        "license": "SIL-OFL-1.1",
+        "source": "local_file_not_redistributed",
+        "file_name": "Inconsolata-Regular.ttf",
+        "sha256": "127875d255d4c5973ca57267a43bb9d1c04397e6c7d236984a595b6cdcb12b7c"
+      }
+    ],
+    "redistributed_font_files": false,
+    "opencv_version": "5.0.0"
+  },
+  "augmentations": [
+    "rotation_-8_to_8_deg",
+    "scale_0.72_to_1.32",
+    "translation_up_to_4px",
+    "x_shear_-0.10_to_0.10",
+    "gaussian_blur_0_to_1.15",
+    "erosion_or_dilation_probability_0.18",
+    "jpeg_quality_45_to_95_probability_0.35",
+    "salt_pepper_probability_up_to_0.012"
+  ],
+  "sequence_probes": [
+    "1",
+    "30",
+    "309",
+    "9999",
+    "316",
+    "317"
+  ],
+  "hard_negative_probes": [
+    "2026",
+    "11.4",
+    "Level",
+    "EBS",
+    "①",
+    "기초연습"
+  ],
+  "scope_note": "Synthetic tensors are training/tuning data only. Real corrected and preview labels remain the backend selection evidence."
+}

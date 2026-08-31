@@ -5,11 +5,12 @@
 
 ## 결론
 
-Drive에서 확보한 실제 4K 영상의 손 없는 정지 프레임을 production
+Drive에서 확보한 실제 4K 영상 중 Codex가 제안하고 사용자가 `CLEAN_TRANSFERABLE`로 확인한 프레임을 production
 `seam-conservative + UVDoc bilinear + atomic bundle` 경로로 처리했다. 2개 spread 모두
 좌우 artifact 생성과 commit에 성공했으며 네 페이지 동안 모델은 한 번만 로드됐다.
 
-그러나 이 결과는 자동 전송가능 판정 성공이 아니다. 기본 V1 후보 판정은 영상의 모든 표본을
+timestamp 자체는 Codex가 진단용으로 제안했으며 사용자가 두 원본 프레임을 확인한 뒤 label을
+확정했다. 그러나 이 결과는 자동 전송가능 판정 성공이 아니다. 기본 V1 후보 판정은 영상의 모든 표본을
 거부했고, 단순 threshold 완화는 정지한 손이 페이지를 가린 프레임을 수락할 수 있어 채택하지
 않았다.
 
@@ -43,6 +44,8 @@ preview 상·하단까지 번진 결과였다. 모션 임계값을 0.2로 완화
 |---:|---:|---|---|---:|---:|---:|
 | 13.065s | 780 | p30 / p309 | PREPARED | 2,875.657ms | 2,794,024 bytes | 1 |
 | 37.186s | 2220 | p316 / p317 | PREPARED | 1,032.237ms | 2,665,800 bytes | 1 |
+
+두 행의 anchor label은 사용자 확인 `CLEAN_TRANSFERABLE`이다.
 
 두 bundle 모두 다음을 만족했다.
 

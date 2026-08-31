@@ -58,6 +58,79 @@ def test_motion_in_third_sample_prevents_selection() -> None:
     }
 
 
+def test_global_exposure_change_is_normalized_before_motion_gate() -> None:
+    analyzer = OpenCVCandidateAnalyzer()
+    observations = tuple(
+        analyzer.analyze(sample(index, spread_frame(intensity=intensity)))
+        for index, intensity in enumerate((170, 205, 235), 1)
+    )
+
+    result = StableWindowAssessor().assess(observations)
+
+    assert result.stable
+    assert dict(result.metrics)["max_motion_fraction"] <= analyzer.policy.max_motion_fraction
+    assert dict(result.metrics)["all_alignments_valid"] is True
+
+
+def test_outer_frame_contact_is_warning_by_default_and_opt_in_hard_gate() -> None:
+    image = np.zeros((300, 400, 3), dtype=np.uint8)
+    cv2.rectangle(image, (30, 0), (190, 299), (220,) * 3, -1)
+    cv2.rectangle(image, (210, 0), (370, 299), (220,) * 3, -1)
+
+    warning = OpenCVCandidateAnalyzer().analyze(sample(1, image)).candidate
+    strict = OpenCVCandidateAnalyzer(
+        CandidatePolicy(reject_outer_frame_contacts=True)
+    ).analyze(sample(1, image)).candidate
+
+    assert dict(warning.metrics)["outer_frame_contact_warning"] is True
+    assert ReadinessReason.OUT_OF_FRAME not in warning.retry_reasons
+    assert ReadinessReason.OUT_OF_FRAME in strict.retry_reasons
+
+
+def test_bright_page_margin_at_frame_edge_is_not_confirmed_content_clipping() -> None:
+    image = np.zeros((300, 400, 3), dtype=np.uint8)
+    cv2.rectangle(image, (30, 25), (190, 299), (220,) * 3, -1)
+    cv2.rectangle(image, (210, 25), (370, 299), (220,) * 3, -1)
+
+    candidate = OpenCVCandidateAnalyzer().analyze(sample(1, image)).candidate
+    metrics = dict(candidate.metrics)
+
+    assert metrics["physical_page_clipping_warning"] is True
+    assert metrics["confirmed_content_clipping"] is False
+    assert ReadinessReason.OUT_OF_FRAME not in candidate.retry_reasons
+
+
+def test_ink_at_bright_page_edge_is_diagnostic_by_default() -> None:
+    image = np.zeros((300, 400, 3), dtype=np.uint8)
+    cv2.rectangle(image, (30, 25), (190, 299), (220,) * 3, -1)
+    cv2.rectangle(image, (210, 25), (370, 299), (220,) * 3, -1)
+    for x in range(55, 170, 18):
+        cv2.line(image, (x, 285), (x, 299), (40,) * 3, 3)
+
+    candidate = OpenCVCandidateAnalyzer().analyze(sample(1, image)).candidate
+    metrics = dict(candidate.metrics)
+
+    assert metrics["confirmed_content_clipping"] is True
+    assert "left:bottom" in str(metrics["confirmed_content_clipping_directions"])
+    assert metrics["confirmed_content_clipping_is_hard_gate"] is False
+    assert ReadinessReason.OUT_OF_FRAME not in candidate.retry_reasons
+
+
+def test_ink_at_bright_page_edge_can_be_opted_into_as_hard_gate() -> None:
+    image = np.zeros((300, 400, 3), dtype=np.uint8)
+    cv2.rectangle(image, (30, 25), (190, 299), (220,) * 3, -1)
+    cv2.rectangle(image, (210, 25), (370, 299), (220,) * 3, -1)
+    for x in range(55, 170, 18):
+        cv2.line(image, (x, 285), (x, 299), (40,) * 3, 3)
+
+    candidate = OpenCVCandidateAnalyzer(
+        CandidatePolicy(reject_confirmed_content_clipping=True)
+    ).analyze(sample(1, image)).candidate
+
+    assert dict(candidate.metrics)["confirmed_content_clipping"] is True
+    assert ReadinessReason.OUT_OF_FRAME in candidate.retry_reasons
+
+
 def test_seam_proxy_moves_with_gutter_instead_of_staying_at_center() -> None:
     analyzer = OpenCVCandidateAnalyzer()
 

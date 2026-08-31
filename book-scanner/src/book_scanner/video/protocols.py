@@ -12,7 +12,11 @@ from enum import Enum
 from typing import Generic, Iterator, Protocol, TypeVar
 
 from .events import GuidanceRequest
+from .identity import LedgerEntry, LedgerMatch, SpreadIdentity, SpreadVisualFingerprint
+from .page_change import PageChangeDecision
+from .page_number import PageNumberRecognition, SpreadPageNumberObservation
 from .types import (
+    ArtifactId,
     FrameCandidate,
     FrameId,
     PreparationDecision,
@@ -93,6 +97,71 @@ class ArtifactStore(Protocol):
     def discard(self, prepared: PreparedSpreadArtifact) -> None: ...
 
     def discard_job(self, job_id: ProcessingJobId) -> None: ...
+
+
+class SpreadIdentityProvider(Protocol):
+    def fingerprint_artifact(self, artifact: SpreadArtifactRef) -> SpreadIdentity: ...
+
+    def fingerprint_preview(
+        self,
+        gray_preview: object,
+        mask_preview: object,
+        seam_fraction: float | None,
+    ) -> SpreadVisualFingerprint: ...
+
+
+class PageIdentityLedger(Protocol):
+    @property
+    def pending(self) -> LedgerEntry | None: ...
+
+    def register_pending(self, identity: SpreadIdentity, artifact_id: ArtifactId) -> LedgerEntry: ...
+
+    def find_match(self, identity: SpreadIdentity) -> LedgerMatch: ...
+
+    def confirm(self, artifact_id: ArtifactId, receipt_id: str) -> bool: ...
+
+    def reject_or_release(self, artifact_id: ArtifactId) -> bool: ...
+
+    def recent_accepted(self) -> tuple[LedgerEntry, ...]: ...
+
+
+class PageChangeGate(Protocol):
+    def arm(self, baseline: SpreadVisualFingerprint) -> None: ...
+
+    def reset(self) -> None: ...
+
+    def observe(
+        self,
+        fingerprint: SpreadVisualFingerprint | None,
+        *,
+        eligible: bool,
+        motion_observed: bool = False,
+    ) -> PageChangeDecision: ...
+
+
+class PageNumberRecognizer(Protocol):
+    engine_id: str
+    engine_version: str
+    preprocessing_version: str
+
+    def recognize(self, roi: object, side: object) -> PageNumberRecognition: ...
+
+
+class PageNumberProvider(Protocol):
+    def observe_artifact(
+        self,
+        artifact: SpreadArtifactRef,
+        data_pack_id: str,
+    ) -> SpreadPageNumberObservation: ...
+
+    def observe_preview(
+        self,
+        gray_preview: object,
+        mask_preview: object,
+        seam_fraction: float | None,
+        source_frame_id: FrameId,
+        data_pack_id: str,
+    ) -> SpreadPageNumberObservation: ...
 
 
 class ParserClient(Protocol):

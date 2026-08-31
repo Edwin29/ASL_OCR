@@ -10,5 +10,10 @@ dependencies = [
   "requests",
 ]
 
+[project.optional-dependencies]
+hand-detection = [
+  "mediapipe==0.10.35",
+]
+
 [tool.setuptools.packages.find]
 where = ["src"]

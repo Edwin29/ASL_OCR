@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "source_video": {
+    "file_name": "20260830_133526.mp4",
+    "sha256": "16c57970bc493abcef4a1db0f1917b22956bf5ca1a2ee8b4565fde1f6574e6f8",
+    "fps": 59.69965076707844,
+    "frame_count": 2677,
+    "duration_seconds": 44.84113333333334
+  },
+  "page_label_scope": {
+    "p030_spread": {
+      "left": {
+        "value": "30",
+        "status": "USER_CONFIRMED"
+      },
+      "right": {
+        "value": "309",
+        "status": "DIAGNOSTIC_VISUALLY_LEGIBLE_NOT_EXPLICITLY_CONFIRMED"
+      }
+    },
+    "p316_spread": {
+      "left": {
+        "value": "316",
+        "status": "DIAGNOSTIC_NOT_USER_CONFIRMED"
+      },
+      "right": {
+        "value": "317",
+        "status": "DIAGNOSTIC_NOT_USER_CONFIRMED"
+      }
+    }
+  },
+  "anchors": [
+    {
+      "frame_index": 720,
+      "label": "CLEAN_TRANSFERABLE",
+      "label_status": "USER_CONFIRMED",
+      "page_spread": "p030_spread",
+      "source": "user_message_2026-08-30"
+    },
+    {
+      "frame_index": 780,
+      "label": "CLEAN_TRANSFERABLE",
+      "label_status": "USER_CONFIRMED",
+      "page_spread": "p030_spread",
+      "source": "user_confirmation_of_13.07s_frame_2026-08-30"
+    },
+    {
+      "frame_index": 900,
+      "label": "HAND_CONTENT_OCCLUSION",
+      "label_status": "USER_CONFIRMED",
+      "source": "user_message_2026-08-30"
+    },
+    {
+      "frame_index": 1170,
+      "label": "HAND_CONTENT_OCCLUSION",
+      "label_status": "USER_CONFIRMED",
+      "source": "user_message_2026-08-30"
+    },
+    {
+      "frame_index": 1380,
+      "label": "HAND_CONTENT_OCCLUSION",
+      "label_status": "USER_CONFIRMED",
+      "source": "user_message_2026-08-30"
+    },
+    {
+      "frame_index": 1500,
+      "label": "PAGE_MOVING",
+      "label_status": "USER_CONFIRMED",
+      "source": "user_message_2026-08-30"
+    },
+    {
+      "frame_index": 1920,
+      "label": "HAND_CONTENT_OCCLUSION",
+      "label_status": "USER_CONFIRMED",
+      "source": "user_message_2026-08-30"
+    },
+    {
+      "frame_index": 1980,
+      "label": "HAND_CONTENT_OCCLUSION",
+      "label_status": "USER_CONFIRMED",
+      "source": "user_message_2026-08-30"
+    },
+    {
+      "frame_index": 2040,
+      "label": "PAGE_MOVING",
+      "label_status": "USER_CONFIRMED",
+      "source": "user_message_2026-08-30"
+    },
+    {
+      "frame_index": 2220,
+      "label": "CLEAN_TRANSFERABLE",
+      "label_status": "USER_CONFIRMED",
+      "page_spread": "p316_spread",
+      "source": "user_confirmation_of_37.19s_frame_2026-08-30"
+    },
+    {
+      "frame_index": 2400,
+      "label": "HAND_CONTENT_OCCLUSION",
+      "label_status": "USER_CONFIRMED",
+      "source": "user_message_2026-08-30"
+    },
+    {
+      "frame_index": 2580,
+      "label": "HAND_CONTENT_OCCLUSION",
+      "label_status": "USER_CONFIRMED",
+      "source": "user_message_2026-08-30"
+    }
+  ],
+  "stable_runs": [
+    {
+      "run_id": "p030_development_window",
+      "start_frame_inclusive": 690,
+      "end_frame_inclusive": 810,
+      "page_spread": "p030_spread",
+      "boundary_status": "AUTOMATED_WINDOW_AROUND_USER_ANCHORS_NOT_HUMAN_CONFIRMED",
+      "user_confirmed_anchor_frames": [
+        720,
+        780
+      ]
+    },
+    {
+      "run_id": "p316_development_window",
+      "start_frame_inclusive": 2190,
+      "end_frame_inclusive": 2250,
+      "page_spread": "p316_spread",
+      "boundary_status": "AUTOMATED_WINDOW_AROUND_USER_ANCHOR_NOT_HUMAN_CONFIRMED",
+      "user_confirmed_anchor_frames": [
+        2220
+      ]
+    }
+  ],
+  "excluded_transition_windows": [
+    {
+      "start_frame_inclusive": 1860,
+      "end_frame_inclusive": 2130,
+      "status": "DIAGNOSTIC_ENVELOPE_NOT_HUMAN_BOUNDARY",
+      "user_confirmed_negative_frames": [
+        1920,
+        1980,
+        2040
+      ]
+    }
+  ],
+  "baseline_frame_index": 720,
+  "limitations": [
+    "Only point anchors are user-confirmed; stable-run boundaries are diagnostic.",
+    "The right p309 and both p316/p317 page labels are not explicit user golden labels.",
+    "This single video cannot establish held-out different-page false-duplicate performance."
+  ]
+}

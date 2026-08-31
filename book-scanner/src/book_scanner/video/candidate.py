@@ -16,8 +16,9 @@ from book_scanner.detect.roi import PageSide as DetectPageSide, ROIConfig
 from book_scanner.session.mask_pipeline import MaskFramePipeline
 
 from .config import CandidatePolicy
+from .obstruction import EdgeChromaIntrusionObstructionDetector, ObstructionDetector
 from .protocols import FrameSample
-from .types import FrameCandidate, ReadinessReason
+from .types import FrameCandidate, PageSide, ReadinessReason
 
 
 @dataclass(frozen=True, slots=True)
@@ -76,17 +77,23 @@ class OpenCVCandidateAnalyzer:
     owner of seam-conservative artifact generation.
     """
 
-    evaluator_version = "opencv-candidate-v1"
+    evaluator_version = "opencv-candidate-v1.2.2"
 
     def __init__(
         self,
         policy: CandidatePolicy = CandidatePolicy(),
         mask_pipeline: MaskFramePipeline | None = None,
+        obstruction_detector: ObstructionDetector | None = None,
     ):
         self.policy = policy
         self.mask_pipeline = mask_pipeline or MaskFramePipeline(
             ContrastSpatialPageSegmenter(),
             ROIConfig(spine_overlap_fraction=policy.preview_spine_overlap_fraction),
+        )
+        self.obstruction_detector = (
+            obstruction_detector
+            if obstruction_detector is not None
+            else EdgeChromaIntrusionObstructionDetector()
         )
 
     def evaluate(self, frame: FrameSample[np.ndarray]) -> FrameCandidate:
@@ -106,18 +113,33 @@ class OpenCVCandidateAnalyzer:
         pages = self.mask_pipeline.process(preview_image)
         left = pages[DetectPageSide.LEFT].page_mask
         right = pages[DetectPageSide.RIGHT].page_mask
+        outer_contact = bool(
+            (left is not None and left.touches_outer_frame)
+            or (right is not None and right.touches_outer_frame)
+        )
         if left is None or right is None:
             reasons.append(ReadinessReason.PAGE_NOT_FOUND)
-        elif left.touches_outer_frame or right.touches_outer_frame:
+        elif outer_contact and self.policy.reject_outer_frame_contacts:
             reasons.append(ReadinessReason.OUT_OF_FRAME)
 
         full_mask = np.zeros((preview_height, preview_width), dtype=np.uint8)
-        for page_mask in (left, right):
+        side_masks = {
+            PageSide.LEFT: np.zeros_like(full_mask),
+            PageSide.RIGHT: np.zeros_like(full_mask),
+        }
+        for side, page_mask in ((PageSide.LEFT, left), (PageSide.RIGHT, right)):
             if page_mask is not None:
                 _paste_mask(full_mask, page_mask)
+                _paste_mask(side_masks[side], page_mask)
+
+        obstruction = self.obstruction_detector.detect(preview_image, side_masks)
+        if obstruction.content_occluded:
+            reasons.append(ReadinessReason.CONTENT_OCCLUDED)
 
         gray = cv2.cvtColor(preview_image, cv2.COLOR_BGR2GRAY)
-        normalized_gray = cv2.equalizeHist(gray)
+        clipping = _clipping_evidence(gray, side_masks, left, right, self.policy)
+        if clipping["confirmed_content_clipping"] and self.policy.reject_confirmed_content_clipping:
+            reasons.append(ReadinessReason.OUT_OF_FRAME)
 
         page_values = gray[full_mask > 0]
         if page_values.size:
@@ -159,6 +181,15 @@ class OpenCVCandidateAnalyzer:
             "preview_width": preview_width,
             "preview_height": preview_height,
             "physical_edge_margin_fraction": edge_margin,
+            "outer_frame_contact_warning": outer_contact,
+            "outer_frame_contacts_are_hard_gate": self.policy.reject_outer_frame_contacts,
+            "left_top_contact": bool(left and left.edge_contacts["top"]),
+            "left_bottom_contact": bool(left and left.edge_contacts["bottom"]),
+            "left_outer_contact": bool(left and left.edge_contacts["outer"]),
+            "right_top_contact": bool(right and right.edge_contacts["top"]),
+            "right_bottom_contact": bool(right and right.edge_contacts["bottom"]),
+            "right_outer_contact": bool(right and right.edge_contacts["outer"]),
+            **clipping,
             "mask_confidence_min": mask_confidence,
             "white_clip_fraction": white_clip,
             "black_clip_fraction": black_clip,
@@ -171,6 +202,20 @@ class OpenCVCandidateAnalyzer:
             "seam_dispersion_fraction": seam_dispersion,
             "seam_proxy_confidence": seam_confidence,
             "seam_proxy_available": seam_proxy is not None,
+            "obstruction_detected": obstruction.detected,
+            "content_occluded": obstruction.content_occluded,
+            "obstruction_confidence": obstruction.confidence,
+            "obstruction_side": obstruction.side.value if obstruction.side else None,
+            "obstruction_bbox_preview": (
+                ",".join(str(value) for value in obstruction.bbox_preview)
+                if obstruction.bbox_preview
+                else None
+            ),
+            "obstruction_component_area_fraction": obstruction.component_area_fraction,
+            "obstruction_content_overlap_fraction": obstruction.content_overlap_fraction,
+            "obstruction_detector": obstruction.detector_name,
+            "obstruction_detector_version": obstruction.detector_version,
+            "obstruction_runtime_provenance": obstruction.runtime_provenance,
         }
         candidate = FrameCandidate(
             frame_id=frame.frame_id,
@@ -188,7 +233,7 @@ class OpenCVCandidateAnalyzer:
             page_area_fractions=areas,
             seam_proxy_fraction=seam_proxy,
             mask_preview=full_mask,
-            gray_preview=normalized_gray,
+            gray_preview=gray,
         )
 
 
@@ -223,6 +268,15 @@ class StableWindowAssessor:
             "max_connected_motion_fraction": max(
                 item["connected_motion_fraction"] for item in pair_metrics
             ),
+            "max_alignment_shift_fraction": max(
+                item["alignment_shift_fraction"] for item in pair_metrics
+            ),
+            "min_alignment_correlation": min(
+                item["alignment_correlation"] for item in pair_metrics
+            ),
+            "all_alignments_valid": all(
+                bool(item["alignment_valid"]) for item in pair_metrics
+            ),
             "stable_sample_count": len(recent),
         }
         stable = (
@@ -233,6 +287,7 @@ class StableWindowAssessor:
             and metrics["max_motion_fraction"] <= self.policy.max_motion_fraction
             and metrics["max_connected_motion_fraction"]
             <= self.policy.max_connected_motion_fraction
+            and bool(metrics["all_alignments_valid"])
         )
         if stable:
             reasons = ()
@@ -284,6 +339,9 @@ def _compare(
             "seam_shift_fraction": 1.0,
             "motion_fraction": 1.0,
             "connected_motion_fraction": 1.0,
+            "alignment_shift_fraction": 1.0,
+            "alignment_correlation": 0.0,
+            "alignment_valid": 0.0,
         }
     before_mask = previous.mask_preview > 0
     after_mask = current.mask_preview > 0
@@ -304,8 +362,23 @@ def _compare(
         if previous.seam_proxy_fraction is None or current.seam_proxy_fraction is None
         else abs(previous.seam_proxy_fraction - current.seam_proxy_fraction)
     )
-    active = before_mask | after_mask
-    diff = cv2.absdiff(previous.gray_preview, current.gray_preview)
+    active = before_mask & after_mask
+    before_gray = _normalize_photometry(previous.gray_preview, active)
+    after_gray = _normalize_photometry(current.gray_preview, active)
+    before_blurred = cv2.GaussianBlur(
+        before_gray, (policy.motion_blur_kernel_px, policy.motion_blur_kernel_px), 0
+    )
+    after_blurred = cv2.GaussianBlur(
+        after_gray, (policy.motion_blur_kernel_px, policy.motion_blur_kernel_px), 0
+    )
+    aligned_after, alignment = _align_motion_preview(
+        before_blurred,
+        after_blurred,
+        active,
+        policy.motion_alignment_max_shift_fraction,
+        policy.motion_alignment_min_correlation,
+    )
+    diff = cv2.absdiff(before_blurred, aligned_after)
     changed = (diff >= policy.motion_pixel_threshold) & active
     motion = int(np.count_nonzero(changed)) / max(1, int(np.count_nonzero(active)))
     changed_mask = changed.astype(np.uint8)
@@ -321,6 +394,72 @@ def _compare(
         "seam_shift_fraction": float(seam_shift),
         "motion_fraction": float(motion),
         "connected_motion_fraction": float(connected_motion),
+        "alignment_shift_fraction": alignment["shift_fraction"],
+        "alignment_correlation": alignment["correlation"],
+        "alignment_valid": 1.0 if alignment["valid"] else 0.0,
+    }
+
+
+def _normalize_photometry(gray: np.ndarray, active: np.ndarray) -> np.ndarray:
+    values = gray[active]
+    if values.size < 32:
+        return gray.copy()
+    low, high = (float(value) for value in np.percentile(values, (5.0, 95.0)))
+    if high - low < 8.0:
+        return gray.copy()
+    normalized = (gray.astype(np.float32) - low) * (255.0 / (high - low))
+    return np.clip(normalized, 0.0, 255.0).astype(np.uint8)
+
+
+def _align_motion_preview(
+    before: np.ndarray,
+    after: np.ndarray,
+    active: np.ndarray,
+    max_shift_fraction: float,
+    min_correlation: float,
+) -> tuple[np.ndarray, dict[str, float | bool]]:
+    height, width = before.shape[:2]
+    warp = np.eye(2, 3, dtype=np.float32)
+    support = (active.astype(np.uint8) * 255)
+    try:
+        correlation, warp = cv2.findTransformECC(
+            before.astype(np.float32) / 255.0,
+            after.astype(np.float32) / 255.0,
+            warp,
+            cv2.MOTION_TRANSLATION,
+            (
+                cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT,
+                30,
+                1e-4,
+            ),
+            support,
+            3,
+        )
+    except cv2.error:
+        return after, {"valid": False, "correlation": 0.0, "shift_fraction": 1.0}
+    shift_fraction = math.hypot(float(warp[0, 2]), float(warp[1, 2])) / max(1, min(width, height))
+    valid = bool(
+        math.isfinite(float(correlation))
+        and float(correlation) >= min_correlation
+        and shift_fraction <= max_shift_fraction
+    )
+    if not valid:
+        return after, {
+            "valid": False,
+            "correlation": float(correlation),
+            "shift_fraction": float(shift_fraction),
+        }
+    aligned = cv2.warpAffine(
+        after,
+        warp,
+        (width, height),
+        flags=cv2.INTER_LINEAR | cv2.WARP_INVERSE_MAP,
+        borderMode=cv2.BORDER_REFLECT,
+    )
+    return aligned, {
+        "valid": True,
+        "correlation": float(correlation),
+        "shift_fraction": float(shift_fraction),
     }
 
 
@@ -415,6 +554,95 @@ def _physical_edge_margin(
     rx, ry, rw, rh = right.bbox_full
     margins = [lx, ly, height - (ly + lh), width - (rx + rw), ry, height - (ry + rh)]
     return max(0.0, min(margins) / max(1, min(width, height)))
+
+
+def _clipping_evidence(
+    gray: np.ndarray,
+    side_masks: dict[PageSide, np.ndarray],
+    left: PageMask | None,
+    right: PageMask | None,
+    policy: CandidatePolicy,
+) -> dict[str, float | bool | str | None]:
+    background = cv2.GaussianBlur(gray, (31, 31), 0).astype(np.int16)
+    ink = (
+        (background - gray.astype(np.int16) >= policy.clipping_ink_contrast)
+        & (background >= policy.clipping_ink_background_luminance)
+    )
+    max_contact = 0.0
+    max_bright = 0.0
+    max_ink = 0.0
+    physical_directions: list[str] = []
+    confirmed_directions: list[str] = []
+    metrics: dict[str, float | bool | str | None] = {}
+    page_masks = {PageSide.LEFT: left, PageSide.RIGHT: right}
+    for side in (PageSide.LEFT, PageSide.RIGHT):
+        page_mask = page_masks[side]
+        for direction in ("top", "bottom", "outer"):
+            prefix = f"{side.value}_{direction}"
+            if page_mask is None or not page_mask.edge_contacts[direction]:
+                metrics[f"{prefix}_edge_contact_fraction"] = 0.0
+                metrics[f"{prefix}_bright_edge_fraction"] = 0.0
+                metrics[f"{prefix}_ink_edge_fraction"] = 0.0
+                continue
+            mask_strip = _physical_edge_strip(
+                side_masks[side], side, direction, policy.clipping_edge_depth_px
+            )
+            gray_strip = _physical_edge_strip(
+                gray, side, direction, policy.clipping_edge_depth_px
+            )
+            ink_strip = _physical_edge_strip(
+                ink, side, direction, policy.clipping_edge_depth_px
+            )
+            active = mask_strip > 0
+            denominator = max(1, active.size)
+            contact_fraction = int(np.count_nonzero(active)) / denominator
+            bright_fraction = int(
+                np.count_nonzero(active & (gray_strip >= policy.clipping_bright_luminance))
+            ) / denominator
+            ink_fraction = int(np.count_nonzero(active & ink_strip)) / denominator
+            metrics[f"{prefix}_edge_contact_fraction"] = float(contact_fraction)
+            metrics[f"{prefix}_bright_edge_fraction"] = float(bright_fraction)
+            metrics[f"{prefix}_ink_edge_fraction"] = float(ink_fraction)
+            max_contact = max(max_contact, contact_fraction)
+            max_bright = max(max_bright, bright_fraction)
+            max_ink = max(max_ink, ink_fraction)
+            label = f"{side.value}:{direction}"
+            physical = bright_fraction >= policy.clipping_min_bright_edge_fraction
+            confirmed = physical and ink_fraction >= policy.clipping_min_ink_edge_fraction
+            if physical:
+                physical_directions.append(label)
+            if confirmed:
+                confirmed_directions.append(label)
+    metrics.update(
+        {
+            "max_edge_contact_fraction": float(max_contact),
+            "max_bright_edge_fraction": float(max_bright),
+            "max_ink_edge_fraction": float(max_ink),
+            "physical_page_clipping_warning": bool(physical_directions),
+            "physical_page_clipping_directions": ",".join(physical_directions) or None,
+            "confirmed_content_clipping": bool(confirmed_directions),
+            "confirmed_content_clipping_directions": ",".join(confirmed_directions) or None,
+            "confirmed_content_clipping_is_hard_gate": policy.reject_confirmed_content_clipping,
+        }
+    )
+    return metrics
+
+
+def _physical_edge_strip(
+    image: np.ndarray,
+    side: PageSide,
+    direction: str,
+    depth: int,
+) -> np.ndarray:
+    if direction == "top":
+        return image[:depth, :]
+    if direction == "bottom":
+        return image[-depth:, :]
+    if direction == "outer" and side is PageSide.LEFT:
+        return image[:, :depth]
+    if direction == "outer" and side is PageSide.RIGHT:
+        return image[:, -depth:]
+    raise ValueError(f"unsupported physical edge direction: {side.value}:{direction}")
 
 
 def _sharpness(gray: np.ndarray, mask: np.ndarray) -> tuple[float, float]:

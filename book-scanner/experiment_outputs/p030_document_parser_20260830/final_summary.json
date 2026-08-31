@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "status": "EXECUTION_COMPLETE_NOT_HUMAN_GOLDEN",
-  "reference_is_human_golden": false,
-  "absolute_accuracy_claim_allowed": false,
+  "status": "EXECUTION_COMPLETE_HUMAN_VERIFIED_GOLDEN",
+  "reference_is_human_golden": true,
+  "absolute_accuracy_claim_allowed": true,
   "phases": {
     "oracle": {
       "status": "COMPLETE",
@@ -384,5 +384,121 @@
     "review/none_oracle_vs_seam_conservative.jpg",
     "review/coarse_oracle_vs_seam_conservative.jpg",
     "review/uvdoc_bilinear_oracle_vs_seam_conservative.jpg"
-  ]
+  ],
+  "golden_provenance": "human_verified_during_document_parser_development",
+  "golden_scope": "exact_printed_p30_fixture_text_structure_and_braille",
+  "math_braille_alignment_summary": {
+    "oracle": {
+      "none": {
+        "result_count": 3,
+        "reference_span_count": 93,
+        "common_span_count": 88,
+        "exact_common_span_count": 88,
+        "common_reference_cell_count": 614,
+        "weighted_common_cell_similarity": 1.0,
+        "reference_only_span_count": 5,
+        "reference_only_cell_count": 10,
+        "candidate_added_span_count": 33,
+        "candidate_added_cell_count": 147,
+        "candidate_added_present_in_reference_plain_text_count": 33,
+        "candidate_added_present_in_reference_plain_text_cell_count": 147,
+        "verdicts": [
+          "GOLDEN_COMMON_EXACT_WITH_REFERENCE_PLAIN_TEXT_PROMOTIONS",
+          "GOLDEN_COMMON_REGRESSION_OR_MISSING_SPANS"
+        ]
+      },
+      "coarse": {
+        "result_count": 3,
+        "reference_span_count": 93,
+        "common_span_count": 91,
+        "exact_common_span_count": 91,
+        "common_reference_cell_count": 618,
+        "weighted_common_cell_similarity": 1.0,
+        "reference_only_span_count": 2,
+        "reference_only_cell_count": 6,
+        "candidate_added_span_count": 33,
+        "candidate_added_cell_count": 147,
+        "candidate_added_present_in_reference_plain_text_count": 33,
+        "candidate_added_present_in_reference_plain_text_cell_count": 147,
+        "verdicts": [
+          "GOLDEN_COMMON_EXACT_WITH_REFERENCE_PLAIN_TEXT_PROMOTIONS",
+          "GOLDEN_COMMON_REGRESSION_OR_MISSING_SPANS"
+        ]
+      },
+      "uvdoc_bilinear": {
+        "result_count": 3,
+        "reference_span_count": 93,
+        "common_span_count": 89,
+        "exact_common_span_count": 89,
+        "common_reference_cell_count": 595,
+        "weighted_common_cell_similarity": 1.0,
+        "reference_only_span_count": 4,
+        "reference_only_cell_count": 29,
+        "candidate_added_span_count": 34,
+        "candidate_added_cell_count": 170,
+        "candidate_added_present_in_reference_plain_text_count": 33,
+        "candidate_added_present_in_reference_plain_text_cell_count": 147,
+        "verdicts": [
+          "GOLDEN_COMMON_EXACT_WITH_REFERENCE_PLAIN_TEXT_PROMOTIONS",
+          "GOLDEN_COMMON_REGRESSION_OR_MISSING_SPANS"
+        ]
+      }
+    },
+    "seam_conservative": {
+      "none": {
+        "result_count": 3,
+        "reference_span_count": 93,
+        "common_span_count": 83,
+        "exact_common_span_count": 83,
+        "common_reference_cell_count": 552,
+        "weighted_common_cell_similarity": 1.0,
+        "reference_only_span_count": 10,
+        "reference_only_cell_count": 72,
+        "candidate_added_span_count": 35,
+        "candidate_added_cell_count": 191,
+        "candidate_added_present_in_reference_plain_text_count": 33,
+        "candidate_added_present_in_reference_plain_text_cell_count": 147,
+        "verdicts": [
+          "GOLDEN_COMMON_EXACT_WITH_REFERENCE_PLAIN_TEXT_PROMOTIONS",
+          "GOLDEN_COMMON_REGRESSION_OR_MISSING_SPANS"
+        ]
+      },
+      "coarse": {
+        "result_count": 3,
+        "reference_span_count": 93,
+        "common_span_count": 92,
+        "exact_common_span_count": 92,
+        "common_reference_cell_count": 619,
+        "weighted_common_cell_similarity": 1.0,
+        "reference_only_span_count": 1,
+        "reference_only_cell_count": 5,
+        "candidate_added_span_count": 33,
+        "candidate_added_cell_count": 147,
+        "candidate_added_present_in_reference_plain_text_count": 33,
+        "candidate_added_present_in_reference_plain_text_cell_count": 147,
+        "verdicts": [
+          "GOLDEN_COMMON_EXACT_WITH_REFERENCE_PLAIN_TEXT_PROMOTIONS",
+          "GOLDEN_COMMON_REGRESSION_OR_MISSING_SPANS"
+        ]
+      },
+      "uvdoc_bilinear": {
+        "result_count": 3,
+        "reference_span_count": 93,
+        "common_span_count": 93,
+        "exact_common_span_count": 93,
+        "common_reference_cell_count": 624,
+        "weighted_common_cell_similarity": 1.0,
+        "reference_only_span_count": 0,
+        "reference_only_cell_count": 0,
+        "candidate_added_span_count": 22,
+        "candidate_added_cell_count": 98,
+        "candidate_added_present_in_reference_plain_text_count": 22,
+        "candidate_added_present_in_reference_plain_text_cell_count": 98,
+        "verdicts": [
+          "EXACT_GOLDEN_MATH_CELLS",
+          "GOLDEN_COMMON_EXACT_WITH_REFERENCE_PLAIN_TEXT_PROMOTIONS"
+        ]
+      }
+    }
+  }
 }
