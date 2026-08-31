@@ -216,6 +216,11 @@ Git 포함 대상:
 - `book-scanner/experiment_inputs`의 label/manifest/provenance
 - 작은 경량 숫자 모델 `book-scanner/models/page_number_digit_v1.onnx`
 
+기존 실험 산출물은 Git LFS를 사용한다. 인수인계 브랜치 최초 push에서 LFS 객체 226개, 약 808MB가
+원격에 전송됐다. 새 clone/worktree에서 실제 산출물이 필요하면 Git LFS가 설치돼 있는지 확인하고
+`git lfs pull`을 실행한다. 소스·테스트·Markdown만 읽는 작업에 원본 LFS blob 전체가 항상 필요한
+것은 아니다.
+
 의도적으로 Git에서 제외한 로컬/Drive 원본:
 
 - `.codex-remote-attachments/`
