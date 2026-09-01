@@ -8,6 +8,7 @@ param(
     [int]$CameraWidth = 3840,
     [int]$CameraHeight = 2160,
     [double]$CameraFps = 30.0,
+    [string]$ReplayVideo,
     [string]$ModelBundle,
     [string]$ApiKeySource,
     [string]$VenvRoot,
@@ -84,20 +85,24 @@ $appConfig = Join-Path $configRootPath "device-app.e0b.toml"
 $connectivityConfig = Join-Path $configRootPath "device-connectivity.e0b.remote.toml"
 $secretPath = Join-Path $configRootPath "secrets\device-api-key.txt"
 $reportPath = Join-Path $configRootPath "reports\e0b-preflight.json"
+$replayReportPath = Join-Path $configRootPath "reports\e0b-replay-input.json"
+$replayMode = -not [string]::IsNullOrWhiteSpace($ReplayVideo)
 
 Write-Host "[E0-B] Repository: $repoRoot"
 Write-Host "[E0-B] Config root: $configRootPath"
 
 if (-not $NonInteractive) {
     if ([string]::IsNullOrWhiteSpace($ServerOrigin)) {
-        $ServerOrigin = (Read-Host "Public HTTPS Server origin (for example https://name.trycloudflare.com)").Trim()
+        $ServerOrigin = (Read-Host "Private HTTPS Server origin (for example https://desktop.example-tailnet.ts.net)").Trim()
     }
     $DeviceId = Read-Default "Device ID" $DeviceId
-    $ComPort = Read-Default "STM Bluetooth COM port" $ComPort
-    $CameraIndex = [int](Read-Default "Camera index" ([string]$CameraIndex))
-    $CameraWidth = [int](Read-Default "Camera width" ([string]$CameraWidth))
-    $CameraHeight = [int](Read-Default "Camera height" ([string]$CameraHeight))
-    $CameraFps = [double](Read-Default "Camera FPS" ([string]$CameraFps))
+    if (-not $replayMode) {
+        $ComPort = Read-Default "STM Bluetooth COM port" $ComPort
+        $CameraIndex = [int](Read-Default "Camera index" ([string]$CameraIndex))
+        $CameraWidth = [int](Read-Default "Camera width" ([string]$CameraWidth))
+        $CameraHeight = [int](Read-Default "Camera height" ([string]$CameraHeight))
+        $CameraFps = [double](Read-Default "Camera FPS" ([string]$CameraFps))
+    }
     if ([string]::IsNullOrWhiteSpace($ModelBundle)) {
         $ModelBundle = (Read-Host "Model bundle directory containing uvdoc/ and paddle/ (required)").Trim()
     }
@@ -114,9 +119,11 @@ if (-not [Uri]::TryCreate($ServerOrigin, [UriKind]::Absolute, [ref]$originUri) -
     throw "ServerOrigin must be a non-loopback HTTPS origin without a path, query, or fragment."
 }
 if ($DeviceId -notmatch '^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$') { throw "DeviceId is invalid." }
-if ($ComPort -notmatch '^COM[0-9]+$') { throw "ComPort must look like COM5." }
-if ($CameraIndex -lt 0 -or $CameraWidth -lt 320 -or $CameraHeight -lt 240 -or $CameraFps -le 0 -or $CameraFps -gt 120) {
-    throw "Camera settings are outside the supported setup range."
+if (-not $replayMode) {
+    if ($ComPort -notmatch '^COM[0-9]+$') { throw "ComPort must look like COM5." }
+    if ($CameraIndex -lt 0 -or $CameraWidth -lt 320 -or $CameraHeight -lt 240 -or $CameraFps -le 0 -or $CameraFps -gt 120) {
+        throw "Camera settings are outside the supported setup range."
+    }
 }
 
 if (-not $SkipInstall) {
@@ -145,6 +152,7 @@ foreach ($directory in @(
     $configRootPath,
     (Join-Path $configRootPath "secrets"),
     (Join-Path $configRootPath "reports"),
+    (Join-Path $configRootPath "inputs"),
     (Join-Path $configRootPath "state\artifacts\staging"),
     (Join-Path $configRootPath "state\artifacts\ready"),
     (Join-Path $configRootPath "models")
@@ -152,16 +160,19 @@ foreach ($directory in @(
     New-Item -ItemType Directory -Force -Path $directory | Out-Null
 }
 
-Copy-Item -LiteralPath (Join-Path $repoRoot "device-runtime\device-app.e0b.laptop.example.toml") -Destination $appConfig -Force
+$appTemplate = if ($replayMode) { "device-app.e0b.replay.example.toml" } else { "device-app.e0b.laptop.example.toml" }
+Copy-Item -LiteralPath (Join-Path $repoRoot "device-runtime\$appTemplate") -Destination $appConfig -Force
 Copy-Item -LiteralPath (Join-Path $repoRoot "device-runtime\device-connectivity.e0b.remote.example.toml") -Destination $connectivityConfig -Force
 
 Set-TomlQuoted $connectivityConfig "server_base_url" $originUri.GetLeftPart([UriPartial]::Authority)
 Set-TomlQuoted $connectivityConfig "device_id" $DeviceId
-Set-TomlQuoted $appConfig "port" $ComPort
-Set-TomlNumber $appConfig "camera_index" ([string]$CameraIndex)
-Set-TomlNumber $appConfig "camera_width" ([string]$CameraWidth)
-Set-TomlNumber $appConfig "camera_height" ([string]$CameraHeight)
-Set-TomlNumber $appConfig "camera_fps" $CameraFps.ToString([Globalization.CultureInfo]::InvariantCulture)
+if (-not $replayMode) {
+    Set-TomlQuoted $appConfig "port" $ComPort
+    Set-TomlNumber $appConfig "camera_index" ([string]$CameraIndex)
+    Set-TomlNumber $appConfig "camera_width" ([string]$CameraWidth)
+    Set-TomlNumber $appConfig "camera_height" ([string]$CameraHeight)
+    Set-TomlNumber $appConfig "camera_fps" $CameraFps.ToString([Globalization.CultureInfo]::InvariantCulture)
+}
 
 if (-not [string]::IsNullOrWhiteSpace($ApiKeySource)) {
     $resolvedKeySource = (Resolve-Path -LiteralPath $ApiKeySource).Path
@@ -226,18 +237,39 @@ foreach ($asset in $manifest.files.PSObject.Properties) {
 }
 Copy-Item -Path (Join-Path $modelBundlePath "*") -Destination (Join-Path $configRootPath "models") -Recurse -Force
 
+if ($replayMode) {
+    $replaySource = (Resolve-Path -LiteralPath $ReplayVideo).Path
+    if (-not (Test-Path -LiteralPath $replaySource -PathType Leaf)) {
+        throw "ReplayVideo must name a video file."
+    }
+    $replayDestination = Join-Path $configRootPath "inputs\scanner-replay.mp4"
+    if (-not [string]::Equals($replaySource, $replayDestination, [StringComparison]::OrdinalIgnoreCase)) {
+        Copy-Item -LiteralPath $replaySource -Destination $replayDestination -Force
+    }
+    Write-Host "[E0-B.1] Validating the prepared replay video..."
+    & $venvPython (Join-Path $scriptDir "e0b_replay_check.py") $replayDestination $replayReportPath
+    if ($LASTEXITCODE -ne 0) { throw "Replay video validation failed." }
+}
+
 Write-Host "[E0-B] Configuration and model bundle are ready."
 if (-not $SkipHealthCheck) {
     & $venvPython (Join-Path $scriptDir "e0b_health_check.py") $originUri.GetLeftPart([UriPartial]::Authority)
     if ($LASTEXITCODE -ne 0) { throw "Remote Server health check failed." }
 }
 
-if (-not $SkipPreflight) {
+if ($replayMode -and -not $SkipPreflight) {
+    Write-Host "[E0-B.1] Hardware preflight is not applicable to replay mode and will be skipped."
+} elseif (-not $SkipPreflight) {
     Write-Host "[E0-B] Running hardware preflight. Camera, COM port, beep, and speech will be exercised."
     & $venvPython -m asl_device --config $appConfig --preflight --report $reportPath
     if ($LASTEXITCODE -ne 0) { throw "Laptop preflight failed. See $reportPath" }
 }
 
 Write-Host "[E0-B] App config: $appConfig"
-Write-Host "[E0-B] Preflight: tools\windows\e0b-laptop-preflight.bat $configRootPath"
-Write-Host "[E0-B] Full run: tools\windows\e0b-laptop-run.bat $configRootPath"
+if ($replayMode) {
+    Write-Host "[E0-B.1] Replay report: $replayReportPath"
+    Write-Host "[E0-B.1] Replay run: tools\windows\e0b-replay-run.bat $configRootPath"
+} else {
+    Write-Host "[E0-B] Preflight: tools\windows\e0b-laptop-preflight.bat $configRootPath"
+    Write-Host "[E0-B] Full run: tools\windows\e0b-laptop-run.bat $configRootPath"
+}

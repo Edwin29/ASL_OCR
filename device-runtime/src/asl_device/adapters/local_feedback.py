@@ -13,6 +13,7 @@ from typing import Protocol, TextIO
 from asl_device.app_config import LaptopAudioConfig
 from asl_device.events import FeedbackEvent
 from asl_device.events import FeedbackCode
+from asl_device.types import ReadingSnapshot
 
 
 class JsonLineFeedbackSink:
@@ -28,6 +29,37 @@ class JsonLineFeedbackSink:
         }
         self.stream.write(json.dumps(payload, ensure_ascii=True, separators=(",", ":")) + "\n")
         self.stream.flush()
+
+
+class JsonLineReadingPresenter:
+    """Emit changed Server-backed reading snapshots for console acceptance."""
+
+    def __init__(self, stream: TextIO | None = None) -> None:
+        self.stream = stream or sys.stdout
+        self._last_snapshot: ReadingSnapshot | None = None
+        self._closed = False
+
+    def present(self, snapshot: ReadingSnapshot | None) -> None:
+        if self._closed or snapshot is None or snapshot == self._last_snapshot:
+            return
+        payload = {
+            "type": "reading_snapshot",
+            "reading_session_id": snapshot.reading_session_id.value,
+            "datapack_id": snapshot.datapack_id.value,
+            "cursor": dict(snapshot.cursor),
+            "braille_cells": list(snapshot.braille_cells),
+            "audio_ref": snapshot.audio_ref,
+        }
+        try:
+            self.stream.write(json.dumps(payload, ensure_ascii=True, separators=(",", ":")) + "\n")
+            self.stream.flush()
+        except Exception:
+            # Presentation is diagnostic and cannot roll back ACK or reading state.
+            return
+        self._last_snapshot = snapshot
+
+    def close(self) -> None:
+        self._closed = True
 
 
 class MemoryFeedbackSink:

@@ -16,7 +16,11 @@ from .adapters.http_s0 import (
 )
 from .adapters.http_v4 import V4HttpClient
 from .adapters.local_controls import ConsoleControlSource, ControlSource
-from .adapters.local_feedback import JsonLineFeedbackSink, WindowsAudioFeedbackSink
+from .adapters.local_feedback import (
+    JsonLineFeedbackSink,
+    JsonLineReadingPresenter,
+    WindowsAudioFeedbackSink,
+)
 from .adapters.stm_serial import StmSerialControlSource
 from .app_config import DeviceAppConfig, ScannerHostConfig
 from .application import DeviceApplication, ReadingPresenter
@@ -95,6 +99,7 @@ def build_local_device(
     feedback_sink = feedback if feedback is not None else _default_feedback(config)
     controls_value = controls
     presenter_value = presenter
+    default_console = controls_value is None and config.controls_mode == "console"
     if controls_value is None:
         if config.controls_mode == "stm_serial":
             assert config.stm_serial is not None
@@ -104,6 +109,8 @@ def build_local_device(
                 presenter_value = stm
         else:
             controls_value = ConsoleControlSource()
+    if presenter_value is None and default_console and config.feedback_mode == "jsonl":
+        presenter_value = JsonLineReadingPresenter()
     coordinator = DeviceFlowCoordinator(
         device_id=config.connectivity.device_id,
         viewport_size=config.viewport_size,

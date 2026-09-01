@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import tomllib
 from pathlib import Path
 
 import pytest
@@ -118,3 +119,13 @@ cell_count = 10''',
 
     with pytest.raises(ValueError, match="viewport_size"):
         DeviceAppConfig.from_toml(path)
+
+
+def test_e0b_replay_example_has_no_physical_input_authority() -> None:
+    example = Path(__file__).resolve().parents[2] / "device-app.e0b.replay.example.toml"
+    payload = tomllib.loads(example.read_text(encoding="utf-8"))
+
+    assert payload["scanner"]["profile"] == "replay"
+    assert payload["scanner"]["replay_path"] == "inputs/scanner-replay.mp4"
+    assert "camera_index" not in payload["scanner"]
+    assert payload["local_io"] == {"controls": "console", "feedback": "jsonl"}

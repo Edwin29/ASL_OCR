@@ -1,27 +1,29 @@
-# E0-B Laptop 빠른 시작
+# E0-B.1 Laptop 빠른 시작 — Tailscale + 준비된 영상
 
-이 절차는 Laptop과 Desktop Server가 같은 LAN에 없고 각각 인터넷에 연결된 환경을 기준으로 한다.
-Laptop에는 camera, STM/HC-05와 speaker가 연결되고, Desktop은 Server와 Cloudflare Tunnel을 실행한다.
+이 절차는 Laptop과 Desktop이 같은 LAN에 없지만 각각 인터넷에 연결된 환경을 기준으로 한다.
+E0-B.1에서는 camera와 STM/HC-05 대신 준비된 MP4와 console controls를 사용해 Server 송수신과
+reading data 수신까지 확인한다. 실제 camera/STM/speaker 검증은 후속 physical E0-B다.
 
-## 1. Laptop 필수 프로그램
+## 1. 양쪽 컴퓨터에 Tailscale 설치
 
-Windows Terminal 또는 명령 프롬프트에서 다음을 실행한다. 이미 설치돼 있으면 건너뛴다.
+Desktop과 Laptop 모두 아래 명령을 실행한 뒤 **같은 Tailscale 계정**으로 로그인한다. 개인 prototype은
+별도 도메인을 구매하지 않고 Tailscale Personal tailnet을 사용할 수 있다.
+
+```bat
+winget install --id Tailscale.Tailscale -e
+```
+
+Laptop에는 Git과 Python 3.11도 설치한다.
 
 ```bat
 winget install --id Git.Git -e
 winget install --id Python.Python.3.11 -e
 ```
 
-설치 후 터미널을 닫았다 다시 열고 다음을 확인한다.
+설치 후 terminal을 다시 열고 `git --version`, `py -3.11 --version`, `tailscale status`를 확인한다.
+Laptop이 Desktop과 같은 tailnet의 device 목록에 보여야 한다.
 
-```bat
-git --version
-py -3.11 --version
-```
-
-## 2. 저장소 받기
-
-E0-B에는 대형 과거 실험 LFS blob이 필요하지 않다. 다음 명령은 LFS 자동 다운로드를 생략한다.
+## 2. Laptop에 저장소 받기
 
 ```bat
 set GIT_LFS_SKIP_SMUDGE=1
@@ -29,95 +31,127 @@ git clone --branch codex/asl-ocr-integration-c0-handoff --single-branch https://
 cd /d D:\ASL_OCR
 ```
 
-GitHub Desktop을 쓰는 경우 `File > Clone repository > URL`에서 위 URL을 입력하고 `D:\ASL_OCR`에
-clone한 뒤 `codex/asl-ocr-integration-c0-handoff` 브랜치를 선택한다.
+이미 clone했다면 해당 폴더에서 다음을 실행한다.
 
-## 3. Model bundle 준비
-
-Model은 저장소에 포함되지 않는다. Desktop 또는 이동식 저장장치에서 다음 구조의 한 폴더를 Laptop에
-복사한다. 예시는 `E:\e0b-models`다.
-
-```text
-E:\e0b-models\
-  uvdoc\
-    runtime\
-      model.py
-      ...
-    checkpoint.pth
-  paddle\
-    page-number\
-      inference.json
-      inference.pdiparams
-      inference.yml
-      ...manifest가 열거한 나머지 파일
-    page-number-manifest.json
+```bat
+git switch codex/asl-ocr-integration-c0-handoff
+git pull --ff-only
 ```
 
-Setup은 manifest의 모든 Paddle asset SHA-256을 검사하고 하나라도 없거나 다르면 중단한다. Runtime
-download나 임의 model 대체는 하지 않는다.
+## 3. Model bundle 다운로드
 
-## 4. Desktop Server 주소와 API key 준비
+다음 ZIP을 Laptop에 직접 다운로드하고 압축을 푼다. Desktop에서 복사할 필요가 없다.
 
-Desktop에서 다음 두 파일을 각각 다른 terminal에서 실행한다.
+- [E0-B model bundle ZIP](https://github.com/Edwin29/ASL_OCR/releases/download/e0b-model-bundle-2026-09-01/ASL_OCR_E0B_MODEL_BUNDLE_2026-09-01.zip)
+- ZIP SHA-256: `44fa79a338d397e31519474c87db60eaed73025198a7c5673ecc1424ced0f817`
+
+압축을 푼 뒤 Setup에 전달할 폴더는 바로 아래에 `uvdoc`과 `paddle`이 있는
+`E0B_MODEL_BUNDLE` 폴더다. Setup이 Paddle manifest의 모든 asset hash도 다시 검사한다.
+
+## 4. Desktop Server와 고정 HTTPS 주소 시작
+
+Desktop 저장소 root에서 두 batch를 각각 별도 terminal로 실행한다.
 
 ```bat
 tools\windows\e0b-start-server.bat D:\device-config\secrets\device-api-key.txt D:\device-config\state\e0b-bench
-tools\windows\e0b-start-quick-tunnel.bat
+tools\windows\e0b-start-tailscale-serve.bat
 ```
 
-두 번째 terminal에 출력된 `https://*.trycloudflare.com` origin과 Desktop Server가 읽는 API key를
-Laptop 설정에 사용한다. Quick Tunnel은 terminal을 닫으면 종료되고 다음 실행에서 주소가 바뀐다.
+두 번째 batch는 local health를 먼저 검사하고 Tailscale Serve를 `127.0.0.1:8421`에 연결한 뒤 다음과
+같은 고정 주소를 출력한다.
 
-## 5. Laptop 자동 Setup
+이 tailnet에서 Serve를 처음 사용하는 경우 batch가 다음 형태의 1회 활성화 링크를 먼저 출력할 수
+있다.
 
-`D:\ASL_OCR\tools\windows\e0b-laptop-setup.bat`를 더블클릭한다. 또는 terminal에서 실행한다.
+```text
+Serve is not enabled on your tailnet.
+To enable, visit: https://login.tailscale.com/f/serve?node=...
+```
+
+링크를 browser에서 열고 **Desktop Tailscale과 같은 tailnet 소유 계정**으로 로그인한 뒤 Serve를
+활성화한다. API key나 Tailscale auth key를 입력하는 단계가 아니다. 활성화가 끝나면 최초 batch를
+종료하고 `e0b-start-tailscale-serve.bat`를 다시 실행한다. 이 관리 화면 활성화는 tailnet당 최초 한
+번만 필요하다.
+
+```text
+ORIGIN=https://<desktop-machine>.<tailnet>.ts.net
+```
+
+이 주소는 Quick Tunnel처럼 매 실행마다 바뀌지 않는다. Tailscale 로그아웃이나 machine 이름 변경을
+하지 않는 한 Laptop config에서 계속 재사용한다. Laptop browser 또는 terminal에서 다음 health가
+성공하는지 확인한다.
+
+```powershell
+Invoke-RestMethod https://<desktop-machine>.<tailnet>.ts.net/api/v1/health
+```
+
+주소는 public Internet에 공개되지 않으며 같은 tailnet의 device만 도달할 수 있다. API 요청에는 기존
+별도 API key도 계속 필요하다. Tailscale Serve 자체 credential은 복사하지 않는다.
+
+`tailscale serve`가 활성화 링크에서 계속 대기하거나 권한 오류를 내면 Desktop에서 batch를 관리자
+권한으로 다시 실행한다. Laptop health가 실패하면 양쪽 Tailscale이 Connected인지, 같은 tailnet device
+목록에 보이는지, Desktop Server terminal이 계속 실행 중인지 순서대로 확인한다.
+
+2026-09-01 Desktop 검증에서는 Serve reset/start 뒤 hostname 동일, private HTTPS health `ok`와 동일
+Server instance가 확인됐다. 실제 hostname은 private tailnet 식별자이므로 Git 문서에 기록하지 않고
+Desktop wrapper 출력값을 Laptop setup에 전달한다.
+
+## 5. Laptop replay 자동 Setup
+
+준비된 책 영상 MP4가 `D:\Downloads\scanner-replay.mp4`, 압축을 푼 model 폴더가
+`D:\Downloads\E0B_MODEL_BUNDLE`이라고 가정하면 다음을 실행한다.
 
 ```bat
 cd /d D:\ASL_OCR
-tools\windows\e0b-laptop-setup.bat
+tools\windows\e0b-replay-setup.bat D:\Downloads\scanner-replay.mp4
 ```
 
-화면에서 다음 값을 입력한다.
+화면에서 입력하는 값은 네 가지뿐이다.
 
-- 공개 HTTPS Server origin
-- Device ID
-- HC-05가 사용하는 COM port
-- camera index, width, height와 FPS
-- 위 model bundle 경로
-- Desktop과 동일한 API key
+- 위 단계의 `https://...ts.net` Server origin
+- Device ID: 예를 들어 `laptop-device-001`
+- model bundle의 `E0B_MODEL_BUNDLE` 폴더 경로
+- Desktop Server와 동일한 API key
 
-Setup이 자동으로 수행하는 항목:
+COM port와 camera index/width/height/FPS는 replay mode에서 묻지 않고 사용하지 않는다. Setup은 다음을
+자동 수행한다.
 
-1. repository의 `.venv-e0b` Python 3.11 환경 생성
-2. pinned Torch/Paddle/serial runtime과 세 local package 설치
-3. `D:\ASL_OCR_E0B` config/state/report/secret/model directory 생성
-4. remote HTTPS, camera와 COM 설정 반영
-5. API key를 TOML과 분리된 UTF-8 secret file로 저장
-6. model bundle 구조와 Paddle SHA-256 검증 후 복사
-7. Desktop Server HTTPS health 확인
-8. camera/STM/audio/model hardware preflight와 JSON report 생성
+1. `.venv-e0b` Python 3.11 환경과 pinned dependency 설치
+2. remote connectivity와 replay/console config 생성
+3. API key를 TOML 밖의 local secret file에 저장
+4. model bundle 구조와 hash 검증·복사
+5. MP4를 `D:\ASL_OCR_E0B\inputs\scanner-replay.mp4`로 복사
+6. 첫 frame decode, file SHA-256과 크기를 `reports\e0b-replay-input.json`에 기록
+7. Tailscale HTTPS Server health 확인
 
-하드웨어를 아직 연결하지 않아 preflight만 미루려면 terminal에서 다음을 사용한다.
+실제 camera/COM/audio hardware preflight는 실행하지 않는다.
+
+## 6. Replay 실행과 확인
 
 ```bat
-powershell -NoProfile -ExecutionPolicy Bypass -File tools\windows\e0b-laptop-setup.ps1 -SkipPreflight
+tools\windows\e0b-replay-run.bat
 ```
 
-## 6. 재실행
+console에서는 `up`, `down`, `left`, `right`, `next`, `prev`, `confirm`, `lever`를 입력할 수 있다.
+기본 흐름은 새 데이터팩 항목을 `up/down`으로 선택하고 `confirm`, artifact/ACK를 기다린 뒤 다시
+`confirm`하여 scan을 닫고 READY/reading 진입을 기다리는 것이다. Reading 중 `right`, `next` 등의
+명령을 입력하면 바뀐 Server 응답이 다음 형태의 JSON line으로 표시돼야 한다.
 
-Setup 이후에는 다음 파일을 더블클릭하거나 terminal에서 실행한다.
+```json
+{"type":"reading_snapshot","reading_session_id":"...","datapack_id":"...","cursor":{},"braille_cells":[],"audio_ref":"..."}
+```
+
+같은 snapshot을 polling한 결과는 중복 출력하지 않는다. 종료는 `Ctrl+C`다. 이 성공은
+`MP4 -> Scanner -> V3-B -> Tailscale HTTPS -> V4/S1 -> READY -> reading snapshot`을 입증하지만 실제
+camera, HC-05/STM, 점자 셀이나 speaker를 입증하지 않는다.
+
+## 7. 종료와 fallback
+
+Desktop에서 Server terminal을 `Ctrl+C`로 종료한다. Serve 설정도 지우려면 다음을 실행한다.
 
 ```bat
-tools\windows\e0b-laptop-preflight.bat
-tools\windows\e0b-laptop-run.bat
+tools\windows\e0b-stop-tailscale-serve.bat
 ```
 
-기본 config root가 아닌 경우 뒤에 경로를 전달한다.
-
-```bat
-tools\windows\e0b-laptop-preflight.bat D:\my-e0b-config
-tools\windows\e0b-laptop-run.bat D:\my-e0b-config
-```
-
-Preflight report는 기본적으로 `D:\ASL_OCR_E0B\reports\e0b-preflight.json`에 생성된다. 여섯 check가
-모두 `passed`가 아니면 full run 성공으로 판정하지 않는다.
+Tailscale을 사용할 수 없는 1회 시험에는 기존 `e0b-start-quick-tunnel.bat`를 fallback으로 쓸 수 있다.
+그 주소는 public이고 재시작 때 바뀌므로 E0-B.1 고정 endpoint acceptance 증거로는 사용하지 않는다.

@@ -388,15 +388,36 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 - `DEVICE_INTEGRATION_E0_B_LAPTOP_ACCEPTANCE_WORK_PACKET.md`
 - `DEVICE_INTEGRATION_E0_B_IMPLEMENTATION_REPORT.md`
 
+### 5.10 Device Integration E0-B.1 — Tailscale fixed endpoint + replay acceptance
+
+- 기존 Server API를 바꾸지 않고 private Tailscale Serve `*.ts.net` fixed HTTPS wrapper 추가
+- prepared MP4 + console controls 전용 config/setup/run 경로 추가
+- replay mode에서 camera/COM prompt와 physical preflight를 요구하지 않음
+- MP4 첫 frame decode와 SHA-256 secret-safe report
+- Server reading response의 cursor/braille/audio를 changed-only JSONL snapshot으로 관측
+- 전체 software regression과 Desktop Serve same-hostname/private HTTPS smoke 완료; 실제 Laptop E2E는 대기
+- 실제 camera/HC-05/STM/speaker physical acceptance는 계속 별도
+
+주요 문서와 코드:
+
+- `DEVICE_INTEGRATION_E0_B_1_TAILSCALE_REPLAY_ACCEPTANCE_WORK_PACKET.md`
+- `DEVICE_INTEGRATION_E0_B_1_IMPLEMENTATION_REPORT.md`
+- `device-runtime/device-app.e0b.replay.example.toml`
+- `device-runtime/src/asl_device/adapters/local_feedback.py`
+- `tools/windows/e0b-start-tailscale-serve.bat`
+- `tools/windows/e0b-stop-tailscale-serve.bat`
+- `tools/windows/e0b-replay-setup.bat`
+- `tools/windows/e0b-replay-run.bat`
+
 ## 6. 최신 검증 기준선
 
-2026-09-01 E0-B software implementation 완료 시점의 최신 전체 결과:
+2026-09-01 E0-B.1 software implementation 완료 시점의 최신 전체 결과:
 
 | 범위 | 결과 |
 |---|---:|
 | Book Scanner 전체 | 289 passed |
-| Device Runtime + actual E0-Core integration | 83 passed |
-| Document Parser 전체 | 573 passed, 4 skipped |
+| Device Runtime + actual E0-Core integration | 83 passed, 3 skipped |
+| Document Parser 전체 | 602 passed, 4 skipped |
 | S0/S1/C0/V4/combined 집중 | 51 passed |
 | Server V4 집중 | 19 passed |
 | V3-B unit 집중 | 11 passed |
@@ -442,23 +463,24 @@ Git 포함 대상:
 
 ## 8. 다음 우선순위
 
-Device Integration E0-B — Laptop Acceptance의 software adapter, desktop bench Server, remote HTTPS
-profile, config, preflight와 runbook은 2026-09-01 구현·회귀 검증을 완료했다. 다음 단계는 **서로 다른
-network에서 인터넷에 연결된 실제 Laptop/camera/STM/speaker와 현재 개발용 desktop Server 사이에
-HTTPS tunnel을 열고 E0-B physical acceptance를 실행해 report/log를 남기는 것**이다. 같은 LAN은
+E0-B.1 software implementation, 회귀와 Desktop Tailscale Serve fixed private HTTPS smoke는 완료됐다.
+다음 단계는 **서로 다른 network의 실제 Laptop을 같은 tailnet에 로그인하고 prepared MP4 + console
+remote acceptance를 실행하는 것**이다. 그 뒤
+같은 fixed endpoint에서 camera/STM/speaker physical E0-B를 진행한다. 같은 LAN과 유료 domain은
 요구하지 않는다. Production tunnel policy/service와 exhaustive WAN fault 검증은 후속 Network
-Hardening으로 분리한다. V3-B 운영 hardening, C0/V4 확장 또는 M1 held-out 검증을 선행 조건으로 다시
-묶지 않는다.
+Hardening으로 분리한다.
 
-Desktop 준비 smoke는 완료됐다. `D:\Tools\cloudflared.exe` 2026.8.3과 추가된 Windows batch wrapper로
+Cloudflare Desktop 준비 smoke는 완료됐다. `D:\Tools\cloudflared.exe` 2026.8.3과 Windows batch wrapper로
 bench Server local health 및 Quick Tunnel public HTTPS health가 모두 HTTP 200임을 확인한 뒤 process와
-임시 state를 정리했다. 남은 핵심은 다른 network의 실제 Laptop에서 같은 endpoint로 preflight/full
-flow를 실행하는 것이다.
+임시 state를 정리했다. Tailscale client/service/login/MagicDNS, Serve 활성화, private HTTPS의 동일
+Server instance와 reset/start 뒤 동일 hostname도 확인했다. 실제 FQDN은 private 식별자라 문서에
+기록하지 않았다. 현재 Serve와 bench Server는 Laptop 시험을 위해 실행 상태다. 실제 Laptop replay
+evidence는 아직 없다.
 
-Laptop one-click setup과 quickstart도 추가됐지만 model은 Git에 넣지 않는다. 현재 Desktop에는 UVDoc
-runtime과 Paddle M1 model이 있으나 UVDoc `checkpoint.pth`는 발견되지 않았다. 실제 Laptop setup 전에
-검증에 사용했던 checkpoint를 별도 보관 위치/Drive에서 확보해 documented model bundle 구조로
-준비해야 한다.
+Model은 Git history에 넣지 않는다. UVDoc official checkpoint와 Paddle M1 asset을 포함한 검증 bundle은
+GitHub Release `e0b-model-bundle-2026-09-01`에 올렸고 ZIP SHA-256은
+`44fa79a338d397e31519474c87db60eaed73025198a7c5673ecc1424ced0f817`이다. Laptop이 직접 내려받아 setup의
+구조/hash 검증을 통과할 수 있다.
 
 ### 8.1 이후 작업 패킷의 범위 원칙
 
@@ -501,7 +523,8 @@ V3-B 패킷에서 먼저 고정할 것:
 
 ```text
 Device Integration E0-Core: development desktop local composition + deterministic replay/I/O
-  -> Device Integration E0-B — Laptop Acceptance: real camera + STM + beep/TTS + remote HTTPS desktop Server
+  -> E0-B.1: Tailscale fixed endpoint + prepared MP4/console remote acceptance
+  -> Device Integration E0-B — Laptop Acceptance: real camera + STM + beep/TTS
   -> Network Hardening: production tunnel policy/service + exhaustive WAN fault
   -> Raspberry Pi systemd/network-online/camera/GPIO/audio/resource validation
 ```
@@ -509,6 +532,7 @@ Device Integration E0-Core: development desktop local composition + deterministi
 ## 9. 완료로 오인하면 안 되는 사항
 
 - E0-B camera/STM/audio adapter와 preflight는 구현됐지만 실제 Laptop 장치에서 실행한 report는 없다.
+- E0-B.1 replay/setup/Serve wrapper와 Desktop HTTPS smoke는 완료됐지만 실제 Laptop remote report는 없다.
 - 실제 camera/UVDoc/Paddle asset을 사용한 Device application smoke run은 없다.
 - V3-B restart 보장은 queue commit 이후 adapter 재생성 범위다. 전체 Coordinator active scan과
   queue 전 orphan artifact를 자동 복원하지 않는다.
@@ -529,10 +553,11 @@ ASL_OCR의 codex/asl-ocr-integration-c0-handoff 브랜치에서 작업을 이어
 입력을 연결하고, 과거 검증/시연을 위해 결합된 OCR·점역·TTS·임시 서버 책임을 제품 경계에 맞게
 정리하는 통합 작업이다. Document Parser의 content transformation 책임과 Server의 transport/
 persistence/orchestration 책임을 혼동하지 마라. 사용자 변경과 기존 Scanner/Coordinator/S0/S1/C0/V4
-계약을 보존하라. V3-B, Device Integration E0-Core와 E0-B software implementation은 완료됐다. 현재
-다음 우선순위는 서로 다른 network에서 인터넷에 연결된 실제 Laptop/camera/STM/speaker와 현재 개발용
-desktop bench Server를 HTTPS tunnel로 연결해 E0-B preflight와 full acceptance flow를 실행하고
-report/log를 남기는 것이다. 같은 LAN은 요구하지 않는다. Production tunnel/network hardening을 같은
-패킷의 선행 조건으로 묶지 마라. 실제로 검증하지 않은 external tunnel과 Raspberry Pi 동작을 완료로
-처리하지 마라.
+계약을 보존하라. V3-B, Device Integration E0-Core, E0-B software와 E0-B.1 software implementation은
+완료됐고 Desktop Tailscale Serve fixed private HTTPS smoke도 통과했다. 현재 다음 우선순위는 서로 다른
+network의 실제 Laptop을 같은 tailnet에 로그인하고 prepared MP4/console E0-B.1 remote acceptance를
+실행해 report/log를 남기는 것이다. 그 다음 camera/STM/speaker physical E0-B를 진행한다.
+같은 LAN과 유료 domain은 요구하지 않는다. Production tunnel/network hardening을 같은 패킷의 선행
+조건으로 묶지 마라. 실제로 검증하지 않은 Laptop remote flow와 Raspberry Pi 동작을 완료로 처리하지
+마라.
 ```

@@ -1,8 +1,12 @@
 from __future__ import annotations
 
+import io
+
+from asl_device.adapters.local_feedback import JsonLineReadingPresenter
 from asl_device.adapters.local_feedback import WindowsAudioFeedbackSink
 from asl_device.app_config import LaptopAudioConfig
 from asl_device.events import FeedbackCode, FeedbackEvent
+from asl_device.types import DatapackId, ReadingSessionId, ReadingSnapshot
 
 
 class RecordingAudio:
@@ -48,3 +52,46 @@ def test_laptop_feedback_speaks_only_the_catalog_title_detail() -> None:
     sink.close()
 
     assert backend.calls == [("speak", "수학 교재")]
+
+
+def _snapshot(*, cells: tuple[int, ...] = (1, 2, 3), generation: int = 1) -> ReadingSnapshot:
+    return ReadingSnapshot(
+        ReadingSessionId("reading-1"),
+        DatapackId("datapack-1"),
+        (("page_index", 0), ("node_index", 0), ("generation", generation)),
+        braille_cells=cells,
+        audio_ref="audio:item-1",
+    )
+
+
+def test_jsonline_reading_presenter_emits_changed_server_payload_once() -> None:
+    output = io.StringIO()
+    presenter = JsonLineReadingPresenter(output)
+    initial = _snapshot()
+
+    presenter.present(None)
+    presenter.present(initial)
+    presenter.present(initial)
+    presenter.present(_snapshot(cells=(4, 5), generation=2))
+
+    assert output.getvalue().splitlines() == [
+        '{"type":"reading_snapshot","reading_session_id":"reading-1",'
+        '"datapack_id":"datapack-1","cursor":{"page_index":0,"node_index":0,'
+        '"generation":1},"braille_cells":[1,2,3],"audio_ref":"audio:item-1"}',
+        '{"type":"reading_snapshot","reading_session_id":"reading-1",'
+        '"datapack_id":"datapack-1","cursor":{"page_index":0,"node_index":0,'
+        '"generation":2},"braille_cells":[4,5],"audio_ref":"audio:item-1"}',
+    ]
+
+
+def test_jsonline_reading_presenter_failure_is_best_effort() -> None:
+    class BrokenStream:
+        def write(self, _text: str) -> None:
+            raise OSError("closed")
+
+        def flush(self) -> None:
+            raise AssertionError("flush must not follow a failed write")
+
+    presenter = JsonLineReadingPresenter(BrokenStream())
+
+    assert presenter.present(_snapshot()) is None
