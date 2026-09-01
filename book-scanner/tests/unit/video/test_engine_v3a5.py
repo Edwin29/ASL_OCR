@@ -6,7 +6,7 @@ from dataclasses import replace
 import pytest
 
 from book_scanner.video.config import OpaqueFooterIdentityPolicy
-from book_scanner.video.events import VideoEventType
+from book_scanner.video.events import OpaqueIdentityRole, VideoEventType
 from book_scanner.video.types import VideoSessionState
 from book_scanner.video.types import FrameId, ReadinessReason
 
@@ -78,6 +78,20 @@ def test_first_spread_collects_five_valid_pairs_before_single_v2_preparation() -
     assert len(store.commits) == 1
     assert sum(event.event_type is VideoEventType.OPAQUE_IDENTITY_OBSERVED for event in events) == 5
     assert sum(event.event_type is VideoEventType.OPAQUE_IDENTITY_BANK_PENDING for event in events) == 1
+    identity_events = [
+        event
+        for event in events
+        if event.event_type
+        in {
+            VideoEventType.OPAQUE_IDENTITY_COLLECTION_STARTED,
+            VideoEventType.OPAQUE_IDENTITY_OBSERVED,
+            VideoEventType.OPAQUE_IDENTITY_DECIDED,
+        }
+    ]
+    assert identity_events
+    assert {
+        dict(event.details)["identity_role"] for event in identity_events
+    } == {OpaqueIdentityRole.CANDIDATE_VERIFICATION.value}
     assert engine.opaque_identity_ledger is not None
     assert engine.opaque_identity_ledger.recent_accepted() == ()
     assert engine.opaque_identity_ledger.pending_artifact_id == _artifact_id(events)
@@ -99,6 +113,12 @@ def test_ack_promotes_bank_and_reject_discards_without_accepting() -> None:
     assert engine.opaque_identity_ledger.pending_artifact_id is None
     assert engine.opaque_identity_ledger.recent_accepted()[0].artifact_id == artifact_id
     assert any(event.event_type is VideoEventType.OPAQUE_IDENTITY_BANK_ACCEPTED for event in ack_events)
+    page_change_started = next(
+        event
+        for event in ack_events
+        if event.event_type is VideoEventType.OPAQUE_IDENTITY_COLLECTION_STARTED
+    )
+    assert dict(page_change_started.details)["identity_role"] == OpaqueIdentityRole.PAGE_CHANGE.value
     assert engine.delivery_confirmed(artifact_id, "receipt-a") == ()
     engine.close()
 
@@ -160,7 +180,17 @@ def test_accepted_older_spread_is_suppressed_before_v2_when_it_reappears() -> No
     first_events = _start_and_reach_ready(engine, clock)
     first_id = _artifact_id(first_events)
     engine.delivery_confirmed(first_id, "receipt-a")
-    _poll_until(engine, clock, VideoSessionState.SEARCHING)
+    first_page_change_events = _poll_until(engine, clock, VideoSessionState.SEARCHING)
+    page_change_identity_events = [
+        event
+        for event in first_page_change_events
+        if event.event_type
+        in {VideoEventType.OPAQUE_IDENTITY_OBSERVED, VideoEventType.OPAQUE_IDENTITY_DECIDED}
+    ]
+    assert page_change_identity_events
+    assert {
+        dict(event.details)["identity_role"] for event in page_change_identity_events
+    } == {OpaqueIdentityRole.PAGE_CHANGE.value}
     second_events = _poll_until(engine, clock, VideoSessionState.READY_FOR_SERVER_PREFLIGHT)
     second_id = _artifact_id(second_events)
     engine.delivery_confirmed(second_id, "receipt-b")
@@ -267,6 +297,7 @@ def test_four_of_five_identity_observations_then_hard_reject_emits_terminal_summ
     ]
     assert len(aborted) == 1
     assert dict(aborted[0].details)["terminal_reason"] == "content_occluded"
+    assert dict(aborted[0].details)["identity_role"] == OpaqueIdentityRole.CANDIDATE_VERIFICATION.value
     assert dict(aborted[0].details)["valid_observations"] == 4
     assert dict(aborted[0].details)["query_sample_count"] == 5
     assert provider.preview_calls == 4
@@ -294,6 +325,7 @@ def test_one_of_five_identity_observations_then_eof_emits_abort_before_source_ex
     details = dict(events[aborted_index].details)
     assert aborted_index < exhausted_index
     assert details["terminal_reason"] == "source_exhausted"
+    assert details["identity_role"] == OpaqueIdentityRole.CANDIDATE_VERIFICATION.value
     assert details["valid_observations"] == 1
     assert details["query_sample_count"] == 5
     assert provider.preview_calls == 1

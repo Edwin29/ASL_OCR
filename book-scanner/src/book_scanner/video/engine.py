@@ -22,7 +22,7 @@ from .config import (
     PageNumberPolicy,
     PageNumberSchedulerPolicy,
 )
-from .events import VideoEvent, VideoEventType
+from .events import OpaqueIdentityRole, VideoEvent, VideoEventType
 from .identity import (
     IdentityFingerprintError,
     IdentityMatchKind,
@@ -431,7 +431,10 @@ class SampledFrameEngine:
                     VideoEventType.CANDIDATE_SELECTED,
                     source_frame_id=self._selected.frame.frame_id,
                     spread_id=self._selected_spread,
-                    details=dict(assessment.metrics),
+                    details={
+                        **dict(assessment.metrics),
+                        "identity_role": OpaqueIdentityRole.CANDIDATE_VERIFICATION.value,
+                    },
                 )
             )
             if self._opaque_identity_active:
@@ -450,7 +453,10 @@ class SampledFrameEngine:
                         VideoEventType.OPAQUE_IDENTITY_COLLECTION_STARTED,
                         source_frame_id=self._selected.frame.frame_id,
                         spread_id=self._selected_spread,
-                        details=self._opaque_policy_details(),
+                        details={
+                            **self._opaque_policy_details(),
+                            "identity_role": OpaqueIdentityRole.CANDIDATE_VERIFICATION.value,
+                        },
                     )
                 )
             else:
@@ -483,7 +489,12 @@ class SampledFrameEngine:
         now = self.clock.monotonic()
         timeout = self._opaque_collector.decision(now=now)
         if timeout.timed_out:
-            self._emit_opaque_decision(timeout, self._selected.frame.frame_id, events)
+            self._emit_opaque_decision(
+                timeout,
+                self._selected.frame.frame_id,
+                OpaqueIdentityRole.CANDIDATE_VERIFICATION,
+                events,
+            )
             events.append(
                 self._event(
                     VideoEventType.GUIDANCE_REQUESTED,
@@ -514,6 +525,7 @@ class SampledFrameEngine:
             self._emit_opaque_abort(
                 analyzed.candidate.retry_reasons[0].value,
                 frame.frame_id,
+                OpaqueIdentityRole.CANDIDATE_VERIFICATION,
                 events,
             )
             self._window.clear()
@@ -533,10 +545,21 @@ class SampledFrameEngine:
             if pair is not None
             else self._opaque_collector.observe_missing()
         )
-        self._emit_opaque_observation(frame.frame_id, pair, decision, events)
+        self._emit_opaque_observation(
+            frame.frame_id,
+            pair,
+            decision,
+            OpaqueIdentityRole.CANDIDATE_VERIFICATION,
+            events,
+        )
         if decision.kind is OpaqueIdentityDecisionKind.UNKNOWN:
             return
-        self._emit_opaque_decision(decision, frame.frame_id, events)
+        self._emit_opaque_decision(
+            decision,
+            frame.frame_id,
+            OpaqueIdentityRole.CANDIDATE_VERIFICATION,
+            events,
+        )
         if decision.kind is OpaqueIdentityDecisionKind.SAME:
             matched = (
                 self.opaque_identity_ledger.find(decision.matched_artifact_id)
@@ -574,6 +597,17 @@ class SampledFrameEngine:
             self._transition(VideoSessionState.WAITING_FOR_PAGE_CHANGE, events)
             events.append(
                 self._event(
+                    VideoEventType.OPAQUE_IDENTITY_COLLECTION_STARTED,
+                    source_frame_id=frame.frame_id,
+                    spread_id=spread_id,
+                    details={
+                        **self._opaque_policy_details(),
+                        "identity_role": OpaqueIdentityRole.PAGE_CHANGE.value,
+                    },
+                )
+            )
+            events.append(
+                self._event(
                     VideoEventType.WAITING_FOR_PAGE_CHANGE,
                     source_frame_id=frame.frame_id,
                     spread_id=spread_id,
@@ -608,7 +642,12 @@ class SampledFrameEngine:
             )
         timeout = self._opaque_collector.decision(now=now)
         if timeout.timed_out:
-            self._emit_opaque_decision(timeout, reference.observations[0].source_frame_id, events)
+            self._emit_opaque_decision(
+                timeout,
+                reference.observations[0].source_frame_id,
+                OpaqueIdentityRole.PAGE_CHANGE,
+                events,
+            )
             self._opaque_collector = OpaqueQueryCollector(
                 self.opaque_identity_policy,
                 (reference,),
@@ -641,10 +680,21 @@ class SampledFrameEngine:
             if pair is not None
             else self._opaque_collector.observe_missing()
         )
-        self._emit_opaque_observation(frame.frame_id, pair, decision, events)
+        self._emit_opaque_observation(
+            frame.frame_id,
+            pair,
+            decision,
+            OpaqueIdentityRole.PAGE_CHANGE,
+            events,
+        )
         if decision.kind is OpaqueIdentityDecisionKind.UNKNOWN:
             return
-        self._emit_opaque_decision(decision, frame.frame_id, events)
+        self._emit_opaque_decision(
+            decision,
+            frame.frame_id,
+            OpaqueIdentityRole.PAGE_CHANGE,
+            events,
+        )
         if decision.kind is OpaqueIdentityDecisionKind.SAME:
             self._opaque_collector = OpaqueQueryCollector(
                 self.opaque_identity_policy,
@@ -687,6 +737,7 @@ class SampledFrameEngine:
                 self._emit_opaque_abort(
                     "source_exhausted",
                     self._selected.frame.frame_id if self._selected is not None else None,
+                    OpaqueIdentityRole.CANDIDATE_VERIFICATION,
                     events,
                 )
             events.append(self._event(VideoEventType.SOURCE_EXHAUSTED))
@@ -739,6 +790,7 @@ class SampledFrameEngine:
         frame_id,
         pair: OpaqueFooterTokenPair | None,
         decision: OpaqueIdentityDecision,
+        identity_role: OpaqueIdentityRole,
         events: list[VideoEvent],
     ) -> None:
         observed_at = self.clock.monotonic()
@@ -759,6 +811,7 @@ class SampledFrameEngine:
                 spread_id=self._selected_spread,
                 details={
                     **self._opaque_policy_details(),
+                    "identity_role": identity_role.value,
                     "valid": pair is not None,
                     "pair_digest": pair.digest if pair is not None else None,
                     "left_token_length": len(pair.left_raw_token) if pair is not None else None,
@@ -776,6 +829,7 @@ class SampledFrameEngine:
         self,
         decision: OpaqueIdentityDecision,
         frame_id,
+        identity_role: OpaqueIdentityRole,
         events: list[VideoEvent],
     ) -> None:
         if decision.kind is OpaqueIdentityDecisionKind.SAME:
@@ -791,6 +845,7 @@ class SampledFrameEngine:
                 spread_id=self._selected_spread,
                 details={
                     **self._opaque_policy_details(),
+                    "identity_role": identity_role.value,
                     "decision": decision.kind.value,
                     "valid_observations": decision.valid_observations,
                     "match_count": decision.match_count,
@@ -808,6 +863,7 @@ class SampledFrameEngine:
         self,
         terminal_reason: str,
         frame_id,
+        identity_role: OpaqueIdentityRole,
         events: list[VideoEvent],
     ) -> None:
         collector = self._opaque_collector
@@ -820,6 +876,7 @@ class SampledFrameEngine:
                 spread_id=self._selected_spread,
                 details={
                     **self._opaque_policy_details(),
+                    "identity_role": identity_role.value,
                     "terminal_reason": terminal_reason,
                     "valid_observations": len(collector.observations),
                     "missing_observations": collector.missing_observations,
@@ -951,6 +1008,16 @@ class SampledFrameEngine:
                     )
                 )
             self._transition(VideoSessionState.WAITING_FOR_PAGE_CHANGE, events)
+            if accepted_opaque_bank is not None:
+                events.append(
+                    self._pending_event(
+                        VideoEventType.OPAQUE_IDENTITY_COLLECTION_STARTED,
+                        details={
+                            **self._opaque_policy_details(),
+                            "identity_role": OpaqueIdentityRole.PAGE_CHANGE.value,
+                        },
+                    )
+                )
             events.append(
                 self._pending_event(
                     VideoEventType.WAITING_FOR_PAGE_CHANGE,

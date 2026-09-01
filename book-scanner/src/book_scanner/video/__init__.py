@@ -27,7 +27,7 @@ from .composition import (
     PaddleOpaqueIdentityBackendConfig,
     compose_m1_page_number_provider,
 )
-from .events import GuidanceRequest, VideoEvent, VideoEventType
+from .events import GuidanceRequest, OpaqueIdentityRole, VideoEvent, VideoEventType
 from .identity import (
     IdentityComparison,
     IdentityFingerprintError,
@@ -217,6 +217,7 @@ __all__ = [
     "OpaqueFooterTokenPair",
     "OpaqueIdentityDecision",
     "OpaqueIdentityDecisionKind",
+    "OpaqueIdentityRole",
     "OpaqueIdentityStrategy",
     "OpaqueQueryCollector",
     "OpaqueReferenceBank",

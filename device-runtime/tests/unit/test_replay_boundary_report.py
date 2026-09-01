@@ -9,70 +9,147 @@ def _feedback(code: str, **details):
     return {"type": "feedback", "code": code, "details": details}
 
 
-def test_exact_e0b_boundary_report_passes_only_with_server_evidence() -> None:
-    records = [
-        _feedback("candidate_selected", spread_id="spread-1", source_frame_id="frame-780"),
-        _feedback("identity_collection_started", spread_id="spread-1", query_sample_count=5),
+def _reading(datapack_id: str, page_id: str):
+    return {
+        "type": "reading_snapshot",
+        "datapack_id": datapack_id,
+        "cursor": {"document_id": datapack_id, "page_id": page_id},
+        "braille_cells": [],
+        "audio_ref": "s0-audio:test",
+    }
+
+
+def _successful_records() -> list[dict]:
+    datapack_id = "datapack-fresh"
+    return [
+        _feedback("speak_catalog_title", index=2, title="new", kind="new_datapack"),
+        _feedback("confirm_selection", datapack_id=datapack_id),
+        _feedback("scan_started", datapack_id=datapack_id),
+        _feedback(
+            "candidate_selected",
+            identity_role="candidate_verification",
+            spread_id="spread-1",
+            source_frame_id="video-00000092",
+        ),
+        _feedback(
+            "identity_collection_started",
+            identity_role="candidate_verification",
+            spread_id="spread-1",
+            source_frame_id="video-00000092",
+            query_sample_count=5,
+        ),
         _feedback(
             "identity_collection_decided",
+            identity_role="candidate_verification",
             spread_id="spread-1",
+            source_frame_id="video-00000099",
             query_sample_count=5,
             valid_observations=5,
             decision="different",
             timed_out=False,
         ),
         _feedback("spread_sent", sequence=1),
-        _feedback("candidate_selected", spread_id="spread-2", source_frame_id="frame-1866"),
-        _feedback("identity_collection_started", spread_id="spread-2", query_sample_count=5),
+        _feedback(
+            "identity_collection_started",
+            identity_role="page_change",
+            spread_id="spread-1",
+            source_frame_id="video-00000099",
+            query_sample_count=5,
+        ),
         _feedback(
             "identity_collection_progress",
-            spread_id="spread-2",
+            identity_role="page_change",
+            source_frame_id="video-00000100",
             query_sample_count=5,
-            valid_observations=4,
+            valid_observations=1,
         ),
-        _feedback(
-            "identity_collection_aborted",
-            spread_id="spread-2",
-            query_sample_count=5,
-            valid_observations=4,
-            terminal_reason="content_occluded",
-        ),
-        _feedback("candidate_selected", spread_id="spread-3", source_frame_id="frame-2220"),
-        _feedback("identity_collection_started", spread_id="spread-3", query_sample_count=5),
         _feedback(
             "identity_collection_decided",
-            spread_id="spread-3",
+            identity_role="page_change",
+            source_frame_id="video-00000100",
+            query_sample_count=5,
+            valid_observations=1,
+            decision="same",
+            timed_out=False,
+        ),
+        _feedback(
+            "identity_collection_progress",
+            identity_role="page_change",
+            source_frame_id="video-00000310",
+            query_sample_count=5,
+            valid_observations=1,
+        ),
+        _feedback(
+            "identity_collection_decided",
+            identity_role="page_change",
+            source_frame_id="video-00000314",
+            query_sample_count=5,
+            valid_observations=5,
+            decision="different",
+            timed_out=False,
+        ),
+        _feedback(
+            "candidate_selected",
+            identity_role="candidate_verification",
+            spread_id="spread-2",
+            source_frame_id="video-00000365",
+        ),
+        _feedback(
+            "identity_collection_started",
+            identity_role="candidate_verification",
+            spread_id="spread-2",
+            source_frame_id="video-00000365",
+            query_sample_count=5,
+        ),
+        _feedback(
+            "identity_collection_decided",
+            identity_role="candidate_verification",
+            spread_id="spread-2",
+            source_frame_id="video-00000372",
             query_sample_count=5,
             valid_observations=5,
             decision="different",
             timed_out=False,
         ),
         _feedback("spread_sent", sequence=2),
-        _feedback("candidate_selected", spread_id="spread-4", source_frame_id="frame-2670"),
-        _feedback("identity_collection_started", spread_id="spread-4", query_sample_count=5),
-        _feedback(
-            "identity_collection_aborted",
-            spread_id="spread-4",
-            query_sample_count=5,
-            valid_observations=1,
-            terminal_reason="source_exhausted",
-        ),
         _feedback("scan_input_exhausted", queued_count=2, acked_count=2),
+        _feedback("datapack_saved", datapack_id=datapack_id, revision=1),
+        _feedback("reading_resumed", document_id=datapack_id),
+        _reading(datapack_id, "pg-run-00000001-L"),
+        _reading(datapack_id, "pg-run-00000001-R"),
+        _reading(datapack_id, "pg-run-00000002-L"),
+        _reading(datapack_id, "pg-run-00000002-R"),
     ]
+
+
+def test_exact_e0b_role_report_passes_only_with_server_evidence() -> None:
     source = {"sha256": E0B_SOURCE_SHA256, "status": "passed"}
 
-    provisional = build_report(records, source_report=source)
+    provisional = build_report(_successful_records(), source_report=source)
     passed = build_report(
-        records,
+        _successful_records(),
         source_report=source,
         server_summary={"spread_receipts": 2, "fragments": 4, "duplicates": 0},
     )
 
+    assert provisional["schema_version"] == 2
     assert provisional["status"] == "provisional"
     assert provisional["limitations"]
     assert passed["status"] == "passed"
     assert passed["runtime"]["spread_sent_sequences"] == [1, 2]
-    assert [attempt["maximum_valid_observations"] for attempt in passed["attempts"]] == [5, 4, 5, 1]
+    assert len(passed["candidate_attempts"]) == 2
+    assert [attempt["maximum_valid_observations"] for attempt in passed["candidate_attempts"]] == [5, 5]
+    assert [check["terminal"]["decision"] for check in passed["page_change_checks"]] == [
+        "same",
+        "different",
+    ]
+    assert all(
+        attempt["identity_role"] == "candidate_verification"
+        for attempt in passed["candidate_attempts"]
+    )
+    assert all(
+        check["identity_role"] == "page_change" for check in passed["page_change_checks"]
+    )
 
 
 def test_report_rejects_wrong_source_and_never_copies_unrecognized_fields() -> None:
@@ -81,6 +158,7 @@ def test_report_rejects_wrong_source_and_never_copies_unrecognized_fields() -> N
         json.dumps(
             _feedback(
                 "identity_collection_aborted",
+                identity_role="candidate_verification",
                 spread_id="spread-1",
                 source_frame_id="frame-1",
                 query_sample_count=5,
@@ -104,28 +182,8 @@ def test_report_rejects_wrong_source_and_never_copies_unrecognized_fields() -> N
 
 
 def test_supplied_malformed_server_summary_cannot_become_provisional() -> None:
-    records = [
-        _feedback("spread_sent", sequence=1),
-        _feedback("spread_sent", sequence=2),
-        _feedback("scan_input_exhausted", queued_count=2, acked_count=2),
-        _feedback(
-            "identity_collection_aborted",
-            spread_id="spread-2",
-            query_sample_count=5,
-            valid_observations=4,
-            terminal_reason="content_occluded",
-        ),
-        _feedback(
-            "identity_collection_aborted",
-            spread_id="spread-4",
-            query_sample_count=5,
-            valid_observations=1,
-            terminal_reason="source_exhausted",
-        ),
-    ]
-
     report = build_report(
-        records,
+        _successful_records(),
         source_report={"sha256": E0B_SOURCE_SHA256, "status": "passed"},
         server_summary={"spread_receipts": 2, "fragments": "four", "duplicates": 0},
     )
@@ -135,3 +193,35 @@ def test_supplied_malformed_server_summary_cannot_become_provisional() -> None:
         check for check in report["checks"] if check["name"] == "server_receipts_fragments_duplicates"
     )
     assert server_check["passed"] is False
+
+
+def test_missing_role_is_not_inferred_from_spread_id() -> None:
+    records = _successful_records()
+    for record in records:
+        if record.get("code") == "identity_collection_decided":
+            record["details"].pop("identity_role", None)
+            break
+
+    report = build_report(
+        records,
+        source_report={"sha256": E0B_SOURCE_SHA256, "status": "passed"},
+        server_summary={"spread_receipts": 2, "fragments": 4, "duplicates": 0},
+    )
+
+    assert report["status"] == "failed"
+    role_check = next(check for check in report["checks"] if check["name"] == "identity_roles")
+    assert role_check["passed"] is False
+    assert report["limitations"]
+
+
+def test_four_of_five_abort_is_not_a_required_success_condition() -> None:
+    report = build_report(
+        _successful_records(),
+        source_report={"sha256": E0B_SOURCE_SHA256, "status": "passed"},
+        server_summary={"spread_receipts": 2, "fragments": 4, "duplicates": 0},
+    )
+
+    check_names = {check["name"] for check in report["checks"]}
+    assert "four_of_five_hard_reject" not in check_names
+    assert "one_of_five_source_exhausted" not in check_names
+    assert report["status"] == "passed"

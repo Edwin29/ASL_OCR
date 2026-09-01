@@ -1,10 +1,17 @@
 # Device Integration E0-B.3 — Replay Candidate/Identity Boundary Verification 작업 패킷
 
-상태: **승인됨 / observer diagnostics와 local 회귀 완료 / 실제 Laptop 구조화 report 재수집 대기**
+상태: **완료 후 E0-B.3.2에 의해 진단 원인 가설과 report 성공 조건이 대체됨**
 기준일: 2026-09-01
 성격: **E0-B 실제 Laptop 환경의 replay 판정 증거 보강 및 software acceptance 종료 패킷**
 선행 조건: Device Integration E0-B.2 구현과 동일 영상의 실제 Laptop remote replay/upload/reading 성공
 후속 조건: E0-B remote software acceptance 종료 후 physical camera + HC-05/STM acceptance
+
+> **2026-09-02 정정:** 실제 E0-B.3.1 이후 full Laptop log는 candidate identity와 전송 후
+> page-change identity가 같은 event family를 사용한다는 사실을 확인했다. 이 패킷의 314/315 `4/5 +
+> content_occluded` 및 318 `1/5 + EOF` 원인 가설은 실제 runtime 증거로 확정되지 않았으며,
+> 이를 필수로 검사하는 report 계약도 잘못됐다. 역사적 승인 내용은 보존하지만 현재 authority는
+> `DEVICE_INTEGRATION_E0_B_3_2_IDENTITY_ROLE_REPORT_CONTRACT_CORRECTION_WORK_PACKET.md`와 교정된
+> verification report다. Scanner capture 정책과 exact-video 기대 전송 수 2는 변경하지 않는다.
 
 ## 1. 배경과 실제 관측
 

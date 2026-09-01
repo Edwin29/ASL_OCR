@@ -435,9 +435,9 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 - Scanner 판정은 유지하고 hard reject/EOF collector 폐기에 observer-only terminal event 추가
 - 기존 candidate/identity lifecycle을 bounded Device JSONL feedback으로 연결
 - raw OCR token, pair digest, image/API key/model path는 feedback/report에서 제외
-- exact source report가 sequence 1, 2, EOF 2/2, identity 4/5 hard reject와 1/5 EOF를 검사
-- Server summary 2/4/0이 없으면 `provisional`, 일치하면 `passed`, 불일치하면 `failed`
-- local 전체 회귀 완료; 새 diagnostics가 포함된 실제 Laptop 구조화 report 재수집 대기
+- 실제 full Laptop log에서 candidate verification과 page-change monitoring을 혼동한 report 결함 확인
+- 314/315 4/5 hard reject 및 318 1/5 EOF 필수 원인 가설은 E0-B.3.2에서 철회
+- 역사적 packet/event 추가는 보존하지만 현재 report authority는 E0-B.3.2 schema v2
 
 주요 문서와 코드:
 
@@ -465,15 +465,40 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 - `device-runtime/src/asl_device/local_composition.py`
 - `device-runtime/tests/unit/test_local_controls.py`
 
+### 5.14 Device Integration E0-B.3.2 — identity role/report contract correction
+
+- Book Scanner identity diagnostic에 `candidate_verification`과 `page_change` explicit role 추가
+- Device Runtime은 role과 bounded count/decision만 전달하고 raw token/digest는 계속 제외
+- report schema v2에서 `candidate_attempts[]`와 `page_change_checks[]` 분리
+- exact source runtime 조건을 candidate 2개 각각 5/5 `different`, sequence `[1,2]`, EOF 2/2,
+  revision 1 save와 reading L/R 4페이지로 교정
+- 4/5 hard-reject 및 1/5 EOF abort는 더 이상 필수 check가 아님
+- Server summary 없음은 `provisional`, 2/4/0은 `passed`, malformed/mismatch는 `failed`
+- Scanner threshold/artifact/delivery 계약 변경 0
+- Book Scanner 전체 299 passed; Device Runtime 전체 107 passed, 3 skipped
+- E0-B.3.2 role이 포함된 실제 Laptop/Server final report는 E0-B.4로 분리
+
+주요 문서와 코드:
+
+- `DEVICE_INTEGRATION_E0_B_3_2_IDENTITY_ROLE_REPORT_CONTRACT_CORRECTION_WORK_PACKET.md`
+- `DEVICE_INTEGRATION_E0_B_3_2_IMPLEMENTATION_REPORT.md`
+- `DEVICE_INTEGRATION_E0_B_3_VERIFICATION_REPORT.md`
+- `book-scanner/src/book_scanner/video/events.py`
+- `book-scanner/src/book_scanner/video/engine.py`
+- `device-runtime/src/asl_device/adapters/book_scanner_runtime.py`
+- `device-runtime/src/asl_device/replay_boundary_report.py`
+
 ## 6. 최신 검증 기준선
 
-2026-09-01 E0-B.3.1 console identity 교정 완료 시점의 최신 전체 결과:
+2026-09-02 E0-B.3.2 identity role/report 교정 완료 시점의 최신 전체 결과:
 
 | 범위 | 결과 |
 |---|---:|
-| Book Scanner 전체 | 298 passed |
-| Device Runtime + actual E0-Core integration | 105 passed, 3 skipped |
+| Book Scanner 전체 | 299 passed |
+| Device Runtime + actual E0-Core integration | 107 passed, 3 skipped |
 | Document Parser 전체 | 602 passed, 4 skipped |
+| E0-B.3.2 role/events 집중 | 14 passed |
+| E0-B.3.2 Device adapter/report 집중 | 11 passed |
 | E0-B.3.1 신규 console identity | 7 passed |
 | E0-B.3 신규 boundary/diagnostic | 7 passed |
 | E0-B.2 집중 | 48 passed |
@@ -526,12 +551,13 @@ E0-B.1 software implementation과 Desktop Tailscale Serve fixed private HTTPS sm
 Laptop 1차 실행에서 footer collection 시간과 EOF 전달 blocker를 확인했고, E0-B.2 교정 뒤 동일 영상
 재실행은 sequence 1, 2, EOF queued/acked 2/2, user confirm 뒤 READY/read/navigation까지 통과했다. Server
 결과도 spread 2, fragment 4, duplicate 0이었다. E0-B.3 observer diagnostics와 E0-B.3.1 console
-idempotency namespace 교정도 완료됐다. 다음 단계는 **Laptop에 E0-B.3.1 revision을 반영하고 새 datapack
-ID를 확인한 뒤 동일 prepared MP4의 구조화 boundary report를 한 번 재수집하는 것**이다. report에서
-314/315의 identity 4/5 hard reject와 마지막 318의 1/5 EOF를 확인한 뒤
-같은 fixed endpoint에서 camera/STM/speaker physical E0-B를 진행한다. 같은 LAN과 유료 domain은 요구하지
-않는다. Production tunnel policy/service와 exhaustive WAN fault 검증은 후속 Network Hardening으로
-분리한다.
+idempotency namespace 교정도 완료됐다. E0-B.3.1 이후 full log는 candidate verification과 page-change
+monitoring이 같은 identity event family를 사용한다는 사실을 드러냈고, E0-B.3.2에서 explicit role과
+report schema v2로 교정했다. 다음 단계는 **Laptop에 E0-B.3.2 revision을 반영하고 새 datapack ID를
+확인한 뒤 동일 prepared MP4의 role-aware transcript와 Server summary 2/4/0을 재수집해 final report를
+만드는 E0-B.4 actual evidence closure**다. 그 뒤 같은 fixed endpoint에서 camera/STM/speaker physical
+E0-B를 진행한다. 같은 LAN과 유료 domain은 요구하지 않는다. Production tunnel policy/service와
+exhaustive WAN fault 검증은 후속 Network Hardening으로 분리한다.
 
 Cloudflare Desktop 준비 smoke는 완료됐다. `D:\Tools\cloudflared.exe` 2026.8.3과 Windows batch wrapper로
 bench Server local health 및 Quick Tunnel public HTTPS health가 모두 HTTP 200임을 확인한 뒤 process와
@@ -539,7 +565,9 @@ bench Server local health 및 Quick Tunnel public HTTPS health가 모두 HTTP 20
 Server instance와 reset/start 뒤 동일 hostname도 확인했다. 실제 FQDN은 private 식별자라 문서에
 기록하지 않았다. 실제 Laptop의 artifact/V4/READY/reading 성공 evidence는 E0-B.3 보고서에 요약했다.
 첫 post-E0-B.3 실행은 diagnostics 5/5까지 확인했지만 console operation-key 충돌로 이전 datapack을
-재사용해 acceptance에서 제외했다. E0-B.3.1 교정 뒤 fresh transcript와 final boundary JSON은 아직 없다.
+재사용해 acceptance에서 제외했다. E0-B.3.1 교정 뒤 fresh datapack 실행은 sequence 1,2, EOF 2/2,
+save/read 4페이지까지 통과했다. 다만 이 로그는 E0-B.3.2 이전이라 explicit role이 없고 transcript와
+Server summary 파일을 결합한 schema v2 final boundary JSON은 아직 없다.
 
 Model은 Git history에 넣지 않는다. UVDoc official checkpoint와 Paddle M1 asset을 포함한 검증 bundle은
 GitHub Release `e0b-model-bundle-2026-09-01`에 올렸고 ZIP SHA-256은
@@ -589,7 +617,9 @@ V3-B 패킷에서 먼저 고정할 것:
 Device Integration E0-Core: development desktop local composition + deterministic replay/I/O
   -> E0-B.2: replay timeout/EOF repair
   -> E0-B.1: actual Laptop prepared MP4/console remote acceptance 통과
-  -> E0-B.3.1: fresh datapack 확인 + candidate/identity boundary report 재수집
+  -> E0-B.3.1: console process namespace repair + fresh datapack 실제 확인
+  -> E0-B.3.2: candidate/page-change explicit role + report schema v2 local 교정
+  -> E0-B.4: role-aware Laptop transcript + Server 2/4/0 final evidence closure
   -> Device Integration E0-B — Laptop Acceptance: real camera + STM + beep/TTS
   -> Network Hardening: production tunnel policy/service + exhaustive WAN fault
   -> Raspberry Pi systemd/network-online/camera/GPIO/audio/resource validation
@@ -598,8 +628,8 @@ Device Integration E0-Core: development desktop local composition + deterministi
 ## 9. 완료로 오인하면 안 되는 사항
 
 - E0-B camera/STM/audio adapter와 preflight는 구현됐지만 실제 Laptop 장치에서 실행한 report는 없다.
-- E0-B.1/E0-B.2 actual Laptop remote replay/upload/READY/reading은 통과했지만 E0-B.3 observer event가
-  포함된 candidate/identity boundary JSON report는 아직 없다.
+- E0-B.1/E0-B.2 actual Laptop remote replay/upload/READY/reading과 E0-B.3.1 fresh datapack은 통과했지만,
+  E0-B.3.2 explicit role transcript와 Server summary를 결합한 schema v2 final report는 아직 없다.
 - 실제 camera/UVDoc/Paddle asset을 사용한 Device application smoke run은 없다.
 - V3-B restart 보장은 queue commit 이후 adapter 재생성 범위다. 전체 Coordinator active scan과
   queue 전 orphan artifact를 자동 복원하지 않는다.
@@ -621,12 +651,14 @@ ASL_OCR의 codex/asl-ocr-integration-c0-handoff 브랜치에서 작업을 이어
 정리하는 통합 작업이다. Document Parser의 content transformation 책임과 Server의 transport/
 persistence/orchestration 책임을 혼동하지 마라. 사용자 변경과 기존 Scanner/Coordinator/S0/S1/C0/V4
 계약을 보존하라. V3-B, Device Integration E0-Core, E0-B/E0-B.1 software, E0-B.2 replay timeout/EOF
-교정, E0-B.3 observer diagnostics와 E0-B.3.1 console identity 교정은 완료됐고 전체 회귀도 통과했다. Desktop Tailscale Serve smoke와
+교정, E0-B.3 observer diagnostics, E0-B.3.1 console identity 교정과 E0-B.3.2 identity role/report schema
+v2 교정은 완료됐고 전체 회귀도 통과했다. Desktop Tailscale Serve smoke와
 실제 Laptop의 remote health/presence/session, 동일 영상 sequence 1,2, EOF 2/2, READY/read/navigation 및
-Server 2 spreads/4 fragments/duplicate 0도 확인했다. 현재 다음 우선순위는 Laptop에 E0-B.3.1 revision을
-반영하고 새 datapack ID임을 확인한 뒤 동일 prepared MP4로 boundary report를 재수집해 identity 4/5
-hard reject와 1/5 EOF를 구조화 증거로 남기는 것이다. 그 다음 camera/STM/speaker physical E0-B를
-진행한다.
+Server 2 spreads/4 fragments/duplicate 0도 확인했다. 실제 full log는 candidate verification과
+page-change monitoring이 같은 event family를 사용함을 확인했고, 314/315 4/5 hard reject와 318 1/5 EOF
+필수 가설은 철회했다. 현재 다음 우선순위는 Laptop에 E0-B.3.2 revision을 반영하고 새 datapack ID를
+확인한 뒤 동일 prepared MP4의 role-aware transcript와 Server 2/4/0 summary를 보존해 schema v2 report
+`passed`를 만드는 E0-B.4다. 그 다음 camera/STM/speaker physical E0-B를 진행한다.
 같은 LAN과 유료 domain은 요구하지 않는다. Production tunnel/network hardening을 같은 패킷의 선행
 조건으로 묶지 마라. 실제로 검증하지 않은 Laptop remote flow와 Raspberry Pi 동작을 완료로 처리하지
 마라.

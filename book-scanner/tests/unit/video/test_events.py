@@ -4,7 +4,7 @@ import json
 
 import pytest
 
-from book_scanner.video.events import VideoEvent, VideoEventType
+from book_scanner.video.events import OpaqueIdentityRole, VideoEvent, VideoEventType
 from book_scanner.video.types import ArtifactId, FrameId, ReadinessReason, VideoSessionState
 
 
@@ -22,6 +22,27 @@ def test_event_round_trip_includes_required_envelope() -> None:
 
     payload = json.loads(json.dumps(event.to_dict()))
     assert VideoEvent.from_dict(payload) == event
+
+
+def test_identity_role_value_round_trips_as_bounded_event_detail() -> None:
+    event = VideoEvent(
+        event_type=VideoEventType.OPAQUE_IDENTITY_DECIDED,
+        event_id="event-role-1",
+        at_monotonic=3.0,
+        session_id="session-1",
+        producer_version="video-runtime-v1",
+        session_state=VideoSessionState.WAITING_FOR_PAGE_CHANGE,
+        source_frame_id=FrameId("frame-2"),
+        details={
+            "identity_role": OpaqueIdentityRole.PAGE_CHANGE.value,
+            "decision": "same",
+            "valid_observations": 1,
+        },
+    )
+
+    restored = VideoEvent.from_dict(json.loads(json.dumps(event.to_dict())))
+
+    assert dict(restored.details)["identity_role"] == "page_change"
 
 
 def test_frame_event_requires_source_frame_id() -> None:

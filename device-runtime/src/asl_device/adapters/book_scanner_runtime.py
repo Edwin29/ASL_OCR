@@ -318,20 +318,24 @@ def _diagnostic_event(
     if spread_id:
         bounded.append(("spread_id", spread_id))
     field_names = {
-        "opaque_identity_collection_started": ("query_sample_count",),
+        "candidate_selected": ("identity_role",),
+        "opaque_identity_collection_started": ("identity_role", "query_sample_count"),
         "opaque_identity_observed": (
+            "identity_role",
             "valid_observations",
             "query_sample_count",
             "recognition_processing_ms",
             "effective_interval_ms",
         ),
         "opaque_identity_decided": (
+            "identity_role",
             "decision",
             "valid_observations",
             "query_sample_count",
             "timed_out",
         ),
         "opaque_identity_aborted": (
+            "identity_role",
             "terminal_reason",
             "valid_observations",
             "missing_observations",

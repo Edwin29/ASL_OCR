@@ -169,17 +169,22 @@ SHA-256 `16c57970bc493abcef4a1db0f1917b22956bf5ca1a2ee8b4565fde1f6574e6f8`의 �
 {"type":"feedback","code":"scan_input_exhausted","details":{"queued_count":2,"acked_count":2}}
 ```
 
-이 영상에서는 30/309와 316/317 두 spread가 전송된다. 310/311과 312/313는 손/가림 hard reject다.
-314/315는 stable candidate가 된 뒤 identity가 4/5에서 `content_occluded`를 만나고, 마지막
-318/다음 장 시작은 identity 1/5에서 EOF를 만나 artifact 없이 끝나는 것이 현재 보수 계약의 정상
-결과다. `candidate_selected`는 곧 `spread_sent`를 뜻하지 않는다.
+이 영상의 runtime acceptance 기대값은 전송 가능한 candidate 2개와 `spread_sent` sequence 1, 2다.
+실제 E0-B.3.1 이후 로그에서 두 candidate는 각각 `candidate_verification` 5/5 `different`를 통과했다.
+그 사이의 `page_change` identity는 이미 전송한 펼침면이 바뀌었는지 감시하며, `same`이면 대기를
+계속하고 5/5 `different`이면 새 candidate 검색을 재개한다. runtime `source_frame_id`의 숫자를 책
+페이지 번호나 원본 MP4 frame 번호로 해석하지 않는다. 310/311 등의 영상별 품질 평가는 offline audit
+층에 남기며 runtime identity event의 직접 인과 증거로 승격하지 않는다. `candidate_selected`는 곧
+`spread_sent`를 뜻하지 않는다.
 
-E0-B.3부터 다음 bounded JSONL이 함께 표시된다. raw OCR token이나 image는 출력하지 않는다.
+E0-B.3.2부터 다음 bounded JSONL에 `identity_role`이 함께 표시된다. raw OCR token이나 image는 출력하지
+않는다.
 
 ```json
-{"type":"feedback","code":"candidate_selected","details":{"source_frame_id":"...","spread_id":"..."}}
-{"type":"feedback","code":"identity_collection_progress","details":{"valid_observations":4,"query_sample_count":5}}
-{"type":"feedback","code":"identity_collection_aborted","details":{"terminal_reason":"content_occluded","valid_observations":4,"query_sample_count":5}}
+{"type":"feedback","code":"candidate_selected","details":{"identity_role":"candidate_verification","source_frame_id":"...","spread_id":"..."}}
+{"type":"feedback","code":"identity_collection_progress","details":{"identity_role":"candidate_verification","valid_observations":5,"query_sample_count":5}}
+{"type":"feedback","code":"identity_collection_decided","details":{"identity_role":"candidate_verification","decision":"different","valid_observations":5,"query_sample_count":5}}
+{"type":"feedback","code":"identity_collection_decided","details":{"identity_role":"page_change","decision":"same","valid_observations":1,"query_sample_count":5}}
 ```
 
 - `queued_count >= 1`, `acked_count >= 1`이고 `spread_sent`를 확인했다면 `confirm`을 입력한다.
@@ -206,8 +211,11 @@ Stop-Transcript
   D:\ASL_OCR_E0B\reports\e0b-replay-boundary.json
 ```
 
-Laptop log와 source hash만 통과하면 report 상태는 `provisional`이다. Server 확인 결과를 다음 형태의
-JSON으로 저장하고 `--server-summary <path>`를 추가했을 때만 `passed`가 된다.
+report schema v2는 candidate attempt와 page-change check를 별도로 집계한다. 두 candidate의 5/5
+`different`, sequence `[1,2]`, EOF 2/2, revision 1 저장과 L/R 4페이지 reading이 runtime 성공 조건이다.
+4/5 hard-reject나 1/5 EOF abort는 필수 조건이 아니다. Laptop log와 source hash만 통과하면 report
+상태는 `provisional`이다. Server 확인 결과를 다음 형태의 JSON으로 저장하고 `--server-summary <path>`를
+추가했을 때만 `passed`가 된다.
 
 ```json
 {"spread_receipts":2,"fragments":4,"duplicates":0}

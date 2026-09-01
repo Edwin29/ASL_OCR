@@ -59,6 +59,13 @@ class VideoEventType(str, Enum):
     PAGE_CHANGED = "page_changed"
 
 
+class OpaqueIdentityRole(str, Enum):
+    """Bounded diagnostic role for an opaque identity collector."""
+
+    CANDIDATE_VERIFICATION = "candidate_verification"
+    PAGE_CHANGE = "page_change"
+
+
 _FRAME_EVENTS = {
     VideoEventType.CANDIDATE_OBSERVED,
     VideoEventType.CANDIDATE_SELECTED,

@@ -151,22 +151,28 @@ READY datapack ID를 반환하면 해당 실행은 fresh evidence가 아니므�
 E0-B.1 성공은 Scanner/V3-B/V4/S1/reading transport를 입증하지만 실제 OCR/TTS 품질과 camera,
 HC-05/STM, 점자 frame, speaker/audio resource를 입증하지 않는다.
 
-### E0-B.3 candidate/identity boundary
+### E0-B.3.2 candidate/page-change identity boundary
 
 고정 prepared MP4 SHA-256
 `16c57970bc493abcef4a1db0f1917b22956bf5ca1a2ee8b4565fde1f6574e6f8`의 정상 기대값은
 `spread_sent` sequence 1, 2와 EOF `queued_count=2`, `acked_count=2`다. Server에는 spread receipt
 2개, left/right fragment 4개와 duplicate 0이 있어야 한다.
 
-Scanner는 stable candidate 3개 뒤 새 opaque identity collector에서 valid pair 5개를 요구한다.
-따라서 stable candidate가 곧 artifact 또는 전송을 뜻하지 않는다. 해당 영상의 314/315는 identity
-4/5 뒤 `content_occluded`, 마지막 318/다음 장 시작은 identity 1/5 뒤 source exhaustion으로 종료되는
-것을 정상 보수 거부로 분류한다. stable-window evidence 재사용, EOF frame 반복, N/K 또는 candidate
-threshold 완화는 E0-B.3 범위가 아니다.
+Scanner는 opaque identity collector를 두 역할로 사용한다. `candidate_verification`은 stable candidate를
+최근 accepted identity와 비교하고, `page_change`는 ACK된 펼침면 뒤에 같은 화면인지 감시한다. 전자는
+5/5 `different`에서 artifact 처리를 허용하고, 후자는 5/5 `different`에서 candidate 검색을 재개한다.
+`same`은 `k_same=1`에 따라 일찍 끝날 수 있다. stable candidate가 곧 artifact 또는 전송을 뜻하지 않으며,
+page-change decision도 candidate/artifact count가 아니다.
+
+E0-B.3의 314/315 `4/5 + content_occluded`와 318 `1/5 + source exhausted` 필수 가설은 실제 full Laptop
+로그가 지지하지 않아 E0-B.3.2에서 철회했다. `video-00000314` 같은 runtime source frame ID는 책 쪽수나
+원본 MP4 frame 번호가 아니다. 영상 구간별 품질 평가는 offline audit과 user-confirmed label 층에 남기고
+runtime identity lifecycle과 구분한다. stable-window evidence 재사용, EOF frame 반복, N/K 또는
+candidate threshold 완화는 E0-B.3.2 범위가 아니다.
 
 JSONL에는 `candidate_selected`, `identity_collection_started`, `identity_collection_progress`,
-`identity_collection_decided`, `identity_collection_aborted`가 bounded detail로 출력된다. report 생성기는
-다음과 같이 실행한다.
+`identity_collection_decided`, `identity_collection_aborted`가 explicit `identity_role`과 bounded detail로
+출력된다. report schema v2는 candidate attempts와 page-change checks를 분리하며 다음과 같이 실행한다.
 
 ```powershell
 .\.venv-e0b\Scripts\python.exe `
@@ -177,8 +183,11 @@ JSONL에는 `candidate_selected`, `identity_collection_started`, `identity_colle
   --server-summary D:\ASL_OCR_E0B\reports\e0b-server-summary.json
 ```
 
-Server summary를 생략하면 runtime/source 검증만 수행해 `provisional`을 반환한다. summary 형식은
-`{"spread_receipts":2,"fragments":4,"duplicates":0}`이고, 이 값까지 일치해야 최종 `passed`다.
+runtime 필수 조건은 새 데이터팩 선택 lineage, candidate 2개 각각 5/5 `different`, sequence `[1,2]`,
+EOF 2/2, revision 1 저장과 L/R reading page 4개다. 4/5/1/5 abort 존재는 요구하지 않는다. Server summary를
+생략하면 runtime/source 검증만 수행해 `provisional`을 반환한다. summary 형식은
+`{"spread_receipts":2,"fragments":4,"duplicates":0}`이고, 이 값까지 일치해야 최종 `passed`다. role 없는
+legacy identity log는 spread ID로 역할을 추측하지 않고 실패/limitation으로 보고한다.
 
 ## 5. Physical E0-B setup
 

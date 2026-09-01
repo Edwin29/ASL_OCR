@@ -257,7 +257,7 @@ def test_identity_diagnostics_are_bounded_and_missing_observations_are_not_progr
                 session_id="scan-1",
                 source_frame_id=_value("frame-1866"),
                 spread_id=_value("spread-314-315"),
-                details=(("tenengrad", 123.0),),
+                details=(("tenengrad", 123.0), ("identity_role", "candidate_verification")),
             ),
             SimpleNamespace(
                 event_type=_value("opaque_identity_collection_started"),
@@ -265,7 +265,11 @@ def test_identity_diagnostics_are_bounded_and_missing_observations_are_not_progr
                 session_id="scan-1",
                 source_frame_id=_value("frame-1866"),
                 spread_id=_value("spread-314-315"),
-                details=(("query_sample_count", 5), ("provenance", "private")),
+                details=(
+                    ("identity_role", "candidate_verification"),
+                    ("query_sample_count", 5),
+                    ("provenance", "private"),
+                ),
             ),
             SimpleNamespace(
                 event_type=_value("opaque_identity_observed"),
@@ -283,6 +287,7 @@ def test_identity_diagnostics_are_bounded_and_missing_observations_are_not_progr
                 spread_id=_value("spread-314-315"),
                 details=(
                     ("valid", True),
+                    ("identity_role", "candidate_verification"),
                     ("valid_observations", 4),
                     ("query_sample_count", 5),
                     ("pair_digest", "secret-digest"),
@@ -297,6 +302,7 @@ def test_identity_diagnostics_are_bounded_and_missing_observations_are_not_progr
                 spread_id=_value("spread-314-315"),
                 details=(
                     ("terminal_reason", "content_occluded"),
+                    ("identity_role", "candidate_verification"),
                     ("valid_observations", 4),
                     ("missing_observations", 0),
                     ("query_sample_count", 5),
@@ -318,8 +324,10 @@ def test_identity_diagnostics_are_bounded_and_missing_observations_are_not_progr
     progress = dict(events[2].details)
     aborted = dict(events[3].details)
     assert progress["valid_observations"] == 4
+    assert progress["identity_role"] == "candidate_verification"
     assert progress["query_sample_count"] == 5
     assert aborted["terminal_reason"] == "content_occluded"
+    assert aborted["identity_role"] == "candidate_verification"
     assert "pair_digest" not in progress
     assert "pair_digest" not in aborted
     assert "left_token_length" not in progress
