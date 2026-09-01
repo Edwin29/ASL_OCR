@@ -108,7 +108,7 @@ def build_local_device(
             if presenter_value is None:
                 presenter_value = stm
         else:
-            controls_value = ConsoleControlSource()
+            controls_value = ConsoleControlSource(event_namespace=connectivity.boot_id)
     if presenter_value is None and default_console and config.feedback_mode == "jsonl":
         presenter_value = JsonLineReadingPresenter()
     coordinator = DeviceFlowCoordinator(

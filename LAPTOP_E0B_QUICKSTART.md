@@ -149,6 +149,11 @@ console에서는 `up`, `down`, `left`, `right`, `next`, `prev`, `confirm`, `leve
 기다리는 것이다. Reading 중 `right`, `next` 등의 명령을 입력하면 바뀐 Server 응답이 다음 형태의
 JSON line으로 표시돼야 한다.
 
+E0-B.3.1부터 console event ID에는 process boot namespace가 포함된다. `새 데이터팩 추가`를 confirm한
+직후 `confirm_selection`의 `datapack_id`가 이전 완료 실행의 ID와 다른지 확인한다. 이전 ID가 다시
+표시되면 fresh acceptance가 아니므로 `Ctrl+C`로 중단하고 repository revision을 확인한다. 명령 수를
+임의로 바꿔 idempotency key를 회피하는 방법은 acceptance 절차로 사용하지 않는다.
+
 ```json
 {"type":"reading_snapshot","reading_session_id":"...","datapack_id":"...","cursor":{},"braille_cells":[],"audio_ref":"..."}
 ```

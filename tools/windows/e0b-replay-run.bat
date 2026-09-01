@@ -12,5 +12,6 @@ echo [E0-B.2] If queued_count is zero, the replay acceptance failed; stop with C
 echo [E0-B.3] Stable candidate and transmitted spread are separate decisions; identity requires 5 later valid observations.
 echo [E0-B.3] For the pinned test1.mp4, expect spread_sent 1,2 and scan_input_exhausted queued_count=2, acked_count=2.
 echo [E0-B.3] candidate_selected and identity_collection_* feedback explain conservative rejections without changing them.
+echo [E0-B.3.1] After selecting New Datapack, confirm that its datapack_id differs from every prior completed run.
 call "%SCRIPT_DIR%e0b-laptop-run.bat" "%CONFIG_ROOT%"
 exit /b %ERRORLEVEL%

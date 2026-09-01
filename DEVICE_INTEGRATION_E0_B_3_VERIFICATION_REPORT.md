@@ -2,7 +2,7 @@
 
 작성일: 2026-09-01
 작업 패킷: `DEVICE_INTEGRATION_E0_B_3_REPLAY_BOUNDARY_VERIFICATION_WORK_PACKET.md`
-상태: **observer diagnostics 구현 및 local 회귀 완료 / 동일 Laptop 영상의 E0-B.3 구조화 report 재수집 대기**
+상태: **observer diagnostics 및 E0-B.3.1 console identity 교정 완료 / 동일 Laptop 영상의 구조화 report 재수집 대기**
 
 ## 결론
 
@@ -23,6 +23,11 @@ candidate/identity lifecycle event를 Device JSONL feedback으로 전달한다.
 따라서 transport/lifecycle happy path는 성공했다. 다만 새 diagnostics로 314/315의 `4/5 +
 content_occluded`와 318의 `1/5 + source_exhausted`를 한 실행에서 다시 수집한 실제 Laptop JSON report는
 아직 없다. 이 보고서는 그 재실행 전까지 E0-B.3 자체를 최종 완료로 과장하지 않는다.
+
+첫 post-E0-B.3 재시도에서 diagnostics 자체는 첫 candidate identity `5/5 -> different`까지 정상
+출력됐다. 그러나 `새 데이터팩 추가`가 이전 완료 실행과 같은 datapack ID를 반환해 fresh acceptance로
+사용하지 않았다. 원인은 process마다 초기화되는 `console-00000001` counter가 S0 operation key로
+재사용된 것이며, E0-B.3.1에서 C0 boot namespace를 event ID에 포함하도록 교정했다.
 
 ## 구현 내용
 
@@ -92,11 +97,12 @@ Document Parser 최초 명령도 package import path가 빠져 collection에 실
 
 ## 실제 Laptop에서 남은 한 번의 확인
 
-1. 이 revision을 Laptop에 반영한다.
+1. E0-B.3.1 revision을 Laptop에 반영한다.
 2. 같은 prepared MP4/hash로 fresh datapack replay를 실행하면서 transcript를 저장한다.
-3. EOF `queued=2`, `acked=2`와 user confirm 뒤 READY/read/navigation을 확인한다.
-4. Server summary `2/4/0`을 준비한다.
-5. boundary report를 `--server-summary`와 실행해 `status=passed`를 보존한다.
+3. confirm 직후 datapack ID가 이전 완료 실행과 다른지 확인한다.
+4. EOF `queued=2`, `acked=2`와 user confirm 뒤 READY/read/navigation을 확인한다.
+5. Server summary `2/4/0`을 준비한다.
+6. boundary report를 `--server-summary`와 실행해 `status=passed`를 보존한다.
 
 이 확인 후 E0-B remote software acceptance를 최종 종료할 수 있다. 실제 camera, HC-05/STM, 점자 셀과
 speaker는 계속 별도 physical acceptance 범위다.

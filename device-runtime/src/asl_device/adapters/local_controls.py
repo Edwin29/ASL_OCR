@@ -3,14 +3,19 @@
 from __future__ import annotations
 
 import queue
+import re
 import sys
 import threading
 import time
+import uuid
 from collections import deque
 from collections.abc import Iterable
 from typing import Protocol, TextIO
 
 from asl_device.types import DeviceControl, DeviceInputEvent, InputAction
+
+
+_EVENT_NAMESPACE_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$")
 
 
 class ControlSource(Protocol):
@@ -41,8 +46,21 @@ class ScriptedControlSource:
 class ConsoleControlSource:
     """Read simple newline commands without mutating the Coordinator off-thread."""
 
-    def __init__(self, stream: TextIO | None = None) -> None:
+    def __init__(
+        self,
+        stream: TextIO | None = None,
+        *,
+        event_namespace: str | None = None,
+    ) -> None:
         self.stream = stream or sys.stdin
+        namespace = (
+            f"process-{uuid.uuid4().hex}"
+            if event_namespace is None
+            else event_namespace
+        )
+        if _EVENT_NAMESPACE_RE.fullmatch(namespace) is None:
+            raise ValueError("event_namespace must be 1-80 safe ASCII characters")
+        self._event_namespace = namespace
         self._lines: queue.SimpleQueue[str] = queue.SimpleQueue()
         self._closed = False
         self._counter = 0
@@ -63,7 +81,7 @@ class ConsoleControlSource:
             self._counter += 1
             events.append(
                 DeviceInputEvent(
-                    f"console-{self._counter:08d}",
+                    f"console-{self._event_namespace}-{self._counter:08d}",
                     control,
                     action,
                     time.monotonic(),

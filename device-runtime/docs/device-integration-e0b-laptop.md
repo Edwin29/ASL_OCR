@@ -128,7 +128,7 @@ Console command는 `up`, `down`, `left`, `right`, `next`, `prev`, `confirm`, `le
 Fresh bench state에서 확인할 순서는 다음과 같다.
 
 1. authenticated C0 ONLINE과 catalog event
-2. 새 데이터팩을 선택하고 `confirm`하여 scan 시작
+2. 새 데이터팩을 선택하고 `confirm`하여 scan 시작; `datapack_id`가 이전 완료 실행과 다른지 확인
 3. replay에서 artifact 생성, durable V3-B enqueue와 valid V4 ACK 뒤 `spread_sent`
 4. EOF의 `scan_input_exhausted` 1회와 `queued_count`/`acked_count` 확인
 5. ACK가 확인된 뒤 다시 `confirm`하여 freeze/flush/seal
@@ -142,6 +142,11 @@ Fresh bench state에서 확인할 순서는 다음과 같다.
 아니며 사용자의 `confirm`이 stop intent다. `queued_count=0`이면 빈 datapack을 seal하지 않고 acceptance
 실패로 보존한다. queued artifact가 아직 ACK되지 않았다면 기존 delivery polling을 계속하고
 `spread_sent` 뒤에 confirm한다.
+
+E0-B.3.1은 console event ID를 C0 process `boot_id` namespace 아래 생성한다. 따라서 서로 다른
+application process에서 같은 수의 `up/down` 뒤 confirm해도 S0 `:create`/`:scan-open` idempotency key가
+충돌하지 않는다. 이 변경은 Server receipt replay 규칙을 완화하지 않는다. `새 데이터팩 추가`가 이전
+READY datapack ID를 반환하면 해당 실행은 fresh evidence가 아니므로 중단한다.
 
 E0-B.1 성공은 Scanner/V3-B/V4/S1/reading transport를 입증하지만 실제 OCR/TTS 품질과 camera,
 HC-05/STM, 점자 frame, speaker/audio resource를 입증하지 않는다.
