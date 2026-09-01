@@ -493,6 +493,9 @@ DIFFERENT만 V2로 보낸다. 서버 ACK 전 bank는 pending이며 reject/cancel
 
 ### Phase V4. Server preflight와 outbox
 
+상태: **Server V4, Scanner V3-B와 Device Integration E0-Core local composition 완료;
+실제 Laptop acceptance는 후속**
+
 - versioned acceptance API 협의
 - atomic outbox와 idempotent upload
 - network/server retry 분리
@@ -513,9 +516,10 @@ DIFFERENT만 V2로 보낸다. 서버 ACK 전 bank는 pending이며 reject/cancel
 - V1: `SCANNER_VIDEO_V1_FRAME_ENGINE_WORK_PACKET.md`
 - V2: `SCANNER_VIDEO_V2_SEAM_UVDOC_ARTIFACT_WORK_PACKET.md`
 
-V0~V3-A.5의 Scanner 로컬 경로를 완료했다. 다음 구현 우선순위는 Server S0 persistent catalog,
-Server S1 incremental append·seal, Scanner V3-B + Server V4 durable outbox·HTTP ingest,
-STM/camera/audio/Pi 4 device integration이다. M1 held-out 검증은 병행 backlog로 유지한다.
+V0~V3-A.5 Scanner 로컬 경로와 Server S0/S1/C0/V4, Scanner V3-B single-sender outbox, 개발용
+데스크톱의 Device Integration E0-Core local composition을 완료했다. 다음 우선순위는 실제 Laptop
+camera/STM/audio와 internet HTTPS tunnel을 통한 desktop Server의 Device Integration E0-B — Laptop Acceptance다. 이후 production network hardening과 Pi 4 이식으로 진행한다. M1
+held-out 검증과 V3-B 운영 hardening은 병행/후속 backlog로 유지한다.
 
 ## 15. 검증 기준
 

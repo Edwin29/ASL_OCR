@@ -3,8 +3,10 @@
 Server S0 is the SQLite-backed control plane used by the device coordinator. It owns catalog,
 scan-session intent, and reading progress. Server S1 now supplies the internal verified-bundle,
 Document Parser fragment, append, and immutable publish path described in `server-s1.md`. Public
-artifact upload and the device durable outbox remain Server V4 work. During development the device
-host and outbox run on a LAPTOP PC; the same contracts are later ported to Raspberry Pi.
+artifact upload is supplied by Server V4, and Scanner V3-B supplies the single-sender durable
+device outbox and automatic sender. E0-Core composes the device host, Scanner bridge, Coordinator,
+and outbox on the development desktop. Physical Laptop validation, whole active-session restart,
+and the later Raspberry Pi port remain.
 
 ## Startup
 

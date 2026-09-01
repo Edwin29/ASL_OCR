@@ -164,7 +164,8 @@ Camera / sampled snapshots
   -> seam-conservative crop
   -> UVDoc bilinear correction
   -> immutable two-page artifact bundle
-  -> [아직 미구현: Scanner durable outbox + Server V4 upload]
+  -> Scanner V3-B single-sender durable outbox/sender
+  -> Server V4 bounded multipart + durable bundle writer
   -> Server S1 verified spread acceptance
   -> Document Parser OCR / Page IR / accessibility page fragments
   -> atomic datapack revision publish
@@ -194,8 +195,8 @@ Device Connectivity C0
 - Document Parser는 accepted page image를 OCR/Page IR/점자·낭독 content로 변환한다. 카메라,
   upload protocol, network retry와 장치 presence는 소유하지 않는다.
 - C0는 서버 연결/presence만 소유한다. heartbeat 성공은 artifact upload ACK가 아니다.
-- 다음 Server V4가 byte upload와 server-owned atomic bundle writer를 소유하고, 검증 완료 후 S1의
-  `accept_verified_spread()`를 호출해야 한다.
+- Server V4는 byte upload, server-owned staging/fsync/atomic promotion, upload idempotency journal을
+  소유하고, 검증 완료 후 S1의 `accept_verified_spread()`를 호출한다.
 - Scanner sender/outbox는 전송 전 파일 보존, idempotency key, retry/backoff, ACK 반영, cache quota와
   재시작 복구를 소유해야 한다.
 
@@ -294,21 +295,119 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 - `device-runtime/docs/device-connectivity-c0.md`
 - `document-parser/src/document_parser/server/c0_presence.py`
 
+### 5.6 Server V4 durable bundle upload
+
+- metadata → manifest → bundle files 순서의 bounded multipart 제품 endpoint
+- canonical logical upload digest와 same-key response replay/different-digest collision
+- SQLite schema v4 upload journal과 receiving/promoted/accepted/rejected/abandoned lifecycle
+- server-owned file write/fsync와 same-filesystem atomic promotion
+- promotion/S1 commit/response-loss 경계의 restart recovery
+- S1 receipt DB commit 뒤에만 ACK; parser/finalize 완료와 명시적으로 분리
+- staging/received quota, writer backpressure, partial orphan cleanup과 DB 없는 final quarantine
+- 실제 LAPTOP loopback HTTP upload round trip 검증
+
+주요 코드와 문서:
+
+- `document-parser/src/document_parser/server/v4_domain.py`
+- `document-parser/src/document_parser/server/v4_multipart.py`
+- `document-parser/src/document_parser/server/v4_upload.py`
+- `document-parser/docs/server-v4.md`
+- `SERVER_V4_DURABLE_BUNDLE_UPLOAD_PROTOCOL_WORK_PACKET.md`
+- `SERVER_V4_IMPLEMENTATION_REPORT.md`
+
+### 5.7 Scanner V3-B single-sender durable outbox
+
+- 기존 `DeliveryPort`의 SQLite-backed production-shaped 구현
+- Scanner V2 immutable bundle의 local inventory/hash 재검증과 durable queue
+- stable sequence/artifact/upload digest/idempotency key
+- bounded stdlib multipart file streaming과 Server V4 actual loopback
+- strict receipt identity match 뒤에만 ACK와 artifact cleanup
+- timeout/response-loss/process restart의 same-key resend
+- `pending_status()`와 `flush_through()`의 durable row 권위
+- single process/sender 범위; 다중 writer·lease·quota/GC hardening은 의도적으로 후속 분리
+
+주요 코드와 문서:
+
+- `device-runtime/src/asl_device/delivery.py`
+- `device-runtime/src/asl_device/delivery_store.py`
+- `device-runtime/src/asl_device/adapters/http_v4.py`
+- `device-runtime/docs/device-delivery-v3b.md`
+- `SCANNER_V3_B_DURABLE_OUTBOX_SENDER_WORK_PACKET.md`
+- `SCANNER_V3_B_IMPLEMENTATION_REPORT.md`
+
+### 5.8 Device Integration E0-Core local composition
+
+- scan-session-scoped Book Scanner engine factory와 concrete `ScannerRuntime` bridge
+- Scanner artifact/event와 Device delivery update의 양방향 identity-preserving mapping
+- typed app config, C0/S0/V3-B/Scanner/Coordinator composition root와 단일 entrypoint
+- single-threaded application loop, scripted/console input과 semantic JSON feedback
+- 첫 V4 response loss 뒤 same-key retry를 포함한 actual local C0/S0/V4/S1 HTTP+SQLite E2E
+- ACK 전 `SPREAD_SENT` 0, flush 전 seal 0, READY 전 `DATAPACK_SAVED` 0
+- current development desktop 범위; 실제 Laptop/camera/STM/audio는 별도 acceptance
+
+주요 코드와 문서:
+
+- `device-runtime/src/asl_device/adapters/book_scanner_runtime.py`
+- `device-runtime/src/asl_device/app_config.py`
+- `device-runtime/src/asl_device/application.py`
+- `device-runtime/src/asl_device/local_composition.py`
+- `device-runtime/src/asl_device/__main__.py`
+- `book-scanner/src/book_scanner/video/runtime_composition.py`
+- `device-runtime/docs/device-integration-e0-core.md`
+- `DEVICE_INTEGRATION_E0_CORE_LOCAL_COMPOSITION_WORK_PACKET.md`
+- `DEVICE_INTEGRATION_E0_CORE_IMPLEMENTATION_REPORT.md`
+
+### 5.9 Device Integration E0-B — Laptop Acceptance
+
+- explicit camera width/height/FPS 적용과 observed mode 검증
+- STM `HELLO`/`NAV` 입력, `DeviceInputEvent` 변환과 10-cell `FRAME` 응답을 한 serial adapter로 구성
+- firmware debounce를 보완하는 최소 host debounce와 bounded reconnect backoff
+- semantic feedback의 비동기 Windows beep/SAPI speech rendering
+- model/server/camera/serial/audio `--preflight`와 secret-safe JSON report
+- desktop loopback origin bench server와 remote HTTPS profile을 포함한 software boundary 완료;
+  실제 Laptop/camera/STM/speaker/external tunnel evidence는 대기
+
+주요 코드와 문서:
+
+- `device-runtime/src/asl_device/adapters/stm_serial.py`
+- `device-runtime/src/asl_device/adapters/local_feedback.py`
+- `device-runtime/src/asl_device/laptop_acceptance.py`
+- `device-runtime/device-app.e0b.laptop.example.toml`
+- `device-runtime/device-connectivity.e0b.remote.example.toml`
+- `device-runtime/docs/device-integration-e0b-laptop.md`
+- `tools/windows/e0b-start-server.bat`
+- `tools/windows/e0b-start-quick-tunnel.bat`
+- `tools/windows/e0b-check-server.bat`
+- `tools/windows/e0b_health_check.py`
+- `tools/windows/e0b-laptop-setup.bat`
+- `tools/windows/e0b-laptop-setup.ps1`
+- `tools/windows/e0b-laptop-preflight.bat`
+- `tools/windows/e0b-laptop-run.bat`
+- `LAPTOP_E0B_QUICKSTART.md`
+- `document-parser/src/document_parser/server/e0b_bench_server.py`
+- `DEVICE_INTEGRATION_E0_B_LAPTOP_ACCEPTANCE_WORK_PACKET.md`
+- `DEVICE_INTEGRATION_E0_B_IMPLEMENTATION_REPORT.md`
+
 ## 6. 최신 검증 기준선
 
-2026-08-31 C0 완료 시점의 최신 전체 결과:
+2026-09-01 E0-B software implementation 완료 시점의 최신 전체 결과:
 
 | 범위 | 결과 |
 |---|---:|
-| Book Scanner 전체 | 288 passed |
-| Device Runtime 전체 | 47 passed |
-| Document Parser 전체 | 552 passed, 4 skipped, 3 subtests passed |
-| S0/S1/C0/combined 집중 | 38 passed, 1 existing warning |
-| C0 server 집중 | 6 passed |
+| Book Scanner 전체 | 289 passed |
+| Device Runtime + actual E0-Core integration | 83 passed |
+| Document Parser 전체 | 573 passed, 4 skipped |
+| S0/S1/C0/V4/combined 집중 | 51 passed |
+| Server V4 집중 | 19 passed |
+| V3-B unit 집중 | 11 passed |
+| V3-B → V4 actual loopback | 1 passed |
+| E0-Core 신규 unit | 9 passed |
+| E0-Core actual HTTP/SQLite E2E | 1 passed |
+| E0-B config/application/STM/audio/preflight 집중 | 19 passed |
 
 Document Parser의 기존 `latex_ast.py` invalid escape warning은 이번 계열에서 생긴 것이 아니다.
 Book Scanner는 Windows 한글 사용자 temp 경로가 깨져 OpenCV 파일 생성이 실패할 수 있다. 이 경우
-제품 실패로 처리하지 말고 저장소 내부 ASCII `--basetemp`로 재실행한다. 실제로 그 방식으로 288개가
+제품 실패로 처리하지 말고 저장소 내부 ASCII `--basetemp`로 재실행한다. 실제로 그 방식으로 289개가
 통과했다.
 
 각 과거 보고서의 test count는 그 패킷 당시의 기준선이라 최신 총계보다 작을 수 있다. 최신 총계와
@@ -343,41 +442,78 @@ Git 포함 대상:
 
 ## 8. 다음 우선순위
 
-다음 작업은 **Server V4 upload protocol 작업 패킷 작성 및 승인**이다. C0를 더 확장하거나 M1
-held-out 검증 때문에 주 흐름을 다시 멈추지 않는다.
+Device Integration E0-B — Laptop Acceptance의 software adapter, desktop bench Server, remote HTTPS
+profile, config, preflight와 runbook은 2026-09-01 구현·회귀 검증을 완료했다. 다음 단계는 **서로 다른
+network에서 인터넷에 연결된 실제 Laptop/camera/STM/speaker와 현재 개발용 desktop Server 사이에
+HTTPS tunnel을 열고 E0-B physical acceptance를 실행해 report/log를 남기는 것**이다. 같은 LAN은
+요구하지 않는다. Production tunnel policy/service와 exhaustive WAN fault 검증은 후속 Network
+Hardening으로 분리한다. V3-B 운영 hardening, C0/V4 확장 또는 M1 held-out 검증을 선행 조건으로 다시
+묶지 않는다.
 
-V4 패킷에서 먼저 고정할 것:
+Desktop 준비 smoke는 완료됐다. `D:\Tools\cloudflared.exe` 2026.8.3과 추가된 Windows batch wrapper로
+bench Server local health 및 Quick Tunnel public HTTPS health가 모두 HTTP 200임을 확인한 뒤 process와
+임시 state를 정리했다. 남은 핵심은 다른 network의 실제 Laptop에서 같은 endpoint로 preflight/full
+flow를 실행하는 것이다.
 
-1. scan session/sequence/artifact identity와 idempotency key
-2. streaming body 제한, manifest와 좌우 파일 hash/size 검증
-3. server-owned staging -> fsync/atomic promotion -> DB receipt 순서
-4. 동일 digest replay와 다른 digest collision
-5. ACK의 정확한 의미와 S1 `accept_verified_spread()` 호출 경계
-6. timeout/connection loss 때 client가 안전하게 재시도할 응답 계약
-7. partial/orphan staging 정리와 quota
-8. 인증은 C0/S0와 같은 endpoint/API key 기반으로 시작하되 장치별 credential은 별도 강화 항목
+Laptop one-click setup과 quickstart도 추가됐지만 model은 Git에 넣지 않는다. 현재 Desktop에는 UVDoc
+runtime과 Paddle M1 model이 있으나 UVDoc `checkpoint.pth`는 발견되지 않았다. 실제 Laptop setup 전에
+검증에 사용했던 checkpoint를 별도 보관 위치/Drive에서 확보해 documented model bundle 구조로
+준비해야 한다.
 
-그 다음 **Scanner V3-B sender + LAPTOP durable outbox**를 구현한다. A가 left/right 최선 artifact를
+### 8.1 이후 작업 패킷의 범위 원칙
+
+V4 최초 패킷은 false ACK와 중복 fragment 방지라는 필수 보수성 외에도 다중 writer quota·lease,
+quarantine과 세분화된 crash matrix를 한 번에 포함해 현재 프로토타입 단계보다 넓었다. 파일 업로드
+경계 자체의 난도와 별개로 이 운영 hardening 범위가 작업 시간을 크게 늘렸다. 이후 패킷은 다음
+원칙을 따른다.
+
+- 현재 milestone의 사용자 흐름을 닫는 최소 계약과 happy path를 먼저 구현한다.
+- 데이터 손실, false ACK, 중복 side effect를 막는 안전성은 MVP에서도 생략하지 않는다.
+- 단일 process/single writer로 충분하면 이를 명시하고 다중 writer 일반화는 미룬다.
+- 관측되지 않은 quota·retention·quarantine·운영 자동화는 즉시 필요한 단순 상한만 두고 별도
+  hardening 패킷으로 분리한다.
+- crash 검증은 현재 흐름의 대표 경계만 선정하고, exhaustive matrix는 실제 장애·부하 근거가 생긴
+  뒤 확장한다.
+- 구현 패킷과 운영 hardening 패킷을 분리하며, 후자를 선행 조건으로 만들어 주 흐름을 막지 않는다.
+
+### 8.2 V3-B 최소 범위 — 구현 완료
+
+V3-B는 A가 left/right 최선 artifact를
 송신 중일 때 같은 spread를 다시 송신하지 않도록 in-flight/pending/ACK ledger를 디스크에 보존해야
 한다. M1은 송신 전 로컬 중복 억제이고, V4 idempotency/outbox는 네트워크 재시도 중복 억제이므로
 서로 대체하지 않는다.
 
+V3-B 패킷에서 먼저 고정할 것:
+
+1. outbox SQLite/filesystem source of truth와 atomic enqueue
+2. scan session/sequence/artifact/idempotency key의 restart 보존
+3. V4 multipart sender와 timeout/response-loss exact retry
+4. V4 receipt identity reconciliation과 `DeliveryStatus` mapping
+5. `pending_status()`와 `flush_through(N)`의 정확한 durable ACK 기준
+6. ACK 후 cache eviction과 deterministic reject 보존
+7. process restart 뒤 미확정 항목의 same-key 재전송
+
+위 최소 범위는 `SCANNER_V3_B_IMPLEMENTATION_REPORT.md` 기준으로 완료됐다. 다중 sender/writer,
+일반화된 quota/freeze, 장기 retention/GC, exhaustive crash matrix, accepted M1 identity bank의
+영속화는 실제 E2E에서 필요성이 확인될 때 별도 패킷으로 승인한다.
+
 후속 순서:
 
 ```text
-Server V4 upload contract/core
-  -> Scanner V3-B durable outbox/sender
-  -> LAPTOP camera + STM + beep/TTS + real HTTP E2E
-  -> fixed external endpoint/TLS/network fault
+Device Integration E0-Core: development desktop local composition + deterministic replay/I/O
+  -> Device Integration E0-B — Laptop Acceptance: real camera + STM + beep/TTS + remote HTTPS desktop Server
+  -> Network Hardening: production tunnel policy/service + exhaustive WAN fault
   -> Raspberry Pi systemd/network-online/camera/GPIO/audio/resource validation
 ```
 
 ## 9. 완료로 오인하면 안 되는 사항
 
-- Scanner에서 서버로 실제 artifact bytes를 보내는 production API는 없다.
-- durable outbox, ACK 후 cache eviction, process restart resend는 없다.
-- 저장 완료 TTS/beep와 실제 STM serial adapter는 없다.
-- 외부 fixed DNS/IP, TLS, VPN/tunnel, 실제 LAN/인터넷 E2E는 없다.
+- E0-B camera/STM/audio adapter와 preflight는 구현됐지만 실제 Laptop 장치에서 실행한 report는 없다.
+- 실제 camera/UVDoc/Paddle asset을 사용한 Device application smoke run은 없다.
+- V3-B restart 보장은 queue commit 이후 adapter 재생성 범위다. 전체 Coordinator active scan과
+  queue 전 orphan artifact를 자동 복원하지 않는다.
+- 저장 완료 TTS/beep와 STM serial adapter는 있으나 실제 speaker/board에서 검증하지 않았다.
+- remote HTTPS profile과 tunnel runbook은 있으나 실제 external tunnel/Laptop Internet E2E 증거는 없다.
 - Windows 자동 시작과 Raspberry Pi systemd/network-online 이식은 없다.
 - 실제 Pi 4의 Paddle/UVDoc latency, RSS, 발열과 카메라/GPIO/audio는 측정하지 않았다.
 - M1 중복 판정은 held-out spread 일반화가 부족하고 process restart 후 accepted bank 복원도 없다.
@@ -392,8 +528,11 @@ ASL_OCR의 codex/asl-ocr-integration-c0-handoff 브랜치에서 작업을 이어
 보고서와 현재 코드/테스트를 대조하라. 이 작업은 완성된 Document Parser에 안정적인 Scanner
 입력을 연결하고, 과거 검증/시연을 위해 결합된 OCR·점역·TTS·임시 서버 책임을 제품 경계에 맞게
 정리하는 통합 작업이다. Document Parser의 content transformation 책임과 Server의 transport/
-persistence/orchestration 책임을 혼동하지 마라. 사용자 변경과 기존 Scanner/Coordinator/S0/S1/C0
-계약을 보존하라. 현재 다음 우선순위는 Server V4 upload protocol 작업 패킷 작성이며, 승인 전
-구현하지 마라. 실제로 검증하지 않은 외부 네트워크, Raspberry Pi, outbox 동작을 완료로 처리하지
-마라.
+persistence/orchestration 책임을 혼동하지 마라. 사용자 변경과 기존 Scanner/Coordinator/S0/S1/C0/V4
+계약을 보존하라. V3-B, Device Integration E0-Core와 E0-B software implementation은 완료됐다. 현재
+다음 우선순위는 서로 다른 network에서 인터넷에 연결된 실제 Laptop/camera/STM/speaker와 현재 개발용
+desktop bench Server를 HTTPS tunnel로 연결해 E0-B preflight와 full acceptance flow를 실행하고
+report/log를 남기는 것이다. 같은 LAN은 요구하지 않는다. Production tunnel/network hardening을 같은
+패킷의 선행 조건으로 묶지 마라. 실제로 검증하지 않은 external tunnel과 Raspberry Pi 동작을 완료로
+처리하지 마라.
 ```

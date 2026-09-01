@@ -5,7 +5,9 @@
 배경 차감 기반 legacy session loop와, 오프라인에서 검증한 `seam-conservative + UVDoc`
 구현이 함께 있다. 연속 영상 runtime은 V0 계약, V1/V1.1/V1.2 PC 표본 frame engine,
 V2 `seam-conservative + UVDoc bilinear` atomic artifact, V3-A/V3-A.5의 identity·ACK 이후
-page-change까지 구현됐다. 실제 HTTP 송신과 durable outbox는 후속 범위다.
+page-change까지 구현됐다. 인접 `device-runtime`에는 V3-B single-sender durable outbox와 Server
+V4 HTTP client, Device Integration E0-Core local composition이 구현됐다. 실제 Laptop camera/STM/audio
+검증은 Device Integration E0-B — Laptop Acceptance로 분리했다.
 
 ## 핵심 전환: "촬영가능여부" → "전송가능여부"
 
@@ -252,18 +254,19 @@ native 전면 전환은 이 표본에서 개선으로 입증되지 않았다.
 
 ## 아직 완료하지 않은 것
 
-durable outbox, 실제 HTTP 송신·서버 멱등성, parser preflight API, 실제 비프음/TTS,
-Pi 카메라·GPIO, Pi 4에서의 UVDoc 위치와 성능은 아직 구현·검증하지 않았다. V3-A identity와
+실제 Laptop camera/UVDoc/Paddle smoke, 비프음/TTS, STM, Pi 카메라·GPIO, Pi 4에서의 UVDoc 위치와
+성능은 아직 구현·검증하지 않았다. E0-Core deterministic local composition과 V3-B/V4 loopback은
+완료됐지만 전체 Coordinator active scan restart와 외부 network 동작은 검증하지 않았다. V3-A identity와
 page-change 임곗값도 충분한 held-out spread 및 MP4 page-change timeline으로 calibration하지
 않았다. M1은 기본 구성이나 `validated=false`이며, semantic page-number 정확도나 일반적인
 false-duplicate율을 입증한 것으로 보지 않는다. Paddle 모델 경로·manifest가 없는 M1 구성은
 시각 방식으로 자동 fallback하지 않고 실패한다. seam과 UVDoc의 p30 채택 근거를 다른 책·조명·그림자·
 부분 잘림에 자동 일반화하지 않는다.
 
-V3-A.5 이후 우선순위는 중복 판정 실험에서 본래 통합 흐름으로 복귀한다: Server S0 persistent
-catalog·scan session·reading progress, Server S1 fragment append·seal, Scanner V3-B + Server V4
-durable outbox·HTTP ingest, 마지막으로 STM/camera/audio/Pi 4 device integration이다. 추가 M1 표본
-검증은 병행 backlog이며 이 순서의 선행 blocker가 아니다.
+V3-A.5 이후 Server S0/S1/C0/V4, Scanner V3-B와 Device Integration E0-Core까지 본래 통합 흐름을
+진행했다. 다음 우선순위는 실제 Laptop camera/STM/audio와 internet HTTPS tunnel을 통한 desktop Server의
+Device Integration E0-B — Laptop Acceptance이며, 이후 production network hardening과 Pi 4 이식으로
+진행한다. 추가 M1 표본 검증과 V3-B 운영 hardening은 선행 blocker가 아니다.
 
 세부 상태, 책임 경계, 실패 이유, 구현 단계와 검증 기준은
 `SCANNER_CONTINUOUS_TRANSFER_READINESS_DESIGN.md`를 따른다.

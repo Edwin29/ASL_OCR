@@ -67,14 +67,23 @@ class OpenCVCameraSource:
         *,
         clock: Clock | None = None,
         drain_grabs: int = 2,
+        width: int | None = None,
+        height: int | None = None,
+        fps: float | None = None,
         capture_factory: CaptureFactory = cv2.VideoCapture,
         frame_prefix: str = "camera",
     ):
         if drain_grabs < 0:
             raise ValueError("drain_grabs must be non-negative")
+        for name, value in (("width", width), ("height", height), ("fps", fps)):
+            if value is not None and (isinstance(value, bool) or not isinstance(value, (int, float)) or value <= 0):
+                raise ValueError(f"camera {name} must be positive when configured")
         self.device_index = device_index
         self.clock = clock or SystemClock()
         self.drain_grabs = drain_grabs
+        self.width = width
+        self.height = height
+        self.fps = fps
         self.capture_factory = capture_factory
         self.frame_prefix = frame_prefix
         self._capture: _Capture | None = None
@@ -94,7 +103,25 @@ class OpenCVCameraSource:
             if not capture.isOpened():
                 capture.release()
                 raise CameraUnavailableError(f"could not open camera device {self.device_index}")
+            if self.width is not None:
+                capture.set(cv2.CAP_PROP_FRAME_WIDTH, float(self.width))
+            if self.height is not None:
+                capture.set(cv2.CAP_PROP_FRAME_HEIGHT, float(self.height))
+            if self.fps is not None:
+                capture.set(cv2.CAP_PROP_FPS, float(self.fps))
             capture.set(cv2.CAP_PROP_BUFFERSIZE, 1)
+            observed = {
+                "width": capture.get(cv2.CAP_PROP_FRAME_WIDTH),
+                "height": capture.get(cv2.CAP_PROP_FRAME_HEIGHT),
+                "fps": capture.get(cv2.CAP_PROP_FPS),
+            }
+            requested = {"width": self.width, "height": self.height, "fps": self.fps}
+            for name, expected in requested.items():
+                if expected is not None and abs(float(observed[name]) - float(expected)) > 1.0:
+                    capture.release()
+                    raise CameraUnavailableError(
+                        f"camera {name} is {observed[name]:g}; requested {expected:g}"
+                    )
             self._capture = capture
             self._counter = 0
             self._stopped = False

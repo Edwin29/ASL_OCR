@@ -2,6 +2,8 @@
 
 from .catalog import CatalogModel
 from .coordinator import DeviceFlowCoordinator
+from .delivery import DurableDeliveryPort
+from .delivery_config import DeviceDeliveryConfig
 from .events import CoordinatorEvent, CoordinatorEventType, FeedbackCode, FeedbackEvent
 from .types import (
     ArtifactId,
@@ -49,8 +51,10 @@ __all__ = [
     "DeliveryUpdate",
     "DeviceControl",
     "DeviceFlowCoordinator",
+    "DeviceDeliveryConfig",
     "DeviceFlowState",
     "DeviceId",
+    "DurableDeliveryPort",
     "DeviceInputEvent",
     "FeedbackCode",
     "FeedbackEvent",

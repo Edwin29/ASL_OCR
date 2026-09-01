@@ -51,6 +51,9 @@ class FakeCapture:
         self.released = True
 
     def get(self, _prop_id: int) -> float:
+        configured = next((value for prop_id, value in reversed(self.settings) if prop_id == _prop_id), None)
+        if configured is not None:
+            return configured
         return self.fps
 
     def set(self, prop_id: int, value: float) -> bool:
@@ -87,6 +90,23 @@ def test_live_camera_open_failure_is_not_eof() -> None:
         source.start()
     assert capture.released
     assert not source.exhausted
+
+
+def test_live_camera_applies_and_verifies_requested_capture_mode() -> None:
+    capture = FakeCapture([_frame(1)])
+    source = OpenCVCameraSource(
+        width=1920,
+        height=1080,
+        fps=30.0,
+        capture_factory=lambda _device: capture,
+    )
+
+    source.start()
+
+    assert (cv2.CAP_PROP_FRAME_WIDTH, 1920.0) in capture.settings
+    assert (cv2.CAP_PROP_FRAME_HEIGHT, 1080.0) in capture.settings
+    assert (cv2.CAP_PROP_FPS, 30.0) in capture.settings
+    source.stop()
 
 
 def test_video_replay_samples_by_frame_stride_and_marks_eof(tmp_path: Path) -> None:

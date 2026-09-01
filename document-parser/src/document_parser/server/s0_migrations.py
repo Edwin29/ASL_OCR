@@ -204,4 +204,51 @@ MIGRATIONS: tuple[tuple[int, str], ...] = (
             ON device_presence_sessions(device_id, status, last_seen_at);
         """,
     ),
+    (
+        4,
+        """
+        CREATE TABLE spread_upload_attempts (
+            upload_id TEXT PRIMARY KEY,
+            scan_session_id TEXT NOT NULL REFERENCES scan_sessions(scan_session_id),
+            device_id TEXT NOT NULL REFERENCES devices(device_id),
+            sequence INTEGER NOT NULL CHECK(sequence > 0),
+            idempotency_key TEXT NOT NULL,
+            request_sha256 TEXT NOT NULL,
+            artifact_id TEXT NOT NULL,
+            spread_id TEXT NOT NULL,
+            source_frame_id TEXT NOT NULL,
+            manifest_sha256 TEXT NOT NULL,
+            declared_file_count INTEGER NOT NULL CHECK(declared_file_count > 0),
+            declared_total_bytes INTEGER NOT NULL CHECK(declared_total_bytes >= 0),
+            received_file_count INTEGER NOT NULL DEFAULT 0 CHECK(received_file_count >= 0),
+            received_total_bytes INTEGER NOT NULL DEFAULT 0 CHECK(received_total_bytes >= 0),
+            status TEXT NOT NULL CHECK(status IN ('receiving','abandoned','promoted','accepted','rejected')),
+            attempt_count INTEGER NOT NULL DEFAULT 1 CHECK(attempt_count > 0),
+            lease_owner TEXT NULL,
+            lease_until TEXT NULL,
+            staging_relative_path TEXT NULL,
+            bundle_relative_path TEXT NULL,
+            s1_receipt_id TEXT NULL,
+            response_http_status INTEGER NULL,
+            response_json TEXT NULL,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL,
+            completed_at TEXT NULL,
+            error_code TEXT NULL,
+            error_detail TEXT NULL,
+            UNIQUE(scan_session_id, idempotency_key)
+        );
+
+        CREATE INDEX upload_claim_idx
+            ON spread_upload_attempts(status, lease_until);
+        CREATE INDEX upload_sequence_idx
+            ON spread_upload_attempts(scan_session_id, sequence, status);
+        CREATE UNIQUE INDEX one_active_upload_per_sequence
+            ON spread_upload_attempts(scan_session_id, sequence)
+            WHERE status IN ('receiving','promoted');
+        CREATE UNIQUE INDEX one_active_upload_per_artifact
+            ON spread_upload_attempts(artifact_id)
+            WHERE status IN ('receiving','promoted');
+        """,
+    ),
 )

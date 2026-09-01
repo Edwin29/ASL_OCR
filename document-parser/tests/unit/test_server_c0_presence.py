@@ -56,7 +56,7 @@ class C0PresenceTests(unittest.TestCase):
                 count = connection.execute("SELECT COUNT(*) FROM device_presence_sessions").fetchone()[0]
             finally:
                 connection.close()
-            self.assertEqual(version, 3)
+            self.assertEqual(version, 4)
             self.assertEqual(count, 1)
             with self.assertRaises(S0ConflictError):
                 service.start_session("device-1", start_payload(boot="other-boot"))
@@ -85,7 +85,7 @@ class C0PresenceTests(unittest.TestCase):
             with store.readonly() as migrated:
                 self.assertEqual(
                     migrated.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0],
-                    3,
+                    4,
                 )
                 self.assertIsNotNone(
                     migrated.execute("SELECT * FROM devices WHERE device_id='existing-device'").fetchone()
@@ -151,7 +151,7 @@ class C0PresenceTests(unittest.TestCase):
             client = app.test_client()
             health = client.get("/api/v1/health")
             self.assertEqual(health.get_json()["service"], "asl-ocr-server")
-            self.assertEqual(health.get_json()["schema_version"], 3)
+            self.assertEqual(health.get_json()["schema_version"], 4)
             self.assertEqual(
                 client.get("/api/v1/devices", headers={"X-API-Key": "secret"}).get_json()["devices"],
                 [],

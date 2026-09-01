@@ -16,6 +16,7 @@ def register_routes(
     api_key: str,
     s1_pipeline: Any | None = None,
     presence_service: DevicePresenceService | None = None,
+    v4_service: Any | None = None,
 ) -> None:
     from flask import jsonify, request
 
@@ -29,7 +30,10 @@ def register_routes(
             try:
                 return handler(*args, **kwargs)
             except S0Error as exc:
-                return jsonify(exc.to_dict()), exc.http_status
+                response = jsonify(exc.to_dict())
+                if exc.retryable:
+                    response.headers["Retry-After"] = "1"
+                return response, exc.http_status
 
         wrapped.__name__ = f"s0_{handler.__name__}"
         return wrapped
@@ -146,6 +150,70 @@ def register_routes(
             raise S0Error("S1_NOT_CONFIGURED", "incremental pipeline is not configured", http_status=503, retryable=True)
         return jsonify({"spreads": list(s1_pipeline.list_spreads(scan_session_id))})
 
+    @app.post("/api/v1/scan-sessions/<scan_session_id>/spreads", endpoint="v4_spread_upload")
+    @guarded
+    def upload_spread(scan_session_id: str):
+        if v4_service is None:
+            raise S0Error(
+                "V4_NOT_CONFIGURED",
+                "durable bundle upload is not configured",
+                http_status=503,
+                retryable=True,
+            )
+        from document_parser.server.v4_domain import (
+            V4LengthRequiredError,
+            V4MediaTypeError,
+            V4PayloadTooLargeError,
+        )
+        from document_parser.server.v4_multipart import parse_v4_multipart
+
+        content_length = request.content_length
+        if content_length is None:
+            raise V4LengthRequiredError()
+        if content_length <= 0:
+            raise S0ValidationError("UPLOAD_BODY_REQUIRED", "upload request body is empty")
+        if content_length > v4_service.config.max_request_bytes:
+            raise V4PayloadTooLargeError(
+                "UPLOAD_REQUEST_LIMIT", "upload request exceeds configured limit"
+            )
+        if request.mimetype != "multipart/form-data":
+            raise V4MediaTypeError("Content-Type must be multipart/form-data")
+        if request.headers.get("Content-Encoding"):
+            raise V4MediaTypeError("compressed upload bodies are not supported")
+        if "chunked" in request.headers.get("Transfer-Encoding", "").lower():
+            raise V4MediaTypeError("chunked upload bodies are not supported")
+        boundary = request.mimetype_params.get("boundary")
+        if not boundary:
+            raise S0ValidationError("UPLOAD_BOUNDARY_REQUIRED", "multipart boundary is required")
+        key = request.headers.get("Idempotency-Key")
+        if not key:
+            raise S0ValidationError("IDEMPOTENCY_KEY_REQUIRED", "Idempotency-Key header is required")
+        digest = request.headers.get("X-ASL-Upload-Digest")
+        if not digest:
+            raise S0ValidationError("UPLOAD_DIGEST_REQUIRED", "X-ASL-Upload-Digest header is required")
+        with v4_service.admit_http_request(content_length):
+            parsed = parse_v4_multipart(
+                request.stream,
+                boundary=boundary,
+                content_length=content_length,
+                config=v4_service.config,
+            )
+            try:
+                result = v4_service.accept_upload(
+                    scan_session_id=scan_session_id,
+                    idempotency_key=key,
+                    upload_digest=digest,
+                    metadata_bytes=parsed.metadata_bytes,
+                    manifest_bytes=parsed.manifest_bytes,
+                    files=parsed.files,
+                )
+            finally:
+                parsed.close()
+        response = jsonify(result.body)
+        if result.replayed:
+            response.headers["Idempotency-Replayed"] = "true"
+        return response, result.http_status
+
     @app.post("/api/v1/scan-sessions/<scan_session_id>/seal-intent", endpoint="s0_scan_seal")
     @guarded
     def seal_scan(scan_session_id: str):
@@ -193,11 +261,12 @@ def create_app(
     api_key: str,
     s1_pipeline: Any | None = None,
     presence_service: DevicePresenceService | None = None,
+    v4_service: Any | None = None,
 ):
     from flask import Flask
 
     app = Flask(__name__)
-    register_routes(app, control_plane, api_key, s1_pipeline, presence_service)
+    register_routes(app, control_plane, api_key, s1_pipeline, presence_service, v4_service)
     return app
 
 

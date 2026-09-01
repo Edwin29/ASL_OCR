@@ -5,6 +5,9 @@ description = "Pure device-flow coordination contracts for ASL OCR."
 requires-python = ">=3.11"
 dependencies = []
 
+[project.optional-dependencies]
+laptop = ["pyserial>=3.5,<4"]
+
 [tool.setuptools.packages.find]
 where = ["src"]
 

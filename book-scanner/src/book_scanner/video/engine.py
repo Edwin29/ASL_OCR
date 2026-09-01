@@ -289,6 +289,13 @@ class SampledFrameEngine:
                 opaque_identity_effective_interval_ms=self._opaque_effective_interval_ms,
             )
 
+    @property
+    def pending_artifact(self) -> SpreadArtifactRef | None:
+        """Return the immutable artifact currently awaiting delivery settlement."""
+
+        with self._lock:
+            return self._pending_artifact
+
     def start(self) -> tuple[VideoEvent, ...]:
         with self._lock:
             if self._closed:

@@ -6,9 +6,9 @@ The SQLite database remains authoritative across process restarts.
 
 ## Boundary and acknowledgement
 
-S1 deliberately has no public artifact-upload endpoint. A transport layer must first store an
-immutable Scanner V2 bundle below `DATAPACKS_DIR/_server/received`, then call the application
-boundary with its server-owned relative key:
+S1 itself remains transport-neutral. Server V4 now provides the public artifact-upload endpoint,
+stores an immutable Scanner V2 bundle below `DATAPACKS_DIR/_server/received`, then calls the S1
+application boundary with its server-owned relative key:
 
 ```python
 receipt = pipeline.accept_verified_spread(
@@ -26,10 +26,12 @@ receipt = pipeline.accept_verified_spread(
 
 The returned receipt acknowledges verified bundle durability and the committed spread/fragment
 rows. It does not mean that OCR, braille conversion, TTS, or final publication has completed.
-Scanner-to-server HTTP upload and the device durable outbox remain Server V4 work. During
-development the Scanner, coordinator, HTTP client, and outbox run on a LAPTOP PC that substitutes
-for the Raspberry Pi application host. The same wire and persistence contracts are later ported to
-the Pi.
+Scanner-to-server HTTP upload is implemented by Server V4; see [server-v4.md](server-v4.md). The
+Scanner V3-B single-sender durable outbox, retry, strict ACK validation, and ACK-driven local cache
+cleanup are implemented and locally verified. During development the Scanner, coordinator, HTTP
+client, and outbox run in a device-host role that substitutes for the Raspberry Pi application host.
+E0-Core locally composes that full boundary; physical Laptop validation, whole active-session
+restart, and the later Pi port remain separate work.
 
 The validator requires an exact Scanner bundle manifest, both ready pages, confined relative
 paths, matching file hashes and sizes, decodable UVDoc images, and configured resource limits.
@@ -95,8 +97,9 @@ GPU resource use have not been production-benchmarked.
 
 ## Current limitations
 
-- no production multipart/chunk/resumable artifact upload endpoint;
-- no LAPTOP device outbox, retry cache, quota, or eviction policy, nor its later Pi storage port;
+- E0-Core verifies the V3-B outbox/sender with the Coordinator through a local HTTP/SQLite flow, but
+  whole active-session restart, physical Laptop hardware, and the later Pi storage port are not verified;
+- V4 uses bounded whole-bundle multipart retry, not resumable chunk upload;
 - no actual Raspberry Pi, STM, LAN, TLS, or deployment validation;
 - no S1 run using the real PaddleOCR-VL GPU and Piper model in this implementation pass;
 - no partial finalize, sequence replacement, or administration/garbage collection API.

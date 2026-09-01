@@ -63,6 +63,7 @@ def create_app(
     control_plane=None,
     s1_pipeline=None,
     presence_service=None,
+    v4_service=None,
 ):
     """Flask app factory. Flask is imported here, not at module level, so
     importing this module (e.g. from a test) never requires the
@@ -75,7 +76,14 @@ def create_app(
     if control_plane is not None:
         from document_parser.server.s0_http import register_routes as register_s0_routes
 
-        register_s0_routes(app, control_plane, api_key, s1_pipeline, presence_service)
+        register_s0_routes(
+            app,
+            control_plane,
+            api_key,
+            s1_pipeline,
+            presence_service,
+            v4_service,
+        )
 
     @app.get("/datapacks")
     def list_datapacks():
@@ -101,6 +109,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--presence-heartbeat-seconds", type=int, default=15)
     parser.add_argument("--presence-stale-seconds", type=int, default=45)
     parser.add_argument("--presence-offline-seconds", type=int, default=120)
+    parser.add_argument("--upload-max-staging-mib", type=int, default=512)
+    parser.add_argument("--upload-max-received-mib", type=int, default=8192)
+    parser.add_argument("--upload-max-concurrent", type=int, default=1)
     parser.add_argument("--model-home", default=None, help="PaddleOCR-VL model_home; see docs/gpu-inference-setup.md.")
     parser.add_argument("--device", default="gpu:0")
     parser.add_argument("--piper-model", required=True)
@@ -160,6 +171,19 @@ def main(argv: list[str] | None = None) -> int:
     )
     s1_workers = S1WorkerRunner(s1_pipeline)
     s1_workers.start()
+    from dataclasses import replace
+
+    from document_parser.server.v4_domain import V4Config
+    from document_parser.server.v4_upload import V4UploadService
+
+    v4_config = replace(
+        V4Config.from_s1(s1_pipeline.config),
+        max_staging_bytes=args.upload_max_staging_mib * 1024 * 1024,
+        max_received_bytes=args.upload_max_received_mib * 1024 * 1024,
+        max_concurrent_upload_writers=args.upload_max_concurrent,
+    )
+    v4_service = V4UploadService(control_plane.store, s1_pipeline, v4_config)
+    recovered_uploads = v4_service.recover()
     presence_service = DevicePresenceService(
         control_plane.store,
         heartbeat_interval_seconds=args.presence_heartbeat_seconds,
@@ -173,11 +197,13 @@ def main(argv: list[str] | None = None) -> int:
         control_plane=control_plane,
         s1_pipeline=s1_pipeline,
         presence_service=presence_service,
+        v4_service=v4_service,
     )
 
     print(
         f"combined server: ingest+sessions+S0+S1, datapacks at {args.datapacks_dir}, "
-        f"catalog entries reconciled={len(bootstrap)}, on {args.host}:{args.port}",
+        f"catalog entries reconciled={len(bootstrap)}, V4 recovered={recovered_uploads}, "
+        f"on {args.host}:{args.port}",
         flush=True,
     )
     app.run(host=args.host, port=args.port, threaded=True)

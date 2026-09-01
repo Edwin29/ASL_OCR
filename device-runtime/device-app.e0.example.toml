@@ -1,0 +1,26 @@
+schema_version = 1
+connectivity_config = "device-connectivity.e0.toml"
+viewport_size = 40
+poll_interval_ms = 50
+
+[delivery]
+outbox_db_path = "state/delivery.sqlite3"
+artifact_root = "state/artifacts/ready"
+upload_timeout_seconds = 60.0
+retry_initial_seconds = 1.0
+retry_max_seconds = 30.0
+
+[scanner]
+profile = "replay"
+staging_root = "state/artifacts/staging"
+ready_root = "state/artifacts/ready"
+uvdoc_runtime_path = "models/uvdoc/runtime"
+uvdoc_checkpoint_path = "models/uvdoc/checkpoint.pth"
+uvdoc_device = "auto"
+m1_model_dir = "models/paddle/page-number"
+m1_model_manifest = "models/paddle/page-number-manifest.json"
+replay_path = "inputs/scanner-replay.mp4"
+sample_interval_ms = 500
+
+[local_io]
+feedback = "jsonl"

@@ -243,10 +243,12 @@ python -m document_parser.server.cli datapacks/ my_book
 | 3. 데이터팩 (ingest/loader) | ✅ 완료, 실제 GPU+Piper e2e 검증 완료 |
 | 4. 서버 (세션 코어, wire 경계, CLI 데모) | ✅ 완료, 실제 데이터팩으로 CLI 검증 완료 |
 | 5. 트랜스포트 프로토콜 (점자 프레임) | ✅ HTTP로 구현·검증 완료 (`server/http_server.py`) |
+| 5. Scanner artifact 제품 업로드 (Server V4) | ✅ bounded multipart, durable journal, atomic promotion, S1 receipt ACK 구현·loopback 검증 완료 |
 | 5. 하드웨어 — 점자 디스플레이(STM32) | 진행 중 — 서버+브리지 실제 HTTP 왕복까지 검증, 실기기 검증은 아직 |
 | 5. 하드웨어 — 오디오 재생 트리거 | 진행 중 — 서버 응답의 오디오를 FRAME 줄과 같은 순간에 재생하도록 구현·검증(같은 컴퓨터에서만 실제 재생, 원격은 `audio_ref`가 아직 로컬 경로라 로그만) |
 | 5. 하드웨어 — 이미지 업로드+점자 서빙 통합 서버 (`server/combined_server.py`) | ✅ 완료, 실제 GPU+터널로 업로드→목록→세션→콘솔 테스트까지 e2e 검증 완료 |
-| 5. 하드웨어 — 오디오 바이트 전달(다른 컴퓨터 간), 이미지 캡처/업로드 자동화 | ❌ 미착수 |
+| 5. 하드웨어 — Scanner durable outbox/자동 송신 | ✅ V3-B 및 E0-Core 완료 — 단일 sender, 영속 retry, strict ACK, ACK 후 캐시 정리와 Coordinator local composition을 actual HTTP/SQLite E2E로 검증; 실제 Laptop과 전체 active-session 재시작은 후속 |
+| 5. 하드웨어 — 오디오 바이트 전달(다른 컴퓨터 간) | ❌ 미착수 |
 | 알려진 남은 갭 | 표 셀 안의 구조 있는 수식(분수/관계식 등) 점자 렌더링 미구현(숫자/변수/부호 하나뿐인 경우는 지원됨), 순수 텍스트 안의 비-한글 문자(라틴/숫자) 점자 변환 미흡 |
 
 ## 더 읽을거리
