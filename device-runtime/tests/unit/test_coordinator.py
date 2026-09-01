@@ -286,6 +286,63 @@ def test_confirm_freezes_before_flush_and_does_not_seal_until_ack() -> None:
     assert FeedbackCode.SPREAD_SENT in [event.code for event in feedback.events]
 
 
+def test_ack_feedback_precedes_page_change_callback_diagnostic_exactly_once() -> None:
+    coordinator, _catalog, _scan, scanner, delivery, _reading, feedback = make_coordinator(
+        (ready_entry(),)
+    )
+    enter_scanning(coordinator)
+    current = coordinator.scan_session
+    assert current is not None
+    scanner.events.append(artifact_event(current.scan_session_id))
+    coordinator.poll()
+    scanner.delivery_callback_events.append(
+        (
+            ScannerEvent(
+                "page-change-started-1",
+                current.scan_session_id,
+                ScannerEventType.DIAGNOSTIC,
+                code="identity_collection_started",
+                details=(
+                    ("source_frame_id", "video-00000099"),
+                    ("spread_id", "spread-1"),
+                    ("identity_role", "page_change"),
+                    ("query_sample_count", 5),
+                ),
+            ),
+        )
+    )
+
+    delivery.acknowledge(1)
+    coordinator.poll()
+
+    codes = [event.code for event in feedback.events]
+    sent_index = codes.index(FeedbackCode.SPREAD_SENT)
+    started_index = codes.index(FeedbackCode.IDENTITY_COLLECTION_STARTED)
+    assert sent_index < started_index
+    started = feedback.events[started_index]
+    assert dict(started.details) == {
+        "source_frame_id": "video-00000099",
+        "spread_id": "spread-1",
+        "identity_role": "page_change",
+        "query_sample_count": 5,
+    }
+
+    delivery.inject_update(
+        DeliveryUpdate(
+            current.scan_session_id,
+            ClientSpreadSequence(1),
+            ArtifactId("artifact-1"),
+            DeliveryStatus.ACKED,
+            receipt_id="receipt-1",
+        )
+    )
+    coordinator.poll()
+
+    assert [event.code for event in feedback.events].count(
+        FeedbackCode.IDENTITY_COLLECTION_STARTED
+    ) == 1
+
+
 def test_finalize_ready_opens_reading_at_server_cursor() -> None:
     coordinator, _catalog, scan, scanner, delivery, reading, feedback = make_coordinator((ready_entry(),))
     enter_scanning(coordinator)

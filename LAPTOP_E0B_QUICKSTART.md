@@ -187,6 +187,18 @@ E0-B.3.2부터 다음 bounded JSONL에 `identity_role`이 함께 표시된다. r
 {"type":"feedback","code":"identity_collection_decided","details":{"identity_role":"page_change","decision":"same","valid_observations":1,"query_sample_count":5}}
 ```
 
+E0-B.3.3부터 ACK callback에서 생성된 page-change 시작 event도 Device feedback으로 전달된다. 각 ACK의
+최소 기대 순서는 다음과 같다.
+
+```json
+{"type":"feedback","code":"spread_sent","details":{"sequence":1}}
+{"type":"feedback","code":"identity_collection_started","details":{"source_frame_id":"...","spread_id":"...-spread-000001","identity_role":"page_change","query_sample_count":5}}
+{"type":"feedback","code":"identity_collection_progress","details":{"identity_role":"page_change","valid_observations":1,"query_sample_count":5}}
+```
+
+`identity_collection_started`는 새 candidate 또는 추가 spread가 아니다. 방금 ACK된 spread를 기준으로
+page-change 감시가 시작됐다는 observer event다. 동일 ACK에서 한 번만 나타나야 한다.
+
 - `queued_count >= 1`, `acked_count >= 1`이고 `spread_sent`를 확인했다면 `confirm`을 입력한다.
 - `queued_count >= 1`, `acked_count = 0`이면 아직 전송 settlement 중일 수 있으므로
   `spread_sent` 또는 명시적 retry/reject feedback을 먼저 기다린다.
@@ -211,7 +223,8 @@ Stop-Transcript
   D:\ASL_OCR_E0B\reports\e0b-replay-boundary.json
 ```
 
-report schema v2는 candidate attempt와 page-change check를 별도로 집계한다. 두 candidate의 5/5
+report schema v2는 candidate attempt와 page-change check를 별도로 집계한다. E0-B.3.3 start가 있으면
+page-change check에 accepted `spread_id`와 시작 frame lineage도 보존한다. 두 candidate의 5/5
 `different`, sequence `[1,2]`, EOF 2/2, revision 1 저장과 L/R 4페이지 reading이 runtime 성공 조건이다.
 4/5 hard-reject나 1/5 EOF abort는 필수 조건이 아니다. Laptop log와 source hash만 통과하면 report
 상태는 `provisional`이다. Server 확인 결과를 다음 형태의 JSON으로 저장하고 `--server-summary <path>`를

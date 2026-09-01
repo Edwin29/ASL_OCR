@@ -15,5 +15,6 @@ echo [E0-B.3] candidate_selected and identity_collection_* feedback explain cons
 echo [E0-B.3.1] After selecting New Datapack, confirm that its datapack_id differs from every prior completed run.
 echo [E0-B.3.2] identity_role separates candidate_verification from post-ACK page_change monitoring.
 echo [E0-B.3.2] For test1.mp4, expect two candidate_verification decisions at 5/5 different; page_change decisions are not extra spreads.
+echo [E0-B.3.3] After each spread_sent, expect identity_collection_started with identity_role=page_change and the accepted spread_id.
 call "%SCRIPT_DIR%e0b-laptop-run.bat" "%CONFIG_ROOT%"
 exit /b %ERRORLEVEL%

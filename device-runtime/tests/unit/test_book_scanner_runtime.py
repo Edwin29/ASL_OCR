@@ -50,12 +50,38 @@ class FakeEngine:
     def delivery_confirmed(self, artifact_id, receipt_id):
         self.callbacks.append(("acked", artifact_id.value, receipt_id))
         self.pending_artifact = None
-        return (SimpleNamespace(event_type=_value("delivery_confirmed")),)
+        return (
+            SimpleNamespace(
+                event_type=_value("delivery_confirmed"),
+                event_id="delivery-confirmed-1",
+                session_id=self.session_id,
+                details=(),
+            ),
+            SimpleNamespace(
+                event_type=_value("opaque_identity_collection_started"),
+                event_id="page-change-started-1",
+                session_id=self.session_id,
+                source_frame_id=_value("frame-1"),
+                spread_id=_value("spread-1"),
+                details=(
+                    ("identity_role", "page_change"),
+                    ("query_sample_count", 5),
+                    ("pair_digest", "must-not-leak"),
+                ),
+            ),
+        )
 
     def delivery_rejected(self, artifact_id, reason):
         self.callbacks.append(("rejected", artifact_id.value, reason))
         self.pending_artifact = None
-        return (SimpleNamespace(event_type=_value("parser_rejected")),)
+        return (
+            SimpleNamespace(
+                event_type=_value("parser_rejected"),
+                event_id="parser-rejected-1",
+                session_id=self.session_id,
+                details=(),
+            ),
+        )
 
     def cancel(self):
         self.cancelled = True
@@ -132,13 +158,17 @@ def test_artifact_event_and_delivery_callbacks_preserve_lineage(tmp_path: Path) 
     assert mapped[0].event_type is ScannerEventType.ARTIFACT_READY
     assert mapped[0].artifact is not None
     assert mapped[0].artifact.artifact_id == ArtifactId("artifact-1")
-    bridge.apply_delivery_update(ArtifactId("artifact-1"), _update(DeliveryStatus.QUEUED))
-    bridge.apply_delivery_update(ArtifactId("artifact-1"), _update(DeliveryStatus.RETRYING))
-    bridge.apply_delivery_update(
+    assert bridge.apply_delivery_update(
+        ArtifactId("artifact-1"), _update(DeliveryStatus.QUEUED)
+    ) == ()
+    assert bridge.apply_delivery_update(
+        ArtifactId("artifact-1"), _update(DeliveryStatus.RETRYING)
+    ) == ()
+    callback_events = bridge.apply_delivery_update(
         ArtifactId("artifact-1"),
         _update(DeliveryStatus.ACKED, receipt="receipt-1"),
     )
-    bridge.apply_delivery_update(
+    repeated_events = bridge.apply_delivery_update(
         ArtifactId("artifact-1"),
         _update(DeliveryStatus.ACKED, receipt="receipt-1"),
     )
@@ -148,6 +178,16 @@ def test_artifact_event_and_delivery_callbacks_preserve_lineage(tmp_path: Path) 
         ("retrying", "artifact-1", None),
         ("acked", "artifact-1", "receipt-1"),
     ]
+    assert len(callback_events) == 1
+    assert callback_events[0].event_type is ScannerEventType.DIAGNOSTIC
+    assert callback_events[0].code == "identity_collection_started"
+    assert dict(callback_events[0].details) == {
+        "source_frame_id": "frame-1",
+        "spread_id": "spread-1",
+        "identity_role": "page_change",
+        "query_sample_count": 5,
+    }
+    assert repeated_events == ()
 
 
 def test_mismatched_artifact_event_is_fatal(tmp_path: Path) -> None:

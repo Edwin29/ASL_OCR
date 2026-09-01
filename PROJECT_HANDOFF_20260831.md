@@ -488,15 +488,42 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 - `device-runtime/src/asl_device/adapters/book_scanner_runtime.py`
 - `device-runtime/src/asl_device/replay_boundary_report.py`
 
+### 5.15 Device Integration E0-B.3.3 — ACK callback diagnostic forwarding
+
+- 실제 E0-B.3.2 Laptop 로그가 candidate 2개 5/5 `different`, sequence `[1,2]`, EOF 2/2,
+  revision 1 save와 reading 4페이지를 통과
+- candidate/page-change explicit role도 실제 로그에서 정상 분리됨
+- 다만 각 ACK 뒤 Scanner가 생성한 page-change `identity_collection_started`가 feedback에서 유실됨
+- 원인은 `BookScannerRuntimeAdapter.apply_delivery_update()`가 callback events를 terminal 확인에만 쓰고
+  Coordinator로 반환하지 않던 경계
+- ScannerRuntime callback event tuple 반환 계약과 Coordinator forwarding 추가
+- feedback 순서를 `spread_sent` 뒤 page-change start로 고정
+- report에 `explicit_start`, accepted spread와 start frame lineage 보존
+- progress-only E0-B.3.2 log 호환 유지
+- Scanner threshold/decision/artifact/queue/ACK/save/read 변경 0
+- targeted 37 passed; Book Scanner 299 passed; Device Runtime 109 passed, 3 skipped
+- role-complete 실제 Laptop/Server final report는 E0-B.4로 분리
+
+주요 문서와 코드:
+
+- `DEVICE_INTEGRATION_E0_B_3_3_ACK_CALLBACK_DIAGNOSTIC_FORWARDING_WORK_PACKET.md`
+- `DEVICE_INTEGRATION_E0_B_3_3_IMPLEMENTATION_REPORT.md`
+- `DEVICE_INTEGRATION_E0_B_3_VERIFICATION_REPORT.md`
+- `device-runtime/src/asl_device/protocols.py`
+- `device-runtime/src/asl_device/adapters/book_scanner_runtime.py`
+- `device-runtime/src/asl_device/coordinator.py`
+- `device-runtime/src/asl_device/replay_boundary_report.py`
+
 ## 6. 최신 검증 기준선
 
-2026-09-02 E0-B.3.2 identity role/report 교정 완료 시점의 최신 전체 결과:
+2026-09-02 E0-B.3.3 ACK callback diagnostic 전달 완료 시점의 최신 전체 결과:
 
 | 범위 | 결과 |
 |---|---:|
 | Book Scanner 전체 | 299 passed |
-| Device Runtime + actual E0-Core integration | 107 passed, 3 skipped |
+| Device Runtime + actual E0-Core integration | 109 passed, 3 skipped |
 | Document Parser 전체 | 602 passed, 4 skipped |
+| E0-B.3.3 Device adapter/Coordinator/report 집중 | 37 passed |
 | E0-B.3.2 role/events 집중 | 14 passed |
 | E0-B.3.2 Device adapter/report 집중 | 11 passed |
 | E0-B.3.1 신규 console identity | 7 passed |
@@ -512,7 +539,7 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 
 Document Parser의 기존 `latex_ast.py` invalid escape warning은 이번 계열에서 생긴 것이 아니다.
 Book Scanner는 Windows 한글 사용자 temp 경로가 깨져 OpenCV 파일 생성이 실패할 수 있다. 이 경우
-제품 실패로 처리하지 말고 저장소 내부 ASCII `--basetemp`로 재실행한다. 실제로 그 방식으로 298개가
+제품 실패로 처리하지 말고 저장소 내부 ASCII `--basetemp`로 재실행한다. 실제로 그 방식으로 299개가
 통과했다.
 
 각 과거 보고서의 test count는 그 패킷 당시의 기준선이라 최신 총계보다 작을 수 있다. 최신 총계와
@@ -553,9 +580,12 @@ Laptop 1차 실행에서 footer collection 시간과 EOF 전달 blocker를 확�
 결과도 spread 2, fragment 4, duplicate 0이었다. E0-B.3 observer diagnostics와 E0-B.3.1 console
 idempotency namespace 교정도 완료됐다. E0-B.3.1 이후 full log는 candidate verification과 page-change
 monitoring이 같은 identity event family를 사용한다는 사실을 드러냈고, E0-B.3.2에서 explicit role과
-report schema v2로 교정했다. 다음 단계는 **Laptop에 E0-B.3.2 revision을 반영하고 새 datapack ID를
-확인한 뒤 동일 prepared MP4의 role-aware transcript와 Server summary 2/4/0을 재수집해 final report를
-만드는 E0-B.4 actual evidence closure**다. 그 뒤 같은 fixed endpoint에서 camera/STM/speaker physical
+report schema v2로 교정했다. E0-B.3.2 실제 Laptop 로그는 role 분리와 runtime 성공을 확인했지만 ACK
+callback의 page-change start diagnostic이 Device feedback에서 유실되는 경계도 드러냈다. E0-B.3.3에서
+callback forwarding을 local 구현·회귀했다. 다음 단계는 **Laptop에 E0-B.3.3 revision을 반영하고 새
+datapack ID를 확인한 뒤 동일 prepared MP4의 role-complete transcript와 Server summary 2/4/0을 재수집해
+final report를 만드는 E0-B.4 actual evidence closure**다. 그 뒤 같은 fixed endpoint에서
+camera/STM/speaker physical
 E0-B를 진행한다. 같은 LAN과 유료 domain은 요구하지 않는다. Production tunnel policy/service와
 exhaustive WAN fault 검증은 후속 Network Hardening으로 분리한다.
 
@@ -566,8 +596,10 @@ Server instance와 reset/start 뒤 동일 hostname도 확인했다. 실제 FQDN�
 기록하지 않았다. 실제 Laptop의 artifact/V4/READY/reading 성공 evidence는 E0-B.3 보고서에 요약했다.
 첫 post-E0-B.3 실행은 diagnostics 5/5까지 확인했지만 console operation-key 충돌로 이전 datapack을
 재사용해 acceptance에서 제외했다. E0-B.3.1 교정 뒤 fresh datapack 실행은 sequence 1,2, EOF 2/2,
-save/read 4페이지까지 통과했다. 다만 이 로그는 E0-B.3.2 이전이라 explicit role이 없고 transcript와
-Server summary 파일을 결합한 schema v2 final boundary JSON은 아직 없다.
+save/read 4페이지까지 통과했다. E0-B.3.2 role-aware fresh datapack 실행도 같은 runtime 결과와 정확한
+candidate/page-change 역할을 확인했다. 다만 ACK callback의 page-change start가 feedback에서 빠졌고,
+E0-B.3.3 local 교정 이후 transcript와 Server summary 파일을 결합한 schema v2 final boundary JSON은 아직
+없다.
 
 Model은 Git history에 넣지 않는다. UVDoc official checkpoint와 Paddle M1 asset을 포함한 검증 bundle은
 GitHub Release `e0b-model-bundle-2026-09-01`에 올렸고 ZIP SHA-256은
@@ -619,6 +651,7 @@ Device Integration E0-Core: development desktop local composition + deterministi
   -> E0-B.1: actual Laptop prepared MP4/console remote acceptance 통과
   -> E0-B.3.1: console process namespace repair + fresh datapack 실제 확인
   -> E0-B.3.2: candidate/page-change explicit role + report schema v2 local 교정
+  -> E0-B.3.3: ACK callback page-change start diagnostic forwarding local 교정
   -> E0-B.4: role-aware Laptop transcript + Server 2/4/0 final evidence closure
   -> Device Integration E0-B — Laptop Acceptance: real camera + STM + beep/TTS
   -> Network Hardening: production tunnel policy/service + exhaustive WAN fault
@@ -628,8 +661,9 @@ Device Integration E0-Core: development desktop local composition + deterministi
 ## 9. 완료로 오인하면 안 되는 사항
 
 - E0-B camera/STM/audio adapter와 preflight는 구현됐지만 실제 Laptop 장치에서 실행한 report는 없다.
-- E0-B.1/E0-B.2 actual Laptop remote replay/upload/READY/reading과 E0-B.3.1 fresh datapack은 통과했지만,
-  E0-B.3.2 explicit role transcript와 Server summary를 결합한 schema v2 final report는 아직 없다.
+- E0-B.1/E0-B.2 actual Laptop remote replay/upload/READY/reading, E0-B.3.1 fresh datapack과 E0-B.3.2
+  explicit role runtime은 통과했지만, E0-B.3.3 role-complete transcript와 Server summary를 결합한 schema
+  v2 final report는 아직 없다.
 - 실제 camera/UVDoc/Paddle asset을 사용한 Device application smoke run은 없다.
 - V3-B restart 보장은 queue commit 이후 adapter 재생성 범위다. 전체 Coordinator active scan과
   queue 전 orphan artifact를 자동 복원하지 않는다.
@@ -651,14 +685,17 @@ ASL_OCR의 codex/asl-ocr-integration-c0-handoff 브랜치에서 작업을 이어
 정리하는 통합 작업이다. Document Parser의 content transformation 책임과 Server의 transport/
 persistence/orchestration 책임을 혼동하지 마라. 사용자 변경과 기존 Scanner/Coordinator/S0/S1/C0/V4
 계약을 보존하라. V3-B, Device Integration E0-Core, E0-B/E0-B.1 software, E0-B.2 replay timeout/EOF
-교정, E0-B.3 observer diagnostics, E0-B.3.1 console identity 교정과 E0-B.3.2 identity role/report schema
-v2 교정은 완료됐고 전체 회귀도 통과했다. Desktop Tailscale Serve smoke와
+교정, E0-B.3 observer diagnostics, E0-B.3.1 console identity 교정, E0-B.3.2 identity role/report schema
+v2 교정과 E0-B.3.3 ACK callback diagnostic forwarding은 완료됐고 전체 회귀도 통과했다. Desktop
+Tailscale Serve smoke와
 실제 Laptop의 remote health/presence/session, 동일 영상 sequence 1,2, EOF 2/2, READY/read/navigation 및
 Server 2 spreads/4 fragments/duplicate 0도 확인했다. 실제 full log는 candidate verification과
 page-change monitoring이 같은 event family를 사용함을 확인했고, 314/315 4/5 hard reject와 318 1/5 EOF
-필수 가설은 철회했다. 현재 다음 우선순위는 Laptop에 E0-B.3.2 revision을 반영하고 새 datapack ID를
-확인한 뒤 동일 prepared MP4의 role-aware transcript와 Server 2/4/0 summary를 보존해 schema v2 report
-`passed`를 만드는 E0-B.4다. 그 다음 camera/STM/speaker physical E0-B를 진행한다.
+필수 가설은 철회했다. E0-B.3.2 실제 role-aware 로그에서 ACK 뒤 page-change start feedback 유실을
+확인했고 E0-B.3.3에서 callback forwarding을 교정했다. 현재 다음 우선순위는 Laptop에 E0-B.3.3
+revision을 반영하고 새 datapack ID를 확인한 뒤 동일 prepared MP4의 role-complete transcript와 Server
+2/4/0 summary를 보존해 schema v2 report `passed`를 만드는 E0-B.4다. 그 다음 camera/STM/speaker
+physical E0-B를 진행한다.
 같은 LAN과 유료 domain은 요구하지 않는다. Production tunnel/network hardening을 같은 패킷의 선행
 조건으로 묶지 마라. 실제로 검증하지 않은 Laptop remote flow와 Raspberry Pi 동작을 완료로 처리하지
 마라.

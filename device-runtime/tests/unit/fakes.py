@@ -112,6 +112,7 @@ class FakeScannerRuntime:
         self.freeze_calls = 0
         self.cancel_calls = 0
         self.delivery_updates: list[tuple[ArtifactId, DeliveryUpdate]] = []
+        self.delivery_callback_events: deque[tuple[ScannerEvent, ...]] = deque()
         self.events: deque[ScannerEvent] = deque()
 
     def start(self, scan_session: ScanSessionRef) -> None:
@@ -128,8 +129,15 @@ class FakeScannerRuntime:
     def cancel(self) -> None:
         self.cancel_calls += 1
 
-    def apply_delivery_update(self, artifact_id: ArtifactId, update: DeliveryUpdate) -> None:
+    def apply_delivery_update(
+        self,
+        artifact_id: ArtifactId,
+        update: DeliveryUpdate,
+    ) -> tuple[ScannerEvent, ...]:
         self.delivery_updates.append((artifact_id, update))
+        if not self.delivery_callback_events:
+            return ()
+        return self.delivery_callback_events.popleft()
 
 
 class FakeDeliveryPort:

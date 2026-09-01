@@ -147,10 +147,10 @@ def build_report(
         if code == "identity_collection_started":
             if active_page_change is not None:
                 page_change_checks.append(active_page_change)
-            active_page_change = _new_page_change_check(details)
+            active_page_change = _new_page_change_check(details, explicit_start=True)
             continue
         if active_page_change is None:
-            active_page_change = _new_page_change_check(details)
+            active_page_change = _new_page_change_check(details, explicit_start=False)
         _update_identity_lifecycle(active_page_change, str(code), details)
         if code in {"identity_collection_decided", "identity_collection_aborted"}:
             page_change_checks.append(active_page_change)
@@ -341,9 +341,14 @@ def _candidate_attempt(
     return attempts[spread_id]
 
 
-def _new_page_change_check(details: Mapping[str, Any]) -> dict[str, Any]:
+def _new_page_change_check(
+    details: Mapping[str, Any],
+    *,
+    explicit_start: bool,
+) -> dict[str, Any]:
     return {
         "identity_role": _PAGE_CHANGE_ROLE,
+        "explicit_start": explicit_start,
         "spread_id": _safe_text(details.get("spread_id")),
         "started_source_frame_id": _safe_text(details.get("source_frame_id")),
         "required_observations": _integer(details.get("query_sample_count")),

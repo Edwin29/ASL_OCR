@@ -75,7 +75,11 @@ class ScannerRuntime(Protocol):
 
     def cancel(self) -> None: ...
 
-    def apply_delivery_update(self, artifact_id: ArtifactId, update: DeliveryUpdate) -> None: ...
+    def apply_delivery_update(
+        self,
+        artifact_id: ArtifactId,
+        update: DeliveryUpdate,
+    ) -> tuple[ScannerEvent, ...]: ...
 
 
 class DeliveryPort(Protocol):

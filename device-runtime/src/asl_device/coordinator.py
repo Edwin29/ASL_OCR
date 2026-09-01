@@ -344,7 +344,7 @@ class DeviceFlowCoordinator:
         if previous.status in {DeliveryStatus.ACKED, DeliveryStatus.REJECTED}:
             return
         self._delivery_by_sequence[update.sequence.value] = update
-        self.scanner.apply_delivery_update(update.artifact_id, update)
+        callback_events = self.scanner.apply_delivery_update(update.artifact_id, update)
         if update.status is DeliveryStatus.ACKED:
             self._emit(
                 CoordinatorEventType.SPREAD_DELIVERY_CONFIRMED,
@@ -360,6 +360,8 @@ class DeviceFlowCoordinator:
                 FeedbackCode.PARSER_REJECTED,
                 (("sequence", update.sequence.value), ("reason", update.reason)),
             )
+        for scanner_event in callback_events:
+            self._handle_scanner_event(scanner_event, events)
 
     def _request_scan_stop(self, events: list[CoordinatorEvent]) -> None:
         assert self.scan_session is not None

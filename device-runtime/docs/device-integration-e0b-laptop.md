@@ -189,6 +189,28 @@ EOF 2/2, revision 1 저장과 L/R reading page 4개다. 4/5/1/5 abort 존재는 
 `{"spread_receipts":2,"fragments":4,"duplicates":0}`이고, 이 값까지 일치해야 최종 `passed`다. role 없는
 legacy identity log는 spread ID로 역할을 추측하지 않고 실패/limitation으로 보고한다.
 
+### E0-B.3.3 ACK callback diagnostic boundary
+
+E0-B.3.2 실제 Laptop replay는 두 candidate 5/5 `different`, `spread_sent [1,2]`, EOF 2/2, revision 1
+저장과 reading 4페이지를 통과했다. role도 candidate와 page-change에 올바르게 표시됐다. 다만
+`spread_sent` 직후 Scanner가 내부에서 생성한 page-change `identity_collection_started`는 Device
+feedback에 없고 첫 progress부터 출력됐다.
+
+원인은 `ScannerRuntime.apply_delivery_update()`가 Book Scanner ACK callback event를 terminal transition
+확인에만 사용하고 Coordinator로 반환하지 않던 경계였다. E0-B.3.3은 callback event를 bounded
+`ScannerEvent`로 반환하고 Coordinator가 ACK feedback 뒤 처리한다. 새 실행의 기대 순서는 다음과 같다.
+
+```text
+candidate_verification decided different 5/5
+spread_sent sequence=N
+identity_collection_started identity_role=page_change spread_id=<accepted spread> query_sample_count=5
+identity_collection_progress identity_role=page_change ...
+```
+
+이 start는 observer-only diagnostic이다. candidate, artifact, spread sequence, ACK, identity threshold와
+page-change decision을 바꾸지 않는다. report schema v2는 explicit start가 있으면 해당 spread와 시작
+frame을 `page_change_checks[]`에 보존하며, E0-B.3.2 progress-only 로그도 계속 읽을 수 있다.
+
 ## 5. Physical E0-B setup
 
 하드웨어를 연결할 수 있게 되면 기존 physical wrapper를 사용한다.

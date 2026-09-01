@@ -112,6 +112,13 @@ def _successful_records() -> list[dict]:
             timed_out=False,
         ),
         _feedback("spread_sent", sequence=2),
+        _feedback(
+            "identity_collection_started",
+            identity_role="page_change",
+            spread_id="spread-2",
+            source_frame_id="video-00000372",
+            query_sample_count=5,
+        ),
         _feedback("scan_input_exhausted", queued_count=2, acked_count=2),
         _feedback("datapack_saved", datapack_id=datapack_id, revision=1),
         _feedback("reading_resumed", document_id=datapack_id),
@@ -139,7 +146,11 @@ def test_exact_e0b_role_report_passes_only_with_server_evidence() -> None:
     assert passed["runtime"]["spread_sent_sequences"] == [1, 2]
     assert len(passed["candidate_attempts"]) == 2
     assert [attempt["maximum_valid_observations"] for attempt in passed["candidate_attempts"]] == [5, 5]
-    assert [check["terminal"]["decision"] for check in passed["page_change_checks"]] == [
+    assert [
+        check["terminal"]["decision"]
+        for check in passed["page_change_checks"]
+        if check["terminal"] is not None
+    ] == [
         "same",
         "different",
     ]
@@ -150,6 +161,31 @@ def test_exact_e0b_role_report_passes_only_with_server_evidence() -> None:
     assert all(
         check["identity_role"] == "page_change" for check in passed["page_change_checks"]
     )
+    explicit_starts = [
+        check for check in passed["page_change_checks"] if check["explicit_start"]
+    ]
+    assert [check["spread_id"] for check in explicit_starts] == ["spread-1", "spread-2"]
+
+
+def test_progress_only_page_change_log_remains_compatible() -> None:
+    records = [
+        record
+        for record in _successful_records()
+        if not (
+            record.get("code") == "identity_collection_started"
+            and record.get("details", {}).get("identity_role") == "page_change"
+        )
+    ]
+
+    report = build_report(
+        records,
+        source_report={"sha256": E0B_SOURCE_SHA256, "status": "passed"},
+        server_summary={"spread_receipts": 2, "fragments": 4, "duplicates": 0},
+    )
+
+    assert report["status"] == "passed"
+    assert report["page_change_checks"]
+    assert not any(check["explicit_start"] for check in report["page_change_checks"])
 
 
 def test_report_rejects_wrong_source_and_never_copies_unrecognized_fields() -> None:

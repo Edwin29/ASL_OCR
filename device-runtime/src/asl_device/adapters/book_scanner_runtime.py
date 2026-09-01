@@ -91,12 +91,7 @@ class BookScannerRuntimeAdapter:
         except Exception as exc:
             raise FatalPortError(f"Book Scanner poll failed: {type(exc).__name__}") from exc
         try:
-            mapped: list[ScannerEvent] = []
-            for event in events:
-                converted = self._convert_event(event)
-                if converted is not None:
-                    mapped.append(converted)
-            return tuple(mapped)
+            return self._convert_events(events)
         except FatalPortError:
             raise
         except Exception as exc:
@@ -116,26 +111,31 @@ class BookScannerRuntimeAdapter:
     def close(self) -> None:
         self.cancel()
 
-    def apply_delivery_update(self, artifact_id: ArtifactId, update: DeliveryUpdate) -> None:
+    def apply_delivery_update(
+        self,
+        artifact_id: ArtifactId,
+        update: DeliveryUpdate,
+    ) -> tuple[ScannerEvent, ...]:
         if not isinstance(artifact_id, ArtifactId) or not isinstance(update, DeliveryUpdate):
             raise TypeError("artifact_id and update must be Device Runtime domain values")
         session = self._scan_session
         engine = self._engine
         if session is None or engine is None:
-            return
+            return ()
         if update.scan_session_id != session.scan_session_id or update.artifact_id != artifact_id:
-            return
+            return ()
         key = artifact_id.value
         scanner_artifact_id = self._artifact_ids.get(key)
         if scanner_artifact_id is None:
-            return
+            return ()
         if key in self._terminal_artifacts:
-            return
+            return ()
         try:
+            events: tuple[Any, ...] = ()
             if update.status in {DeliveryStatus.QUEUED, DeliveryStatus.SENDING}:
-                engine.delivery_queued(scanner_artifact_id)
+                events = engine.delivery_queued(scanner_artifact_id)
             elif update.status is DeliveryStatus.RETRYING:
-                engine.delivery_retrying(scanner_artifact_id)
+                events = engine.delivery_retrying(scanner_artifact_id)
             elif update.status is DeliveryStatus.ACKED:
                 if not update.receipt_id:
                     raise FatalPortError("ACKED delivery update has no receipt")
@@ -147,6 +147,7 @@ class BookScannerRuntimeAdapter:
                 events = engine.delivery_rejected(scanner_artifact_id, reason)
                 self._require_terminal_event(events, "parser_rejected")
                 self._terminal_artifacts.add(key)
+            mapped = self._convert_events(events)
         except FatalPortError:
             raise
         except Exception as exc:
@@ -155,6 +156,15 @@ class BookScannerRuntimeAdapter:
             ) from exc
         if self._frozen and key in self._terminal_artifacts:
             self._close_engine(cancel=True)
+        return mapped
+
+    def _convert_events(self, events: tuple[Any, ...]) -> tuple[ScannerEvent, ...]:
+        mapped: list[ScannerEvent] = []
+        for event in events:
+            converted = self._convert_event(event)
+            if converted is not None:
+                mapped.append(converted)
+        return tuple(mapped)
 
     def _convert_event(self, event: Any) -> ScannerEvent | None:
         session = self._scan_session
