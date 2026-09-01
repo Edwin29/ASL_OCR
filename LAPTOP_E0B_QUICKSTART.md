@@ -157,10 +157,24 @@ JSON line으로 표시돼야 한다.
 `MP4 -> Scanner -> V3-B -> Tailscale HTTPS -> V4/S1 -> READY -> reading snapshot`을 입증하지만 실제
 camera, HC-05/STM, 점자 셀이나 speaker를 입증하지 않는다.
 
-영상이 끝나면 다음 feedback이 정확히 한 번 표시된다.
+영상이 끝나면 다음 feedback이 정확히 한 번 표시된다. 아래 값은 E0-B에 고정한 `test1.mp4`
+SHA-256 `16c57970bc493abcef4a1db0f1917b22956bf5ca1a2ee8b4565fde1f6574e6f8`의 기대값이다.
 
 ```json
-{"type":"feedback","code":"scan_input_exhausted","details":{"queued_count":1,"acked_count":1}}
+{"type":"feedback","code":"scan_input_exhausted","details":{"queued_count":2,"acked_count":2}}
+```
+
+이 영상에서는 30/309와 316/317 두 spread가 전송된다. 310/311과 312/313는 손/가림 hard reject다.
+314/315는 stable candidate가 된 뒤 identity가 4/5에서 `content_occluded`를 만나고, 마지막
+318/다음 장 시작은 identity 1/5에서 EOF를 만나 artifact 없이 끝나는 것이 현재 보수 계약의 정상
+결과다. `candidate_selected`는 곧 `spread_sent`를 뜻하지 않는다.
+
+E0-B.3부터 다음 bounded JSONL이 함께 표시된다. raw OCR token이나 image는 출력하지 않는다.
+
+```json
+{"type":"feedback","code":"candidate_selected","details":{"source_frame_id":"...","spread_id":"..."}}
+{"type":"feedback","code":"identity_collection_progress","details":{"valid_observations":4,"query_sample_count":5}}
+{"type":"feedback","code":"identity_collection_aborted","details":{"terminal_reason":"content_occluded","valid_observations":4,"query_sample_count":5}}
 ```
 
 - `queued_count >= 1`, `acked_count >= 1`이고 `spread_sent`를 확인했다면 `confirm`을 입력한다.
@@ -172,6 +186,27 @@ camera, HC-05/STM, 점자 셀이나 speaker를 입증하지 않는다.
 `scan_input_exhausted`는 EOF를 알릴 뿐 자동 ACK·seal·READY authority가 아니다. Paddle의
 `No ccache found`, oneDNN 정보와 Windows의 “제공된 패턴에 해당되는 파일을 찾지 못했습니다” 메시지는
 단독으로는 replay 실패 원인이 아니다.
+
+진단 report가 필요하면 PowerShell transcript로 한 실행의 출력을 보존한다.
+
+```powershell
+Start-Transcript -LiteralPath D:\ASL_OCR_E0B\reports\e0b-replay-console.log -Force
+.\tools\windows\e0b-replay-run.bat D:\ASL_OCR_E0B
+Stop-Transcript
+
+.\.venv-e0b\Scripts\python.exe `
+  .\tools\windows\e0b_replay_boundary_report.py `
+  D:\ASL_OCR_E0B\reports\e0b-replay-console.log `
+  D:\ASL_OCR_E0B\reports\e0b-replay-input.json `
+  D:\ASL_OCR_E0B\reports\e0b-replay-boundary.json
+```
+
+Laptop log와 source hash만 통과하면 report 상태는 `provisional`이다. Server 확인 결과를 다음 형태의
+JSON으로 저장하고 `--server-summary <path>`를 추가했을 때만 `passed`가 된다.
+
+```json
+{"spread_receipts":2,"fragments":4,"duplicates":0}
+```
 
 ## 7. 종료와 fallback
 

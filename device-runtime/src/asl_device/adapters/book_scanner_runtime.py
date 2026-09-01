@@ -227,6 +227,15 @@ class BookScannerRuntimeAdapter:
                 code=_reason_value(event, "scanner_guidance"),
                 details=details,
             )
+        diagnostic_code, diagnostic_details = _diagnostic_event(event_type, event, details)
+        if diagnostic_code is not None:
+            return ScannerEvent(
+                event_id,
+                session.scan_session_id,
+                ScannerEventType.DIAGNOSTIC,
+                code=diagnostic_code,
+                details=diagnostic_details,
+            )
         if event_type == "source_exhausted":
             return ScannerEvent(
                 event_id,
@@ -281,6 +290,56 @@ def _details(value: Any) -> tuple[tuple[str, str | int | float | bool | None], .
         for key, item in items
         if isinstance(item, (str, int, float, bool)) or item is None
     )
+
+
+def _diagnostic_event(
+    event_type: str,
+    event: Any,
+    details: tuple[tuple[str, str | int | float | bool | None], ...],
+) -> tuple[str | None, tuple[tuple[str, str | int | float | bool | None], ...]]:
+    codes = {
+        "candidate_selected": "candidate_selected",
+        "opaque_identity_collection_started": "identity_collection_started",
+        "opaque_identity_observed": "identity_collection_progress",
+        "opaque_identity_decided": "identity_collection_decided",
+        "opaque_identity_aborted": "identity_collection_aborted",
+    }
+    code = codes.get(event_type)
+    if code is None:
+        return None, ()
+    payload = dict(details)
+    if event_type == "opaque_identity_observed" and payload.get("valid") is not True:
+        return None, ()
+    bounded: list[tuple[str, str | int | float | bool | None]] = []
+    source_frame_id = _enum_value(getattr(event, "source_frame_id", None))
+    spread_id = _enum_value(getattr(event, "spread_id", None))
+    if source_frame_id:
+        bounded.append(("source_frame_id", source_frame_id))
+    if spread_id:
+        bounded.append(("spread_id", spread_id))
+    field_names = {
+        "opaque_identity_collection_started": ("query_sample_count",),
+        "opaque_identity_observed": (
+            "valid_observations",
+            "query_sample_count",
+            "recognition_processing_ms",
+            "effective_interval_ms",
+        ),
+        "opaque_identity_decided": (
+            "decision",
+            "valid_observations",
+            "query_sample_count",
+            "timed_out",
+        ),
+        "opaque_identity_aborted": (
+            "terminal_reason",
+            "valid_observations",
+            "missing_observations",
+            "query_sample_count",
+        ),
+    }.get(event_type, ())
+    bounded.extend((name, payload[name]) for name in field_names if name in payload)
+    return code, tuple(bounded)
 
 
 def _sha256_file(path: Path) -> str:

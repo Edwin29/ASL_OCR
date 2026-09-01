@@ -146,6 +146,35 @@ Fresh bench state에서 확인할 순서는 다음과 같다.
 E0-B.1 성공은 Scanner/V3-B/V4/S1/reading transport를 입증하지만 실제 OCR/TTS 품질과 camera,
 HC-05/STM, 점자 frame, speaker/audio resource를 입증하지 않는다.
 
+### E0-B.3 candidate/identity boundary
+
+고정 prepared MP4 SHA-256
+`16c57970bc493abcef4a1db0f1917b22956bf5ca1a2ee8b4565fde1f6574e6f8`의 정상 기대값은
+`spread_sent` sequence 1, 2와 EOF `queued_count=2`, `acked_count=2`다. Server에는 spread receipt
+2개, left/right fragment 4개와 duplicate 0이 있어야 한다.
+
+Scanner는 stable candidate 3개 뒤 새 opaque identity collector에서 valid pair 5개를 요구한다.
+따라서 stable candidate가 곧 artifact 또는 전송을 뜻하지 않는다. 해당 영상의 314/315는 identity
+4/5 뒤 `content_occluded`, 마지막 318/다음 장 시작은 identity 1/5 뒤 source exhaustion으로 종료되는
+것을 정상 보수 거부로 분류한다. stable-window evidence 재사용, EOF frame 반복, N/K 또는 candidate
+threshold 완화는 E0-B.3 범위가 아니다.
+
+JSONL에는 `candidate_selected`, `identity_collection_started`, `identity_collection_progress`,
+`identity_collection_decided`, `identity_collection_aborted`가 bounded detail로 출력된다. report 생성기는
+다음과 같이 실행한다.
+
+```powershell
+.\.venv-e0b\Scripts\python.exe `
+  .\tools\windows\e0b_replay_boundary_report.py `
+  D:\ASL_OCR_E0B\reports\e0b-replay-console.log `
+  D:\ASL_OCR_E0B\reports\e0b-replay-input.json `
+  D:\ASL_OCR_E0B\reports\e0b-replay-boundary.json `
+  --server-summary D:\ASL_OCR_E0B\reports\e0b-server-summary.json
+```
+
+Server summary를 생략하면 runtime/source 검증만 수행해 `provisional`을 반환한다. summary 형식은
+`{"spread_receipts":2,"fragments":4,"duplicates":0}`이고, 이 값까지 일치해야 최종 `passed`다.
+
 ## 5. Physical E0-B setup
 
 하드웨어를 연결할 수 있게 되면 기존 physical wrapper를 사용한다.

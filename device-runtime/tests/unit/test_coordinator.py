@@ -465,6 +465,34 @@ def test_scanner_guidance_is_semantic_feedback_not_server_command() -> None:
     assert dict(feedback.events[-1].details)["guidance_code"] == "move_right"
 
 
+def test_scanner_diagnostic_is_observer_only_feedback() -> None:
+    coordinator, _catalog, _scan, scanner, delivery, _reading, feedback = make_coordinator(
+        (ready_entry(),)
+    )
+    enter_scanning(coordinator)
+    current = coordinator.scan_session
+    assert current is not None
+    scanner.events.append(
+        ScannerEvent(
+            "identity-progress",
+            current.scan_session_id,
+            ScannerEventType.DIAGNOSTIC,
+            code="identity_collection_progress",
+            details=(("valid_observations", 4), ("query_sample_count", 5)),
+        )
+    )
+
+    coordinator.poll()
+
+    assert delivery.queue_calls == []
+    assert coordinator.state is DeviceFlowState.SCANNING
+    assert feedback.events[-1].code is FeedbackCode.IDENTITY_COLLECTION_PROGRESS
+    assert dict(feedback.events[-1].details) == {
+        "valid_observations": 4,
+        "query_sample_count": 5,
+    }
+
+
 def test_source_exhausted_is_one_shot_feedback_without_auto_seal() -> None:
     coordinator, _catalog, scan, scanner, delivery, _reading, feedback = make_coordinator(
         (ready_entry(),)

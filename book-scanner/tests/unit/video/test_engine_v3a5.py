@@ -8,6 +8,7 @@ import pytest
 from book_scanner.video.config import OpaqueFooterIdentityPolicy
 from book_scanner.video.events import VideoEventType
 from book_scanner.video.types import VideoSessionState
+from book_scanner.video.types import FrameId, ReadinessReason
 
 from .fakes import FakeIdentityProvider
 from .test_engine_v3a import _artifact_id, _engine
@@ -225,4 +226,77 @@ def test_missing_observations_timeout_unknown_without_v2_or_pending_bank() -> No
         for event in events
     )
     assert engine.diagnostics.opaque_identity_missing_observations > 0
+    engine.close()
+
+
+class _HardRejectEighthFrameAnalyzer:
+    def __init__(self, delegate) -> None:
+        self.delegate = delegate
+
+    def analyze(self, frame):
+        observation = self.delegate.analyze(frame)
+        if frame.frame_id == FrameId("f-8"):
+            return replace(
+                observation,
+                candidate=replace(
+                    observation.candidate,
+                    retry_reasons=(ReadinessReason.CONTENT_OCCLUDED,),
+                ),
+            )
+        return observation
+
+
+def test_four_of_five_identity_observations_then_hard_reject_emits_terminal_summary() -> None:
+    provider = _FakePageNumberProvider([], preview_labels=[("314", "315")] * 4)
+    engine, clock, _camera, preparer, store, _visual_ledger = _engine(
+        frame_count=8,
+        page_number_provider=provider,
+        opaque_identity_policy=_policy(),
+    )
+    engine.analyzer = _HardRejectEighthFrameAnalyzer(engine.analyzer)
+    events = list(engine.start())
+
+    for _ in range(8):
+        events.extend(engine.poll())
+        clock.advance(0.1)
+
+    aborted = [
+        event
+        for event in events
+        if event.event_type is VideoEventType.OPAQUE_IDENTITY_ABORTED
+    ]
+    assert len(aborted) == 1
+    assert dict(aborted[0].details)["terminal_reason"] == "content_occluded"
+    assert dict(aborted[0].details)["valid_observations"] == 4
+    assert dict(aborted[0].details)["query_sample_count"] == 5
+    assert provider.preview_calls == 4
+    assert preparer.calls == []
+    assert store.commits == []
+    engine.close()
+
+
+def test_one_of_five_identity_observations_then_eof_emits_abort_before_source_exhausted() -> None:
+    provider = _FakePageNumberProvider([], preview_labels=[("318", "12")] * 1)
+    engine, clock, _camera, preparer, store, _visual_ledger = _engine(
+        frame_count=4,
+        page_number_provider=provider,
+        opaque_identity_policy=_policy(),
+    )
+    events = list(engine.start())
+
+    for _ in range(5):
+        events.extend(engine.poll())
+        clock.advance(0.1)
+
+    event_types = [event.event_type for event in events]
+    aborted_index = event_types.index(VideoEventType.OPAQUE_IDENTITY_ABORTED)
+    exhausted_index = event_types.index(VideoEventType.SOURCE_EXHAUSTED)
+    details = dict(events[aborted_index].details)
+    assert aborted_index < exhausted_index
+    assert details["terminal_reason"] == "source_exhausted"
+    assert details["valid_observations"] == 1
+    assert details["query_sample_count"] == 5
+    assert provider.preview_calls == 1
+    assert preparer.calls == []
+    assert store.commits == []
     engine.close()

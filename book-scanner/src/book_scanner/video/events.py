@@ -40,6 +40,7 @@ class VideoEventType(str, Enum):
     OPAQUE_IDENTITY_COLLECTION_STARTED = "opaque_identity_collection_started"
     OPAQUE_IDENTITY_OBSERVED = "opaque_identity_observed"
     OPAQUE_IDENTITY_DECIDED = "opaque_identity_decided"
+    OPAQUE_IDENTITY_ABORTED = "opaque_identity_aborted"
     OPAQUE_IDENTITY_BANK_PENDING = "opaque_identity_bank_pending"
     OPAQUE_IDENTITY_BANK_ACCEPTED = "opaque_identity_bank_accepted"
     OPAQUE_IDENTITY_BANK_DISCARDED = "opaque_identity_bank_discarded"
@@ -68,6 +69,7 @@ _FRAME_EVENTS = {
     VideoEventType.OPAQUE_IDENTITY_COLLECTION_STARTED,
     VideoEventType.OPAQUE_IDENTITY_OBSERVED,
     VideoEventType.OPAQUE_IDENTITY_DECIDED,
+    VideoEventType.OPAQUE_IDENTITY_ABORTED,
     VideoEventType.PAGE_NUMBER_OBSERVED,
     VideoEventType.SPREAD_PAGE_KEY_CREATED,
     VideoEventType.PAGE_NUMBER_IDENTITY_CONFLICT,

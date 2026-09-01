@@ -240,3 +240,86 @@ def test_source_exhausted_maps_with_session_lineage_and_details(tmp_path: Path) 
     assert events[0].scan_session_id == ScanSessionId("scan-1")
     assert events[0].artifact is None
     assert dict(events[0].details) == {"frames_received": 90}
+
+
+def test_identity_diagnostics_are_bounded_and_missing_observations_are_not_progress(
+    tmp_path: Path,
+) -> None:
+    root, artifact, _event = _fixture(tmp_path)
+    factory = FakeFactory(artifact)
+    bridge = BookScannerRuntimeAdapter(factory, root)
+    bridge.start(_session())
+    factory.created[0].poll_events.append(
+        (
+            SimpleNamespace(
+                event_type=_value("candidate_selected"),
+                event_id="candidate-1",
+                session_id="scan-1",
+                source_frame_id=_value("frame-1866"),
+                spread_id=_value("spread-314-315"),
+                details=(("tenengrad", 123.0),),
+            ),
+            SimpleNamespace(
+                event_type=_value("opaque_identity_collection_started"),
+                event_id="identity-started-1",
+                session_id="scan-1",
+                source_frame_id=_value("frame-1866"),
+                spread_id=_value("spread-314-315"),
+                details=(("query_sample_count", 5), ("provenance", "private")),
+            ),
+            SimpleNamespace(
+                event_type=_value("opaque_identity_observed"),
+                event_id="identity-missing-1",
+                session_id="scan-1",
+                source_frame_id=_value("frame-1872"),
+                spread_id=_value("spread-314-315"),
+                details=(("valid", False), ("valid_observations", 0)),
+            ),
+            SimpleNamespace(
+                event_type=_value("opaque_identity_observed"),
+                event_id="identity-valid-1",
+                session_id="scan-1",
+                source_frame_id=_value("frame-1890"),
+                spread_id=_value("spread-314-315"),
+                details=(
+                    ("valid", True),
+                    ("valid_observations", 4),
+                    ("query_sample_count", 5),
+                    ("pair_digest", "secret-digest"),
+                    ("left_token_length", 3),
+                ),
+            ),
+            SimpleNamespace(
+                event_type=_value("opaque_identity_aborted"),
+                event_id="identity-aborted-1",
+                session_id="scan-1",
+                source_frame_id=_value("frame-1896"),
+                spread_id=_value("spread-314-315"),
+                details=(
+                    ("terminal_reason", "content_occluded"),
+                    ("valid_observations", 4),
+                    ("missing_observations", 0),
+                    ("query_sample_count", 5),
+                    ("pair_digest", "secret-digest"),
+                ),
+            ),
+        )
+    )
+
+    events = bridge.poll()
+
+    assert [event.code for event in events] == [
+        "candidate_selected",
+        "identity_collection_started",
+        "identity_collection_progress",
+        "identity_collection_aborted",
+    ]
+    assert all(event.event_type is ScannerEventType.DIAGNOSTIC for event in events)
+    progress = dict(events[2].details)
+    aborted = dict(events[3].details)
+    assert progress["valid_observations"] == 4
+    assert progress["query_sample_count"] == 5
+    assert aborted["terminal_reason"] == "content_occluded"
+    assert "pair_digest" not in progress
+    assert "pair_digest" not in aborted
+    assert "left_token_length" not in progress

@@ -364,8 +364,8 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 - firmware debounce를 보완하는 최소 host debounce와 bounded reconnect backoff
 - semantic feedback의 비동기 Windows beep/SAPI speech rendering
 - model/server/camera/serial/audio `--preflight`와 secret-safe JSON report
-- desktop loopback origin bench server와 remote HTTPS profile을 포함한 software boundary 완료;
-  실제 Laptop/camera/STM/speaker/external tunnel evidence는 대기
+- desktop loopback bench Server와 Tailscale private HTTPS를 통한 실제 Laptop replay software flow 완료;
+  실제 camera/STM/speaker physical evidence는 대기
 
 주요 코드와 문서:
 
@@ -396,8 +396,8 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 - MP4 첫 frame decode와 SHA-256 secret-safe report
 - Server reading response의 cursor/braille/audio를 changed-only JSONL snapshot으로 관측
 - 전체 software regression과 Desktop Serve same-hostname/private HTTPS smoke 완료
-- 실제 Laptop은 health/auth/presence/datapack/scan session까지 통과했으나 첫 replay artifact는
-  footer collection budget 때문에 실패; E0-B.2 교정 후 재검증 대기
+- 실제 Laptop 첫 replay의 footer collection blocker는 E0-B.2로 교정했고, 동일 source 재실행에서
+  artifact/V4/READY/read/navigation remote flow 통과
 - 실제 camera/HC-05/STM/speaker physical acceptance는 계속 별도
 
 주요 문서와 코드:
@@ -418,7 +418,8 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 - N=5, K threshold, candidate hard gate, V3-B/V4 ACK 불변식 변화 0
 - Book Scanner `SOURCE_EXHAUSTED`를 Device event와 one-shot `scan_input_exhausted` feedback으로 전달
 - EOF는 자동 ACK/seal/READY가 아니며 queued/acked count를 확인한 뒤 사용자 `confirm`이 stop authority
-- software regression 완료; 실제 Laptop에서 같은 MP4 재실행과 artifact/V4/READY/reading 증거 대기
+- software regression 완료; 실제 Laptop 동일 MP4 재실행에서 sequence 1, 2, EOF queued/acked 2/2,
+  READY/reading/navigation과 Server spread/fragment/duplicate 2/4/0 통과
 
 주요 문서와 코드:
 
@@ -429,15 +430,34 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 - `device-runtime/src/asl_device/coordinator.py`
 - `book-scanner/src/book_scanner/video/runtime_composition.py`
 
+### 5.12 Device Integration E0-B.3 — replay candidate/identity boundary verification
+
+- Scanner 판정은 유지하고 hard reject/EOF collector 폐기에 observer-only terminal event 추가
+- 기존 candidate/identity lifecycle을 bounded Device JSONL feedback으로 연결
+- raw OCR token, pair digest, image/API key/model path는 feedback/report에서 제외
+- exact source report가 sequence 1, 2, EOF 2/2, identity 4/5 hard reject와 1/5 EOF를 검사
+- Server summary 2/4/0이 없으면 `provisional`, 일치하면 `passed`, 불일치하면 `failed`
+- local 전체 회귀 완료; 새 diagnostics가 포함된 실제 Laptop 구조화 report 재수집 대기
+
+주요 문서와 코드:
+
+- `DEVICE_INTEGRATION_E0_B_3_REPLAY_BOUNDARY_VERIFICATION_WORK_PACKET.md`
+- `DEVICE_INTEGRATION_E0_B_3_VERIFICATION_REPORT.md`
+- `book-scanner/src/book_scanner/video/engine.py`
+- `device-runtime/src/asl_device/adapters/book_scanner_runtime.py`
+- `device-runtime/src/asl_device/replay_boundary_report.py`
+- `tools/windows/e0b_replay_boundary_report.py`
+
 ## 6. 최신 검증 기준선
 
-2026-09-01 E0-B.2 software implementation 완료 시점의 최신 전체 결과:
+2026-09-01 E0-B.3 observer diagnostics implementation 완료 시점의 최신 전체 결과:
 
 | 범위 | 결과 |
 |---|---:|
-| Book Scanner 전체 | 296 passed |
-| Device Runtime + actual E0-Core integration | 96 passed |
+| Book Scanner 전체 | 298 passed |
+| Device Runtime + actual E0-Core integration | 98 passed, 3 skipped |
 | Document Parser 전체 | 602 passed, 4 skipped |
+| E0-B.3 신규 boundary/diagnostic | 7 passed |
 | E0-B.2 집중 | 48 passed |
 | S0/S1/C0/V4/combined 집중 | 51 passed |
 | Server V4 집중 | 19 passed |
@@ -449,7 +469,7 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 
 Document Parser의 기존 `latex_ast.py` invalid escape warning은 이번 계열에서 생긴 것이 아니다.
 Book Scanner는 Windows 한글 사용자 temp 경로가 깨져 OpenCV 파일 생성이 실패할 수 있다. 이 경우
-제품 실패로 처리하지 말고 저장소 내부 ASCII `--basetemp`로 재실행한다. 실제로 그 방식으로 296개가
+제품 실패로 처리하지 말고 저장소 내부 ASCII `--basetemp`로 재실행한다. 실제로 그 방식으로 298개가
 통과했다.
 
 각 과거 보고서의 test count는 그 패킷 당시의 기준선이라 최신 총계보다 작을 수 있다. 최신 총계와
@@ -485,19 +505,21 @@ Git 포함 대상:
 ## 8. 다음 우선순위
 
 E0-B.1 software implementation과 Desktop Tailscale Serve fixed private HTTPS smoke는 완료됐다. 실제
-Laptop 1차 실행에서 remote health/auth/presence와 scan session까지 통과했고, footer collection 시간과
-EOF 전달 blocker를 확인했다. E0-B.2 software 교정과 회귀도 완료됐다. 다음 단계는 **Laptop에 최신
-revision/config를 반영하고 같은 prepared MP4 + console remote acceptance를 재실행하는 것**이다. 그 뒤
-같은 fixed endpoint에서 camera/STM/speaker physical E0-B를 진행한다. 같은 LAN과 유료 domain은
-요구하지 않는다. Production tunnel policy/service와 exhaustive WAN fault 검증은 후속 Network
-Hardening으로 분리한다.
+Laptop 1차 실행에서 footer collection 시간과 EOF 전달 blocker를 확인했고, E0-B.2 교정 뒤 동일 영상
+재실행은 sequence 1, 2, EOF queued/acked 2/2, user confirm 뒤 READY/read/navigation까지 통과했다. Server
+결과도 spread 2, fragment 4, duplicate 0이었다. E0-B.3 observer diagnostics와 local 회귀도 완료됐다.
+다음 단계는 **Laptop에 E0-B.3 revision을 반영하고 동일 prepared MP4의 구조화 boundary report를 한 번
+재수집하는 것**이다. report에서 314/315의 identity 4/5 hard reject와 마지막 318의 1/5 EOF를 확인한 뒤
+같은 fixed endpoint에서 camera/STM/speaker physical E0-B를 진행한다. 같은 LAN과 유료 domain은 요구하지
+않는다. Production tunnel policy/service와 exhaustive WAN fault 검증은 후속 Network Hardening으로
+분리한다.
 
 Cloudflare Desktop 준비 smoke는 완료됐다. `D:\Tools\cloudflared.exe` 2026.8.3과 Windows batch wrapper로
 bench Server local health 및 Quick Tunnel public HTTPS health가 모두 HTTP 200임을 확인한 뒤 process와
 임시 state를 정리했다. Tailscale client/service/login/MagicDNS, Serve 활성화, private HTTPS의 동일
 Server instance와 reset/start 뒤 동일 hostname도 확인했다. 실제 FQDN은 private 식별자라 문서에
-기록하지 않았다. 현재 Serve와 bench Server는 Laptop 시험을 위해 실행 상태다. 실제 Laptop 1차 실패
-evidence는 E0-B.2 보고서에 기록했지만 변경 후 artifact/V4/READY/reading 성공 evidence는 아직 없다.
+기록하지 않았다. 실제 Laptop의 artifact/V4/READY/reading 성공 evidence는 E0-B.3 보고서에 요약했다.
+새 candidate/identity diagnostics가 포함된 post-E0-B.3 transcript와 final boundary JSON은 아직 없다.
 
 Model은 Git history에 넣지 않는다. UVDoc official checkpoint와 Paddle M1 asset을 포함한 검증 bundle은
 GitHub Release `e0b-model-bundle-2026-09-01`에 올렸고 ZIP SHA-256은
@@ -546,7 +568,8 @@ V3-B 패킷에서 먼저 고정할 것:
 ```text
 Device Integration E0-Core: development desktop local composition + deterministic replay/I/O
   -> E0-B.2: replay timeout/EOF repair
-  -> E0-B.1: actual Laptop prepared MP4/console remote acceptance 재검증
+  -> E0-B.1: actual Laptop prepared MP4/console remote acceptance 통과
+  -> E0-B.3: candidate/identity boundary diagnostics 실제 report 재수집
   -> Device Integration E0-B — Laptop Acceptance: real camera + STM + beep/TTS
   -> Network Hardening: production tunnel policy/service + exhaustive WAN fault
   -> Raspberry Pi systemd/network-online/camera/GPIO/audio/resource validation
@@ -555,8 +578,8 @@ Device Integration E0-Core: development desktop local composition + deterministi
 ## 9. 완료로 오인하면 안 되는 사항
 
 - E0-B camera/STM/audio adapter와 preflight는 구현됐지만 실제 Laptop 장치에서 실행한 report는 없다.
-- E0-B.1 replay/setup/Serve와 actual Laptop health/session은 확인했지만 E0-B.2 변경 후 artifact/V4/READY/
-  reading remote 성공 report는 없다.
+- E0-B.1/E0-B.2 actual Laptop remote replay/upload/READY/reading은 통과했지만 E0-B.3 observer event가
+  포함된 candidate/identity boundary JSON report는 아직 없다.
 - 실제 camera/UVDoc/Paddle asset을 사용한 Device application smoke run은 없다.
 - V3-B restart 보장은 queue commit 이후 adapter 재생성 범위다. 전체 Coordinator active scan과
   queue 전 orphan artifact를 자동 복원하지 않는다.
@@ -577,12 +600,12 @@ ASL_OCR의 codex/asl-ocr-integration-c0-handoff 브랜치에서 작업을 이어
 입력을 연결하고, 과거 검증/시연을 위해 결합된 OCR·점역·TTS·임시 서버 책임을 제품 경계에 맞게
 정리하는 통합 작업이다. Document Parser의 content transformation 책임과 Server의 transport/
 persistence/orchestration 책임을 혼동하지 마라. 사용자 변경과 기존 Scanner/Coordinator/S0/S1/C0/V4
-계약을 보존하라. V3-B, Device Integration E0-Core, E0-B/E0-B.1 software와 E0-B.2 replay timeout/EOF
-교정은 완료됐고 전체 회귀도 통과했다. Desktop Tailscale Serve smoke와 실제 Laptop의 remote health,
-presence, datapack/scan session도 확인했다. 현재 다음 우선순위는 Laptop에 최신 revision과
-`opaque_identity_max_collection_ms=30000` config를 반영하고 동일 prepared MP4로 E0-B.1 remote
-acceptance를 재실행해 artifact/V4 ACK/EOF/READY/reading report를 남기는 것이다. 그 다음
-camera/STM/speaker physical E0-B를 진행한다.
+계약을 보존하라. V3-B, Device Integration E0-Core, E0-B/E0-B.1 software, E0-B.2 replay timeout/EOF
+교정과 E0-B.3 observer diagnostics는 완료됐고 전체 회귀도 통과했다. Desktop Tailscale Serve smoke와
+실제 Laptop의 remote health/presence/session, 동일 영상 sequence 1,2, EOF 2/2, READY/read/navigation 및
+Server 2 spreads/4 fragments/duplicate 0도 확인했다. 현재 다음 우선순위는 Laptop에 E0-B.3 revision을
+반영하고 동일 prepared MP4로 boundary report를 재수집해 identity 4/5 hard reject와 1/5 EOF를 구조화
+증거로 남기는 것이다. 그 다음 camera/STM/speaker physical E0-B를 진행한다.
 같은 LAN과 유료 domain은 요구하지 않는다. Production tunnel/network hardening을 같은 패킷의 선행
 조건으로 묶지 마라. 실제로 검증하지 않은 Laptop remote flow와 Raspberry Pi 동작을 완료로 처리하지
 마라.

@@ -264,6 +264,20 @@ class DeviceFlowCoordinator:
                 (("guidance_code", scanner_event.code),) + scanner_event.details,
             )
             return
+        if scanner_event.event_type is ScannerEventType.DIAGNOSTIC:
+            try:
+                code = FeedbackCode(scanner_event.code)
+            except ValueError:
+                return
+            if code in {
+                FeedbackCode.CANDIDATE_SELECTED,
+                FeedbackCode.IDENTITY_COLLECTION_STARTED,
+                FeedbackCode.IDENTITY_COLLECTION_PROGRESS,
+                FeedbackCode.IDENTITY_COLLECTION_DECIDED,
+                FeedbackCode.IDENTITY_COLLECTION_ABORTED,
+            }:
+                self._feedback(code, scanner_event.details)
+            return
         if scanner_event.event_type is ScannerEventType.FATAL:
             self._fatal(scanner_event.code or "scanner fatal error", events)
             return

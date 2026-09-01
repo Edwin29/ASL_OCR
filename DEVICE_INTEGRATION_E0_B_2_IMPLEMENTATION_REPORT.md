@@ -2,7 +2,8 @@
 
 작성일: 2026-09-01
 작업 패킷: `DEVICE_INTEGRATION_E0_B_2_REPLAY_COMPLETION_REPAIR_WORK_PACKET.md`
-상태: **software implementation 및 회귀 완료 / 실제 Laptop replay 재검증 대기**
+상태: **software implementation, 회귀 및 실제 Laptop remote replay/upload/reading 재검증 완료 /
+E0-B.3 구조화 boundary report 재수집 대기**
 
 ## 결과
 
@@ -61,8 +62,10 @@ E0-B.2 구현 전 실제 Laptop 실행에서 다음이 확인됐다.
 - Server access log: scan session 이후 presence heartbeat만 존재
 - source 종료 뒤 명시적 EOF feedback: 없음
 
-이 증거는 E0-B.2 변경 동기를 고정하지만 변경 후 Laptop acceptance 성공 증거는 아니다. 최신 코드를
-Laptop에 반영하고 동일 source로 다시 실행해야 한다.
+이 증거는 E0-B.2 변경 동기를 고정한다. 이후 같은 source 재실행에서 `spread_sent` sequence 1, 2,
+EOF queued/acked 2/2, user confirm 뒤 READY, reading snapshot과 navigation을 확인했다. Server 결과도 spread
+2개, left/right fragment 4개, duplicate 0이었다. E0-B.3은 이 결과를 변경하지 않고 candidate/identity
+terminal reason을 구조화하는 observer diagnostics만 추가한다.
 
 ## 검증 결과
 
@@ -101,18 +104,14 @@ plugin을 끈 기본 temp로 재실행해 위 결과가 통과했다.
 
 ## 남은 실제 Laptop acceptance
 
-1. 최신 repository revision을 Laptop에 반영
-2. 기존 `D:\ASL_OCR_E0B` config는 자동 갱신되지 않으므로 replay setup 재실행 또는
-   `opaque_identity_max_collection_ms=30000` 확인
-3. 같은 MP4/hash와 model bundle로 fresh datapack run
-4. `spread_sent` 최소 1개 확인
-5. `scan_input_exhausted` 1회와 queued/acked count 확인
-6. `confirm` 뒤 flush/seal/finalize READY
-7. `reading_snapshot`과 navigation response 확인
-8. Server receipt/fragment 중복 0 확인
+1. E0-B.3 revision을 Laptop에 반영
+2. 같은 MP4/hash와 fresh datapack run의 transcript 수집
+3. identity `4/5 + content_occluded`, `1/5 + source_exhausted` 구조화 증거 확인
+4. runtime 2/2와 Server 2/4/0을 결합한 boundary report `passed` 보존
 
-이 결과 전에는 E0-B.1 remote replay acceptance를 완료로 표시하지 않는다. 실제 camera, HC-05/STM,
-speaker physical E0-B도 계속 대기다.
+E0-B.2가 목표한 remote replay completion은 통과했다. 위 항목은 그 판정 경계를 구조화해 E0-B remote
+software acceptance를 닫기 위한 E0-B.3 확인이다. 실제 camera, HC-05/STM, speaker physical E0-B도 계속
+대기다.
 
 ## 범위 준수
 

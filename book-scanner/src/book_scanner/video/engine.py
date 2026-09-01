@@ -511,6 +511,11 @@ class SampledFrameEngine:
         self._frames_evaluated += 1
         if analyzed.candidate.retry_reasons:
             self._opaque_identity_hard_rejected_observations += 1
+            self._emit_opaque_abort(
+                analyzed.candidate.retry_reasons[0].value,
+                frame.frame_id,
+                events,
+            )
             self._window.clear()
             self._opaque_collector = None
             self._opaque_candidate_pairs = ()
@@ -678,6 +683,12 @@ class SampledFrameEngine:
             self._fail(ReadinessReason.FRAME_DECODE_FAILED, events)
             return None
         if frame is None and self.camera.exhausted:
+            if self.state is VideoSessionState.VERIFYING_IDENTITY:
+                self._emit_opaque_abort(
+                    "source_exhausted",
+                    self._selected.frame.frame_id if self._selected is not None else None,
+                    events,
+                )
             events.append(self._event(VideoEventType.SOURCE_EXHAUSTED))
             self._stop_camera()
             self._opaque_collector = None
@@ -789,6 +800,29 @@ class SampledFrameEngine:
                         else None
                     ),
                     "timed_out": decision.timed_out,
+                },
+            )
+        )
+
+    def _emit_opaque_abort(
+        self,
+        terminal_reason: str,
+        frame_id,
+        events: list[VideoEvent],
+    ) -> None:
+        collector = self._opaque_collector
+        if collector is None:
+            return
+        events.append(
+            self._event(
+                VideoEventType.OPAQUE_IDENTITY_ABORTED,
+                source_frame_id=frame_id,
+                spread_id=self._selected_spread,
+                details={
+                    **self._opaque_policy_details(),
+                    "terminal_reason": terminal_reason,
+                    "valid_observations": len(collector.observations),
+                    "missing_observations": collector.missing_observations,
                 },
             )
         )

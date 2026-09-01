@@ -86,6 +86,7 @@ class CatalogChoiceKind(str, Enum):
 
 class ScannerEventType(str, Enum):
     GUIDANCE = "guidance"
+    DIAGNOSTIC = "diagnostic"
     ARTIFACT_READY = "artifact_ready"
     SOURCE_EXHAUSTED = "source_exhausted"
     FATAL = "fatal"
@@ -264,7 +265,11 @@ class ScannerEvent:
             raise ValueError("artifact_ready event requires artifact")
         if self.event_type is not ScannerEventType.ARTIFACT_READY and self.artifact is not None:
             raise ValueError("only artifact_ready event may contain artifact")
-        if self.event_type in {ScannerEventType.GUIDANCE, ScannerEventType.FATAL}:
+        if self.event_type in {
+            ScannerEventType.GUIDANCE,
+            ScannerEventType.DIAGNOSTIC,
+            ScannerEventType.FATAL,
+        }:
             _require_text("scanner event code", self.code)
         object.__setattr__(self, "details", _freeze_details(self.details))
 
