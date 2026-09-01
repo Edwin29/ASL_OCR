@@ -125,6 +125,17 @@ COM port와 camera index/width/height/FPS는 replay mode에서 묻지 않고 사
 7. Tailscale HTTPS Server health 확인
 
 실제 camera/COM/audio hardware preflight는 실행하지 않는다.
+생성된 replay config에는 Laptop CPU에서 기존 N=5 footer identity 관측을 끝낼 수 있도록
+`opaque_identity_max_collection_ms = 30000`이 명시된다. 이 값은 replay profile에만 적용되며
+physical camera profile의 기본 `1500ms`, N=5와 candidate threshold는 바꾸지 않는다.
+
+E0-B.2 이전에 setup한 `D:\ASL_OCR_E0B\device-app.e0b.toml`은 저장소를 pull하는 것만으로 자동
+갱신되지 않는다. 최신 저장소를 받은 뒤 위 setup을 같은 영상/model bundle로 다시 실행하거나,
+해당 config의 `[scanner]`에 다음 한 줄이 있는지 확인한다.
+
+```toml
+opaque_identity_max_collection_ms = 30000
+```
 
 ## 6. Replay 실행과 확인
 
@@ -133,9 +144,10 @@ tools\windows\e0b-replay-run.bat
 ```
 
 console에서는 `up`, `down`, `left`, `right`, `next`, `prev`, `confirm`, `lever`를 입력할 수 있다.
-기본 흐름은 새 데이터팩 항목을 `up/down`으로 선택하고 `confirm`, artifact/ACK를 기다린 뒤 다시
-`confirm`하여 scan을 닫고 READY/reading 진입을 기다리는 것이다. Reading 중 `right`, `next` 등의
-명령을 입력하면 바뀐 Server 응답이 다음 형태의 JSON line으로 표시돼야 한다.
+기본 흐름은 새 데이터팩 항목을 `up/down`으로 선택하고 `confirm`, artifact/V4 ACK의 `spread_sent`와
+영상 종료의 `scan_input_exhausted`를 확인한 뒤 다시 `confirm`하여 scan을 닫고 READY/reading 진입을
+기다리는 것이다. Reading 중 `right`, `next` 등의 명령을 입력하면 바뀐 Server 응답이 다음 형태의
+JSON line으로 표시돼야 한다.
 
 ```json
 {"type":"reading_snapshot","reading_session_id":"...","datapack_id":"...","cursor":{},"braille_cells":[],"audio_ref":"..."}
@@ -144,6 +156,22 @@ console에서는 `up`, `down`, `left`, `right`, `next`, `prev`, `confirm`, `leve
 같은 snapshot을 polling한 결과는 중복 출력하지 않는다. 종료는 `Ctrl+C`다. 이 성공은
 `MP4 -> Scanner -> V3-B -> Tailscale HTTPS -> V4/S1 -> READY -> reading snapshot`을 입증하지만 실제
 camera, HC-05/STM, 점자 셀이나 speaker를 입증하지 않는다.
+
+영상이 끝나면 다음 feedback이 정확히 한 번 표시된다.
+
+```json
+{"type":"feedback","code":"scan_input_exhausted","details":{"queued_count":1,"acked_count":1}}
+```
+
+- `queued_count >= 1`, `acked_count >= 1`이고 `spread_sent`를 확인했다면 `confirm`을 입력한다.
+- `queued_count >= 1`, `acked_count = 0`이면 아직 전송 settlement 중일 수 있으므로
+  `spread_sent` 또는 명시적 retry/reject feedback을 먼저 기다린다.
+- `queued_count = 0`이면 artifact가 생성되지 않은 실패다. `confirm`으로 빈 datapack을 성공 처리하지
+  말고 `Ctrl+C`로 종료한 뒤 마지막 `scanner_guidance` 또는 `footer_identity_unavailable`을 보존한다.
+
+`scan_input_exhausted`는 EOF를 알릴 뿐 자동 ACK·seal·READY authority가 아니다. Paddle의
+`No ccache found`, oneDNN 정보와 Windows의 “제공된 패턴에 해당되는 파일을 찾지 못했습니다” 메시지는
+단독으로는 replay 실패 원인이 아니다.
 
 ## 7. 종료와 fallback
 

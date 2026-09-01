@@ -2,7 +2,8 @@
 
 작성일: 2026-09-01
 작업 패킷: `DEVICE_INTEGRATION_E0_B_1_TAILSCALE_REPLAY_ACCEPTANCE_WORK_PACKET.md`
-상태: **software implementation 및 Desktop Tailscale Serve 검증 완료 / 실제 Laptop replay acceptance 대기**
+상태: **software implementation 및 Desktop Tailscale Serve 검증 완료 / 실제 Laptop 1차 실행에서
+Scanner blocker 확인 / E0-B.2 교정 후 재검증 대기**
 
 ## 결과
 
@@ -11,8 +12,10 @@ command API는 변경하지 않았다. Laptop은 camera와 STM 없이 준비된 
 feedback으로 하드웨어 직전의 전체 remote flow를 실행할 수 있다. Desktop은 loopback bench Server를
 Tailscale Serve의 stable private `*.ts.net` HTTPS origin으로 연결하는 start/check/stop wrapper를 갖는다.
 
-Desktop tailnet의 Serve 활성화와 fixed private HTTPS smoke는 완료됐다. 실제 Laptop이 아직 tailnet에
-참여해 replay flow를 실행하지 않았으므로 remote E2E 완료는 주장하지 않는다. 실제
+Desktop tailnet의 Serve 활성화와 fixed private HTTPS smoke는 완료됐다. 실제 Laptop도 같은 tailnet에서
+health/auth/presence, datapack과 scan session 생성까지 통과했다. 다만 첫 replay는 Laptop CPU의 footer
+collection budget과 누락된 EOF bridge 때문에 artifact/V4에 도달하지 못했다. E0-B.2 software 교정과
+회귀는 완료됐고 실제 Laptop 재실행은 대기다. 따라서 remote E2E 완료는 아직 주장하지 않는다. 실제
 camera/HC-05/STM/speaker physical E0-B도 계속 대기다.
 
 ## 구현 내용
@@ -87,8 +90,8 @@ Document Parser는 cache plugin을 끄고 기본 temp 경로로 재실행해 602
 
 ## 남은 acceptance
 
-1. 실제 Laptop을 같은 tailnet에 로그인하고 저장소/model bundle/준비된 MP4 setup
-2. Laptop에서 fixed private HTTPS health/auth/C0 presence 확인
+1. E0-B.2 최신 revision과 replay timeout config를 Laptop에 반영
+2. 동일 prepared MP4로 `spread_sent`와 `scan_input_exhausted` 확인
 3. Laptop에서 V3-B/V4/S1 READY와 changed reading snapshot/navigation evidence 수집
 4. 이후 physical E0-B에서 camera + HC-05/STM + speaker 검증
 

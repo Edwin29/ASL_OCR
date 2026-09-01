@@ -227,6 +227,13 @@ class BookScannerRuntimeAdapter:
                 code=_reason_value(event, "scanner_guidance"),
                 details=details,
             )
+        if event_type == "source_exhausted":
+            return ScannerEvent(
+                event_id,
+                session.scan_session_id,
+                ScannerEventType.SOURCE_EXHAUSTED,
+                details=details,
+            )
         if event_type == "session_error":
             return ScannerEvent(
                 event_id,

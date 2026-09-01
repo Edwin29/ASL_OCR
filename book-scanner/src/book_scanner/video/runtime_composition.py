@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 
 from book_scanner.correct.uvdoc_adapter import UVDocConfig
@@ -34,6 +34,7 @@ class LocalScannerRuntimeConfig:
     camera_height: int | None = None
     camera_fps: float | None = None
     sample_interval_ms: int = 500
+    opaque_identity_max_collection_ms: int | None = None
 
 
 class LocalBookScannerEngineFactory:
@@ -46,7 +47,7 @@ class LocalBookScannerEngineFactory:
         scanner_config: VideoScannerConfig | None = None,
     ) -> None:
         self.config = config
-        self.scanner_config = scanner_config or VideoScannerConfig()
+        self.scanner_config = _effective_scanner_config(config, scanner_config)
         self._validate_assets()
         self._artifact_store = FilesystemArtifactStore(config.staging_root, config.ready_root)
         self._preparer = SeamUVDocSpreadPreparer(
@@ -139,3 +140,26 @@ def _model_hashes(path: Path) -> dict[str, str]:
             raise ValueError("M1 model manifest file hashes are invalid")
         hashes[name] = digest
     return hashes
+
+
+def _effective_scanner_config(
+    runtime: LocalScannerRuntimeConfig,
+    scanner: VideoScannerConfig | None = None,
+) -> VideoScannerConfig:
+    effective = scanner or VideoScannerConfig()
+    timeout = runtime.opaque_identity_max_collection_ms
+    if timeout is None:
+        return effective
+    if runtime.profile != "replay":
+        raise ValueError(
+            "opaque_identity_max_collection_ms is allowed only for replay scanner profile"
+        )
+    if isinstance(timeout, bool) or not isinstance(timeout, int) or not 0 < timeout <= 60_000:
+        raise ValueError("opaque_identity_max_collection_ms must be an integer in [1, 60000]")
+    return replace(
+        effective,
+        opaque_footer_identity=replace(
+            effective.opaque_footer_identity,
+            max_collection_ms=timeout,
+        ),
+    )

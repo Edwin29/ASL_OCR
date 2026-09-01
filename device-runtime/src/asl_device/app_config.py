@@ -29,6 +29,7 @@ class ScannerHostConfig:
     camera_height: int | None = None
     camera_fps: float | None = None
     sample_interval_ms: int = 500
+    opaque_identity_max_collection_ms: int | None = None
 
     def __post_init__(self) -> None:
         if self.profile not in {"replay", "image_sequence", "pc_camera"}:
@@ -67,6 +68,19 @@ class ScannerHostConfig:
             or self.sample_interval_ms <= 0
         ):
             raise ValueError("sample_interval_ms must be a positive integer")
+        if self.opaque_identity_max_collection_ms is not None:
+            if self.profile != "replay":
+                raise ValueError(
+                    "opaque_identity_max_collection_ms is allowed only for replay scanner profile"
+                )
+            if (
+                isinstance(self.opaque_identity_max_collection_ms, bool)
+                or not isinstance(self.opaque_identity_max_collection_ms, int)
+                or not 0 < self.opaque_identity_max_collection_ms <= 60_000
+            ):
+                raise ValueError(
+                    "opaque_identity_max_collection_ms must be an integer in [1, 60000]"
+                )
         if not isinstance(self.uvdoc_device, str) or self.uvdoc_device not in {"auto", "cpu", "cuda"}:
             raise ValueError("uvdoc_device must be auto, cpu, or cuda")
 
@@ -213,6 +227,7 @@ class DeviceAppConfig:
                 "camera_height",
                 "camera_fps",
                 "sample_interval_ms",
+                "opaque_identity_max_collection_ms",
             },
             "scanner",
         )
@@ -238,6 +253,9 @@ class DeviceAppConfig:
             camera_height=scanner_payload.get("camera_height"),
             camera_fps=scanner_payload.get("camera_fps"),
             sample_interval_ms=scanner_payload.get("sample_interval_ms", 500),
+            opaque_identity_max_collection_ms=scanner_payload.get(
+                "opaque_identity_max_collection_ms"
+            ),
         )
         local_io = payload.get("local_io", {})
         if not isinstance(local_io, dict):

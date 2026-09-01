@@ -102,6 +102,12 @@ decode와 SHA-256, Server health를 검사한다. Replay config는 `scanner.prof
 `local_io.controls="console"`, `feedback="jsonl"`이고 camera field와 STM table을 사용하지 않는다.
 Physical hardware preflight도 실행하지 않는다.
 
+E0-B.2부터 replay config는 `opaque_identity_max_collection_ms=30000`을 명시한다. 실제 Laptop에서
+첫 Paddle footer recognition 약 2.9초가 기존 1.5초 collection budget을 초과한 결과를 반영한
+host/runtime 값이다. N=5, K threshold, candidate hard gate와 physical profile의 기존 1.5초 기본값은
+변경하지 않는다. 기존 config root는 repository pull만으로 갱신되지 않으므로 setup을 다시 실행하거나
+`[scanner]`의 이 값을 확인한다.
+
 생성되는 주요 파일:
 
 - `D:\ASL_OCR_E0B\device-app.e0b.toml`
@@ -124,14 +130,18 @@ Fresh bench state에서 확인할 순서는 다음과 같다.
 1. authenticated C0 ONLINE과 catalog event
 2. 새 데이터팩을 선택하고 `confirm`하여 scan 시작
 3. replay에서 artifact 생성, durable V3-B enqueue와 valid V4 ACK 뒤 `spread_sent`
-4. 다시 `confirm`하여 freeze/flush/seal
-5. S1 finalization 뒤 `datapack_saved`와 reading 진입
-6. `reading_snapshot` JSON에 `cursor`, `braille_cells`, `audio_ref`
-7. `right`/`next` navigation 후 변경된 Server snapshot
-8. `Ctrl+C` 종료와 SQLite/log/report 보존
+4. EOF의 `scan_input_exhausted` 1회와 `queued_count`/`acked_count` 확인
+5. ACK가 확인된 뒤 다시 `confirm`하여 freeze/flush/seal
+6. S1 finalization 뒤 `datapack_saved`와 reading 진입
+7. `reading_snapshot` JSON에 `cursor`, `braille_cells`, `audio_ref`
+8. `right`/`next` navigation 후 변경된 Server snapshot
+9. `Ctrl+C` 종료와 SQLite/log/report 보존
 
 동일 snapshot polling은 중복 JSON을 만들지 않는다. Presenter write failure는 Server ACK나 domain state를
-되돌리지 않는다. Replay EOF는 자동 seal authority가 아니며 사용자의 `confirm`이 stop intent다.
+되돌리지 않는다. Replay EOF는 `scan_input_exhausted` feedback으로 한 번 노출되지만 자동 seal authority가
+아니며 사용자의 `confirm`이 stop intent다. `queued_count=0`이면 빈 datapack을 seal하지 않고 acceptance
+실패로 보존한다. queued artifact가 아직 ACK되지 않았다면 기존 delivery polling을 계속하고
+`spread_sent` 뒤에 confirm한다.
 
 E0-B.1 성공은 Scanner/V3-B/V4/S1/reading transport를 입증하지만 실제 OCR/TTS 품질과 camera,
 HC-05/STM, 점자 frame, speaker/audio resource를 입증하지 않는다.

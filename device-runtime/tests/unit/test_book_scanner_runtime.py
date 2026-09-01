@@ -215,3 +215,28 @@ def test_guidance_and_fatal_events_map_without_artifacts(tmp_path: Path) -> None
         (ScannerEventType.GUIDANCE, "move_left"),
         (ScannerEventType.FATAL, "camera_unavailable"),
     ]
+
+
+def test_source_exhausted_maps_with_session_lineage_and_details(tmp_path: Path) -> None:
+    root, artifact, _event = _fixture(tmp_path)
+    factory = FakeFactory(artifact)
+    bridge = BookScannerRuntimeAdapter(factory, root)
+    bridge.start(_session())
+    factory.created[0].poll_events.append(
+        (
+            SimpleNamespace(
+                event_type=_value("source_exhausted"),
+                event_id="source-exhausted-1",
+                session_id="scan-1",
+                details=(("frames_received", 90),),
+            ),
+        )
+    )
+
+    events = bridge.poll()
+
+    assert len(events) == 1
+    assert events[0].event_type is ScannerEventType.SOURCE_EXHAUSTED
+    assert events[0].scan_session_id == ScanSessionId("scan-1")
+    assert events[0].artifact is None
+    assert dict(events[0].details) == {"frames_received": 90}

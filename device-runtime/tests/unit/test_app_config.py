@@ -60,6 +60,52 @@ def test_app_config_resolves_paths_from_config_directory(tmp_path: Path) -> None
     assert config.scanner.ready_root == config.delivery.artifact_root
     assert config.scanner.replay_path == (tmp_path / "inputs/sample.mp4").resolve()
     assert config.poll_interval_ms == 25
+    assert config.scanner.opaque_identity_max_collection_ms is None
+
+
+def test_replay_config_accepts_bounded_opaque_identity_collection_timeout(
+    tmp_path: Path,
+) -> None:
+    path = _write_config(tmp_path)
+    text = path.read_text(encoding="utf-8").replace(
+        'replay_path = "inputs/sample.mp4"',
+        'replay_path = "inputs/sample.mp4"\nopaque_identity_max_collection_ms = 30000',
+    )
+    path.write_text(text, encoding="utf-8")
+
+    config = DeviceAppConfig.from_toml(path)
+
+    assert config.scanner.opaque_identity_max_collection_ms == 30000
+
+
+@pytest.mark.parametrize("value", ["true", "0", "-1", '"30000"', "60001"])
+def test_replay_config_rejects_invalid_opaque_identity_collection_timeout(
+    tmp_path: Path,
+    value: str,
+) -> None:
+    path = _write_config(tmp_path)
+    text = path.read_text(encoding="utf-8").replace(
+        'replay_path = "inputs/sample.mp4"',
+        f'replay_path = "inputs/sample.mp4"\nopaque_identity_max_collection_ms = {value}',
+    )
+    path.write_text(text, encoding="utf-8")
+
+    with pytest.raises(ValueError, match="opaque_identity_max_collection_ms"):
+        DeviceAppConfig.from_toml(path)
+
+
+def test_physical_config_rejects_replay_only_opaque_identity_timeout(tmp_path: Path) -> None:
+    path = _write_config(tmp_path)
+    text = path.read_text(encoding="utf-8")
+    text = text.replace('profile = "replay"', 'profile = "pc_camera"')
+    text = text.replace(
+        'replay_path = "inputs/sample.mp4"',
+        'opaque_identity_max_collection_ms = 30000',
+    )
+    path.write_text(text, encoding="utf-8")
+
+    with pytest.raises(ValueError, match="allowed only for replay"):
+        DeviceAppConfig.from_toml(path)
 
 
 def test_app_config_rejects_scanner_delivery_root_split(tmp_path: Path) -> None:
@@ -127,5 +173,6 @@ def test_e0b_replay_example_has_no_physical_input_authority() -> None:
 
     assert payload["scanner"]["profile"] == "replay"
     assert payload["scanner"]["replay_path"] == "inputs/scanner-replay.mp4"
+    assert payload["scanner"]["opaque_identity_max_collection_ms"] == 30000
     assert "camera_index" not in payload["scanner"]
     assert payload["local_io"] == {"controls": "console", "feedback": "jsonl"}

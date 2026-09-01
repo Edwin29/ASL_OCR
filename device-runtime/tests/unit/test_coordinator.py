@@ -465,6 +465,74 @@ def test_scanner_guidance_is_semantic_feedback_not_server_command() -> None:
     assert dict(feedback.events[-1].details)["guidance_code"] == "move_right"
 
 
+def test_source_exhausted_is_one_shot_feedback_without_auto_seal() -> None:
+    coordinator, _catalog, scan, scanner, delivery, _reading, feedback = make_coordinator(
+        (ready_entry(),)
+    )
+    enter_scanning(coordinator)
+    current = coordinator.scan_session
+    assert current is not None
+    exhausted = ScannerEvent(
+        "source-exhausted",
+        current.scan_session_id,
+        ScannerEventType.SOURCE_EXHAUSTED,
+    )
+    scanner.events.extend((exhausted, exhausted))
+
+    first = coordinator.poll()
+    second = coordinator.poll()
+
+    assert coordinator.state is DeviceFlowState.SCANNING
+    assert scan.seal_calls == []
+    assert delivery.flush_calls == []
+    assert scanner.freeze_calls == 0
+    assert sum(
+        event.event_type is CoordinatorEventType.SCAN_INPUT_EXHAUSTED
+        for event in first + second
+    ) == 1
+    exhausted_feedback = [
+        event for event in feedback.events if event.code is FeedbackCode.SCAN_INPUT_EXHAUSTED
+    ]
+    assert len(exhausted_feedback) == 1
+    assert dict(exhausted_feedback[0].details) == {"queued_count": 0, "acked_count": 0}
+
+
+def test_source_exhausted_reports_acked_artifact_then_user_confirm_seals() -> None:
+    coordinator, _catalog, scan, scanner, delivery, _reading, feedback = make_coordinator(
+        (ready_entry(),)
+    )
+    enter_scanning(coordinator)
+    current = coordinator.scan_session
+    assert current is not None
+    scanner.events.append(artifact_event(current.scan_session_id))
+    coordinator.poll()
+    delivery.acknowledge(1)
+    coordinator.poll()
+    scanner.events.append(
+        ScannerEvent(
+            "source-exhausted-after-ack",
+            current.scan_session_id,
+            ScannerEventType.SOURCE_EXHAUSTED,
+        )
+    )
+
+    coordinator.poll()
+
+    details = dict(
+        next(
+            event.details
+            for event in feedback.events
+            if event.code is FeedbackCode.SCAN_INPUT_EXHAUSTED
+        )
+    )
+    assert details == {"queued_count": 1, "acked_count": 1}
+    assert scan.seal_calls == []
+
+    coordinator.handle_input(press("stop-after-eof", DeviceControl.CONFIRM))
+
+    assert scan.seal_calls == [(current.scan_session_id, 1)]
+
+
 def test_stop_cancels_scanner_outside_reading_but_not_after_reading_entry() -> None:
     coordinator, _catalog, _scan, scanner, *_ = make_coordinator((ready_entry(),))
     enter_scanning(coordinator)

@@ -87,6 +87,7 @@ class CatalogChoiceKind(str, Enum):
 class ScannerEventType(str, Enum):
     GUIDANCE = "guidance"
     ARTIFACT_READY = "artifact_ready"
+    SOURCE_EXHAUSTED = "source_exhausted"
     FATAL = "fatal"
 
 

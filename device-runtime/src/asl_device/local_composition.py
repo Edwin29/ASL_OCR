@@ -166,5 +166,6 @@ def _default_scanner_factory(config: ScannerHostConfig) -> BookScannerEngineFact
             camera_height=config.camera_height,
             camera_fps=config.camera_fps,
             sample_interval_ms=config.sample_interval_ms,
+            opaque_identity_max_collection_ms=config.opaque_identity_max_collection_ms,
         )
     )

@@ -267,6 +267,20 @@ class DeviceFlowCoordinator:
         if scanner_event.event_type is ScannerEventType.FATAL:
             self._fatal(scanner_event.code or "scanner fatal error", events)
             return
+        if scanner_event.event_type is ScannerEventType.SOURCE_EXHAUSTED:
+            details = (
+                ("queued_count", len(self._delivery_by_sequence)),
+                (
+                    "acked_count",
+                    sum(
+                        update.status is DeliveryStatus.ACKED
+                        for update in self._delivery_by_sequence.values()
+                    ),
+                ),
+            )
+            self._emit(CoordinatorEventType.SCAN_INPUT_EXHAUSTED, events, details)
+            self._feedback(FeedbackCode.SCAN_INPUT_EXHAUSTED, details)
+            return
         assert scanner_event.artifact is not None
         if scanner_event.artifact.scan_session_id != self.scan_session.scan_session_id:
             return
