@@ -48,6 +48,29 @@ SYSTEM_BOUNDARY_MESSAGES: tuple[str, ...] = (
     "셀 내용의 시작입니다.",
 )
 
+# Named device UI prompts are kept separate from navigation boundary text so
+# the transport contract can address a stable cue name without duplicating
+# Korean phrases in the Device Runtime.  They are synthesized by the same
+# production Piper voice into the shared `_system` pool.
+SYSTEM_UI_PROMPTS: dict[str, str] = {
+    "screen.capture_catalog": "캡처 모드 데이터팩 선택 화면입니다.",
+    "screen.reading_catalog": "리딩 모드 데이터팩 선택 화면입니다.",
+    "screen.capture": "페이지 캡처 화면입니다.",
+    "screen.reading": "리딩 화면입니다.",
+    "catalog.new_datapack": "새 데이터팩 추가",
+    "scan.started": "페이지 촬영을 시작합니다.",
+    "scan.guidance": "책의 위치를 조정해 주세요.",
+    "scan.spread_sent": "페이지 전송이 완료되었습니다. 다음 페이지로 넘겨 주세요.",
+    "scan.stopping": "촬영을 마치고 전송을 확인합니다.",
+    "scan.finalizing": "데이터팩을 생성하고 있습니다.",
+    "scan.saved": "데이터팩 저장이 완료되었습니다.",
+    "server.connection_lost": "서버 연결이 끊어졌습니다.",
+    "server.recovered": "서버 연결이 복구되었습니다.",
+    "server.auth_failed": "서버 인증에 실패했습니다.",
+    "parser.rejected": "페이지 처리가 거부되었습니다.",
+    "catalog.empty": "읽을 수 있는 데이터팩이 없습니다.",
+}
+
 
 def system_message_key(text: str) -> str:
     """Stable key for one `SYSTEM_BOUNDARY_MESSAGES` entry in the shared

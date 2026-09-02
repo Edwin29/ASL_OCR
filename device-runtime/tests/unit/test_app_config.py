@@ -192,6 +192,22 @@ request_timeout_seconds = 5.0''',
     assert config.reading_audio.download_chunk_bytes == 32768
 
 
+def test_app_config_rejects_sapi_and_piper_transport_together(tmp_path: Path) -> None:
+    path = _write_config(tmp_path)
+    text = path.read_text(encoding="utf-8").replace(
+        '[local_io]\nfeedback = "jsonl"',
+        '''[local_io]
+feedback = "windows_audio"
+
+[local_io.reading_audio]
+enabled = true''',
+    )
+    path.write_text(text, encoding="utf-8")
+
+    with pytest.raises(ValueError, match="legacy SAPI"):
+        DeviceAppConfig.from_toml(path)
+
+
 def test_app_config_rejects_reading_audio_above_hard_ceiling(tmp_path: Path) -> None:
     path = _write_config(tmp_path)
     text = path.read_text(encoding="utf-8").replace(

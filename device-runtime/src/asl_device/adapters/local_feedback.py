@@ -70,6 +70,26 @@ class MemoryFeedbackSink:
         self.events.append(event)
 
 
+class CompositeFeedbackSink:
+    """Fan semantic events out while keeping each renderer independently safe."""
+
+    def __init__(self, *sinks: object) -> None:
+        self.sinks = tuple(sinks)
+
+    def emit(self, event: FeedbackEvent) -> None:
+        for sink in self.sinks:
+            try:
+                sink.emit(event)
+            except Exception:
+                continue
+
+    def close(self) -> None:
+        for sink in reversed(self.sinks):
+            close = getattr(sink, "close", None)
+            if close is not None:
+                close()
+
+
 class AudioFeedbackBackend(Protocol):
     def beep(self, pattern: tuple[tuple[int, int], ...]) -> None: ...
 

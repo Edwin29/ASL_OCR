@@ -19,6 +19,7 @@ from __future__ import annotations
 import argparse
 import datetime
 import json
+import threading
 import wave
 from pathlib import Path
 from typing import Any, Callable
@@ -43,6 +44,7 @@ from document_parser.datapack.schema import (
 
 # text -> (pcm int16 audio bytes, sample_rate, channel_count)
 SynthesizeFn = Callable[[str], tuple[bytes, int, int]]
+_SYSTEM_POOL_LOCK = threading.RLock()
 
 
 def log(msg: str) -> None:
@@ -154,12 +156,35 @@ def ensure_system_pool(
     """Synthesize the 16 book-independent boundary messages into the shared
     `_system` pool, once ever -- idempotent, since these never depend on any
     book's content (see docs/datapack-schema.md)."""
-    index_path = system_dir / "audio_index.json"
-    existing = _load_index(index_path)
-    utterances = {system_message_key(text): text for text in SYSTEM_BOUNDARY_MESSAGES}
-    index = synthesize_all(utterances, synthesize, system_dir, existing, log_fn)
-    _write_index(index_path, index)
-    return index
+    return ensure_system_utterances(
+        SYSTEM_BOUNDARY_MESSAGES,
+        synthesize,
+        system_dir,
+        log_fn,
+    )
+
+
+def ensure_system_utterances(
+    texts: tuple[str, ...] | list[str],
+    synthesize: SynthesizeFn,
+    system_dir: Path,
+    log_fn: Callable[[str], None] = log,
+) -> dict[str, dict[str, Any]]:
+    """Idempotently merge text into the shared system audio index.
+
+    Multiple producers use the pool (navigation boundaries, device UI cues,
+    and dynamic catalog titles), so updating one subset must retain all
+    previously synthesized entries.
+    """
+
+    with _SYSTEM_POOL_LOCK:
+        index_path = system_dir / "audio_index.json"
+        existing = _load_index(index_path)
+        requested = {system_message_key(text): text for text in texts}
+        updated = synthesize_all(requested, synthesize, system_dir, existing, log_fn)
+        existing.update(updated)
+        _write_index(index_path, existing)
+        return existing
 
 
 def build_datapack(

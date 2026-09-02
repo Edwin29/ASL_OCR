@@ -53,6 +53,15 @@ class AudioResourcePort(Protocol):
     ) -> AudioResource: ...
 
 
+class SystemAudioResourcePort(Protocol):
+    def fetch(
+        self,
+        device_id: DeviceId,
+        audio_ref: str,
+        cancelled: Callable[[], bool],
+    ) -> AudioResource: ...
+
+
 class AudioPlaybackPort(Protocol):
     def play(self, resource: AudioResource, cancelled: Callable[[], bool]) -> None: ...
 

@@ -498,18 +498,34 @@ def exercise_production_audio_transport(
     from document_parser.server.s0_http import create_app
     from document_parser.server.s0_services import S0ControlPlane
     from document_parser.server.s0_store import S0Store
+    from document_parser.server.system_audio import SystemAudioService
     from werkzeug.serving import make_server
 
-    from .adapters.http_s0 import S0HttpClient, S0ReadingHttpAdapter
-    from .adapters.reading_audio import S0AudioResourceHttpAdapter, SoundDeviceWavPlayer
+    from .adapters.http_s0 import S0CatalogHttpAdapter, S0HttpClient, S0ReadingHttpAdapter
+    from .adapters.reading_audio import (
+        S0AudioResourceHttpAdapter,
+        S0SystemAudioResourceHttpAdapter,
+        SoundDeviceWavPlayer,
+    )
     from .desktop_audio_transport_acceptance import _QuietRequestHandler, _request_status
     from .device_audio_playback_acceptance import _AutomatedPlayer, _CountingResource, _EventSink
+    from .events import FeedbackCode, FeedbackEvent
     from .reading_audio import AudioResourceCache, ReadingAudioController
     from .types import DatapackId, DeviceControl, DeviceId, InputAction
 
     api_key = Path(api_key_path).read_text(encoding="utf-8").strip()
     store = S0Store(Path(database), Path(datapacks_root))
-    control_plane = S0ControlPlane(store)
+    def no_runtime_synthesis(text: str):
+        raise LoopbackAcceptanceError(
+            f"production system audio pool is incomplete for {text!r}"
+        )
+
+    system_audio_service = SystemAudioService(
+        Path(datapacks_root), no_runtime_synthesis
+    )
+    control_plane = S0ControlPlane(
+        store, system_audio_service=system_audio_service
+    )
     app = create_app(control_plane, api_key)
     server = make_server(
         "127.0.0.1", 0, app, threaded=True, request_handler=_QuietRequestHandler
@@ -520,14 +536,55 @@ def exercise_production_audio_transport(
     sink = _EventSink()
     player = SoundDeviceWavPlayer() if playback else _AutomatedPlayer()
     resource = _CountingResource(S0AudioResourceHttpAdapter(base_url, api_key))
+    system_resource = _CountingResource(
+        S0SystemAudioResourceHttpAdapter(base_url, api_key)
+    )
     cache = AudioResourceCache(max_bytes=8 * 1024 * 1024, max_entries=4)
-    controller = ReadingAudioController(resource, player, cache, feedback=sink)
-    reading = S0ReadingHttpAdapter(S0HttpClient(base_url, api_key))
+    primary_device_id, isolation_device_id = _production_replay_device_ids()
+    primary_device = DeviceId(primary_device_id)
+    s0_client = S0HttpClient(base_url, api_key)
+    controller = ReadingAudioController(
+        resource,
+        player,
+        cache,
+        device_id=primary_device,
+        system_resource_port=system_resource,
+        feedback=sink,
+    )
+    reading = S0ReadingHttpAdapter(s0_client)
+    catalog = S0CatalogHttpAdapter(s0_client)
     snapshots = []
     try:
-        primary_device_id, isolation_device_id = _production_replay_device_ids()
+        catalog_entry = next(
+            entry
+            for entry in catalog.list_datapacks(primary_device)
+            if entry.datapack_id.value == datapack_id
+        )
+        if catalog_entry.title_audio_ref is None:
+            raise LoopbackAcceptanceError(
+                "production catalog title has no Piper audio reference"
+            )
+        controller.emit(
+            FeedbackEvent(
+                FeedbackCode.SCREEN_CHANGED,
+                time.monotonic(),
+                (("screen", "datapack_selection"), ("mode", "reading")),
+            )
+        )
+        controller.emit(
+            FeedbackEvent(
+                FeedbackCode.SPEAK_CATALOG_TITLE,
+                time.monotonic(),
+                (
+                    ("kind", "existing"),
+                    ("title_audio_ref", catalog_entry.title_audio_ref),
+                ),
+            )
+        )
+        if not controller.wait_idle(180):
+            raise LoopbackAcceptanceError("production system audio did not settle")
         current = reading.open(
-            DeviceId(primary_device_id),
+            primary_device,
             DatapackId(datapack_id),
             20,
             f"open-{uuid.uuid4().hex}",
@@ -578,6 +635,17 @@ def exercise_production_audio_transport(
             f"{base_url}/api/v1/reading-sessions/{other.reading_session_id}/audio/{audio_id}",
             api_key,
         )
+        system_audio_id = catalog_entry.title_audio_ref.removeprefix(
+            "s0-system-audio:"
+        )
+        system_unauthorized = _request_status(
+            f"{base_url}/api/v1/devices/{primary_device_id}/system-audio/{system_audio_id}",
+            None,
+        )
+        system_cross_device = _request_status(
+            f"{base_url}/api/v1/devices/{isolation_device_id}/system-audio/{system_audio_id}",
+            api_key,
+        )
 
         controller.interrupt()
         current = reading.send_command(
@@ -615,6 +683,9 @@ def exercise_production_audio_transport(
             "authenticated": True,
             "unauthorized_request_rejected": unauthorized == 401,
             "cross_session_request_rejected": wrong_session == 404,
+            "system_audio_unauthorized_rejected": system_unauthorized == 401,
+            "system_audio_cross_device_rejected": system_cross_device == 404,
+            "system_audio_fetch_count": system_resource.fetches,
             "pages_presented": 4,
             "fetch_count": resource.fetches,
             "cache_hits": codes.count("reading_audio_cache_hit"),
@@ -650,6 +721,8 @@ def exercise_production_audio_transport(
         if (
             not result["unauthorized_request_rejected"]
             or not result["cross_session_request_rejected"]
+            or not result["system_audio_unauthorized_rejected"]
+            or not result["system_audio_cross_device_rejected"]
             or result["failures"]
             or result["cache_entries"] > result["cache_limit_entries"]
             or result["cache_bytes"] > result["cache_limit_bytes"]

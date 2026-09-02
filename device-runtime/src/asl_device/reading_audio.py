@@ -6,12 +6,17 @@ import hashlib
 import threading
 import time
 from collections import OrderedDict
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from typing import Callable
 
 from .events import FeedbackCode, FeedbackEvent
-from .protocols import AudioPlaybackPort, AudioResourcePort, FeedbackSink
-from .types import AudioResource, ReadingSessionId, ReadingSnapshot
+from .protocols import (
+    AudioPlaybackPort,
+    AudioResourcePort,
+    FeedbackSink,
+    SystemAudioResourcePort,
+)
+from .types import AudioResource, DeviceId, ReadingSessionId, ReadingSnapshot
 
 
 class AudioOperationCancelled(RuntimeError):
@@ -38,19 +43,24 @@ class AudioResourceCache:
         self._total_bytes = 0
         self._lock = threading.Lock()
 
-    def get(self, reading_session_id: ReadingSessionId, audio_ref: str) -> AudioResource | None:
+    def get(self, scope_id: ReadingSessionId | DeviceId, audio_ref: str) -> AudioResource | None:
         with self._lock:
             for key in reversed(self._items):
-                if key[:2] == (reading_session_id.value, audio_ref):
+                if key[:2] == (scope_id.value, audio_ref):
                     resource = self._items[key]
                     self._items.move_to_end(key)
                     return resource
             return None
 
-    def put(self, reading_session_id: ReadingSessionId, audio_ref: str, resource: AudioResource) -> bool:
+    def put(
+        self,
+        scope_id: ReadingSessionId | DeviceId,
+        audio_ref: str,
+        resource: AudioResource,
+    ) -> bool:
         if resource.content_length > self.max_bytes:
             return False
-        key = (reading_session_id.value, audio_ref, resource.sha256)
+        key = (scope_id.value, audio_ref, resource.sha256)
         with self._lock:
             for existing_key in tuple(self._items):
                 if existing_key[:2] == key[:2] and existing_key != key:
@@ -91,11 +101,20 @@ class AudioResourceCache:
 @dataclass(frozen=True, slots=True)
 class _AudioJob:
     epoch: int
-    snapshot: ReadingSnapshot
+    kind: str
+    scope_id: ReadingSessionId | DeviceId
+    audio_ref: str
+    priority: int
+    group: str
+    generation: int | None = None
+
+    @property
+    def dedupe_key(self) -> tuple[str, str, int | None, str]:
+        return (self.kind, self.scope_id.value, self.generation, self.audio_ref)
 
 
 class ReadingAudioController:
-    """Fetch and play only the newest presented reading generation."""
+    """Single playback arbiter for reading generations and Piper UI prompts."""
 
     def __init__(
         self,
@@ -103,18 +122,22 @@ class ReadingAudioController:
         playback_port: AudioPlaybackPort,
         cache: AudioResourceCache,
         *,
+        device_id: DeviceId | None = None,
+        system_resource_port: SystemAudioResourcePort | None = None,
         feedback: FeedbackSink | None = None,
         monotonic: Callable[[], float] = time.monotonic,
     ) -> None:
         self.resource_port = resource_port
         self.playback_port = playback_port
         self.cache = cache
+        self.device_id = device_id
+        self.system_resource_port = system_resource_port
         self.feedback = feedback
         self.monotonic = monotonic
         self._condition = threading.Condition()
         self._epoch = 0
-        self._pending: _AudioJob | None = None
-        self._active = False
+        self._pending: list[_AudioJob] = []
+        self._active_job: _AudioJob | None = None
         self._closed = False
         self._last_key: tuple[str, int, str] | None = None
         self._session_id: ReadingSessionId | None = None
@@ -127,15 +150,13 @@ class ReadingAudioController:
         if snapshot is None:
             with self._condition:
                 previous_session = self._session_id
-                has_context = previous_session is not None
                 self._session_id = None
-            if has_context:
-                self.interrupt()
+                self._last_key = None
+            if previous_session is not None:
                 assert previous_session is not None
                 self.cache.clear_session(previous_session)
             return
         if snapshot.audio_ref is None:
-            self.interrupt()
             return
         key = (snapshot.reading_session_id.value, snapshot.generation, snapshot.audio_ref)
         with self._condition:
@@ -144,22 +165,44 @@ class ReadingAudioController:
             previous_session = self._session_id
             self._session_id = snapshot.reading_session_id
             self._last_key = key
-            self._epoch += 1
-            job = _AudioJob(self._epoch, snapshot)
-            self._pending = job
-            self._condition.notify_all()
-        self.playback_port.stop()
+        self._submit(
+            _AudioJob(
+                0,
+                "reading",
+                snapshot.reading_session_id,
+                snapshot.audio_ref,
+                90,
+                "reading",
+                snapshot.generation,
+            ),
+            interrupt=True,
+        )
         if previous_session is not None and previous_session != snapshot.reading_session_id:
             self.cache.clear_session(previous_session)
+
+    def emit(self, event: FeedbackEvent) -> None:
+        """FeedbackSink entry point for server-synthesized system prompts."""
+
+        if self.device_id is None or self.system_resource_port is None:
+            return
+        request = _system_audio_request(event)
+        if request is None:
+            return
+        audio_ref, priority, group, interrupt_lower = request
+        self._submit(
+            _AudioJob(0, "system", self.device_id, audio_ref, priority, group),
+            replace_group=group in {"catalog", "screen", "guidance", "process"},
+            interrupt_lower=interrupt_lower,
+        )
 
     def interrupt(self) -> None:
         with self._condition:
             if self._closed:
                 return
-            had_work = self._active or self._pending is not None
+            had_work = self._active_job is not None or bool(self._pending)
             interrupted_key = self._last_key
             self._epoch += 1
-            self._pending = None
+            self._pending.clear()
             self._last_key = None
             self._condition.notify_all()
         self.playback_port.stop()
@@ -175,7 +218,7 @@ class ReadingAudioController:
     def wait_idle(self, timeout_seconds: float) -> bool:
         deadline = time.monotonic() + timeout_seconds
         with self._condition:
-            while self._active or self._pending is not None:
+            while self._active_job is not None or self._pending:
                 remaining = deadline - time.monotonic()
                 if remaining <= 0:
                     return False
@@ -188,7 +231,7 @@ class ReadingAudioController:
                 return
             self._closed = True
             self._epoch += 1
-            self._pending = None
+            self._pending.clear()
             self._condition.notify_all()
         self.playback_port.stop()
         self._worker.join(timeout=30.5)
@@ -198,45 +241,51 @@ class ReadingAudioController:
     def _run(self) -> None:
         while True:
             with self._condition:
-                while self._pending is None and not self._closed:
+                while not self._pending and not self._closed:
                     self._condition.wait()
                 if self._closed:
                     return
-                job = self._pending
-                self._pending = None
-                self._active = True
-            assert job is not None
+                index = max(
+                    range(len(self._pending)),
+                    key=lambda item: self._pending[item].priority,
+                )
+                job = self._pending.pop(index)
+                self._active_job = job
             try:
                 self._execute(job)
             except AudioOperationCancelled:
                 pass
             except Exception as exc:
-                if self._is_current(job.epoch):
+                if self._is_current(job):
                     self._emit(
                         FeedbackCode.READING_AUDIO_FAILED,
-                        generation=job.snapshot.generation,
-                        audio_ref_digest=_ref_digest(job.snapshot.audio_ref or ""),
+                        **self._job_details(job),
                         error_class=type(exc).__name__,
                         retryable=bool(getattr(exc, "retryable", False)),
                     )
             finally:
                 with self._condition:
-                    self._active = False
+                    if self._active_job is job:
+                        self._active_job = None
                     self._condition.notify_all()
 
     def _execute(self, job: _AudioJob) -> None:
-        snapshot = job.snapshot
-        assert snapshot.audio_ref is not None
-        cancelled = lambda: not self._is_current(job.epoch)
-        resource = self.cache.get(snapshot.reading_session_id, snapshot.audio_ref)
+        cancelled = lambda: not self._is_current(job)
+        resource = self.cache.get(job.scope_id, job.audio_ref)
         if resource is None:
             self._emit_for(job, FeedbackCode.READING_AUDIO_FETCH_STARTED)
-            resource = self.resource_port.fetch(
-                snapshot.reading_session_id, snapshot.audio_ref, cancelled
-            )
+            if job.kind == "reading":
+                assert isinstance(job.scope_id, ReadingSessionId)
+                resource = self.resource_port.fetch(job.scope_id, job.audio_ref, cancelled)
+            else:
+                assert isinstance(job.scope_id, DeviceId)
+                assert self.system_resource_port is not None
+                resource = self.system_resource_port.fetch(
+                    job.scope_id, job.audio_ref, cancelled
+                )
             if cancelled():
                 raise AudioOperationCancelled()
-            self.cache.put(snapshot.reading_session_id, snapshot.audio_ref, resource)
+            self.cache.put(job.scope_id, job.audio_ref, resource)
         else:
             self._emit_for(job, FeedbackCode.READING_AUDIO_CACHE_HIT)
         if cancelled():
@@ -252,20 +301,72 @@ class ReadingAudioController:
             raise AudioOperationCancelled()
         self._emit_for(job, FeedbackCode.READING_AUDIO_PLAYBACK_COMPLETED)
 
-    def _is_current(self, epoch: int) -> bool:
+    def _is_current(self, job: _AudioJob) -> bool:
         with self._condition:
-            return not self._closed and self._epoch == epoch
+            return (
+                not self._closed
+                and self._epoch == job.epoch
+                and self._active_job is job
+            )
 
     def _emit_for(self, job: _AudioJob, code: FeedbackCode, **details: object) -> None:
-        if not self._is_current(job.epoch):
+        if not self._is_current(job):
             return
-        snapshot = job.snapshot
-        self._emit(
-            code,
-            generation=snapshot.generation,
-            audio_ref_digest=_ref_digest(snapshot.audio_ref or ""),
-            **details,
-        )
+        self._emit(code, **self._job_details(job), **details)
+
+    def _job_details(self, job: _AudioJob) -> dict[str, object]:
+        details: dict[str, object] = {
+            "audio_kind": job.kind,
+            "audio_ref_digest": _ref_digest(job.audio_ref),
+        }
+        if job.generation is not None:
+            details["generation"] = job.generation
+        return details
+
+    def _submit(
+        self,
+        job: _AudioJob,
+        *,
+        interrupt: bool = False,
+        replace_group: bool = False,
+        interrupt_lower: bool = False,
+    ) -> None:
+        stop = False
+        with self._condition:
+            if self._closed:
+                return
+            if (
+                self._active_job is not None
+                and self._active_job.dedupe_key == job.dedupe_key
+            ) or any(item.dedupe_key == job.dedupe_key for item in self._pending):
+                return
+            active = self._active_job
+            should_interrupt = interrupt or (
+                (
+                    active is not None
+                    and (
+                        (replace_group and active.group == job.group)
+                        or (interrupt_lower and job.priority > active.priority)
+                    )
+                )
+                or (
+                    interrupt_lower
+                    and any(item.priority < job.priority for item in self._pending)
+                )
+            )
+            if should_interrupt:
+                self._epoch += 1
+                self._pending.clear()
+                stop = active is not None
+            elif replace_group:
+                self._pending = [
+                    item for item in self._pending if item.group != job.group
+                ]
+            job = replace(job, epoch=self._epoch)
+            self._pending.append(job)
+            self._condition.notify_all()
+        if stop or interrupt:
+            self.playback_port.stop()
 
     def _emit(self, code: FeedbackCode, **details: object) -> None:
         if self.feedback is None:
@@ -277,3 +378,54 @@ class ReadingAudioController:
 
 def _ref_digest(audio_ref: str) -> str:
     return hashlib.sha256(audio_ref.encode("utf-8")).hexdigest()[:12]
+
+
+def _system_audio_request(
+    event: FeedbackEvent,
+) -> tuple[str, int, str, bool] | None:
+    details = dict(event.details)
+    if event.code is FeedbackCode.SCREEN_CHANGED:
+        screen = details.get("screen")
+        mode = details.get("mode")
+        if screen == "datapack_selection":
+            cue = (
+                "screen.capture_catalog"
+                if mode == "capture"
+                else "screen.reading_catalog"
+            )
+        elif screen == "capture":
+            cue = "screen.capture"
+        elif screen == "reading":
+            cue = "screen.reading"
+        else:
+            return None
+        return (f"s0-system-cue:{cue}", 50, "screen", False)
+    if event.code is FeedbackCode.SPEAK_CATALOG_TITLE:
+        title_ref = details.get("title_audio_ref")
+        if isinstance(title_ref, str) and title_ref.startswith("s0-system-audio:"):
+            return (title_ref, 40, "catalog", False)
+        if details.get("kind") == "new_datapack":
+            return ("s0-system-cue:catalog.new_datapack", 40, "catalog", False)
+        return None
+    fixed = {
+        FeedbackCode.SCAN_STARTED: ("scan.started", 60, "process", False),
+        FeedbackCode.SCANNER_GUIDANCE: ("scan.guidance", 30, "guidance", False),
+        FeedbackCode.SPREAD_SENT: ("scan.spread_sent", 80, "handoff", True),
+        FeedbackCode.SCAN_STOPPING: ("scan.stopping", 60, "process", True),
+        FeedbackCode.FINALIZING: ("scan.finalizing", 60, "process", False),
+        FeedbackCode.DATAPACK_SAVED: ("scan.saved", 80, "completion", True),
+        FeedbackCode.SERVER_CONNECTION_LOST: (
+            "server.connection_lost",
+            100,
+            "error",
+            True,
+        ),
+        FeedbackCode.SERVER_RECOVERED: ("server.recovered", 90, "recovery", True),
+        FeedbackCode.SERVER_AUTH_FAILED: ("server.auth_failed", 100, "error", True),
+        FeedbackCode.PARSER_REJECTED: ("parser.rejected", 100, "error", True),
+        FeedbackCode.NO_READABLE_DATAPACK: ("catalog.empty", 80, "catalog", True),
+    }.get(event.code)
+    if fixed is None:
+        return None
+    cue, priority, group, interrupt_lower = fixed
+    return (f"s0-system-cue:{cue}", priority, group, interrupt_lower)

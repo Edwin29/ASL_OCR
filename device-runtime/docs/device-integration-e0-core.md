@@ -51,6 +51,14 @@ small domain details, not API keys, image bytes, or manifest paths. In particula
 - `finalizing` follows a successful V3-B flush and S0 seal request;
 - `datapack_saved` follows the server READY result.
 
+When `[local_io.reading_audio] enabled = true`, those semantic events also select authenticated
+Piper WAV resources from Server S0. Screen guidance, capture-complete/save/error prompts, and
+catalog titles share the exact same bounded RAM cache and `SoundDeviceWavPlayer` instance as
+document reading audio. The arbiter serializes playback, replaces stale catalog speech, and lets a
+new reading generation or higher-priority error interrupt older audio. No downloaded WAV is written
+to device storage. `windows_audio` is retained only for the earlier SAPI diagnostic harness and is
+rejected if Piper transport playback is enabled.
+
 Publishing a captured datapack does not implicitly open a reading session. The coordinator reloads
 the capture catalog. Reading begins only after `lever released` selects reading mode and the user
 confirms a READY datapack from the reading catalog.

@@ -277,6 +277,24 @@ def register_routes(
         response.headers["X-Audio-Sample-Rate"] = str(resource.sample_rate)
         return response
 
+    @app.get(
+        "/api/v1/devices/<device_id>/system-audio/cues/<path:cue>",
+        endpoint="s0_system_audio_cue",
+    )
+    @guarded
+    def get_system_audio_cue(device_id: str, cue: str):
+        return _audio_response(control_plane.get_system_audio_cue(device_id, cue))
+
+    @app.get(
+        "/api/v1/devices/<device_id>/system-audio/<audio_id>",
+        endpoint="s0_system_audio_resource",
+    )
+    @guarded
+    def get_system_audio_resource(device_id: str, audio_id: str):
+        return _audio_response(
+            control_plane.get_system_audio_resource(device_id, audio_id)
+        )
+
 
 def create_app(
     control_plane: S0ControlPlane,
@@ -290,6 +308,25 @@ def create_app(
     app = Flask(__name__)
     register_routes(app, control_plane, api_key, s1_pipeline, presence_service, v4_service)
     return app
+
+
+def _audio_response(resource):
+    from flask import send_file
+
+    response = send_file(
+        resource.path,
+        mimetype="audio/wav",
+        as_attachment=False,
+        download_name="system-audio.wav",
+        conditional=True,
+        etag=resource.sha256,
+        max_age=60,
+    )
+    response.headers["Cache-Control"] = "private, max-age=60"
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-Audio-Duration-Ms"] = str(resource.duration_ms)
+    response.headers["X-Audio-Sample-Rate"] = str(resource.sample_rate)
+    return response
 
 
 def _catalog(row: Any) -> dict[str, object]:

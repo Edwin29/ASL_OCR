@@ -142,7 +142,7 @@ if (-not $SkipInstall) {
     if ($LASTEXITCODE -ne 0) { throw "pip bootstrap failed." }
     & $venvPython -m pip install -r (Join-Path $repoRoot "device-runtime\requirements-e0b-laptop.txt")
     if ($LASTEXITCODE -ne 0) { throw "Laptop runtime dependency install failed." }
-    & $venvPython -m pip install -e ((Join-Path $repoRoot "document-parser") + "[remote-ingest]") -e (Join-Path $repoRoot "book-scanner") -e ((Join-Path $repoRoot "device-runtime") + "[laptop]")
+    & $venvPython -m pip install -e ((Join-Path $repoRoot "document-parser") + "[remote-ingest]") -e (Join-Path $repoRoot "book-scanner") -e ((Join-Path $repoRoot "device-runtime") + "[laptop,audio]")
     if ($LASTEXITCODE -ne 0) { throw "Local package install failed." }
 } elseif (-not (Test-Path -LiteralPath $venvPython)) {
     throw "SkipInstall was requested but $venvPython does not exist."

@@ -8,7 +8,7 @@ import re
 import threading
 import uuid
 import wave
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable
@@ -60,11 +60,13 @@ class S0ControlPlane:
         now: Callable[[], datetime] | None = None,
         id_factory: Callable[[str], str] | None = None,
         display_timezone: str = "Asia/Seoul",
+        system_audio_service: Any | None = None,
     ) -> None:
         self.store = store
         self._now = now or (lambda: datetime.now(timezone.utc))
         self._id_factory = id_factory or (lambda prefix: f"{prefix}-{uuid.uuid4().hex}")
         self._display_timezone = ZoneInfo(display_timezone)
+        self.system_audio_service = system_audio_service
         self._datapack_cache: dict[tuple[str, int, str], Datapack] = {}
         self._cache_lock = threading.RLock()
 
@@ -117,7 +119,18 @@ class S0ControlPlane:
                  ORDER BY updated_at DESC, datapack_id ASC
                 """
             ).fetchall()
-        return tuple(_catalog_record(row) for row in rows)
+        records = tuple(_catalog_record(row) for row in rows)
+        if self.system_audio_service is None:
+            return records
+        return tuple(
+            replace(
+                record,
+                title_audio_ref=self.system_audio_service.title_reference(
+                    device_id, record.title
+                ),
+            )
+            for record in records
+        )
 
     def create_datapack(self, device_id: str, operation_id: str) -> CatalogRecord:
         device_id = require_id("device_id", device_id)
@@ -533,6 +546,44 @@ class S0ControlPlane:
                 continue
             return _inspect_audio_resource(path)
         raise S0NotFoundError("AUDIO_RESOURCE_NOT_FOUND", "unknown audio resource")
+
+    def get_system_audio_cue(self, device_id: str, cue: str) -> AudioResource:
+        device_id = require_id("device_id", device_id)
+        if self.system_audio_service is None:
+            raise S0NotFoundError(
+                "SYSTEM_AUDIO_UNAVAILABLE", "system audio service is unavailable"
+            )
+        try:
+            path = self.system_audio_service.cue_path(cue)
+        except KeyError as exc:
+            raise S0NotFoundError(
+                "SYSTEM_AUDIO_CUE_NOT_FOUND", "unknown system audio cue"
+            ) from exc
+        self._touch_system_audio_device(device_id)
+        return _inspect_audio_resource(path)
+
+    def get_system_audio_resource(
+        self, device_id: str, audio_id: str
+    ) -> AudioResource:
+        device_id = require_id("device_id", device_id)
+        token = _audio_token(audio_id)
+        if self.system_audio_service is None:
+            raise S0NotFoundError(
+                "SYSTEM_AUDIO_UNAVAILABLE", "system audio service is unavailable"
+            )
+        try:
+            path = self.system_audio_service.resolve_reference(device_id, token)
+        except KeyError as exc:
+            raise S0NotFoundError(
+                "SYSTEM_AUDIO_RESOURCE_NOT_FOUND", "unknown system audio resource"
+            ) from exc
+        self._touch_system_audio_device(device_id)
+        return _inspect_audio_resource(path)
+
+    def _touch_system_audio_device(self, device_id: str) -> None:
+        now = self._timestamp()
+        with self.store.transaction() as connection:
+            self._touch_device(connection, device_id, now)
 
     def invalidate_datapack_cache(self, datapack_id: str) -> None:
         datapack_id = require_id("datapack_id", datapack_id)

@@ -14,10 +14,12 @@ from collections.abc import Callable
 from typing import Any
 
 from asl_device.reading_audio import AudioOperationCancelled, AudioResourceError
-from asl_device.types import AudioResource, ReadingSessionId
+from asl_device.types import AudioResource, DeviceId, ReadingSessionId
 
 
 _AUDIO_REF = re.compile(r"s0-audio:([0-9a-f]{32})\Z")
+_SYSTEM_AUDIO_REF = re.compile(r"s0-system-audio:([0-9a-f]{32})\Z")
+_SYSTEM_CUE_REF = re.compile(r"s0-system-cue:([a-z0-9._-]{1,80})\Z")
 
 
 class _NoRedirect(urllib.request.HTTPRedirectHandler):
@@ -61,6 +63,11 @@ class S0AudioResourceHttpAdapter:
         audio_id = match.group(1)
         session = urllib.parse.quote(reading_session_id.value, safe="")
         url = f"{self.base_url}/api/v1/reading-sessions/{session}/audio/{audio_id}"
+        return self._fetch_url(url, cancelled)
+
+    def _fetch_url(
+        self, url: str, cancelled: Callable[[], bool]
+    ) -> AudioResource:
         request = urllib.request.Request(
             url,
             headers={
@@ -114,6 +121,31 @@ class S0AudioResourceHttpAdapter:
         if etag and etag != sha256:
             raise AudioResourceError("audio ETag digest mismatch", retryable=False)
         return _validate_wav(raw, sha256)
+
+
+class S0SystemAudioResourceHttpAdapter(S0AudioResourceHttpAdapter):
+    """Fetch fixed system cues or device-scoped opaque title resources."""
+
+    def fetch(
+        self,
+        device_id: DeviceId,
+        audio_ref: str,
+        cancelled: Callable[[], bool],
+    ) -> AudioResource:
+        device = urllib.parse.quote(device_id.value, safe="")
+        cue_match = _SYSTEM_CUE_REF.fullmatch(audio_ref)
+        opaque_match = _SYSTEM_AUDIO_REF.fullmatch(audio_ref)
+        if cue_match is not None:
+            cue = urllib.parse.quote(cue_match.group(1), safe="")
+            url = f"{self.base_url}/api/v1/devices/{device}/system-audio/cues/{cue}"
+        elif opaque_match is not None:
+            audio_id = opaque_match.group(1)
+            url = f"{self.base_url}/api/v1/devices/{device}/system-audio/{audio_id}"
+        else:
+            raise AudioResourceError(
+                "system audio reference is malformed", retryable=False
+            )
+        return self._fetch_url(url, cancelled)
 
 
 class SoundDeviceWavPlayer:

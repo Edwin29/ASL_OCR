@@ -17,11 +17,16 @@ from .adapters.http_s0 import (
 from .adapters.http_v4 import V4HttpClient
 from .adapters.local_controls import ConsoleControlSource, ControlSource
 from .adapters.local_feedback import (
+    CompositeFeedbackSink,
     JsonLineFeedbackSink,
     JsonLineReadingPresenter,
     WindowsAudioFeedbackSink,
 )
-from .adapters.reading_audio import S0AudioResourceHttpAdapter, SoundDeviceWavPlayer
+from .adapters.reading_audio import (
+    S0AudioResourceHttpAdapter,
+    S0SystemAudioResourceHttpAdapter,
+    SoundDeviceWavPlayer,
+)
 from .adapters.stm_serial import StmSerialControlSource
 from .app_config import DeviceAppConfig, ScannerHostConfig
 from .application import DeviceApplication, ReadingPresenter
@@ -72,7 +77,7 @@ def build_local_device(
     if config.feedback_mode == "windows_audio":
         capabilities.append("audio_feedback")
     if config.reading_audio.enabled:
-        capabilities.append("reading_audio")
+        capabilities.extend(("reading_audio", "piper_system_audio"))
     connectivity = DeviceConnectivitySupervisor(
         config.connectivity,
         connectivity_transport,
@@ -101,7 +106,8 @@ def build_local_device(
     )
     factory = scanner_factory or _default_scanner_factory(config.scanner)
     scanner = BookScannerRuntimeAdapter(factory, config.delivery.artifact_root)
-    feedback_sink = feedback if feedback is not None else _default_feedback(config)
+    base_feedback = feedback if feedback is not None else _default_feedback(config)
+    feedback_sink = base_feedback
     reading_audio = None
     if config.reading_audio.enabled:
         reading_audio = ReadingAudioController(
@@ -117,9 +123,18 @@ def build_local_device(
                 max_bytes=config.reading_audio.max_cache_bytes,
                 max_entries=config.reading_audio.max_cache_entries,
             ),
-            feedback=feedback_sink,
+            device_id=config.connectivity.device_id,
+            system_resource_port=S0SystemAudioResourceHttpAdapter(
+                config.connectivity.server_base_url,
+                api_key,
+                timeout_seconds=config.reading_audio.request_timeout_seconds,
+                max_resource_bytes=config.reading_audio.max_resource_bytes,
+                chunk_bytes=config.reading_audio.download_chunk_bytes,
+            ),
+            feedback=base_feedback,
             monotonic=clock_value.monotonic,
         )
+        feedback_sink = CompositeFeedbackSink(base_feedback, reading_audio)
     controls_value = controls
     presenter_value = presenter
     default_console = controls_value is None and config.controls_mode == "console"

@@ -163,7 +163,13 @@ def main(argv: list[str] | None = None) -> int:
     from document_parser.server.s0_store import S0Store
 
     state_db = args.state_db or (args.datapacks_dir / "_server" / "state.sqlite3")
-    control_plane = S0ControlPlane(S0Store(state_db, args.datapacks_dir))
+    from document_parser.server.system_audio import SystemAudioService
+
+    system_audio = SystemAudioService(args.datapacks_dir, synthesize)
+    control_plane = S0ControlPlane(
+        S0Store(state_db, args.datapacks_dir),
+        system_audio_service=system_audio,
+    )
     bootstrap = control_plane.bootstrap_existing_datapacks()
     from document_parser.server.s1_domain import S1Config
     from document_parser.server.s1_parser import PaddleVlFragmentParser

@@ -149,6 +149,23 @@ def test_start_loads_catalog_and_announces_current_title() -> None:
     assert dict(feedback.events[-1].details)["title"] == "교재 A"
 
 
+def test_catalog_title_feedback_forwards_server_audio_reference() -> None:
+    audio_ref = "s0-system-audio:" + "a" * 32
+    entry = CatalogEntry(
+        DatapackId("book-a"),
+        "교재 A",
+        DatapackStatus.READY,
+        DatapackRevision(1),
+        audio_ref,
+    )
+    coordinator, *_rest, feedback = make_coordinator((entry,))
+
+    coordinator.start()
+
+    details = dict(feedback.events[-1].details)
+    assert details["title_audio_ref"] == audio_ref
+
+
 def test_connectivity_gate_defers_catalog_until_authenticated_online() -> None:
     connectivity = FakeConnectivity()
     coordinator, catalog, *_ = make_coordinator((ready_entry(),), connectivity=connectivity)

@@ -4,9 +4,15 @@ import hashlib
 import threading
 import time
 
-from asl_device.events import FeedbackCode
+from asl_device.events import FeedbackCode, FeedbackEvent
 from asl_device.reading_audio import AudioOperationCancelled, AudioResourceCache, ReadingAudioController
-from asl_device.types import AudioResource, DatapackId, ReadingSessionId, ReadingSnapshot
+from asl_device.types import (
+    AudioResource,
+    DatapackId,
+    DeviceId,
+    ReadingSessionId,
+    ReadingSnapshot,
+)
 
 
 def _resource(payload: bytes = b"wav") -> AudioResource:
@@ -58,6 +64,10 @@ class ResourcePort:
         if cancelled():
             raise AudioOperationCancelled()
         return _resource(ref.encode())
+
+
+class SystemResourcePort(ResourcePort):
+    pass
 
 
 class Player:
@@ -170,3 +180,122 @@ def test_failure_is_reported_without_exposing_audio_ref() -> None:
     failed = next(event for event in sink.events if event.code is FeedbackCode.READING_AUDIO_FAILED)
     assert secret_ref not in repr(failed.details)
     assert dict(failed.details)["error_class"] == "RuntimeError"
+
+
+def _feedback(code: FeedbackCode, **details: object) -> FeedbackEvent:
+    return FeedbackEvent(code, 1.0, tuple(details.items()))
+
+
+def test_system_screen_then_catalog_title_share_one_serial_player() -> None:
+    reading = ResourcePort()
+    system = SystemResourcePort()
+    player = Player()
+    controller = ReadingAudioController(
+        reading,
+        player,
+        AudioResourceCache(max_bytes=1000, max_entries=8),
+        device_id=DeviceId("device-1"),
+        system_resource_port=system,
+    )
+    title_ref = "s0-system-audio:" + "d" * 32
+    try:
+        controller.emit(
+            _feedback(
+                FeedbackCode.SCREEN_CHANGED,
+                screen="datapack_selection",
+                mode="capture",
+            )
+        )
+        controller.emit(
+            _feedback(
+                FeedbackCode.SPEAK_CATALOG_TITLE,
+                kind="existing",
+                title_audio_ref=title_ref,
+            )
+        )
+        assert controller.wait_idle(1)
+    finally:
+        controller.close()
+
+    assert [ref for _scope, ref in system.calls] == [
+        "s0-system-cue:screen.capture_catalog",
+        title_ref,
+    ]
+    assert player.played == [
+        b"s0-system-cue:screen.capture_catalog",
+        title_ref.encode(),
+    ]
+
+
+def test_rapid_catalog_movement_drops_stale_title() -> None:
+    entered = threading.Event()
+
+    class BlockingSystem(SystemResourcePort):
+        def fetch(self, scope, ref, cancelled):
+            self.calls.append((scope, ref))
+            if ref.endswith("1" * 32):
+                entered.set()
+                while not cancelled():
+                    time.sleep(0.005)
+                raise AudioOperationCancelled()
+            return _resource(ref.encode())
+
+    system = BlockingSystem()
+    player = Player()
+    controller = ReadingAudioController(
+        ResourcePort(),
+        player,
+        AudioResourceCache(max_bytes=1000, max_entries=8),
+        device_id=DeviceId("device-1"),
+        system_resource_port=system,
+    )
+    try:
+        for token in ("1", "2", "3"):
+            controller.emit(
+                _feedback(
+                    FeedbackCode.SPEAK_CATALOG_TITLE,
+                    kind="existing",
+                    title_audio_ref="s0-system-audio:" + token * 32,
+                )
+            )
+            if token == "1":
+                assert entered.wait(1)
+        assert controller.wait_idle(2)
+    finally:
+        controller.close()
+
+    assert player.played == [("s0-system-audio:" + "3" * 32).encode()]
+
+
+def test_reading_generation_interrupts_active_system_prompt() -> None:
+    entered = threading.Event()
+    cancelled = threading.Event()
+
+    class BlockingPlayer(Player):
+        def play(self, resource, is_cancelled):
+            if resource.wav_bytes.startswith(b"s0-system"):
+                entered.set()
+                while not is_cancelled():
+                    time.sleep(0.005)
+                cancelled.set()
+                raise AudioOperationCancelled()
+            super().play(resource, is_cancelled)
+
+    player = BlockingPlayer()
+    controller = ReadingAudioController(
+        ResourcePort(),
+        player,
+        AudioResourceCache(max_bytes=1000, max_entries=8),
+        device_id=DeviceId("device-1"),
+        system_resource_port=SystemResourcePort(),
+    )
+    try:
+        controller.emit(_feedback(FeedbackCode.SPREAD_SENT))
+        assert entered.wait(1)
+        controller.present(_snapshot(7, "s0-audio:" + "7" * 32))
+        assert controller.wait_idle(2)
+    finally:
+        controller.close()
+
+    assert cancelled.is_set()
+    assert player.played == [("s0-audio:" + "7" * 32).encode()]

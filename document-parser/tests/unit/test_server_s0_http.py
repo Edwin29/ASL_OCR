@@ -5,12 +5,23 @@ from pathlib import Path
 from document_parser.server.s0_http import create_app
 from document_parser.server.s0_services import S0ControlPlane
 from document_parser.server.s0_store import S0Store
-from tests.unit.test_server_s0 import write_book
+from document_parser.server.system_audio import SystemAudioService
+from tests.unit.test_server_s0 import FakeSynthesizer, write_book
 
 
 class S0HttpTests(unittest.TestCase):
     def make_client(self, root: Path):
         service = S0ControlPlane(S0Store(root / "state.sqlite3", root / "datapacks"))
+        service.bootstrap_existing_datapacks()
+        return create_app(service, "secret").test_client()
+
+    def make_system_audio_client(self, root: Path):
+        service = S0ControlPlane(
+            S0Store(root / "state.sqlite3", root / "datapacks"),
+            system_audio_service=SystemAudioService(
+                root / "datapacks", FakeSynthesizer()
+            ),
+        )
         service.bootstrap_existing_datapacks()
         return create_app(service, "secret").test_client()
 
@@ -118,6 +129,40 @@ class S0HttpTests(unittest.TestCase):
             self.assertNotIn(str(root).encode(), response_body)
             self.assertEqual(missing.status_code, 404)
             response.close()
+
+    def test_system_audio_is_authenticated_and_title_ref_is_device_scoped(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            write_book(root / "datapacks", "book_a")
+            client = self.make_system_audio_client(root)
+            headers = {"X-API-Key": "secret"}
+            catalog = client.get(
+                "/api/v1/devices/device-1/datapacks", headers=headers
+            ).get_json()["datapacks"]
+            title_ref = catalog[0]["title_audio_ref"]
+            audio_id = title_ref.removeprefix("s0-system-audio:")
+            title_url = f"/api/v1/devices/device-1/system-audio/{audio_id}"
+
+            self.assertEqual(client.get(title_url).status_code, 401)
+            title_audio = client.get(title_url, headers=headers)
+            cross_device = client.get(
+                f"/api/v1/devices/device-2/system-audio/{audio_id}",
+                headers=headers,
+            )
+            cue_audio = client.get(
+                "/api/v1/devices/device-1/system-audio/cues/scan.spread_sent",
+                headers=headers,
+            )
+
+            self.assertEqual(title_audio.status_code, 200)
+            self.assertEqual(title_audio.mimetype, "audio/wav")
+            self.assertTrue(title_audio.get_data().startswith(b"RIFF"))
+            self.assertEqual(cross_device.status_code, 404)
+            self.assertEqual(cue_audio.status_code, 200)
+            self.assertGreater(int(cue_audio.headers["Content-Length"]), 44)
+            title_audio.close()
+            cross_device.close()
+            cue_audio.close()
 
     def test_mutation_requires_json_and_idempotency_key(self):
         with tempfile.TemporaryDirectory() as temp_dir:

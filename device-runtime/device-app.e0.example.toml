@@ -24,3 +24,14 @@ sample_interval_ms = 500
 
 [local_io]
 feedback = "jsonl"
+
+[local_io.reading_audio]
+# Production Piper system prompts and document speech use this one bounded,
+# in-memory playback path. Windows SAPI feedback must remain disabled.
+enabled = true
+backend = "sounddevice"
+max_resource_bytes = 4194304
+max_cache_bytes = 8388608
+max_cache_entries = 4
+download_chunk_bytes = 65536
+request_timeout_seconds = 10.0

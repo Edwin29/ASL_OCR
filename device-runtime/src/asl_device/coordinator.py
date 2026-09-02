@@ -651,7 +651,13 @@ class DeviceFlowCoordinator:
             self._feedback(FeedbackCode.NO_READABLE_DATAPACK)
             return
         item = self.catalog.current
-        details = (("index", self.catalog.index), ("title", item.title), ("kind", item.choice.kind.value))
+        details = (
+            ("index", self.catalog.index),
+            ("title", item.title),
+            ("kind", item.choice.kind.value),
+        )
+        if item.title_audio_ref is not None:
+            details += (("title_audio_ref", item.title_audio_ref),)
         if changed:
             self._emit(CoordinatorEventType.CATALOG_HIGHLIGHT_CHANGED, events, details)
         self._feedback(FeedbackCode.SPEAK_CATALOG_TITLE, details)

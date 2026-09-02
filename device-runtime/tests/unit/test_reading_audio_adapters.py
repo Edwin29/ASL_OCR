@@ -6,9 +6,13 @@ import wave
 
 import pytest
 
-from asl_device.adapters.reading_audio import S0AudioResourceHttpAdapter, SoundDeviceWavPlayer
+from asl_device.adapters.reading_audio import (
+    S0AudioResourceHttpAdapter,
+    S0SystemAudioResourceHttpAdapter,
+    SoundDeviceWavPlayer,
+)
 from asl_device.reading_audio import AudioOperationCancelled, AudioResourceError
-from asl_device.types import ReadingSessionId
+from asl_device.types import DeviceId, ReadingSessionId
 
 
 def _wav(frames: int = 160) -> bytes:
@@ -63,6 +67,46 @@ def test_audio_http_adapter_uses_session_scoped_authenticated_route() -> None:
     assert timeout == 10.0
     assert resource.wav_bytes == body
     assert resource.sample_rate == 16000
+
+
+@pytest.mark.parametrize(
+    ("audio_ref", "suffix"),
+    [
+        (
+            "s0-system-cue:scan.spread_sent",
+            "/api/v1/devices/device-1/system-audio/cues/scan.spread_sent",
+        ),
+        (
+            "s0-system-audio:" + "e" * 32,
+            "/api/v1/devices/device-1/system-audio/" + "e" * 32,
+        ),
+    ],
+)
+def test_system_audio_adapter_uses_authenticated_device_route(
+    audio_ref: str, suffix: str
+) -> None:
+    calls = []
+    adapter = S0SystemAudioResourceHttpAdapter(
+        "http://server",
+        "secret",
+        opener=lambda request, timeout: (
+            calls.append((request, timeout)) or Response(_wav())
+        ),
+    )
+
+    adapter.fetch(DeviceId("device-1"), audio_ref, lambda: False)
+
+    request, _timeout = calls[0]
+    assert request.full_url.endswith(suffix)
+    assert request.headers["X-api-key"] == "secret"
+
+
+def test_system_audio_adapter_rejects_untrusted_reference() -> None:
+    adapter = S0SystemAudioResourceHttpAdapter(
+        "http://server", "secret", opener=lambda *_a, **_k: None
+    )
+    with pytest.raises(AudioResourceError, match="malformed"):
+        adapter.fetch(DeviceId("device-1"), "s0-system-cue:../escape", lambda: False)
 
 
 @pytest.mark.parametrize(

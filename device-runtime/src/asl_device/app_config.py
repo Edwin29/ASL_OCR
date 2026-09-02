@@ -183,6 +183,10 @@ class DeviceAppConfig:
             raise ValueError("local controls mode must be console or stm_serial")
         if self.feedback_mode not in {"jsonl", "windows_audio"}:
             raise ValueError("local feedback mode must be jsonl or windows_audio")
+        if self.feedback_mode == "windows_audio" and self.reading_audio.enabled:
+            raise ValueError(
+                "windows_audio (legacy SAPI) cannot be combined with Piper transport playback"
+            )
         if self.controls_mode == "stm_serial":
             if self.stm_serial is None:
                 raise ValueError("stm_serial controls require local_io.stm_serial")
