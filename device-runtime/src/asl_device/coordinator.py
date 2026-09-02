@@ -30,6 +30,7 @@ from .types import (
     DeviceFlowState,
     DeviceId,
     DeviceInputEvent,
+    DeviceOperatingMode,
     FinalizeResult,
     FinalizeStatus,
     FlushStatus,
@@ -78,7 +79,9 @@ class DeviceFlowCoordinator:
         self.connectivity = connectivity
 
         self.state = DeviceFlowState.BOOTING
+        self.operating_mode = DeviceOperatingMode.CAPTURE
         self.catalog: CatalogModel | None = None
+        self._catalog_entries = ()
         self.scan_session: ScanSessionRef | None = None
         self.reading_snapshot: ReadingSnapshot | None = None
         self._last_sequence = 0
@@ -112,6 +115,10 @@ class DeviceFlowCoordinator:
             return ()
         self._remember_input(input_event.event_id)
         events: list[CoordinatorEvent] = []
+
+        if input_event.control is DeviceControl.LEVER:
+            self._handle_mode_input(input_event, events)
+            return tuple(events)
 
         if self.state is DeviceFlowState.SELECTING_DATAPACK:
             self._handle_selection_input(input_event, events)
@@ -184,17 +191,55 @@ class DeviceFlowCoordinator:
         except FatalPortError as exc:
             self._fatal(str(exc), events)
             return
-        self.catalog = CatalogModel(entries)
+        self._catalog_entries = entries
+        self.catalog = CatalogModel(entries, self.operating_mode)
         self._transition(DeviceFlowState.SELECTING_DATAPACK, events)
         self._emit(
             CoordinatorEventType.CATALOG_LOADED,
             events,
             (("server_entry_count", len(entries)), ("visible_item_count", len(self.catalog.items))),
         )
+        self._announce_screen("datapack_selection")
         self._announce_catalog_current(events, changed=False)
+
+    def _handle_mode_input(
+        self,
+        input_event: DeviceInputEvent,
+        events: list[CoordinatorEvent],
+    ) -> None:
+        if input_event.action is InputAction.ACTIVATED:
+            requested = DeviceOperatingMode.CAPTURE
+        elif input_event.action is InputAction.RELEASED:
+            requested = DeviceOperatingMode.READING
+        else:
+            return
+        if self.state not in {
+            DeviceFlowState.CONNECTING,
+            DeviceFlowState.SELECTING_DATAPACK,
+            DeviceFlowState.READING,
+        }:
+            return
+        changed = requested is not self.operating_mode
+        if changed:
+            self.operating_mode = requested
+            details = (("mode", requested.value),)
+            self._emit(CoordinatorEventType.OPERATING_MODE_CHANGED, events, details)
+            self._feedback(FeedbackCode.OPERATING_MODE_CHANGED, details)
+        if self.state is DeviceFlowState.READING:
+            if changed:
+                self._return_to_selection(events)
+            return
+        if changed and self.state is DeviceFlowState.SELECTING_DATAPACK:
+            self.catalog = CatalogModel(self._catalog_entries, requested)
+            self._announce_screen("datapack_selection")
+            self._announce_catalog_current(events, changed=False)
 
     def _handle_selection_input(self, input_event: DeviceInputEvent, events: list[CoordinatorEvent]) -> None:
         assert self.catalog is not None
+        if not self.catalog.items:
+            if input_event.control is DeviceControl.CONFIRM:
+                self._feedback(FeedbackCode.NO_READABLE_DATAPACK)
+            return
         if input_event.control in {DeviceControl.UP, DeviceControl.DOWN}:
             steps = self._BURST_STEPS if input_event.action is InputAction.LONG else 1
             delta = -steps if input_event.control is DeviceControl.UP else steps
@@ -202,7 +247,16 @@ class DeviceFlowCoordinator:
                 self._announce_catalog_current(events, changed=True)
             return
         if input_event.control is DeviceControl.CONFIRM and input_event.action is InputAction.SHORT:
-            self._open_selected_scan(input_event.event_id, events)
+            if self.operating_mode is DeviceOperatingMode.READING:
+                choice = self.catalog.current.choice
+                assert choice.entry is not None
+                self._open_reading(
+                    choice.entry.datapack_id,
+                    f"{input_event.event_id}:reading-open",
+                    events,
+                )
+            else:
+                self._open_selected_scan(input_event.event_id, events)
 
     def _open_selected_scan(self, operation_id: str, events: list[CoordinatorEvent]) -> None:
         assert self.catalog is not None
@@ -249,6 +303,7 @@ class DeviceFlowCoordinator:
             return
         self._transition(DeviceFlowState.SCANNING, events)
         self._emit(CoordinatorEventType.SCANNER_STARTED, events)
+        self._announce_screen("capture")
         self._feedback(FeedbackCode.CONFIRM_SELECTION, (("datapack_id", datapack_id.value),))
         self._feedback(FeedbackCode.SCAN_STARTED, (("datapack_id", datapack_id.value),))
 
@@ -441,11 +496,9 @@ class DeviceFlowCoordinator:
             FeedbackCode.DATAPACK_SAVED,
             (("datapack_id", result.datapack_id.value), ("revision", result.revision.value)),
         )
-        self._open_reading(
-            result.datapack_id,
-            f"reading-open:{result.scan_session_id.value}:{result.revision.value}",
-            events,
-        )
+        # A completed capture remains in capture mode. Reading is an explicit
+        # mode selection followed by an explicit datapack selection.
+        self._return_to_selection(events)
 
     def _open_reading(
         self,
@@ -466,6 +519,7 @@ class DeviceFlowCoordinator:
             return
         self.reading_snapshot = snapshot
         self._transition(DeviceFlowState.READING, events)
+        self._announce_screen("reading")
         details = (("reading_session_id", snapshot.reading_session_id.value), ("datapack_id", datapack_id.value))
         self._emit(CoordinatorEventType.READING_SESSION_OPENED, events, details)
         self._emit(CoordinatorEventType.READING_RESUMED, events, snapshot.cursor)
@@ -474,13 +528,7 @@ class DeviceFlowCoordinator:
     def _handle_reading_input(self, input_event: DeviceInputEvent, events: list[CoordinatorEvent]) -> None:
         assert self.reading_snapshot is not None
         if input_event.control is DeviceControl.CONFIRM and input_event.action is InputAction.LONG:
-            self._emit(CoordinatorEventType.RETURNED_TO_SELECTION, events)
-            self.reading_snapshot = None
-            self.scan_session = None
-            self._transition(DeviceFlowState.CONNECTING, events)
-            self._load_catalog(events)
-            return
-        if input_event.control is DeviceControl.LEVER:
+            self._return_to_selection(events)
             return
         try:
             snapshot = self.reading.send_command(
@@ -496,6 +544,13 @@ class DeviceFlowCoordinator:
             self._fatal("reading command session identity mismatch", events)
             return
         self.reading_snapshot = snapshot
+
+    def _return_to_selection(self, events: list[CoordinatorEvent]) -> None:
+        self._emit(CoordinatorEventType.RETURNED_TO_SELECTION, events)
+        self.reading_snapshot = None
+        self.scan_session = None
+        self._transition(DeviceFlowState.CONNECTING, events)
+        self._load_catalog(events)
 
     def _retry_recovery(self, events: list[CoordinatorEvent]) -> None:
         if self.connectivity is not None and not self.connectivity.current_status().online:
@@ -592,11 +647,20 @@ class DeviceFlowCoordinator:
 
     def _announce_catalog_current(self, events: list[CoordinatorEvent], *, changed: bool) -> None:
         assert self.catalog is not None
+        if not self.catalog.items:
+            self._feedback(FeedbackCode.NO_READABLE_DATAPACK)
+            return
         item = self.catalog.current
         details = (("index", self.catalog.index), ("title", item.title), ("kind", item.choice.kind.value))
         if changed:
             self._emit(CoordinatorEventType.CATALOG_HIGHLIGHT_CHANGED, events, details)
         self._feedback(FeedbackCode.SPEAK_CATALOG_TITLE, details)
+
+    def _announce_screen(self, screen: str) -> None:
+        self._feedback(
+            FeedbackCode.SCREEN_CHANGED,
+            (("screen", screen), ("mode", self.operating_mode.value)),
+        )
 
     def _recoverable(self, reason: str, recovery: str, events: list[CoordinatorEvent]) -> None:
         self._recovery = recovery

@@ -22,7 +22,7 @@ import uuid
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, BinaryIO, Mapping
+from typing import Any, BinaryIO, Callable, Mapping
 
 from .replay_boundary_report import E0B_SOURCE_SHA256, build_report, parse_json_lines
 
@@ -62,6 +62,8 @@ class LoopbackController:
     seal_requested: bool = False
     saved_datapack_id: str | None = None
     saved_revision: int | None = None
+    reading_mode_requested: bool = False
+    reading_selection_requested: bool = False
     reading_document_id: str | None = None
     reading_positions: list[tuple[str, str]] = field(default_factory=list)
     navigation_index: int = 0
@@ -120,6 +122,17 @@ class LoopbackController:
             self.saved_revision = _required_int(details, "revision")
             if self.saved_datapack_id != self.confirmed_datapack_id or self.saved_revision != 1:
                 raise LoopbackAcceptanceError("saved datapack lineage or revision mismatch")
+        elif code == "screen_changed" and self.saved_datapack_id is not None:
+            screen = details.get("screen")
+            mode = details.get("mode")
+            if screen == "datapack_selection" and mode == "capture":
+                if not self.reading_mode_requested:
+                    self.reading_mode_requested = True
+                    return ("lever released",)
+            elif screen == "datapack_selection" and mode == "reading":
+                if not self.reading_selection_requested:
+                    self.reading_selection_requested = True
+                    return ("confirm",)
         elif code == "reading_resumed":
             self.reading_document_id = _required_text(details, "document_id")
             if self.reading_document_id != self.confirmed_datapack_id:
@@ -178,6 +191,8 @@ class LoopbackController:
     def assert_complete(self) -> None:
         if self._awaiting_page_change_start is not None:
             raise LoopbackAcceptanceError("page-change start remained pending")
+        if not self.reading_mode_requested or not self.reading_selection_requested:
+            raise LoopbackAcceptanceError("explicit reading mode/catalog selection was incomplete")
         if not self.selection_requested or self.scan_datapack_id is None:
             raise LoopbackAcceptanceError("new datapack scan was not started")
         if not self.seal_requested or self.saved_revision != 1:
@@ -236,6 +251,7 @@ def write_loopback_config(
     *,
     port: int,
     device_id: str,
+    reading_audio_enabled: bool = False,
 ) -> Path:
     root = Path(work_root).resolve()
     secret_dir = root / "secrets"
@@ -301,6 +317,15 @@ def write_loopback_config(
                 "[local_io]",
                 'controls = "console"',
                 'feedback = "jsonl"',
+                "",
+                "[local_io.reading_audio]",
+                f"enabled = {'true' if reading_audio_enabled else 'false'}",
+                'backend = "sounddevice"',
+                "max_resource_bytes = 4194304",
+                "max_cache_bytes = 8388608",
+                "max_cache_entries = 4",
+                "download_chunk_bytes = 65536",
+                "request_timeout_seconds = 10.0",
                 "",
             )
         ),
@@ -372,6 +397,14 @@ def run_desktop_loopback_acceptance(
     device_python: str | Path | None = None,
     timeout_seconds: float = 600.0,
     idle_timeout_seconds: float = 120.0,
+    server_command_tail: tuple[str, ...] | None = None,
+    server_command_builder: Callable[[int, Path, PreparedInputs], tuple[str, ...]] | None = None,
+    server_required_modules: tuple[str, ...] = ("document_parser", "flask"),
+    controller: LoopbackController | None = None,
+    reading_audio_enabled: bool = False,
+    run_kind: str = "e0b_desktop_loopback_acceptance",
+    environment_name: str = "desktop_loopback",
+    limitations: tuple[str, ...] | None = None,
 ) -> dict[str, Any]:
     if timeout_seconds <= 0 or idle_timeout_seconds <= 0:
         raise LoopbackAcceptanceError("acceptance timeouts must be positive")
@@ -390,7 +423,7 @@ def run_desktop_loopback_acceptance(
     child_environment = _child_environment(repository)
     _verify_python_environment(
         server_executable,
-        ("document_parser", "flask"),
+        server_required_modules,
         environment=child_environment,
         label="Server",
     )
@@ -419,7 +452,13 @@ def run_desktop_loopback_acceptance(
 
     port = _free_loopback_port()
     device_id = f"desktop-loopback-{uuid.uuid4().hex[:12]}"
-    app_config = write_loopback_config(work, prepared, port=port, device_id=device_id)
+    app_config = write_loopback_config(
+        work,
+        prepared,
+        port=port,
+        device_id=device_id,
+        reading_audio_enabled=reading_audio_enabled,
+    )
     server_state = work / "state" / "server"
     server_log_path = evidence / "e0b-server.log"
     console_log_path = evidence / "e0b-replay-console.log"
@@ -427,7 +466,7 @@ def run_desktop_loopback_acceptance(
     server_evidence_path = evidence / "e0b-server-evidence.json"
     boundary_path = evidence / "e0b-replay-boundary.json"
     manifest_path = evidence / "e0b-loopback-run-manifest.json"
-    controller = LoopbackController()
+    controller = controller or LoopbackController()
     records: list[dict[str, Any]] = []
     server_process: subprocess.Popen[bytes] | None = None
     device_process: subprocess.Popen[bytes] | None = None
@@ -441,9 +480,15 @@ def run_desktop_loopback_acceptance(
     try:
         creation_flags = getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0)
         with server_log_path.open("wb") as server_log:
-            server_process = subprocess.Popen(
-                [
-                    str(server_executable),
+            if server_command_tail is not None and server_command_builder is not None:
+                raise LoopbackAcceptanceError(
+                    "server_command_tail and server_command_builder are mutually exclusive"
+                )
+            server_tail = (
+                server_command_builder(port, server_state, prepared)
+                if server_command_builder is not None
+                else server_command_tail
+                or (
                     "-m",
                     "document_parser.server.e0b_bench_server",
                     "--host",
@@ -454,7 +499,10 @@ def run_desktop_loopback_acceptance(
                     str(server_state),
                     "--api-key-file",
                     str(prepared.api_key_path),
-                ],
+                )
+            )
+            server_process = subprocess.Popen(
+                [str(server_executable), *server_tail],
                 cwd=repository,
                 env=child_environment,
                 stdin=subprocess.DEVNULL,
@@ -542,8 +590,8 @@ def run_desktop_loopback_acceptance(
 
     manifest = {
         "schema_version": 1,
-        "kind": "e0b_desktop_loopback_acceptance",
-        "environment": "desktop_loopback",
+        "kind": run_kind,
+        "environment": environment_name,
         "status": "passed" if failure is None else "failed",
         "started_at": started_at.isoformat(),
         "completed_at": datetime.now(timezone.utc).isoformat(),
@@ -565,10 +613,13 @@ def run_desktop_loopback_acceptance(
                 else False
             ),
         },
-        "limitations": [
-            "This is single-host Desktop loopback evidence, not Laptop/Tailscale evidence.",
-            "Camera, STM/HC-05, speaker, and production OCR/TTS quality were not exercised.",
-        ],
+        "limitations": list(
+            limitations
+            or (
+                "This is single-host Desktop loopback evidence, not Laptop/Tailscale evidence.",
+                "Camera, STM/HC-05, speaker, and production OCR/TTS quality were not exercised.",
+            )
+        ),
         "failure": failure,
     }
     _write_json(manifest_path, manifest)
@@ -787,8 +838,14 @@ def _server_evidence_complete(evidence: Mapping[str, Any]) -> bool:
         and all(row.get("status") == "ready" for row in fragments)
         and isinstance(uploads, list)
         and len(uploads) == 2
+        and {row.get("sequence") for row in uploads} == {1, 2}
         and all(
-            row.get("status") == "accepted" and row.get("attempt_count") == 1
+            row.get("status") == "accepted"
+            and isinstance(row.get("attempt_count"), int)
+            and not isinstance(row.get("attempt_count"), bool)
+            and row["attempt_count"] >= 1
+            and isinstance(row.get("s1_receipt_id"), str)
+            and bool(row["s1_receipt_id"])
             for row in uploads
         )
     )

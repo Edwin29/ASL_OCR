@@ -32,8 +32,41 @@ def test_laptop_feedback_renders_ack_and_ready_as_distinct_patterns() -> None:
     sink.close()
 
     assert backend.calls[0][0] == "beep"
-    assert backend.calls[1][0] == "beep"
-    assert backend.calls[2] == ("speak", "데이터팩 저장이 완료되었습니다.")
+    assert backend.calls[1] == (
+        "speak",
+        "페이지 전송이 완료되었습니다. 다음 페이지로 넘겨 주세요.",
+    )
+    assert backend.calls[2][0] == "beep"
+    assert backend.calls[3] == ("speak", "데이터팩 저장이 완료되었습니다.")
+
+
+def test_laptop_feedback_announces_each_screen_with_operating_mode_context() -> None:
+    backend = RecordingAudio()
+    sink = WindowsAudioFeedbackSink(
+        LaptopAudioConfig(jsonl_trace=False),
+        backend=backend,
+    )
+
+    sink.emit(
+        FeedbackEvent(
+            FeedbackCode.SCREEN_CHANGED,
+            1.0,
+            (("screen", "datapack_selection"), ("mode", "capture")),
+        )
+    )
+    sink.emit(
+        FeedbackEvent(
+            FeedbackCode.SCREEN_CHANGED,
+            2.0,
+            (("screen", "reading"), ("mode", "reading")),
+        )
+    )
+    sink.close()
+
+    assert backend.calls == [
+        ("speak", "캡처 모드 데이터팩 선택 화면입니다."),
+        ("speak", "리딩 화면입니다."),
+    ]
 
 
 def test_laptop_feedback_speaks_only_the_catalog_title_detail() -> None:

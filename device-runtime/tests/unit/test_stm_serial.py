@@ -123,3 +123,50 @@ def test_stm_rejects_cells_the_six_dot_firmware_cannot_render() -> None:
 
     with pytest.raises(ValueError, match="six-dot"):
         source.present(_snapshot((64,)))
+
+
+@pytest.mark.parametrize(
+    ("wire", "control", "action"),
+    (
+        (b"NAV,U,S\n", DeviceControl.UP, InputAction.SHORT),
+        (b"NAV,D,S\n", DeviceControl.DOWN, InputAction.SHORT),
+        (b"NAV,L,S\n", DeviceControl.LEFT, InputAction.SHORT),
+        (b"NAV,R,S\n", DeviceControl.RIGHT, InputAction.SHORT),
+        (b"NAV,N,S\n", DeviceControl.PAGE_NEXT, InputAction.SHORT),
+        (b"NAV,P,S\n", DeviceControl.PAGE_PREVIOUS, InputAction.SHORT),
+        (b"NAV,C,S\n", DeviceControl.CONFIRM, InputAction.SHORT),
+        (b"NAV,C,L\n", DeviceControl.CONFIRM, InputAction.LONG),
+        (b"NAV,V,A\n", DeviceControl.LEVER, InputAction.ACTIVATED),
+        (b"NAV,V,R\n", DeviceControl.LEVER, InputAction.RELEASED),
+    ),
+)
+def test_stm_formal_wire_contract(wire, control, action) -> None:
+    serial = FakeSerial((wire,))
+    source = StmSerialControlSource(_config(), serial_factory=lambda _config: serial)
+
+    events = source.poll()
+
+    assert len(events) == 1
+    assert events[0].control is control
+    assert events[0].action is action
+    source.present(None)
+    assert len(serial.writes) == 1
+
+
+def test_stm_legacy_page_packet_is_not_part_of_formal_contract() -> None:
+    serial = FakeSerial((b"PAGE,NEXT\n",))
+    source = StmSerialControlSource(_config(), serial_factory=lambda _config: serial)
+
+    assert source.poll() == ()
+    source.present(None)
+    assert serial.writes == []
+
+
+@pytest.mark.parametrize("wire", (b"NAV,U,L\n", b"NAV,N,L\n", b"NAV,V,S\n", b"NAV,C,A\n"))
+def test_stm_rejects_action_combinations_outside_hardware_contract(wire) -> None:
+    serial = FakeSerial((wire,))
+    source = StmSerialControlSource(_config(), serial_factory=lambda _config: serial)
+
+    assert source.poll() == ()
+    source.present(None)
+    assert serial.writes == []

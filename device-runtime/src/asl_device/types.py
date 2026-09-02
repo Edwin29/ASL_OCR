@@ -27,6 +27,11 @@ class DeviceFlowState(str, Enum):
     STOPPED = "stopped"
 
 
+class DeviceOperatingMode(str, Enum):
+    CAPTURE = "capture"
+    READING = "reading"
+
+
 class DatapackStatus(str, Enum):
     DRAFT = "draft"
     FINALIZING = "finalizing"

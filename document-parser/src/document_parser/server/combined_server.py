@@ -102,7 +102,16 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--host", default="0.0.0.0", help="Bind address. 0.0.0.0 = reachable from the LAN, not just this machine.")
     parser.add_argument("--port", type=int, default=8420, help="Same default as remote_ingest.py -- this replaces it as the one address a test PC talks to.")
-    parser.add_argument("--api-key", required=True, help="Shared secret clients must send as the X-API-Key header.")
+    api_key_group = parser.add_mutually_exclusive_group(required=True)
+    api_key_group.add_argument(
+        "--api-key",
+        help="Shared secret clients must send as the X-API-Key header. Prefer --api-key-file.",
+    )
+    api_key_group.add_argument(
+        "--api-key-file",
+        type=Path,
+        help="UTF-8 file containing the shared secret; keeps it out of the process command line.",
+    )
     parser.add_argument("--datapacks-dir", type=Path, required=True, help="Shared directory: ingest jobs write here, and sessions are served from here.")
     parser.add_argument("--jobs-dir", type=Path, default=Path("remote_ingest_jobs"), help="Scratch space for staging uploaded images before OCR -- not where finished datapacks end up.")
     parser.add_argument("--state-db", type=Path, default=None, help="Server S0 SQLite path. Defaults to DATAPACKS_DIR/_server/state.sqlite3.")
@@ -118,6 +127,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--piper-espeak-data", required=True)
     parser.add_argument("--piper-use-cuda", action="store_true")
     args = parser.parse_args(argv)
+    api_key = _resolve_api_key(args.api_key, args.api_key_file)
 
     from document_parser.accessibility.adapters.tts_engine import load_piper_voice
     from document_parser.datapack.ingest import make_piper_synthesize_fn
@@ -193,7 +203,7 @@ def main(argv: list[str] | None = None) -> int:
     app = create_app(
         registry,
         store,
-        api_key=args.api_key,
+        api_key=api_key,
         control_plane=control_plane,
         s1_pipeline=s1_pipeline,
         presence_service=presence_service,
@@ -206,8 +216,24 @@ def main(argv: list[str] | None = None) -> int:
         f"on {args.host}:{args.port}",
         flush=True,
     )
-    app.run(host=args.host, port=args.port, threaded=True)
+    try:
+        app.run(host=args.host, port=args.port, threaded=True)
+    finally:
+        s1_workers.stop()
     return 0
+
+
+def _resolve_api_key(value: str | None, path: Path | None) -> str:
+    if path is not None:
+        try:
+            value = path.read_text(encoding="utf-8").strip()
+        except (OSError, UnicodeError) as exc:
+            raise ValueError(f"cannot read API key file: {path}") from exc
+    if not isinstance(value, str) or not value or len(value) > 4096:
+        raise ValueError("API key must be a non-empty string of at most 4096 characters")
+    if any(character in value for character in "\r\n"):
+        raise ValueError("API key must be exactly one line")
+    return value
 
 
 if __name__ == "__main__":

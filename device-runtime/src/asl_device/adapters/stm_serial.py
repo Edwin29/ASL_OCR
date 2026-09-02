@@ -36,10 +36,20 @@ _TOKEN_TO_ACTION = {
     "A": InputAction.ACTIVATED,
     "R": InputAction.RELEASED,
 }
+_VALID_ACTIONS_BY_CONTROL = {
+    DeviceControl.UP: {InputAction.SHORT},
+    DeviceControl.DOWN: {InputAction.SHORT},
+    DeviceControl.LEFT: {InputAction.SHORT},
+    DeviceControl.RIGHT: {InputAction.SHORT},
+    DeviceControl.PAGE_NEXT: {InputAction.SHORT},
+    DeviceControl.PAGE_PREVIOUS: {InputAction.SHORT},
+    DeviceControl.CONFIRM: {InputAction.SHORT, InputAction.LONG},
+    DeviceControl.LEVER: {InputAction.ACTIVATED, InputAction.RELEASED},
+}
 
 
 class StmSerialControlSource:
-    """Poll a bounded number of STM lines and answer every HELLO/NAV with FRAME.
+    """Poll a bounded number of STM lines and answer every valid HELLO/NAV with FRAME.
 
     The current STM firmware waits for one FRAME after both its HELLO handshake
     and every navigation command.  Keeping input and presentation on the same
@@ -174,6 +184,8 @@ class StmSerialControlSource:
         control = _DIRECTION_TO_CONTROL.get(parts[1])
         action = _TOKEN_TO_ACTION.get(parts[2])
         if control is None or action is None:
+            return None
+        if action not in _VALID_ACTIONS_BY_CONTROL[control]:
             return None
         hardware_sequence: int | None = None
         if len(parts) == 4:

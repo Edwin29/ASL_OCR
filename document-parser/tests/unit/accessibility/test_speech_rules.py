@@ -32,13 +32,21 @@ class MathAstSpeechTests(unittest.TestCase):
         }
         self.assertEqual(math_ast_to_speech(ast), "2, 4, 6")
 
-    def test_fraction_announces_boundaries(self):
+    def test_fraction_uses_natural_korean_denominator_first_order(self):
         ast = {
             "type": "Fraction",
             "numerator": {"type": "Number", "value": "1"},
             "denominator": {"type": "Number", "value": "2"},
         }
-        self.assertEqual(math_ast_to_speech(ast), "분수 시작, 1, 분모, 2, 분수 끝")
+        self.assertEqual(math_ast_to_speech(ast), "2분의 1")
+
+    def test_fraction_with_radical_matches_p030_natural_reading(self):
+        ast = {
+            "type": "Fraction",
+            "numerator": {"type": "Radical", "radicand": {"type": "Number", "value": "71"}},
+            "denominator": {"type": "Number", "value": "4"},
+        }
+        self.assertEqual(math_ast_to_speech(ast), "4분의 루트 71")
 
     def test_power(self):
         ast = {
@@ -70,7 +78,19 @@ class MathAstSpeechTests(unittest.TestCase):
             "left": {"type": "Identifier", "value": "x"},
             "right": {"type": "Number", "value": "1"},
         }
-        self.assertEqual(math_ast_to_speech(ast), "x는 1와 같다")
+        self.assertEqual(math_ast_to_speech(ast), "x는 1과 같다")
+
+    def test_relation_particles_follow_spoken_math_ending(self):
+        ast = {
+            "type": "Relation", "operator": "=",
+            "left": {"type": "Identifier", "value": "m"},
+            "right": {
+                "type": "Power",
+                "base": {"type": "Number", "value": "2"},
+                "exponent": {"type": "Identifier", "value": "x"},
+            },
+        }
+        self.assertEqual(math_ast_to_speech(ast), "m은 2의 x 제곱과 같다")
 
     def test_relation_less_than(self):
         ast = {

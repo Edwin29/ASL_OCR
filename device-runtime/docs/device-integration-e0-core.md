@@ -44,9 +44,16 @@ The console control adapter accepts one command per line. Examples include `up`,
 Feedback is emitted as one JSON object per line. These records contain semantic feedback codes and
 small domain details, not API keys, image bytes, or manifest paths. In particular:
 
-- `spread_sent` follows a durable, identity-matched V4 ACK;
+- `spread_sent` follows a durable, identity-matched V4 ACK and renders a completion cue plus an
+  explicit request to turn to the next page;
+- `screen_changed` identifies `datapack_selection`, `capture`, or `reading` together with the
+  current operating mode;
 - `finalizing` follows a successful V3-B flush and S0 seal request;
 - `datapack_saved` follows the server READY result.
+
+Publishing a captured datapack does not implicitly open a reading session. The coordinator reloads
+the capture catalog. Reading begins only after `lever released` selects reading mode and the user
+confirms a READY datapack from the reading catalog.
 
 Physical adapters are implemented under Device Integration E0-B — Laptop Acceptance, but their
 actual Laptop/camera/STM/speaker/LAN evidence remains pending. See

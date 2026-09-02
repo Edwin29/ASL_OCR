@@ -1,16 +1,18 @@
 """presentation_ast -> Korean utterance string (plan document §8.4).
 
-Pure functions, no TTS engine dependency. Korean particle agreement (은/는,
-이/가, 와/과 selection based on whether the preceding syllable ends in a
-consonant) is intentionally simplified to fixed forms here -- getting that
-exactly right requires phonological analysis of arbitrary generated content
-and is exactly the kind of wording the plan document defers to real user
-testing (§18.6), not something to over-engineer before that feedback exists.
+Pure functions, no TTS engine dependency. Korean surface wording is delegated
+to the replaceable naturalization boundary instead of being embedded in AST
+rendering rules.
 """
 
 from __future__ import annotations
 
 from typing import Any
+
+from document_parser.accessibility.naturalization import (
+    DEFAULT_KOREAN_MATH_NATURALIZER,
+    MathSpeechNaturalizer,
+)
 
 FUNCTION_NAME_SPEECH = {
     "sin": "사인", "cos": "코사인", "tan": "탄젠트",
@@ -30,20 +32,10 @@ OPERATOR_SPEECH = {
 # Operator embedded inside a Row (that's still a real binary connective).
 STANDALONE_SIGN_SPEECH = {"+": "플러스", "-": "마이너스"}
 
-# Full sentence templates, not bare words -- Korean inequality/equality
-# phrasing needs the right operand slotted between particles ("A는 B보다
-# 작다"), not just a word appended after both operands.
-RELATION_TEMPLATES = {
-    "=": "{left}는 {right}와 같다",
-    "<": "{left}는 {right}보다 작다",
-    ">": "{left}는 {right}보다 크다",
-    "\\leq": "{left}는 {right}보다 작거나 같다",
-    "\\geq": "{left}는 {right}보다 크거나 같다",
-    "\\neq": "{left}는 {right}와 같지 않다",
-}
-
-
-def math_focus_item_to_speech(item: dict[str, Any]) -> str:
+def math_focus_item_to_speech(
+    item: dict[str, Any],
+    naturalizer: MathSpeechNaturalizer = DEFAULT_KOREAN_MATH_NATURALIZER,
+) -> str:
     """Entry point for a MATH-kind focus item or inline MATH span fragment.
     Honors `ast_status` per §13.1: an INVALID formula's tree is never walked
     (only the fallback notice is spoken), since a broken AST cannot be
@@ -61,13 +53,16 @@ def math_focus_item_to_speech(item: dict[str, Any]) -> str:
         value = str(ast.get("value", ""))
         body = STANDALONE_SIGN_SPEECH.get(value, value)
     else:
-        body = math_ast_to_speech(ast)
+        body = math_ast_to_speech(ast, naturalizer)
     if ast_status == "PARTIAL":
         return f"일부 기호 인식이 불확실합니다. {body}"
     return body
 
 
-def math_ast_to_speech(node: object) -> str:
+def math_ast_to_speech(
+    node: object,
+    naturalizer: MathSpeechNaturalizer = DEFAULT_KOREAN_MATH_NATURALIZER,
+) -> str:
     if not isinstance(node, dict):
         return ""
     node_type = node.get("type")
@@ -78,60 +73,72 @@ def math_ast_to_speech(node: object) -> str:
         value = str(node.get("value", ""))
         return OPERATOR_SPEECH.get(value, value)
     if node_type == "Row":
-        return " ".join(part for part in (math_ast_to_speech(c) for c in node.get("children", [])) if part)
+        return " ".join(
+            part for part in (math_ast_to_speech(c, naturalizer) for c in node.get("children", [])) if part
+        )
     if node_type == "Relation":
-        return _relation_to_speech(node)
+        return _relation_to_speech(node, naturalizer)
     if node_type == "FunctionApplication":
         name = str(node.get("name", ""))
         name_speech = FUNCTION_NAME_SPEECH.get(name, name)
-        argument = math_ast_to_speech(node.get("argument"))
+        argument = math_ast_to_speech(node.get("argument"), naturalizer)
         return f"{name_speech} {argument}".strip()
     if node_type == "Fraction":
-        numerator = math_ast_to_speech(node.get("numerator"))
-        denominator = math_ast_to_speech(node.get("denominator"))
-        return f"분수 시작, {numerator}, 분모, {denominator}, 분수 끝"
+        numerator = math_ast_to_speech(node.get("numerator"), naturalizer)
+        denominator = math_ast_to_speech(node.get("denominator"), naturalizer)
+        return naturalizer.fraction(numerator, denominator)
     if node_type == "Power":
-        base = math_ast_to_speech(node.get("base"))
-        exponent = math_ast_to_speech(node.get("exponent"))
+        base = math_ast_to_speech(node.get("base"), naturalizer)
+        exponent = math_ast_to_speech(node.get("exponent"), naturalizer)
         return f"{base}의 {exponent} 제곱"
     if node_type == "Subscript":
-        base = math_ast_to_speech(node.get("base"))
-        subscript = math_ast_to_speech(node.get("subscript"))
+        base = math_ast_to_speech(node.get("base"), naturalizer)
+        subscript = math_ast_to_speech(node.get("subscript"), naturalizer)
         return f"{base} 아래첨자 {subscript}"
     if node_type == "Subsuperscript":
-        base = math_ast_to_speech(node.get("base"))
-        subscript = math_ast_to_speech(node.get("subscript"))
-        exponent = math_ast_to_speech(node.get("exponent"))
+        base = math_ast_to_speech(node.get("base"), naturalizer)
+        subscript = math_ast_to_speech(node.get("subscript"), naturalizer)
+        exponent = math_ast_to_speech(node.get("exponent"), naturalizer)
         return f"{base} 아래첨자 {subscript} 위첨자 {exponent}"
     if node_type == "Radical":
-        radicand = math_ast_to_speech(node.get("radicand"))
+        radicand = math_ast_to_speech(node.get("radicand"), naturalizer)
         index = node.get("index")
         if index is not None:
-            return f"{math_ast_to_speech(index)} 제곱근 {radicand}"
+            return f"{math_ast_to_speech(index, naturalizer)} 제곱근 {radicand}"
         return f"루트 {radicand}"
     if node_type == "Parenthesized":
-        body = math_ast_to_speech(node.get("body"))
+        body = math_ast_to_speech(node.get("body"), naturalizer)
         return f"괄호 열고 {body} 괄호 닫고"
     if node_type == "UnaryMinus":
-        return f"음수 {math_ast_to_speech(node.get('body'))}"
+        return f"음수 {math_ast_to_speech(node.get('body'), naturalizer)}"
     if node_type == "AlignedRows":
-        rows = [row for row in (math_ast_to_speech(c) for c in node.get("children", [])) if row]
+        rows = [row for row in (math_ast_to_speech(c, naturalizer) for c in node.get("children", [])) if row]
         return ", ".join(f"{index}번째 식, {row}" for index, row in enumerate(rows, start=1))
     if node_type == "List":
         # 콤마로 나열된 항목(집합 표기, 구간, 독립된 식 목록) -- 실제
         # 줄바꿈이 아니므로 AlignedRows의 "N번째 식" 접두사는 붙이지 않는다.
-        items = [item for item in (math_ast_to_speech(c) for c in node.get("children", [])) if item]
+        items = [item for item in (math_ast_to_speech(c, naturalizer) for c in node.get("children", [])) if item]
         return ", ".join(items)
     if node_type == "Unknown":
         return "인식할 수 없는 기호"
     return ""
 
 
-def _relation_to_speech(node: dict[str, Any]) -> str:
-    left = math_ast_to_speech(node.get("left"))
-    right = math_ast_to_speech(node.get("right"))
+def _relation_to_speech(node: dict[str, Any], naturalizer: MathSpeechNaturalizer) -> str:
+    left = math_ast_to_speech(node.get("left"), naturalizer)
+    right = math_ast_to_speech(node.get("right"), naturalizer)
     operator = str(node.get("operator", "="))
-    template = RELATION_TEMPLATES.get(operator)
-    if template is not None:
-        return template.format(left=left, right=right)
+    subject = naturalizer.attach_particle(left, "topic")
+    if operator == "=":
+        return f"{subject} {naturalizer.attach_particle(right, 'comitative')} 같다"
+    if operator == "<":
+        return f"{subject} {right}보다 작다"
+    if operator == ">":
+        return f"{subject} {right}보다 크다"
+    if operator == "\\leq":
+        return f"{subject} {right}보다 작거나 같다"
+    if operator == "\\geq":
+        return f"{subject} {right}보다 크거나 같다"
+    if operator == "\\neq":
+        return f"{subject} {naturalizer.attach_particle(right, 'comitative')} 같지 않다"
     return f"{left} {operator} {right}".strip()

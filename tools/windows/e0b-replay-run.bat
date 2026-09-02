@@ -16,5 +16,8 @@ echo [E0-B.3.1] After selecting New Datapack, confirm that its datapack_id diffe
 echo [E0-B.3.2] identity_role separates candidate_verification from post-ACK page_change monitoring.
 echo [E0-B.3.2] For test1.mp4, expect two candidate_verification decisions at 5/5 different; page_change decisions are not extra spreads.
 echo [E0-B.3.3] After each spread_sent, expect identity_collection_started with identity_role=page_change and the accepted spread_id.
+echo [MODE] After datapack_saved, capture stays in the capture datapack catalog; it does not auto-open reading.
+echo [MODE] To read the saved datapack, enter "lever released", confirm the READY datapack, then inspect reading_snapshot.
+echo [AUDIO] screen_changed announces the active screen; spread_sent asks for the next page after durable ACK.
 call "%SCRIPT_DIR%e0b-laptop-run.bat" "%CONFIG_ROOT%"
 exit /b %ERRORLEVEL%

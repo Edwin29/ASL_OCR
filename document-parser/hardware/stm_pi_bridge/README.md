@@ -1,5 +1,12 @@
 # STM32 <-> 호스트(라즈베리파이/PC) 점자 디스플레이 브리지
 
+> **LEGACY / TEST-ONLY:** 이 폴더는 과거 `document_parser.server` 직접 연결 실험을 보존한
+> 호환성 자료이며 정식 장치 실행 경로가 아닙니다. 실제 통합 실행에는
+> `python -m asl_device --config <toml>`과
+> `device-runtime/src/asl_device/adapters/stm_serial.py`를 사용하십시오. 특히 이 브리지의
+> 서버 로컬 경로형 `audio_ref`와 winsound 재생은 현재의 인증된 S0 오디오 전송 계약을 구현하지
+> 않습니다.
+
 이 폴더는 이 저장소(`document_parser.server`)와 팀이 만든 STM32 점자 디스플레이 보드를 연결하는 부분입니다.
 
 **"라즈베리파이"라고 부르지만, 실제로는 STM32와 블루투스(HC-05)로 연결될 수 있는 아무 컴퓨터나 됩니다** — 지금 팀 테스트에서는 이미지를 원격 ingest 서버로 보내는 그 팀원 PC가 이 역할을 그대로 겸합니다. 아래 "윈도우 PC에서" 항목이 그 경우입니다.

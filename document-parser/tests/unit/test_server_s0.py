@@ -159,6 +159,26 @@ class S0ControlPlaneTests(unittest.TestCase):
             with self.assertRaisesRegex(S0ConflictError, "different request"):
                 restarted.send_reading_command(session_id, "command-1", "PAGE_PREVIOUS", "SHORT")
 
+    def test_reopening_ready_datapack_after_restart_resumes_saved_cursor(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            write_book(root / "datapacks", "book_a")
+            service = self.make_control_plane(root)
+            service.bootstrap_existing_datapacks()
+            opened = service.open_reading("device-1", "book_a", 20, "reading-open-1")
+            moved = service.send_reading_command(
+                opened["reading_session_id"], "command-down", "DOWN", "SHORT"
+            )
+
+            restarted = self.make_control_plane(root)
+            resumed = restarted.open_reading(
+                "device-1", "book_a", 20, "reading-open-after-restart"
+            )
+
+            self.assertEqual(resumed["reading_session_id"], opened["reading_session_id"])
+            self.assertEqual(resumed["cursor"], moved["cursor"])
+            self.assertEqual(resumed["audio"], moved["audio"])
+
     def test_audio_resource_is_session_scoped_and_restart_safe(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)

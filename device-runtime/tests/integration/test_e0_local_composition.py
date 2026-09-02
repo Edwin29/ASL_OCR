@@ -338,6 +338,7 @@ def test_e0_response_loss_ack_flush_seal_and_reading_are_ordered(tmp_path: Path)
         _step_until(app, lambda: composition.coordinator.state is DeviceFlowState.SELECTING_DATAPACK)
         app.submit_input(_press("select-new"))
         _step_until(app, lambda: composition.coordinator.state is DeviceFlowState.SCANNING)
+        scan_session_id = composition.coordinator.scan_session.scan_session_id.value
         assert not any(event.code is FeedbackCode.SPREAD_SENT for event in feedback.events)
         assert factory.engines[0].callbacks.count("acked") == 0
         first_spreads = pipeline.list_spreads(
@@ -366,6 +367,22 @@ def test_e0_response_loss_ack_flush_seal_and_reading_are_ordered(tmp_path: Path)
         _step_until(app, lambda: composition.coordinator.state is DeviceFlowState.FINALIZING_DATAPACK)
         assert not any(event.code is FeedbackCode.DATAPACK_SAVED for event in feedback.events)
         assert pipeline.process_next_finalization()
+        _step_until(
+            app,
+            lambda: composition.coordinator.state is DeviceFlowState.SELECTING_DATAPACK,
+        )
+        assert composition.coordinator.operating_mode.value == "capture"
+        assert composition.coordinator.reading_snapshot is None
+
+        app.submit_input(
+            DeviceInputEvent(
+                "enter-reading-mode",
+                DeviceControl.LEVER,
+                InputAction.RELEASED,
+                time.monotonic(),
+            )
+        )
+        app.submit_input(_press("select-saved-datapack"))
         _step_until(app, lambda: composition.coordinator.state is DeviceFlowState.READING)
 
         codes = [event.code for event in feedback.events]
@@ -374,7 +391,7 @@ def test_e0_response_loss_ack_flush_seal_and_reading_are_ordered(tmp_path: Path)
         assert codes.count(FeedbackCode.DATAPACK_SAVED) == 1
         assert engine.closed
         row = composition.delivery.store.list_scan(
-            composition.coordinator.scan_session.scan_session_id.value
+            scan_session_id
         )[0]
         assert row["attempt_count"] == 2
         assert not (artifact_root / "artifact-1").exists()

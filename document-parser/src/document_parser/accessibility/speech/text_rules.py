@@ -18,13 +18,20 @@ def describe_content_nodes(content_nodes: list[dict[str, Any]]) -> str:
     """Shared by TEXT spans, table cell `content_nodes`, and preserved visual
     text -- all three are lists of the same {kind: TEXT|MATH, ...} shape."""
     parts: list[str] = []
+    join_next_text = False
     for node in content_nodes:
         if node.get("kind") == "MATH":
             spoken = math_focus_item_to_speech(node)
+            join_next_text = node.get("standalone_accessibility") is False
         else:
             spoken = str(node.get("text", "")).strip()
         if spoken:
-            parts.append(spoken)
+            if node.get("kind") != "MATH" and join_next_text and parts:
+                parts[-1] += spoken
+            else:
+                parts.append(spoken)
+        if node.get("kind") != "MATH":
+            join_next_text = False
     return " ".join(parts)
 
 

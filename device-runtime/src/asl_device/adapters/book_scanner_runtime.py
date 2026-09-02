@@ -67,8 +67,22 @@ class BookScannerRuntimeAdapter:
                 session_id=scan_session.scan_session_id.value,
                 datapack_id=scan_session.datapack_id.value,
             )
-            engine.start()
+            start_events = engine.start()
+            for event in start_events:
+                if _enum_value(getattr(event, "session_id", None)) not in {
+                    "",
+                    scan_session.scan_session_id.value,
+                }:
+                    raise FatalPortError("Book Scanner start event session does not match active scan")
+                if _enum_value(getattr(event, "event_type", None)) == "session_error":
+                    reason = _reason_value(event, "scanner_session_error")
+                    raise FatalPortError(f"Book Scanner could not start: {reason}")
         except FatalPortError:
+            if engine is not None:
+                try:
+                    engine.close()
+                except Exception:
+                    pass
             raise
         except Exception as exc:
             try:

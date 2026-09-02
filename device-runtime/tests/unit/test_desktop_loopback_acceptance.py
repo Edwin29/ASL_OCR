@@ -59,6 +59,12 @@ def test_controller_drives_complete_fresh_loopback_lifecycle() -> None:
     assert controller.handle(
         _feedback("datapack_saved", datapack_id=datapack_id, revision=1)
     ) == ()
+    assert controller.handle(
+        _feedback("screen_changed", screen="datapack_selection", mode="capture")
+    ) == ("lever released",)
+    assert controller.handle(
+        _feedback("screen_changed", screen="datapack_selection", mode="reading")
+    ) == ("confirm",)
     assert controller.handle(_feedback("reading_resumed", document_id=datapack_id)) == ()
 
     assert controller.handle(_snapshot(datapack_id, "pg-x-00000001-L")) == ("down",)
@@ -189,6 +195,12 @@ def test_extract_server_evidence_reports_exact_two_four_zero(tmp_path: Path) -> 
     assert len(evidence["upload_attempts"]) == 2
     assert _server_evidence_complete(evidence)
     assert json.dumps(evidence)
+
+    evidence["upload_attempts"][0]["attempt_count"] = 2
+    assert _server_evidence_complete(evidence)
+
+    evidence["upload_attempts"][1]["sequence"] = 1
+    assert not _server_evidence_complete(evidence)
 
 
 def test_scan_session_id_requires_one_valid_lineage() -> None:

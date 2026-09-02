@@ -140,7 +140,7 @@ def test_reading_navigation_interrupts_audio_before_command_and_closes_once() ->
     assert audio.closed == 1
 
 
-def test_reading_lever_does_not_interrupt_audio() -> None:
+def test_reading_mode_lever_interrupts_audio_before_mode_transition() -> None:
     coordinator = FakeCoordinator()
     coordinator.state = DeviceFlowState.READING
 
@@ -164,7 +164,52 @@ def test_reading_lever_does_not_interrupt_audio() -> None:
         audio_presenter=audio,
     )
     app._started = True
-    app.submit_input(_input("lever", DeviceControl.LEVER))
+    app.submit_input(
+        DeviceInputEvent(
+            "lever",
+            DeviceControl.LEVER,
+            InputAction.ACTIVATED,
+            0.0,
+        )
+    )
+
+    app.step()
+
+    assert audio.interruptions == 1
+
+
+def test_reading_mode_alignment_lever_does_not_interrupt_current_audio() -> None:
+    coordinator = FakeCoordinator()
+    coordinator.state = DeviceFlowState.READING
+
+    class Audio:
+        interruptions = 0
+
+        def present(self, snapshot):
+            pass
+
+        def interrupt(self):
+            self.interruptions += 1
+
+        def close(self):
+            pass
+
+    audio = Audio()
+    app = DeviceApplication(
+        coordinator,
+        ScriptedControlSource(),
+        poll_interval_seconds=0.01,
+        audio_presenter=audio,
+    )
+    app._started = True
+    app.submit_input(
+        DeviceInputEvent(
+            "lever",
+            DeviceControl.LEVER,
+            InputAction.RELEASED,
+            0.0,
+        )
+    )
 
     app.step()
 

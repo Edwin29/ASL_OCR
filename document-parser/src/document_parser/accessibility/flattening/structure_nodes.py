@@ -29,6 +29,7 @@ from document_parser.accessibility.domain.accessible_document import (
     build_focus_item,
     build_page,
 )
+from document_parser.accessibility.naturalization import adjacent_inline_math_lexical_suffix
 
 AstStatus = Literal["VALID", "PARTIAL", "INVALID"]
 
@@ -194,20 +195,27 @@ def _flatten_problem_unit(
 
 def _flatten_spans(spans: list[object]) -> list[dict[str, object]]:
     fragments: list[dict[str, object]] = []
-    for span in spans:
+    for index, span in enumerate(spans):
         if not isinstance(span, dict):
             continue
         is_math = span.get("math_span_candidate") is True or span.get("span_type") == "MATH"
         if is_math:
             unconsumed = span.get("unconsumed_tokens") if isinstance(span.get("unconsumed_tokens"), list) else []
             ast_issues = span.get("ast_issues") if isinstance(span.get("ast_issues"), list) else []
-            fragments.append({
+            following = spans[index + 1] if index + 1 < len(spans) else None
+            following_text = following.get("text") if isinstance(following, dict) else None
+            lexical_suffix = adjacent_inline_math_lexical_suffix(following_text)
+            fragment = {
                 "kind": "MATH",
                 "text": span.get("text", ""),
                 "presentation_ast": span.get("presentation_ast"),
                 "unconsumed_tokens": unconsumed,
                 "ast_status": classify_ast_status(unconsumed, ast_issues),
-            })
+            }
+            if lexical_suffix is not None:
+                fragment["standalone_accessibility"] = False
+                fragment["standalone_suppression_reason"] = f"ADJACENT_LEXICAL_SUFFIX:{lexical_suffix}"
+            fragments.append(fragment)
         else:
             fragments.append({"kind": "TEXT", "text": span.get("text", "")})
     return fragments

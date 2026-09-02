@@ -53,13 +53,21 @@ def braille_scrollable_spans(item: dict[str, Any]) -> list[dict[str, Any]]:
     """Ordered list of braille-scrollable math fragments for a focus item
     (좌우 연장, Decision 2): a MATH-kind item is its own single entry; a
     TEXT-kind item's entries are its `spans` filtered to `kind == "MATH"`,
-    in original reading order; anything else (TABLE, UNSUPPORTED_VISUAL,
-    plain TEXT with no math, ...) has none."""
+    excluding fragments that the inline naturalization policy marks as not
+    standalone-accessible, in original reading order; anything else (TABLE,
+    UNSUPPORTED_VISUAL, plain TEXT with no math, ...) has none."""
     if item.get("kind") == "MATH":
         return [item]
     if item.get("kind") == "TEXT":
         spans = item.get("spans") if isinstance(item.get("spans"), list) else []
-        return [span for span in spans if isinstance(span, dict) and span.get("kind") == "MATH"]
+        return [
+            span for span in spans
+            if (
+                isinstance(span, dict)
+                and span.get("kind") == "MATH"
+                and span.get("standalone_accessibility") is not False
+            )
+        ]
     return []
 
 

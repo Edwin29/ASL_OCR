@@ -25,16 +25,17 @@ def _value(value: str):
 
 
 class FakeEngine:
-    def __init__(self, session_id: str, artifact) -> None:
+    def __init__(self, session_id: str, artifact, start_events=()) -> None:
         self.session_id = session_id
         self.pending_artifact = artifact
+        self.start_events = start_events
         self.poll_events: list[tuple[object, ...]] = []
         self.callbacks: list[tuple[str, str, str | None]] = []
         self.cancelled = False
         self.closed = False
 
     def start(self):
-        return ()
+        return self.start_events
 
     def poll(self):
         return self.poll_events.pop(0) if self.poll_events else ()
@@ -92,12 +93,13 @@ class FakeEngine:
 
 
 class FakeFactory:
-    def __init__(self, artifact) -> None:
+    def __init__(self, artifact, start_events=()) -> None:
         self.artifact = artifact
+        self.start_events = start_events
         self.created: list[FakeEngine] = []
 
     def create(self, *, session_id: str, datapack_id: str):
-        engine = FakeEngine(session_id, self.artifact)
+        engine = FakeEngine(session_id, self.artifact, self.start_events)
         self.created.append(engine)
         return engine
 
@@ -188,6 +190,25 @@ def test_artifact_event_and_delivery_callbacks_preserve_lineage(tmp_path: Path) 
         "query_sample_count": 5,
     }
     assert repeated_events == ()
+
+
+def test_start_failure_event_is_fatal_and_closes_engine(tmp_path: Path) -> None:
+    root, artifact, _event = _fixture(tmp_path)
+    start_failure = SimpleNamespace(
+        event_type=_value("session_error"),
+        event_id="start-failure-1",
+        session_id="scan-1",
+        reason=_value("camera_unavailable"),
+        details=(),
+    )
+    factory = FakeFactory(artifact, (start_failure,))
+    bridge = BookScannerRuntimeAdapter(factory, root)
+
+    with pytest.raises(FatalPortError, match="camera_unavailable"):
+        bridge.start(_session())
+
+    assert factory.created[0].closed is True
+    assert bridge.poll() == ()
 
 
 def test_mismatched_artifact_event_is_fatal(tmp_path: Path) -> None:

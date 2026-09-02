@@ -54,7 +54,7 @@ class MathNotationCoverageFixtureTests(unittest.TestCase):
         self.assertEqual(span["presentation_ast"]["type"], "Fraction")
         self.assertEqual(span["presentation_ast"]["notation"], "slash")
         self.assertTrue(math_focus_item_to_braille(span))  # must not raise
-        self.assertEqual(math_focus_item_to_speech(span), "분수 시작, 2, 분모, 3, 분수 끝")
+        self.assertEqual(math_focus_item_to_speech(span), "3분의 2")
 
     def test_top_level_display_formula_slash_fraction_also_renders(self):
         top_level = next(i for i in self.document["pages"][0]["focus_items"] if i["kind"] == "MATH")

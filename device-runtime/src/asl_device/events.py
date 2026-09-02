@@ -13,6 +13,7 @@ class CoordinatorEventType(str, Enum):
     STATE_CHANGED = "state_changed"
     CATALOG_LOADED = "catalog_loaded"
     CATALOG_HIGHLIGHT_CHANGED = "catalog_highlight_changed"
+    OPERATING_MODE_CHANGED = "operating_mode_changed"
     DATAPACK_CREATED = "datapack_created"
     SCAN_SESSION_OPENED = "scan_session_opened"
     SCANNER_STARTED = "scanner_started"
@@ -36,7 +37,10 @@ class CoordinatorEventType(str, Enum):
 
 
 class FeedbackCode(str, Enum):
+    SCREEN_CHANGED = "screen_changed"
     SPEAK_CATALOG_TITLE = "speak_catalog_title"
+    OPERATING_MODE_CHANGED = "operating_mode_changed"
+    NO_READABLE_DATAPACK = "no_readable_datapack"
     CONFIRM_SELECTION = "confirm_selection"
     SCAN_STARTED = "scan_started"
     SCANNER_GUIDANCE = "scanner_guidance"

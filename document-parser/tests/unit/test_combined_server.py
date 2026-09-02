@@ -32,6 +32,25 @@ class FixtureVlAdapter:
         return {"width": 2434, "height": 3071, "parsing_res_list": blocks}
 
 
+class CombinedServerConfigurationTests(unittest.TestCase):
+    def test_api_key_file_is_trimmed_and_validated(self):
+        from document_parser.server.combined_server import _resolve_api_key
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "api-key.txt"
+            path.write_text("secret-value\n", encoding="utf-8")
+
+            self.assertEqual(_resolve_api_key(None, path), "secret-value")
+
+    def test_api_key_must_be_one_nonempty_line(self):
+        from document_parser.server.combined_server import _resolve_api_key
+
+        with self.assertRaises(ValueError):
+            _resolve_api_key("", None)
+        with self.assertRaises(ValueError):
+            _resolve_api_key("first\nsecond", None)
+
+
 @unittest.skipUnless(FLASK_AVAILABLE, "flask not installed (pip install document-parser[remote-ingest])")
 class CombinedServerTests(unittest.TestCase):
     def _make_client(self, datapacks_dir: Path, jobs_dir: Path, api_key="secret", with_s0=False):

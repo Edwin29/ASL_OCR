@@ -10,6 +10,9 @@
 **/*.py[cod]
 /book-scanner/.test-tmp-*/
 /book-scanner/tmp*/
+/device-runtime/.test-tmp-*/
+/document-parser/.test-tmp-*/
+/.codex-temp/
 
 # User-provided source captures stay local/Drive; committed experiment outputs
 # contain the reproducible manifests, hashes, summaries, and selected artifacts.

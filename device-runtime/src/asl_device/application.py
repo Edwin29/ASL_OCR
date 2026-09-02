@@ -10,7 +10,7 @@ from typing import Protocol
 from .adapters.local_controls import ControlSource
 from .coordinator import DeviceFlowCoordinator
 from .events import CoordinatorEvent
-from .types import DeviceControl, DeviceFlowState, DeviceInputEvent
+from .types import DeviceControl, DeviceFlowState, DeviceInputEvent, InputAction
 
 
 class ReadingPresenter(Protocol):
@@ -89,7 +89,10 @@ class DeviceApplication:
             if (
                 self.audio_presenter is not None
                 and self.coordinator.state is DeviceFlowState.READING
-                and input_event.control is not DeviceControl.LEVER
+                and (
+                    input_event.control is not DeviceControl.LEVER
+                    or input_event.action is InputAction.ACTIVATED
+                )
             ):
                 self.audio_presenter.interrupt()
             events.extend(self.coordinator.handle_input(input_event))

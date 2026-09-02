@@ -58,15 +58,16 @@ def log(msg: str) -> None:
 def enumerate_utterances(document: dict[str, Any]) -> dict[str, str]:
     """Every distinct spoken text the live `SpeechController` could ever
     produce for this document: one entry per focus item (first-landing
-    announcement), one per inline math span inside a TEXT item (좌우 연장
-    extension announcement), and one per table cell. Uses
+    announcement), one per standalone-accessible inline math span inside a
+    TEXT item (좌우 연장 extension announcement), and one per table cell. Uses
     `focus_item_announcement` -- the same dispatch `SpeechController` calls
     live -- so a pre-synthesized datapack can never say something different
     from what a server driving this same document would say.
 
     Top-level MATH items get no separate span entries: `braille_scrollable_spans`
     returns `[item]` itself for those, so the item-level entry already covers
-    span_index 0's only possible text.
+    span_index 0's only possible text. Inline fragments such as `$y$축` remain
+    in the item announcement but do not create a duplicate standalone WAV.
     """
     utterances: dict[str, str] = {}
     for page in document.get("pages", []):

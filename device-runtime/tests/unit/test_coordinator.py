@@ -10,15 +10,19 @@ from asl_device.coordinator import DeviceFlowCoordinator
 from asl_device.events import CoordinatorEventType, FeedbackCode
 from asl_device.types import (
     ArtifactId,
+    CatalogChoiceKind,
+    CatalogEntry,
     ClientSpreadSequence,
     DatapackId,
     DatapackRevision,
+    DatapackStatus,
     DeliveryStatus,
     DeliveryUpdate,
     DeviceControl,
     DeviceFlowState,
     DeviceId,
     DeviceInputEvent,
+    DeviceOperatingMode,
     FinalizeResult,
     FinalizeStatus,
     InputAction,
@@ -121,6 +125,13 @@ def enter_scanning(coordinator: DeviceFlowCoordinator) -> None:
     assert coordinator.state is DeviceFlowState.SCANNING
 
 
+def enter_reading(coordinator: DeviceFlowCoordinator) -> None:
+    coordinator.start()
+    coordinator.handle_input(press("mode-reading", DeviceControl.LEVER, InputAction.RELEASED))
+    coordinator.handle_input(press("read-selection", DeviceControl.CONFIRM))
+    assert coordinator.state is DeviceFlowState.READING
+
+
 def test_start_loads_catalog_and_announces_current_title() -> None:
     coordinator, catalog, *_rest, feedback = make_coordinator((ready_entry(),))
 
@@ -129,6 +140,11 @@ def test_start_loads_catalog_and_announces_current_title() -> None:
     assert coordinator.state is DeviceFlowState.SELECTING_DATAPACK
     assert catalog.list_calls == [DeviceId("device-1")]
     assert any(event.event_type is CoordinatorEventType.CATALOG_LOADED for event in events)
+    assert feedback.events[-2].code is FeedbackCode.SCREEN_CHANGED
+    assert dict(feedback.events[-2].details) == {
+        "screen": "datapack_selection",
+        "mode": "capture",
+    }
     assert feedback.events[-1].code is FeedbackCode.SPEAK_CATALOG_TITLE
     assert dict(feedback.events[-1].details)["title"] == "교재 A"
 
@@ -152,6 +168,34 @@ def test_connectivity_gate_defers_catalog_until_authenticated_online() -> None:
     assert any(event.event_type is CoordinatorEventType.CATALOG_LOADED for event in events)
 
 
+def test_boot_lever_state_is_retained_until_catalog_becomes_available() -> None:
+    connectivity = FakeConnectivity()
+    coordinator, _catalog, *_rest, feedback = make_coordinator(
+        (ready_entry(),), connectivity=connectivity
+    )
+    coordinator.start()
+
+    coordinator.handle_input(
+        press("boot-reading-mode", DeviceControl.LEVER, InputAction.RELEASED)
+    )
+    connectivity.poll_events.append(
+        (ConnectivityEvent(ConnectivityEventType.SERVER_ONLINE, 1.0), ConnectivityState.ONLINE)
+    )
+    coordinator.poll()
+
+    assert coordinator.operating_mode is DeviceOperatingMode.READING
+    assert coordinator.state is DeviceFlowState.SELECTING_DATAPACK
+    assert coordinator.catalog is not None
+    assert all(
+        item.choice.kind is CatalogChoiceKind.EXISTING
+        for item in coordinator.catalog.items
+    )
+    assert dict(feedback.events[-2].details) == {
+        "screen": "datapack_selection",
+        "mode": "reading",
+    }
+
+
 def test_coordinator_stop_also_stops_connectivity() -> None:
     connectivity = FakeConnectivity()
     coordinator, *_ = make_coordinator(connectivity=connectivity)
@@ -172,6 +216,49 @@ def test_existing_selection_opens_append_scan_without_creating_datapack() -> Non
     ]
     assert len(scanner.start_calls) == 1
     assert coordinator.state is DeviceFlowState.SCANNING
+
+
+def test_reading_mode_ready_selection_opens_reading_without_scan() -> None:
+    coordinator, catalog, scan, scanner, _delivery, reading, feedback = make_coordinator(
+        (ready_entry(),)
+    )
+    coordinator.start()
+
+    mode_events = coordinator.handle_input(
+        press("mode-reading", DeviceControl.LEVER, InputAction.RELEASED)
+    )
+    coordinator.handle_input(press("read-selection", DeviceControl.CONFIRM))
+
+    assert coordinator.operating_mode is DeviceOperatingMode.READING
+    assert coordinator.state is DeviceFlowState.READING
+    assert catalog.create_calls == []
+    assert scan.open_calls == []
+    assert scanner.start_calls == []
+    assert reading.open_calls == [
+        (DeviceId("device-1"), DatapackId("book-a"), 10, "read-selection:reading-open")
+    ]
+    assert any(
+        event.event_type is CoordinatorEventType.OPERATING_MODE_CHANGED
+        for event in mode_events
+    )
+    assert any(event.code is FeedbackCode.OPERATING_MODE_CHANGED for event in feedback.events)
+
+
+def test_reading_mode_hides_draft_and_new_datapack_and_reports_empty_catalog() -> None:
+    draft = CatalogEntry(DatapackId("draft"), "작성 중", DatapackStatus.DRAFT)
+    coordinator, catalog, scan, scanner, _delivery, reading, feedback = make_coordinator((draft,))
+    coordinator.start()
+
+    coordinator.handle_input(press("mode-reading", DeviceControl.LEVER, InputAction.RELEASED))
+    assert coordinator.catalog is not None
+    assert coordinator.catalog.items == ()
+    coordinator.handle_input(press("cannot-read", DeviceControl.CONFIRM))
+
+    assert catalog.create_calls == []
+    assert scan.open_calls == []
+    assert scanner.start_calls == []
+    assert reading.open_calls == []
+    assert feedback.events[-1].code is FeedbackCode.NO_READABLE_DATAPACK
 
 
 def test_empty_catalog_new_selection_creates_draft_then_opens_scan() -> None:
@@ -341,9 +428,10 @@ def test_ack_feedback_precedes_page_change_callback_diagnostic_exactly_once() ->
     assert [event.code for event in feedback.events].count(
         FeedbackCode.IDENTITY_COLLECTION_STARTED
     ) == 1
+    assert [event.code for event in feedback.events].count(FeedbackCode.SPREAD_SENT) == 1
 
 
-def test_finalize_ready_opens_reading_at_server_cursor() -> None:
+def test_finalize_ready_returns_to_capture_catalog_without_opening_reading() -> None:
     coordinator, _catalog, scan, scanner, delivery, reading, feedback = make_coordinator((ready_entry(),))
     enter_scanning(coordinator)
     current = coordinator.scan_session
@@ -360,17 +448,17 @@ def test_finalize_ready_opens_reading_at_server_cursor() -> None:
 
     events = coordinator.poll()
 
-    assert coordinator.state is DeviceFlowState.READING
-    assert reading.open_calls == [
-        (DeviceId("device-1"), DatapackId("book-a"), 10, "reading-open:scan-1:2")
-    ]
-    assert dict(coordinator.reading_snapshot.cursor) == {
-        "page_index": 3,
-        "node_index": 7,
-        "generation": 0,
-    }
-    assert any(event.event_type is CoordinatorEventType.READING_RESUMED for event in events)
-    assert feedback.events[-1].code is FeedbackCode.READING_RESUMED
+    assert coordinator.state is DeviceFlowState.SELECTING_DATAPACK
+    assert coordinator.operating_mode is DeviceOperatingMode.CAPTURE
+    assert reading.open_calls == []
+    assert coordinator.reading_snapshot is None
+    assert any(event.event_type is CoordinatorEventType.RETURNED_TO_SELECTION for event in events)
+    assert not any(event.event_type is CoordinatorEventType.READING_RESUMED for event in events)
+    assert any(
+        event.code is FeedbackCode.SCREEN_CHANGED
+        and dict(event.details) == {"screen": "datapack_selection", "mode": "capture"}
+        for event in feedback.events
+    )
 
 
 def test_repeated_confirm_after_freeze_cannot_create_second_seal() -> None:
@@ -463,18 +551,8 @@ def test_stale_finalization_result_cannot_open_reading() -> None:
 
 
 def test_reading_confirm_short_is_forwarded_and_long_returns_to_selection() -> None:
-    coordinator, catalog, scan, scanner, delivery, reading, *_ = make_coordinator((ready_entry(),))
-    enter_scanning(coordinator)
-    current = coordinator.scan_session
-    assert current is not None
-    scan.seal_result = FinalizeResult(
-        current.scan_session_id,
-        current.datapack_id,
-        FinalizeStatus.READY,
-        DatapackRevision(2),
-    )
-    coordinator.handle_input(press("stop", DeviceControl.CONFIRM))
-    assert coordinator.state is DeviceFlowState.READING
+    coordinator, catalog, _scan, _scanner, _delivery, reading, *_ = make_coordinator((ready_entry(),))
+    enter_reading(coordinator)
 
     coordinator.handle_input(press("replay", DeviceControl.CONFIRM, InputAction.SHORT))
     assert reading.command_calls[-1][1:] == ("replay", DeviceControl.CONFIRM, InputAction.SHORT)
@@ -484,19 +562,37 @@ def test_reading_confirm_short_is_forwarded_and_long_returns_to_selection() -> N
     assert len(catalog.list_calls) == 2
     assert any(event.event_type is CoordinatorEventType.RETURNED_TO_SELECTION for event in events)
 
+    coordinator.handle_input(press("mode-reading", DeviceControl.LEVER, InputAction.RELEASED))
+    coordinator.handle_input(press("resume", DeviceControl.CONFIRM))
+    assert coordinator.state is DeviceFlowState.READING
+    assert reading.open_calls[-1] == (
+        DeviceId("device-1"),
+        DatapackId("book-a"),
+        10,
+        "resume:reading-open",
+    )
+
+
+def test_capture_lever_returns_from_reading_to_capture_catalog() -> None:
+    coordinator, _catalog, _scan, _scanner, _delivery, _reading, *_ = make_coordinator(
+        (ready_entry(),)
+    )
+    enter_reading(coordinator)
+
+    events = coordinator.handle_input(
+        press("mode-capture", DeviceControl.LEVER, InputAction.ACTIVATED)
+    )
+
+    assert coordinator.operating_mode is DeviceOperatingMode.CAPTURE
+    assert coordinator.state is DeviceFlowState.SELECTING_DATAPACK
+    assert coordinator.catalog is not None
+    assert coordinator.catalog.items[-1].choice.kind is CatalogChoiceKind.NEW_DATAPACK
+    assert any(event.event_type is CoordinatorEventType.RETURNED_TO_SELECTION for event in events)
+
 
 def test_duplicate_reading_command_event_is_forwarded_once() -> None:
-    coordinator, _catalog, scan, _scanner, _delivery, reading, *_ = make_coordinator((ready_entry(),))
-    enter_scanning(coordinator)
-    current = coordinator.scan_session
-    assert current is not None
-    scan.seal_result = FinalizeResult(
-        current.scan_session_id,
-        current.datapack_id,
-        FinalizeStatus.READY,
-        DatapackRevision(2),
-    )
-    coordinator.handle_input(press("stop", DeviceControl.CONFIRM))
+    coordinator, _catalog, _scan, _scanner, _delivery, reading, *_ = make_coordinator((ready_entry(),))
+    enter_reading(coordinator)
     command = press("move-once", DeviceControl.DOWN)
 
     coordinator.handle_input(command)

@@ -202,8 +202,10 @@ def _feedback_rendering(
         FeedbackCode.SERVER_CONNECTION_LOST: ((440, 180), (330, 240)),
         FeedbackCode.SERVER_RECOVERED: ((660, 80), (880, 100)),
         FeedbackCode.PARSER_REJECTED: ((330, 220), (330, 220)),
+        FeedbackCode.OPERATING_MODE_CHANGED: ((740, 80),),
     }
     phrases = {
+        FeedbackCode.SPREAD_SENT: "페이지 전송이 완료되었습니다. 다음 페이지로 넘겨 주세요.",
         FeedbackCode.SCANNER_GUIDANCE: "책의 위치를 조정해 주세요.",
         FeedbackCode.SCAN_STOPPING: "촬영을 마치고 전송을 확인합니다.",
         FeedbackCode.FINALIZING: "데이터팩을 생성하고 있습니다.",
@@ -212,7 +214,21 @@ def _feedback_rendering(
         FeedbackCode.SERVER_RECOVERED: "서버 연결이 복구되었습니다.",
         FeedbackCode.SERVER_AUTH_FAILED: "서버 인증에 실패했습니다.",
         FeedbackCode.PARSER_REJECTED: "페이지 처리가 거부되었습니다.",
+        FeedbackCode.NO_READABLE_DATAPACK: "읽을 수 있는 데이터팩이 없습니다.",
     }
+    if event.code is FeedbackCode.SCREEN_CHANGED:
+        screen = details.get("screen")
+        mode = details.get("mode")
+        if screen == "datapack_selection":
+            phrases[event.code] = (
+                "캡처 모드 데이터팩 선택 화면입니다."
+                if mode == "capture"
+                else "리딩 모드 데이터팩 선택 화면입니다."
+            )
+        elif screen == "capture":
+            phrases[event.code] = "페이지 캡처 화면입니다."
+        elif screen == "reading":
+            phrases[event.code] = "리딩 화면입니다."
     phrase = phrases.get(event.code)
     if event.code is FeedbackCode.SPEAK_CATALOG_TITLE and speak_catalog_titles:
         title = details.get("title")

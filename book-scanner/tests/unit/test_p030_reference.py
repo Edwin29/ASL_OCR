@@ -34,8 +34,8 @@ def test_p030_fixture_self_comparison_uses_human_verified_golden():
     assert result["overall_text_similarity"] == 1.0
     assert result["braille"]["same_content"] is True
     assert result["braille"]["cell_similarity"] == 1.0
-    assert result["math_braille_alignment"]["common_span_count"] == 31
-    assert result["math_braille_alignment"]["common_reference_cell_count"] == 208
+    assert result["math_braille_alignment"]["common_span_count"] == 30
+    assert result["math_braille_alignment"]["common_reference_cell_count"] == 207
     assert result["math_braille_alignment"]["candidate_added_span_count"] == 0
     assert result["math_braille_alignment"]["reference_only_span_count"] == 0
     assert result["math_braille_alignment"]["verdict"] == "EXACT_GOLDEN_MATH_CELLS"
@@ -65,7 +65,7 @@ def test_p030_math_alignment_separates_plain_text_math_promotion():
 
     result = compare_p030_math_braille_alignment(candidate, reference)
 
-    assert result["common_span_count"] == 31
+    assert result["common_span_count"] == 30
     assert result["common_cell_similarity"] == 1.0
     assert result["reference_only_span_count"] == 0
     assert result["candidate_added_span_count"] == 1
@@ -94,7 +94,7 @@ def test_p030_math_alignment_reports_missing_golden_span():
 
     result = compare_p030_math_braille_alignment(candidate, reference)
 
-    assert result["common_span_count"] == 30
+    assert result["common_span_count"] == 29
     assert result["reference_only_span_count"] == 1
     assert result["reference_span_coverage"] < 1.0
     assert result["verdict"] == "GOLDEN_COMMON_REGRESSION_OR_MISSING_SPANS"
