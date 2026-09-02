@@ -1,13 +1,13 @@
 # Device Integration E0-B.4-D.3 — Device Audio Playback Contract 작업 패킷
 
-상태: **구현 완료 / 자동 통합 검증 통과 / 실제 통합 청취 대기**
+상태: **완료 — 자동 통합 검증 및 사용자 실제 청취 통과**
 기준일: 2026-09-02
 성격: **Device Runtime의 reading audio 자동 다운로드·최신 generation 재생·bounded RAM cache 계약**
 선행 조건: E0-B.4-D.2 실제 Piper 합성·전송·Desktop 청취 통과
 후속 조건: E0-B.4-L 원격 closure, Raspberry Pi ALSA/PipeWire 재생 어댑터
 
 구현 결과: `DEVICE_INTEGRATION_E0_B_4_D_3_IMPLEMENTATION_REPORT.md`
-자동 evidence: `tmp/e0b-audio-runs/e0b-device-audio-playback-20260902T083822Z-9d63e698/evidence`
+최종 evidence: `tmp/e0b-audio-runs/e0b-device-audio-playback-20260902T084452Z-0c029e40/evidence`
 
 ## 1. 배경
 

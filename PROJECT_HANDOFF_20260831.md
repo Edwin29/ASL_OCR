@@ -587,7 +587,8 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 - resource 4 MiB, RAM LRU 8 MiB/4개, 단일 in-flight와 64 KiB chunk hard bound 적용
 - 실제 Piper/S0 자동 통합 acceptance는 generation `[0,1,2,3,4]`, fetch 2, cache hit 3, interrupt 2,
   failure 0, client WAV 0으로 통과
-- 실제 통합 청취는 사용자가 별도 명령으로 확인해야 하므로 현재 `manual_pending`
+- 사용자 실제 통합 청취에서 5개 구성요소가 모두 true이고 최종 `status=passed`
+- 최종 evidence: `tmp/e0b-audio-runs/e0b-device-audio-playback-20260902T084452Z-0c029e40/evidence`
 
 주요 문서와 코드:
 
@@ -605,7 +606,7 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 |---|---:|
 | Book Scanner 전체 | 299 passed |
 | Device Runtime + reading audio controller/adapters | 145 passed |
-| E0-B.4-D.3 actual Piper/S0/Device 자동 통합 | passed, manual listening pending |
+| E0-B.4-D.3 actual Piper/S0/Device 통합 및 사용자 청취 | passed |
 | Document Parser 전체 | 578 passed, 4 skipped |
 | Desktop audio transport 신규 unit/actual HTTP | 8 passed |
 | E0-B.4-D actual loopback | passed |
@@ -674,8 +675,8 @@ boundary passed와 Server 2/4/0을 확인했다. E0-B.4-D.1은 인증된 session
 비무음 Bench tone과 Desktop memory playback 도구를 구현했고 자동 검증까지 통과했다. SAPI는 실제 Piper
 reading 경로가 아니므로 후보에서 제외했다. E0-B.4-D.2는 실제 `ko_KR-kss-medium` 고정 한국어 두 문장의
 합성·인증 전송과 Desktop 실제 청취를 모두 통과했다. E0-B.4-D.3은 Device Runtime reading generation과
-fetch/playback·이전 재생 취소, bounded RAM cache를 결합했고 실제 Piper/S0 자동 통합까지 통과했다. 실제
-통합 navigation 청취는 `manual_pending`이다. 원격 증거 경로에서는 Laptop에 최신 revision을 반영하고 동일 prepared MP4의 role-complete
+fetch/playback·이전 재생 취소, bounded RAM cache를 결합했고 실제 Piper/S0 자동 통합과 사용자 통합
+navigation 청취를 모두 통과했다. 원격 증거 경로에서는 Laptop에 최신 revision을 반영하고 동일 prepared MP4의 role-complete
 transcript와 Server 2/4/0을 결합하는 E0-B.4-L closure가 남는다. 그 뒤 fixed endpoint에서
 camera/STM/speaker physical E0-B를 진행한다. 같은 LAN과 유료 domain은 요구하지 않는다. Production
 tunnel policy/service와 exhaustive WAN fault 검증은 후속 Network Hardening으로 분리한다.
