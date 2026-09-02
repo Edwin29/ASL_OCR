@@ -80,6 +80,45 @@ class S0HttpTests(unittest.TestCase):
             self.assertEqual(first.get_json(), replay.get_json())
             self.assertEqual(first.get_json()["cursor"]["page_index"], 1)
 
+    def test_reading_audio_stream_is_authenticated_bounded_and_opaque(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            write_book(root / "datapacks", "book_a")
+            client = self.make_client(root)
+            base = {"X-API-Key": "secret", "Content-Type": "application/json"}
+            opened = client.post(
+                "/api/v1/reading-sessions",
+                headers={**base, "Idempotency-Key": "reading-open-1"},
+                json={"device_id": "device-1", "datapack_id": "book_a", "viewport_size": 20},
+            ).get_json()
+            audio_id = opened["audio"]["audio_ref"].removeprefix("s0-audio:")
+            url = f"/api/v1/reading-sessions/{opened['reading_session_id']}/audio/{audio_id}"
+
+            unauthorized = client.get(url)
+            wrong_key = client.get(url, headers={"X-API-Key": "wrong"})
+            response = client.get(url, headers={"X-API-Key": "secret"})
+            response_body = response.get_data()
+            missing = client.get(
+                f"/api/v1/reading-sessions/{opened['reading_session_id']}/audio/{'f' * 32}",
+                headers={"X-API-Key": "secret"},
+            )
+
+            self.assertEqual(unauthorized.status_code, 401)
+            self.assertEqual(wrong_key.status_code, 401)
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.mimetype, "audio/wav")
+            self.assertEqual(int(response.headers["Content-Length"]), len(response_body))
+            self.assertEqual(response.headers["X-Audio-Sample-Rate"], "16000")
+            self.assertGreater(int(response.headers["X-Audio-Duration-Ms"]), 0)
+            self.assertIn("private", response.headers["Cache-Control"])
+            self.assertEqual(response.headers["X-Content-Type-Options"], "nosniff")
+            self.assertTrue(response.headers["ETag"].startswith('"'))
+            self.assertTrue(response_body.startswith(b"RIFF"))
+            self.assertIn(b"WAVE", response_body[:16])
+            self.assertNotIn(str(root).encode(), response_body)
+            self.assertEqual(missing.status_code, 404)
+            response.close()
+
     def test_mutation_requires_json_and_idempotency_key(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             client = self.make_client(Path(temp_dir))

@@ -7,6 +7,7 @@ dependencies = []
 
 [project.optional-dependencies]
 laptop = ["pyserial>=3.5,<4"]
+audio = ["sounddevice>=0.5,<1"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

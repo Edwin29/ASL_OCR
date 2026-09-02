@@ -2,7 +2,7 @@
 
 상태: **구현 및 단위 회귀 검증 완료**
 작성일: 2026-08-30
-근거 패킷: `INTEGRATION_V0_DEVICE_FLOW_COORDINATOR_WORK_PACKET.md`
+근거 패킷: `docs/work-packets/INTEGRATION_V0_DEVICE_FLOW_COORDINATOR_WORK_PACKET.md`
 
 ## 1. 구현 결과
 

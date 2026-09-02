@@ -21,6 +21,7 @@ from .adapters.local_feedback import (
     JsonLineReadingPresenter,
     WindowsAudioFeedbackSink,
 )
+from .adapters.reading_audio import S0AudioResourceHttpAdapter, SoundDeviceWavPlayer
 from .adapters.stm_serial import StmSerialControlSource
 from .app_config import DeviceAppConfig, ScannerHostConfig
 from .application import DeviceApplication, ReadingPresenter
@@ -29,6 +30,7 @@ from .coordinator import DeviceFlowCoordinator
 from .delivery import DurableDeliveryPort
 from .delivery_store import DeliveryStore
 from .protocols import Clock, FeedbackSink
+from .reading_audio import AudioResourceCache, ReadingAudioController
 
 
 class SystemClock:
@@ -43,6 +45,7 @@ class LocalDeviceComposition:
     coordinator: DeviceFlowCoordinator
     scanner: BookScannerRuntimeAdapter
     delivery: DurableDeliveryPort
+    reading_audio: ReadingAudioController | None = None
 
 
 def build_local_device(
@@ -68,6 +71,8 @@ def build_local_device(
         capabilities.extend(("stm_serial", "braille_display"))
     if config.feedback_mode == "windows_audio":
         capabilities.append("audio_feedback")
+    if config.reading_audio.enabled:
+        capabilities.append("reading_audio")
     connectivity = DeviceConnectivitySupervisor(
         config.connectivity,
         connectivity_transport,
@@ -97,6 +102,24 @@ def build_local_device(
     factory = scanner_factory or _default_scanner_factory(config.scanner)
     scanner = BookScannerRuntimeAdapter(factory, config.delivery.artifact_root)
     feedback_sink = feedback if feedback is not None else _default_feedback(config)
+    reading_audio = None
+    if config.reading_audio.enabled:
+        reading_audio = ReadingAudioController(
+            S0AudioResourceHttpAdapter(
+                config.connectivity.server_base_url,
+                api_key,
+                timeout_seconds=config.reading_audio.request_timeout_seconds,
+                max_resource_bytes=config.reading_audio.max_resource_bytes,
+                chunk_bytes=config.reading_audio.download_chunk_bytes,
+            ),
+            SoundDeviceWavPlayer(),
+            AudioResourceCache(
+                max_bytes=config.reading_audio.max_cache_bytes,
+                max_entries=config.reading_audio.max_cache_entries,
+            ),
+            feedback=feedback_sink,
+            monotonic=clock_value.monotonic,
+        )
     controls_value = controls
     presenter_value = presenter
     default_console = controls_value is None and config.controls_mode == "console"
@@ -128,9 +151,12 @@ def build_local_device(
         controls_value,
         poll_interval_seconds=config.poll_interval_ms / 1000.0,
         presenter=presenter_value,
+        audio_presenter=reading_audio,
         closeables=(feedback_sink,),
     )
-    return LocalDeviceComposition(config, application, coordinator, scanner, delivery)
+    return LocalDeviceComposition(
+        config, application, coordinator, scanner, delivery, reading_audio
+    )
 
 
 def _default_feedback(config: DeviceAppConfig) -> FeedbackSink:

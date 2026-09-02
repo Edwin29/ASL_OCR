@@ -1,7 +1,7 @@
 # Device Integration E0-B.3.1 구현 보고서
 
 작성일: 2026-09-01
-작업 패킷: `DEVICE_INTEGRATION_E0_B_3_1_CONSOLE_IDEMPOTENCY_NAMESPACE_REPAIR_WORK_PACKET.md`
+작업 패킷: `docs/work-packets/DEVICE_INTEGRATION_E0_B_3_1_CONSOLE_IDEMPOTENCY_NAMESPACE_REPAIR_WORK_PACKET.md`
 상태: **구현 및 local 회귀 완료 / 실제 Laptop fresh datapack 재확인 대기**
 
 ## 결과

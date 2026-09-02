@@ -11,6 +11,9 @@ is the only intended ingress.
 from __future__ import annotations
 
 import argparse
+import hashlib
+import math
+import struct
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -57,8 +60,34 @@ class BenchFragmentParser:
 
 
 class BenchSynthesizer:
-    def __call__(self, _text: str) -> tuple[bytes, int, int]:
-        return b"\x00\x00" * 160, 16000, 1
+    """Deterministic audible tone fixture; this is not production TTS."""
+
+    sample_rate = 16_000
+    duration_ms = 500
+    amplitude = 6_000
+
+    def __call__(self, text: str) -> tuple[bytes, int, int]:
+        frequency = self.frequency_for(text)
+        frame_count = self.sample_rate * self.duration_ms // 1000
+        frames = bytearray()
+        for index in range(frame_count):
+            envelope = min(1.0, index / 320, (frame_count - index - 1) / 320)
+            sample = round(
+                self.amplitude
+                * max(0.0, envelope)
+                * math.sin(2.0 * math.pi * frequency * index / self.sample_rate)
+            )
+            frames.extend(struct.pack("<h", sample))
+        return bytes(frames), self.sample_rate, 1
+
+    @staticmethod
+    def frequency_for(text: str) -> int:
+        if "낮은" in text or "low" in text.lower():
+            return 440
+        if "높은" in text or "high" in text.lower():
+            return 880
+        digest = hashlib.sha256(text.encode("utf-8")).digest()
+        return 440 + (int.from_bytes(digest[:2], "big") % 9) * 55
 
 
 @dataclass(frozen=True, slots=True)

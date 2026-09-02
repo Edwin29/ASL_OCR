@@ -1,7 +1,7 @@
 # Device Integration E0-B.2 구현 보고서
 
 작성일: 2026-09-01
-작업 패킷: `DEVICE_INTEGRATION_E0_B_2_REPLAY_COMPLETION_REPAIR_WORK_PACKET.md`
+작업 패킷: `docs/work-packets/DEVICE_INTEGRATION_E0_B_2_REPLAY_COMPLETION_REPAIR_WORK_PACKET.md`
 상태: **software implementation, 회귀 및 실제 Laptop remote replay/upload/reading 재검증 완료 /
 E0-B.3 구조화 boundary report 재수집 대기**
 

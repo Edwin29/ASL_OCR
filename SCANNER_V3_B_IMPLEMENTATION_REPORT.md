@@ -2,7 +2,7 @@
 
 상태: **핵심 기능 구현 및 로컬 회귀 검증 완료**
 기준일: 2026-09-01
-승인 패킷: `SCANNER_V3_B_DURABLE_OUTBOX_SENDER_WORK_PACKET.md`
+승인 패킷: `docs/work-packets/SCANNER_V3_B_DURABLE_OUTBOX_SENDER_WORK_PACKET.md`
 
 ## 1. 구현 결과
 

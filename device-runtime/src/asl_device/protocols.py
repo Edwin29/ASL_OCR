@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
 from typing import Protocol
 
 from .connectivity import ConnectivityEvent, ConnectivitySnapshot
 from .events import FeedbackEvent
 from .types import (
     ArtifactId,
+    AudioResource,
     CatalogEntry,
     ClientSpreadSequence,
     DatapackId,
@@ -40,6 +42,23 @@ class Clock(Protocol):
 
 class FeedbackSink(Protocol):
     def emit(self, event: FeedbackEvent) -> None: ...
+
+
+class AudioResourcePort(Protocol):
+    def fetch(
+        self,
+        reading_session_id: ReadingSessionId,
+        audio_ref: str,
+        cancelled: Callable[[], bool],
+    ) -> AudioResource: ...
+
+
+class AudioPlaybackPort(Protocol):
+    def play(self, resource: AudioResource, cancelled: Callable[[], bool]) -> None: ...
+
+    def stop(self) -> None: ...
+
+    def close(self) -> None: ...
 
 
 class ConnectivityPort(Protocol):

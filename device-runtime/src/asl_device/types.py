@@ -354,8 +354,46 @@ class ReadingSnapshot:
         object.__setattr__(self, "cursor", _freeze_details(self.cursor))
         if any(isinstance(cell, bool) or not isinstance(cell, int) or not 0 <= cell <= 255 for cell in self.braille_cells):
             raise ValueError("braille cells must be integers in [0, 255]")
+        _reading_generation(self.cursor)
         if self.audio_ref is not None:
             _require_text("audio_ref", self.audio_ref)
+
+    @property
+    def generation(self) -> int:
+        return _reading_generation(self.cursor)
+
+
+@dataclass(frozen=True, slots=True)
+class AudioResource:
+    wav_bytes: bytes
+    sha256: str
+    content_length: int
+    sample_rate: int
+    channels: int
+    sample_width: int
+    duration_ms: int
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.wav_bytes, bytes) or not self.wav_bytes:
+            raise ValueError("audio resource wav_bytes must be non-empty bytes")
+        if not isinstance(self.sha256, str) or len(self.sha256) != 64 or any(
+            character not in "0123456789abcdef" for character in self.sha256
+        ):
+            raise ValueError("audio resource sha256 must be lowercase hexadecimal")
+        if self.content_length != len(self.wav_bytes):
+            raise ValueError("audio resource content_length must match wav_bytes")
+        for name in ("sample_rate", "channels", "sample_width", "duration_ms"):
+            value = getattr(self, name)
+            if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+                raise ValueError(f"audio resource {name} must be a positive integer")
+
+
+def _reading_generation(cursor: DetailItems) -> int:
+    values = dict(cursor)
+    generation = values.get("generation")
+    if isinstance(generation, bool) or not isinstance(generation, int) or generation < 0:
+        raise ValueError("reading cursor generation must be a non-negative integer")
+    return generation
 
 
 @dataclass(frozen=True, slots=True)

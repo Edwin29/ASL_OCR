@@ -1,7 +1,7 @@
 # Device Integration E0-B.3.2 구현 보고서
 
 작성일: 2026-09-02
-작업 패킷: `DEVICE_INTEGRATION_E0_B_3_2_IDENTITY_ROLE_REPORT_CONTRACT_CORRECTION_WORK_PACKET.md`
+작업 패킷: `docs/work-packets/DEVICE_INTEGRATION_E0_B_3_2_IDENTITY_ROLE_REPORT_CONTRACT_CORRECTION_WORK_PACKET.md`
 상태: **구현 및 local 전체 회귀 완료**
 
 ## 결과

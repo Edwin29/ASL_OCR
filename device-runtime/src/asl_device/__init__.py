@@ -5,8 +5,10 @@ from .coordinator import DeviceFlowCoordinator
 from .delivery import DurableDeliveryPort
 from .delivery_config import DeviceDeliveryConfig
 from .events import CoordinatorEvent, CoordinatorEventType, FeedbackCode, FeedbackEvent
+from .reading_audio import AudioResourceCache, ReadingAudioController
 from .types import (
     ArtifactId,
+    AudioResource,
     CatalogChoice,
     CatalogChoiceKind,
     CatalogEntry,
@@ -37,6 +39,8 @@ from .types import (
 
 __all__ = [
     "ArtifactId",
+    "AudioResource",
+    "AudioResourceCache",
     "CatalogChoice",
     "CatalogChoiceKind",
     "CatalogEntry",
@@ -65,6 +69,7 @@ __all__ = [
     "InputAction",
     "ReadingSessionId",
     "ReadingSnapshot",
+    "ReadingAudioController",
     "ScanSessionId",
     "ScanSessionRef",
     "ScanSessionStatus",

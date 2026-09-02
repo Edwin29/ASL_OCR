@@ -222,14 +222,18 @@ class FakeReadingSessionPort:
         return ReadingSnapshot(
             ReadingSessionId(f"reading-{len(self.open_calls)}"),
             datapack_id,
-            (("page_index", 3), ("node_index", 7)),
+            (("page_index", 3), ("node_index", 7), ("generation", 0)),
             braille_cells=(1, 2, 3),
         )
 
     def get_current(self, reading_session_id: ReadingSessionId) -> ReadingSnapshot:
         self.current_calls.append(reading_session_id)
         datapack_id = self.open_calls[-1][1]
-        return ReadingSnapshot(reading_session_id, datapack_id, (("page_index", 3), ("node_index", 7)))
+        return ReadingSnapshot(
+            reading_session_id,
+            datapack_id,
+            (("page_index", 3), ("node_index", 7), ("generation", 0)),
+        )
 
     def send_command(
         self,
@@ -240,7 +244,11 @@ class FakeReadingSessionPort:
     ) -> ReadingSnapshot:
         self.command_calls.append((reading_session_id, command_id, control, action))
         datapack_id = self.open_calls[-1][1]
-        return ReadingSnapshot(reading_session_id, datapack_id, (("page_index", 3), ("node_index", 8)))
+        return ReadingSnapshot(
+            reading_session_id,
+            datapack_id,
+            (("page_index", 3), ("node_index", 8), ("generation", 1)),
+        )
 
 
 def ready_entry(book_id: str = "book-a", title: str = "교재 A") -> CatalogEntry:

@@ -4,8 +4,11 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import threading
 import uuid
+import wave
+from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable
@@ -33,6 +36,20 @@ from document_parser.server.wire import command_from_wire, result_to_wire
 
 
 CURSOR_VERSION = 1
+_AUDIO_ID_RE = re.compile(r"^[0-9a-f]{32}$")
+_AUDIO_MAX_BYTES = 4 * 1024 * 1024
+_AUDIO_MAX_DURATION_MS = 120_000
+
+
+@dataclass(frozen=True, slots=True)
+class AudioResource:
+    path: Path
+    content_length: int
+    sha256: str
+    duration_ms: int
+    sample_rate: int
+    channels: int
+    sample_width: int
 
 
 class S0ControlPlane:
@@ -464,6 +481,59 @@ class S0ControlPlane:
             )
         return response
 
+    def get_audio_resource(
+        self,
+        reading_session_id: str,
+        audio_id: str,
+    ) -> AudioResource:
+        """Resolve one opaque audio ID inside a reading session's pinned revision."""
+
+        reading_session_id = require_id("reading_session_id", reading_session_id)
+        token = _audio_token(audio_id)
+        now = self._timestamp()
+        with self.store.transaction() as connection:
+            reading = self._reading_session(connection, reading_session_id)
+            revision = connection.execute(
+                """
+                SELECT * FROM datapack_revisions
+                 WHERE datapack_id=? AND revision=? AND status IN ('ready','superseded')
+                """,
+                (reading.datapack_id, reading.revision),
+            ).fetchone()
+            if revision is None:
+                raise S0ConflictError(
+                    "READING_REVISION_UNAVAILABLE", "reading revision is unavailable"
+                )
+            datapack = self._load_datapack(
+                reading.datapack_id,
+                reading.revision,
+                revision["root_relative_path"],
+                revision["manifest_sha256"],
+            )
+            revision_root = (
+                self.store.datapacks_root / Path(revision["root_relative_path"])
+            ).resolve()
+            system_root = (self.store.datapacks_root / "_system").resolve()
+            connection.execute(
+                "UPDATE reading_sessions SET last_seen_at=? WHERE reading_session_id=?",
+                (now, reading_session_id),
+            )
+
+        expected_ref = f"s0-audio:{token}"
+        for entry in datapack.audio_by_text.values():
+            audio_path = entry.get("wav")
+            if not isinstance(audio_path, str):
+                continue
+            path = Path(audio_path).resolve()
+            if not (_path_within(path, revision_root) or _path_within(path, system_root)):
+                raise S0ConflictError(
+                    "AUDIO_PATH_INVALID", "audio path escapes the reading revision"
+                )
+            if self._opaque_audio_ref(str(path), reading_session_id) != expected_ref:
+                continue
+            return _inspect_audio_resource(path)
+        raise S0NotFoundError("AUDIO_RESOURCE_NOT_FOUND", "unknown audio resource")
+
     def invalidate_datapack_cache(self, datapack_id: str) -> None:
         datapack_id = require_id("datapack_id", datapack_id)
         with self._cache_lock:
@@ -649,7 +719,9 @@ class S0ControlPlane:
         )
         audio = wire.get("audio")
         if isinstance(audio, dict) and isinstance(audio.get("audio_ref"), str):
-            audio["audio_ref"] = self._opaque_audio_ref(audio["audio_ref"])
+            audio["audio_ref"] = self._opaque_audio_ref(
+                audio["audio_ref"], reading.reading_session_id
+            )
         return {
             "reading_session_id": reading.reading_session_id,
             "datapack_id": reading.datapack_id,
@@ -660,13 +732,15 @@ class S0ControlPlane:
             "audio": wire["audio"],
         }
 
-    def _opaque_audio_ref(self, audio_path: str) -> str:
+    def _opaque_audio_ref(self, audio_path: str, reading_session_id: str) -> str:
         path = Path(audio_path).resolve()
         try:
             relative = path.relative_to(self.store.datapacks_root)
         except ValueError as exc:
             raise S0ConflictError("AUDIO_PATH_INVALID", "audio path escapes datapacks root") from exc
-        digest = hashlib.sha256(relative.as_posix().encode("utf-8")).hexdigest()[:32]
+        digest = hashlib.sha256(
+            f"{reading_session_id}\0{relative.as_posix()}".encode("utf-8")
+        ).hexdigest()[:32]
         return f"s0-audio:{digest}"
 
     def _touch_device(self, connection, device_id, now):
@@ -906,6 +980,60 @@ def _sha256_file(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1 << 20), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def _audio_token(value: object) -> str:
+    if not isinstance(value, str):
+        raise S0NotFoundError("AUDIO_RESOURCE_NOT_FOUND", "unknown audio resource")
+    token = value.removeprefix("s0-audio:")
+    if _AUDIO_ID_RE.fullmatch(token) is None:
+        raise S0NotFoundError("AUDIO_RESOURCE_NOT_FOUND", "unknown audio resource")
+    return token
+
+
+def _path_within(path: Path, root: Path) -> bool:
+    return path == root or root in path.parents
+
+
+def _inspect_audio_resource(path: Path) -> AudioResource:
+    if not path.is_file():
+        raise S0NotFoundError("AUDIO_RESOURCE_NOT_FOUND", "unknown audio resource")
+    content_length = path.stat().st_size
+    if content_length <= 0 or content_length > _AUDIO_MAX_BYTES:
+        raise S0ConflictError(
+            "AUDIO_RESOURCE_SIZE_INVALID", "audio resource exceeds the supported size"
+        )
+    try:
+        with wave.open(str(path), "rb") as audio:
+            channels = audio.getnchannels()
+            sample_width = audio.getsampwidth()
+            sample_rate = audio.getframerate()
+            frame_count = audio.getnframes()
+    except (OSError, EOFError, wave.Error) as exc:
+        raise S0ConflictError(
+            "AUDIO_RESOURCE_DECODE_FAILED", "audio resource is not a valid WAV"
+        ) from exc
+    duration_ms = round(frame_count * 1000 / sample_rate) if sample_rate > 0 else 0
+    if (
+        channels not in {1, 2}
+        or sample_width != 2
+        or not 8_000 <= sample_rate <= 48_000
+        or frame_count <= 0
+        or duration_ms <= 0
+        or duration_ms > _AUDIO_MAX_DURATION_MS
+    ):
+        raise S0ConflictError(
+            "AUDIO_RESOURCE_FORMAT_INVALID", "audio resource format is unsupported"
+        )
+    return AudioResource(
+        path=path,
+        content_length=content_length,
+        sha256=_sha256_file(path),
+        duration_ms=duration_ms,
+        sample_rate=sample_rate,
+        channels=channels,
+        sample_width=sample_width,
+    )
 
 
 def _canonical_json(value: object) -> str:

@@ -2,7 +2,7 @@
 
 상태: **software implementation 및 자동 회귀 완료 / physical acceptance 대기**
 기준일: 2026-09-01
-승인 패킷: `DEVICE_INTEGRATION_E0_B_LAPTOP_ACCEPTANCE_WORK_PACKET.md`
+승인 패킷: `docs/work-packets/DEVICE_INTEGRATION_E0_B_LAPTOP_ACCEPTANCE_WORK_PACKET.md`
 
 ## 구현 결과
 

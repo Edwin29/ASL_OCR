@@ -1,7 +1,7 @@
 # Device Integration E0-B.4-D 구현 보고서
 
 작성일: 2026-09-02
-작업 패킷: `DEVICE_INTEGRATION_E0_B_4_D_DESKTOP_LOOPBACK_ACCEPTANCE_HARNESS_WORK_PACKET.md`
+작업 패킷: `docs/work-packets/DEVICE_INTEGRATION_E0_B_4_D_DESKTOP_LOOPBACK_ACCEPTANCE_HARNESS_WORK_PACKET.md`
 상태: **구현·local 전체 회귀·prepared Desktop loopback 실증 완료**
 
 ## 결과

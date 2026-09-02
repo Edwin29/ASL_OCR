@@ -372,7 +372,7 @@ candidate stable
 - `device-runtime/tests/unit/test_replay_boundary_report.py`
 - `device-runtime/docs/device-integration-e0b-laptop.md`
 - `LAPTOP_E0B_QUICKSTART.md`
-- `DEVICE_INTEGRATION_E0_B_3_REPLAY_BOUNDARY_VERIFICATION_WORK_PACKET.md`
+- `docs/work-packets/DEVICE_INTEGRATION_E0_B_3_REPLAY_BOUNDARY_VERIFICATION_WORK_PACKET.md`
 - `DEVICE_INTEGRATION_E0_B_3_VERIFICATION_REPORT.md`
 - `PROJECT_HANDOFF_20260831.md`
 

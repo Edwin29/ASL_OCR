@@ -267,7 +267,67 @@ console log, Server 2/4/0 evidence와 schema v2 boundary report를 저장한다.
 이 결과는 `environment=desktop_loopback`인 rehearsal 증거다. 실제 Laptop↔Tailscale host/network 경계,
 camera, STM/HC-05와 speaker를 통과했다는 증거는 아니며, E0-B.4-L과 Physical E0-B는 별도로 남는다.
 
-## 8. 종료와 fallback
+## 8. Desktop audio transport와 직접 청취
+
+`reading_snapshot.audio_ref`가 실제 WAV로 해석되고 Desktop 기본 출력장치로 재생되는지는 별도 도구로
+검증한다. 먼저 소리를 내지 않는 자동 검사만 실행할 수 있다.
+
+```bat
+tools\windows\e0b-desktop-audio-transport-acceptance.bat D:\ASL_OCR_E0B --no-playback
+```
+
+정상 결과는 `automated_transport_status=passed`, `status=manual_pending`이다. 실제 청취까지 수행하려면
+Windows 설정에서 시연할 스피커·이어폰을 기본 출력장치로 선택하고 음량을 20~30%로 낮춘 뒤 다음을
+실행한다.
+
+```bat
+tools\windows\e0b-desktop-audio-transport-acceptance.bat D:\ASL_OCR_E0B
+```
+
+기대 순서는 다음과 같다.
+
+1. 짧은 beep
+2. 낮은 짧은 tone
+3. 약 0.4초 뒤 높은 짧은 tone
+
+도구가 묻는 beep·저음·고음·음높이 구분에 모두 `yes`로 답한 뒤에만 `heard`를 입력한다. 장치나 음량을 바꾸고 다시 재생하려면
+`retry`, 하나라도 들리지 않으면 `not-heard`를 입력한다. 재생은 WAV bytes를 메모리에서 수행하며
+Device 쪽 영구 WAV 파일을 만들지 않는다. 기본 evidence는
+`tmp\e0b-audio-runs\<run-id>\evidence`에 저장된다.
+
+SAPI는 이 acceptance에서 제외됐다. 실제 Piper 한국어 합성·전송·청취는 다음 명령으로 별도 검증한다.
+
+```bat
+tools\windows\e0b-desktop-piper-transport-acceptance.bat D:\ASL_OCR_E0B
+```
+
+`--no-playback`을 붙이면 실제 Piper 합성과 인증 transport만 자동 확인하고 `manual_pending`으로 남긴다.
+수동 모드는 두 고정 한국어 문장이 들리고 문구와 순서가 이해됐는지 구성요소별로 묻는다. 이 고정 문장
+검증은 production Piper 경로 증거지만 전체 수학·표 발화 품질 평가는 아니다. reading navigation과
+재생 generation 결합·이전 재생 중단, Raspberry Pi ALSA/PipeWire backend는 후속 패킷이다.
+
+## 9. Device Runtime 통합 reading audio
+
+Device Runtime의 실제 reading audio 다운로드·RAM cache·navigation 중단을 포함한 Desktop 통합 검증은
+저장소 루트에서 다음 명령으로 실행한다.
+
+```bat
+tools\windows\e0b-device-audio-playback-acceptance.bat D:\ASL_OCR_E0B --no-playback
+```
+
+`--no-playback`은 실제 Piper 합성, S0 인증 다운로드, generation `[0,1,2,3,4]`, 중단 2회, cache hit와
+client WAV 파일 0을 자동 검증하고 `manual_pending`으로 남긴다. 실제 기본 출력장치를 검증할 때는 옵션을
+제거한다. 첫 페이지 음성을 끝까지 들은 뒤 두 번째 페이지 음성이 재생 중 중단되고, 첫 페이지 cache
+재방문과 빠른 연속 이동 후 최신 음성만 남는지 확인해 각 질문에 `yes`, 마지막에 `heard`를 입력한다.
+
+```bat
+tools\windows\e0b-device-audio-playback-acceptance.bat D:\ASL_OCR_E0B
+```
+
+이 도구는 `D:\venvs\gpu_ocr_test` 또는 `E0B_PIPER_PYTHON`이 가리키는 환경에 `piper-tts`와 실제 재생용
+`sounddevice`가 필요하다. SAPI fallback이나 client WAV 영구 저장은 사용하지 않는다.
+
+## 10. 종료와 fallback
 
 Desktop에서 Server terminal을 `Ctrl+C`로 종료한다. Serve 설정도 지우려면 다음을 실행한다.
 

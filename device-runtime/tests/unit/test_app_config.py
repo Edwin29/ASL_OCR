@@ -61,6 +61,7 @@ def test_app_config_resolves_paths_from_config_directory(tmp_path: Path) -> None
     assert config.scanner.replay_path == (tmp_path / "inputs/sample.mp4").resolve()
     assert config.poll_interval_ms == 25
     assert config.scanner.opaque_identity_max_collection_ms is None
+    assert not config.reading_audio.enabled
 
 
 def test_replay_config_accepts_bounded_opaque_identity_collection_timeout(
@@ -164,6 +165,46 @@ cell_count = 10''',
     path.write_text(text, encoding="utf-8")
 
     with pytest.raises(ValueError, match="viewport_size"):
+        DeviceAppConfig.from_toml(path)
+
+
+def test_app_config_loads_bounded_reading_audio_settings(tmp_path: Path) -> None:
+    path = _write_config(tmp_path)
+    text = path.read_text(encoding="utf-8").replace(
+        '[local_io]\nfeedback = "jsonl"',
+        '''[local_io]
+feedback = "jsonl"
+
+[local_io.reading_audio]
+enabled = true
+max_resource_bytes = 1048576
+max_cache_bytes = 2097152
+max_cache_entries = 2
+download_chunk_bytes = 32768
+request_timeout_seconds = 5.0''',
+    )
+    path.write_text(text, encoding="utf-8")
+
+    config = DeviceAppConfig.from_toml(path)
+
+    assert config.reading_audio.enabled
+    assert config.reading_audio.max_cache_entries == 2
+    assert config.reading_audio.download_chunk_bytes == 32768
+
+
+def test_app_config_rejects_reading_audio_above_hard_ceiling(tmp_path: Path) -> None:
+    path = _write_config(tmp_path)
+    text = path.read_text(encoding="utf-8").replace(
+        '[local_io]\nfeedback = "jsonl"',
+        '''[local_io]
+feedback = "jsonl"
+
+[local_io.reading_audio]
+max_resource_bytes = 4194305''',
+    )
+    path.write_text(text, encoding="utf-8")
+
+    with pytest.raises(ValueError, match="max_resource_bytes"):
         DeviceAppConfig.from_toml(path)
 
 

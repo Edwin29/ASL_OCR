@@ -7,6 +7,7 @@ from pathlib import Path
 from document_parser.datapack.ingest import build_datapack
 from document_parser.serialization.vl_page_ir import build_document_ir_from_vl
 from document_parser.server.s0_domain import S0ConflictError
+from document_parser.server.s0_domain import S0NotFoundError
 from document_parser.server.s0_services import S0ControlPlane
 from document_parser.server.s0_store import S0Store
 
@@ -157,6 +158,71 @@ class S0ControlPlaneTests(unittest.TestCase):
 
             with self.assertRaisesRegex(S0ConflictError, "different request"):
                 restarted.send_reading_command(session_id, "command-1", "PAGE_PREVIOUS", "SHORT")
+
+    def test_audio_resource_is_session_scoped_and_restart_safe(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            write_book(root / "datapacks", "book_a")
+            write_book(root / "datapacks", "book_b")
+            service = self.make_control_plane(root)
+            service.bootstrap_existing_datapacks()
+            opened_a = service.open_reading("device-1", "book_a", 20, "reading-open-a")
+            opened_b = service.open_reading("device-1", "book_b", 20, "reading-open-b")
+            audio_ref = opened_a["audio"]["audio_ref"]
+
+            first = service.get_audio_resource(opened_a["reading_session_id"], audio_ref)
+            restarted = self.make_control_plane(root)
+            replayed = restarted.get_audio_resource(
+                opened_a["reading_session_id"], audio_ref.removeprefix("s0-audio:")
+            )
+
+            self.assertEqual(first.sha256, replayed.sha256)
+            self.assertEqual(first.content_length, replayed.content_length)
+            self.assertEqual(first.sample_rate, 16000)
+            self.assertEqual(first.sample_width, 2)
+            self.assertTrue(first.path.is_file())
+            with self.assertRaisesRegex(S0NotFoundError, "unknown audio resource"):
+                restarted.get_audio_resource(opened_b["reading_session_id"], audio_ref)
+
+    def test_audio_resource_rejects_cross_revision_path(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            datapacks = root / "datapacks"
+            write_book(datapacks, "book_a")
+            write_book(datapacks, "book_b")
+            book_b_index = json.loads((datapacks / "book_b/audio_index.json").read_text(encoding="utf-8"))
+            foreign_wav = next(iter(book_b_index["utterances"].values()))["wav"]
+            book_a_index_path = datapacks / "book_a/audio_index.json"
+            book_a_index = json.loads(book_a_index_path.read_text(encoding="utf-8"))
+            first_key = next(iter(book_a_index["utterances"]))
+            book_a_index["utterances"][first_key]["wav"] = f"../book_b/{foreign_wav}"
+            book_a_index_path.write_text(json.dumps(book_a_index), encoding="utf-8")
+            service = self.make_control_plane(root)
+            service.bootstrap_existing_datapacks()
+            opened = service.open_reading("device-1", "book_a", 20, "reading-open-a")
+
+            with self.assertRaisesRegex(S0ConflictError, "escapes the reading revision"):
+                service.get_audio_resource(
+                    opened["reading_session_id"], opened["audio"]["audio_ref"]
+                )
+
+    def test_audio_resource_rejects_oversized_wav(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            datapacks = root / "datapacks"
+            write_book(datapacks, "book_a")
+            index = json.loads((datapacks / "book_a/audio_index.json").read_text(encoding="utf-8"))
+            first_entry = next(iter(index["utterances"].values()))
+            wav_path = datapacks / "book_a" / first_entry["wav"]
+            wav_path.write_bytes(wav_path.read_bytes() + b"x" * (4 * 1024 * 1024))
+            service = self.make_control_plane(root)
+            service.bootstrap_existing_datapacks()
+            opened = service.open_reading("device-1", "book_a", 20, "reading-open-a")
+
+            with self.assertRaisesRegex(S0ConflictError, "exceeds the supported size"):
+                service.get_audio_resource(
+                    opened["reading_session_id"], opened["audio"]["audio_ref"]
+                )
 
     def test_invalid_legacy_directory_is_not_imported_as_ready(self):
         with tempfile.TemporaryDirectory() as temp_dir:

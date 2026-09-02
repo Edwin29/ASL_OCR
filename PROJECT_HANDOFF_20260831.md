@@ -312,7 +312,7 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 - `document-parser/src/document_parser/server/v4_multipart.py`
 - `document-parser/src/document_parser/server/v4_upload.py`
 - `document-parser/docs/server-v4.md`
-- `SERVER_V4_DURABLE_BUNDLE_UPLOAD_PROTOCOL_WORK_PACKET.md`
+- `docs/work-packets/SERVER_V4_DURABLE_BUNDLE_UPLOAD_PROTOCOL_WORK_PACKET.md`
 - `SERVER_V4_IMPLEMENTATION_REPORT.md`
 
 ### 5.7 Scanner V3-B single-sender durable outbox
@@ -332,7 +332,7 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 - `device-runtime/src/asl_device/delivery_store.py`
 - `device-runtime/src/asl_device/adapters/http_v4.py`
 - `device-runtime/docs/device-delivery-v3b.md`
-- `SCANNER_V3_B_DURABLE_OUTBOX_SENDER_WORK_PACKET.md`
+- `docs/work-packets/SCANNER_V3_B_DURABLE_OUTBOX_SENDER_WORK_PACKET.md`
 - `SCANNER_V3_B_IMPLEMENTATION_REPORT.md`
 
 ### 5.8 Device Integration E0-Core local composition
@@ -354,7 +354,7 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 - `device-runtime/src/asl_device/__main__.py`
 - `book-scanner/src/book_scanner/video/runtime_composition.py`
 - `device-runtime/docs/device-integration-e0-core.md`
-- `DEVICE_INTEGRATION_E0_CORE_LOCAL_COMPOSITION_WORK_PACKET.md`
+- `docs/work-packets/DEVICE_INTEGRATION_E0_CORE_LOCAL_COMPOSITION_WORK_PACKET.md`
 - `DEVICE_INTEGRATION_E0_CORE_IMPLEMENTATION_REPORT.md`
 
 ### 5.9 Device Integration E0-B — Laptop Acceptance
@@ -385,7 +385,7 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 - `tools/windows/e0b-laptop-run.bat`
 - `LAPTOP_E0B_QUICKSTART.md`
 - `document-parser/src/document_parser/server/e0b_bench_server.py`
-- `DEVICE_INTEGRATION_E0_B_LAPTOP_ACCEPTANCE_WORK_PACKET.md`
+- `docs/work-packets/DEVICE_INTEGRATION_E0_B_LAPTOP_ACCEPTANCE_WORK_PACKET.md`
 - `DEVICE_INTEGRATION_E0_B_IMPLEMENTATION_REPORT.md`
 
 ### 5.10 Device Integration E0-B.1 — Tailscale fixed endpoint + replay acceptance
@@ -402,7 +402,7 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 
 주요 문서와 코드:
 
-- `DEVICE_INTEGRATION_E0_B_1_TAILSCALE_REPLAY_ACCEPTANCE_WORK_PACKET.md`
+- `docs/work-packets/DEVICE_INTEGRATION_E0_B_1_TAILSCALE_REPLAY_ACCEPTANCE_WORK_PACKET.md`
 - `DEVICE_INTEGRATION_E0_B_1_IMPLEMENTATION_REPORT.md`
 - `device-runtime/device-app.e0b.replay.example.toml`
 - `device-runtime/src/asl_device/adapters/local_feedback.py`
@@ -423,7 +423,7 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 
 주요 문서와 코드:
 
-- `DEVICE_INTEGRATION_E0_B_2_REPLAY_COMPLETION_REPAIR_WORK_PACKET.md`
+- `docs/work-packets/DEVICE_INTEGRATION_E0_B_2_REPLAY_COMPLETION_REPAIR_WORK_PACKET.md`
 - `DEVICE_INTEGRATION_E0_B_2_IMPLEMENTATION_REPORT.md`
 - `device-runtime/src/asl_device/app_config.py`
 - `device-runtime/src/asl_device/adapters/book_scanner_runtime.py`
@@ -441,7 +441,7 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 
 주요 문서와 코드:
 
-- `DEVICE_INTEGRATION_E0_B_3_REPLAY_BOUNDARY_VERIFICATION_WORK_PACKET.md`
+- `docs/work-packets/DEVICE_INTEGRATION_E0_B_3_REPLAY_BOUNDARY_VERIFICATION_WORK_PACKET.md`
 - `DEVICE_INTEGRATION_E0_B_3_VERIFICATION_REPORT.md`
 - `book-scanner/src/book_scanner/video/engine.py`
 - `device-runtime/src/asl_device/adapters/book_scanner_runtime.py`
@@ -459,7 +459,7 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 
 주요 문서와 코드:
 
-- `DEVICE_INTEGRATION_E0_B_3_1_CONSOLE_IDEMPOTENCY_NAMESPACE_REPAIR_WORK_PACKET.md`
+- `docs/work-packets/DEVICE_INTEGRATION_E0_B_3_1_CONSOLE_IDEMPOTENCY_NAMESPACE_REPAIR_WORK_PACKET.md`
 - `DEVICE_INTEGRATION_E0_B_3_1_IMPLEMENTATION_REPORT.md`
 - `device-runtime/src/asl_device/adapters/local_controls.py`
 - `device-runtime/src/asl_device/local_composition.py`
@@ -480,7 +480,7 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 
 주요 문서와 코드:
 
-- `DEVICE_INTEGRATION_E0_B_3_2_IDENTITY_ROLE_REPORT_CONTRACT_CORRECTION_WORK_PACKET.md`
+- `docs/work-packets/DEVICE_INTEGRATION_E0_B_3_2_IDENTITY_ROLE_REPORT_CONTRACT_CORRECTION_WORK_PACKET.md`
 - `DEVICE_INTEGRATION_E0_B_3_2_IMPLEMENTATION_REPORT.md`
 - `DEVICE_INTEGRATION_E0_B_3_VERIFICATION_REPORT.md`
 - `book-scanner/src/book_scanner/video/events.py`
@@ -506,7 +506,7 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 
 주요 문서와 코드:
 
-- `DEVICE_INTEGRATION_E0_B_3_3_ACK_CALLBACK_DIAGNOSTIC_FORWARDING_WORK_PACKET.md`
+- `docs/work-packets/DEVICE_INTEGRATION_E0_B_3_3_ACK_CALLBACK_DIAGNOSTIC_FORWARDING_WORK_PACKET.md`
 - `DEVICE_INTEGRATION_E0_B_3_3_IMPLEMENTATION_REPORT.md`
 - `DEVICE_INTEGRATION_E0_B_3_VERIFICATION_REPORT.md`
 - `device-runtime/src/asl_device/protocols.py`
@@ -525,26 +525,90 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 - UTF-8 no-BOM console log, Server raw/2/4/0 evidence, schema v2 report와 secret-safe manifest 생성
 - work/evidence 경로 중첩을 거부해 API key가 evidence bundle에 들어가지 않음
 - E0-B.4-D unit 8 passed; Device 120 passed; Book Scanner 299 passed; Document Parser 602 passed, 4 skipped
-- 현재 개발 Desktop에는 prepared MP4/model/source root가 없어 실제 실행은 precondition exit 1에서 안전 중단
+- 이후 `D:\ASL_OCR_E0B` prepared root로 actual loopback을 실행해 scan
+  `scan-683a89c81cd644fb9a3193c010645430`, boundary passed, spread `[1,2]`, Server 2/4/0과
+  revision 1·4페이지·역방향 reading을 확인
 - `desktop_loopback`은 실제 Laptop/Tailscale 또는 physical acceptance가 아니며 E0-B.4-L을 대체하지 않음
 
 주요 문서와 코드:
 
-- `DEVICE_INTEGRATION_E0_B_4_D_DESKTOP_LOOPBACK_ACCEPTANCE_HARNESS_WORK_PACKET.md`
+- `docs/work-packets/DEVICE_INTEGRATION_E0_B_4_D_DESKTOP_LOOPBACK_ACCEPTANCE_HARNESS_WORK_PACKET.md`
 - `DEVICE_INTEGRATION_E0_B_4_D_IMPLEMENTATION_REPORT.md`
 - `tools/windows/e0b-desktop-loopback-acceptance.bat`
 - `device-runtime/src/asl_device/desktop_loopback_acceptance.py`
 - `device-runtime/tests/unit/test_desktop_loopback_acceptance.py`
 
+### 5.17 Device Integration E0-B.4-D.1 — Desktop audio transport
+
+- 기존 `s0-audio:<opaque-id>` 형식을 유지한 authenticated reading-session audio GET 경계 추가
+- opaque ID를 reading session에 namespace해 다른 session에서의 재사용을 404로 거부
+- exact published revision와 `_system` pool 경로 containment, PCM/byte/duration bounds 검증
+- `Content-Length`, SHA-256 ETag, private cache, nosniff와 1 KiB chunk consume 검증
+- E0-B Bench WAV를 16 kHz mono 500 ms의 결정론적 440/880 Hz 비무음 tone으로 교체
+- Windows beep와 WAV memory playback, 구성요소별 `yes/no` 및 `heard/not-heard/retry` 수동 판정 도구 추가
+- 실제 `D:\ASL_OCR_E0B --no-playback` 실행에서 2 stream, 401/404/session isolation, non-silence,
+  distinct hashes, 16 chunks와 persistent client WAV 0 확인
+- SAPI는 실제 Piper reading 경로가 아니므로 사용자 결정에 따라 후보와 성공 조건에서 제외
+- 현재 automated transport는 passed이고, 개정된 구성요소별 Desktop 청취는 `manual_pending`
+- 신규 unit/actual HTTP 8 passed; Device 126 passed; Document Parser 607 passed, 4 skipped;
+  E0-B.4-D actual loopback passed
+
+주요 문서와 코드:
+
+- `docs/work-packets/DEVICE_INTEGRATION_E0_B_4_D_1_DESKTOP_AUDIO_TRANSPORT_WORK_PACKET.md`
+- `DEVICE_INTEGRATION_E0_B_4_D_1_IMPLEMENTATION_REPORT.md`
+- `tools/windows/e0b-desktop-audio-transport-acceptance.bat`
+- `device-runtime/src/asl_device/desktop_audio_transport_acceptance.py`
+- `document-parser/src/document_parser/server/s0_http.py`
+
+### 5.18 Device Integration E0-B.4-D.2 — Piper audio validation
+
+- SAPI를 현재 후보와 성공 조건에서 제외하고 실제 `ko_KR-kss-medium` Piper voice를 우선 검증
+- 기존 production Piper loader와 datapack synthesis 경로로 고정 한국어 두 문장 합성
+- 실제 S0 reading session/audio GET을 통한 1 KiB chunk transport와 client persistent WAV 0 확인
+- model/config SHA-256, 22.05 kHz mono 16-bit WAV, non-silence/distinct hash, 401/404/session isolation 통과
+- `D:\ASL_OCR_E0B` 실제 실행은 automated transport `passed`, manual `heard`, 최종 `passed`
+- 1회 시도에서 beep, 두 Piper 문장의 audible/intelligible, 순서 확인 6개 항목 모두 true
+- 실제 청취 evidence: `tmp/e0b-audio-runs/e0b-audio-transport-20260902T081854Z-c6d953fa/evidence`
+- 실제 Piper adapter/model 비재생 integration 5 passed; Desktop component decision unit 8 passed
+
+주요 문서와 코드:
+
+- `docs/work-packets/DEVICE_INTEGRATION_E0_B_4_D_2_PIPER_AUDIO_VALIDATION_WORK_PACKET.md`
+- `DEVICE_INTEGRATION_E0_B_4_D_2_IMPLEMENTATION_REPORT.md`
+- `tools/windows/e0b-desktop-piper-transport-acceptance.bat`
+- `device-runtime/src/asl_device/desktop_piper_transport_acceptance.py`
+
+### 5.19 Device Integration E0-B.4-D.3 — Device audio playback contract
+
+- Device Runtime reading snapshot의 `audio_ref`를 S0 session-scoped API에서 자동 인증 다운로드
+- PCM WAV를 디스크에 저장하지 않고 `sounddevice.RawOutputStream`으로 기본 출력장치에 재생
+- navigation intent를 Coordinator 처리 전에 interrupt하고 단일 worker/epoch로 stale generation 억제
+- resource 4 MiB, RAM LRU 8 MiB/4개, 단일 in-flight와 64 KiB chunk hard bound 적용
+- 실제 Piper/S0 자동 통합 acceptance는 generation `[0,1,2,3,4]`, fetch 2, cache hit 3, interrupt 2,
+  failure 0, client WAV 0으로 통과
+- 실제 통합 청취는 사용자가 별도 명령으로 확인해야 하므로 현재 `manual_pending`
+
+주요 문서와 코드:
+
+- `docs/work-packets/DEVICE_INTEGRATION_E0_B_4_D_3_DEVICE_AUDIO_PLAYBACK_CONTRACT_WORK_PACKET.md`
+- `DEVICE_INTEGRATION_E0_B_4_D_3_IMPLEMENTATION_REPORT.md`
+- `device-runtime/src/asl_device/reading_audio.py`
+- `device-runtime/src/asl_device/adapters/reading_audio.py`
+- `tools/windows/e0b-device-audio-playback-acceptance.bat`
+
 ## 6. 최신 검증 기준선
 
-2026-09-02 E0-B.3.3 ACK callback diagnostic 전달 완료 시점의 최신 전체 결과:
+2026-09-02 E0-B.4-D.3 Device audio 자동 통합 검증 완료 시점의 최신 전체 결과:
 
 | 범위 | 결과 |
 |---|---:|
 | Book Scanner 전체 | 299 passed |
-| Device Runtime + actual E0-Core integration | 120 passed |
-| Document Parser 전체 | 602 passed, 4 skipped |
+| Device Runtime + reading audio controller/adapters | 145 passed |
+| E0-B.4-D.3 actual Piper/S0/Device 자동 통합 | passed, manual listening pending |
+| Document Parser 전체 | 578 passed, 4 skipped |
+| Desktop audio transport 신규 unit/actual HTTP | 8 passed |
+| E0-B.4-D actual loopback | passed |
 | E0-B.4-D loopback harness unit | 8 passed |
 | E0-B.3.3 Device adapter/Coordinator/report 집중 | 37 passed |
 | E0-B.3.2 role/events 집중 | 14 passed |
@@ -605,14 +669,16 @@ idempotency namespace 교정도 완료됐다. E0-B.3.1 이후 full log는 candid
 monitoring이 같은 identity event family를 사용한다는 사실을 드러냈고, E0-B.3.2에서 explicit role과
 report schema v2로 교정했다. E0-B.3.2 실제 Laptop 로그는 role 분리와 runtime 성공을 확인했지만 ACK
 callback의 page-change start diagnostic이 Device feedback에서 유실되는 경계도 드러냈다. E0-B.3.3에서
-callback forwarding을 local 구현·회귀했다. E0-B.4-D에서 이 흐름의 Desktop loopback 자동화와 증거
-생성을 구현했고 전체 회귀를 통과했지만, 현재 개발 Desktop에는 prepared MP4/model root가 없어 실제
-loopback `passed` 실행은 입력 대기다. 다음 원격 단계는 **Laptop에 E0-B.3.3 revision을 반영하고 새
-datapack ID를 확인한 뒤 동일 prepared MP4의 role-complete transcript와 Server summary 2/4/0을 재수집해
-final report를 만드는 E0-B.4-L actual evidence closure**다. 그 뒤 같은 fixed endpoint에서
-camera/STM/speaker physical
-E0-B를 진행한다. 같은 LAN과 유료 domain은 요구하지 않는다. Production tunnel policy/service와
-exhaustive WAN fault 검증은 후속 Network Hardening으로 분리한다.
+callback forwarding을 local 구현·회귀했다. E0-B.4-D Desktop loopback은 실제 prepared root에서도
+boundary passed와 Server 2/4/0을 확인했다. E0-B.4-D.1은 인증된 session-scoped WAV transport,
+비무음 Bench tone과 Desktop memory playback 도구를 구현했고 자동 검증까지 통과했다. SAPI는 실제 Piper
+reading 경로가 아니므로 후보에서 제외했다. E0-B.4-D.2는 실제 `ko_KR-kss-medium` 고정 한국어 두 문장의
+합성·인증 전송과 Desktop 실제 청취를 모두 통과했다. E0-B.4-D.3은 Device Runtime reading generation과
+fetch/playback·이전 재생 취소, bounded RAM cache를 결합했고 실제 Piper/S0 자동 통합까지 통과했다. 실제
+통합 navigation 청취는 `manual_pending`이다. 원격 증거 경로에서는 Laptop에 최신 revision을 반영하고 동일 prepared MP4의 role-complete
+transcript와 Server 2/4/0을 결합하는 E0-B.4-L closure가 남는다. 그 뒤 fixed endpoint에서
+camera/STM/speaker physical E0-B를 진행한다. 같은 LAN과 유료 domain은 요구하지 않는다. Production
+tunnel policy/service와 exhaustive WAN fault 검증은 후속 Network Hardening으로 분리한다.
 
 Cloudflare Desktop 준비 smoke는 완료됐다. `D:\Tools\cloudflared.exe` 2026.8.3과 Windows batch wrapper로
 bench Server local health 및 Quick Tunnel public HTTPS health가 모두 HTTP 200임을 확인한 뒤 process와
@@ -677,6 +743,10 @@ Device Integration E0-Core: development desktop local composition + deterministi
   -> E0-B.3.1: console process namespace repair + fresh datapack 실제 확인
   -> E0-B.3.2: candidate/page-change explicit role + report schema v2 local 교정
   -> E0-B.3.3: ACK callback page-change start diagnostic forwarding local 교정
+  -> E0-B.4-D: prepared root Desktop actual loopback passed
+  -> E0-B.4-D.1: authenticated tone transport 자동 검증 passed / 개정 청취 pending
+  -> E0-B.4-D.2: 실제 Piper 한국어 합성·전송·Desktop 청취 passed
+  -> Device Audio Playback Contract: reading generation 일치 + 이전 재생 취소
   -> E0-B.4-L: role-aware Laptop transcript + Server 2/4/0 final evidence closure
   -> Device Integration E0-B — Laptop Acceptance: real camera + STM + beep/TTS
   -> Network Hardening: production tunnel policy/service + exhaustive WAN fault
@@ -692,6 +762,8 @@ Device Integration E0-Core: development desktop local composition + deterministi
 - 실제 camera/UVDoc/Paddle asset을 사용한 Device application smoke run은 없다.
 - V3-B restart 보장은 queue commit 이후 adapter 재생성 범위다. 전체 Coordinator active scan과
   queue 전 orphan artifact를 자동 복원하지 않는다.
+- 실제 Piper Desktop 청취는 통과했으나,
+  Device reading generation과 playback cancellation도 아직 결합하지 않았다.
 - 저장 완료 TTS/beep와 STM serial adapter는 있으나 실제 speaker/board에서 검증하지 않았다.
 - remote HTTPS profile과 tunnel runbook은 있으나 실제 external tunnel/Laptop Internet E2E 증거는 없다.
 - Windows 자동 시작과 Raspberry Pi systemd/network-online 이식은 없다.
@@ -717,10 +789,12 @@ Tailscale Serve smoke와
 Server 2 spreads/4 fragments/duplicate 0도 확인했다. 실제 full log는 candidate verification과
 page-change monitoring이 같은 event family를 사용함을 확인했고, 314/315 4/5 hard reject와 318 1/5 EOF
 필수 가설은 철회했다. E0-B.3.2 실제 role-aware 로그에서 ACK 뒤 page-change start feedback 유실을
-확인했고 E0-B.3.3에서 callback forwarding을 교정했다. 현재 다음 우선순위는 Laptop에 E0-B.3.3
-revision을 반영하고 새 datapack ID를 확인한 뒤 동일 prepared MP4의 role-complete transcript와 Server
-2/4/0 summary를 보존해 schema v2 report `passed`를 만드는 E0-B.4-L이다. 그 다음 camera/STM/speaker
-physical E0-B를 진행한다.
+확인했고 E0-B.3.3에서 callback forwarding을 교정했다. E0-B.4-D actual Desktop loopback,
+E0-B.4-D.1 authenticated WAV transport와 E0-B.4-D.2 실제 Piper 한국어 합성·전송·Desktop 청취도
+통과했다. SAPI는 현재 후보에서 제외됐다. 다음 구현 패킷은 Device reading generation과
+fetch/playback/이전 재생 취소를 묶는 Device Audio
+Playback Contract다. 원격 경로에서는 최신 revision의 role-complete Laptop transcript와 Server 2/4/0을
+결합하는 E0-B.4-L이 남으며, 그 다음 camera/STM/speaker physical E0-B를 진행한다.
 같은 LAN과 유료 domain은 요구하지 않는다. Production tunnel/network hardening을 같은 패킷의 선행
 조건으로 묶지 마라. 실제로 검증하지 않은 Laptop remote flow와 Raspberry Pi 동작을 완료로 처리하지
 마라.

@@ -2,7 +2,7 @@
 
 상태: **구현 및 로컬 회귀 검증 완료**  
 기준일: 2026-08-31  
-승인 패킷: `SERVER_S1_INCREMENTAL_FRAGMENT_APPEND_PUBLISH_WORK_PACKET.md`
+승인 패킷: `docs/work-packets/SERVER_S1_INCREMENTAL_FRAGMENT_APPEND_PUBLISH_WORK_PACKET.md`
 
 ## 1. 구현 결과
 

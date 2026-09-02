@@ -57,6 +57,12 @@ class FeedbackCode(str, Enum):
     SERVER_AUTH_FAILED = "server_auth_failed"
     PARSER_REJECTED = "parser_rejected"
     READING_RESUMED = "reading_resumed"
+    READING_AUDIO_FETCH_STARTED = "reading_audio_fetch_started"
+    READING_AUDIO_CACHE_HIT = "reading_audio_cache_hit"
+    READING_AUDIO_PLAYBACK_STARTED = "reading_audio_playback_started"
+    READING_AUDIO_INTERRUPTED = "reading_audio_interrupted"
+    READING_AUDIO_PLAYBACK_COMPLETED = "reading_audio_playback_completed"
+    READING_AUDIO_FAILED = "reading_audio_failed"
 
 
 @dataclass(frozen=True, slots=True)

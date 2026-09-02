@@ -50,7 +50,7 @@ def test_reading_open_and_command_map_wire_response():
     snapshot = {
         "reading_session_id": "reading-1",
         "datapack_id": "book-a",
-        "cursor": {"page_index": 2, "node_index": 4, "table_row": None},
+        "cursor": {"page_index": 2, "node_index": 4, "table_row": None, "generation": 0},
         "braille_frame": {"cells": [1, 2, 3]},
         "audio": {"audio_ref": "s0-audio:abc"},
     }
@@ -68,7 +68,12 @@ def test_reading_open_and_command_map_wire_response():
 
     assert opened.braille_cells == (1, 2, 3)
     assert opened.audio_ref == "s0-audio:abc"
-    assert replay.cursor == (("page_index", 2), ("node_index", 4), ("table_row", None))
+    assert replay.cursor == (
+        ("page_index", 2),
+        ("node_index", 4),
+        ("table_row", None),
+        ("generation", 0),
+    )
     assert transport.calls[0][3]["Idempotency-Key"] == "reading-open-1"
     assert transport.calls[1][2]["button"] == "PAGE_NEXT"
     assert transport.calls[1][2]["command_id"] == "button-event-1"

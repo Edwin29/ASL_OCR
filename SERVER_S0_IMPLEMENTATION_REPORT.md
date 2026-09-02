@@ -1,7 +1,7 @@
 # Server S0 구현 보고서
 
 작성일: 2026-08-31  
-범위: 승인된 `SERVER_S0_PERSISTENT_CONTROL_PLANE_WORK_PACKET.md`의 S0, Server S1/V4 제외
+범위: 승인된 `docs/work-packets/SERVER_S0_PERSISTENT_CONTROL_PLANE_WORK_PACKET.md`의 S0, Server S1/V4 제외
 
 ## 결론
 

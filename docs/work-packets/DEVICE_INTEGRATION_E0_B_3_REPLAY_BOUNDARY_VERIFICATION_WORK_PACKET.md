@@ -10,7 +10,7 @@
 > page-change identity가 같은 event family를 사용한다는 사실을 확인했다. 이 패킷의 314/315 `4/5 +
 > content_occluded` 및 318 `1/5 + EOF` 원인 가설은 실제 runtime 증거로 확정되지 않았으며,
 > 이를 필수로 검사하는 report 계약도 잘못됐다. 역사적 승인 내용은 보존하지만 현재 authority는
-> `DEVICE_INTEGRATION_E0_B_3_2_IDENTITY_ROLE_REPORT_CONTRACT_CORRECTION_WORK_PACKET.md`와 교정된
+> `docs/work-packets/DEVICE_INTEGRATION_E0_B_3_2_IDENTITY_ROLE_REPORT_CONTRACT_CORRECTION_WORK_PACKET.md`와 교정된
 > verification report다. Scanner capture 정책과 exact-video 기대 전송 수 2는 변경하지 않는다.
 
 ## 1. 배경과 실제 관측

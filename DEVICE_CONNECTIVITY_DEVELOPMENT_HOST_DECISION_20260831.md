@@ -4,7 +4,7 @@
 기록일: 2026-08-31  
 영향 범위: Book Scanner, Device Runtime, Server V4, Device Connectivity C0, 최종 Raspberry Pi 이식
 
-구현 패킷: `DEVICE_CONNECTIVITY_C0_STABLE_ENDPOINT_BOOT_HANDSHAKE_PRESENCE_WORK_PACKET.md`
+구현 패킷: `docs/work-packets/DEVICE_CONNECTIVITY_C0_STABLE_ENDPOINT_BOOT_HANDSHAKE_PRESENCE_WORK_PACKET.md`
 
 ## 1. 결정
 

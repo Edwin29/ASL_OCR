@@ -2,7 +2,7 @@
 
 상태: **핵심 local composition 구현 및 회귀 검증 완료**
 기준일: 2026-09-01
-승인 패킷: `DEVICE_INTEGRATION_E0_CORE_LOCAL_COMPOSITION_WORK_PACKET.md`
+승인 패킷: `docs/work-packets/DEVICE_INTEGRATION_E0_CORE_LOCAL_COMPOSITION_WORK_PACKET.md`
 
 ## 1. 구현 결과
 

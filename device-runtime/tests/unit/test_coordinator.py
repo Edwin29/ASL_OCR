@@ -364,7 +364,11 @@ def test_finalize_ready_opens_reading_at_server_cursor() -> None:
     assert reading.open_calls == [
         (DeviceId("device-1"), DatapackId("book-a"), 10, "reading-open:scan-1:2")
     ]
-    assert dict(coordinator.reading_snapshot.cursor) == {"page_index": 3, "node_index": 7}
+    assert dict(coordinator.reading_snapshot.cursor) == {
+        "page_index": 3,
+        "node_index": 7,
+        "generation": 0,
+    }
     assert any(event.event_type is CoordinatorEventType.READING_RESUMED for event in events)
     assert feedback.events[-1].code is FeedbackCode.READING_RESUMED
 

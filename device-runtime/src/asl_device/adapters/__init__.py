@@ -6,10 +6,13 @@ from .http_s0 import (
     S0ReadingHttpAdapter,
     S0ScanHttpAdapter,
 )
+from .reading_audio import S0AudioResourceHttpAdapter, SoundDeviceWavPlayer
 
 __all__ = [
     "S0CatalogHttpAdapter",
     "S0HttpClient",
     "S0ReadingHttpAdapter",
     "S0ScanHttpAdapter",
+    "S0AudioResourceHttpAdapter",
+    "SoundDeviceWavPlayer",
 ]

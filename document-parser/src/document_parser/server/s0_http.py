@@ -18,7 +18,7 @@ def register_routes(
     presence_service: DevicePresenceService | None = None,
     v4_service: Any | None = None,
 ) -> None:
-    from flask import jsonify, request
+    from flask import jsonify, request, send_file
 
     presence = presence_service or DevicePresenceService(control_plane.store)
     server_instance_id = f"server-{uuid.uuid4().hex}"
@@ -254,6 +254,28 @@ def register_routes(
             payload.get("action", "SHORT"),
         )
         return jsonify(response)
+
+    @app.get(
+        "/api/v1/reading-sessions/<reading_session_id>/audio/<audio_id>",
+        endpoint="s0_reading_audio",
+    )
+    @guarded
+    def get_reading_audio(reading_session_id: str, audio_id: str):
+        resource = control_plane.get_audio_resource(reading_session_id, audio_id)
+        response = send_file(
+            resource.path,
+            mimetype="audio/wav",
+            as_attachment=False,
+            download_name="reading-audio.wav",
+            conditional=True,
+            etag=resource.sha256,
+            max_age=60,
+        )
+        response.headers["Cache-Control"] = "private, max-age=60"
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["X-Audio-Duration-Ms"] = str(resource.duration_ms)
+        response.headers["X-Audio-Sample-Rate"] = str(resource.sample_rate)
+        return response
 
 
 def create_app(

@@ -1,7 +1,7 @@
 # Device Integration E0-B.1 구현 보고서
 
 작성일: 2026-09-01
-작업 패킷: `DEVICE_INTEGRATION_E0_B_1_TAILSCALE_REPLAY_ACCEPTANCE_WORK_PACKET.md`
+작업 패킷: `docs/work-packets/DEVICE_INTEGRATION_E0_B_1_TAILSCALE_REPLAY_ACCEPTANCE_WORK_PACKET.md`
 상태: **software implementation, Desktop Tailscale Serve와 실제 Laptop remote replay/upload/reading 성공 /
 E0-B.3 구조화 boundary report 재수집 대기 / physical acceptance 대기**
 

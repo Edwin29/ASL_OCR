@@ -10,11 +10,19 @@ from typing import Protocol
 from .adapters.local_controls import ControlSource
 from .coordinator import DeviceFlowCoordinator
 from .events import CoordinatorEvent
-from .types import DeviceFlowState, DeviceInputEvent
+from .types import DeviceControl, DeviceFlowState, DeviceInputEvent
 
 
 class ReadingPresenter(Protocol):
     def present(self, snapshot) -> None: ...
+
+    def close(self) -> None: ...
+
+
+class ReadingAudioPresenter(Protocol):
+    def present(self, snapshot) -> None: ...
+
+    def interrupt(self) -> None: ...
 
     def close(self) -> None: ...
 
@@ -27,6 +35,7 @@ class DeviceApplication:
         *,
         poll_interval_seconds: float,
         presenter: ReadingPresenter | None = None,
+        audio_presenter: ReadingAudioPresenter | None = None,
         closeables: Iterable[object] = (),
         sleeper: Callable[[float], None] = time.sleep,
     ) -> None:
@@ -36,6 +45,7 @@ class DeviceApplication:
         self.controls = controls
         self.poll_interval_seconds = poll_interval_seconds
         self.presenter = presenter
+        self.audio_presenter = audio_presenter
         self.closeables = tuple(closeables)
         self.sleeper = sleeper
         self._submitted: queue.SimpleQueue[DeviceInputEvent] = queue.SimpleQueue()
@@ -76,6 +86,12 @@ class DeviceApplication:
             raise RuntimeError("Device application is not running")
         events: list[CoordinatorEvent] = []
         for input_event in self._drain_inputs() + self.controls.poll():
+            if (
+                self.audio_presenter is not None
+                and self.coordinator.state is DeviceFlowState.READING
+                and input_event.control is not DeviceControl.LEVER
+            ):
+                self.audio_presenter.interrupt()
             events.extend(self.coordinator.handle_input(input_event))
         events.extend(self.coordinator.poll())
         self._present()
@@ -119,10 +135,12 @@ class DeviceApplication:
     def _present(self) -> None:
         if self.presenter is not None:
             self.presenter.present(self.coordinator.reading_snapshot)
+        if self.audio_presenter is not None:
+            self.audio_presenter.present(self.coordinator.reading_snapshot)
 
     def _close_host_io(self) -> None:
         seen: set[int] = set()
-        for resource in (self.controls, self.presenter, *self.closeables):
+        for resource in (self.controls, self.presenter, self.audio_presenter, *self.closeables):
             if resource is None or id(resource) in seen:
                 continue
             seen.add(id(resource))

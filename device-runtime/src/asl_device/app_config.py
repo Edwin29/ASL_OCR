@@ -125,6 +125,37 @@ class LaptopAudioConfig:
 
 
 @dataclass(frozen=True, slots=True)
+class ReadingAudioConfig:
+    enabled: bool = False
+    backend: str = "sounddevice"
+    max_resource_bytes: int = 4 * 1024 * 1024
+    max_cache_bytes: int = 8 * 1024 * 1024
+    max_cache_entries: int = 4
+    download_chunk_bytes: int = 64 * 1024
+    request_timeout_seconds: float = 10.0
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.enabled, bool):
+            raise TypeError("reading audio enabled must be a boolean")
+        if self.backend != "sounddevice":
+            raise ValueError("reading audio backend must be sounddevice")
+        limits = {
+            "max_resource_bytes": (self.max_resource_bytes, 4 * 1024 * 1024),
+            "max_cache_bytes": (self.max_cache_bytes, 16 * 1024 * 1024),
+            "max_cache_entries": (self.max_cache_entries, 8),
+            "download_chunk_bytes": (self.download_chunk_bytes, 1024 * 1024),
+        }
+        for name, (value, ceiling) in limits.items():
+            if isinstance(value, bool) or not isinstance(value, int) or not 0 < value <= ceiling:
+                raise ValueError(f"reading audio {name} must be in [1, {ceiling}]")
+        if self.max_cache_bytes < self.max_resource_bytes:
+            raise ValueError("reading audio max_cache_bytes must be at least max_resource_bytes")
+        timeout = self.request_timeout_seconds
+        if isinstance(timeout, bool) or not isinstance(timeout, (int, float)) or not 0 < timeout <= 30:
+            raise ValueError("reading audio request_timeout_seconds must be in (0, 30]")
+
+
+@dataclass(frozen=True, slots=True)
 class DeviceAppConfig:
     config_path: Path
     connectivity: DeviceConnectivityConfig
@@ -136,6 +167,7 @@ class DeviceAppConfig:
     feedback_mode: str = "jsonl"
     stm_serial: StmSerialConfig | None = None
     laptop_audio: LaptopAudioConfig = LaptopAudioConfig()
+    reading_audio: ReadingAudioConfig = ReadingAudioConfig()
 
     def __post_init__(self) -> None:
         object.__setattr__(self, "config_path", Path(self.config_path).resolve())
@@ -260,7 +292,11 @@ class DeviceAppConfig:
         local_io = payload.get("local_io", {})
         if not isinstance(local_io, dict):
             raise ValueError("local_io must be a table")
-        _reject_unknown(local_io, {"controls", "feedback", "stm_serial", "windows_audio"}, "local_io")
+        _reject_unknown(
+            local_io,
+            {"controls", "feedback", "stm_serial", "windows_audio", "reading_audio"},
+            "local_io",
+        )
         controls_mode = local_io.get("controls", "console")
         feedback_mode = local_io.get("feedback", "jsonl")
         if not isinstance(controls_mode, str) or not isinstance(feedback_mode, str):
@@ -295,6 +331,22 @@ class DeviceAppConfig:
             {"jsonl_trace", "speak_catalog_titles", "queue_capacity", "powershell_executable"},
             "local_io.windows_audio",
         )
+        reading_audio_payload = local_io.get("reading_audio", {})
+        if not isinstance(reading_audio_payload, dict):
+            raise ValueError("local_io.reading_audio must be a table")
+        _reject_unknown(
+            reading_audio_payload,
+            {
+                "enabled",
+                "backend",
+                "max_resource_bytes",
+                "max_cache_bytes",
+                "max_cache_entries",
+                "download_chunk_bytes",
+                "request_timeout_seconds",
+            },
+            "local_io.reading_audio",
+        )
         return cls(
             config_path=config_path,
             connectivity=connectivity,
@@ -306,6 +358,7 @@ class DeviceAppConfig:
             feedback_mode=feedback_mode,
             stm_serial=stm_serial,
             laptop_audio=LaptopAudioConfig(**audio_payload),
+            reading_audio=ReadingAudioConfig(**reading_audio_payload),
         )
 
 
