@@ -211,7 +211,25 @@ identity_collection_progress identity_role=page_change ...
 page-change decision을 바꾸지 않는다. report schema v2는 explicit start가 있으면 해당 spread와 시작
 frame을 `page_change_checks[]`에 보존하며, E0-B.3.2 progress-only 로그도 계속 읽을 수 있다.
 
-## 5. Physical E0-B setup
+## 5. E0-B.4-D Desktop loopback acceptance
+
+실제 Laptop과 Desktop을 반복 조작하기 어려운 경우, 준비된 replay root를 Desktop에서 읽기 전용 입력으로
+사용해 전체 소프트웨어 경계를 한 명령으로 rehearsal할 수 있다.
+
+```bat
+tools\windows\e0b-desktop-loopback-acceptance.bat D:\ASL_OCR_E0B
+```
+
+Harness는 실행별 loopback Server/SQLite와 Device config/outbox/artifact를 분리하고, JSON event에 따라
+new datapack confirm, EOF 2/2 뒤 seal confirm, reading 4페이지 순회와 역방향 이동을 자동 수행한다.
+출력은 UTF-8 JSONL, Server raw/2/4/0 summary, schema v2 boundary report와 secret-safe manifest다.
+고정 replay의 source cadence는 실제 Laptop 증거와 같은 `sample_interval_ms=100`이며, Scanner의
+candidate/identity threshold와 N/K는 변경하지 않는다.
+
+`desktop_loopback` 결과는 Scanner→V4/S1→reading 소프트웨어 integration 증거지만 실제 Laptop/Tailscale
+network boundary나 물리 장치 증거가 아니다. 실제 원격 증거 closure는 E0-B.4-L로 유지한다.
+
+## 6. Physical E0-B setup
 
 하드웨어를 연결할 수 있게 되면 기존 physical wrapper를 사용한다.
 
@@ -226,7 +244,7 @@ model bundle과 API key를 입력한다. Preflight는 model load, remote health,
 Windows beep/SAPI speech를 독립적으로 검사한다. 실제 Laptop report가 모두 passed이기 전에는 physical
 E0-B를 완료로 표시하지 않는다.
 
-## 6. 범위 경계
+## 7. 범위 경계
 
 이번 경로는 기존 REST/heartbeat/V4 multipart/finalize polling/reading API를 변경하지 않는다.
 SSE/WebSocket, Tailscale Funnel, ACL/auth-key rotation, Windows service 자동 시작, production credential

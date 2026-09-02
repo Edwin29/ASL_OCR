@@ -173,6 +173,7 @@ def test_e0b_replay_example_has_no_physical_input_authority() -> None:
 
     assert payload["scanner"]["profile"] == "replay"
     assert payload["scanner"]["replay_path"] == "inputs/scanner-replay.mp4"
+    assert payload["scanner"]["sample_interval_ms"] == 100
     assert payload["scanner"]["opaque_identity_max_collection_ms"] == 30000
     assert "camera_index" not in payload["scanner"]
     assert payload["local_io"] == {"controls": "console", "feedback": "jsonl"}

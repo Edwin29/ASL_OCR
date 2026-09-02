@@ -20,7 +20,7 @@ uvdoc_device = "auto"
 m1_model_dir = "models/paddle/page-number"
 m1_model_manifest = "models/paddle/page-number-manifest.json"
 replay_path = "inputs/scanner-replay.mp4"
-sample_interval_ms = 500
+sample_interval_ms = 100
 opaque_identity_max_collection_ms = 30000
 
 [local_io]

@@ -128,12 +128,15 @@ COM port와 camera index/width/height/FPS는 replay mode에서 묻지 않고 사
 생성된 replay config에는 Laptop CPU에서 기존 N=5 footer identity 관측을 끝낼 수 있도록
 `opaque_identity_max_collection_ms = 30000`이 명시된다. 이 값은 replay profile에만 적용되며
 physical camera profile의 기본 `1500ms`, N=5와 candidate threshold는 바꾸지 않는다.
+고정 `test1.mp4`의 검증된 source cadence는 `sample_interval_ms = 100`이다. 500ms로 바꾸면 성공
+candidate frame 92/365를 건너뛰므로 같은 acceptance가 아니다.
 
 E0-B.2 이전에 setup한 `D:\ASL_OCR_E0B\device-app.e0b.toml`은 저장소를 pull하는 것만으로 자동
 갱신되지 않는다. 최신 저장소를 받은 뒤 위 setup을 같은 영상/model bundle로 다시 실행하거나,
 해당 config의 `[scanner]`에 다음 한 줄이 있는지 확인한다.
 
 ```toml
+sample_interval_ms = 100
 opaque_identity_max_collection_ms = 30000
 ```
 
@@ -209,12 +212,25 @@ page-change 감시가 시작됐다는 observer event다. 동일 ACK에서 한 �
 `No ccache found`, oneDNN 정보와 Windows의 “제공된 패턴에 해당되는 파일을 찾지 못했습니다” 메시지는
 단독으로는 replay 실패 원인이 아니다.
 
-진단 report가 필요하면 PowerShell transcript로 한 실행의 출력을 보존한다.
+진단 report가 필요하면 UTF-8 no-BOM writer로 한 실행의 출력을 보존한다. Windows PowerShell 5.1의
+`Start-Transcript`는 native/Python child output을 빠뜨릴 수 있고 `Tee-Object`는 UTF-16 LE 파일을 만들 수
+있으므로 E0-B JSONL 증거 수집에 사용하지 않는다.
 
 ```powershell
-Start-Transcript -LiteralPath D:\ASL_OCR_E0B\reports\e0b-replay-console.log -Force
-.\tools\windows\e0b-replay-run.bat D:\ASL_OCR_E0B
-Stop-Transcript
+$log = "D:\ASL_OCR_E0B\reports\e0b-replay-console.log"
+$utf8NoBom = [System.Text.UTF8Encoding]::new($false)
+[System.IO.File]::WriteAllText($log, "", $utf8NoBom)
+
+& .\tools\windows\e0b-replay-run.bat D:\ASL_OCR_E0B 2>&1 |
+  ForEach-Object {
+    $line = [string]$_
+    $line
+    [System.IO.File]::AppendAllText(
+      $log,
+      $line + [Environment]::NewLine,
+      $utf8NoBom
+    )
+  }
 
 .\.venv-e0b\Scripts\python.exe `
   .\tools\windows\e0b_replay_boundary_report.py `
@@ -234,7 +250,24 @@ page-change check에 accepted `spread_id`와 시작 frame lineage도 보존한�
 {"spread_receipts":2,"fragments":4,"duplicates":0}
 ```
 
-## 7. 종료와 fallback
+## 7. Desktop 단일 호스트 rehearsal
+
+Laptop과 Desktop을 반복 이동하기 어려울 때는 준비된 E0-B root를 Desktop에 한 번 마련한 뒤 다음
+명령으로 Scanner→V4/S1→save→reading 전체 소프트웨어 경계를 자동 검증할 수 있다.
+
+```bat
+tools\windows\e0b-desktop-loopback-acceptance.bat D:\ASL_OCR_E0B
+```
+
+E0-B.4-D harness는 실행별 loopback port, Server SQLite, Device outbox/artifact와 secret work directory를
+격리한다. JSON event를 기준으로 두 번의 `confirm`, 4페이지 `down`, 마지막 `up`을 자동 입력하고 UTF-8
+console log, Server 2/4/0 evidence와 schema v2 boundary report를 저장한다. 기본 산출물은 저장소
+`tmp\e0b-loopback-runs\<run-id>\evidence`에 생성된다.
+
+이 결과는 `environment=desktop_loopback`인 rehearsal 증거다. 실제 Laptop↔Tailscale host/network 경계,
+camera, STM/HC-05와 speaker를 통과했다는 증거는 아니며, E0-B.4-L과 Physical E0-B는 별도로 남는다.
+
+## 8. 종료와 fallback
 
 Desktop에서 Server terminal을 `Ctrl+C`로 종료한다. Serve 설정도 지우려면 다음을 실행한다.
 

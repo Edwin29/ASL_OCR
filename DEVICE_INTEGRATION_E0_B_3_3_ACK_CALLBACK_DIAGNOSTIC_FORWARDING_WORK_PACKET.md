@@ -1,24 +1,25 @@
 # Device Integration E0-B.3.3 — ACK Callback Diagnostic Forwarding 작업 패킷
 
-상태: **승인됨 / 구현 및 local 전체 회귀 완료 / E0-B.4 actual evidence closure 대기**
+상태: **승인됨 / 구현 및 local 전체 회귀 완료 / E0-B.4-L actual evidence closure 대기**
 기준일: 2026-09-02
 성격: **Device ScannerRuntime callback event 전달 경계 복구**
 선행 조건: E0-B.3.2 identity role/report 계약 교정, 실제 Laptop E0-B.3.2 replay 성공 로그
-후속 조건: E0-B.4 actual evidence closure, physical E0-B acceptance, production OCR/TTS/braille acceptance
+후속 조건: E0-B.4-D loopback rehearsal, E0-B.4-L actual evidence closure, physical E0-B acceptance
 
 ## 1. 우선순위
 
-이 패킷을 E0-B.4 actual evidence closure보다 먼저 수행한다.
+이 패킷을 E0-B.4-D loopback rehearsal과 E0-B.4-L actual evidence closure보다 먼저 수행한다.
 
 | 순서 | 패킷 | 이유 |
 |---:|---|---|
 | 1 | **E0-B.3.3 ACK callback diagnostic forwarding** | 실제 로그에서 확인된 관측 경계 유실을 저장소 내부에서 작게 수정하고 전체 회귀할 수 있음 |
-| 2 | **E0-B.4 actual evidence closure** | 수정된 lifecycle 로그와 Server 2/4/0 증거를 결합해 최종 `passed` 산출물을 동결 |
-| 3 | **Physical E0-B acceptance** | camera, HC-05/STM, speaker를 물리 장비에서 검증 |
-| 4 | **Production content acceptance** | 실제 OCR/TTS/braille 내용 품질을 별도 authority로 평가 |
+| 2 | **E0-B.4-D Desktop loopback rehearsal** | 단일 호스트에서 lifecycle과 증거 자동화를 안정화 |
+| 3 | **E0-B.4-L actual evidence closure** | 수정된 lifecycle 로그와 Server 2/4/0 증거를 실제 Laptop 경계에서 동결 |
+| 4 | **Physical E0-B acceptance** | camera, HC-05/STM, speaker를 물리 장비에서 검증 |
+| 5 | **Production content acceptance** | 실제 OCR/TTS/braille 내용 품질을 별도 authority로 평가 |
 
-E0-B.3.3과 E0-B.4를 합치지 않는다. E0-B.3.3은 로컬 코드와 결정론적 테스트만으로 끝낼 수 있지만,
-E0-B.4는 Laptop transcript, pinned source report, Desktop Server summary라는 외부 증거가 필요하다.
+E0-B.3.3과 E0-B.4-L을 합치지 않는다. E0-B.3.3은 로컬 코드와 결정론적 테스트만으로 끝낼 수 있지만,
+E0-B.4-L은 Laptop transcript, pinned source report, Desktop Server summary라는 외부 증거가 필요하다.
 
 ## 2. 실제 로그에서 확인된 결과
 
@@ -243,7 +244,7 @@ bounded `OPAQUE_IDENTITY_COLLECTION_STARTED`뿐이다.
 
 - Laptop Quickstart에 ACK 뒤 기대 feedback 순서 추가
 - E0-B 검증 보고서에 실제 E0-B.3.2 로그의 성공과 start 유실을 구분해 기록
-- 프로젝트 handoff에 E0-B.3.3 상태와 E0-B.4 선행 관계 반영
+- 프로젝트 handoff에 E0-B.3.3 상태와 E0-B.4-D/E0-B.4-L 선행 관계 반영
 - 구현 완료 시 별도 E0-B.3.3 구현 보고서 작성
 
 ## 7. 명시적 제외 범위
@@ -278,7 +279,7 @@ bounded `OPAQUE_IDENTITY_COLLECTION_STARTED`뿐이다.
 7. callback diagnostic의 session/event lineage 검사를 우회하지 않는다.
 8. raw opaque token, footer image, digest, credential은 public feedback/report에 포함하지 않는다.
 9. 최종 reading의 고유 page positions는 두 spread의 L/R 네 개다.
-10. Server receipt/fragment/duplicate truth는 E0-B.4의 Server authority에서 판정한다.
+10. Server receipt/fragment/duplicate truth는 E0-B.4-L의 Server authority에서 판정한다.
 
 ## 9. 테스트 행렬
 
@@ -347,7 +348,7 @@ Book Scanner 제품 로직을 바꾸지 않더라도 Scanner/Device callback eve
 - [ ] Quickstart, 검증 보고서, handoff, 구현 보고서가 실제 계약과 일치한다.
 - [ ] raw secret/token/image가 새 public diagnostic에 포함되지 않는다.
 
-실제 Laptop 재실행과 Server final evidence는 이 완료 기준에 포함하지 않는다. 그것은 E0-B.4다.
+실제 Laptop 재실행과 Server final evidence는 이 완료 기준에 포함하지 않는다. 그것은 E0-B.4-L이다.
 
 ## 11. 예상 변경 파일
 
@@ -413,7 +414,7 @@ Book Scanner source 변경은 원칙적으로 필요하지 않다. 엔진이 이
 
 ```text
 E0-B.3.3 ACK callback diagnostic forwarding
-  -> E0-B.4 role-complete Laptop transcript + source report + Server 2/4/0 evidence closure
+  -> E0-B.4-L role-complete Laptop transcript + source report + Server 2/4/0 evidence closure
   -> physical E0-B camera + HC-05/STM + speaker acceptance
   -> production OCR/TTS/braille content acceptance
 ```

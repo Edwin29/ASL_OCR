@@ -4,7 +4,7 @@
 원 작업 패킷: `DEVICE_INTEGRATION_E0_B_3_REPLAY_BOUNDARY_VERIFICATION_WORK_PACKET.md`
 교정 패킷: `DEVICE_INTEGRATION_E0_B_3_2_IDENTITY_ROLE_REPORT_CONTRACT_CORRECTION_WORK_PACKET.md`
 전달 패킷: `DEVICE_INTEGRATION_E0_B_3_3_ACK_CALLBACK_DIAGNOSTIC_FORWARDING_WORK_PACKET.md`
-상태: **E0-B.3.3 ACK callback diagnostic 전달 및 전체 회귀 완료 / E0-B.4 actual evidence closure 대기**
+상태: **E0-B.3.3 ACK callback diagnostic 전달 및 전체 회귀 완료 / E0-B.4-L actual evidence closure 대기**
 
 ## 결론
 
@@ -58,7 +58,7 @@ E0-B.3.3의 근거가 된 E0-B.3.2 revision 실제 Laptop 로그는 다음을 �
 이 로그는 E0-B remote runtime happy path와 E0-B.3.2 role 분리가 성공했음을 확인한다. 동시에 각
 `spread_sent` 뒤 `identity_collection_started(identity_role=page_change)`가 없고 첫 progress부터
 나타나는 관측 누락도 확인했다. Server summary 파일과 source report를 결합한 최종 schema v2
-`passed` 산출물 생성은 E0-B.4 actual evidence closure로 분리한다.
+`passed` 산출물 생성은 E0-B.4-L actual evidence closure로 분리한다.
 
 ## E0-B.3.2 구현
 
@@ -128,7 +128,7 @@ E0-B.3.3 첫 전체 실행은 저장소 root에서 pytest target을 생략해 `t
 수집한 명령 오류로 중단됐다. 제품 assertion failure가 아니다. 각 프로젝트 작업 디렉터리와 전용 ASCII
 basetemp를 명시해 재실행한 위 전체 결과는 통과했다. 생성한 임시 디렉터리는 확인 후 제거했다.
 
-## 다음 실제 확인 — E0-B.4
+## 다음 실제 확인 — E0-B.4-L
 
 1. E0-B.3.3 revision을 Laptop에 반영한다.
 2. PowerShell transcript를 파일로 보존하며 동일 hash 영상을 fresh datapack으로 실행한다.

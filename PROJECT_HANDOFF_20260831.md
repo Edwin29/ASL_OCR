@@ -476,7 +476,7 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 - Server summary 없음은 `provisional`, 2/4/0은 `passed`, malformed/mismatch는 `failed`
 - Scanner threshold/artifact/delivery 계약 변경 0
 - Book Scanner 전체 299 passed; Device Runtime 전체 107 passed, 3 skipped
-- E0-B.3.2 role이 포함된 실제 Laptop/Server final report는 E0-B.4로 분리
+- E0-B.3.2 role이 포함된 실제 Laptop/Server final report는 E0-B.4-L로 분리
 
 주요 문서와 코드:
 
@@ -502,7 +502,7 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 - progress-only E0-B.3.2 log 호환 유지
 - Scanner threshold/decision/artifact/queue/ACK/save/read 변경 0
 - targeted 37 passed; Book Scanner 299 passed; Device Runtime 109 passed, 3 skipped
-- role-complete 실제 Laptop/Server final report는 E0-B.4로 분리
+- role-complete 실제 Laptop/Server final report는 E0-B.4-L로 분리
 
 주요 문서와 코드:
 
@@ -514,6 +514,28 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 - `device-runtime/src/asl_device/coordinator.py`
 - `device-runtime/src/asl_device/replay_boundary_report.py`
 
+### 5.16 Device Integration E0-B.4-D — Desktop loopback acceptance harness
+
+- 실제 Laptop/Desktop을 반복 이동하지 않고 Desktop 단일 호스트에서 전체 E0-B software flow를 rehearsal
+- 실행별 loopback port, Server SQLite/state, Device config/outbox/artifact를 고유 디렉터리로 격리
+- 기존 remote Laptop setup의 non-loopback HTTPS 정책은 변경하지 않음
+- JSON event를 authority로 new datapack confirm, EOF 2/2 seal confirm과 reading navigation 자동 입력
+- spread `[1,2]` 각각의 explicit `page_change` start와 accepted spread lineage 강제
+- revision 1 save, 4 reading page position과 2-R→2-L 역방향 이동 검증
+- UTF-8 no-BOM console log, Server raw/2/4/0 evidence, schema v2 report와 secret-safe manifest 생성
+- work/evidence 경로 중첩을 거부해 API key가 evidence bundle에 들어가지 않음
+- E0-B.4-D unit 8 passed; Device 120 passed; Book Scanner 299 passed; Document Parser 602 passed, 4 skipped
+- 현재 개발 Desktop에는 prepared MP4/model/source root가 없어 실제 실행은 precondition exit 1에서 안전 중단
+- `desktop_loopback`은 실제 Laptop/Tailscale 또는 physical acceptance가 아니며 E0-B.4-L을 대체하지 않음
+
+주요 문서와 코드:
+
+- `DEVICE_INTEGRATION_E0_B_4_D_DESKTOP_LOOPBACK_ACCEPTANCE_HARNESS_WORK_PACKET.md`
+- `DEVICE_INTEGRATION_E0_B_4_D_IMPLEMENTATION_REPORT.md`
+- `tools/windows/e0b-desktop-loopback-acceptance.bat`
+- `device-runtime/src/asl_device/desktop_loopback_acceptance.py`
+- `device-runtime/tests/unit/test_desktop_loopback_acceptance.py`
+
 ## 6. 최신 검증 기준선
 
 2026-09-02 E0-B.3.3 ACK callback diagnostic 전달 완료 시점의 최신 전체 결과:
@@ -521,8 +543,9 @@ delivery/retry, freeze/flush/seal, finalize READY, reading cursor와 버튼 의�
 | 범위 | 결과 |
 |---|---:|
 | Book Scanner 전체 | 299 passed |
-| Device Runtime + actual E0-Core integration | 109 passed, 3 skipped |
+| Device Runtime + actual E0-Core integration | 120 passed |
 | Document Parser 전체 | 602 passed, 4 skipped |
+| E0-B.4-D loopback harness unit | 8 passed |
 | E0-B.3.3 Device adapter/Coordinator/report 집중 | 37 passed |
 | E0-B.3.2 role/events 집중 | 14 passed |
 | E0-B.3.2 Device adapter/report 집중 | 11 passed |
@@ -582,9 +605,11 @@ idempotency namespace 교정도 완료됐다. E0-B.3.1 이후 full log는 candid
 monitoring이 같은 identity event family를 사용한다는 사실을 드러냈고, E0-B.3.2에서 explicit role과
 report schema v2로 교정했다. E0-B.3.2 실제 Laptop 로그는 role 분리와 runtime 성공을 확인했지만 ACK
 callback의 page-change start diagnostic이 Device feedback에서 유실되는 경계도 드러냈다. E0-B.3.3에서
-callback forwarding을 local 구현·회귀했다. 다음 단계는 **Laptop에 E0-B.3.3 revision을 반영하고 새
+callback forwarding을 local 구현·회귀했다. E0-B.4-D에서 이 흐름의 Desktop loopback 자동화와 증거
+생성을 구현했고 전체 회귀를 통과했지만, 현재 개발 Desktop에는 prepared MP4/model root가 없어 실제
+loopback `passed` 실행은 입력 대기다. 다음 원격 단계는 **Laptop에 E0-B.3.3 revision을 반영하고 새
 datapack ID를 확인한 뒤 동일 prepared MP4의 role-complete transcript와 Server summary 2/4/0을 재수집해
-final report를 만드는 E0-B.4 actual evidence closure**다. 그 뒤 같은 fixed endpoint에서
+final report를 만드는 E0-B.4-L actual evidence closure**다. 그 뒤 같은 fixed endpoint에서
 camera/STM/speaker physical
 E0-B를 진행한다. 같은 LAN과 유료 domain은 요구하지 않는다. Production tunnel policy/service와
 exhaustive WAN fault 검증은 후속 Network Hardening으로 분리한다.
@@ -652,7 +677,7 @@ Device Integration E0-Core: development desktop local composition + deterministi
   -> E0-B.3.1: console process namespace repair + fresh datapack 실제 확인
   -> E0-B.3.2: candidate/page-change explicit role + report schema v2 local 교정
   -> E0-B.3.3: ACK callback page-change start diagnostic forwarding local 교정
-  -> E0-B.4: role-aware Laptop transcript + Server 2/4/0 final evidence closure
+  -> E0-B.4-L: role-aware Laptop transcript + Server 2/4/0 final evidence closure
   -> Device Integration E0-B — Laptop Acceptance: real camera + STM + beep/TTS
   -> Network Hardening: production tunnel policy/service + exhaustive WAN fault
   -> Raspberry Pi systemd/network-online/camera/GPIO/audio/resource validation
@@ -694,7 +719,7 @@ page-change monitoring이 같은 event family를 사용함을 확인했고, 314/
 필수 가설은 철회했다. E0-B.3.2 실제 role-aware 로그에서 ACK 뒤 page-change start feedback 유실을
 확인했고 E0-B.3.3에서 callback forwarding을 교정했다. 현재 다음 우선순위는 Laptop에 E0-B.3.3
 revision을 반영하고 새 datapack ID를 확인한 뒤 동일 prepared MP4의 role-complete transcript와 Server
-2/4/0 summary를 보존해 schema v2 report `passed`를 만드는 E0-B.4다. 그 다음 camera/STM/speaker
+2/4/0 summary를 보존해 schema v2 report `passed`를 만드는 E0-B.4-L이다. 그 다음 camera/STM/speaker
 physical E0-B를 진행한다.
 같은 LAN과 유료 domain은 요구하지 않는다. Production tunnel/network hardening을 같은 패킷의 선행
 조건으로 묶지 마라. 실제로 검증하지 않은 Laptop remote flow와 Raspberry Pi 동작을 완료로 처리하지

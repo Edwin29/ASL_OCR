@@ -58,4 +58,5 @@ Document Parser 제품 코드는 변경하지 않았다. 실제 Laptop replay와
 - physical camera/STM/audio acceptance
 - production OCR/TTS/braille content acceptance
 
-위 첫 네 항목은 다음 E0-B.4 actual evidence closure에서 수행한다. commit·push는 별도 승인 경계다.
+위 첫 네 항목은 E0-B.4-D loopback rehearsal로 자동화한 뒤 E0-B.4-L actual evidence closure에서
+실제 원격 증거로 동결한다. commit·push는 별도 승인 경계다.

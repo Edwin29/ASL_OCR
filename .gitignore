@@ -3,6 +3,8 @@
 /tmp/
 
 # Python/test caches
+/.venv-e0b/
+**/*.egg-info/
 **/__pycache__/
 **/.pytest_cache/
 **/*.py[cod]

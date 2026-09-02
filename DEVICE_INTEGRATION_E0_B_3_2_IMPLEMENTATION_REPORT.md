@@ -38,7 +38,7 @@ v2로 교정했다. 실제 Laptop 성공 로그에 없던 314/315 4/5 hard-rejec
 | Device Runtime 전체 | 107 passed, 3 skipped |
 
 Document Parser 제품 코드는 변경하지 않았다. 최신 기준선 602 passed, 4 skipped를 유지하며 실제 Server
-summary 결합은 다음 E0-B.4에서 수행한다.
+summary 결합은 다음 E0-B.4-L에서 수행한다.
 
 첫 전체 suite의 공용 `tmp` basetemp 권한 오류는 각 프로젝트 내부의 전용 ASCII basetemp로 재실행해
 해소했다. 제품 assertion failure가 아니며 전용 임시 디렉터리는 제거했다.

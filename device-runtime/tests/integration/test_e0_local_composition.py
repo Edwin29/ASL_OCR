@@ -121,12 +121,26 @@ class BundleEngine:
     def delivery_confirmed(self, _artifact_id, _receipt_id):
         self.callbacks.append("acked")
         self.pending_artifact = None
-        return (SimpleNamespace(event_type=_value("delivery_confirmed")),)
+        return (
+            SimpleNamespace(
+                event_type=_value("delivery_confirmed"),
+                event_id=f"{self.session_id}-delivery-confirmed-1",
+                session_id=self.session_id,
+                details=(),
+            ),
+        )
 
     def delivery_rejected(self, _artifact_id, _reason):
         self.callbacks.append("rejected")
         self.pending_artifact = None
-        return (SimpleNamespace(event_type=_value("parser_rejected")),)
+        return (
+            SimpleNamespace(
+                event_type=_value("parser_rejected"),
+                event_id=f"{self.session_id}-parser-rejected-1",
+                session_id=self.session_id,
+                details=(),
+            ),
+        )
 
     def cancel(self):
         return ()

@@ -1,10 +1,10 @@
 # Device Integration E0-B.3.2 — Identity Role 및 Replay Report 계약 교정 작업 패킷
 
-상태: **승인됨 / 구현 및 local 전체 회귀 완료 / E0-B.4 actual evidence closure 대기**
+상태: **승인됨 / 구현 및 local 전체 회귀 완료 / E0-B.4-L actual evidence closure 대기**
 기준일: 2026-09-02
 성격: **observer-only diagnostics 의미 교정 및 E0-B replay acceptance report 복구**
 선행 조건: E0-B.3 diagnostics, E0-B.3.1 console idempotency namespace repair, 동일 prepared MP4의 실제 Laptop 성공 로그
-후속 조건: E0-B.4 actual evidence closure, physical E0-B acceptance, production OCR/TTS acceptance
+후속 조건: E0-B.4-D loopback rehearsal, E0-B.4-L actual evidence closure, physical E0-B acceptance
 
 ## 1. 우선순위와 패킷 분할
 
@@ -13,7 +13,7 @@
 | 우선순위 | 패킷 | 한 번에 수행 가능한 이유 | 외부 의존성 |
 |---:|---|---|---|
 | 1 | **E0-B.3.2 identity role/report 계약 교정** | Book Scanner event, Device feedback, report, unit regression과 문서 정정을 한 저장소에서 함께 검증 가능 | 없음 |
-| 2 | **E0-B.4 actual evidence closure** | 교정된 report로 Laptop transcript, source report, Server summary를 결합해 최종 acceptance 산출물 생성 | Laptop/Desktop 보존 로그와 Server state 필요 |
+| 2 | **E0-B.4-L actual evidence closure** | 교정된 report로 Laptop transcript, source report, Server summary를 결합해 최종 acceptance 산출물 생성 | Laptop/Desktop 보존 로그와 Server state 필요 |
 | 3 | **Physical E0-B hardware acceptance** | camera mode, 실제 COM port, STM, beep/speech를 물리 장비 기준으로 재검증 | camera와 HC-05/STM 필요 |
 | 4 | **Production content acceptance** | deterministic bench parser를 제외하고 실제 OCR, reading content, braille/audio 품질 평가 | 실제 production model/runtime과 품질 기준 필요 |
 | 5 | **Short-dwell/calibration 정책 검토** | 실제 recall 요구가 확정된 경우에만 candidate evidence 재사용이나 threshold를 비교 | 제품 정책과 추가 라벨 영상 필요 |
@@ -428,7 +428,7 @@ candidate stable
 
 ```text
 E0-B.3.2 identity role/report contract correction
-  -> E0-B.4 actual Laptop + Server evidence closure
+  -> E0-B.4-L actual Laptop + Server evidence closure
   -> physical E0-B camera + HC-05/STM + speaker acceptance
   -> production OCR/TTS/braille content acceptance
   -> 필요성이 입증된 경우에만 short-dwell/calibration policy
