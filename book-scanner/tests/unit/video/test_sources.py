@@ -8,6 +8,7 @@ import cv2
 import numpy as np
 import pytest
 
+import book_scanner.video.operator_preview as operator_preview_module
 from book_scanner.video.operator_preview import (
     OpenCVOperatorPreview,
     OperatorPreviewDiagnostics,
@@ -235,6 +236,38 @@ def test_opencv_operator_preview_resizes_and_q_closes_only_preview(monkeypatch) 
     assert ("show", (540, 960, 3)) in calls
     assert any(kind == "destroy" for kind, _value in calls)
     assert sum(1 for kind, _value in calls if kind == "show") == 1
+
+
+def test_opencv_operator_preview_ignores_transient_invisible_window(monkeypatch) -> None:
+    calls: list[str] = []
+    now = [10.0]
+    monkeypatch.setattr(operator_preview_module.time, "monotonic", lambda: now[0])
+    monkeypatch.setattr(cv2, "namedWindow", lambda _name, _mode: calls.append("named"))
+    monkeypatch.setattr(cv2, "resizeWindow", lambda _name, _width, _height: None)
+    monkeypatch.setattr(cv2, "imshow", lambda _name, _frame: calls.append("show"))
+    monkeypatch.setattr(cv2, "waitKey", lambda _delay: -1)
+    monkeypatch.setattr(cv2, "getWindowProperty", lambda _name, _property: 0.0)
+    monkeypatch.setattr(cv2, "destroyWindow", lambda _name: calls.append("destroy"))
+
+    preview = OpenCVOperatorPreview()
+    preview.start()
+    preview.show(_frame(1))
+    now[0] = 10.1
+    preview.show(_frame(2))
+
+    assert calls.count("show") == 2
+    assert "destroy" not in calls
+
+    now[0] = 11.1
+    preview.show(_frame(3))
+    preview.show(_frame(4))
+    preview.show(_frame(5))
+
+    assert calls.count("show") == 4
+    assert calls.count("destroy") == 1
+
+    preview.show(_frame(6))
+    assert calls.count("show") == 4
 
 
 def test_operator_preview_overlay_marks_page_mask_and_obstruction() -> None:

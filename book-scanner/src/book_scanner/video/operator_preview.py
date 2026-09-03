@@ -35,6 +35,9 @@ class FramePreview(Protocol):
 class OpenCVOperatorPreview:
     """Render camera frames in a bounded window; Q/Esc closes only the window."""
 
+    _VISIBILITY_GRACE_SECONDS = 1.0
+    _INVISIBLE_CHECKS_BEFORE_CLOSE = 3
+
     def __init__(
         self,
         *,
@@ -47,24 +50,41 @@ class OpenCVOperatorPreview:
         self.max_width = max_width
         self._active = False
         self._opened = False
+        self._opened_at: float | None = None
+        self._invisible_checks = 0
         self._lock = threading.Lock()
 
     def start(self) -> None:
         with self._lock:
             self._active = True
             self._opened = False
+            self._opened_at = None
+            self._invisible_checks = 0
 
     def show(self, frame: np.ndarray) -> None:
         with self._lock:
             if not self._active:
                 return
             try:
-                if self._opened and cv2.getWindowProperty(
-                    self.window_name, cv2.WND_PROP_VISIBLE
-                ) < 1:
-                    self._active = False
-                    self._opened = False
-                    return
+                if (
+                    self._opened
+                    and self._opened_at is not None
+                    and time.monotonic() - self._opened_at
+                    >= self._VISIBILITY_GRACE_SECONDS
+                ):
+                    if cv2.getWindowProperty(
+                        self.window_name, cv2.WND_PROP_VISIBLE
+                    ) < 1:
+                        self._invisible_checks += 1
+                        if (
+                            self._invisible_checks
+                            >= self._INVISIBLE_CHECKS_BEFORE_CLOSE
+                        ):
+                            self._close_window()
+                            self._active = False
+                            return
+                    else:
+                        self._invisible_checks = 0
                 view = frame
                 if frame.shape[1] > self.max_width:
                     scale = self.max_width / frame.shape[1]
@@ -77,6 +97,8 @@ class OpenCVOperatorPreview:
                     cv2.namedWindow(self.window_name, cv2.WINDOW_NORMAL)
                     cv2.resizeWindow(self.window_name, view.shape[1], view.shape[0])
                     self._opened = True
+                    self._opened_at = time.monotonic()
+                    self._invisible_checks = 0
                 cv2.imshow(self.window_name, view)
                 key = cv2.waitKey(1) & 0xFF
                 if key in {27, ord("q"), ord("Q")}:
@@ -85,6 +107,8 @@ class OpenCVOperatorPreview:
             except cv2.error as exc:
                 self._active = False
                 self._opened = False
+                self._opened_at = None
+                self._invisible_checks = 0
                 warnings.warn(
                     f"operator camera preview disabled after OpenCV GUI error: {exc}",
                     RuntimeWarning,
@@ -105,6 +129,8 @@ class OpenCVOperatorPreview:
         except cv2.error:
             pass
         self._opened = False
+        self._opened_at = None
+        self._invisible_checks = 0
 
 
 class ThreadedPreviewCameraSource:
