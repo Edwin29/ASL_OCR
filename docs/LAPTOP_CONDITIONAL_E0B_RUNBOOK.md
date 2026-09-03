@@ -190,7 +190,8 @@ node/braille-window/page 이동 → 종료·재진입 cursor 복구를 점검한
 
 1. 새 데이터팩을 선택하고 `candidate_selected` 뒤
    `identity_collection_progress`의 `valid_observations`가 5까지 도달하는지 확인한다.
-2. `identity_collection_decided`가 `different`, `artifact_ready`, `spread_sent` 순으로 이어지는지 확인한다.
+2. `identity_collection_decided`가 `different`로 끝난 뒤 `spread_sent`가 나오는지 확인한다.
+   `artifact_ready`는 내부 Scanner event이며 기본 console feedback에는 따로 출력되지 않는다.
    `spread_sent`는 서버 ACK까지 끝났다는 뜻이다.
 3. 최소 한 건의 `spread_sent`를 확인한 뒤에만 `confirm`으로 스캔을 끝낸다.
 4. `finalizing` 뒤 `datapack_saved`에 READY `revision`이 표시되고 capture catalog로 돌아오는지 확인한다.
