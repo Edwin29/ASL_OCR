@@ -9,7 +9,7 @@ from pathlib import Path
 from book_scanner.correct.uvdoc_adapter import UVDocConfig
 
 from .artifacts import FilesystemArtifactStore
-from .camera_host import AndroidUvcCameraSource
+from .camera_host import AndroidUvcCameraSource, camera_backend_api
 from .candidate import OpenCVCandidateAnalyzer
 from .composition import PaddleOpaqueIdentityBackendConfig, compose_m1_page_number_provider
 from .config import VideoScannerConfig
@@ -108,11 +108,17 @@ class LocalBookScannerEngineFactory:
         if self.config.profile == "image_sequence":
             return ImageSequenceCameraSource(self.config.image_paths)
         if self.config.profile == "pc_camera":
+            backend_api = (
+                None
+                if self.config.camera_backend == "auto"
+                else camera_backend_api(self.config.camera_backend)
+            )
             source = OpenCVCameraSource(
                 self.config.camera_index,
                 width=self.config.camera_width,
                 height=self.config.camera_height,
                 fps=self.config.camera_fps,
+                backend_api=backend_api,
                 fourcc=self.config.camera_fourcc,
                 rotation=self.config.camera_rotation,
                 mirror=self.config.camera_mirror,
@@ -121,7 +127,12 @@ class LocalBookScannerEngineFactory:
                 reopen_initial_ms=self.config.camera_reopen_initial_ms,
                 drain_grabs=0 if self.config.operator_preview_enabled else 2,
             )
-            return self._with_operator_preview(source)
+            return self._with_operator_preview(
+                source,
+                source_label=(
+                    f"pc_camera:{self.config.camera_backend}:{self.config.camera_index}"
+                ),
+            )
         if self.config.profile == "android_uvc":
             assert self.config.camera_selector is not None
             source = AndroidUvcCameraSource(
@@ -139,15 +150,21 @@ class LocalBookScannerEngineFactory:
                 reopen_initial_ms=self.config.camera_reopen_initial_ms,
                 drain_grabs=0 if self.config.operator_preview_enabled else 2,
             )
-            return self._with_operator_preview(source)
+            return self._with_operator_preview(
+                source,
+                source_label=f"android_uvc:{self.config.camera_backend}",
+            )
         raise ValueError(f"unsupported scanner profile: {self.config.profile}")
 
-    def _with_operator_preview(self, source):
+    def _with_operator_preview(self, source, *, source_label: str):
         if not self.config.operator_preview_enabled:
             return source
         return ThreadedPreviewCameraSource(
             source,
-            OpenCVOperatorPreview(max_width=self.config.operator_preview_max_width),
+            OpenCVOperatorPreview(
+                window_name=f"ASL OCR Camera Preview [{source_label}] (Q/Esc: close)",
+                max_width=self.config.operator_preview_max_width,
+            ),
         )
 
     def _validate_assets(self) -> None:

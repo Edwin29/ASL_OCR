@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import replace
 from pathlib import Path
 
+import cv2
 import pytest
 
 from book_scanner.video.config import VideoScannerConfig
@@ -107,6 +108,7 @@ def test_runtime_wraps_physical_camera_only_when_operator_preview_is_enabled() -
     runtime = replace(
         _runtime(profile="pc_camera"),
         operator_preview_enabled=True,
+        camera_backend="msmf",
         camera_fourcc="MJPG",
         camera_rotation=90,
         camera_mirror=True,
@@ -120,8 +122,10 @@ def test_runtime_wraps_physical_camera_only_when_operator_preview_is_enabled() -
 
     assert isinstance(source, ThreadedPreviewCameraSource)
     assert source.source.drain_grabs == 0
+    assert source.source.backend_api == cv2.CAP_MSMF
     assert source.source.fourcc == "MJPG"
     assert source.source.rotation == 90
     assert source.source.mirror
     assert source.source.warmup_frames == 5
     assert source.source.reopen_attempts == 2
+    assert "pc_camera:msmf:0" in source.preview.window_name

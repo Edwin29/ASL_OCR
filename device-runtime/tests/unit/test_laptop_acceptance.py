@@ -75,6 +75,7 @@ uvdoc_device = "cpu"
 m1_model_dir = "models/paddle"
 m1_model_manifest = "models/paddle.json"
 camera_index = 0
+camera_backend = "msmf"
 camera_width = 1920
 camera_height = 1080
 camera_fps = 30.0
@@ -183,6 +184,7 @@ def test_e0b_profile_classifies_controls_without_changing_camera_contract(
 
     assert detail["test_profile"] == expected_profile
     assert detail["scanner_profile"] == "pc_camera"
+    assert detail["camera_backend"] == "msmf"
     assert detail["audio_transport"] == "authenticated_s0_wav"
     assert detail["audio_backend"] == "sounddevice"
     assert detail["operator_preview_enabled"] is True

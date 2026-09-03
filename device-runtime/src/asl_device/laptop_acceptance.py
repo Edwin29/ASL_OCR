@@ -128,6 +128,7 @@ def _probe_e0b_profile(config: DeviceAppConfig) -> dict[str, Any]:
         "camera_width": config.scanner.camera_width,
         "camera_height": config.scanner.camera_height,
         "camera_fps": config.scanner.camera_fps,
+        "camera_backend": config.scanner.camera_backend,
         "operator_preview_enabled": config.scanner.operator_preview_enabled,
         "operator_preview_max_width": config.scanner.operator_preview_max_width,
         "controls": config.controls_mode,
@@ -183,13 +184,21 @@ def _probe_camera(config: DeviceAppConfig) -> dict[str, Any]:
             "samples": report["samples"],
         }
 
+    from book_scanner.video.camera_host import camera_backend_api
     from book_scanner.video.sources import OpenCVCameraSource
+
+    backend_api = (
+        None
+        if config.scanner.camera_backend == "auto"
+        else camera_backend_api(config.scanner.camera_backend)
+    )
 
     source = OpenCVCameraSource(
         config.scanner.camera_index,
         width=config.scanner.camera_width,
         height=config.scanner.camera_height,
         fps=config.scanner.camera_fps,
+        backend_api=backend_api,
         drain_grabs=0,
     )
     try:

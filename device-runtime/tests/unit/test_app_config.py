@@ -252,6 +252,7 @@ def test_physical_e0b_examples_use_piper_audio_transport(
 
     assert payload["viewport_size"] == 10
     assert payload["scanner"]["profile"] == "pc_camera"
+    assert payload["scanner"]["camera_backend"] == "msmf"
     assert payload["scanner"]["operator_preview_enabled"] is True
     assert payload["scanner"]["operator_preview_max_width"] == 1280
     assert payload["local_io"]["controls"] == controls

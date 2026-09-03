@@ -20,6 +20,7 @@ uvdoc_device = "auto"
 m1_model_dir = "models/paddle/page-number"
 m1_model_manifest = "models/paddle/page-number-manifest.json"
 camera_index = 0
+camera_backend = "msmf"
 camera_width = 3840
 camera_height = 2160
 camera_fps = 30.0

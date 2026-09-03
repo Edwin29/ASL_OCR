@@ -5,6 +5,8 @@ param(
     [string]$DeviceId = "laptop-device-001",
     [string]$ComPort = "COM5",
     [int]$CameraIndex = 0,
+    [ValidateSet("auto", "dshow", "msmf")]
+    [string]$CameraBackend = "msmf",
     [int]$CameraWidth = 3840,
     [int]$CameraHeight = 2160,
     [double]$CameraFps = 30.0,
@@ -118,6 +120,7 @@ if (-not $NonInteractive) {
             $ComPort = Read-Default "STM Bluetooth COM port" $ComPort
         }
         $CameraIndex = [int](Read-Default "Camera index" ([string]$CameraIndex))
+        $CameraBackend = Read-Default "Camera backend (auto/dshow/msmf)" $CameraBackend
         $CameraWidth = [int](Read-Default "Camera width" ([string]$CameraWidth))
         $CameraHeight = [int](Read-Default "Camera height" ([string]$CameraHeight))
         $CameraFps = [double](Read-Default "Camera FPS" ([string]$CameraFps))
@@ -144,6 +147,9 @@ if ($requiresStm) {
 if (-not $replayMode) {
     if ($CameraIndex -lt 0 -or $CameraWidth -lt 320 -or $CameraHeight -lt 240 -or $CameraFps -le 0 -or $CameraFps -gt 120) {
         throw "Camera settings are outside the supported setup range."
+    }
+    if ($CameraBackend -notin @("auto", "dshow", "msmf")) {
+        throw "CameraBackend must be auto, dshow, or msmf."
     }
 }
 
@@ -198,6 +204,7 @@ if ($requiresStm) {
 }
 if (-not $replayMode) {
     Set-TomlNumber $appConfig "camera_index" ([string]$CameraIndex)
+    Set-TomlQuoted $appConfig "camera_backend" $CameraBackend
     Set-TomlNumber $appConfig "camera_width" ([string]$CameraWidth)
     Set-TomlNumber $appConfig "camera_height" ([string]$CameraHeight)
     Set-TomlNumber $appConfig "camera_fps" $CameraFps.ToString([Globalization.CultureInfo]::InvariantCulture)

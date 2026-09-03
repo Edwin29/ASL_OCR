@@ -159,6 +159,11 @@ Laptop setup이 만드는 `webcam`/`hardware` 설정은 기본적으로 operator
 scan은 계속된다. 창 크기는 `operator_preview_max_width`로 제한되고 원본 OCR 프레임 해상도는 줄지 않는다.
 GUI 없는 자동 시험에서는 setup에 `-DisableCameraPreview`를 추가한다.
 
+Windows Laptop 설정은 backend마다 OpenCV index의 의미가 달라지는 것을 막기 위해 기본적으로
+`camera_backend = "msmf"`를 사용한다. 미리보기 제목의 `[pc_camera:msmf:N]`은 실행 중인 backend와
+index를 그대로 보여준다. DirectShow에서 확인한 장치를 사용해야 할 때만 setup에
+`-CameraBackend dshow`를 명시한다.
+
 하드웨어 없이 실행:
 
 ```powershell
