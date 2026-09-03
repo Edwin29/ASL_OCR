@@ -43,6 +43,7 @@ class FeedbackCode(str, Enum):
     NO_READABLE_DATAPACK = "no_readable_datapack"
     CONFIRM_SELECTION = "confirm_selection"
     SCAN_STARTED = "scan_started"
+    CAMERA_OPENED = "camera_opened"
     SCANNER_GUIDANCE = "scanner_guidance"
     CANDIDATE_SELECTED = "candidate_selected"
     IDENTITY_COLLECTION_STARTED = "identity_collection_started"

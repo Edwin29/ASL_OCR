@@ -312,6 +312,33 @@ def test_empty_catalog_new_selection_creates_draft_then_opens_scan() -> None:
     assert scanner.start_calls[0].datapack_id == DatapackId("new-1")
 
 
+def test_scan_start_reports_selected_camera_and_effective_mode() -> None:
+    coordinator, _catalog, _scan, scanner, _delivery, _reading, feedback = make_coordinator(
+        (ready_entry(),)
+    )
+    scanner.diagnostics = (
+        ("source_label", "pc_camera:msmf:1"),
+        ("width", 1280.0),
+        ("height", 720.0),
+        ("fps", 30.0),
+        ("fourcc", "MJPG"),
+    )
+    coordinator.start()
+
+    coordinator.handle_input(press("select-with-camera", DeviceControl.CONFIRM))
+
+    opened = next(
+        event for event in feedback.events if event.code is FeedbackCode.CAMERA_OPENED
+    )
+    assert dict(opened.details) == {
+        "source_label": "pc_camera:msmf:1",
+        "width": 1280.0,
+        "height": 720.0,
+        "fps": 30.0,
+        "fourcc": "MJPG",
+    }
+
+
 def test_duplicate_confirm_event_does_not_open_two_scan_sessions() -> None:
     coordinator, _catalog, scan, *_ = make_coordinator((ready_entry(),))
     coordinator.start()

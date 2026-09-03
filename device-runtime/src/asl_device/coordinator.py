@@ -298,6 +298,14 @@ class DeviceFlowCoordinator:
                 (("scan_session_id", session.scan_session_id.value), ("datapack_id", datapack_id.value)),
             )
             self.scanner.start(session)
+            diagnostics = getattr(self.scanner, "runtime_diagnostics", None)
+            if callable(diagnostics):
+                try:
+                    runtime_details = diagnostics()
+                except Exception:
+                    runtime_details = ()
+                if runtime_details:
+                    self._feedback(FeedbackCode.CAMERA_OPENED, runtime_details)
         except RecoverablePortError as exc:
             self._recoverable(str(exc), "select", events)
             return
@@ -333,6 +341,7 @@ class DeviceFlowCoordinator:
                 FeedbackCode.IDENTITY_COLLECTION_PROGRESS,
                 FeedbackCode.IDENTITY_COLLECTION_DECIDED,
                 FeedbackCode.IDENTITY_COLLECTION_ABORTED,
+                FeedbackCode.CAMERA_OPENED,
             }:
                 self._feedback(code, scanner_event.details)
             return

@@ -147,17 +147,16 @@ def test_live_camera_orients_frame_and_reopens_without_reusing_frame_id() -> Non
 class RecordingPreview:
     def __init__(self) -> None:
         self.frames: list[np.ndarray] = []
+        self.show_thread_ids: list[int] = []
         self.started = False
         self.stopped = False
-        self.ready = threading.Event()
 
     def start(self) -> None:
         self.started = True
 
     def show(self, frame: np.ndarray) -> None:
         self.frames.append(frame.copy())
-        if len(self.frames) >= 2:
-            self.ready.set()
+        self.show_thread_ids.append(threading.get_ident())
 
     def stop(self) -> None:
         self.stopped = True
@@ -176,6 +175,10 @@ class PreviewCamera:
     @property
     def exhausted(self) -> bool:
         return False
+
+    @property
+    def effective_mode(self) -> dict[str, float | str]:
+        return {"width": 1280.0, "height": 720.0, "fps": 30.0, "fourcc": "MJPG"}
 
     def start(self) -> None:
         self.stopped = False
@@ -203,13 +206,32 @@ def test_threaded_preview_keeps_live_acquisition_outside_scanner_poll_cadence() 
     source = ThreadedPreviewCameraSource(camera, preview)
 
     source.start()
-    assert preview.ready.wait(timeout=1.0)
-    sample = source.read()
+    assert source.runtime_diagnostics() == {
+        "source_label": "camera",
+        "source_type": "PreviewCamera",
+        "width": 1280.0,
+        "height": 720.0,
+        "fps": 30.0,
+        "fourcc": "MJPG",
+    }
+    deadline = time.monotonic() + 1.0
+    sample = None
+    while (
+        (sample is None or sample.frame_id.value != "preview-00000002")
+        and time.monotonic() < deadline
+    ):
+        latest = source.read()
+        if latest is not None:
+            sample = latest
+        time.sleep(0.005)
+    source.pump_preview()
 
     assert sample is not None
     assert sample.frame_id.value == "preview-00000002"
     assert int(sample.payload[0, 0, 0]) == 2
     assert source.read() is None
+    assert len(preview.frames) == 1
+    assert preview.show_thread_ids == [threading.get_ident()]
     source.stop()
     assert preview.started
     assert preview.stopped
@@ -221,13 +243,14 @@ def test_threaded_preview_render_failure_does_not_stop_camera_capture() -> None:
     preview = FailingPreview()
     source = ThreadedPreviewCameraSource(camera, preview)
 
+    source.start()
+    deadline = time.monotonic() + 1.0
+    sample = None
+    while sample is None and time.monotonic() < deadline:
+        sample = source.read()
+        time.sleep(0.005)
     with pytest.warns(RuntimeWarning, match="preview disabled after render error"):
-        source.start()
-        deadline = time.monotonic() + 1.0
-        sample = None
-        while sample is None and time.monotonic() < deadline:
-            sample = source.read()
-            time.sleep(0.005)
+        source.pump_preview()
 
     assert sample is not None
     assert int(sample.payload[0, 0, 0]) in {1, 2}
@@ -292,6 +315,23 @@ def test_opencv_operator_preview_ignores_transient_invisible_window(monkeypatch)
 
     preview.show(_frame(6))
     assert calls.count("show") == 4
+
+
+def test_opencv_operator_preview_tolerates_wait_key_none(monkeypatch) -> None:
+    shown: list[np.ndarray] = []
+    monkeypatch.setattr(cv2, "namedWindow", lambda _name, _mode: None)
+    monkeypatch.setattr(cv2, "resizeWindow", lambda _name, _width, _height: None)
+    monkeypatch.setattr(cv2, "imshow", lambda _name, frame: shown.append(frame.copy()))
+    monkeypatch.setattr(cv2, "waitKey", lambda _delay: None)
+    monkeypatch.setattr(cv2, "destroyWindow", lambda _name: None)
+
+    preview = OpenCVOperatorPreview()
+    preview.start()
+    preview.show(_frame(1))
+    preview.show(_frame(2))
+
+    assert len(shown) == 2
+    preview.stop()
 
 
 def test_operator_preview_overlay_marks_page_mask_and_obstruction() -> None:

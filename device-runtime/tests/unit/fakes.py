@@ -114,9 +114,15 @@ class FakeScannerRuntime:
         self.delivery_updates: list[tuple[ArtifactId, DeliveryUpdate]] = []
         self.delivery_callback_events: deque[tuple[ScannerEvent, ...]] = deque()
         self.events: deque[ScannerEvent] = deque()
+        self.diagnostics: tuple[
+            tuple[str, str | int | float | bool | None], ...
+        ] = ()
 
     def start(self, scan_session: ScanSessionRef) -> None:
         self.start_calls.append(scan_session)
+
+    def runtime_diagnostics(self):
+        return self.diagnostics
 
     def poll(self) -> tuple[ScannerEvent, ...]:
         if not self.events:

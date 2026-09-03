@@ -125,6 +125,25 @@ class BookScannerRuntimeAdapter:
     def close(self) -> None:
         self.cancel()
 
+    def runtime_diagnostics(
+        self,
+    ) -> tuple[tuple[str, str | int | float | bool | None], ...]:
+        engine = self._engine
+        camera = getattr(engine, "camera", None) if engine is not None else None
+        if camera is None:
+            return ()
+        provider = getattr(camera, "runtime_diagnostics", None)
+        try:
+            payload = provider() if callable(provider) else {
+                "source_type": type(camera).__name__,
+                **(getattr(camera, "effective_mode", None) or {}),
+            }
+        except Exception:
+            return ()
+        if not isinstance(payload, dict):
+            return ()
+        return _details(payload)
+
     def apply_delivery_update(
         self,
         artifact_id: ArtifactId,

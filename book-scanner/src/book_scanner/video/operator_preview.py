@@ -100,7 +100,11 @@ class OpenCVOperatorPreview:
                     self._opened_at = time.monotonic()
                     self._invisible_checks = 0
                 cv2.imshow(self.window_name, view)
-                key = cv2.waitKey(1) & 0xFF
+                try:
+                    raw_key = cv2.waitKey(1)
+                except TypeError:
+                    raw_key = None
+                key = int(raw_key) & 0xFF if raw_key is not None else None
                 if key in {27, ord("q"), ord("Q")}:
                     self._close_window()
                     self._active = False
@@ -161,6 +165,8 @@ class ThreadedPreviewCameraSource:
         self._latest: FrameSample[np.ndarray] | None = None
         self._latest_generation = 0
         self._delivered_generation = 0
+        self._previewed_generation = 0
+        self._preview_active = False
         self._error: Exception | None = None
         self._diagnostics: OperatorPreviewDiagnostics | None = None
 
@@ -171,6 +177,27 @@ class ThreadedPreviewCameraSource:
     @property
     def effective_mode(self):
         return getattr(self.source, "effective_mode", None)
+
+    def runtime_diagnostics(self) -> dict[str, str | int | float | bool | None]:
+        details: dict[str, str | int | float | bool | None] = {
+            "source_label": self.source_label,
+            "source_type": type(self.source).__name__,
+        }
+        mode = getattr(self.source, "effective_mode", None)
+        if isinstance(mode, dict):
+            for key in ("width", "height", "fps", "fourcc"):
+                value = mode.get(key)
+                if isinstance(value, (str, int, float, bool)) or value is None:
+                    details[key] = value
+        selected = getattr(self.source, "selected_camera", None)
+        if selected is not None:
+            name = getattr(selected, "name", None)
+            stable_id = getattr(selected, "stable_id", None)
+            if isinstance(name, str):
+                details["camera_name"] = name
+            if isinstance(stable_id, str):
+                details["camera_id"] = stable_id
+        return details
 
     def start(self) -> None:
         if self._thread is not None:
@@ -183,6 +210,8 @@ class ThreadedPreviewCameraSource:
                 self._latest = None
                 self._latest_generation = 0
                 self._delivered_generation = 0
+                self._previewed_generation = 0
+                self._preview_active = True
                 self._error = None
                 self._diagnostics = None
             self._thread = threading.Thread(
@@ -221,6 +250,57 @@ class ThreadedPreviewCameraSource:
                     RuntimeWarning,
                     stacklevel=2,
                 )
+        with self._lock:
+            self._preview_active = False
+        try:
+            self.preview.stop()
+        except Exception:
+            pass
+
+    def pump_preview(self) -> None:
+        """Render the newest frame on the application thread.
+
+        OpenCV HighGUI is not reliable when ``imshow``/``waitKey`` run on a
+        background capture thread, especially with the Windows MSMF backend.
+        Acquisition remains threaded, while the Device polling thread owns all
+        window operations.
+        """
+
+        with self._lock:
+            if (
+                not self._preview_active
+                or self._latest is None
+                or self._latest_generation == self._previewed_generation
+            ):
+                return
+            sample = self._latest
+            diagnostics = self._diagnostics
+            generation = self._latest_generation
+        try:
+            self.preview.show(
+                _annotate_preview(
+                    sample.payload,
+                    diagnostics,
+                    source_label=self.source_label,
+                    effective_mode=getattr(self.source, "effective_mode", None),
+                )
+            )
+        except Exception as exc:
+            with self._lock:
+                self._preview_active = False
+            warnings.warn(
+                "operator camera preview disabled after render error: "
+                f"{type(exc).__name__}: {exc}",
+                RuntimeWarning,
+                stacklevel=2,
+            )
+            try:
+                self.preview.stop()
+            except Exception:
+                pass
+            return
+        with self._lock:
+            self._previewed_generation = max(self._previewed_generation, generation)
 
     def update_diagnostics(
         self,
@@ -244,7 +324,6 @@ class ThreadedPreviewCameraSource:
             self._diagnostics = diagnostics
 
     def _capture_loop(self) -> None:
-        preview_active = True
         try:
             while not self._stop_event.is_set():
                 sample = self.source.read()
@@ -254,40 +333,12 @@ class ThreadedPreviewCameraSource:
                     time.sleep(self.idle_sleep_seconds)
                     continue
                 with self._lock:
-                    diagnostics = self._diagnostics
                     self._latest = sample
                     self._latest_generation += 1
-                if preview_active:
-                    try:
-                        self.preview.show(
-                            _annotate_preview(
-                                sample.payload,
-                                diagnostics,
-                                source_label=self.source_label,
-                                effective_mode=getattr(self.source, "effective_mode", None),
-                            )
-                        )
-                    except Exception as exc:
-                        preview_active = False
-                        warnings.warn(
-                            "operator camera preview disabled after render error: "
-                            f"{type(exc).__name__}: {exc}",
-                            RuntimeWarning,
-                            stacklevel=2,
-                        )
-                        try:
-                            self.preview.stop()
-                        except Exception:
-                            pass
         except Exception as exc:
             if not self._stop_event.is_set():
                 with self._lock:
                     self._error = exc
-        finally:
-            try:
-                self.preview.stop()
-            except Exception:
-                pass
 
 
 def _annotate_preview(

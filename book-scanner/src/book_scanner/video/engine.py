@@ -345,6 +345,7 @@ class SampledFrameEngine:
     def poll(self) -> tuple[VideoEvent, ...]:
         with self._lock:
             events: list[VideoEvent] = []
+            self._pump_operator_preview()
             if self.state is VideoSessionState.CANCELLING:
                 self._poll_cancelling(events)
                 return tuple(events)
@@ -1756,6 +1757,18 @@ class SampledFrameEngine:
             )
         except Exception:
             # Operator diagnostics must never affect capture acceptance.
+            return
+
+    def _pump_operator_preview(self) -> None:
+        if not self._camera_started:
+            return
+        pump = getattr(self.camera, "pump_preview", None)
+        if not callable(pump):
+            return
+        try:
+            pump()
+        except Exception:
+            # Operator preview is observer-only and cannot affect capture.
             return
 
     def _stop_camera(self) -> None:
