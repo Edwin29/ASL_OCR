@@ -236,6 +236,29 @@ def test_e0b_replay_example_has_no_physical_input_authority() -> None:
     assert payload["local_io"] == {"controls": "console", "feedback": "jsonl"}
 
 
+@pytest.mark.parametrize(
+    "filename, controls",
+    [
+        ("device-app.e0b.laptop.example.toml", "stm_serial"),
+        ("device-app.e0b.webcam.example.toml", "console"),
+    ],
+)
+def test_physical_e0b_examples_use_piper_audio_transport(
+    filename: str,
+    controls: str,
+) -> None:
+    example = Path(__file__).resolve().parents[2] / filename
+    payload = tomllib.loads(example.read_text(encoding="utf-8"))
+
+    assert payload["viewport_size"] == 10
+    assert payload["scanner"]["profile"] == "pc_camera"
+    assert payload["local_io"]["controls"] == controls
+    assert payload["local_io"]["feedback"] == "jsonl"
+    assert payload["local_io"]["reading_audio"]["enabled"] is True
+    assert payload["local_io"]["reading_audio"]["backend"] == "sounddevice"
+    assert "windows_audio" not in payload["local_io"]
+
+
 def test_app_config_loads_android_uvc_camera_contract(tmp_path: Path) -> None:
     path = _write_config(tmp_path)
     text = path.read_text(encoding="utf-8")

@@ -229,20 +229,21 @@ candidate/identity threshold와 N/K는 변경하지 않는다.
 `desktop_loopback` 결과는 Scanner→V4/S1→reading 소프트웨어 integration 증거지만 실제 Laptop/Tailscale
 network boundary나 물리 장치 증거가 아니다. 실제 원격 증거 closure는 E0-B.4-L로 유지한다.
 
-## 6. Physical E0-B setup
+## 6. Conditional live-camera E0-B setup
 
-하드웨어를 연결할 수 있게 되면 기존 physical wrapper를 사용한다.
+live-camera 시험은 하드웨어 준비 상태에 따라 `webcam`과 `hardware` 프로필로 분리한다. 상세 책임,
+Piper 서버 선행 조건과 합격 기준은 `docs/LAPTOP_CONDITIONAL_E0B_RUNBOOK.md`를 따른다.
 
 ```bat
-tools\windows\e0b-laptop-setup.bat
-tools\windows\e0b-laptop-preflight.bat
-tools\windows\e0b-laptop-run.bat
+tools\windows\e0b-laptop-setup.bat -TestProfile webcam
+tools\windows\e0b-laptop-preflight.bat D:\ASL_OCR_E0B webcam
+tools\windows\e0b-laptop-run.bat D:\ASL_OCR_E0B webcam
 ```
 
-Physical setup에서는 Tailscale Serve origin, Device ID, HC-05 COM port, camera index/width/height/FPS,
-model bundle과 API key를 입력한다. Preflight는 model load, remote health, camera 한 frame, serial open,
-Windows beep/SAPI speech를 독립적으로 검사한다. 실제 Laptop report가 모두 passed이기 전에는 physical
-E0-B를 완료로 표시하지 않는다.
+`webcam`은 console controls를 사용해 STM/모터/점자 포트를 열지 않는다. 전체 하드웨어가 준비되면
+`-TestProfile hardware -ComPort COM5`로 별도 설정하고 같은 두 wrapper의 profile 인자를 `hardware`로
+바꾼다. 두 profile 모두 JSONL semantic feedback과 인증된 Piper system/document WAV를
+`sounddevice`로 재생한다. `--no-audio-playback`은 transport-only preflight이며 실제 청취 증거가 아니다.
 
 ## 7. 범위 경계
 

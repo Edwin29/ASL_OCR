@@ -26,21 +26,13 @@ camera_fps = 30.0
 sample_interval_ms = 500
 
 [local_io]
-controls = "stm_serial"
+# No STM/PCA9685/braille hardware is opened in this profile.  Commands are
+# entered in the Laptop console using up/down/left/right/next/prev/confirm and
+# lever activated|released.
+controls = "console"
 feedback = "jsonl"
 
-[local_io.stm_serial]
-port = "COM5"
-baudrate = 9600
-read_timeout_ms = 20
-reconnect_initial_ms = 500
-reconnect_max_ms = 5000
-debounce_ms = 30
-cell_count = 10
-
 [local_io.reading_audio]
-# Production Piper system prompts and document speech share one bounded
-# in-memory player.  SAPI is intentionally not part of this profile.
 enabled = true
 backend = "sounddevice"
 max_resource_bytes = 4194304

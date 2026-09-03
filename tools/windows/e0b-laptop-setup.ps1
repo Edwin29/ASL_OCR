@@ -8,6 +8,8 @@ param(
     [int]$CameraWidth = 3840,
     [int]$CameraHeight = 2160,
     [double]$CameraFps = 30.0,
+    [ValidateSet("hardware", "webcam")]
+    [string]$TestProfile = "hardware",
     [string]$ReplayVideo,
     [string]$ModelBundle,
     [string]$ApiKeySource,
@@ -81,15 +83,19 @@ if ([string]::IsNullOrWhiteSpace($VenvRoot)) {
     $venvRoot = [System.IO.Path]::GetFullPath($VenvRoot)
 }
 $venvPython = Join-Path $venvRoot "Scripts\python.exe"
-$appConfig = Join-Path $configRootPath "device-app.e0b.toml"
 $connectivityConfig = Join-Path $configRootPath "device-connectivity.e0b.remote.toml"
 $secretPath = Join-Path $configRootPath "secrets\device-api-key.txt"
-$reportPath = Join-Path $configRootPath "reports\e0b-preflight.json"
 $replayReportPath = Join-Path $configRootPath "reports\e0b-replay-input.json"
 $replayMode = -not [string]::IsNullOrWhiteSpace($ReplayVideo)
+$requiresStm = -not $replayMode -and $TestProfile -eq "hardware"
+$profileName = if ($replayMode) { "replay" } else { $TestProfile }
+$appConfig = Join-Path $configRootPath "device-app.e0b.$profileName.toml"
+$compatibilityAppConfig = Join-Path $configRootPath "device-app.e0b.toml"
+$reportPath = Join-Path $configRootPath "reports\e0b-preflight-$profileName.json"
 
 Write-Host "[E0-B] Repository: $repoRoot"
 Write-Host "[E0-B] Config root: $configRootPath"
+Write-Host "[E0-B] Test profile: $profileName"
 
 if (-not $NonInteractive) {
     if ([string]::IsNullOrWhiteSpace($ServerOrigin)) {
@@ -97,7 +103,9 @@ if (-not $NonInteractive) {
     }
     $DeviceId = Read-Default "Device ID" $DeviceId
     if (-not $replayMode) {
-        $ComPort = Read-Default "STM Bluetooth COM port" $ComPort
+        if ($requiresStm) {
+            $ComPort = Read-Default "STM Bluetooth COM port" $ComPort
+        }
         $CameraIndex = [int](Read-Default "Camera index" ([string]$CameraIndex))
         $CameraWidth = [int](Read-Default "Camera width" ([string]$CameraWidth))
         $CameraHeight = [int](Read-Default "Camera height" ([string]$CameraHeight))
@@ -119,8 +127,10 @@ if (-not [Uri]::TryCreate($ServerOrigin, [UriKind]::Absolute, [ref]$originUri) -
     throw "ServerOrigin must be a non-loopback HTTPS origin without a path, query, or fragment."
 }
 if ($DeviceId -notmatch '^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$') { throw "DeviceId is invalid." }
-if (-not $replayMode) {
+if ($requiresStm) {
     if ($ComPort -notmatch '^COM[0-9]+$') { throw "ComPort must look like COM5." }
+}
+if (-not $replayMode) {
     if ($CameraIndex -lt 0 -or $CameraWidth -lt 320 -or $CameraHeight -lt 240 -or $CameraFps -le 0 -or $CameraFps -gt 120) {
         throw "Camera settings are outside the supported setup range."
     }
@@ -160,14 +170,22 @@ foreach ($directory in @(
     New-Item -ItemType Directory -Force -Path $directory | Out-Null
 }
 
-$appTemplate = if ($replayMode) { "device-app.e0b.replay.example.toml" } else { "device-app.e0b.laptop.example.toml" }
+$appTemplate = if ($replayMode) {
+    "device-app.e0b.replay.example.toml"
+} elseif ($TestProfile -eq "hardware") {
+    "device-app.e0b.laptop.example.toml"
+} else {
+    "device-app.e0b.webcam.example.toml"
+}
 Copy-Item -LiteralPath (Join-Path $repoRoot "device-runtime\$appTemplate") -Destination $appConfig -Force
 Copy-Item -LiteralPath (Join-Path $repoRoot "device-runtime\device-connectivity.e0b.remote.example.toml") -Destination $connectivityConfig -Force
 
 Set-TomlQuoted $connectivityConfig "server_base_url" $originUri.GetLeftPart([UriPartial]::Authority)
 Set-TomlQuoted $connectivityConfig "device_id" $DeviceId
-if (-not $replayMode) {
+if ($requiresStm) {
     Set-TomlQuoted $appConfig "port" $ComPort
+}
+if (-not $replayMode) {
     Set-TomlNumber $appConfig "camera_index" ([string]$CameraIndex)
     Set-TomlNumber $appConfig "camera_width" ([string]$CameraWidth)
     Set-TomlNumber $appConfig "camera_height" ([string]$CameraHeight)
@@ -237,6 +255,10 @@ foreach ($asset in $manifest.files.PSObject.Properties) {
 }
 Copy-Item -Path (Join-Path $modelBundlePath "*") -Destination (Join-Path $configRootPath "models") -Recurse -Force
 
+# Preserve the historical default filename for replay scripts and existing
+# operator notes while retaining independently runnable named profiles.
+Copy-Item -LiteralPath $appConfig -Destination $compatibilityAppConfig -Force
+
 if ($replayMode) {
     $replaySource = (Resolve-Path -LiteralPath $ReplayVideo).Path
     if (-not (Test-Path -LiteralPath $replaySource -PathType Leaf)) {
@@ -260,7 +282,11 @@ if (-not $SkipHealthCheck) {
 if ($replayMode -and -not $SkipPreflight) {
     Write-Host "[E0-B.1] Hardware preflight is not applicable to replay mode and will be skipped."
 } elseif (-not $SkipPreflight) {
-    Write-Host "[E0-B] Running hardware preflight. Camera, COM port, beep, and speech will be exercised."
+    if ($requiresStm) {
+        Write-Host "[E0-B] Running hardware preflight. Camera, STM COM, authenticated Piper WAV, and Laptop audio output will be exercised."
+    } else {
+        Write-Host "[E0-B] Running webcam preflight. Camera, server, authenticated Piper WAV, and Laptop audio output will be exercised; STM is not opened."
+    }
     & $venvPython -m asl_device --config $appConfig --preflight --report $reportPath
     if ($LASTEXITCODE -ne 0) { throw "Laptop preflight failed. See $reportPath" }
 }
@@ -270,6 +296,6 @@ if ($replayMode) {
     Write-Host "[E0-B.1] Replay report: $replayReportPath"
     Write-Host "[E0-B.1] Replay run: tools\windows\e0b-replay-run.bat $configRootPath"
 } else {
-    Write-Host "[E0-B] Preflight: tools\windows\e0b-laptop-preflight.bat $configRootPath"
-    Write-Host "[E0-B] Full run: tools\windows\e0b-laptop-run.bat $configRootPath"
+    Write-Host "[E0-B] Preflight: tools\windows\e0b-laptop-preflight.bat $configRootPath $TestProfile"
+    Write-Host "[E0-B] Full run: tools\windows\e0b-laptop-run.bat $configRootPath $TestProfile"
 }

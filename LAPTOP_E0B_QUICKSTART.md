@@ -1,5 +1,9 @@
 # E0-B.1 Laptop 빠른 시작 — Tailscale + 준비된 영상
 
+실시간 카메라 시험을 STM 없는 `webcam` 프로필과 전체 장치가 있는 `hardware` 프로필로 나누는 최신
+절차는 [조건부 Laptop E0-B runbook](docs/LAPTOP_CONDITIONAL_E0B_RUNBOOK.md)을 따른다. 아래 절차는
+준비된 MP4 replay 증거에 한정한다.
+
 이 절차는 Laptop과 Desktop이 같은 LAN에 없지만 각각 인터넷에 연결된 환경을 기준으로 한다.
 E0-B.1에서는 camera와 STM/HC-05 대신 준비된 MP4와 console controls를 사용해 Server 송수신과
 reading data 수신까지 확인한다. 실제 camera/STM/speaker 검증은 후속 physical E0-B다.

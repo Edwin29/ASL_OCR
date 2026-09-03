@@ -5,10 +5,36 @@ set "SCRIPT_DIR=%~dp0"
 for %%I in ("%SCRIPT_DIR%..\..") do set "REPO_ROOT=%%~fI"
 set "PYTHON_EXE=%REPO_ROOT%\.venv-e0b\Scripts\python.exe"
 if "%~1"=="" (set "CONFIG_ROOT=D:\ASL_OCR_E0B") else (set "CONFIG_ROOT=%~f1")
+set "PROFILE=%~2"
+set "EXTRA_ARG=%~3"
+
+if /I "%PROFILE%"=="--no-audio-playback" (
+  set "EXTRA_ARG=--no-audio-playback"
+  set "PROFILE="
+)
+
+if "%PROFILE%"=="" (
+  set "APP_CONFIG=%CONFIG_ROOT%\device-app.e0b.toml"
+  set "REPORT=%CONFIG_ROOT%\reports\e0b-preflight.json"
+) else if /I "%PROFILE%"=="webcam" (
+  set "APP_CONFIG=%CONFIG_ROOT%\device-app.e0b.webcam.toml"
+  set "REPORT=%CONFIG_ROOT%\reports\e0b-preflight-webcam.json"
+) else if /I "%PROFILE%"=="hardware" (
+  set "APP_CONFIG=%CONFIG_ROOT%\device-app.e0b.hardware.toml"
+  set "REPORT=%CONFIG_ROOT%\reports\e0b-preflight-hardware.json"
+) else (
+  echo [E0-B] Unknown profile "%PROFILE%". Use webcam or hardware.
+  exit /b 2
+)
 
 if not exist "%PYTHON_EXE%" (
   echo [E0-B] Environment not found. Run e0b-laptop-setup.bat first.
   exit /b 2
 )
-"%PYTHON_EXE%" -m asl_device --config "%CONFIG_ROOT%\device-app.e0b.toml" --preflight --report "%CONFIG_ROOT%\reports\e0b-preflight.json"
+if not exist "%APP_CONFIG%" (
+  echo [E0-B] Config not found: %APP_CONFIG%
+  echo [E0-B] Run e0b-laptop-setup.bat for this profile first.
+  exit /b 2
+)
+"%PYTHON_EXE%" -m asl_device --config "%APP_CONFIG%" --preflight --report "%REPORT%" %EXTRA_ARG%
 exit /b %ERRORLEVEL%

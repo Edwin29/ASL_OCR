@@ -12,7 +12,10 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlsplit
 
-from .adapters.local_feedback import WindowsAudioBackend
+from .adapters.reading_audio import (
+    S0SystemAudioResourceHttpAdapter,
+    SoundDeviceWavPlayer,
+)
 from .adapters.stm_serial import _open_serial
 from .app_config import DeviceAppConfig
 from .local_composition import _default_scanner_factory
@@ -24,18 +27,30 @@ def run_laptop_preflight(
     config_path: str | Path,
     *,
     probe_overrides: Mapping[str, Probe] | None = None,
+    play_audio: bool = True,
 ) -> dict[str, Any]:
-    """Run bounded hardware/environment checks without starting a scan session."""
+    """Run config-driven Laptop checks without starting a scan session.
+
+    Console/webcam profiles deliberately skip the STM probe.  Both console and
+    STM profiles use the authenticated S0 Piper WAV path; the old SAPI smoke is
+    no longer an E0-B preflight authority.
+    """
 
     config = DeviceAppConfig.from_toml(config_path)
     overrides = dict(probe_overrides or {})
-    probes: tuple[tuple[str, Probe], ...] = (
+    probes: list[tuple[str, Probe]] = [
         ("e0b_profile", _probe_e0b_profile),
         ("scanner_models", _probe_scanner_models),
         ("server_health", _probe_server_health),
         ("camera", _probe_camera),
-        ("stm_serial", _probe_stm_serial),
-        ("windows_audio", _probe_windows_audio),
+    ]
+    if config.controls_mode == "stm_serial":
+        probes.append(("stm_serial", _probe_stm_serial))
+    probes.append(
+        (
+            "piper_audio",
+            lambda current: _probe_piper_audio(current, play_audio=play_audio),
+        )
     )
     checks: list[dict[str, Any]] = []
     for name, default_probe in probes:
@@ -62,7 +77,10 @@ def run_laptop_preflight(
             )
     return {
         "schema_version": 1,
-        "packet": "Device Integration E0-B — Laptop Acceptance",
+        "packet": "Device Integration E0-B — Conditional Laptop Preflight",
+        "test_profile": (
+            "hardware" if config.controls_mode == "stm_serial" else "webcam"
+        ),
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "host": {
             "system": platform.system(),
@@ -85,12 +103,16 @@ def write_laptop_preflight_report(report: Mapping[str, Any], path: str | Path) -
 
 
 def _probe_e0b_profile(config: DeviceAppConfig) -> dict[str, Any]:
-    if config.scanner.profile != "pc_camera":
-        raise ValueError("E0-B requires scanner.profile=pc_camera")
-    if config.controls_mode != "stm_serial" or config.stm_serial is None:
-        raise ValueError("E0-B requires local_io.controls=stm_serial")
-    if config.feedback_mode != "windows_audio":
-        raise ValueError("E0-B requires local_io.feedback=windows_audio")
+    if config.scanner.profile not in {"pc_camera", "android_uvc"}:
+        raise ValueError("physical E0-B requires pc_camera or android_uvc")
+    if config.controls_mode not in {"console", "stm_serial"}:
+        raise ValueError("E0-B controls must be console or stm_serial")
+    if config.feedback_mode != "jsonl":
+        raise ValueError("Piper E0-B requires local_io.feedback=jsonl")
+    if not config.reading_audio.enabled:
+        raise ValueError("Piper E0-B requires local_io.reading_audio.enabled=true")
+    if config.reading_audio.backend != "sounddevice":
+        raise ValueError("Piper E0-B requires the sounddevice playback backend")
     if config.scanner.camera_width is None or config.scanner.camera_height is None:
         raise ValueError("E0-B requires an explicit camera_width and camera_height")
     endpoint = urlsplit(config.connectivity.server_base_url)
@@ -98,15 +120,29 @@ def _probe_e0b_profile(config: DeviceAppConfig) -> dict[str, Any]:
         raise ValueError("remote E0-B requires an HTTPS server origin")
     if endpoint.hostname in {"127.0.0.1", "localhost", "::1"}:
         raise ValueError("remote E0-B requires a non-loopback server origin")
-    return {
-        "camera_index": config.scanner.camera_index,
+    detail: dict[str, Any] = {
+        "test_profile": (
+            "hardware" if config.controls_mode == "stm_serial" else "webcam"
+        ),
+        "scanner_profile": config.scanner.profile,
         "camera_width": config.scanner.camera_width,
         "camera_height": config.scanner.camera_height,
         "camera_fps": config.scanner.camera_fps,
-        "stm_port": config.stm_serial.port,
-        "braille_cells": config.stm_serial.cell_count,
+        "controls": config.controls_mode,
+        "audio_transport": "authenticated_s0_wav",
+        "audio_backend": config.reading_audio.backend,
         "server_origin": config.connectivity.server_base_url,
     }
+    if config.scanner.profile == "android_uvc":
+        detail["camera_selector"] = config.scanner.camera_selector
+        detail["camera_backend"] = config.scanner.camera_backend
+        detail["camera_fallback_index"] = config.scanner.camera_fallback_index
+    else:
+        detail["camera_index"] = config.scanner.camera_index
+    if config.stm_serial is not None:
+        detail["stm_port"] = config.stm_serial.port
+        detail["braille_cells"] = config.stm_serial.cell_count
+    return detail
 
 
 def _probe_scanner_models(config: DeviceAppConfig) -> dict[str, Any]:
@@ -131,6 +167,20 @@ def _probe_server_health(config: DeviceAppConfig) -> dict[str, Any]:
 
 
 def _probe_camera(config: DeviceAppConfig) -> dict[str, Any]:
+    if config.scanner.profile == "android_uvc":
+        from .android_uvc_probe import run_android_uvc_probe
+
+        report = run_android_uvc_probe(
+            config.config_path,
+            sample_count=3,
+            interval_ms=50,
+        )
+        return {
+            "source_profile": report["source_profile"],
+            "camera": report["camera"],
+            "samples": report["samples"],
+        }
+
     from book_scanner.video.sources import OpenCVCameraSource
 
     source = OpenCVCameraSource(
@@ -160,8 +210,38 @@ def _probe_stm_serial(config: DeviceAppConfig) -> dict[str, Any]:
         connection.close()
 
 
-def _probe_windows_audio(config: DeviceAppConfig) -> dict[str, Any]:
-    backend = WindowsAudioBackend(config.laptop_audio.powershell_executable)
-    backend.beep(((880, 100),))
-    backend.speak("노트북 장치 오디오 확인")
-    return {"beep": True, "speech": True}
+def _probe_piper_audio(
+    config: DeviceAppConfig,
+    *,
+    play_audio: bool,
+) -> dict[str, Any]:
+    if not config.reading_audio.enabled:
+        raise ValueError("Piper audio transport is disabled")
+    audio = config.reading_audio
+    resource_port = S0SystemAudioResourceHttpAdapter(
+        config.connectivity.server_base_url,
+        config.connectivity.load_api_key(),
+        timeout_seconds=audio.request_timeout_seconds,
+        max_resource_bytes=audio.max_resource_bytes,
+        chunk_bytes=audio.download_chunk_bytes,
+    )
+    resource = resource_port.fetch(
+        config.connectivity.device_id,
+        "s0-system-cue:screen.capture_catalog",
+        lambda: False,
+    )
+    if play_audio:
+        player = SoundDeviceWavPlayer()
+        try:
+            player.play(resource, lambda: False)
+        finally:
+            player.close()
+    return {
+        "transport": "authenticated_s0_wav",
+        "cue": "screen.capture_catalog",
+        "content_length": resource.content_length,
+        "sample_rate": resource.sample_rate,
+        "channels": resource.channels,
+        "duration_ms": resource.duration_ms,
+        "playback_requested": play_audio,
+    }
