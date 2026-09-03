@@ -234,3 +234,71 @@ def test_e0b_replay_example_has_no_physical_input_authority() -> None:
     assert payload["scanner"]["opaque_identity_max_collection_ms"] == 30000
     assert "camera_index" not in payload["scanner"]
     assert payload["local_io"] == {"controls": "console", "feedback": "jsonl"}
+
+
+def test_app_config_loads_android_uvc_camera_contract(tmp_path: Path) -> None:
+    path = _write_config(tmp_path)
+    text = path.read_text(encoding="utf-8")
+    text = text.replace('profile = "replay"', 'profile = "android_uvc"')
+    text = text.replace(
+        'replay_path = "inputs/sample.mp4"',
+        '''camera_selector = "Android Webcam"
+camera_backend = "dshow"
+camera_fallback_index = 1
+camera_width = 3840
+camera_height = 2160
+camera_fps = 30.0
+camera_fourcc = "MJPG"
+camera_rotation = 90
+camera_mirror = true
+camera_warmup_frames = 5
+camera_reopen_attempts = 2
+camera_reopen_initial_ms = 300''',
+    )
+    path.write_text(text, encoding="utf-8")
+
+    config = DeviceAppConfig.from_toml(path)
+
+    assert config.scanner.profile == "android_uvc"
+    assert config.scanner.camera_selector == "Android Webcam"
+    assert config.scanner.camera_fallback_index == 1
+    assert config.scanner.camera_fourcc == "MJPG"
+    assert config.scanner.camera_rotation == 90
+    assert config.scanner.camera_mirror
+    assert config.scanner.camera_reopen_attempts == 2
+
+
+def test_app_config_rejects_android_uvc_without_selector(tmp_path: Path) -> None:
+    path = _write_config(tmp_path)
+    text = path.read_text(encoding="utf-8")
+    text = text.replace('profile = "replay"', 'profile = "android_uvc"')
+    text = text.replace('replay_path = "inputs/sample.mp4"', "")
+    path.write_text(text, encoding="utf-8")
+
+    with pytest.raises(ValueError, match="camera_selector"):
+        DeviceAppConfig.from_toml(path)
+
+
+@pytest.mark.parametrize(
+    "line, message",
+    [
+        ('camera_fourcc = "MJPEG"', "camera_fourcc"),
+        ("camera_rotation = 45", "camera_rotation"),
+        ("camera_fallback_index = -1", "camera_fallback_index"),
+        ("camera_reopen_attempts = 11", "camera_reopen_attempts"),
+    ],
+)
+def test_app_config_rejects_invalid_android_uvc_fields(
+    tmp_path: Path, line: str, message: str
+) -> None:
+    path = _write_config(tmp_path)
+    text = path.read_text(encoding="utf-8")
+    text = text.replace('profile = "replay"', 'profile = "android_uvc"')
+    text = text.replace(
+        'replay_path = "inputs/sample.mp4"',
+        f'camera_selector = "Android Webcam"\n{line}',
+    )
+    path.write_text(text, encoding="utf-8")
+
+    with pytest.raises((TypeError, ValueError), match=message):
+        DeviceAppConfig.from_toml(path)

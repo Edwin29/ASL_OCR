@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import math
 import threading
+import time
 from collections.abc import Callable, Sequence
 from pathlib import Path
 from typing import Protocol
@@ -43,7 +44,7 @@ class _Capture(Protocol):
     def set(self, prop_id: int, value: float) -> bool: ...
 
 
-CaptureFactory = Callable[[int | str], _Capture]
+CaptureFactory = Callable[..., _Capture]
 
 
 class SystemClock:
@@ -63,66 +64,84 @@ class OpenCVCameraSource:
 
     def __init__(
         self,
-        device_index: int = 0,
+        device_index: int | str = 0,
         *,
         clock: Clock | None = None,
         drain_grabs: int = 2,
         width: int | None = None,
         height: int | None = None,
         fps: float | None = None,
+        backend_api: int | None = None,
+        fourcc: str | None = None,
+        rotation: int = 0,
+        mirror: bool = False,
+        warmup_frames: int = 0,
+        reopen_attempts: int = 0,
+        reopen_initial_ms: int = 250,
         capture_factory: CaptureFactory = cv2.VideoCapture,
         frame_prefix: str = "camera",
+        sleep: Callable[[float], None] = time.sleep,
     ):
         if drain_grabs < 0:
             raise ValueError("drain_grabs must be non-negative")
         for name, value in (("width", width), ("height", height), ("fps", fps)):
             if value is not None and (isinstance(value, bool) or not isinstance(value, (int, float)) or value <= 0):
                 raise ValueError(f"camera {name} must be positive when configured")
+        if fourcc is not None and (
+            not isinstance(fourcc, str) or len(fourcc) != 4 or not fourcc.isascii()
+        ):
+            raise ValueError("camera fourcc must contain exactly four ASCII characters")
+        if rotation not in {0, 90, 180, 270}:
+            raise ValueError("camera rotation must be 0, 90, 180, or 270")
+        if not isinstance(mirror, bool):
+            raise TypeError("camera mirror must be a boolean")
+        for name, value, ceiling in (
+            ("warmup_frames", warmup_frames, 120),
+            ("reopen_attempts", reopen_attempts, 10),
+        ):
+            if isinstance(value, bool) or not isinstance(value, int) or not 0 <= value <= ceiling:
+                raise ValueError(f"camera {name} must be an integer in [0, {ceiling}]")
+        if (
+            isinstance(reopen_initial_ms, bool)
+            or not isinstance(reopen_initial_ms, int)
+            or not 1 <= reopen_initial_ms <= 10_000
+        ):
+            raise ValueError("camera reopen_initial_ms must be an integer in [1, 10000]")
         self.device_index = device_index
         self.clock = clock or SystemClock()
         self.drain_grabs = drain_grabs
         self.width = width
         self.height = height
         self.fps = fps
+        self.backend_api = backend_api
+        self.fourcc = fourcc
+        self.rotation = rotation
+        self.mirror = mirror
+        self.warmup_frames = warmup_frames
+        self.reopen_attempts = reopen_attempts
+        self.reopen_initial_ms = reopen_initial_ms
         self.capture_factory = capture_factory
         self.frame_prefix = frame_prefix
+        self.sleep = sleep
         self._capture: _Capture | None = None
         self._counter = 0
         self._lock = threading.Lock()
         self._stopped = True
+        self._effective_mode: dict[str, float | str] | None = None
 
     @property
     def exhausted(self) -> bool:
         return False
 
+    @property
+    def effective_mode(self) -> dict[str, float | str] | None:
+        return None if self._effective_mode is None else dict(self._effective_mode)
+
     def start(self) -> None:
         with self._lock:
             if self._capture is not None:
                 raise RuntimeError("camera source is already started")
-            capture = self.capture_factory(self.device_index)
-            if not capture.isOpened():
-                capture.release()
-                raise CameraUnavailableError(f"could not open camera device {self.device_index}")
-            if self.width is not None:
-                capture.set(cv2.CAP_PROP_FRAME_WIDTH, float(self.width))
-            if self.height is not None:
-                capture.set(cv2.CAP_PROP_FRAME_HEIGHT, float(self.height))
-            if self.fps is not None:
-                capture.set(cv2.CAP_PROP_FPS, float(self.fps))
-            capture.set(cv2.CAP_PROP_BUFFERSIZE, 1)
-            observed = {
-                "width": capture.get(cv2.CAP_PROP_FRAME_WIDTH),
-                "height": capture.get(cv2.CAP_PROP_FRAME_HEIGHT),
-                "fps": capture.get(cv2.CAP_PROP_FPS),
-            }
-            requested = {"width": self.width, "height": self.height, "fps": self.fps}
-            for name, expected in requested.items():
-                if expected is not None and abs(float(observed[name]) - float(expected)) > 1.0:
-                    capture.release()
-                    raise CameraUnavailableError(
-                        f"camera {name} is {observed[name]:g}; requested {expected:g}"
-                    )
-            self._capture = capture
+            self._capture = self._open_with_retries()
             self._counter = 0
             self._stopped = False
 
@@ -130,19 +149,17 @@ class OpenCVCameraSource:
         with self._lock:
             if self._capture is None or self._stopped:
                 return None
-            capture = self._capture
-            frame: np.ndarray | None = None
-            ok = False
-            if self.drain_grabs > 0:
-                for _ in range(self.drain_grabs):
-                    if not capture.grab():
-                        raise FrameDecodeError("live camera failed while draining buffered frames")
-                ok, frame = capture.retrieve()
-            else:
-                ok, frame = capture.read()
-            if not ok or not _valid_frame(frame):
-                raise FrameDecodeError("live camera returned an invalid frame")
-            return self._sample(np.asarray(frame))
+            for attempt in range(self.reopen_attempts + 1):
+                try:
+                    return self._sample(self._read_frame(self._capture))
+                except FrameDecodeError:
+                    if attempt >= self.reopen_attempts or self._stopped:
+                        raise
+                    self._capture.release()
+                    self._capture = None
+                    self.sleep((self.reopen_initial_ms / 1000.0) * (2**attempt))
+                    self._capture = self._open_capture()
+            raise AssertionError("unreachable camera retry state")
 
     def stop(self) -> None:
         with self._lock:
@@ -150,6 +167,86 @@ class OpenCVCameraSource:
             self._stopped = True
             if capture is not None:
                 capture.release()
+
+    def _open_with_retries(self) -> _Capture:
+        last_error: CameraUnavailableError | None = None
+        for attempt in range(self.reopen_attempts + 1):
+            try:
+                return self._open_capture()
+            except CameraUnavailableError as exc:
+                last_error = exc
+                if attempt >= self.reopen_attempts:
+                    break
+                self.sleep((self.reopen_initial_ms / 1000.0) * (2**attempt))
+        assert last_error is not None
+        raise last_error
+
+    def _open_capture(self) -> _Capture:
+        capture = (
+            self.capture_factory(self.device_index)
+            if self.backend_api is None
+            else self.capture_factory(self.device_index, self.backend_api)
+        )
+        try:
+            if not capture.isOpened():
+                raise CameraUnavailableError(f"could not open camera device {self.device_index}")
+            if self.fourcc is not None:
+                capture.set(cv2.CAP_PROP_FOURCC, float(cv2.VideoWriter_fourcc(*self.fourcc)))
+            if self.width is not None:
+                capture.set(cv2.CAP_PROP_FRAME_WIDTH, float(self.width))
+            if self.height is not None:
+                capture.set(cv2.CAP_PROP_FRAME_HEIGHT, float(self.height))
+            if self.fps is not None:
+                capture.set(cv2.CAP_PROP_FPS, float(self.fps))
+            capture.set(cv2.CAP_PROP_BUFFERSIZE, 1)
+            observed: dict[str, float | str] = {
+                "width": capture.get(cv2.CAP_PROP_FRAME_WIDTH),
+                "height": capture.get(cv2.CAP_PROP_FRAME_HEIGHT),
+                "fps": capture.get(cv2.CAP_PROP_FPS),
+                "fourcc": _decode_fourcc(capture.get(cv2.CAP_PROP_FOURCC)),
+            }
+            requested = {"width": self.width, "height": self.height, "fps": self.fps}
+            for name, expected in requested.items():
+                if expected is not None and abs(float(observed[name]) - float(expected)) > 1.0:
+                    raise CameraUnavailableError(
+                        f"camera {name} is {observed[name]:g}; requested {expected:g}"
+                    )
+            if self.fourcc is not None and observed["fourcc"].upper() != self.fourcc.upper():
+                raise CameraUnavailableError(
+                    f"camera fourcc is {observed['fourcc']!s}; requested {self.fourcc}"
+                )
+            for _ in range(self.warmup_frames):
+                ok, frame = capture.read()
+                if not ok or not _valid_frame(frame):
+                    raise CameraUnavailableError("camera failed while warming up")
+            self._effective_mode = observed
+            return capture
+        except Exception:
+            capture.release()
+            raise
+
+    def _read_frame(self, capture: _Capture) -> np.ndarray:
+        frame: np.ndarray | None = None
+        ok = False
+        if self.drain_grabs > 0:
+            for _ in range(self.drain_grabs):
+                if not capture.grab():
+                    raise FrameDecodeError("live camera failed while draining buffered frames")
+            ok, frame = capture.retrieve()
+        else:
+            ok, frame = capture.read()
+        if not ok or not _valid_frame(frame):
+            raise FrameDecodeError("live camera returned an invalid frame")
+        result = np.asarray(frame)
+        if self.rotation == 90:
+            result = cv2.rotate(result, cv2.ROTATE_90_CLOCKWISE)
+        elif self.rotation == 180:
+            result = cv2.rotate(result, cv2.ROTATE_180)
+        elif self.rotation == 270:
+            result = cv2.rotate(result, cv2.ROTATE_90_COUNTERCLOCKWISE)
+        if self.mirror:
+            result = cv2.flip(result, 1)
+        return result
 
     def _sample(self, frame: np.ndarray) -> FrameSample[np.ndarray]:
         self._counter += 1
@@ -284,3 +381,10 @@ class ImageSequenceCameraSource:
 
 def _valid_frame(frame: object) -> bool:
     return isinstance(frame, np.ndarray) and frame.ndim == 3 and frame.shape[2] == 3 and frame.size > 0
+
+
+def _decode_fourcc(value: float) -> str:
+    if not math.isfinite(value):
+        return ""
+    encoded = int(value)
+    return "".join(chr((encoded >> (8 * index)) & 0xFF) for index in range(4)).rstrip("\x00")

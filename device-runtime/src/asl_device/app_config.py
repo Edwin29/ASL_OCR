@@ -28,12 +28,23 @@ class ScannerHostConfig:
     camera_width: int | None = None
     camera_height: int | None = None
     camera_fps: float | None = None
+    camera_selector: str | None = None
+    camera_backend: str = "auto"
+    camera_fallback_index: int | None = None
+    camera_fourcc: str | None = None
+    camera_rotation: int = 0
+    camera_mirror: bool = False
+    camera_warmup_frames: int = 3
+    camera_reopen_attempts: int = 1
+    camera_reopen_initial_ms: int = 250
     sample_interval_ms: int = 500
     opaque_identity_max_collection_ms: int | None = None
 
     def __post_init__(self) -> None:
-        if self.profile not in {"replay", "image_sequence", "pc_camera"}:
-            raise ValueError("scanner profile must be replay, image_sequence, or pc_camera")
+        if self.profile not in {"replay", "image_sequence", "pc_camera", "android_uvc"}:
+            raise ValueError(
+                "scanner profile must be replay, image_sequence, pc_camera, or android_uvc"
+            )
         for name in (
             "staging_root",
             "ready_root",
@@ -52,6 +63,49 @@ class ScannerHostConfig:
             raise ValueError("image_sequence scanner profile requires image_paths")
         if isinstance(self.camera_index, bool) or not isinstance(self.camera_index, int) or self.camera_index < 0:
             raise ValueError("camera_index must be a non-negative integer")
+        if self.profile == "android_uvc" and (
+            not isinstance(self.camera_selector, str) or not self.camera_selector.strip()
+        ):
+            raise ValueError("android_uvc scanner profile requires camera_selector")
+        if self.camera_selector is not None and (
+            not isinstance(self.camera_selector, str) or not self.camera_selector.strip()
+        ):
+            raise ValueError("camera_selector must be a non-empty string when configured")
+        if not isinstance(self.camera_backend, str) or self.camera_backend not in {
+            "auto",
+            "dshow",
+            "msmf",
+            "v4l2",
+        }:
+            raise ValueError("camera_backend must be auto, dshow, msmf, or v4l2")
+        if self.camera_fallback_index is not None and (
+            isinstance(self.camera_fallback_index, bool)
+            or not isinstance(self.camera_fallback_index, int)
+            or self.camera_fallback_index < 0
+        ):
+            raise ValueError("camera_fallback_index must be a non-negative integer when configured")
+        if self.camera_fourcc is not None and (
+            not isinstance(self.camera_fourcc, str)
+            or len(self.camera_fourcc) != 4
+            or not self.camera_fourcc.isascii()
+        ):
+            raise ValueError("camera_fourcc must contain exactly four ASCII characters")
+        if self.camera_rotation not in {0, 90, 180, 270}:
+            raise ValueError("camera_rotation must be 0, 90, 180, or 270")
+        if not isinstance(self.camera_mirror, bool):
+            raise TypeError("camera_mirror must be a boolean")
+        for name, value, ceiling in (
+            ("camera_warmup_frames", self.camera_warmup_frames, 120),
+            ("camera_reopen_attempts", self.camera_reopen_attempts, 10),
+        ):
+            if isinstance(value, bool) or not isinstance(value, int) or not 0 <= value <= ceiling:
+                raise ValueError(f"{name} must be an integer in [0, {ceiling}]")
+        if (
+            isinstance(self.camera_reopen_initial_ms, bool)
+            or not isinstance(self.camera_reopen_initial_ms, int)
+            or not 1 <= self.camera_reopen_initial_ms <= 10_000
+        ):
+            raise ValueError("camera_reopen_initial_ms must be an integer in [1, 10000]")
         for name in ("camera_width", "camera_height"):
             value = getattr(self, name)
             if value is not None and (isinstance(value, bool) or not isinstance(value, int) or value <= 0):
@@ -262,6 +316,15 @@ class DeviceAppConfig:
                 "camera_width",
                 "camera_height",
                 "camera_fps",
+                "camera_selector",
+                "camera_backend",
+                "camera_fallback_index",
+                "camera_fourcc",
+                "camera_rotation",
+                "camera_mirror",
+                "camera_warmup_frames",
+                "camera_reopen_attempts",
+                "camera_reopen_initial_ms",
                 "sample_interval_ms",
                 "opaque_identity_max_collection_ms",
             },
@@ -288,6 +351,15 @@ class DeviceAppConfig:
             camera_width=scanner_payload.get("camera_width"),
             camera_height=scanner_payload.get("camera_height"),
             camera_fps=scanner_payload.get("camera_fps"),
+            camera_selector=scanner_payload.get("camera_selector"),
+            camera_backend=scanner_payload.get("camera_backend", "auto"),
+            camera_fallback_index=scanner_payload.get("camera_fallback_index"),
+            camera_fourcc=scanner_payload.get("camera_fourcc"),
+            camera_rotation=scanner_payload.get("camera_rotation", 0),
+            camera_mirror=scanner_payload.get("camera_mirror", False),
+            camera_warmup_frames=scanner_payload.get("camera_warmup_frames", 3),
+            camera_reopen_attempts=scanner_payload.get("camera_reopen_attempts", 1),
+            camera_reopen_initial_ms=scanner_payload.get("camera_reopen_initial_ms", 250),
             sample_interval_ms=scanner_payload.get("sample_interval_ms", 500),
             opaque_identity_max_collection_ms=scanner_payload.get(
                 "opaque_identity_max_collection_ms"

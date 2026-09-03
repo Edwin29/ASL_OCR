@@ -1,0 +1,50 @@
+schema_version = 1
+connectivity_config = "device-connectivity.e0b.remote.toml"
+viewport_size = 40
+poll_interval_ms = 20
+
+[delivery]
+outbox_db_path = "state/delivery.sqlite3"
+artifact_root = "state/artifacts/ready"
+upload_timeout_seconds = 60.0
+retry_initial_seconds = 1.0
+retry_max_seconds = 30.0
+
+[scanner]
+profile = "android_uvc"
+staging_root = "state/artifacts/staging"
+ready_root = "state/artifacts/ready"
+uvdoc_runtime_path = "models/uvdoc/runtime"
+uvdoc_checkpoint_path = "models/uvdoc/checkpoint.pth"
+uvdoc_device = "auto"
+m1_model_dir = "models/paddle/page-number"
+m1_model_manifest = "models/paddle/page-number-manifest.json"
+# Copy one exact name or stable_id from e0b-android-uvc-camera.bat --list.
+camera_selector = "REPLACE_WITH_ANDROID_CAMERA_NAME_OR_ID"
+camera_backend = "dshow"
+# Windows PnP does not expose a reliable OpenCV index mapping. Confirm the index
+# with the probe preview/liveness procedure; it is used only while the selector exists.
+camera_fallback_index = 1
+camera_width = 3840
+camera_height = 2160
+camera_fps = 30.0
+camera_fourcc = "MJPG"
+camera_rotation = 0
+camera_mirror = false
+camera_warmup_frames = 5
+camera_reopen_attempts = 2
+camera_reopen_initial_ms = 250
+sample_interval_ms = 500
+
+[local_io]
+controls = "console"
+feedback = "jsonl"
+
+[local_io.reading_audio]
+enabled = true
+backend = "sounddevice"
+max_resource_bytes = 4194304
+max_cache_bytes = 8388608
+max_cache_entries = 4
+download_chunk_bytes = 65536
+request_timeout_seconds = 10.0

@@ -109,6 +109,30 @@ def test_live_camera_applies_and_verifies_requested_capture_mode() -> None:
     source.stop()
 
 
+def test_live_camera_orients_frame_and_reopens_without_reusing_frame_id() -> None:
+    first = FakeCapture([])
+    second = FakeCapture([np.arange(18, dtype=np.uint8).reshape(2, 3, 3)])
+    captures = iter((first, second))
+    source = OpenCVCameraSource(
+        drain_grabs=0,
+        rotation=90,
+        mirror=True,
+        reopen_attempts=1,
+        capture_factory=lambda _device: next(captures),
+        sleep=lambda _seconds: None,
+    )
+
+    source.start()
+    sample = source.read()
+
+    assert sample is not None
+    assert sample.frame_id.value == "camera-00000001"
+    assert sample.payload.shape == (3, 2, 3)
+    assert first.released
+    source.stop()
+    assert second.released
+
+
 def test_video_replay_samples_by_frame_stride_and_marks_eof(tmp_path: Path) -> None:
     path = tmp_path / "replay.mp4"
     path.touch()

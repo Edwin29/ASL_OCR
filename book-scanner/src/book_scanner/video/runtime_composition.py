@@ -9,6 +9,7 @@ from pathlib import Path
 from book_scanner.correct.uvdoc_adapter import UVDocConfig
 
 from .artifacts import FilesystemArtifactStore
+from .camera_host import AndroidUvcCameraSource
 from .candidate import OpenCVCandidateAnalyzer
 from .composition import PaddleOpaqueIdentityBackendConfig, compose_m1_page_number_provider
 from .config import VideoScannerConfig
@@ -33,6 +34,15 @@ class LocalScannerRuntimeConfig:
     camera_width: int | None = None
     camera_height: int | None = None
     camera_fps: float | None = None
+    camera_selector: str | None = None
+    camera_backend: str = "auto"
+    camera_fallback_index: int | None = None
+    camera_fourcc: str | None = None
+    camera_rotation: int = 0
+    camera_mirror: bool = False
+    camera_warmup_frames: int = 3
+    camera_reopen_attempts: int = 1
+    camera_reopen_initial_ms: int = 250
     sample_interval_ms: int = 500
     opaque_identity_max_collection_ms: int | None = None
 
@@ -101,6 +111,22 @@ class LocalBookScannerEngineFactory:
                 height=self.config.camera_height,
                 fps=self.config.camera_fps,
             )
+        if self.config.profile == "android_uvc":
+            assert self.config.camera_selector is not None
+            return AndroidUvcCameraSource(
+                self.config.camera_selector,
+                backend=self.config.camera_backend,
+                fallback_index=self.config.camera_fallback_index,
+                width=self.config.camera_width,
+                height=self.config.camera_height,
+                fps=self.config.camera_fps,
+                fourcc=self.config.camera_fourcc,
+                rotation=self.config.camera_rotation,
+                mirror=self.config.camera_mirror,
+                warmup_frames=self.config.camera_warmup_frames,
+                reopen_attempts=self.config.camera_reopen_attempts,
+                reopen_initial_ms=self.config.camera_reopen_initial_ms,
+            )
         raise ValueError(f"unsupported scanner profile: {self.config.profile}")
 
     def _validate_assets(self) -> None:
@@ -112,6 +138,11 @@ class LocalBookScannerEngineFactory:
             not self.config.image_paths or any(not path.is_file() for path in self.config.image_paths)
         ):
             raise ValueError("configured Scanner image sequence is incomplete")
+        if self.config.profile == "android_uvc" and (
+            not isinstance(self.config.camera_selector, str)
+            or not self.config.camera_selector.strip()
+        ):
+            raise ValueError("configured Android UVC camera selector is missing")
         if not self.config.uvdoc_runtime_path.is_dir():
             raise ValueError("configured UVDoc runtime directory does not exist")
         if not self.config.uvdoc_checkpoint_path.is_file():

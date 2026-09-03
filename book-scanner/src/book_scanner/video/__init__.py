@@ -88,6 +88,16 @@ from .candidate import (
     StabilityAssessment,
     StableWindowAssessor,
 )
+from .camera_host import (
+    AndroidUvcCameraSource,
+    CameraDevice,
+    CameraDiscoveryError,
+    SelectedCamera,
+    camera_backend_api,
+    default_camera_backend,
+    enumerate_camera_devices,
+    resolve_camera_device,
+)
 from .engine import FrameEngineDiagnostics, SampledFrameEngine
 from .obstruction import (
     ChromaContourConfig,
@@ -173,6 +183,8 @@ __all__ = [
     "CameraSource",
     "CameraSourceError",
     "CameraUnavailableError",
+    "CameraDevice",
+    "CameraDiscoveryError",
     "CandidateAnalyzer",
     "CandidateObservation",
     "CandidateEvaluator",
@@ -199,6 +211,7 @@ __all__ = [
     "IdentityMatchKind",
     "IdentityPolicy",
     "InMemoryOpaqueIdentityLedger",
+    "AndroidUvcCameraSource",
     "ImageSequenceCameraSource",
     "DiagnosticChromaContourObstructionDetector",
     "EdgeChromaIntrusionConfig",
@@ -227,6 +240,7 @@ __all__ = [
     "OpenCVBottomRoiPageNumberProvider",
     "OpenCVDnnDigitRecognizer",
     "OpenCVHogDigitRecognizer",
+    "SelectedCamera",
     "PaddleRoiDigitRecognizer",
     "PaddleOpaqueIdentityBackendConfig",
     "PageChangeDecision",
@@ -289,6 +303,9 @@ __all__ = [
     "VideoFileCameraSource",
     "VideoSessionState",
     "compose_m1_page_number_provider",
+    "camera_backend_api",
+    "default_camera_backend",
+    "enumerate_camera_devices",
     "VisualFingerprint",
     "compare_spread_identities",
     "compare_visual_spreads",
@@ -297,4 +314,5 @@ __all__ = [
     "normalize_page_label",
     "token_pair_from_page_observation",
     "preview_page_number_roi",
+    "resolve_camera_device",
 ]

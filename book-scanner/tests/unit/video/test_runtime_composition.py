@@ -6,9 +6,11 @@ import pytest
 
 from book_scanner.video.config import VideoScannerConfig
 from book_scanner.video.runtime_composition import (
+    LocalBookScannerEngineFactory,
     LocalScannerRuntimeConfig,
     _effective_scanner_config,
 )
+from book_scanner.video.camera_host import AndroidUvcCameraSource
 
 
 def _runtime(
@@ -65,3 +67,35 @@ def test_runtime_rejects_invalid_replay_collection_timeout(timeout: int) -> None
 def test_runtime_rejects_replay_override_for_physical_profile() -> None:
     with pytest.raises(ValueError, match="allowed only for replay"):
         _effective_scanner_config(_runtime(profile="pc_camera", timeout=30_000))
+
+
+def test_runtime_composes_android_uvc_source_without_replay_authority() -> None:
+    runtime = LocalScannerRuntimeConfig(
+        profile="android_uvc",
+        staging_root=Path("staging"),
+        ready_root=Path("ready"),
+        uvdoc_runtime_path=Path("uvdoc"),
+        uvdoc_checkpoint_path=Path("uvdoc.pth"),
+        uvdoc_device="cpu",
+        m1_model_dir=Path("paddle"),
+        m1_model_manifest=Path("paddle.json"),
+        camera_selector="Android Webcam",
+        camera_backend="dshow",
+        camera_fallback_index=1,
+        camera_width=3840,
+        camera_height=2160,
+        camera_fps=30.0,
+        camera_fourcc="MJPG",
+        camera_rotation=90,
+        camera_mirror=True,
+    )
+    factory = object.__new__(LocalBookScannerEngineFactory)
+    factory.config = runtime
+
+    source = factory._camera()
+
+    assert isinstance(source, AndroidUvcCameraSource)
+    assert source.selector == "Android Webcam"
+    assert source.fallback_index == 1
+    assert source.rotation == 90
+    assert source.mirror
