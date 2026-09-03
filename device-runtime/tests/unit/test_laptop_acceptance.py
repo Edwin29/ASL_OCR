@@ -78,6 +78,8 @@ camera_index = 0
 camera_width = 1920
 camera_height = 1080
 camera_fps = 30.0
+operator_preview_enabled = true
+operator_preview_max_width = 960
 
 {local_io}''',
         encoding="utf-8",
@@ -183,6 +185,8 @@ def test_e0b_profile_classifies_controls_without_changing_camera_contract(
     assert detail["scanner_profile"] == "pc_camera"
     assert detail["audio_transport"] == "authenticated_s0_wav"
     assert detail["audio_backend"] == "sounddevice"
+    assert detail["operator_preview_enabled"] is True
+    assert detail["operator_preview_max_width"] == 960
 
 
 def test_server_preflight_uses_the_c0_health_endpoint(tmp_path: Path, monkeypatch) -> None:

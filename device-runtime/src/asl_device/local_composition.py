@@ -215,6 +215,8 @@ def _default_scanner_factory(config: ScannerHostConfig) -> BookScannerEngineFact
             camera_warmup_frames=config.camera_warmup_frames,
             camera_reopen_attempts=config.camera_reopen_attempts,
             camera_reopen_initial_ms=config.camera_reopen_initial_ms,
+            operator_preview_enabled=config.operator_preview_enabled,
+            operator_preview_max_width=config.operator_preview_max_width,
             sample_interval_ms=config.sample_interval_ms,
             opaque_identity_max_collection_ms=config.opaque_identity_max_collection_ms,
         )

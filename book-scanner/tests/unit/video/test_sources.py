@@ -1,11 +1,18 @@
 from __future__ import annotations
 
+import threading
+import time
 from pathlib import Path
 
 import cv2
 import numpy as np
 import pytest
 
+from book_scanner.video.operator_preview import (
+    OpenCVOperatorPreview,
+    ThreadedPreviewCameraSource,
+)
+from book_scanner.video.protocols import FrameSample
 from book_scanner.video.sources import (
     CameraUnavailableError,
     FrameDecodeError,
@@ -13,6 +20,7 @@ from book_scanner.video.sources import (
     OpenCVCameraSource,
     VideoFileCameraSource,
 )
+from book_scanner.video.types import FrameId
 
 from .fakes import ManualClock
 
@@ -131,6 +139,100 @@ def test_live_camera_orients_frame_and_reopens_without_reusing_frame_id() -> Non
     assert first.released
     source.stop()
     assert second.released
+
+
+class RecordingPreview:
+    def __init__(self) -> None:
+        self.frames: list[np.ndarray] = []
+        self.started = False
+        self.stopped = False
+        self.ready = threading.Event()
+
+    def start(self) -> None:
+        self.started = True
+
+    def show(self, frame: np.ndarray) -> None:
+        self.frames.append(frame.copy())
+        if len(self.frames) >= 2:
+            self.ready.set()
+
+    def stop(self) -> None:
+        self.stopped = True
+
+
+class PreviewCamera:
+    def __init__(self) -> None:
+        self.index = 0
+        self.stopped = False
+
+    @property
+    def exhausted(self) -> bool:
+        return False
+
+    def start(self) -> None:
+        self.stopped = False
+
+    def read(self):
+        if self.stopped:
+            return None
+        self.index += 1
+        if self.index > 2:
+            time.sleep(0.005)
+            return None
+        return FrameSample(
+            FrameId(f"preview-{self.index:08d}"),
+            float(self.index),
+            _frame(self.index),
+        )
+
+    def stop(self) -> None:
+        self.stopped = True
+
+
+def test_threaded_preview_keeps_live_acquisition_outside_scanner_poll_cadence() -> None:
+    camera = PreviewCamera()
+    preview = RecordingPreview()
+    source = ThreadedPreviewCameraSource(camera, preview)
+
+    source.start()
+    assert preview.ready.wait(timeout=1.0)
+    sample = source.read()
+
+    assert sample is not None
+    assert sample.frame_id.value == "preview-00000002"
+    assert int(sample.payload[0, 0, 0]) == 2
+    assert source.read() is None
+    source.stop()
+    assert preview.started
+    assert preview.stopped
+    assert camera.stopped
+
+
+def test_opencv_operator_preview_resizes_and_q_closes_only_preview(monkeypatch) -> None:
+    calls: list[tuple[str, object]] = []
+    monkeypatch.setattr(cv2, "namedWindow", lambda name, mode: calls.append(("named", name)))
+    monkeypatch.setattr(
+        cv2,
+        "resizeWindow",
+        lambda name, width, height: calls.append(("size", (width, height))),
+    )
+    monkeypatch.setattr(
+        cv2,
+        "imshow",
+        lambda name, frame: calls.append(("show", frame.shape)),
+    )
+    monkeypatch.setattr(cv2, "waitKey", lambda _delay: ord("q"))
+    monkeypatch.setattr(cv2, "destroyWindow", lambda name: calls.append(("destroy", name)))
+
+    preview = OpenCVOperatorPreview(max_width=960)
+    preview.start()
+    preview.show(np.zeros((1080, 1920, 3), dtype=np.uint8))
+    preview.show(np.zeros((1080, 1920, 3), dtype=np.uint8))
+
+    assert ("size", (960, 540)) in calls
+    assert ("show", (540, 960, 3)) in calls
+    assert any(kind == "destroy" for kind, _value in calls)
+    assert sum(1 for kind, _value in calls if kind == "show") == 1
 
 
 def test_video_replay_samples_by_frame_stride_and_marks_eof(tmp_path: Path) -> None:

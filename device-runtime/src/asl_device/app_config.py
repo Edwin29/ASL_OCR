@@ -37,6 +37,8 @@ class ScannerHostConfig:
     camera_warmup_frames: int = 3
     camera_reopen_attempts: int = 1
     camera_reopen_initial_ms: int = 250
+    operator_preview_enabled: bool = False
+    operator_preview_max_width: int = 1280
     sample_interval_ms: int = 500
     opaque_identity_max_collection_ms: int | None = None
 
@@ -106,6 +108,14 @@ class ScannerHostConfig:
             or not 1 <= self.camera_reopen_initial_ms <= 10_000
         ):
             raise ValueError("camera_reopen_initial_ms must be an integer in [1, 10000]")
+        if not isinstance(self.operator_preview_enabled, bool):
+            raise TypeError("operator_preview_enabled must be a boolean")
+        if (
+            isinstance(self.operator_preview_max_width, bool)
+            or not isinstance(self.operator_preview_max_width, int)
+            or not 320 <= self.operator_preview_max_width <= 7680
+        ):
+            raise ValueError("operator_preview_max_width must be an integer in [320, 7680]")
         for name in ("camera_width", "camera_height"):
             value = getattr(self, name)
             if value is not None and (isinstance(value, bool) or not isinstance(value, int) or value <= 0):
@@ -325,6 +335,8 @@ class DeviceAppConfig:
                 "camera_warmup_frames",
                 "camera_reopen_attempts",
                 "camera_reopen_initial_ms",
+                "operator_preview_enabled",
+                "operator_preview_max_width",
                 "sample_interval_ms",
                 "opaque_identity_max_collection_ms",
             },
@@ -360,6 +372,8 @@ class DeviceAppConfig:
             camera_warmup_frames=scanner_payload.get("camera_warmup_frames", 3),
             camera_reopen_attempts=scanner_payload.get("camera_reopen_attempts", 1),
             camera_reopen_initial_ms=scanner_payload.get("camera_reopen_initial_ms", 250),
+            operator_preview_enabled=scanner_payload.get("operator_preview_enabled", False),
+            operator_preview_max_width=scanner_payload.get("operator_preview_max_width", 1280),
             sample_interval_ms=scanner_payload.get("sample_interval_ms", 500),
             opaque_identity_max_collection_ms=scanner_payload.get(
                 "opaque_identity_max_collection_ms"

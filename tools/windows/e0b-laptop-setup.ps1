@@ -17,6 +17,7 @@ param(
     [switch]$SkipInstall,
     [switch]$SkipHealthCheck,
     [switch]$SkipPreflight,
+    [switch]$DisableCameraPreview,
     [switch]$NonInteractive
 )
 
@@ -48,6 +49,16 @@ function Set-TomlNumber([string]$Path, [string]$Key, [string]$Value) {
         throw "TOML key not found: $Key in $Path"
     }
     Write-Utf8NoBom $Path ([regex]::Replace($content, $pattern, ($Key + ' = ' + $Value)))
+}
+
+function Set-TomlBoolean([string]$Path, [string]$Key, [bool]$Value) {
+    $content = [System.IO.File]::ReadAllText($Path)
+    $pattern = '(?m)^' + [regex]::Escape($Key) + '\s*=\s*(true|false)\s*$'
+    if (-not [regex]::IsMatch($content, $pattern)) {
+        throw "TOML key not found: $Key in $Path"
+    }
+    $replacement = $Key + ' = ' + $(if ($Value) { 'true' } else { 'false' })
+    Write-Utf8NoBom $Path ([regex]::Replace($content, $pattern, $replacement))
 }
 
 function Resolve-Python311 {
@@ -190,6 +201,7 @@ if (-not $replayMode) {
     Set-TomlNumber $appConfig "camera_width" ([string]$CameraWidth)
     Set-TomlNumber $appConfig "camera_height" ([string]$CameraHeight)
     Set-TomlNumber $appConfig "camera_fps" $CameraFps.ToString([Globalization.CultureInfo]::InvariantCulture)
+    Set-TomlBoolean $appConfig "operator_preview_enabled" (-not $DisableCameraPreview)
 }
 
 if (-not [string]::IsNullOrWhiteSpace($ApiKeySource)) {

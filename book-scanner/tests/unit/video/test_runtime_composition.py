@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from dataclasses import replace
 from pathlib import Path
 
 import pytest
@@ -11,6 +12,7 @@ from book_scanner.video.runtime_composition import (
     _effective_scanner_config,
 )
 from book_scanner.video.camera_host import AndroidUvcCameraSource
+from book_scanner.video.operator_preview import ThreadedPreviewCameraSource
 
 
 def _runtime(
@@ -99,3 +101,27 @@ def test_runtime_composes_android_uvc_source_without_replay_authority() -> None:
     assert source.fallback_index == 1
     assert source.rotation == 90
     assert source.mirror
+
+
+def test_runtime_wraps_physical_camera_only_when_operator_preview_is_enabled() -> None:
+    runtime = replace(
+        _runtime(profile="pc_camera"),
+        operator_preview_enabled=True,
+        camera_fourcc="MJPG",
+        camera_rotation=90,
+        camera_mirror=True,
+        camera_warmup_frames=5,
+        camera_reopen_attempts=2,
+    )
+    factory = object.__new__(LocalBookScannerEngineFactory)
+    factory.config = runtime
+
+    source = factory._camera()
+
+    assert isinstance(source, ThreadedPreviewCameraSource)
+    assert source.source.drain_grabs == 0
+    assert source.source.fourcc == "MJPG"
+    assert source.source.rotation == 90
+    assert source.source.mirror
+    assert source.source.warmup_frames == 5
+    assert source.source.reopen_attempts == 2

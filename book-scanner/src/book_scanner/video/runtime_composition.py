@@ -14,6 +14,7 @@ from .candidate import OpenCVCandidateAnalyzer
 from .composition import PaddleOpaqueIdentityBackendConfig, compose_m1_page_number_provider
 from .config import VideoScannerConfig
 from .engine import SampledFrameEngine
+from .operator_preview import OpenCVOperatorPreview, ThreadedPreviewCameraSource
 from .sources import ImageSequenceCameraSource, OpenCVCameraSource, VideoFileCameraSource
 from .spread_preparer import SeamUVDocPreparerConfig, SeamUVDocSpreadPreparer
 
@@ -43,6 +44,8 @@ class LocalScannerRuntimeConfig:
     camera_warmup_frames: int = 3
     camera_reopen_attempts: int = 1
     camera_reopen_initial_ms: int = 250
+    operator_preview_enabled: bool = False
+    operator_preview_max_width: int = 1280
     sample_interval_ms: int = 500
     opaque_identity_max_collection_ms: int | None = None
 
@@ -105,15 +108,23 @@ class LocalBookScannerEngineFactory:
         if self.config.profile == "image_sequence":
             return ImageSequenceCameraSource(self.config.image_paths)
         if self.config.profile == "pc_camera":
-            return OpenCVCameraSource(
+            source = OpenCVCameraSource(
                 self.config.camera_index,
                 width=self.config.camera_width,
                 height=self.config.camera_height,
                 fps=self.config.camera_fps,
+                fourcc=self.config.camera_fourcc,
+                rotation=self.config.camera_rotation,
+                mirror=self.config.camera_mirror,
+                warmup_frames=self.config.camera_warmup_frames,
+                reopen_attempts=self.config.camera_reopen_attempts,
+                reopen_initial_ms=self.config.camera_reopen_initial_ms,
+                drain_grabs=0 if self.config.operator_preview_enabled else 2,
             )
+            return self._with_operator_preview(source)
         if self.config.profile == "android_uvc":
             assert self.config.camera_selector is not None
-            return AndroidUvcCameraSource(
+            source = AndroidUvcCameraSource(
                 self.config.camera_selector,
                 backend=self.config.camera_backend,
                 fallback_index=self.config.camera_fallback_index,
@@ -126,8 +137,18 @@ class LocalBookScannerEngineFactory:
                 warmup_frames=self.config.camera_warmup_frames,
                 reopen_attempts=self.config.camera_reopen_attempts,
                 reopen_initial_ms=self.config.camera_reopen_initial_ms,
+                drain_grabs=0 if self.config.operator_preview_enabled else 2,
             )
+            return self._with_operator_preview(source)
         raise ValueError(f"unsupported scanner profile: {self.config.profile}")
+
+    def _with_operator_preview(self, source):
+        if not self.config.operator_preview_enabled:
+            return source
+        return ThreadedPreviewCameraSource(
+            source,
+            OpenCVOperatorPreview(max_width=self.config.operator_preview_max_width),
+        )
 
     def _validate_assets(self) -> None:
         if self.config.profile == "replay" and (

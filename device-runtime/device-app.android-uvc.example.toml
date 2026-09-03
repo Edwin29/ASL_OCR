@@ -34,6 +34,8 @@ camera_mirror = false
 camera_warmup_frames = 5
 camera_reopen_attempts = 2
 camera_reopen_initial_ms = 250
+operator_preview_enabled = false
+operator_preview_max_width = 1280
 sample_interval_ms = 500
 
 [local_io]

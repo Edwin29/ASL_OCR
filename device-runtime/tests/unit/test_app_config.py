@@ -252,6 +252,8 @@ def test_physical_e0b_examples_use_piper_audio_transport(
 
     assert payload["viewport_size"] == 10
     assert payload["scanner"]["profile"] == "pc_camera"
+    assert payload["scanner"]["operator_preview_enabled"] is True
+    assert payload["scanner"]["operator_preview_max_width"] == 1280
     assert payload["local_io"]["controls"] == controls
     assert payload["local_io"]["feedback"] == "jsonl"
     assert payload["local_io"]["reading_audio"]["enabled"] is True
@@ -276,7 +278,9 @@ camera_rotation = 90
 camera_mirror = true
 camera_warmup_frames = 5
 camera_reopen_attempts = 2
-camera_reopen_initial_ms = 300''',
+camera_reopen_initial_ms = 300
+operator_preview_enabled = true
+operator_preview_max_width = 960''',
     )
     path.write_text(text, encoding="utf-8")
 
@@ -289,6 +293,8 @@ camera_reopen_initial_ms = 300''',
     assert config.scanner.camera_rotation == 90
     assert config.scanner.camera_mirror
     assert config.scanner.camera_reopen_attempts == 2
+    assert config.scanner.operator_preview_enabled
+    assert config.scanner.operator_preview_max_width == 960
 
 
 def test_app_config_rejects_android_uvc_without_selector(tmp_path: Path) -> None:

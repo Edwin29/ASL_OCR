@@ -128,6 +128,8 @@ def _probe_e0b_profile(config: DeviceAppConfig) -> dict[str, Any]:
         "camera_width": config.scanner.camera_width,
         "camera_height": config.scanner.camera_height,
         "camera_fps": config.scanner.camera_fps,
+        "operator_preview_enabled": config.scanner.operator_preview_enabled,
+        "operator_preview_max_width": config.scanner.operator_preview_max_width,
         "controls": config.controls_mode,
         "audio_transport": "authenticated_s0_wav",
         "audio_backend": config.reading_audio.backend,

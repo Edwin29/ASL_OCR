@@ -171,6 +171,7 @@ from .sources import (
     SystemClock,
     VideoFileCameraSource,
 )
+from .operator_preview import OpenCVOperatorPreview, ThreadedPreviewCameraSource
 
 __all__ = [
     "ArtifactId",
@@ -235,11 +236,13 @@ __all__ = [
     "OpaqueQueryCollector",
     "OpaqueReferenceBank",
     "OpenCVCameraSource",
+    "OpenCVOperatorPreview",
     "OpenCVCandidateAnalyzer",
     "OpenCVIdentityFingerprinter",
     "OpenCVBottomRoiPageNumberProvider",
     "OpenCVDnnDigitRecognizer",
     "OpenCVHogDigitRecognizer",
+    "ThreadedPreviewCameraSource",
     "SelectedCamera",
     "PaddleRoiDigitRecognizer",
     "PaddleOpaqueIdentityBackendConfig",
