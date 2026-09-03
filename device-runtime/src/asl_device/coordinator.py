@@ -678,6 +678,7 @@ class DeviceFlowCoordinator:
 
     def _fatal(self, reason: str, events: list[CoordinatorEvent]) -> None:
         self._emit(CoordinatorEventType.FATAL_ERROR, events, (("reason", reason),))
+        self._feedback(FeedbackCode.FATAL_ERROR, (("reason", reason),))
         self._transition(DeviceFlowState.STOPPED, events)
 
     def _transition(self, state: DeviceFlowState, events: list[CoordinatorEvent]) -> None:

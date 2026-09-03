@@ -690,6 +690,29 @@ def test_scanner_diagnostic_is_observer_only_feedback() -> None:
     }
 
 
+def test_scanner_fatal_error_is_exposed_as_feedback_before_shutdown() -> None:
+    coordinator, _catalog, _scan, scanner, _delivery, _reading, feedback = make_coordinator(
+        (ready_entry(),)
+    )
+    enter_scanning(coordinator)
+    current = coordinator.scan_session
+    assert current is not None
+    scanner.events.append(
+        ScannerEvent(
+            "scanner-fatal",
+            current.scan_session_id,
+            ScannerEventType.FATAL,
+            code="frame_decode_failed",
+        )
+    )
+
+    coordinator.poll()
+
+    assert coordinator.state is DeviceFlowState.STOPPED
+    assert feedback.events[-1].code is FeedbackCode.FATAL_ERROR
+    assert dict(feedback.events[-1].details) == {"reason": "frame_decode_failed"}
+
+
 def test_source_exhausted_is_one_shot_feedback_without_auto_seal() -> None:
     coordinator, _catalog, scan, scanner, delivery, _reading, feedback = make_coordinator(
         (ready_entry(),)

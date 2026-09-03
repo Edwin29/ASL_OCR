@@ -244,6 +244,7 @@ def _feedback_rendering(
         FeedbackCode.SERVER_AUTH_FAILED: "서버 인증에 실패했습니다.",
         FeedbackCode.PARSER_REJECTED: "페이지 처리가 거부되었습니다.",
         FeedbackCode.NO_READABLE_DATAPACK: "읽을 수 있는 데이터팩이 없습니다.",
+        FeedbackCode.FATAL_ERROR: "장치 실행 중 오류가 발생하여 종료합니다.",
     }
     if event.code is FeedbackCode.SCANNER_GUIDANCE:
         phrases[event.code] = {

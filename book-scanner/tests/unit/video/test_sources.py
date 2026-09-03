@@ -163,6 +163,11 @@ class RecordingPreview:
         self.stopped = True
 
 
+class FailingPreview(RecordingPreview):
+    def show(self, frame: np.ndarray) -> None:
+        raise RuntimeError("preview renderer failed")
+
+
 class PreviewCamera:
     def __init__(self) -> None:
         self.index = 0
@@ -209,6 +214,25 @@ def test_threaded_preview_keeps_live_acquisition_outside_scanner_poll_cadence() 
     assert preview.started
     assert preview.stopped
     assert camera.stopped
+
+
+def test_threaded_preview_render_failure_does_not_stop_camera_capture() -> None:
+    camera = PreviewCamera()
+    preview = FailingPreview()
+    source = ThreadedPreviewCameraSource(camera, preview)
+
+    with pytest.warns(RuntimeWarning, match="preview disabled after render error"):
+        source.start()
+        deadline = time.monotonic() + 1.0
+        sample = None
+        while sample is None and time.monotonic() < deadline:
+            sample = source.read()
+            time.sleep(0.005)
+
+    assert sample is not None
+    assert int(sample.payload[0, 0, 0]) in {1, 2}
+    assert preview.stopped
+    source.stop()
 
 
 def test_opencv_operator_preview_resizes_and_q_closes_only_preview(monkeypatch) -> None:

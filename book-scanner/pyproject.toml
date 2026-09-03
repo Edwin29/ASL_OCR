@@ -5,7 +5,7 @@ description = "Repeated-capture, post-hoc transmittability judgment pipeline fee
 requires-python = ">=3.11"
 dependencies = [
   "numpy",
-  "opencv-python",
+  "opencv-contrib-python==4.10.0.84",
   "Pillow",
   "requests",
 ]

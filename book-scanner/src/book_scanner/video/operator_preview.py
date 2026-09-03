@@ -244,6 +244,7 @@ class ThreadedPreviewCameraSource:
             self._diagnostics = diagnostics
 
     def _capture_loop(self) -> None:
+        preview_active = True
         try:
             while not self._stop_event.is_set():
                 sample = self.source.read()
@@ -256,20 +257,37 @@ class ThreadedPreviewCameraSource:
                     diagnostics = self._diagnostics
                     self._latest = sample
                     self._latest_generation += 1
-                self.preview.show(
-                    _annotate_preview(
-                        sample.payload,
-                        diagnostics,
-                        source_label=self.source_label,
-                        effective_mode=getattr(self.source, "effective_mode", None),
-                    )
-                )
+                if preview_active:
+                    try:
+                        self.preview.show(
+                            _annotate_preview(
+                                sample.payload,
+                                diagnostics,
+                                source_label=self.source_label,
+                                effective_mode=getattr(self.source, "effective_mode", None),
+                            )
+                        )
+                    except Exception as exc:
+                        preview_active = False
+                        warnings.warn(
+                            "operator camera preview disabled after render error: "
+                            f"{type(exc).__name__}: {exc}",
+                            RuntimeWarning,
+                            stacklevel=2,
+                        )
+                        try:
+                            self.preview.stop()
+                        except Exception:
+                            pass
         except Exception as exc:
             if not self._stop_event.is_set():
                 with self._lock:
                     self._error = exc
         finally:
-            self.preview.stop()
+            try:
+                self.preview.stop()
+            except Exception:
+                pass
 
 
 def _annotate_preview(

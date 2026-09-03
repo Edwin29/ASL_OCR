@@ -169,6 +169,14 @@ if (-not $SkipInstall) {
     Write-Host "[E0-B] Installing pinned Laptop runtime dependencies..."
     & $venvPython -m pip install --upgrade pip setuptools wheel
     if ($LASTEXITCODE -ne 0) { throw "pip bootstrap failed." }
+    # All OpenCV wheel variants install the same cv2 package. Mixed variants
+    # can leave a mismatched native HighGUI binary and terminate the process at
+    # the first operator-preview imshow call without a Python traceback.
+    Write-Host "[E0-B] Normalizing OpenCV to the pinned GUI-capable build..."
+    & $venvPython -m pip uninstall --yes opencv-python opencv-python-headless opencv-contrib-python opencv-contrib-python-headless
+    if ($LASTEXITCODE -ne 0) { throw "OpenCV conflict cleanup failed." }
+    & $venvPython -m pip install --no-deps --force-reinstall opencv-contrib-python==4.10.0.84
+    if ($LASTEXITCODE -ne 0) { throw "Pinned OpenCV install failed." }
     & $venvPython -m pip install -r (Join-Path $repoRoot "device-runtime\requirements-e0b-laptop.txt")
     if ($LASTEXITCODE -ne 0) { throw "Laptop runtime dependency install failed." }
     & $venvPython -m pip install -e ((Join-Path $repoRoot "document-parser") + "[remote-ingest]") -e (Join-Path $repoRoot "book-scanner") -e ((Join-Path $repoRoot "device-runtime") + "[laptop,audio]")

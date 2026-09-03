@@ -67,6 +67,7 @@ class FeedbackCode(str, Enum):
     READING_AUDIO_INTERRUPTED = "reading_audio_interrupted"
     READING_AUDIO_PLAYBACK_COMPLETED = "reading_audio_playback_completed"
     READING_AUDIO_FAILED = "reading_audio_failed"
+    FATAL_ERROR = "fatal_error"
 
 
 @dataclass(frozen=True, slots=True)
