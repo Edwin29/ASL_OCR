@@ -62,11 +62,14 @@ class DeviceFlowCoordinator:
         reading: ReadingSessionPort,
         feedback: FeedbackSink,
         connectivity: ConnectivityPort | None = None,
+        initial_mode: DeviceOperatingMode = DeviceOperatingMode.CAPTURE,
     ) -> None:
         if not isinstance(device_id, DeviceId):
             raise TypeError("device_id must be a DeviceId")
         if isinstance(viewport_size, bool) or not isinstance(viewport_size, int) or viewport_size <= 0:
             raise ValueError("viewport_size must be a positive integer")
+        if not isinstance(initial_mode, DeviceOperatingMode):
+            raise TypeError("initial_mode must be a DeviceOperatingMode")
         self.device_id = device_id
         self.viewport_size = viewport_size
         self.clock = clock
@@ -79,7 +82,7 @@ class DeviceFlowCoordinator:
         self.connectivity = connectivity
 
         self.state = DeviceFlowState.BOOTING
-        self.operating_mode = DeviceOperatingMode.CAPTURE
+        self.operating_mode = initial_mode
         self.catalog: CatalogModel | None = None
         self._catalog_entries = ()
         self.scan_session: ScanSessionRef | None = None

@@ -95,7 +95,7 @@ def test_replay_config_rejects_invalid_opaque_identity_collection_timeout(
         DeviceAppConfig.from_toml(path)
 
 
-def test_physical_config_rejects_replay_only_opaque_identity_timeout(tmp_path: Path) -> None:
+def test_physical_config_accepts_bounded_opaque_identity_timeout(tmp_path: Path) -> None:
     path = _write_config(tmp_path)
     text = path.read_text(encoding="utf-8")
     text = text.replace('profile = "replay"', 'profile = "pc_camera"')
@@ -105,8 +105,9 @@ def test_physical_config_rejects_replay_only_opaque_identity_timeout(tmp_path: P
     )
     path.write_text(text, encoding="utf-8")
 
-    with pytest.raises(ValueError, match="allowed only for replay"):
-        DeviceAppConfig.from_toml(path)
+    config = DeviceAppConfig.from_toml(path)
+
+    assert config.scanner.opaque_identity_max_collection_ms == 30000
 
 
 def test_app_config_rejects_scanner_delivery_root_split(tmp_path: Path) -> None:

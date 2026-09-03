@@ -148,7 +148,7 @@ class CandidatePolicy:
 class GuidancePolicy:
     reason_hold_samples: int = 3
     reason_hold_ms: int = 1000
-    repeat_cooldown_ms: int = 5000
+    repeat_cooldown_ms: int = 15000
     validated: bool = False
     provenance: str = "v0_provisional"
 

@@ -112,7 +112,8 @@ STM·모터 없이 Laptop + 서버 + 웹캠으로 시험:
 # [LAPTOP]
 tools\windows\e0b-laptop-setup.bat `
   -ConfigRoot D:\ASL_OCR_E0B `
-  -TestProfile webcam
+  -TestProfile webcam `
+  -OpaqueIdentityMaxCollectionMs 8000
 ```
 
 전체 하드웨어가 연결된 시험:
@@ -122,12 +123,17 @@ tools\windows\e0b-laptop-setup.bat `
 tools\windows\e0b-laptop-setup.bat `
   -ConfigRoot D:\ASL_OCR_E0B `
   -TestProfile hardware `
+  -OpaqueIdentityMaxCollectionMs 8000 `
   -ComPort COM5
 ```
 
 setup 질문에는 Desktop의 HTTPS origin, 고유 Device ID, Laptop model bundle과 Desktop과 동일한 API key를
 입력한다. 생성 파일은 `device-app.e0b.webcam.toml`, `device-app.e0b.hardware.toml`이다. 호환용
 `device-app.e0b.toml`도 마지막 profile로 갱신되지만 이후 명령에는 profile을 항상 명시한다.
+
+실카메라의 footer identity OCR은 Laptop CPU에서 프레임당 수백 ms가 걸릴 수 있다. `N=5`를 유지하면서
+기존 1.5초 수집창을 쓰면 유효 관측 1~3개만 모은 채 timeout될 수 있으므로 physical profile의 E0-B
+기본값은 8초다. 카메라가 고정돼 있어도 OCR 처리시간과 frame sampling 간격 때문에 이 제한은 필요하다.
 
 ## 7. Laptop — Preflight
 
@@ -159,6 +165,12 @@ Laptop setup이 만드는 `webcam`/`hardware` 설정은 기본적으로 operator
 scan은 계속된다. 창 크기는 `operator_preview_max_width`로 제한되고 원본 OCR 프레임 해상도는 줄지 않는다.
 GUI 없는 자동 시험에서는 setup에 `-DisableCameraPreview`를 추가한다.
 
+미리보기 상단에는 실제 source/backend/index, 협상된 해상도·FPS·FourCC, Scanner 상태와 현재
+`reason`이 표시된다. 녹색 영역은 검출된 좌우 페이지 마스크이고 빨간 사각형은 페이지 내용과 겹친
+손·가림 검출 영역이다. `reason=ready`가 유지되어야 후보 검증으로 진행할 수 있다. 음성 안내는 같은
+사유가 최소 3회·1초 동안 유지된 뒤 출력되며, 동일 사유는 15초 이내에 반복하지 않는다. 사유가
+바뀌어도 순간적인 한 프레임 변화만으로 재생 중인 안내를 교체하지 않는다.
+
 Windows Laptop 설정은 backend마다 OpenCV index의 의미가 달라지는 것을 막기 위해 기본적으로
 `camera_backend = "msmf"`를 사용한다. 미리보기 제목의 `[pc_camera:msmf:N]`은 실행 중인 backend와
 index를 그대로 보여준다. DirectShow에서 확인한 장치를 사용해야 할 때만 setup에
@@ -174,6 +186,30 @@ tools\windows\e0b-laptop-run.bat D:\ASL_OCR_E0B webcam
 콘솔 명령으로 capture catalog → scan → save → capture catalog 복귀, reading catalog → 첫 node →
 node/braille-window/page 이동 → 종료·재진입 cursor 복구를 점검한다.
 
+이번 physical acceptance에서는 아래 순서를 지킨다.
+
+1. 새 데이터팩을 선택하고 `candidate_selected` 뒤
+   `identity_collection_progress`의 `valid_observations`가 5까지 도달하는지 확인한다.
+2. `identity_collection_decided`가 `different`, `artifact_ready`, `spread_sent` 순으로 이어지는지 확인한다.
+   `spread_sent`는 서버 ACK까지 끝났다는 뜻이다.
+3. 최소 한 건의 `spread_sent`를 확인한 뒤에만 `confirm`으로 스캔을 끝낸다.
+4. `finalizing` 뒤 `datapack_saved`에 READY `revision`이 표시되고 capture catalog로 돌아오는지 확인한다.
+5. 점퍼/모드 레버 없이 아래 reading 전용 명령으로 READY 데이터팩을 다시 연다.
+
+```powershell
+# [LAPTOP]
+tools\windows\e0b-laptop-read.bat D:\ASL_OCR_E0B webcam
+```
+
+reading catalog에는 READY 데이터팩만 보인다. 저장한 데이터팩을 선택해 `reading_snapshot`의 접근성
+항목, 비어 있지 않은 점자 셀, 문서 음성 재생을 확인한다. 이 명령은 시작 모드만 reading으로 지정하며
+카메라나 STM 점퍼를 요구하지 않는다.
+
+원문과 OCR 결과를 직접 대조할 때는 `datapack_saved`에 나온 ID로 Desktop의
+`D:\device-config\state\e0b-production\datapacks\<datapack-id>\document.json`을 연다. 같은 폴더의
+`manifest.json`에 페이지 순서와 검증 요약이 있으며, `audio_index.json`에는 실제 합성된 발화문이 있어
+본문 누락·오인식과 음성 품질을 함께 확인할 수 있다.
+
 전체 하드웨어로 실행:
 
 ```powershell
@@ -188,3 +224,34 @@ COM 입력, SHORT 반복 간격, confirm, lever A/R, `FRAME` 10셀, 모터 구�
 Android 휴대폰 UVC는 `docs/ANDROID_UVC_CAMERA_HOST_RUNBOOK.md`에 따라 stable selector와 fallback
 index를 먼저 probe한다. `scanner.profile="android_uvc"`는 선택 장치가 없을 때 다른 카메라로 조용히
 fallback하지 않는다.
+
+## 9. OCR 품질 판정과 유선 비교
+
+Bluetooth/Wi-Fi 가상 카메라는 앱 자체의 해상도 축소, 비트레이트 제한, H.264 재압축, 지연·frame drop을
+동반할 수 있다. 이 영향은 서버 송신 구간이 아니라 Windows가 Scanner에 제공하기 전의 영상 입력에서
+발생한다. 반면 USB UVC/MJPEG도 무압축 원본은 아니지만 대체로 전송 지연이 작고 협상된 해상도와
+프레임률을 재현하기 쉬워 비교 기준으로 적합하다.
+
+우선 8초 수집창으로 현재 연결을 시험한다. 저장 후 reading 결과에서 본문 누락, 심한 오인식, 페이지
+번호/좌우 순서 오류가 있으면 같은 책·거리·조명·회전 조건으로 휴대폰의 USB UVC 모드를 연결하고
+`android-uvc` profile로 한 번 더 찍는다. 두 실행의 미리보기 헤더에 표시되는 effective
+해상도/FPS/FourCC, `recognition_processing_ms`, 유효 관측 5개 수집 여부, 최종 OCR 텍스트를 비교한다.
+유선에서도 동일하면 전송 방식보다 구도·초점·노출 또는 footer crop/OCR 정책 문제일 가능성이 높다.
+
+## 10. 실험 데이터팩 전체 초기화
+
+현재 API에는 개별 데이터팩 삭제를 노출하지 않는다. 실험 데이터 전체를 비울 때는 **Desktop
+production 서버를 먼저 `Ctrl+C`로 완전히 종료**한 뒤 저장소 루트에서 실행한다.
+
+```powershell
+# [DESKTOP] server가 중지된 상태에서만 실행
+tools\windows\e0b-reset-experimental-datapacks.bat `
+  D:\device-config\state\e0b-production `
+  RESET-E0B-EXPERIMENT
+```
+
+도구는 local health가 응답하면 초기화를 거부한다. 확인 문자열이 정확해야 하며, DB·datapacks·jobs를
+삭제하지 않고 `D:\device-config\state\e0b-production-reset-backups\<timestamp-id>`로 옮긴 뒤 빈
+`datapacks`와 `jobs`를 다시 만든다. 출력된 `backup_root`로 복구할 수 있다. 초기화 뒤 production
+서버와 Tailscale Serve를 다시 시작한다. 이 명령은 개별 항목 삭제가 아니라 해당 state root의 실험
+데이터 전체 초기화다.

@@ -133,10 +133,6 @@ class ScannerHostConfig:
         ):
             raise ValueError("sample_interval_ms must be a positive integer")
         if self.opaque_identity_max_collection_ms is not None:
-            if self.profile != "replay":
-                raise ValueError(
-                    "opaque_identity_max_collection_ms is allowed only for replay scanner profile"
-                )
             if (
                 isinstance(self.opaque_identity_max_collection_ms, bool)
                 or not isinstance(self.opaque_identity_max_collection_ms, int)

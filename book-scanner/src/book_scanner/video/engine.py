@@ -14,6 +14,7 @@ from .artifacts import ArtifactCollisionError
 from .candidate import CandidateAnalyzer, CandidateObservation, CandidateWindow, StableWindowAssessor
 from .config import (
     CandidatePolicy,
+    GuidancePolicy,
     IdentityPolicy,
     OpaqueFooterIdentityPolicy,
     OpaqueFooterInputStage,
@@ -23,6 +24,7 @@ from .config import (
     PageNumberSchedulerPolicy,
 )
 from .events import OpaqueIdentityRole, VideoEvent, VideoEventType
+from .guidance import GuidanceArbiter
 from .identity import (
     IdentityFingerprintError,
     IdentityMatchKind,
@@ -129,6 +131,7 @@ class SampledFrameEngine:
         session_id: str,
         clock: Clock | None = None,
         policy: CandidatePolicy = CandidatePolicy(),
+        guidance_policy: GuidancePolicy = GuidancePolicy(),
         assessor: StableWindowAssessor | None = None,
         identity_policy: IdentityPolicy = IdentityPolicy(),
         page_change_policy: PageChangePolicy = PageChangePolicy(),
@@ -152,6 +155,7 @@ class SampledFrameEngine:
         self.artifact_store = artifact_store
         self.clock = clock or SystemClock()
         self.policy = policy
+        self.guidance = GuidanceArbiter(guidance_policy)
         self.assessor = assessor or StableWindowAssessor(policy)
         self.identity_policy = identity_policy
         self.page_change_policy = page_change_policy
@@ -321,6 +325,7 @@ class SampledFrameEngine:
             self.page_change_gate.reset()
             self.page_number_change_tracker.reset()
             self.page_number_scheduler.reset()
+            self.guidance.reset()
             self._transition(VideoSessionState.ARMING, events)
             events.append(self._event(VideoEventType.SESSION_STARTED))
             try:
@@ -409,19 +414,30 @@ class SampledFrameEngine:
             )
 
             assessment = self.assessor.assess(self._window.snapshot())
+            primary_reason = assessment.reasons[0] if assessment.reasons else None
+            self._publish_preview_diagnostics(
+                observation,
+                primary_reason=primary_reason,
+            )
             if not assessment.stable or assessment.best is None:
                 self._transition(VideoSessionState.SETTLING, events)
-                if assessment.reasons:
+                guidance = self.guidance.observe(primary_reason, now)
+                if guidance is not None:
                     events.append(
                         self._event(
                             VideoEventType.GUIDANCE_REQUESTED,
                             source_frame_id=frame.frame_id,
-                            reason=assessment.reasons[0],
-                            details={"observations_considered": assessment.observations_considered},
+                            reason=guidance.reason,
+                            details={
+                                "observations_considered": assessment.observations_considered,
+                                "stable_for_samples": guidance.stable_for_samples,
+                                "stable_for_ms": guidance.stable_for_ms,
+                            },
                         )
                     )
                 return tuple(events)
 
+            self.guidance.observe(None, now)
             self._selected = assessment.best
             self._spread_counter += 1
             self._selected_spread = SpreadId(f"{self.session_id}-spread-{self._spread_counter:06d}")
@@ -520,6 +536,7 @@ class SampledFrameEngine:
             self._fail(ReadinessReason.FRAME_DECODE_FAILED, events)
             return
         self._frames_evaluated += 1
+        self._publish_preview_diagnostics(analyzed)
         if analyzed.candidate.retry_reasons:
             self._opaque_identity_hard_rejected_observations += 1
             self._emit_opaque_abort(
@@ -666,6 +683,7 @@ class SampledFrameEngine:
             self._fail(ReadinessReason.FRAME_DECODE_FAILED, events)
             return
         self._frames_evaluated += 1
+        self._publish_preview_diagnostics(analyzed)
         if analyzed.candidate.retry_reasons:
             self._opaque_identity_hard_rejected_observations += 1
             self._opaque_collector = OpaqueQueryCollector(
@@ -706,6 +724,7 @@ class SampledFrameEngine:
         self._window.clear()
         self._opaque_collector = None
         self._opaque_waiting_reference = None
+        self.guidance.reset()
         events.append(
             self._event(
                 VideoEventType.PAGE_CHANGED,
@@ -1438,6 +1457,7 @@ class SampledFrameEngine:
             self._fail(ReadinessReason.FRAME_DECODE_FAILED, events)
             return
         self._frames_evaluated += 1
+        self._publish_preview_diagnostics(observation)
         reasons = set(observation.candidate.retry_reasons)
         motion_observed = bool(
             reasons
@@ -1606,6 +1626,7 @@ class SampledFrameEngine:
         self.page_number_scheduler.reset()
         self._page_change_key = None
         self._page_change_baseline_preview = None
+        self.guidance.reset()
         events.append(
             self._event(
                 VideoEventType.PAGE_CHANGED,
@@ -1717,6 +1738,25 @@ class SampledFrameEngine:
         self._clear_processing()
         self._transition(VideoSessionState.ERROR, events, reason=reason)
         events.append(self._event(VideoEventType.SESSION_ERROR, reason=reason))
+
+    def _publish_preview_diagnostics(
+        self,
+        observation: CandidateObservation,
+        *,
+        primary_reason: ReadinessReason | None = None,
+    ) -> None:
+        update = getattr(self.camera, "update_diagnostics", None)
+        if not callable(update):
+            return
+        try:
+            update(
+                observation,
+                primary_reason=primary_reason,
+                state=self.state.value,
+            )
+        except Exception:
+            # Operator diagnostics must never affect capture acceptance.
+            return
 
     def _stop_camera(self) -> None:
         if not self._camera_started:

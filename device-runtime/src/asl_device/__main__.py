@@ -7,6 +7,7 @@ import json
 
 from .laptop_acceptance import run_laptop_preflight, write_laptop_preflight_report
 from .local_composition import build_local_device
+from .types import DeviceOperatingMode
 
 
 def main() -> int:
@@ -23,6 +24,12 @@ def main() -> int:
         action="store_true",
         help="Validate authenticated Piper WAV transport without playing the cue",
     )
+    parser.add_argument(
+        "--initial-mode",
+        choices=tuple(mode.value for mode in DeviceOperatingMode),
+        default=DeviceOperatingMode.CAPTURE.value,
+        help="Open the capture or reading datapack catalog without requiring the mode lever.",
+    )
     args = parser.parse_args()
     if args.preflight:
         report = run_laptop_preflight(
@@ -33,7 +40,10 @@ def main() -> int:
             write_laptop_preflight_report(report, args.report)
         print(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True))
         return 0 if report["passed"] else 2
-    composition = build_local_device(args.config)
+    composition = build_local_device(
+        args.config,
+        initial_mode=DeviceOperatingMode(args.initial_mode),
+    )
     try:
         composition.application.run()
     except KeyboardInterrupt:

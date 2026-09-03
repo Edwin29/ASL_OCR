@@ -27,6 +27,7 @@ camera_fps = 30.0
 operator_preview_enabled = true
 operator_preview_max_width = 1280
 sample_interval_ms = 500
+opaque_identity_max_collection_ms = 8000
 
 [local_io]
 controls = "stm_serial"

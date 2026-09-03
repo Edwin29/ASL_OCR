@@ -407,9 +407,31 @@ def _system_audio_request(
         if details.get("kind") == "new_datapack":
             return ("s0-system-cue:catalog.new_datapack", 40, "catalog", False)
         return None
+    if event.code is FeedbackCode.SCANNER_GUIDANCE:
+        guidance_code = details.get("guidance_code")
+        cue_by_reason = {
+            "page_not_found": "scan.guidance.page_not_found",
+            "out_of_frame": "scan.guidance.out_of_frame",
+            "content_occluded": "scan.guidance.content_occluded",
+            "hand_or_page_turn": "scan.guidance.hand_or_page_turn",
+            "page_moving": "scan.guidance.page_moving",
+            "move_left": "scan.guidance.move_left",
+            "move_right": "scan.guidance.move_right",
+            "move_up": "scan.guidance.move_up",
+            "move_down": "scan.guidance.move_down",
+            "rotate_cw": "scan.guidance.rotate_cw",
+            "rotate_ccw": "scan.guidance.rotate_ccw",
+            "underexposed": "scan.guidance.underexposed",
+            "overexposed": "scan.guidance.overexposed",
+            "glare": "scan.guidance.glare",
+            "shadow_uneven": "scan.guidance.shadow_uneven",
+            "blur": "scan.guidance.blur",
+            "insufficient_resolution": "scan.guidance.insufficient_resolution",
+        }
+        cue = cue_by_reason.get(str(guidance_code), "scan.guidance")
+        return (f"s0-system-cue:{cue}", 30, "guidance", False)
     fixed = {
         FeedbackCode.SCAN_STARTED: ("scan.started", 60, "process", False),
-        FeedbackCode.SCANNER_GUIDANCE: ("scan.guidance", 30, "guidance", False),
         FeedbackCode.SPREAD_SENT: ("scan.spread_sent", 80, "handoff", True),
         FeedbackCode.SCAN_STOPPING: ("scan.stopping", 60, "process", True),
         FeedbackCode.FINALIZING: ("scan.finalizing", 60, "process", False),

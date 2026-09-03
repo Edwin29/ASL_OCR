@@ -16,6 +16,9 @@ from asl_device.events import FeedbackCode
 from asl_device.types import ReadingSnapshot
 
 
+_JSONL_OUTPUT_LOCK = threading.Lock()
+
+
 class JsonLineFeedbackSink:
     def __init__(self, stream: TextIO | None = None) -> None:
         self.stream = stream or sys.stdout
@@ -27,8 +30,11 @@ class JsonLineFeedbackSink:
             "at_monotonic": event.at_monotonic,
             "details": dict(event.details),
         }
-        self.stream.write(json.dumps(payload, ensure_ascii=True, separators=(",", ":")) + "\n")
-        self.stream.flush()
+        with _JSONL_OUTPUT_LOCK:
+            self.stream.write(
+                json.dumps(payload, ensure_ascii=True, separators=(",", ":")) + "\n"
+            )
+            self.stream.flush()
 
 
 class JsonLineReadingPresenter:
@@ -51,8 +57,11 @@ class JsonLineReadingPresenter:
             "audio_ref": snapshot.audio_ref,
         }
         try:
-            self.stream.write(json.dumps(payload, ensure_ascii=True, separators=(",", ":")) + "\n")
-            self.stream.flush()
+            with _JSONL_OUTPUT_LOCK:
+                self.stream.write(
+                    json.dumps(payload, ensure_ascii=True, separators=(",", ":")) + "\n"
+                )
+                self.stream.flush()
         except Exception:
             # Presentation is diagnostic and cannot roll back ACK or reading state.
             return
@@ -236,6 +245,26 @@ def _feedback_rendering(
         FeedbackCode.PARSER_REJECTED: "페이지 처리가 거부되었습니다.",
         FeedbackCode.NO_READABLE_DATAPACK: "읽을 수 있는 데이터팩이 없습니다.",
     }
+    if event.code is FeedbackCode.SCANNER_GUIDANCE:
+        phrases[event.code] = {
+            "page_not_found": "펼친 책의 양쪽 페이지 전체가 보이도록 맞춰 주세요.",
+            "out_of_frame": "책 가장자리가 화면 안에 들어오도록 맞춰 주세요.",
+            "content_occluded": "페이지를 가리는 손이나 물체를 치워 주세요.",
+            "hand_or_page_turn": "페이지에서 손을 떼고 잠시 기다려 주세요.",
+            "page_moving": "책과 카메라를 움직이지 말고 잠시 기다려 주세요.",
+            "move_left": "책을 왼쪽으로 옮겨 주세요.",
+            "move_right": "책을 오른쪽으로 옮겨 주세요.",
+            "move_up": "책을 위쪽으로 옮겨 주세요.",
+            "move_down": "책을 아래쪽으로 옮겨 주세요.",
+            "rotate_cw": "책을 시계 방향으로 조금 돌려 주세요.",
+            "rotate_ccw": "책을 반시계 방향으로 조금 돌려 주세요.",
+            "underexposed": "페이지가 어둡습니다. 조명을 밝게 해 주세요.",
+            "overexposed": "페이지가 너무 밝습니다. 강한 조명을 줄여 주세요.",
+            "glare": "페이지의 빛 반사를 줄여 주세요.",
+            "shadow_uneven": "페이지에 진 그림자가 생기지 않도록 조명을 맞춰 주세요.",
+            "blur": "초점이 맞도록 카메라와 책을 고정해 주세요.",
+            "insufficient_resolution": "카메라 해상도가 부족합니다. 카메라 설정을 확인해 주세요.",
+        }.get(str(details.get("guidance_code")), phrases[event.code])
     if event.code is FeedbackCode.SCREEN_CHANGED:
         screen = details.get("screen")
         mode = details.get("mode")

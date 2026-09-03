@@ -42,6 +42,7 @@ Edit `device-app.android-uvc.toml`:
 - start with `camera_backend = "dshow"` and `camera_fourcc = "MJPG"`;
 - set `camera_rotation` to `0`, `90`, `180`, or `270` after checking orientation;
 - leave `camera_mirror = false` unless the captured frame itself, not merely the phone preview, is mirrored;
+- keep `opaque_identity_max_collection_ms = 8000` for the first physical acceptance;
 - keep all model, connectivity, secret, state, and artifact paths inside the prepared root.
 
 The Windows PnP API proves that the selected phone identity is present but does not expose a reliable OpenCV index.
@@ -84,6 +85,12 @@ Use the console controls to enter capture mode, select New Datapack, present a s
 capture-complete Piper cue, and confirm after all intended spreads have been ACKed. The app must return to the capture
 mode datapack catalog after saving. Open the datapack from reading mode to verify accessible items, non-empty braille
 cells, and Piper audio.
+
+When no mode jumper/lever is available, start directly in reading mode:
+
+```powershell
+tools\windows\e0b-laptop-read.bat D:\ASL_OCR_E0B android-uvc
+```
 
 ## 6. Failure checks
 

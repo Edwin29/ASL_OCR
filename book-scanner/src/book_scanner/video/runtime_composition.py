@@ -89,6 +89,7 @@ class LocalBookScannerEngineFactory:
             self._artifact_store,
             session_id=session_id,
             policy=config.candidate,
+            guidance_policy=config.guidance,
             identity_policy=config.identity,
             page_change_policy=config.page_change,
             page_number_policy=config.page_number,
@@ -165,6 +166,7 @@ class LocalBookScannerEngineFactory:
                 window_name=f"ASL OCR Camera Preview [{source_label}] (Q/Esc: close)",
                 max_width=self.config.operator_preview_max_width,
             ),
+            source_label=source_label,
         )
 
     def _validate_assets(self) -> None:
@@ -219,10 +221,6 @@ def _effective_scanner_config(
     timeout = runtime.opaque_identity_max_collection_ms
     if timeout is None:
         return effective
-    if runtime.profile != "replay":
-        raise ValueError(
-            "opaque_identity_max_collection_ms is allowed only for replay scanner profile"
-        )
     if isinstance(timeout, bool) or not isinstance(timeout, int) or not 0 < timeout <= 60_000:
         raise ValueError("opaque_identity_max_collection_ms must be an integer in [1, 60000]")
     return replace(

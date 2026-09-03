@@ -130,8 +130,8 @@ COM port와 camera index/width/height/FPS는 replay mode에서 묻지 않고 사
 
 실제 camera/COM/audio hardware preflight는 실행하지 않는다.
 생성된 replay config에는 Laptop CPU에서 기존 N=5 footer identity 관측을 끝낼 수 있도록
-`opaque_identity_max_collection_ms = 30000`이 명시된다. 이 값은 replay profile에만 적용되며
-physical camera profile의 기본 `1500ms`, N=5와 candidate threshold는 바꾸지 않는다.
+`opaque_identity_max_collection_ms = 30000`이 명시된다. physical camera profile도 같은 설정 항목을
+지원하며 conditional Laptop setup의 E0-B 기본값은 `8000ms`다. N=5와 candidate threshold는 바꾸지 않는다.
 고정 `test1.mp4`의 검증된 source cadence는 `sample_interval_ms = 100`이다. 500ms로 바꾸면 성공
 candidate frame 92/365를 건너뛰므로 같은 acceptance가 아니다.
 

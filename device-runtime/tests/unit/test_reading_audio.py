@@ -267,6 +267,32 @@ def test_rapid_catalog_movement_drops_stale_title() -> None:
     assert player.played == [("s0-system-audio:" + "3" * 32).encode()]
 
 
+def test_scanner_guidance_uses_reason_specific_piper_cue() -> None:
+    system = SystemResourcePort()
+    player = Player()
+    controller = ReadingAudioController(
+        ResourcePort(),
+        player,
+        AudioResourceCache(max_bytes=1000, max_entries=8),
+        device_id=DeviceId("device-1"),
+        system_resource_port=system,
+    )
+    try:
+        controller.emit(
+            _feedback(
+                FeedbackCode.SCANNER_GUIDANCE,
+                guidance_code="content_occluded",
+            )
+        )
+        assert controller.wait_idle(1)
+    finally:
+        controller.close()
+
+    assert [ref for _scope, ref in system.calls] == [
+        "s0-system-cue:scan.guidance.content_occluded"
+    ]
+
+
 def test_reading_generation_interrupts_active_system_prompt() -> None:
     entered = threading.Event()
     cancelled = threading.Event()

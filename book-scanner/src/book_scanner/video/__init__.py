@@ -28,6 +28,7 @@ from .composition import (
     compose_m1_page_number_provider,
 )
 from .events import GuidanceRequest, OpaqueIdentityRole, VideoEvent, VideoEventType
+from .guidance import GuidanceArbiter, GuidanceDecision
 from .identity import (
     IdentityComparison,
     IdentityFingerprintError,
@@ -204,6 +205,8 @@ __all__ = [
     "FrameSample",
     "FilesystemArtifactStore",
     "GuidancePolicy",
+    "GuidanceArbiter",
+    "GuidanceDecision",
     "GuidanceRequest",
     "GuidanceSink",
     "HysteresisPageChangeGate",

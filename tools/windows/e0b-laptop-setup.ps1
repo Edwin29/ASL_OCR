@@ -10,6 +10,8 @@ param(
     [int]$CameraWidth = 3840,
     [int]$CameraHeight = 2160,
     [double]$CameraFps = 30.0,
+    [ValidateRange(1, 60000)]
+    [int]$OpaqueIdentityMaxCollectionMs = 8000,
     [ValidateSet("hardware", "webcam")]
     [string]$TestProfile = "hardware",
     [string]$ReplayVideo,
@@ -208,6 +210,7 @@ if (-not $replayMode) {
     Set-TomlNumber $appConfig "camera_width" ([string]$CameraWidth)
     Set-TomlNumber $appConfig "camera_height" ([string]$CameraHeight)
     Set-TomlNumber $appConfig "camera_fps" $CameraFps.ToString([Globalization.CultureInfo]::InvariantCulture)
+    Set-TomlNumber $appConfig "opaque_identity_max_collection_ms" ([string]$OpaqueIdentityMaxCollectionMs)
     Set-TomlBoolean $appConfig "operator_preview_enabled" (-not $DisableCameraPreview)
 }
 
@@ -315,6 +318,8 @@ if ($replayMode) {
     Write-Host "[E0-B.1] Replay report: $replayReportPath"
     Write-Host "[E0-B.1] Replay run: tools\windows\e0b-replay-run.bat $configRootPath"
 } else {
+    Write-Host "[E0-B] Footer identity collection timeout: $OpaqueIdentityMaxCollectionMs ms"
     Write-Host "[E0-B] Preflight: tools\windows\e0b-laptop-preflight.bat $configRootPath $TestProfile"
     Write-Host "[E0-B] Full run: tools\windows\e0b-laptop-run.bat $configRootPath $TestProfile"
+    Write-Host "[E0-B] Reading-only run: tools\windows\e0b-laptop-read.bat $configRootPath $TestProfile"
 }

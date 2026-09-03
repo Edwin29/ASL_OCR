@@ -5,12 +5,23 @@ from __future__ import annotations
 import threading
 import time
 import warnings
+from dataclasses import dataclass
 from typing import Protocol
 
 import cv2
 import numpy as np
 
 from .protocols import CameraSource, FrameSample
+from .candidate import CandidateObservation
+from .types import ReadinessReason
+
+
+@dataclass(frozen=True, slots=True)
+class OperatorPreviewDiagnostics:
+    state: str
+    reason: str | None
+    metrics: dict[str, object]
+    mask_preview: np.ndarray
 
 
 class FramePreview(Protocol):
@@ -109,12 +120,14 @@ class ThreadedPreviewCameraSource:
         source: CameraSource[np.ndarray],
         preview: FramePreview,
         *,
+        source_label: str = "camera",
         idle_sleep_seconds: float = 0.005,
     ) -> None:
         if idle_sleep_seconds <= 0:
             raise ValueError("idle_sleep_seconds must be positive")
         self.source = source
         self.preview = preview
+        self.source_label = source_label
         self.idle_sleep_seconds = idle_sleep_seconds
         self._lock = threading.Lock()
         self._stop_event = threading.Event()
@@ -123,6 +136,7 @@ class ThreadedPreviewCameraSource:
         self._latest_generation = 0
         self._delivered_generation = 0
         self._error: Exception | None = None
+        self._diagnostics: OperatorPreviewDiagnostics | None = None
 
     @property
     def exhausted(self) -> bool:
@@ -144,6 +158,7 @@ class ThreadedPreviewCameraSource:
                 self._latest_generation = 0
                 self._delivered_generation = 0
                 self._error = None
+                self._diagnostics = None
             self._thread = threading.Thread(
                 target=self._capture_loop,
                 name="asl-ocr-camera-preview",
@@ -181,6 +196,27 @@ class ThreadedPreviewCameraSource:
                     stacklevel=2,
                 )
 
+    def update_diagnostics(
+        self,
+        observation: CandidateObservation,
+        *,
+        primary_reason: ReadinessReason | None = None,
+        state: str = "scanning",
+    ) -> None:
+        """Publish sampled analysis for the next raw-frame preview render."""
+
+        reason = primary_reason
+        if reason is None and observation.candidate.retry_reasons:
+            reason = observation.candidate.retry_reasons[0]
+        diagnostics = OperatorPreviewDiagnostics(
+            state=state,
+            reason=reason.value if reason is not None else None,
+            metrics=dict(observation.candidate.metrics),
+            mask_preview=observation.mask_preview.copy(),
+        )
+        with self._lock:
+            self._diagnostics = diagnostics
+
     def _capture_loop(self) -> None:
         try:
             while not self._stop_event.is_set():
@@ -190,13 +226,159 @@ class ThreadedPreviewCameraSource:
                         return
                     time.sleep(self.idle_sleep_seconds)
                     continue
-                self.preview.show(sample.payload)
                 with self._lock:
+                    diagnostics = self._diagnostics
                     self._latest = sample
                     self._latest_generation += 1
+                self.preview.show(
+                    _annotate_preview(
+                        sample.payload,
+                        diagnostics,
+                        source_label=self.source_label,
+                        effective_mode=getattr(self.source, "effective_mode", None),
+                    )
+                )
         except Exception as exc:
             if not self._stop_event.is_set():
                 with self._lock:
                     self._error = exc
         finally:
             self.preview.stop()
+
+
+def _annotate_preview(
+    frame: np.ndarray,
+    diagnostics: OperatorPreviewDiagnostics | None,
+    *,
+    source_label: str = "camera",
+    effective_mode: dict[str, float | str] | None = None,
+) -> np.ndarray:
+    view = frame.copy()
+    height, width = view.shape[:2]
+    if diagnostics is None:
+        _draw_status_lines(
+            view,
+            (
+                f"source={source_label}  {_mode_text(effective_mode, width, height)}",
+                "Waiting for scanner analysis...",
+            ),
+            (0, 190, 255),
+        )
+        return view
+
+    metrics = diagnostics.metrics
+    mask = diagnostics.mask_preview
+    if mask.size:
+        resized_mask = cv2.resize(mask, (width, height), interpolation=cv2.INTER_NEAREST) > 0
+        tint = np.zeros_like(view)
+        tint[:, :, 1] = 180
+        view[resized_mask] = cv2.addWeighted(
+            view[resized_mask], 0.78, tint[resized_mask], 0.22, 0
+        )
+
+    bbox = _obstruction_bbox(metrics, width=width, height=height)
+    if bbox is not None:
+        left, top, box_width, box_height = bbox
+        cv2.rectangle(
+            view,
+            (left, top),
+            (left + box_width, top + box_height),
+            (0, 0, 255),
+            max(2, round(min(width, height) / 320)),
+        )
+
+    reason = diagnostics.reason or "ready"
+    status_color = (0, 190, 0) if reason == "ready" else (0, 140, 255)
+    if reason == "content_occluded":
+        status_color = (0, 0, 255)
+    confidence = metrics.get("mask_confidence_min")
+    confidence_text = (
+        f"{float(confidence):.3f}"
+        if isinstance(confidence, (int, float)) and not isinstance(confidence, bool)
+        else "n/a"
+    )
+    lines = (
+        f"source={source_label}  {_mode_text(effective_mode, width, height)}",
+        f"state={diagnostics.state}",
+        f"reason={reason}",
+        (
+            "page_pair="
+            f"{'yes' if metrics.get('page_pair_found') is True else 'no'}"
+            f"  mask_confidence={confidence_text}"
+        ),
+        "Green=detected pages  Red=hand/obstruction",
+    )
+    _draw_status_lines(view, lines, status_color)
+    return view
+
+
+def _obstruction_bbox(
+    metrics: dict[str, object],
+    *,
+    width: int,
+    height: int,
+) -> tuple[int, int, int, int] | None:
+    value = metrics.get("obstruction_bbox_preview")
+    preview_width = metrics.get("preview_width")
+    preview_height = metrics.get("preview_height")
+    if not isinstance(value, str) or not value:
+        return None
+    if not isinstance(preview_width, int) or not isinstance(preview_height, int):
+        return None
+    if preview_width <= 0 or preview_height <= 0:
+        return None
+    try:
+        left, top, box_width, box_height = (int(item) for item in value.split(","))
+    except (TypeError, ValueError):
+        return None
+    scale_x = width / preview_width
+    scale_y = height / preview_height
+    return (
+        max(0, round(left * scale_x)),
+        max(0, round(top * scale_y)),
+        max(1, round(box_width * scale_x)),
+        max(1, round(box_height * scale_y)),
+    )
+
+
+def _draw_status_lines(
+    image: np.ndarray,
+    lines: tuple[str, ...],
+    color: tuple[int, int, int],
+) -> None:
+    scale = max(0.45, min(0.85, image.shape[1] / 1280 * 0.7))
+    thickness = 1 if scale < 0.7 else 2
+    line_height = max(20, round(30 * scale / 0.7))
+    panel_height = 12 + line_height * len(lines)
+    overlay = image.copy()
+    cv2.rectangle(overlay, (0, 0), (image.shape[1], panel_height), (0, 0, 0), -1)
+    cv2.addWeighted(overlay, 0.62, image, 0.38, 0, image)
+    for index, line in enumerate(lines):
+        cv2.putText(
+            image,
+            line,
+            (10, 8 + line_height * (index + 1) - 5),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            scale,
+            color if line.startswith("reason=") else (240, 240, 240),
+            thickness,
+            cv2.LINE_AA,
+        )
+
+
+def _mode_text(
+    effective_mode: dict[str, float | str] | None,
+    width: int,
+    height: int,
+) -> str:
+    if effective_mode is None:
+        return f"frame={width}x{height}"
+    mode_width = effective_mode.get("width", width)
+    mode_height = effective_mode.get("height", height)
+    fps = effective_mode.get("fps", "n/a")
+    fourcc = effective_mode.get("fourcc", "")
+    try:
+        mode = f"mode={float(mode_width):g}x{float(mode_height):g}@{float(fps):g}"
+    except (TypeError, ValueError):
+        mode = f"frame={width}x{height}"
+    return f"{mode} {fourcc}".strip()

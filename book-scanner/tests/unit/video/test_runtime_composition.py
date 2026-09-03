@@ -67,9 +67,13 @@ def test_runtime_rejects_invalid_replay_collection_timeout(timeout: int) -> None
         _effective_scanner_config(_runtime(timeout=timeout))
 
 
-def test_runtime_rejects_replay_override_for_physical_profile() -> None:
-    with pytest.raises(ValueError, match="allowed only for replay"):
-        _effective_scanner_config(_runtime(profile="pc_camera", timeout=30_000))
+def test_runtime_applies_collection_timeout_to_physical_profile() -> None:
+    effective = _effective_scanner_config(
+        _runtime(profile="pc_camera", timeout=8_000)
+    )
+
+    assert effective.opaque_footer_identity.max_collection_ms == 8_000
+    assert effective.opaque_footer_identity.query_sample_count == 5
 
 
 def test_runtime_composes_android_uvc_source_without_replay_authority() -> None:

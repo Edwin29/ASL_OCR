@@ -10,7 +10,9 @@ import pytest
 
 from book_scanner.video.operator_preview import (
     OpenCVOperatorPreview,
+    OperatorPreviewDiagnostics,
     ThreadedPreviewCameraSource,
+    _annotate_preview,
 )
 from book_scanner.video.protocols import FrameSample
 from book_scanner.video.sources import (
@@ -233,6 +235,31 @@ def test_opencv_operator_preview_resizes_and_q_closes_only_preview(monkeypatch) 
     assert ("show", (540, 960, 3)) in calls
     assert any(kind == "destroy" for kind, _value in calls)
     assert sum(1 for kind, _value in calls if kind == "show") == 1
+
+
+def test_operator_preview_overlay_marks_page_mask_and_obstruction() -> None:
+    frame = np.zeros((100, 200, 3), dtype=np.uint8)
+    mask = np.zeros((50, 100), dtype=np.uint8)
+    mask[10:40, 10:90] = 255
+    diagnostics = OperatorPreviewDiagnostics(
+        state="settling",
+        reason="content_occluded",
+        metrics={
+            "page_pair_found": True,
+            "mask_confidence_min": 0.91,
+            "preview_width": 100,
+            "preview_height": 50,
+            "obstruction_bbox_preview": "20,15,10,8",
+        },
+        mask_preview=mask,
+    )
+
+    annotated = _annotate_preview(frame, diagnostics)
+
+    assert annotated.shape == frame.shape
+    assert np.any(annotated != frame)
+    # Preview bbox is doubled to the full frame coordinate system.
+    assert int(annotated[30, 40, 2]) > 0
 
 
 def test_video_replay_samples_by_frame_stride_and_marks_eof(tmp_path: Path) -> None:

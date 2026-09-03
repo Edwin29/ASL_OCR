@@ -36,6 +36,7 @@ from .delivery import DurableDeliveryPort
 from .delivery_store import DeliveryStore
 from .protocols import Clock, FeedbackSink
 from .reading_audio import AudioResourceCache, ReadingAudioController
+from .types import DeviceOperatingMode
 
 
 class SystemClock:
@@ -61,6 +62,7 @@ def build_local_device(
     presenter: ReadingPresenter | None = None,
     feedback: FeedbackSink | None = None,
     clock: Clock | None = None,
+    initial_mode: DeviceOperatingMode = DeviceOperatingMode.CAPTURE,
 ) -> LocalDeviceComposition:
     config = DeviceAppConfig.from_toml(config_path)
     clock_value = clock or SystemClock()
@@ -160,6 +162,7 @@ def build_local_device(
         reading=S0ReadingHttpAdapter(s0_client),
         feedback=feedback_sink,
         connectivity=connectivity,
+        initial_mode=initial_mode,
     )
     application = DeviceApplication(
         coordinator,

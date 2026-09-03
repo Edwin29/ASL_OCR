@@ -46,7 +46,11 @@ from .fakes import (
 SHA = "a" * 64
 
 
-def make_coordinator(entries=(), connectivity=None):
+def make_coordinator(
+    entries=(),
+    connectivity=None,
+    initial_mode=DeviceOperatingMode.CAPTURE,
+):
     clock = ManualClock()
     catalog = FakeCatalogPort(tuple(entries))
     scan = FakeScanSessionPort()
@@ -65,8 +69,27 @@ def make_coordinator(entries=(), connectivity=None):
         reading=reading,
         feedback=feedback,
         connectivity=connectivity,
+        initial_mode=initial_mode,
     )
     return coordinator, catalog, scan, scanner, delivery, reading, feedback
+
+
+def test_initial_reading_mode_opens_filtered_reading_catalog() -> None:
+    draft = ready_entry("draft-hidden")
+    object.__setattr__(draft, "status", DatapackStatus.DRAFT)
+    ready = ready_entry("ready-visible")
+    coordinator, *_ = make_coordinator(
+        (draft, ready),
+        initial_mode=DeviceOperatingMode.READING,
+    )
+
+    coordinator.start()
+
+    assert coordinator.operating_mode is DeviceOperatingMode.READING
+    assert coordinator.catalog is not None
+    assert [item.choice.entry.datapack_id.value for item in coordinator.catalog.items] == [
+        "ready-visible"
+    ]
 
 
 class FakeConnectivity:

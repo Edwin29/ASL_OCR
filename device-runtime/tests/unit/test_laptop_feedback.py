@@ -87,6 +87,24 @@ def test_laptop_feedback_speaks_only_the_catalog_title_detail() -> None:
     assert backend.calls == [("speak", "수학 교재")]
 
 
+def test_laptop_feedback_speaks_reason_specific_scanner_guidance() -> None:
+    backend = RecordingAudio()
+    sink = WindowsAudioFeedbackSink(
+        LaptopAudioConfig(jsonl_trace=False),
+        backend=backend,
+    )
+    sink.emit(
+        FeedbackEvent(
+            FeedbackCode.SCANNER_GUIDANCE,
+            1.0,
+            (("guidance_code", "content_occluded"),),
+        )
+    )
+    sink.close()
+
+    assert backend.calls == [("speak", "페이지를 가리는 손이나 물체를 치워 주세요.")]
+
+
 def _snapshot(*, cells: tuple[int, ...] = (1, 2, 3), generation: int = 1) -> ReadingSnapshot:
     return ReadingSnapshot(
         ReadingSessionId("reading-1"),
