@@ -225,6 +225,14 @@ COM 입력, SHORT 반복 간격, confirm, lever A/R, `FRAME` 10셀, 모터 구�
 확인한다. `webcam` 통과는 STM/모터/점자 합격을 대신하지 않으며, preflight만으로 두 workflow의 E2E가
 완료된 것도 아니다. 각 full run 로그와 Desktop server evidence를 보존한다.
 
+현재 STM/노트북 직렬 계약은 v2가 기본이다. STM은 `HELLO,2`로 협상한 뒤 각 입력을
+`NAV,<control>,<action>,<sequence>`로 보내며, 노트북 직렬 worker는 유효 입력을 bounded queue에
+수락하는 즉시 `ACK,<sequence>`를 돌려준다. 이 ACK는 서버 저장 완료가 아니라 **장치 입력 수락**만
+뜻한다. 서버 저장 완료는 계속 `spread_sent`로 구분한다. 점자 `FRAME`은 ACK와 독립적으로 reading
+snapshot이 바뀔 때 전송되고, 밀린 중간 frame은 최신 상태로 합쳐진다. ACK가 유실되면 STM은 같은
+sequence를 재전송하고 노트북은 다시 ACK하되 입력은 한 번만 적용한다. v2 협상이 실패하면 기존
+`HELLO`/3필드 `NAV`/명령별 `FRAME` 대기 방식으로 자동 폴백한다.
+
 Android 휴대폰 UVC는 `docs/ANDROID_UVC_CAMERA_HOST_RUNBOOK.md`에 따라 stable selector와 fallback
 index를 먼저 probe한다. `scanner.profile="android_uvc"`는 선택 장치가 없을 때 다른 카메라로 조용히
 fallback하지 않는다.

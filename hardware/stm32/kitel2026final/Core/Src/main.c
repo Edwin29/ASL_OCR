@@ -49,6 +49,11 @@
 /* Retry Raspberry Pi / Bluetooth handshake when disconnected. */
 #define BT_RETRY_MS             2000U
 #define FRAME_TIMEOUT_MS        5000U
+#define V2_HANDSHAKE_TIMEOUT_MS 1200U
+#define ACK_TIMEOUT_MS          500U
+#define ACK_RETRY_LIMIT         3U
+#define CONTROL_QUEUE_CAPACITY  16U
+#define BT_RX_LINE_SIZE         256U
 
 /* ============================================================
  * Peripheral handles
@@ -274,6 +279,26 @@ static uint8_t current_cells[BRAILLE_CELL_COUNT] = {0};
 static uint8_t current_motor_state[MOTOR_COUNT];
 static uint8_t bt_connected = 0U;
 static uint32_t last_bt_retry = 0U;
+static uint8_t bt_protocol_v2 = 0U;
+static uint32_t next_control_sequence = 1U;
+
+typedef struct
+{
+    char control;
+    char action;
+    uint32_t sequence;
+} ControlCommand;
+
+static ControlCommand control_queue[CONTROL_QUEUE_CAPACITY];
+static uint8_t control_queue_head = 0U;
+static uint8_t control_queue_tail = 0U;
+static uint8_t control_queue_count = 0U;
+static ControlCommand control_in_flight = {0};
+static uint8_t control_has_in_flight = 0U;
+static uint8_t control_retry_count = 0U;
+static uint32_t control_sent_at = 0U;
+static char bt_rx_line[BT_RX_LINE_SIZE];
+static uint16_t bt_rx_line_length = 0U;
 
 /* ============================================================
  * Prototypes
@@ -299,6 +324,12 @@ static uint8_t ModeLeverPoll(Button *lever, char *action);
 
 static uint8_t HC05_ReadLine(char *buf, uint16_t buf_size, uint32_t timeout_ms);
 static uint8_t ReceiveFrameFromPi(uint32_t timeout_ms);
+static uint8_t ParseAndApplyFrame(char *line);
+static void ProcessHostLine(char *line);
+static void PumpBluetoothInput(void);
+static void ResetControlTransport(void);
+static uint8_t QueueControlAction(char control, char action);
+static void ServiceControlTransmit(void);
 static uint8_t SendControlAction(char control, char action);
 static uint8_t TryBluetoothHandshake(void);
 static void ShowCurrentState(void);
@@ -652,14 +683,22 @@ static uint8_t HC05_ReadLine(char *buf, uint16_t buf_size, uint32_t timeout_ms)
 static uint8_t ReceiveFrameFromPi(uint32_t timeout_ms)
 {
     char line[256];
-    char *token;
-    unsigned long values[5U + BRAILLE_CELL_COUNT];
-    uint8_t i;
 
     if (!HC05_ReadLine(line, sizeof(line), timeout_ms))
         return 0U;
 
     Debug_Printf("BT RX: %s\r\n", line);
+    return ParseAndApplyFrame(line);
+}
+
+static uint8_t ParseAndApplyFrame(char *line)
+{
+    char *token;
+    unsigned long values[5U + BRAILLE_CELL_COUNT];
+    uint8_t i;
+
+    if (line == NULL)
+        return 0U;
 
     token = strtok(line, ",");
 
@@ -708,34 +747,190 @@ static uint8_t ReceiveFrameFromPi(uint32_t timeout_ms)
 }
 
 /* ============================================================
- * STM -> Pi navigation step
+ * Version 2 host transport
  *
- * Unified command packet:
- *   NAV,<U|D|L|R|N|P|C|V>,<S|L|A|R>
+ *   HELLO,2                       -> ACK,HELLO,2
+ *   NAV,<control>,<action>,<seq> -> ACK,<seq>
+ *   FRAME,... arrives independently whenever presentation changes.
  *
- * Holding a button generates these SHORT steps repeatedly.
+ * One in-flight command plus a bounded FIFO preserves button order without
+ * blocking GPIO polling. A missing ACK is retried with the same sequence, so
+ * the host can acknowledge duplicates without applying them twice.
  * ============================================================ */
-static uint8_t SendControlAction(char control, char action)
+static void ResetControlTransport(void)
 {
-    char packet[32];
+    control_queue_head = 0U;
+    control_queue_tail = 0U;
+    control_queue_count = 0U;
+    control_has_in_flight = 0U;
+    control_retry_count = 0U;
+    control_sent_at = 0U;
+    bt_rx_line_length = 0U;
+    next_control_sequence = 1U;
+}
+
+static uint8_t QueueControlAction(char control, char action)
+{
+    ControlCommand *command;
+
+    if (control_queue_count >= CONTROL_QUEUE_CAPACITY)
+    {
+        Debug_Print("BT TX QUEUE FULL\r\n");
+        return 0U;
+    }
+
+    command = &control_queue[control_queue_tail];
+    command->control = control;
+    command->action = action;
+    command->sequence = next_control_sequence++;
+    if (next_control_sequence == 0U)
+        next_control_sequence = 1U;
+
+    control_queue_tail = (uint8_t)((control_queue_tail + 1U) % CONTROL_QUEUE_CAPACITY);
+    control_queue_count++;
+    return 1U;
+}
+
+static void ServiceControlTransmit(void)
+{
+    char packet[48];
+    uint32_t now;
+
+    if (!bt_connected || !bt_protocol_v2)
+        return;
+
+    now = HAL_GetTick();
+    if (control_has_in_flight)
+    {
+        if ((now - control_sent_at) < ACK_TIMEOUT_MS)
+            return;
+        if (control_retry_count >= ACK_RETRY_LIMIT)
+        {
+            Debug_Print("NO ACK -> BLUETOOTH DISCONNECTED\r\n");
+            bt_connected = 0U;
+            ResetControlTransport();
+            return;
+        }
+        control_retry_count++;
+    }
+    else
+    {
+        if (control_queue_count == 0U)
+            return;
+        control_in_flight = control_queue[control_queue_head];
+        control_queue_head = (uint8_t)((control_queue_head + 1U) % CONTROL_QUEUE_CAPACITY);
+        control_queue_count--;
+        control_has_in_flight = 1U;
+        control_retry_count = 0U;
+    }
 
     snprintf(
         packet,
         sizeof(packet),
-        "NAV,%c,%c\n",
-        control,
-        action);
-
+        "NAV,%c,%c,%lu\n",
+        control_in_flight.control,
+        control_in_flight.action,
+        (unsigned long)control_in_flight.sequence);
     Debug_Printf("BT TX: %s", packet);
-
     if (HAL_UART_Transmit(
             &huart1,
             (uint8_t *)packet,
             (uint16_t)strlen(packet),
             1000U) != HAL_OK)
     {
-        return 0U;
+        bt_connected = 0U;
+        ResetControlTransport();
+        return;
     }
+    control_sent_at = now;
+}
+
+static void ProcessHostLine(char *line)
+{
+    unsigned long sequence;
+    char trailing;
+
+    if (line == NULL || line[0] == '\0')
+        return;
+
+    Debug_Printf("BT RX: %s\r\n", line);
+    if (sscanf(line, "ACK,%lu%c", &sequence, &trailing) == 1)
+    {
+        if (control_has_in_flight && sequence == control_in_flight.sequence)
+        {
+            control_has_in_flight = 0U;
+            control_retry_count = 0U;
+            Debug_Printf("BT ACK: %lu\r\n", sequence);
+        }
+        return;
+    }
+    if (sscanf(line, "NACK,%lu,BUSY%c", &sequence, &trailing) == 1)
+    {
+        if (control_has_in_flight && sequence == control_in_flight.sequence)
+            control_sent_at = HAL_GetTick();
+        return;
+    }
+    if (strncmp(line, "FRAME,", 6U) == 0)
+    {
+        if (!ParseAndApplyFrame(line))
+            Debug_Print("FRAME FORMAT ERROR\r\n");
+        return;
+    }
+    Debug_Print("BT RX UNKNOWN\r\n");
+}
+
+static void PumpBluetoothInput(void)
+{
+    uint8_t ch;
+    uint8_t processed = 0U;
+
+    while (processed < 64U)
+    {
+        HAL_StatusTypeDef status = HAL_UART_Receive(&huart1, &ch, 1U, 1U);
+        if (status == HAL_TIMEOUT)
+            break;
+        if (status != HAL_OK)
+        {
+            bt_connected = 0U;
+            ResetControlTransport();
+            return;
+        }
+        processed++;
+        if (ch == '\r')
+            continue;
+        if (ch == '\n')
+        {
+            bt_rx_line[bt_rx_line_length] = '\0';
+            ProcessHostLine(bt_rx_line);
+            bt_rx_line_length = 0U;
+            continue;
+        }
+        if (bt_rx_line_length >= (BT_RX_LINE_SIZE - 1U))
+        {
+            bt_rx_line_length = 0U;
+            Debug_Print("BT RX LINE TOO LONG\r\n");
+            continue;
+        }
+        bt_rx_line[bt_rx_line_length++] = (char)ch;
+    }
+}
+
+/* Keep legacy blocking response semantics only when an old host answers HELLO. */
+static uint8_t SendControlAction(char control, char action)
+{
+    char packet[32];
+
+    if (bt_protocol_v2)
+        return QueueControlAction(control, action);
+
+    snprintf(packet, sizeof(packet), "NAV,%c,%c\n", control, action);
+    Debug_Printf("BT TX: %s", packet);
+    if (HAL_UART_Transmit(
+            &huart1,
+            (uint8_t *)packet,
+            (uint16_t)strlen(packet),
+            1000U) != HAL_OK)
+        return 0U;
 
     if (!ReceiveFrameFromPi(FRAME_TIMEOUT_MS))
     {
@@ -743,39 +938,62 @@ static uint8_t SendControlAction(char control, char action)
         bt_connected = 0U;
         return 0U;
     }
-
     return 1U;
 }
 
 /* ============================================================
- * Initial / reconnect handshake
+ * Initial / reconnect handshake with legacy fallback
  * ============================================================ */
 static uint8_t TryBluetoothHandshake(void)
 {
-    static const char hello[] = "HELLO\n";
+    static const char hello_v2[] = "HELLO,2\n";
+    static const char hello_v1[] = "HELLO\n";
+    char line[64];
+    GPIO_PinState lever_state;
 
-    Debug_Print("BT: HELLO...\r\n");
-
+    ResetControlTransport();
+    bt_protocol_v2 = 0U;
+    Debug_Print("BT: HELLO V2...\r\n");
     HAL_UART_Transmit(
         &huart1,
-        (uint8_t *)hello,
-        (uint16_t)(sizeof(hello) - 1U),
+        (uint8_t *)hello_v2,
+        (uint16_t)(sizeof(hello_v2) - 1U),
         1000U);
 
-    if (ReceiveFrameFromPi(1200U))
+    if (HC05_ReadLine(line, sizeof(line), V2_HANDSHAKE_TIMEOUT_MS) &&
+        strcmp(line, "ACK,HELLO,2") == 0)
     {
-        GPIO_PinState lever_state = HAL_GPIO_ReadPin(MODE_LEVER_PORT, MODE_LEVER_PIN);
+        bt_protocol_v2 = 1U;
         bt_connected = 1U;
-        Debug_Print("BT: RASPBERRY PI CONNECTED\r\n");
-        button_mode_lever.last_raw = lever_state;
-        button_mode_lever.stable_state = lever_state;
-        button_mode_lever.last_change_time = HAL_GetTick();
-        return SendControlAction('V', (lever_state == GPIO_PIN_RESET) ? 'A' : 'R');
+        Debug_Print("BT: HOST CONNECTED (V2 ASYNC)\r\n");
+    }
+    else
+    {
+        Debug_Print("BT: V2 UNAVAILABLE, TRY LEGACY\r\n");
+        HAL_UART_Transmit(
+            &huart1,
+            (uint8_t *)hello_v1,
+            (uint16_t)(sizeof(hello_v1) - 1U),
+            1000U);
+        if (!ReceiveFrameFromPi(V2_HANDSHAKE_TIMEOUT_MS))
+        {
+            bt_connected = 0U;
+            Debug_Print("BT: WAITING FOR PI / HC-05 LINK\r\n");
+            return 0U;
+        }
+        bt_protocol_v2 = 0U;
+        bt_connected = 1U;
+        Debug_Print("BT: HOST CONNECTED (V1 LEGACY)\r\n");
     }
 
-    bt_connected = 0U;
-    Debug_Print("BT: WAITING FOR PI / HC-05 LINK\r\n");
-    return 0U;
+    lever_state = HAL_GPIO_ReadPin(MODE_LEVER_PORT, MODE_LEVER_PIN);
+    button_mode_lever.last_raw = lever_state;
+    button_mode_lever.stable_state = lever_state;
+    button_mode_lever.last_change_time = HAL_GetTick();
+    if (!SendControlAction('V', (lever_state == GPIO_PIN_RESET) ? 'A' : 'R'))
+        return 0U;
+    ServiceControlTransmit();
+    return 1U;
 }
 
 /* ============================================================
@@ -901,6 +1119,17 @@ int main(void)
             continue;
         }
 
+        /* V2 host responses never block button polling. ACK clears the one
+         * in-flight command; FRAME updates braille whenever the host state
+         * changes. Legacy mode continues to receive inside SendControlAction. */
+        if (bt_protocol_v2)
+        {
+            PumpBluetoothInput();
+            ServiceControlTransmit();
+            if (!bt_connected)
+                continue;
+        }
+
         /* ---------------- UP ---------------- */
         if (ButtonPollStep(&button_up))
         {
@@ -961,6 +1190,12 @@ int main(void)
                 Debug_Printf("MODE %s\r\n", (action == 'A') ? "CAPTURE" : "READING");
                 SendControlAction('V', action);
             }
+        }
+
+        if (bt_protocol_v2)
+        {
+            PumpBluetoothInput();
+            ServiceControlTransmit();
         }
 
         HAL_Delay(1U);

@@ -6,13 +6,22 @@ This is the source-only copy of the hardware-team handoff
 objects, listings, maps, and the handoff ELF are deliberately excluded so they cannot be mistaken
 for firmware built from the current source.
 
-The authoritative device wire contract is:
+The authoritative device wire contract is version 2:
 
-- `HELLO\n` followed by one host `FRAME` response;
-- `NAV,U|D|L|R|N|P,S\n` for one navigation step;
-- `NAV,C,S|L\n` for confirm/replay or reading exit;
-- `NAV,V,A|R\n` for capture/reading mode;
-- one host `FRAME,page,node,span,offset,generation,c0..c9\n` after every command.
+- STM sends `HELLO,2\n`; the host immediately returns `ACK,HELLO,2\n`;
+- STM sends `NAV,U|D|L|R|N|P,S,<sequence>\n` for one navigation step;
+- STM sends `NAV,C,S|L,<sequence>\n` for confirm/replay or reading exit;
+- STM sends `NAV,V,A|R,<sequence>\n` for capture/reading mode;
+- the host immediately returns `ACK,<sequence>\n` after accepting a valid command;
+- a duplicate sequence is ACKed again but is not applied twice;
+- a saturated host input queue returns `NACK,<sequence>,BUSY\n` instead of a false ACK;
+- `FRAME,page,node,span,offset,generation,c0..c9\n` is independent of ACK and is
+  pushed when the reading presentation changes.
+
+The firmware retries one in-flight v2 command with the same sequence and keeps
+polling GPIO while waiting for ACK. During migration it falls back to the legacy
+`HELLO\n` plus three-field `NAV`/blocking `FRAME` contract when the host does not
+answer the version 2 handshake. The Laptop host supports both versions.
 
 Buttons use active-low GPIO inputs with internal pull-ups. Navigation/page holds wait 650 ms and
 then repeat SHORT steps every 180 ms. Confirm never repeats; it emits SHORT or LONG once on release.

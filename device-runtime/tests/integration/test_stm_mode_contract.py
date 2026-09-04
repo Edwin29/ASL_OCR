@@ -1,6 +1,8 @@
 from __future__ import annotations
 
-from collections import deque
+import queue
+import threading
+import time
 from pathlib import Path
 
 from asl_device.adapters.stm_serial import StmSerialControlSource
@@ -21,18 +23,33 @@ from tests.unit.fakes import (
 
 class FakeSerial:
     def __init__(self) -> None:
-        self.lines = deque()
+        self.lines: queue.Queue[bytes] = queue.Queue()
         self.writes = []
+        self._lock = threading.Lock()
 
     def readline(self):
-        return self.lines.popleft() if self.lines else b""
+        try:
+            return self.lines.get(timeout=0.005)
+        except queue.Empty:
+            return b""
 
     def write(self, data):
-        self.writes.append(data)
+        with self._lock:
+            self.writes.append(data)
         return len(data)
 
     def close(self):
         pass
+
+
+def _next_event(source: StmSerialControlSource):
+    deadline = time.monotonic() + 1.0
+    while time.monotonic() < deadline:
+        events = source.poll()
+        if events:
+            return events[0]
+        time.sleep(0.005)
+    raise AssertionError("STM event was not delivered")
 
 
 def test_actual_stm_wire_selects_ready_datapack_for_reading_without_scan() -> None:
@@ -59,26 +76,39 @@ def test_actual_stm_wire_selects_ready_datapack_for_reading_without_scan() -> No
     )
     coordinator.start()
 
-    for wire in (
-        b"NAV,V,R\n",
-        b"NAV,C,S\n",
-        b"NAV,D,S\n",
-        b"NAV,C,L\n",
-        b"NAV,C,S\n",
-    ):
-        serial.lines.append(wire)
-        for event in source.poll():
-            coordinator.handle_input(event)
+    try:
         source.present(coordinator.reading_snapshot)
+        serial.lines.put(b"HELLO,2\n")
+        sequence = 1
+        for control, action in (
+            ("V", "R"),
+            ("C", "S"),
+            ("D", "S"),
+            ("C", "L"),
+            ("C", "S"),
+        ):
+            serial.lines.put(f"NAV,{control},{action},{sequence}\n".encode("ascii"))
+            coordinator.handle_input(_next_event(source))
+            source.present(coordinator.reading_snapshot)
+            sequence += 1
 
-    assert coordinator.operating_mode is DeviceOperatingMode.READING
-    assert coordinator.state is DeviceFlowState.READING
-    assert scan.open_calls == []
-    assert scanner.start_calls == []
-    assert len(reading.open_calls) == 2
-    assert len(reading.command_calls) == 1
-    assert len(serial.writes) == 5
-    assert serial.writes[-1].startswith(b"FRAME,3,7,0,0,0,1,2,3")
+        assert coordinator.operating_mode is DeviceOperatingMode.READING
+        assert coordinator.state is DeviceFlowState.READING
+        assert scan.open_calls == []
+        assert scanner.start_calls == []
+        assert len(reading.open_calls) == 2
+        assert len(reading.command_calls) == 1
+
+        deadline = time.monotonic() + 1.0
+        while time.monotonic() < deadline:
+            with serial._lock:
+                if any(line.startswith(b"FRAME,3,7,0,0,0,1,2,3") for line in serial.writes):
+                    break
+            time.sleep(0.005)
+        else:
+            raise AssertionError("final braille FRAME was not presented")
+    finally:
+        source.close()
 
 
 def test_checked_in_stm_source_and_cubemx_pin_contract_are_synchronized() -> None:
@@ -92,6 +122,14 @@ def test_checked_in_stm_source_and_cubemx_pin_contract_are_synchronized() -> Non
     assert "PAGE,NEXT" not in main_c
     assert "#define BUTTON_REPEAT_DELAY_MS      650U" in main_c
     assert "#define BUTTON_REPEAT_INTERVAL_MS   180U" in main_c
+    assert 'static const char hello_v2[] = "HELLO,2\\n"' in main_c
+    assert 'strcmp(line, "ACK,HELLO,2") == 0' in main_c
+    assert '"NAV,%c,%c,%lu\\n"' in main_c
+    assert 'sscanf(line, "ACK,%lu%c"' in main_c
+    assert "static void PumpBluetoothInput(void)" in main_c
+    assert "static void ServiceControlTransmit(void)" in main_c
+    assert "if (bt_protocol_v2)" in main_c
+    assert "ReceiveFrameFromPi(FRAME_TIMEOUT_MS)" in main_c
     for call in (
         "SendControlAction('U', 'S')",
         "SendControlAction('D', 'S')",
