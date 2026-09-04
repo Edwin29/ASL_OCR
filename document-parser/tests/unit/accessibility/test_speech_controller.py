@@ -82,40 +82,20 @@ class SpeechControllerDocumentModeTests(unittest.TestCase):
         self.assertEqual(self.engine.spoken[-1][0], self.engine.spoken[-2][0])
         self.assertEqual(self.engine.spoken[-1][1], self.controller.state.generation)
 
-    def test_stale_completion_event_is_ignored(self):
+    def test_completion_event_never_moves_focus(self):
         self.controller.handle_command(press("DOWN"))  # move to m1
-        stale_generation = self.controller.state.generation
-        self.controller.handle_command(press("DOWN"))  # move to tb1; the m1 generation is now stale
-        self.controller.handle_command(press("DOWN", "LONG"))  # turn on continuous reading (re-announces tb1)
         spoken_before = len(self.engine.spoken)
         node_index_before = self.controller.state.node_index
 
-        self.engine.complete(stale_generation)  # late callback tagged with the superseded generation
+        self.engine.complete(self.controller.state.generation)
 
         self.assertEqual(len(self.engine.spoken), spoken_before)
         self.assertEqual(self.controller.state.node_index, node_index_before)
 
-    def test_continuous_reading_advances_on_complete_and_stops_at_document_end(self):
-        self.controller.handle_command(press("DOWN", "LONG"))  # start continuous reading from t1
-        self.assertTrue(self.controller.continuous_reading)
-        spoken_count_after_start = len(self.engine.spoken)
-
-        self.engine.complete(self.controller.state.generation)  # t1 finished -> advance to m1
-        self.assertEqual(self.controller.state.node_index, 1)
-        self.assertGreater(len(self.engine.spoken), spoken_count_after_start)
-
-        self.engine.complete(self.controller.state.generation)  # m1 finished -> advance to tb1
-        self.assertEqual(self.controller.state.node_index, 2)
-
-        self.engine.complete(self.controller.state.generation)  # tb1 finished -> document end
-        self.assertFalse(self.controller.continuous_reading)
-        self.assertIn("끝", self.engine.spoken[-1][0])
-
-    def test_any_navigation_input_interrupts_continuous_reading(self):
+    def test_down_long_is_not_continuous_reading(self):
+        before = self.controller.state
         self.controller.handle_command(press("DOWN", "LONG"))
-        self.assertTrue(self.controller.continuous_reading)
-        self.controller.handle_command(press("UP"))
-        self.assertFalse(self.controller.continuous_reading)
+        self.assertEqual(self.controller.state.node_index, before.node_index)
 
 
 class SpeechControllerTableModeTests(unittest.TestCase):
@@ -191,11 +171,11 @@ class SpeechControllerPageTurnTests(unittest.TestCase):
         self.assertEqual((self.controller.state.page_index, self.controller.state.node_index), (1, 0))
         self.assertIn("world", self.engine.spoken[-1][0])
 
-    def test_page_turn_interrupts_continuous_reading(self):
-        self.controller.handle_command(press("DOWN", "LONG"))  # start continuous reading
-        self.assertTrue(self.controller.continuous_reading)
+    def test_page_turn_moves_without_completion_callback_authority(self):
         self.controller.handle_command(press("PAGE_NEXT"))
-        self.assertFalse(self.controller.continuous_reading)
+        page_after_command = self.controller.state.page_index
+        self.engine.complete(self.controller.state.generation)
+        self.assertEqual(self.controller.state.page_index, page_after_command)
 
     def test_page_turn_updates_braille_frame(self):
         self.controller.handle_command(press("PAGE_NEXT"))

@@ -107,14 +107,31 @@ def _parse_command(command: str) -> tuple[DeviceControl, InputAction]:
         "prev": DeviceControl.PAGE_PREVIOUS,
     }
     parts = command.replace("-", " ").split()
+    if len(parts) > 2:
+        raise ValueError(f"invalid local control command: {command}")
     control_text = parts[0]
     try:
         control = aliases[control_text] if control_text in aliases else DeviceControl(control_text)
     except ValueError as exc:
         raise ValueError(f"unknown local control command: {command}") from exc
     action_text = parts[1] if len(parts) > 1 else "short"
+    action_text = {"press": "activated", "release": "released"}.get(
+        action_text, action_text
+    )
     try:
         action = InputAction(action_text)
     except ValueError as exc:
         raise ValueError(f"unknown local control action: {command}") from exc
+    valid = {
+        DeviceControl.UP: {InputAction.SHORT},
+        DeviceControl.DOWN: {InputAction.SHORT, InputAction.ACTIVATED, InputAction.RELEASED},
+        DeviceControl.LEFT: {InputAction.SHORT},
+        DeviceControl.RIGHT: {InputAction.SHORT},
+        DeviceControl.PAGE_NEXT: {InputAction.SHORT},
+        DeviceControl.PAGE_PREVIOUS: {InputAction.SHORT},
+        DeviceControl.CONFIRM: {InputAction.SHORT, InputAction.LONG},
+        DeviceControl.LEVER: {InputAction.ACTIVATED, InputAction.RELEASED},
+    }
+    if action not in valid[control]:
+        raise ValueError(f"unsupported local control/action combination: {command}")
     return control, action

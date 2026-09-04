@@ -1,8 +1,5 @@
 """Wires Phase 1 navigation (document/table navigators) to a TtsEngineAdapter:
-cancel-then-speak on every focus change, continuous reading driven purely by
-completion events (plan document §7.4), and generation-based staleness
-filtering (§12.2) so a completion callback for an utterance the user has
-already navigated away from is ignored rather than mistaken for current.
+cancel-then-speak on every focus change and synchronized braille rendering.
 
 No priority queue: at most one utterance is ever in flight, and any new
 focus unconditionally cancels it first -- see the plan file for why this is
@@ -16,7 +13,7 @@ from dataclasses import dataclass
 from document_parser.accessibility.adapters.tts_engine import TtsEngineAdapter
 from document_parser.accessibility.application.document_navigator import current_focus_item
 from document_parser.accessibility.application.document_navigator import handle_command as navigate_document
-from document_parser.accessibility.application.document_navigator import move_braille_cursor, next_node
+from document_parser.accessibility.application.document_navigator import move_braille_cursor
 from document_parser.accessibility.application.document_navigator import next_page, previous_page
 from document_parser.accessibility.application.table_navigator import current_cell, enter_table, exit_table
 from document_parser.accessibility.application.table_navigator import move as move_table_cursor
@@ -64,16 +61,10 @@ class SpeechController:
         self._braille_presenter = braille_presenter if braille_presenter is not None else BraillePresenter()
         self._braille_frame: dict[str, object] = clear_frame("none")
         self._braille_failures: list[BrailleRenderFailure] = []
-        self._continuous_reading = False
-        engine.on_complete(self._handle_complete)
 
     @property
     def state(self) -> NavigationState:
         return self._state
-
-    @property
-    def continuous_reading(self) -> bool:
-        return self._continuous_reading
 
     @property
     def braille_frame(self) -> dict[str, object]:
@@ -91,22 +82,14 @@ class SpeechController:
         self._speak_focus(self._state)
 
     def handle_command(self, command: NavigationCommand) -> None:
-        if command.button == "DOWN" and command.action == "LONG":
-            self._toggle_continuous_reading()
-            return
-
         if command.button == "CONFIRM" and command.action == "SHORT":
             # Replay is a fresh playback authority even though focus does not
             # move. Advance generation so the device audio arbiter does not
             # deduplicate it against the preceding snapshot/audio reference.
-            self._continuous_reading = False
             self._state = self._state.advanced()
             self._engine.cancel()
             self._speak_focus(self._state)
             return
-
-        # Any explicit navigation input interrupts continuous reading (§7.5).
-        self._continuous_reading = False
 
         # PAGE_NEXT/PAGE_PREVIOUS (dedicated page-turn buttons) are handled
         # here, before the TABLE/DOCUMENT mode split below, because they must
@@ -210,26 +193,6 @@ class SpeechController:
             self._engine.speak(result.boundary_message, self._state.generation)
         # else: pure within-cell window scroll -- silent, same rule as
         # DOCUMENT mode's within-span scroll.
-
-    def _toggle_continuous_reading(self) -> None:
-        self._continuous_reading = not self._continuous_reading
-        self._engine.cancel()
-        if self._continuous_reading:
-            self._speak_focus(self._state)
-
-    def _handle_complete(self, generation: int) -> None:
-        if generation != self._state.generation:
-            return  # stale event from an utterance the user already left (§12.2)
-        if not self._continuous_reading:
-            return
-        result = next_node(self._document, self._state)
-        self._state = result.state
-        if result.boundary_message:
-            self._continuous_reading = False
-            self._engine.speak(result.boundary_message, self._state.generation)
-            self._refresh_braille_frame(self._state)
-            return
-        self._speak_focus(self._state)
 
     def _speak_result(self, result: NavigationResult) -> None:
         if result.boundary_message:

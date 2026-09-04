@@ -34,6 +34,7 @@ from .connectivity import DeviceConnectivitySupervisor
 from .coordinator import DeviceFlowCoordinator
 from .delivery import DurableDeliveryPort
 from .delivery_store import DeliveryStore
+from .hold_repeat import HoldRepeatController
 from .protocols import Clock, FeedbackSink
 from .reading_audio import AudioResourceCache, ReadingAudioController
 from .types import DeviceOperatingMode
@@ -171,6 +172,11 @@ def build_local_device(
         presenter=presenter_value,
         audio_presenter=reading_audio,
         closeables=(feedback_sink,),
+        hold_repeat=HoldRepeatController(
+            initial_delay_seconds=config.hold_repeat.initial_delay_ms / 1000.0,
+            interval_seconds=config.hold_repeat.interval_ms / 1000.0,
+            monotonic=clock_value.monotonic,
+        ),
     )
     return LocalDeviceComposition(
         config, application, coordinator, scanner, delivery, reading_audio

@@ -54,8 +54,12 @@ def build_and_load_datapack(tmp_root: Path, book_id="wire-book"):
 
 class CommandFromWireTests(unittest.TestCase):
     def test_parses_valid_command(self):
-        command = command_from_wire({"button": "RIGHT", "action": "LONG"})
-        self.assertEqual(command, NavigationCommand("RIGHT", "LONG"))
+        command = command_from_wire({"button": "RIGHT", "action": "SHORT"})
+        self.assertEqual(command, NavigationCommand("RIGHT", "SHORT"))
+
+    def test_rejects_long_navigation_action(self):
+        with self.assertRaises(ValueError):
+            command_from_wire({"button": "DOWN", "action": "LONG"})
 
     def test_defaults_action_to_short(self):
         command = command_from_wire({"button": "UP"})

@@ -1,6 +1,6 @@
 # Device Input — DOWN Hold-to-Repeat Contract Correction Work Packet
 
-상태: **제안 — 구현 전**
+상태: **소프트웨어 구현 완료 — STM 빌드·실기 수용시험 대기**
 
 기준일: 2026-09-05
 
@@ -393,3 +393,27 @@ playback 완료 여부는 repeat 생성 조건이 아니다. 음성이 길거나
 - 서버 지연 주입 release acceptance report
 - 실제 버튼 조작 영상
 - 별도 implementation report
+
+## 13. 구현 기록 (2026-09-05)
+
+구현 완료:
+
+- STM protocol v3 `HELLO,3`, DOWN `ACTIVATED/RELEASED` edge와 v2/legacy fallback
+- Device Runtime host-owned `HoldRepeatController`와 650/180 ms 설정
+- release 우선 전달, disconnect/re-handshake 강제 local release
+- console `down`, `down press`, `down release` 계약과 navigation LONG 거부
+- catalog LONG burst 및 Document Parser completion 기반 continuous-reading 제거
+- S0 reading wire의 LONG action 거부와 `CONFIRM SHORT` replay 유지
+- fake-clock timing, v3 ACK/dedupe, application/audio, configuration 및 source-contract 테스트
+
+자동 검증:
+
+- Device Runtime: 260 passed
+- Document Parser: 648 passed, 4 skipped
+- Book Scanner: 334 passed, 3개의 기존 p030 golden span-count drift 실패
+
+대기 항목:
+
+- 현재 호스트에 `arm-none-eabi-gcc`가 없어 STM CubeIDE build/hash 생성은 미수행
+- STM 케이블 확보 후 flash, protocol v3 ACK 로그, 2초 hold/release 및 지연 주입 실기 시험 필요
+- 물리 시험 전에는 본 패킷의 최종 하드웨어 수용 상태를 완료로 판정하지 않는다.

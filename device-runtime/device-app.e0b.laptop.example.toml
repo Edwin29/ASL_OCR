@@ -42,6 +42,10 @@ reconnect_max_ms = 5000
 debounce_ms = 30
 cell_count = 10
 
+[local_io.hold_repeat]
+initial_delay_ms = 650
+interval_ms = 180
+
 [local_io.reading_audio]
 # Production Piper system prompts and document speech share one bounded
 # in-memory player.  SAPI is intentionally not part of this profile.

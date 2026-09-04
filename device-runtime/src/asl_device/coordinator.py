@@ -46,7 +46,6 @@ from .types import (
 class DeviceFlowCoordinator:
     """Owns cross-component ordering, never the Scanner or server internals."""
 
-    _BURST_STEPS = 5
     _INPUT_DEDUP_CAPACITY = 1024
 
     def __init__(
@@ -250,8 +249,9 @@ class DeviceFlowCoordinator:
                 self._feedback(FeedbackCode.NO_READABLE_DATAPACK)
             return
         if input_event.control in {DeviceControl.UP, DeviceControl.DOWN}:
-            steps = self._BURST_STEPS if input_event.action is InputAction.LONG else 1
-            delta = -steps if input_event.control is DeviceControl.UP else steps
+            if input_event.action is not InputAction.SHORT:
+                return
+            delta = -1 if input_event.control is DeviceControl.UP else 1
             if self.catalog.move(delta):
                 self._announce_catalog_current(events, changed=True)
             return

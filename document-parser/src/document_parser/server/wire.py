@@ -21,7 +21,7 @@ from document_parser.accessibility import NavigationCommand, NavigationState
 from document_parser.server.session import DatapackSession
 
 BUTTONS = ("UP", "DOWN", "LEFT", "RIGHT", "PAGE_NEXT", "PAGE_PREVIOUS", "CONFIRM")
-ACTIONS = ("SHORT", "LONG")
+ACTIONS = ("SHORT",)
 
 
 def command_from_wire(payload: dict[str, Any]) -> NavigationCommand:

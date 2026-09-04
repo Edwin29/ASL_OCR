@@ -4,6 +4,7 @@ import pytest
 
 from asl_device.adapters.local_controls import ScriptedControlSource
 from asl_device.application import DeviceApplication
+from asl_device.hold_repeat import HoldRepeatController
 from asl_device.types import DeviceControl, DeviceFlowState, DeviceInputEvent, InputAction
 
 
@@ -290,3 +291,97 @@ def test_reading_mode_alignment_lever_does_not_interrupt_current_audio() -> None
     app.step()
 
     assert audio.interruptions == 0
+
+
+def test_down_hold_repeats_only_until_release_and_release_keeps_final_audio() -> None:
+    coordinator = FakeCoordinator()
+    coordinator.state = DeviceFlowState.READING
+
+    class Clock:
+        now = 0.0
+
+        def monotonic(self):
+            return self.now
+
+    class Audio:
+        interruptions = 0
+
+        def present(self, snapshot):
+            pass
+
+        def interrupt(self):
+            self.interruptions += 1
+
+        def close(self):
+            pass
+
+    clock = Clock()
+    audio = Audio()
+    app = DeviceApplication(
+        coordinator,
+        ScriptedControlSource(),
+        poll_interval_seconds=0.01,
+        audio_presenter=audio,
+        hold_repeat=HoldRepeatController(monotonic=clock.monotonic),
+    )
+    app._started = True
+    app.submit_input(DeviceInputEvent("edge-a", DeviceControl.DOWN, InputAction.ACTIVATED, 0.0))
+    app.step()
+    assert coordinator.inputs == ["edge-a-hold-00000000"]
+
+    clock.now = 0.650
+    app.step()
+    assert coordinator.inputs[-1] == "edge-a-hold-00000001"
+
+    app.submit_input(DeviceInputEvent("edge-r", DeviceControl.DOWN, InputAction.RELEASED, 0.650))
+    app.step()
+    interruptions_at_release = audio.interruptions
+    clock.now = 10.0
+    app.step()
+
+    assert len(coordinator.inputs) == 2
+    assert interruptions_at_release == 2
+    assert audio.interruptions == 2
+
+
+def test_release_queued_during_slow_initial_command_prevents_second_dispatch() -> None:
+    coordinator = FakeCoordinator()
+
+    class Clock:
+        now = 0.0
+
+        def monotonic(self):
+            return self.now
+
+    clock = Clock()
+    release = DeviceInputEvent("edge-r", DeviceControl.DOWN, InputAction.RELEASED, 0.7)
+
+    class Controls(ScriptedControlSource):
+        def __init__(self):
+            super().__init__(
+                (
+                    (DeviceInputEvent("edge-a", DeviceControl.DOWN, InputAction.ACTIVATED, 0.0),),
+                    (release,),
+                )
+            )
+
+    original_handle = coordinator.handle_input
+
+    def slow_handle(event):
+        result = original_handle(event)
+        clock.now = 0.7
+        return result
+
+    coordinator.handle_input = slow_handle
+    app = DeviceApplication(
+        coordinator,
+        Controls(),
+        poll_interval_seconds=0.01,
+        hold_repeat=HoldRepeatController(monotonic=clock.monotonic),
+    )
+    app.start()
+
+    app.step()
+    assert coordinator.inputs == ["edge-a-hold-00000000"]
+    app.step()
+    assert coordinator.inputs == ["edge-a-hold-00000000"]

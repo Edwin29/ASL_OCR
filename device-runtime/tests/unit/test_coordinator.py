@@ -360,19 +360,19 @@ def test_selection_event_id_is_reused_as_server_operation_lineage() -> None:
     assert scan.open_calls[0][2] == "hardware-confirm-42:scan-open"
 
 
-def test_catalog_long_move_is_clamped_and_only_changed_highlight_announces() -> None:
+def test_repeated_catalog_short_moves_are_clamped_and_only_changes_announce() -> None:
     coordinator, *_rest, feedback = make_coordinator(
         (ready_entry("a", "A"), ready_entry("b", "B"), ready_entry("c", "C"))
     )
     coordinator.start()
     before = len(feedback.events)
 
-    coordinator.handle_input(press("down", DeviceControl.DOWN, InputAction.LONG))
-    coordinator.handle_input(press("down-edge", DeviceControl.DOWN, InputAction.LONG))
+    for index in range(5):
+        coordinator.handle_input(press(f"down-{index}", DeviceControl.DOWN, InputAction.SHORT))
 
     assert coordinator.catalog is not None
     assert coordinator.catalog.current.title == "새 데이터팩 추가"
-    assert len(feedback.events) == before + 1
+    assert len(feedback.events) == before + 3
 
 
 def test_artifact_is_queued_once_with_monotonic_sequence_and_stale_event_ignored() -> None:

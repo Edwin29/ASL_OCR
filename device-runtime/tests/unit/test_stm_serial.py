@@ -123,6 +123,60 @@ def test_v2_hello_and_nav_are_acked_before_application_poll() -> None:
         source.close()
 
 
+def test_v3_down_edges_are_acked_and_duplicate_sequence_is_applied_once() -> None:
+    serial = FakeSerial((b"HELLO,3\n",))
+    source = StmSerialControlSource(_config(), serial_factory=lambda _config: serial)
+    try:
+        source.present(None)
+        _wait_until(lambda: source.protocol_version == 3)
+        assert serial.written()[0] == b"ACK,HELLO,3\n"
+
+        serial.push(b"NAV,D,A,41\n")
+        serial.push(b"NAV,D,A,41\n")
+        serial.push(b"NAV,D,R,42\n")
+        _wait_until(
+            lambda: serial.written().count(b"ACK,41\n") == 2
+            and b"ACK,42\n" in serial.written()
+        )
+
+        events = _next_events(source, 2)
+        assert [(event.control, event.action) for event in events] == [
+            (DeviceControl.DOWN, InputAction.ACTIVATED),
+            (DeviceControl.DOWN, InputAction.RELEASED),
+        ]
+    finally:
+        source.close()
+
+
+def test_v2_rejects_down_edge_actions() -> None:
+    serial = FakeSerial((b"HELLO,2\n",))
+    source = StmSerialControlSource(_config(), serial_factory=lambda _config: serial)
+    try:
+        source.present(None)
+        _wait_until(lambda: source.protocol_version == 2)
+        serial.push(b"NAV,D,A,9\n")
+        _wait_until(lambda: b"NACK,9,UNSUPPORTED\n" in serial.written())
+        assert source.poll() == ()
+    finally:
+        source.close()
+
+
+def test_v3_rehandshake_forces_active_down_release() -> None:
+    serial = FakeSerial((b"HELLO,3\n",))
+    source = StmSerialControlSource(_config(), serial_factory=lambda _config: serial)
+    try:
+        source.present(None)
+        _wait_until(lambda: source.protocol_version == 3)
+        serial.push(b"NAV,D,A,1\n")
+        assert _next_events(source)[0].action is InputAction.ACTIVATED
+
+        serial.push(b"HELLO,3\n")
+        _wait_until(lambda: serial.written().count(b"ACK,HELLO,3\n") == 2)
+        assert _next_events(source)[0].action is InputAction.RELEASED
+    finally:
+        source.close()
+
+
 def test_v2_duplicate_sequence_is_reacked_but_applied_once() -> None:
     serial = FakeSerial((b"HELLO,2\n",))
     source = StmSerialControlSource(_config(), serial_factory=lambda _config: serial)

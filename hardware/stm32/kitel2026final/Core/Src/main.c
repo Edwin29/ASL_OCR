@@ -49,7 +49,7 @@
 /* Retry Raspberry Pi / Bluetooth handshake when disconnected. */
 #define BT_RETRY_MS             2000U
 #define FRAME_TIMEOUT_MS        5000U
-#define V2_HANDSHAKE_TIMEOUT_MS 1200U
+#define VERSIONED_HANDSHAKE_TIMEOUT_MS 1200U
 #define ACK_TIMEOUT_MS          500U
 #define ACK_RETRY_LIMIT         3U
 #define CONTROL_QUEUE_CAPACITY  16U
@@ -280,6 +280,7 @@ static uint8_t current_motor_state[MOTOR_COUNT];
 static uint8_t bt_connected = 0U;
 static uint32_t last_bt_retry = 0U;
 static uint8_t bt_protocol_v2 = 0U;
+static uint8_t bt_protocol_v3 = 0U;
 static uint32_t next_control_sequence = 1U;
 
 typedef struct
@@ -319,6 +320,7 @@ static HAL_StatusTypeDef Motor_SetState(uint8_t motor, uint8_t state);
 static void ApplyBrailleFrame(const uint8_t cells[BRAILLE_CELL_COUNT]);
 
 static uint8_t ButtonPollStep(Button *button);
+static uint8_t ButtonPollEdge(Button *button, char *action);
 static uint8_t ButtonPollConfirm(Button *button, char *action);
 static uint8_t ModeLeverPoll(Button *lever, char *action);
 
@@ -691,6 +693,27 @@ static uint8_t ReceiveFrameFromPi(uint32_t timeout_ms)
     return ParseAndApplyFrame(line);
 }
 
+/* V3 DOWN lifecycle: emit one edge after debounce and never repeat locally. */
+static uint8_t ButtonPollEdge(Button *button, char *action)
+{
+    uint32_t now = HAL_GetTick();
+    GPIO_PinState raw = HAL_GPIO_ReadPin(button->port, button->pin);
+
+    if (raw != button->last_raw)
+    {
+        button->last_raw = raw;
+        button->last_change_time = now;
+    }
+    if ((now - button->last_change_time) < BUTTON_DEBOUNCE_MS)
+        return 0U;
+    if (raw == button->stable_state)
+        return 0U;
+
+    button->stable_state = raw;
+    *action = (raw == GPIO_PIN_RESET) ? 'A' : 'R';
+    return 1U;
+}
+
 static uint8_t ParseAndApplyFrame(char *line)
 {
     char *token;
@@ -747,9 +770,9 @@ static uint8_t ParseAndApplyFrame(char *line)
 }
 
 /* ============================================================
- * Version 2 host transport
+ * Version 2/3 host transport
  *
- *   HELLO,2                       -> ACK,HELLO,2
+ *   HELLO,3                       -> ACK,HELLO,3
  *   NAV,<control>,<action>,<seq> -> ACK,<seq>
  *   FRAME,... arrives independently whenever presentation changes.
  *
@@ -773,7 +796,13 @@ static uint8_t QueueControlAction(char control, char action)
 {
     ControlCommand *command;
 
-    if (control_queue_count >= CONTROL_QUEUE_CAPACITY)
+    /* V3 reserves one FIFO slot for DOWN release so unrelated input cannot
+     * leave the host repeat controller active after the physical button is
+     * released. */
+    if (control_queue_count >= CONTROL_QUEUE_CAPACITY ||
+        (bt_protocol_v3 &&
+         control_queue_count >= (CONTROL_QUEUE_CAPACITY - 1U) &&
+         !(control == 'D' && action == 'R')))
     {
         Debug_Print("BT TX QUEUE FULL\r\n");
         return 0U;
@@ -953,37 +982,61 @@ static uint8_t TryBluetoothHandshake(void)
 
     ResetControlTransport();
     bt_protocol_v2 = 0U;
-    Debug_Print("BT: HELLO V2...\r\n");
-    HAL_UART_Transmit(
-        &huart1,
-        (uint8_t *)hello_v2,
-        (uint16_t)(sizeof(hello_v2) - 1U),
-        1000U);
+    bt_protocol_v3 = 0U;
+    {
+        static const char hello_v3[] = "HELLO,3\n";
+        Debug_Print("BT: HELLO V3...\r\n");
+        HAL_UART_Transmit(
+            &huart1,
+            (uint8_t *)hello_v3,
+            (uint16_t)(sizeof(hello_v3) - 1U),
+            1000U);
+    }
 
-    if (HC05_ReadLine(line, sizeof(line), V2_HANDSHAKE_TIMEOUT_MS) &&
-        strcmp(line, "ACK,HELLO,2") == 0)
+    if (HC05_ReadLine(line, sizeof(line), VERSIONED_HANDSHAKE_TIMEOUT_MS) &&
+        strcmp(line, "ACK,HELLO,3") == 0)
     {
         bt_protocol_v2 = 1U;
+        bt_protocol_v3 = 1U;
         bt_connected = 1U;
-        Debug_Print("BT: HOST CONNECTED (V2 ASYNC)\r\n");
+        Debug_Print("BT: HOST CONNECTED (V3 EDGES)\r\n");
     }
     else
     {
-        Debug_Print("BT: V2 UNAVAILABLE, TRY LEGACY\r\n");
+        Debug_Print("BT: V3 UNAVAILABLE, TRY V2\r\n");
+        bt_protocol_v3 = 0U;
+        Debug_Print("BT: HELLO V2...\r\n");
         HAL_UART_Transmit(
             &huart1,
-            (uint8_t *)hello_v1,
-            (uint16_t)(sizeof(hello_v1) - 1U),
+            (uint8_t *)hello_v2,
+            (uint16_t)(sizeof(hello_v2) - 1U),
             1000U);
-        if (!ReceiveFrameFromPi(V2_HANDSHAKE_TIMEOUT_MS))
+
+        if (HC05_ReadLine(line, sizeof(line), VERSIONED_HANDSHAKE_TIMEOUT_MS) &&
+            strcmp(line, "ACK,HELLO,2") == 0)
         {
-            bt_connected = 0U;
-            Debug_Print("BT: WAITING FOR PI / HC-05 LINK\r\n");
-            return 0U;
+            bt_protocol_v2 = 1U;
+            bt_connected = 1U;
+            Debug_Print("BT: HOST CONNECTED (V2 ASYNC)\r\n");
         }
-        bt_protocol_v2 = 0U;
-        bt_connected = 1U;
-        Debug_Print("BT: HOST CONNECTED (V1 LEGACY)\r\n");
+        else
+        {
+            Debug_Print("BT: V2 UNAVAILABLE, TRY LEGACY\r\n");
+            HAL_UART_Transmit(
+                &huart1,
+                (uint8_t *)hello_v1,
+                (uint16_t)(sizeof(hello_v1) - 1U),
+                1000U);
+            if (!ReceiveFrameFromPi(VERSIONED_HANDSHAKE_TIMEOUT_MS))
+            {
+                bt_connected = 0U;
+                Debug_Print("BT: WAITING FOR PI / HC-05 LINK\r\n");
+                return 0U;
+            }
+            bt_protocol_v2 = 0U;
+            bt_connected = 1U;
+            Debug_Print("BT: HOST CONNECTED (V1 LEGACY)\r\n");
+        }
     }
 
     lever_state = HAL_GPIO_ReadPin(MODE_LEVER_PORT, MODE_LEVER_PIN);
@@ -1138,7 +1191,16 @@ int main(void)
         }
 
         /* ---------------- DOWN ---------------- */
-        if (ButtonPollStep(&button_down))
+        if (bt_protocol_v3)
+        {
+            char action;
+            if (ButtonPollEdge(&button_down, &action))
+            {
+                Debug_Printf("DOWN %s\r\n", (action == 'A') ? "PRESS" : "RELEASE");
+                SendControlAction('D', action);
+            }
+        }
+        else if (ButtonPollStep(&button_down))
         {
             Debug_Print("DOWN STEP\r\n");
             SendControlAction('D', 'S');

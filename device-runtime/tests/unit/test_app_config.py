@@ -136,6 +136,10 @@ cell_count = 10
 reconnect_initial_ms = 250
 reconnect_max_ms = 2000
 
+[local_io.hold_repeat]
+initial_delay_ms = 700
+interval_ms = 200
+
 [local_io.windows_audio]
 jsonl_trace = false
 speak_catalog_titles = true''',
@@ -149,7 +153,29 @@ speak_catalog_titles = true''',
     assert config.stm_serial is not None
     assert config.stm_serial.port == "COM5"
     assert config.stm_serial.reconnect_initial_ms == 250
+    assert config.hold_repeat.initial_delay_ms == 700
+    assert config.hold_repeat.interval_ms == 200
     assert not config.laptop_audio.jsonl_trace
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    (("initial_delay_ms", 299), ("initial_delay_ms", 1501), ("interval_ms", 99), ("interval_ms", 1001)),
+)
+def test_app_config_rejects_unsafe_hold_repeat_timing(tmp_path: Path, field: str, value: int) -> None:
+    path = _write_config(tmp_path)
+    text = path.read_text(encoding="utf-8").replace(
+        '[local_io]\nfeedback = "jsonl"',
+        f'''[local_io]
+feedback = "jsonl"
+
+[local_io.hold_repeat]
+{field} = {value}''',
+    )
+    path.write_text(text, encoding="utf-8")
+
+    with pytest.raises(ValueError, match="hold repeat"):
+        DeviceAppConfig.from_toml(path)
 
 
 def test_app_config_rejects_stm_cell_count_viewport_mismatch(tmp_path: Path) -> None:

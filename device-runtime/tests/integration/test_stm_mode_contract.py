@@ -122,6 +122,8 @@ def test_checked_in_stm_source_and_cubemx_pin_contract_are_synchronized() -> Non
     assert "PAGE,NEXT" not in main_c
     assert "#define BUTTON_REPEAT_DELAY_MS      650U" in main_c
     assert "#define BUTTON_REPEAT_INTERVAL_MS   180U" in main_c
+    assert 'static const char hello_v3[] = "HELLO,3\\n"' in main_c
+    assert 'strcmp(line, "ACK,HELLO,3") == 0' in main_c
     assert 'static const char hello_v2[] = "HELLO,2\\n"' in main_c
     assert 'strcmp(line, "ACK,HELLO,2") == 0' in main_c
     assert '"NAV,%c,%c,%lu\\n"' in main_c
@@ -129,6 +131,10 @@ def test_checked_in_stm_source_and_cubemx_pin_contract_are_synchronized() -> Non
     assert "static void PumpBluetoothInput(void)" in main_c
     assert "static void ServiceControlTransmit(void)" in main_c
     assert "if (bt_protocol_v2)" in main_c
+    assert "if (bt_protocol_v3)" in main_c
+    assert "ButtonPollEdge(&button_down, &action)" in main_c
+    assert "SendControlAction('D', action)" in main_c
+    assert "one FIFO slot for DOWN release" in main_c
     assert "ReceiveFrameFromPi(FRAME_TIMEOUT_MS)" in main_c
     for call in (
         "SendControlAction('U', 'S')",

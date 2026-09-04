@@ -41,7 +41,7 @@ _TOKEN_TO_ACTION = {
 }
 _VALID_ACTIONS_BY_CONTROL = {
     DeviceControl.UP: {InputAction.SHORT},
-    DeviceControl.DOWN: {InputAction.SHORT},
+    DeviceControl.DOWN: {InputAction.SHORT, InputAction.ACTIVATED, InputAction.RELEASED},
     DeviceControl.LEFT: {InputAction.SHORT},
     DeviceControl.RIGHT: {InputAction.SHORT},
     DeviceControl.PAGE_NEXT: {InputAction.SHORT},
@@ -51,6 +51,7 @@ _VALID_ACTIONS_BY_CONTROL = {
 }
 _PROTOCOL_V1 = 1
 _PROTOCOL_V2 = 2
+_PROTOCOL_V3 = 3
 _INPUT_QUEUE_CAPACITY = 128
 _SEQUENCE_WINDOW = 256
 _MAX_UINT32 = (1 << 32) - 1
@@ -64,6 +65,9 @@ class StmSerialControlSource:
     immediate ``ACK,<sequence>`` before the coordinator handles the command.
     Changed FRAME snapshots are then pushed independently with latest-wins
     coalescing.
+
+    Protocol v3 adds physical DOWN press/release edges. The host owns repeat
+    timing, so v3 firmware never queues repeated DOWN SHORT commands.
 
     Legacy ``HELLO`` and three-field ``NAV`` remain supported. A legacy NAV
     still receives exactly one FRAME after the next application presentation,
@@ -89,6 +93,7 @@ class StmSerialControlSource:
         self.max_lines_per_poll = max_lines_per_poll
 
         self._events: queue.Queue[DeviceInputEvent] = queue.Queue(input_queue_capacity)
+        self._release_events: queue.SimpleQueue[DeviceInputEvent] = queue.SimpleQueue()
         self._state_lock = threading.Lock()
         self._start_lock = threading.Lock()
         self._wake = threading.Event()
@@ -120,11 +125,22 @@ class StmSerialControlSource:
         self._ensure_worker()
         self._raise_worker_error()
         events: list[DeviceInputEvent] = []
-        for _ in range(self.max_lines_per_poll):
+        while len(events) < self.max_lines_per_poll:
+            try:
+                events.append(self._release_events.get_nowait())
+            except queue.Empty:
+                break
+        while len(events) < self.max_lines_per_poll:
             try:
                 events.append(self._events.get_nowait())
             except queue.Empty:
                 break
+        events.sort(
+            key=lambda event: (
+                event.at_monotonic,
+                event.action is InputAction.RELEASED,
+            )
+        )
         return tuple(events)
 
     def present(self, snapshot: ReadingSnapshot | None) -> None:
@@ -185,6 +201,7 @@ class StmSerialControlSource:
         last_input: tuple[DeviceControl, InputAction, float] | None = None
         seen_sequences: set[int] = set()
         sequence_order: deque[int] = deque()
+        down_active = False
 
         try:
             while not self._stop.is_set():
@@ -214,6 +231,7 @@ class StmSerialControlSource:
                     last_input = None
                     seen_sequences.clear()
                     sequence_order.clear()
+                    down_active = False
                     retry_seconds = self.config.reconnect_initial_ms / 1000.0
                     with self._state_lock:
                         self._connection = connection
@@ -223,7 +241,11 @@ class StmSerialControlSource:
                     raw = connection.readline()
                     if raw:
                         line = raw.decode("ascii", errors="strict").strip()
-                        if line == "HELLO,2":
+                        if line in {"HELLO,2", "HELLO,3"}:
+                            if down_active:
+                                event_counter += 1
+                                self._enqueue_forced_down_release(connection_epoch, event_counter)
+                                down_active = False
                             if handshake_seen:
                                 connection_epoch += 1
                             event_counter = 0
@@ -231,8 +253,13 @@ class StmSerialControlSource:
                             seen_sequences.clear()
                             sequence_order.clear()
                             legacy_response_after = None
-                            self._write(connection, b"ACK,HELLO,2\n")
-                            protocol_version = _PROTOCOL_V2
+                            protocol_version = (
+                                _PROTOCOL_V3 if line == "HELLO,3" else _PROTOCOL_V2
+                            )
+                            self._write(
+                                connection,
+                                f"ACK,HELLO,{protocol_version}\n".encode("ascii"),
+                            )
                             handshake_seen = True
                             with self._state_lock:
                                 self._protocol_version = protocol_version
@@ -241,6 +268,10 @@ class StmSerialControlSource:
                             self._write(connection, payload)
                             sent_frame_version = version
                         elif line == "HELLO":
+                            if down_active:
+                                event_counter += 1
+                                self._enqueue_forced_down_release(connection_epoch, event_counter)
+                                down_active = False
                             if handshake_seen:
                                 connection_epoch += 1
                             event_counter = 0
@@ -258,6 +289,17 @@ class StmSerialControlSource:
                             parsed = _parse_nav(line)
                             if parsed is not None:
                                 control, action, hardware_sequence = parsed
+                                is_down_edge = control is DeviceControl.DOWN and action in {
+                                    InputAction.ACTIVATED,
+                                    InputAction.RELEASED,
+                                }
+                                if is_down_edge and protocol_version != _PROTOCOL_V3:
+                                    if hardware_sequence is not None:
+                                        self._write(
+                                            connection,
+                                            f"NACK,{hardware_sequence},UNSUPPORTED\n".encode("ascii"),
+                                        )
+                                    continue
                                 now = self.monotonic()
                                 duplicate_sequence = (
                                     hardware_sequence is not None
@@ -270,7 +312,12 @@ class StmSerialControlSource:
                                     and now - last_input[2] < self.config.debounce_ms / 1000.0
                                 )
                                 if hardware_sequence is not None:
-                                    if self._events.full() and not duplicate_sequence and not debounced:
+                                    if (
+                                        self._events.full()
+                                        and action is not InputAction.RELEASED
+                                        and not duplicate_sequence
+                                        and not debounced
+                                    ):
                                         self._write(
                                             connection,
                                             f"NACK,{hardware_sequence},BUSY\n".encode("ascii"),
@@ -280,7 +327,8 @@ class StmSerialControlSource:
                                         connection,
                                         f"ACK,{hardware_sequence}\n".encode("ascii"),
                                     )
-                                    protocol_version = _PROTOCOL_V2
+                                    if protocol_version != _PROTOCOL_V3:
+                                        protocol_version = _PROTOCOL_V2
                                     handshake_seen = True
                                     with self._state_lock:
                                         self._protocol_version = protocol_version
@@ -306,18 +354,26 @@ class StmSerialControlSource:
                                         now,
                                         hardware_sequence,
                                     )
-                                    try:
-                                        self._events.put_nowait(event)
-                                    except queue.Full:
-                                        if hardware_sequence is None:
-                                            legacy_response_after = None
+                                    if action is InputAction.RELEASED:
+                                        self._release_events.put(event)
+                                    else:
+                                        try:
+                                            self._events.put_nowait(event)
+                                        except queue.Full:
+                                            if hardware_sequence is None:
+                                                legacy_response_after = None
+                                    if control is DeviceControl.DOWN:
+                                        if action is InputAction.ACTIVATED:
+                                            down_active = True
+                                        elif action is InputAction.RELEASED:
+                                            down_active = False
                                     if hardware_sequence is not None:
                                         seen_sequences.add(hardware_sequence)
                                         sequence_order.append(hardware_sequence)
                                         if len(sequence_order) > _SEQUENCE_WINDOW:
                                             seen_sequences.discard(sequence_order.popleft())
 
-                    if handshake_seen and protocol_version == _PROTOCOL_V2:
+                    if handshake_seen and protocol_version in {_PROTOCOL_V2, _PROTOCOL_V3}:
                         with self._state_lock:
                             payload = self._desired_frame_payload
                             version = self._desired_frame_version
@@ -332,6 +388,10 @@ class StmSerialControlSource:
                             self._write(connection, payload)
                             legacy_response_after = None
                 except (OSError, UnicodeError):
+                    if down_active:
+                        event_counter += 1
+                        self._enqueue_forced_down_release(connection_epoch, event_counter)
+                        down_active = False
                     self._close_connection(connection)
                     connection = None
                     protocol_version = None
@@ -354,6 +414,9 @@ class StmSerialControlSource:
             with self._state_lock:
                 self._worker_error = exc
         finally:
+            if down_active:
+                event_counter += 1
+                self._enqueue_forced_down_release(connection_epoch, event_counter)
             if connection is not None:
                 self._close_connection(connection)
             with self._state_lock:
@@ -368,6 +431,16 @@ class StmSerialControlSource:
     def _write(connection: SerialConnection, payload: bytes) -> None:
         if connection.write(payload) != len(payload):
             raise OSError("STM serial write was incomplete")
+
+    def _enqueue_forced_down_release(self, connection_epoch: int, counter: int) -> None:
+        self._release_events.put(
+            DeviceInputEvent(
+                f"stm-{connection_epoch:04d}-disconnect-{counter:08d}",
+                DeviceControl.DOWN,
+                InputAction.RELEASED,
+                self.monotonic(),
+            )
+        )
 
     @staticmethod
     def _close_connection(connection: SerialConnection) -> None:

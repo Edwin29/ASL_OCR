@@ -5,7 +5,8 @@ import time
 
 import pytest
 
-from asl_device.adapters.local_controls import ConsoleControlSource
+from asl_device.adapters.local_controls import ConsoleControlSource, _parse_command
+from asl_device.types import DeviceControl, InputAction
 
 
 def _read_events(source: ConsoleControlSource, expected: int) -> tuple:
@@ -53,3 +54,14 @@ def test_separate_console_processes_do_not_reuse_first_event_id() -> None:
 def test_console_rejects_unsafe_event_namespace(namespace: str) -> None:
     with pytest.raises(ValueError, match="event_namespace"):
         ConsoleControlSource(io.StringIO(), event_namespace=namespace)
+
+
+def test_console_down_press_release_and_single_step_contract() -> None:
+    assert _parse_command("down") == (DeviceControl.DOWN, InputAction.SHORT)
+    assert _parse_command("down press") == (DeviceControl.DOWN, InputAction.ACTIVATED)
+    assert _parse_command("down release") == (DeviceControl.DOWN, InputAction.RELEASED)
+
+
+def test_console_rejects_navigation_long() -> None:
+    with pytest.raises(ValueError, match="unsupported"):
+        _parse_command("down long")

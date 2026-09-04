@@ -11,6 +11,7 @@ from typing import Protocol
 from .adapters.local_controls import ControlSource
 from .coordinator import DeviceFlowCoordinator
 from .events import CoordinatorEvent
+from .hold_repeat import HoldRepeatController
 from .types import DeviceControl, DeviceFlowState, DeviceInputEvent, InputAction
 
 
@@ -39,6 +40,7 @@ class DeviceApplication:
         audio_presenter: ReadingAudioPresenter | None = None,
         closeables: Iterable[object] = (),
         sleeper: Callable[[float], None] = time.sleep,
+        hold_repeat: HoldRepeatController | None = None,
     ) -> None:
         if poll_interval_seconds <= 0:
             raise ValueError("poll_interval_seconds must be positive")
@@ -49,6 +51,7 @@ class DeviceApplication:
         self.audio_presenter = audio_presenter
         self.closeables = tuple(closeables)
         self.sleeper = sleeper
+        self.hold_repeat = hold_repeat or HoldRepeatController()
         self._submitted: queue.SimpleQueue[DeviceInputEvent] = queue.SimpleQueue()
         self._presentation_failures: dict[str, int] = {"braille": 0, "audio": 0}
         self._warned_presentation_failures: set[tuple[str, str]] = set()
@@ -88,18 +91,36 @@ class DeviceApplication:
         if not self._started or self._stopped:
             raise RuntimeError("Device application is not running")
         events: list[CoordinatorEvent] = []
-        for input_event in self._drain_inputs() + self.controls.poll():
-            if (
-                self.audio_presenter is not None
-                and self.coordinator.state is DeviceFlowState.READING
-                and (
-                    input_event.control is not DeviceControl.LEVER
-                    or input_event.action is InputAction.ACTIVATED
-                )
-            ):
-                self.audio_presenter.interrupt()
-            events.extend(self.coordinator.handle_input(input_event))
+        physical_inputs = self._drain_inputs() + self.controls.poll()
+        for input_event in physical_inputs:
+            if input_event.control is DeviceControl.DOWN and input_event.action in {
+                InputAction.ACTIVATED,
+                InputAction.RELEASED,
+            }:
+                for command in self.hold_repeat.apply_edge(input_event):
+                    events.extend(self._handle_command(command))
+                continue
+            self.hold_repeat.cancel()
+            events.extend(self._handle_command(input_event))
+
+        if self.coordinator.state not in {
+            DeviceFlowState.SELECTING_DATAPACK,
+            DeviceFlowState.READING,
+        }:
+            self.hold_repeat.cancel()
+        elif not physical_inputs:
+            # A synchronous server call above may have taken longer than the
+            # repeat delay while a release arrived on the serial worker. Do
+            # not dispatch a due repeat until the next step has first drained
+            # that release edge.
+            for command in self.hold_repeat.due():
+                events.extend(self._handle_command(command))
         events.extend(self.coordinator.poll())
+        if self.coordinator.state not in {
+            DeviceFlowState.SELECTING_DATAPACK,
+            DeviceFlowState.READING,
+        }:
+            self.hold_repeat.cancel()
         self._present()
         return tuple(events)
 
@@ -117,6 +138,7 @@ class DeviceApplication:
         if self._stopped:
             return ()
         self._stopped = True
+        self.hold_repeat.cancel()
         events: tuple[CoordinatorEvent, ...] = ()
         try:
             if self._started:
@@ -137,6 +159,18 @@ class DeviceApplication:
                 events.append(self._submitted.get_nowait())
             except queue.Empty:
                 return tuple(events)
+
+    def _handle_command(self, input_event: DeviceInputEvent) -> tuple[CoordinatorEvent, ...]:
+        if (
+            self.audio_presenter is not None
+            and self.coordinator.state is DeviceFlowState.READING
+            and (
+                input_event.control is not DeviceControl.LEVER
+                or input_event.action is InputAction.ACTIVATED
+            )
+        ):
+            self.audio_presenter.interrupt()
+        return self.coordinator.handle_input(input_event)
 
     def _present(self) -> None:
         if self.presenter is not None:

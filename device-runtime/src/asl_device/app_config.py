@@ -285,6 +285,26 @@ class ReadingAudioConfig:
 
 
 @dataclass(frozen=True, slots=True)
+class HoldRepeatConfig:
+    initial_delay_ms: int = 650
+    interval_ms: int = 180
+
+    def __post_init__(self) -> None:
+        if (
+            isinstance(self.initial_delay_ms, bool)
+            or not isinstance(self.initial_delay_ms, int)
+            or not 300 <= self.initial_delay_ms <= 1500
+        ):
+            raise ValueError("hold repeat initial_delay_ms must be in [300, 1500]")
+        if (
+            isinstance(self.interval_ms, bool)
+            or not isinstance(self.interval_ms, int)
+            or not 100 <= self.interval_ms <= 1000
+        ):
+            raise ValueError("hold repeat interval_ms must be in [100, 1000]")
+
+
+@dataclass(frozen=True, slots=True)
 class DeviceAppConfig:
     config_path: Path
     connectivity: DeviceConnectivityConfig
@@ -297,6 +317,7 @@ class DeviceAppConfig:
     stm_serial: StmSerialConfig | None = None
     laptop_audio: LaptopAudioConfig = LaptopAudioConfig()
     reading_audio: ReadingAudioConfig = ReadingAudioConfig()
+    hold_repeat: HoldRepeatConfig = HoldRepeatConfig()
 
     def __post_init__(self) -> None:
         object.__setattr__(self, "config_path", Path(self.config_path).resolve())
@@ -495,7 +516,7 @@ class DeviceAppConfig:
             raise ValueError("local_io must be a table")
         _reject_unknown(
             local_io,
-            {"controls", "feedback", "stm_serial", "windows_audio", "reading_audio"},
+            {"controls", "feedback", "stm_serial", "windows_audio", "reading_audio", "hold_repeat"},
             "local_io",
         )
         controls_mode = local_io.get("controls", "console")
@@ -548,6 +569,14 @@ class DeviceAppConfig:
             },
             "local_io.reading_audio",
         )
+        hold_repeat_payload = local_io.get("hold_repeat", {})
+        if not isinstance(hold_repeat_payload, dict):
+            raise ValueError("local_io.hold_repeat must be a table")
+        _reject_unknown(
+            hold_repeat_payload,
+            {"initial_delay_ms", "interval_ms"},
+            "local_io.hold_repeat",
+        )
         return cls(
             config_path=config_path,
             connectivity=connectivity,
@@ -560,6 +589,7 @@ class DeviceAppConfig:
             stm_serial=stm_serial,
             laptop_audio=LaptopAudioConfig(**audio_payload),
             reading_audio=ReadingAudioConfig(**reading_audio_payload),
+            hold_repeat=HoldRepeatConfig(**hold_repeat_payload),
         )
 
 
