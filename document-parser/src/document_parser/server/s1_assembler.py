@@ -15,6 +15,7 @@ from document_parser.datapack.ingest import (
     synthesize_all,
 )
 from document_parser.datapack.loader import load_datapack
+from document_parser.datapack.preflight import preflight_datapack_root
 from document_parser.datapack.schema import build_manifest
 from document_parser.server.session import DatapackSession
 from document_parser.server.s0_domain import S0ConflictError, S0ValidationError
@@ -178,6 +179,17 @@ class IncrementalDatapackAssembler:
             )
         datapack = load_datapack(root, self.datapacks_root / "_system")
         DatapackSession(datapack)
+        preflight = preflight_datapack_root(
+            root,
+            self.datapacks_root / "_system",
+            expected_datapack_id=datapack_id,
+        )
+        if preflight["error_count"]:
+            codes = sorted({issue["code"] for issue in preflight["issues"] if issue["severity"] == "error"})
+            raise S0ValidationError(
+                "REVISION_PREFLIGHT_FAILED",
+                f"serving preflight failed: {', '.join(codes)}",
+            )
 
     def _copy_existing_audio(
         self,

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import queue
 import time
+import warnings
 from collections.abc import Callable, Iterable
 from typing import Protocol
 
@@ -49,6 +50,8 @@ class DeviceApplication:
         self.closeables = tuple(closeables)
         self.sleeper = sleeper
         self._submitted: queue.SimpleQueue[DeviceInputEvent] = queue.SimpleQueue()
+        self._presentation_failures: dict[str, int] = {"braille": 0, "audio": 0}
+        self._warned_presentation_failures: set[tuple[str, str]] = set()
         self._started = False
         self._stopped = False
 
@@ -137,9 +140,30 @@ class DeviceApplication:
 
     def _present(self) -> None:
         if self.presenter is not None:
-            self.presenter.present(self.coordinator.reading_snapshot)
+            self._present_contained("braille", self.presenter)
         if self.audio_presenter is not None:
-            self.audio_presenter.present(self.coordinator.reading_snapshot)
+            self._present_contained("audio", self.audio_presenter)
+
+    @property
+    def presentation_failures(self) -> dict[str, int]:
+        return dict(self._presentation_failures)
+
+    def _present_contained(self, channel: str, presenter: object) -> None:
+        try:
+            presenter.present(self.coordinator.reading_snapshot)
+        except Exception as exc:
+            # Braille and audio are independent projections of one committed
+            # reading snapshot.  A physical display/driver failure must not
+            # suppress the other projection or terminate navigation.
+            self._presentation_failures[channel] += 1
+            signature = (channel, type(exc).__name__)
+            if signature not in self._warned_presentation_failures:
+                self._warned_presentation_failures.add(signature)
+                warnings.warn(
+                    f"{channel} presentation failed and was contained: {type(exc).__name__}",
+                    RuntimeWarning,
+                    stacklevel=2,
+                )
 
     def _close_host_io(self) -> None:
         seen: set[int] = set()

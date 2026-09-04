@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import pytest
+
 from asl_device.adapters.local_controls import ScriptedControlSource
 from asl_device.application import DeviceApplication
 from asl_device.types import DeviceControl, DeviceFlowState, DeviceInputEvent, InputAction
@@ -174,6 +176,44 @@ def test_reading_snapshot_reaches_braille_before_audio_as_one_generation() -> No
     app._present()
 
     assert order == [("braille", snapshot), ("audio", snapshot)]
+
+
+def test_braille_presentation_failure_is_contained_and_audio_still_runs() -> None:
+    coordinator = FakeCoordinator()
+    snapshot = object()
+    coordinator.reading_snapshot = snapshot
+    heard = []
+
+    class BrokenBraille:
+        def present(self, value):
+            raise ValueError("bad hardware frame")
+
+        def close(self):
+            pass
+
+    class Audio:
+        def present(self, value):
+            heard.append(value)
+
+        def interrupt(self):
+            pass
+
+        def close(self):
+            pass
+
+    app = DeviceApplication(
+        coordinator,
+        ScriptedControlSource(),
+        poll_interval_seconds=0.01,
+        presenter=BrokenBraille(),
+        audio_presenter=Audio(),
+    )
+
+    with pytest.warns(RuntimeWarning, match="braille presentation failed and was contained"):
+        app._present()
+
+    assert heard == [snapshot]
+    assert app.presentation_failures == {"braille": 1, "audio": 0}
 
 
 def test_reading_mode_lever_interrupts_audio_before_mode_transition() -> None:

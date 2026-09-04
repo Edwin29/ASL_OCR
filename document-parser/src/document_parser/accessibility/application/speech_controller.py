@@ -11,6 +11,8 @@ enough for the DOCUMENT/TABLE navigation built so far.
 
 from __future__ import annotations
 
+from dataclasses import dataclass
+
 from document_parser.accessibility.adapters.tts_engine import TtsEngineAdapter
 from document_parser.accessibility.application.document_navigator import current_focus_item
 from document_parser.accessibility.application.document_navigator import handle_command as navigate_document
@@ -32,6 +34,22 @@ from document_parser.accessibility.speech.table_rules import table_cell_announce
 TABLE_ENTRY_BUTTON = "RIGHT"
 
 
+@dataclass(frozen=True, slots=True)
+class BrailleRenderFailure:
+    """Secret-safe diagnostic for one contained braille rendering failure.
+
+    A malformed OCR/math node must not cancel the matching spoken item or
+    terminate the reading session.  The source anchor and exception class are
+    enough for an operator/preflight report to locate the bad content without
+    putting the OCR text itself on the device wire.
+    """
+
+    source_id: str
+    mode: str
+    operation: str
+    error_type: str
+
+
 class SpeechController:
     def __init__(
         self,
@@ -45,6 +63,7 @@ class SpeechController:
         self._engine = engine
         self._braille_presenter = braille_presenter if braille_presenter is not None else BraillePresenter()
         self._braille_frame: dict[str, object] = clear_frame("none")
+        self._braille_failures: list[BrailleRenderFailure] = []
         self._continuous_reading = False
         engine.on_complete(self._handle_complete)
 
@@ -59,6 +78,10 @@ class SpeechController:
     @property
     def braille_frame(self) -> dict[str, object]:
         return self._braille_frame
+
+    @property
+    def braille_failures(self) -> tuple[BrailleRenderFailure, ...]:
+        return tuple(self._braille_failures)
 
     def speak_current(self) -> None:
         """Announce the current focus without moving -- call once after
@@ -151,7 +174,12 @@ class SpeechController:
 
     def _handle_braille_scroll(self, item: dict[str, object] | None, button: str) -> None:
         previous_span_index = self._state.math_span_index
-        result = move_braille_cursor(item, self._state, button, self._braille_presenter.viewport_size)
+        try:
+            result = move_braille_cursor(item, self._state, button, self._braille_presenter.viewport_size)
+        except Exception as exc:
+            self._engine.cancel()
+            self._contain_braille_failure(self._state, "document_scroll", exc, item)
+            return
         self._state = result.state
         self._refresh_braille_frame(self._state)
         self._engine.cancel()
@@ -169,7 +197,12 @@ class SpeechController:
     def _handle_table_braille_scroll(self, button: str) -> None:
         table_item = current_focus_item(self._document, self._state)
         cell = current_cell(table_item, self._state) if table_item is not None else None
-        result = move_table_braille_cursor(cell, self._state, button, self._braille_presenter.viewport_size)
+        try:
+            result = move_table_braille_cursor(cell, self._state, button, self._braille_presenter.viewport_size)
+        except Exception as exc:
+            self._engine.cancel()
+            self._contain_braille_failure(self._state, "table_scroll", exc, cell)
+            return
         self._state = result.state
         self._refresh_braille_frame(self._state)
         self._engine.cancel()
@@ -211,16 +244,42 @@ class SpeechController:
         self._refresh_braille_frame(state)
 
     def _refresh_braille_frame(self, state: NavigationState) -> None:
-        if state.mode == "TABLE":
-            table_item = current_focus_item(self._document, state)
-            cell = current_cell(table_item, state) if table_item is not None else None
-            self._braille_frame = (
-                self._braille_presenter.present_table_cell(cell, state.braille_offset)
-                if cell is not None else clear_frame("none")
+        target: dict[str, object] | None = None
+        try:
+            if state.mode == "TABLE":
+                table_item = current_focus_item(self._document, state)
+                target = current_cell(table_item, state) if table_item is not None else None
+                self._braille_frame = (
+                    self._braille_presenter.present_table_cell(target, state.braille_offset)
+                    if target is not None else clear_frame("none")
+                )
+                return
+            target = current_focus_item(self._document, state)
+            self._braille_frame = self._braille_presenter.present_focus(
+                target, state.braille_offset, state.math_span_index
             )
-            return
-        item = current_focus_item(self._document, state)
-        self._braille_frame = self._braille_presenter.present_focus(item, state.braille_offset, state.math_span_index)
+        except Exception as exc:
+            self._contain_braille_failure(state, "refresh", exc, target)
+
+    def _contain_braille_failure(
+        self,
+        state: NavigationState,
+        operation: str,
+        exc: Exception,
+        target: dict[str, object] | None,
+    ) -> None:
+        source_id = str(target.get("id", "none")) if isinstance(target, dict) else "none"
+        failure = BrailleRenderFailure(
+            source_id=source_id,
+            mode=state.mode,
+            operation=operation,
+            error_type=type(exc).__name__,
+        )
+        self._braille_failures.append(failure)
+        frame = clear_frame(source_id)
+        frame["degraded"] = True
+        frame["error_code"] = "BRAILLE_RENDER_FAILED"
+        self._braille_frame = frame
 
     def _focus_speech(self, state: NavigationState) -> str:
         if state.mode == "TABLE":

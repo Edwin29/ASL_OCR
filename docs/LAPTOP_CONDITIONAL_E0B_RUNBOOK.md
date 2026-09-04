@@ -250,7 +250,25 @@ Bluetooth/Wi-Fi 가상 카메라는 앱 자체의 해상도 축소, 비트레이
 해상도/FPS/FourCC, `recognition_processing_ms`, 유효 관측 5개 수집 여부, 최종 OCR 텍스트를 비교한다.
 유선에서도 동일하면 전송 방식보다 구도·초점·노출 또는 footer crop/OCR 정책 문제일 가능성이 높다.
 
-## 10. 실험 데이터팩 전체 초기화
+## 10. READY 데이터팩 serving preflight
+
+운영 카탈로그의 모든 현재 `READY` revision을 읽기 전용으로 점검한다. 미완성 `DRAFT`는 serving
+대상이 아니므로 건너뛴다. 점검은 페이지·항목 identity, 모든 점자 span/표 셀의 전체 viewport,
+본문 및 navigation boundary 음성 매핑, WAV 파일 경로·형식을 확인하며 OCR/TTS를 다시 실행하거나
+카탈로그를 수정하지 않는다.
+
+```powershell
+# [DESKTOP]
+tools\windows\e0b-preflight-datapacks.bat `
+  D:\device-config\state\e0b-production `
+  D:\device-config\state\e0b-production\reports\datapack-preflight.json
+```
+
+`error_count`가 0보다 크면 종료 코드 1이다. `BRAILLE_TARGET_EMPTY`는 점역할 내용이 없는 항목을
+찾은 경고이고 기본적으로 실패시키지 않는다. 새 revision은 동일 preflight를 통과해야만 S1이
+`READY`로 게시한다.
+
+## 11. 실험 데이터팩 전체 초기화
 
 현재 API에는 개별 데이터팩 삭제를 노출하지 않는다. 실험 데이터 전체를 비울 때는 **Desktop
 production 서버를 먼저 `Ctrl+C`로 완전히 종료**한 뒤 저장소 루트에서 실행한다.

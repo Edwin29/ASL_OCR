@@ -11,6 +11,7 @@ from __future__ import annotations
 from typing import Any, Callable
 
 from document_parser.accessibility import BraillePresenter, NavigationCommand, NavigationState, SpeechController
+from document_parser.accessibility.application.speech_controller import BrailleRenderFailure
 from document_parser.accessibility.speech import normalize_tts_pronunciation
 from document_parser.datapack.loader import Datapack
 
@@ -95,6 +96,10 @@ class DatapackSession:
     @property
     def braille_frame(self) -> dict[str, Any]:
         return self._controller.braille_frame
+
+    @property
+    def braille_failures(self) -> tuple[BrailleRenderFailure, ...]:
+        return self._controller.braille_failures
 
     @property
     def audio(self) -> dict[str, Any] | None:

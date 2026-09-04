@@ -312,6 +312,26 @@ class SpeechControllerBrailleTests(unittest.TestCase):
         self.assertEqual(len(self.engine.spoken), spoken_before)
         self.assertEqual(self.controller.braille_frame["cells"], [])
 
+    def test_braille_renderer_exception_clears_only_display_and_keeps_speech(self):
+        class BrokenPresenter(BraillePresenter):
+            def present_focus(self, item, offset=0, span_index=0):
+                raise ValueError("malformed OCR math")
+
+        controller = SpeechController(
+            self.document,
+            self.state,
+            self.engine,
+            braille_presenter=BrokenPresenter(viewport_size=3),
+        )
+
+        controller.speak_current()
+
+        self.assertTrue(self.engine.spoken)
+        self.assertEqual(controller.braille_frame["cells"], [])
+        self.assertTrue(controller.braille_frame["degraded"])
+        self.assertEqual(controller.braille_frame["error_code"], "BRAILLE_RENDER_FAILED")
+        self.assertEqual(controller.braille_failures[0].error_type, "ValueError")
+
 
 class SpeechControllerTableBrailleScrollTests(unittest.TestCase):
     """LEFT/RIGHT LONG in TABLE mode: within-cell braille scroll, kept off
