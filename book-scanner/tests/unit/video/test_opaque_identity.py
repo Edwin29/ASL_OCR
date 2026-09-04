@@ -85,13 +85,54 @@ def test_first_pair_match_decides_same_early_and_requires_both_raw_tokens():
         _pair(3, right="")
 
 
-def test_different_requires_n_valid_all_mismatches():
+def test_different_requires_n_valid_all_mismatches_with_query_majority():
     policy = OpaqueFooterIdentityPolicy(query_sample_count=3)
     collector = OpaqueQueryCollector(policy, [_bank("a", [_pair(1)])], started_at=0.0)
     assert collector.observe(_pair(2, "31", "310")).kind is OpaqueIdentityDecisionKind.UNKNOWN
     assert collector.observe(_pair(3, "31", "310")).kind is OpaqueIdentityDecisionKind.UNKNOWN
     decision = collector.observe(_pair(4, "31", "310"))
     assert decision.kind is OpaqueIdentityDecisionKind.DIFFERENT
+    assert decision.novel_consensus_count == 3
+    assert not decision.coherent_numeric_difference
+
+
+def test_consecutive_numeric_reference_and_query_corroborate_page_change():
+    policy = OpaqueFooterIdentityPolicy(query_sample_count=5)
+    collector = OpaqueQueryCollector(
+        policy,
+        [_bank("a", [_pair(frame, "26", "27") for frame in range(1, 6)])],
+        started_at=0.0,
+    )
+
+    for frame in range(6, 11):
+        decision = collector.observe(_pair(frame, "28", "29"))
+
+    assert decision.kind is OpaqueIdentityDecisionKind.DIFFERENT
+    assert decision.novel_consensus_count == 5
+    assert decision.coherent_numeric_difference
+
+
+def test_unrelated_ocr_mismatches_do_not_false_trigger_page_change():
+    policy = OpaqueFooterIdentityPolicy(query_sample_count=5, max_collection_ms=100)
+    collector = OpaqueQueryCollector(policy, [_bank("a", [_pair(1)])], started_at=0.0)
+
+    for frame, value in enumerate(("31", "3I", "B1", "37", ""), start=2):
+        decision = collector.observe(_pair(frame, value or "8I", f"R-{frame}"))
+
+    assert decision.kind is OpaqueIdentityDecisionKind.UNKNOWN
+    assert decision.novel_consensus_count == 1
+    assert collector.decision(now=0.101).timed_out
+
+
+def test_first_spread_also_requires_a_stable_opaque_pair():
+    policy = OpaqueFooterIdentityPolicy(query_sample_count=5, max_collection_ms=100)
+    collector = OpaqueQueryCollector(policy, [], started_at=0.0)
+
+    for frame in range(1, 6):
+        decision = collector.observe(_pair(frame, f"L-{frame}", f"R-{frame}"))
+
+    assert decision.kind is OpaqueIdentityDecisionKind.UNKNOWN
+    assert collector.decision(now=0.101).timed_out
 
 
 def test_timeout_is_unknown_and_frame_overlap_is_rejected():

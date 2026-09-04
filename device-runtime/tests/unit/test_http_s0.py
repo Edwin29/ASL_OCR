@@ -51,8 +51,9 @@ def test_reading_open_and_command_map_wire_response():
         "reading_session_id": "reading-1",
         "datapack_id": "book-a",
         "cursor": {"page_index": 2, "node_index": 4, "table_row": None, "generation": 0},
+        "source_text": r"x\leq 1",
         "braille_frame": {"cells": [1, 2, 3]},
-        "audio": {"audio_ref": "s0-audio:abc"},
+        "audio": {"audio_ref": "s0-audio:abc", "text": "엑스는 1보다 작거나 같다"},
     }
     transport = FakeTransport([(201, snapshot), (200, snapshot)])
     client = S0HttpClient("http://server", "secret", transport=transport)
@@ -68,6 +69,8 @@ def test_reading_open_and_command_map_wire_response():
 
     assert opened.braille_cells == (1, 2, 3)
     assert opened.audio_ref == "s0-audio:abc"
+    assert opened.source_text == r"x\leq 1"
+    assert opened.spoken_text == "엑스는 1보다 작거나 같다"
     assert replay.cursor == (
         ("page_index", 2),
         ("node_index", 4),

@@ -112,6 +112,8 @@ def _snapshot(*, cells: tuple[int, ...] = (1, 2, 3), generation: int = 1) -> Rea
         (("page_index", 0), ("node_index", 0), ("generation", generation)),
         braille_cells=cells,
         audio_ref="audio:item-1",
+        source_text="x≤1",
+        spoken_text="엑스는 1보다 작거나 같다",
     )
 
 
@@ -128,10 +130,12 @@ def test_jsonline_reading_presenter_emits_changed_server_payload_once() -> None:
     assert output.getvalue().splitlines() == [
         '{"type":"reading_snapshot","reading_session_id":"reading-1",'
         '"datapack_id":"datapack-1","cursor":{"page_index":0,"node_index":0,'
-        '"generation":1},"braille_cells":[1,2,3],"audio_ref":"audio:item-1"}',
+        '"generation":1},"source_text":"x≤1","spoken_text":"엑스는 1보다 작거나 같다",'
+        '"braille_cells":[1,2,3],"audio_ref":"audio:item-1"}',
         '{"type":"reading_snapshot","reading_session_id":"reading-1",'
         '"datapack_id":"datapack-1","cursor":{"page_index":0,"node_index":0,'
-        '"generation":2},"braille_cells":[4,5],"audio_ref":"audio:item-1"}',
+        '"generation":2},"source_text":"x≤1","spoken_text":"엑스는 1보다 작거나 같다",'
+        '"braille_cells":[4,5],"audio_ref":"audio:item-1"}',
     ]
 
 

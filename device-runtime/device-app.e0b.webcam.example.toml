@@ -24,6 +24,9 @@ camera_backend = "msmf"
 camera_width = 3840
 camera_height = 2160
 camera_fps = 30.0
+# Optional post-rotation crop: [left, top, right, bottom]. Enable only when a
+# virtual camera embeds the useful image inside a larger letterboxed frame.
+# camera_crop_normalized = [0.0, 0.30, 1.0, 0.70]
 operator_preview_enabled = true
 operator_preview_max_width = 1280
 sample_interval_ms = 500

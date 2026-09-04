@@ -143,9 +143,12 @@ class S0ControlPlaneTests(unittest.TestCase):
             service = self.make_control_plane(root)
             service.bootstrap_existing_datapacks()
             opened = service.open_reading("device-1", "book_a", 20, "reading-open-1")
+            self.assertEqual(opened["source_text"], "first item")
+            self.assertEqual(opened["audio"]["text"], "first item")
             session_id = opened["reading_session_id"]
             moved = service.send_reading_command(session_id, "command-1", "PAGE_NEXT", "SHORT")
             self.assertEqual(moved["cursor"]["page_index"], 1)
+            self.assertEqual(moved["source_text"], "second item")
 
             restarted = self.make_control_plane(root)
             replayed = restarted.send_reading_command(
@@ -158,6 +161,24 @@ class S0ControlPlaneTests(unittest.TestCase):
 
             with self.assertRaisesRegex(S0ConflictError, "different request"):
                 restarted.send_reading_command(session_id, "command-1", "PAGE_PREVIOUS", "SHORT")
+
+    def test_reading_confirm_short_replays_current_item_with_new_generation(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            write_book(root / "datapacks", "book_a")
+            service = self.make_control_plane(root)
+            service.bootstrap_existing_datapacks()
+            opened = service.open_reading("device-1", "book_a", 20, "reading-open-1")
+
+            replayed = service.send_reading_command(
+                opened["reading_session_id"], "replay-1", "CONFIRM", "SHORT"
+            )
+
+            self.assertEqual(replayed["cursor"]["page_index"], opened["cursor"]["page_index"])
+            self.assertEqual(replayed["cursor"]["node_index"], opened["cursor"]["node_index"])
+            self.assertEqual(replayed["cursor"]["generation"], opened["cursor"]["generation"] + 1)
+            self.assertEqual(replayed["audio"]["audio_ref"], opened["audio"]["audio_ref"])
+            self.assertEqual(replayed["audio"]["text"], opened["audio"]["text"])
 
     def test_reopening_ready_datapack_after_restart_resumes_saved_cursor(self):
         with tempfile.TemporaryDirectory() as temp_dir:

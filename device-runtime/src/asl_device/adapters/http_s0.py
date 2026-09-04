@@ -303,12 +303,20 @@ def _reading(value: Any) -> ReadingSnapshot:
             if isinstance(item, (str, int, float, bool)) or item is None
         )
         audio_ref = audio.get("audio_ref") if isinstance(audio, dict) else None
+        source_text = value.get("source_text")
+        if not isinstance(source_text, str) or not source_text.strip():
+            source_text = None
+        spoken_text = audio.get("text") if isinstance(audio, dict) else None
+        if not isinstance(spoken_text, str) or not spoken_text.strip():
+            spoken_text = None
         return ReadingSnapshot(
             ReadingSessionId(value["reading_session_id"]),
             DatapackId(value["datapack_id"]),
             scalar_cursor,
             tuple(frame.get("cells") or ()),
             audio_ref,
+            source_text,
+            spoken_text,
         )
     except (KeyError, TypeError, ValueError) as exc:
         raise FatalPortError("server reading response is malformed") from exc

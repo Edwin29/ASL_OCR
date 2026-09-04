@@ -160,34 +160,43 @@ class _Parser:
     # ---- grammar, lowest to highest precedence ----
 
     def parse_row(self) -> dict[str, object]:
-        """Top level: one or more relation-level expressions, split on `\\\\` rows
-        or `&` alignment tabs (from `\\begin{aligned}`/`\\begin{array}` content).
+        """Top level: a two-dimensional row/cell layout when separators occur.
+
+        `\\\\` starts a new logical row while `&` starts a new cell in the
+        current row.  Keeping those two axes distinct is important for cases,
+        systems, aligned equations, and matrices: speech and braille must number
+        actual equations/rows, not each alignment cell as if it were a row.
 
         A LaTeX row break is two literal backslash characters in a row. Neither
         one matches the `\\command` token pattern on its own (it requires a
         following letter), so each tokenizes as its own single-backslash `char`
         token; a row break is exactly two of those in a row.
 
-        `&`-separated cells (e.g. the two branches of a piecewise `f(x)` case)
-        are flattened into sibling rows rather than a true 2D grid: this project's
-        AST schema has no dedicated table/cases node type, and preserving every
-        cell's content as a sibling is safer than dropping the alignment
-        structure's content outright. Reconstructing real row/column association
-        for cases and matrices is a follow-up.
+        The canonical shape is `AlignedRows.rows[] -> AlignedRow.cells[]`.
+        Consumers still accept the older flat `AlignedRows.children[]` shape so
+        already-published datapacks remain readable, but all new parses preserve
+        the real two-dimensional association.
         """
-        rows = [self.parse_comma_list()]
+        rows: list[list[dict[str, object]]] = [[self.parse_comma_list()]]
         while self._at_row_break() or self.at_text("&"):
             if self._at_row_break():
                 self.advance()
                 self.advance()
+                rows.append([self.parse_comma_list()])
             else:
                 self.advance()
-            rows.append(self.parse_comma_list())
+                rows[-1].append(self.parse_comma_list())
         environment = self._environment_stack[-1] if self._environment_stack else None
         self._consume_matching_environment_end()
-        if len(rows) == 1:
-            return rows[0]
-        node: dict[str, object] = {"type": "AlignedRows", "children": rows}
+        if len(rows) == 1 and len(rows[0]) == 1:
+            return rows[0][0]
+        node: dict[str, object] = {
+            "type": "AlignedRows",
+            "rows": [
+                {"type": "AlignedRow", "cells": cells}
+                for cells in rows
+            ],
+        }
         if environment is not None:
             node["environment"] = environment
         return node
@@ -197,8 +206,8 @@ class _Parser:
         notation "2,4,6,...", an interval "0,1", or a list of independent
         relations like "sinθ=y/r,cosθ=x/r,...") is a list separator --
         distinct from `Row` (implicit multiplication, no separator between
-        children) and from `AlignedRows` (real `\\\\`/`&` row/cell splits,
-        which get the numbered-tag braille/TTS treatment). Binds looser than
+        children) and from `AlignedRows` (real `\\\\`/`&` row/cell layout,
+        which gets the numbered-row braille/TTS treatment). Binds looser than
         a single relation but tighter than a row/cell split -- called once
         per "row" inside `parse_row()`'s loop, so a comma never crosses a
         `\\\\`/`&` boundary. A bare "," previously matched no grammar rule at
@@ -304,10 +313,30 @@ class _Parser:
         return False
 
     def parse_relation_sequence(self) -> dict[str, object]:
-        left = self.parse_additive()
+        # Aligned equations commonly begin a continuation row with `=&...`.
+        # Here the leading relation sign is real content in the first alignment
+        # cell, not a malformed binary relation with a missing left operand.
+        leading_operator = self._match_relation_operator()
+        if leading_operator is not None:
+            if self.at_text("&") or self._at_row_break():
+                return {"type": "Operator", "value": leading_operator}
+            left: dict[str, object] = {"type": "Operator", "value": leading_operator}
+        else:
+            left = self.parse_additive()
         while True:
             operator = self._match_relation_operator()
             if operator is None:
+                break
+            if self.at_text("&") or self._at_row_break():
+                # `lhs=&rhs`: preserve the trailing relation sign in the left
+                # alignment cell and leave `&` for parse_row() to split.
+                if left.get("type") == "Row" and isinstance(left.get("children"), list):
+                    left = {**left, "children": [*left["children"], {"type": "Operator", "value": operator}]}
+                else:
+                    left = {
+                        "type": "Row",
+                        "children": [left, {"type": "Operator", "value": operator}],
+                    }
                 break
             right = self.parse_additive()
             left = {"type": "Relation", "operator": operator, "left": left, "right": right}
@@ -666,6 +695,36 @@ def node_display(node: dict[str, object]) -> str:
     return str(node.get("value", node.get("type", "")))
 
 
+def aligned_row_cells(node: object) -> list[list[dict[str, object]]]:
+    """Return canonical logical rows while accepting pre-2D datapacks.
+
+    New ASTs store `rows -> cells`.  Published revisions created before the
+    two-dimensional AST used one flat `children` list where every child was
+    presented as a row.  That legacy interpretation is intentionally retained
+    as a read-only fallback; it cannot recover column grouping that was never
+    stored, but it prevents an upgrade from making old books unreadable.
+    """
+    if not isinstance(node, dict) or node.get("type") != "AlignedRows":
+        return []
+    rows = node.get("rows")
+    if isinstance(rows, list):
+        result: list[list[dict[str, object]]] = []
+        for row in rows:
+            if not isinstance(row, dict) or row.get("type") != "AlignedRow":
+                continue
+            cells = row.get("cells")
+            if isinstance(cells, list):
+                valid_cells = [cell for cell in cells if isinstance(cell, dict)]
+                if valid_cells:
+                    result.append(valid_cells)
+        if result:
+            return result
+    children = node.get("children")
+    if isinstance(children, list):
+        return [[child] for child in children if isinstance(child, dict)]
+    return []
+
+
 # ---- AST validation (기획서 §12.5) ----
 
 REQUIRED_CHILDREN_BY_TYPE = {
@@ -692,6 +751,21 @@ def validate_ast(node: object, path: str = "$") -> list[dict[str, object]]:
             "severity": "info",
             "message": f"Unparsed fragment at {path}: {node.get('value', '')!r}.",
         })
+    if node_type == "AlignedRows" and not aligned_row_cells(node):
+        issues.append({
+            "code": "AST_MISSING_ALIGNED_ROWS",
+            "severity": "error",
+            "message": f"AlignedRows node at {path} has no valid rows.",
+        })
+    if node_type == "AlignedRow" and not (
+        isinstance(node.get("cells"), list)
+        and any(isinstance(cell, dict) for cell in node["cells"])
+    ):
+        issues.append({
+            "code": "AST_MISSING_ALIGNED_CELLS",
+            "severity": "error",
+            "message": f"AlignedRow node at {path} has no valid cells.",
+        })
     required = REQUIRED_CHILDREN_BY_TYPE.get(str(node_type), ())
     for field_name in required:
         child = node.get(field_name)
@@ -702,9 +776,9 @@ def validate_ast(node: object, path: str = "$") -> list[dict[str, object]]:
                 "message": f"{node_type} node at {path} is missing required field '{field_name}'.",
             })
     for key, value in node.items():
-        if key == "children" and isinstance(value, list):
+        if key in {"children", "rows", "cells"} and isinstance(value, list):
             for i, child in enumerate(value):
-                issues.extend(validate_ast(child, f"{path}.children[{i}]"))
+                issues.extend(validate_ast(child, f"{path}.{key}[{i}]"))
         elif isinstance(value, dict):
             issues.extend(validate_ast(value, f"{path}.{key}"))
     return issues

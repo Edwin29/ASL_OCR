@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+import io
+import urllib.error
+import urllib.request
+
 import pytest
 
 from asl_device.adapters.http_connectivity import HttpConnectivityTransport
@@ -68,3 +72,50 @@ def test_health_rejects_wrong_service_or_old_schema() -> None:
     adapter = HttpConnectivityTransport("https://server.test", "secret", transport=wire)
     with pytest.raises(FatalConnectivityError, match="not a healthy"):
         adapter.probe_health()
+
+
+@pytest.mark.parametrize("status", [408, 429, 500, 502, 503, 504])
+def test_retryable_status_does_not_require_json_object(status) -> None:
+    wire = Wire()
+    wire.responses = [(status, "Bad Gateway")]
+    adapter = HttpConnectivityTransport("https://server.test", "secret", transport=wire)
+    with pytest.raises(RetryableConnectivityError, match=str(status)):
+        adapter.probe_health()
+
+
+@pytest.mark.parametrize("status", [502, 503, 504])
+@pytest.mark.parametrize("body", [b"Bad Gateway", b"<html>Unavailable</html>", b"", b"\xff", b"x" * 70000],
+                         ids=["text", "html", "empty", "invalid_utf8", "oversized"])
+def test_proxy_error_body_is_retryable_before_json_decode(monkeypatch, status, body) -> None:
+    class Opener:
+        def open(self, request, timeout):
+            raise urllib.error.HTTPError(request.full_url, status, "proxy error", {}, io.BytesIO(body))
+
+    monkeypatch.setattr(urllib.request, "build_opener", lambda *args: Opener())
+    adapter = HttpConnectivityTransport("https://server.test", "secret")
+    with pytest.raises(RetryableConnectivityError, match=str(status)):
+        adapter.probe_health()
+
+
+def test_successful_non_json_response_remains_incompatible(monkeypatch) -> None:
+    class Opener:
+        def open(self, request, timeout):
+            response = io.BytesIO(b"<html>Not the ASL server</html>")
+            response.status = 200
+            return response
+
+    monkeypatch.setattr(urllib.request, "build_opener", lambda *args: Opener())
+    adapter = HttpConnectivityTransport("https://server.test", "secret")
+    with pytest.raises(FatalConnectivityError, match="not valid UTF-8 JSON"):
+        adapter.probe_health()
+
+
+def test_health_recovers_on_next_probe_after_gateway_failure() -> None:
+    wire = Wire()
+    healthy = {"status": "ok", "service": "asl-ocr-server", "api_versions": ["v1"],
+               "schema_version": 4, "server_instance_id": "server-restarted"}
+    wire.responses = [(502, "Bad Gateway"), (200, healthy)]
+    adapter = HttpConnectivityTransport("https://server.test", "secret", transport=wire)
+    with pytest.raises(RetryableConnectivityError):
+        adapter.probe_health()
+    assert adapter.probe_health() == healthy

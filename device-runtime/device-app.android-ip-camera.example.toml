@@ -1,0 +1,56 @@
+schema_version = 1
+connectivity_config = "device-connectivity.e0b.remote.toml"
+viewport_size = 40
+poll_interval_ms = 20
+
+[delivery]
+outbox_db_path = "state/delivery.sqlite3"
+artifact_root = "state/artifacts/ready"
+upload_timeout_seconds = 60.0
+retry_initial_seconds = 1.0
+retry_max_seconds = 30.0
+
+[scanner]
+profile = "android_ip_camera"
+staging_root = "state/artifacts/staging"
+ready_root = "state/artifacts/ready"
+uvdoc_runtime_path = "models/uvdoc/runtime"
+uvdoc_checkpoint_path = "models/uvdoc/checkpoint.pth"
+uvdoc_device = "auto"
+m1_model_dir = "models/paddle/page-number"
+m1_model_manifest = "models/paddle/page-number-manifest.json"
+# Replace this address with the phone address shown by Android IP Camera after
+# USB tethering is enabled. snapshot_res=max bypasses the 720p virtual-camera path.
+camera_snapshot_url = "https://192.168.42.129:4444/video/snapshot?camera=back&snapshot_res=max"
+camera_snapshot_username = "scanner"
+camera_snapshot_password_file = "secrets/phone-camera-password.txt"
+# First isolated USB-tethering test only. Install/pin the app certificate and use
+# camera_snapshot_tls_ca_file instead before using an untrusted network.
+camera_snapshot_allow_insecure_tls = true
+camera_snapshot_timeout_seconds = 12.0
+camera_snapshot_max_response_bytes = 33554432
+camera_snapshot_min_width = 3000
+camera_snapshot_min_height = 2000
+camera_rotation = 0
+# Android camera servers may change the raw JPEG orientation after an app or
+# device restart. These optional overrides select rotation from the raw aspect.
+camera_snapshot_landscape_rotation = 0
+camera_snapshot_portrait_rotation = 0
+camera_mirror = false
+operator_preview_enabled = true
+operator_preview_max_width = 1280
+sample_interval_ms = 750
+opaque_identity_max_collection_ms = 8000
+
+[local_io]
+controls = "console"
+feedback = "jsonl"
+
+[local_io.reading_audio]
+enabled = true
+backend = "sounddevice"
+max_resource_bytes = 4194304
+max_cache_bytes = 8388608
+max_cache_entries = 4
+download_chunk_bytes = 65536
+request_timeout_seconds = 10.0

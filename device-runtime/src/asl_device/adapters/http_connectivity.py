@@ -141,6 +141,13 @@ class HttpConnectivityTransport:
             )
         except (TimeoutError, OSError, urllib.error.URLError) as exc:
             raise RetryableConnectivityError(f"server transport unavailable: {exc}") from exc
+        if status in {408, 429} or status >= 500:
+            message = (
+                str(body.get("message") or body.get("code") or f"HTTP {status}")
+                if isinstance(body, dict)
+                else f"HTTP {status}"
+            )
+            raise RetryableConnectivityError(message)
         if not isinstance(body, dict):
             raise FatalConnectivityError("server response is not a JSON object", code="SERVER_INCOMPATIBLE")
         if 200 <= status < 300:
@@ -150,7 +157,7 @@ class HttpConnectivityTransport:
             raise FatalConnectivityError(message, code="SERVER_AUTH_FAILED")
         if status == 404:
             raise FatalConnectivityError(message, code="SERVER_INCOMPATIBLE")
-        if status in {408, 429} or status >= 500 or bool(body.get("retryable")):
+        if bool(body.get("retryable")):
             raise RetryableConnectivityError(message)
         raise FatalConnectivityError(message, code="SERVER_INCOMPATIBLE")
 
@@ -174,6 +181,11 @@ class HttpConnectivityTransport:
         except urllib.error.HTTPError as exc:
             raw = exc.read(64 * 1024 + 1)
             status = exc.code
+        # Proxies may return plain text, HTML, or empty error responses when
+        # the server is offline. Classify transient HTTP failures before JSON
+        # validation, which is only evidence of incompatibility on other paths.
+        if status in {408, 429} or status >= 500:
+            raise RetryableConnectivityError(f"HTTP {status}: server temporarily unavailable")
         if len(raw) > 64 * 1024:
             raise FatalConnectivityError("server response exceeds 64 KiB", code="SERVER_INCOMPATIBLE")
         try:

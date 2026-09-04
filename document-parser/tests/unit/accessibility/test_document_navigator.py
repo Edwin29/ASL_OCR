@@ -240,6 +240,7 @@ class MoveBrailleCursorTests(unittest.TestCase):
         item = text_item("t1", [{"kind": "TEXT", "text": "hello"}])
         result = self.move(item, self.state, "RIGHT")
         self.assertEqual(result.boundary_message, "이 항목에는 점자로 표시할 수식이 없습니다.")
+        self.assertFalse(result.boundary_is_audible)
         self.assertEqual(result.state.braille_offset, self.state.braille_offset)
         self.assertEqual(result.state.math_span_index, self.state.math_span_index)
 
@@ -247,6 +248,7 @@ class MoveBrailleCursorTests(unittest.TestCase):
         item = {"id": "tb1", "kind": "TABLE"}
         result = self.move(item, self.state, "RIGHT")
         self.assertEqual(result.boundary_message, "이 항목에는 점자로 표시할 수식이 없습니다.")
+        self.assertFalse(result.boundary_is_audible)
 
     def test_none_item_reports_boundary_without_raising(self):
         result = self.move(None, self.state, "RIGHT")

@@ -34,18 +34,37 @@ class ScannerHostConfig:
     camera_fourcc: str | None = None
     camera_rotation: int = 0
     camera_mirror: bool = False
+    camera_crop_normalized: tuple[float, float, float, float] | None = None
     camera_warmup_frames: int = 3
     camera_reopen_attempts: int = 1
     camera_reopen_initial_ms: int = 250
+    camera_snapshot_url: str | None = None
+    camera_snapshot_username: str | None = None
+    camera_snapshot_password_file: Path | None = None
+    camera_snapshot_tls_ca_file: Path | None = None
+    camera_snapshot_allow_insecure_tls: bool = False
+    camera_snapshot_timeout_seconds: float = 8.0
+    camera_snapshot_max_response_bytes: int = 32 * 1024 * 1024
+    camera_snapshot_min_width: int = 1920
+    camera_snapshot_min_height: int = 1080
+    camera_snapshot_landscape_rotation: int | None = None
+    camera_snapshot_portrait_rotation: int | None = None
     operator_preview_enabled: bool = False
     operator_preview_max_width: int = 1280
     sample_interval_ms: int = 500
     opaque_identity_max_collection_ms: int | None = None
 
     def __post_init__(self) -> None:
-        if self.profile not in {"replay", "image_sequence", "pc_camera", "android_uvc"}:
+        if self.profile not in {
+            "replay",
+            "image_sequence",
+            "pc_camera",
+            "android_uvc",
+            "android_ip_camera",
+        }:
             raise ValueError(
-                "scanner profile must be replay, image_sequence, pc_camera, or android_uvc"
+                "scanner profile must be replay, image_sequence, pc_camera, android_uvc, "
+                "or android_ip_camera"
             )
         for name in (
             "staging_root",
@@ -69,6 +88,39 @@ class ScannerHostConfig:
             not isinstance(self.camera_selector, str) or not self.camera_selector.strip()
         ):
             raise ValueError("android_uvc scanner profile requires camera_selector")
+        if self.profile == "android_ip_camera" and (
+            not isinstance(self.camera_snapshot_url, str)
+            or not self.camera_snapshot_url.strip()
+        ):
+            raise ValueError("android_ip_camera scanner profile requires camera_snapshot_url")
+        for name in ("camera_snapshot_password_file", "camera_snapshot_tls_ca_file"):
+            value = getattr(self, name)
+            if value is not None:
+                object.__setattr__(self, name, Path(value).resolve())
+        if self.camera_snapshot_username is not None and (
+            not isinstance(self.camera_snapshot_username, str)
+            or not self.camera_snapshot_username.strip()
+        ):
+            raise ValueError("camera_snapshot_username must be non-empty when configured")
+        if (self.camera_snapshot_username is None) != (self.camera_snapshot_password_file is None):
+            raise ValueError(
+                "camera_snapshot_username and camera_snapshot_password_file must be configured together"
+            )
+        if not isinstance(self.camera_snapshot_allow_insecure_tls, bool):
+            raise TypeError("camera_snapshot_allow_insecure_tls must be a boolean")
+        if self.camera_snapshot_tls_ca_file is not None and self.camera_snapshot_allow_insecure_tls:
+            raise ValueError("camera snapshot TLS CA and insecure TLS cannot both be configured")
+        timeout = self.camera_snapshot_timeout_seconds
+        if isinstance(timeout, bool) or not isinstance(timeout, (int, float)) or not 0 < timeout <= 60:
+            raise ValueError("camera_snapshot_timeout_seconds must be in (0, 60]")
+        for name, ceiling in (
+            ("camera_snapshot_max_response_bytes", 128 * 1024 * 1024),
+            ("camera_snapshot_min_width", 20_000),
+            ("camera_snapshot_min_height", 20_000),
+        ):
+            value = getattr(self, name)
+            if isinstance(value, bool) or not isinstance(value, int) or not 1 <= value <= ceiling:
+                raise ValueError(f"{name} must be an integer in [1, {ceiling}]")
         if self.camera_selector is not None and (
             not isinstance(self.camera_selector, str) or not self.camera_selector.strip()
         ):
@@ -94,8 +146,25 @@ class ScannerHostConfig:
             raise ValueError("camera_fourcc must contain exactly four ASCII characters")
         if self.camera_rotation not in {0, 90, 180, 270}:
             raise ValueError("camera_rotation must be 0, 90, 180, or 270")
+        for name in (
+            "camera_snapshot_landscape_rotation",
+            "camera_snapshot_portrait_rotation",
+        ):
+            value = getattr(self, name)
+            if value is not None and value not in {0, 90, 180, 270}:
+                raise ValueError(f"{name} must be 0, 90, 180, or 270")
         if not isinstance(self.camera_mirror, bool):
             raise TypeError("camera_mirror must be a boolean")
+        if self.camera_crop_normalized is not None:
+            crop = self.camera_crop_normalized
+            if len(crop) != 4 or any(
+                isinstance(value, bool) or not isinstance(value, (int, float))
+                for value in crop
+            ):
+                raise TypeError("camera_crop_normalized must contain four numbers")
+            left, top, right, bottom = (float(value) for value in crop)
+            if not (0.0 <= left < right <= 1.0 and 0.0 <= top < bottom <= 1.0):
+                raise ValueError("camera_crop_normalized bounds are invalid")
         for name, value, ceiling in (
             ("camera_warmup_frames", self.camera_warmup_frames, 120),
             ("camera_reopen_attempts", self.camera_reopen_attempts, 10),
@@ -328,9 +397,21 @@ class DeviceAppConfig:
                 "camera_fourcc",
                 "camera_rotation",
                 "camera_mirror",
+                "camera_crop_normalized",
                 "camera_warmup_frames",
                 "camera_reopen_attempts",
                 "camera_reopen_initial_ms",
+                "camera_snapshot_url",
+                "camera_snapshot_username",
+                "camera_snapshot_password_file",
+                "camera_snapshot_tls_ca_file",
+                "camera_snapshot_allow_insecure_tls",
+                "camera_snapshot_timeout_seconds",
+                "camera_snapshot_max_response_bytes",
+                "camera_snapshot_min_width",
+                "camera_snapshot_min_height",
+                "camera_snapshot_landscape_rotation",
+                "camera_snapshot_portrait_rotation",
                 "operator_preview_enabled",
                 "operator_preview_max_width",
                 "sample_interval_ms",
@@ -364,10 +445,44 @@ class DeviceAppConfig:
             camera_fallback_index=scanner_payload.get("camera_fallback_index"),
             camera_fourcc=scanner_payload.get("camera_fourcc"),
             camera_rotation=scanner_payload.get("camera_rotation", 0),
+            camera_snapshot_landscape_rotation=scanner_payload.get(
+                "camera_snapshot_landscape_rotation"
+            ),
+            camera_snapshot_portrait_rotation=scanner_payload.get(
+                "camera_snapshot_portrait_rotation"
+            ),
             camera_mirror=scanner_payload.get("camera_mirror", False),
+            camera_crop_normalized=(
+                tuple(scanner_payload["camera_crop_normalized"])
+                if "camera_crop_normalized" in scanner_payload
+                else None
+            ),
             camera_warmup_frames=scanner_payload.get("camera_warmup_frames", 3),
             camera_reopen_attempts=scanner_payload.get("camera_reopen_attempts", 1),
             camera_reopen_initial_ms=scanner_payload.get("camera_reopen_initial_ms", 250),
+            camera_snapshot_url=scanner_payload.get("camera_snapshot_url"),
+            camera_snapshot_username=scanner_payload.get("camera_snapshot_username"),
+            camera_snapshot_password_file=(
+                _resolve(root, scanner_payload["camera_snapshot_password_file"])
+                if "camera_snapshot_password_file" in scanner_payload
+                else None
+            ),
+            camera_snapshot_tls_ca_file=(
+                _resolve(root, scanner_payload["camera_snapshot_tls_ca_file"])
+                if "camera_snapshot_tls_ca_file" in scanner_payload
+                else None
+            ),
+            camera_snapshot_allow_insecure_tls=scanner_payload.get(
+                "camera_snapshot_allow_insecure_tls", False
+            ),
+            camera_snapshot_timeout_seconds=scanner_payload.get(
+                "camera_snapshot_timeout_seconds", 8.0
+            ),
+            camera_snapshot_max_response_bytes=scanner_payload.get(
+                "camera_snapshot_max_response_bytes", 32 * 1024 * 1024
+            ),
+            camera_snapshot_min_width=scanner_payload.get("camera_snapshot_min_width", 1920),
+            camera_snapshot_min_height=scanner_payload.get("camera_snapshot_min_height", 1080),
             operator_preview_enabled=scanner_payload.get("operator_preview_enabled", False),
             operator_preview_max_width=scanner_payload.get("operator_preview_max_width", 1280),
             sample_interval_ms=scanner_payload.get("sample_interval_ms", 500),

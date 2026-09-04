@@ -173,7 +173,8 @@ def test_accepted_older_spread_is_suppressed_before_v2_when_it_reappears() -> No
             artifact_tokens={
                 "artifact-v3a-session-job-000001": 0,
                 "artifact-v3a-session-job-000002": 1,
-            }
+            },
+            preview_tokens=[0] + [1] * 6 + [0] * 15,
         ),
     )
 
@@ -214,7 +215,8 @@ def test_m1_different_visual_duplicate_is_conflict_and_not_transferable() -> Non
         artifact_tokens={
             "artifact-v3a-session-job-000001": 0,
             "artifact-v3a-session-job-000002": 0,
-        }
+        },
+        preview_tokens=[0] + [1] * 20,
     )
     engine, clock, _camera, preparer, _store, _visual_ledger = _engine(
         frame_count=24,
@@ -233,6 +235,70 @@ def test_m1_different_visual_duplicate_is_conflict_and_not_transferable() -> Non
     assert not any(event.event_type is VideoEventType.ARTIFACT_READY for event in events)
     assert engine.opaque_identity_ledger is not None
     assert engine.opaque_identity_ledger.pending_artifact_id is None
+    engine.close()
+
+
+def test_opaque_footer_difference_without_visual_change_does_not_release_search() -> None:
+    a = ("30", "309")
+    stable_misread = ("38", "308")
+    provider = _FakePageNumberProvider(
+        [],
+        preview_labels=[a] * 5 + [stable_misread] * 10,
+    )
+    identity_provider = FakeIdentityProvider(preview_tokens=[0] * 10)
+    engine, clock, _camera, preparer, _store, _visual_ledger = _engine(
+        frame_count=20,
+        page_number_provider=provider,
+        opaque_identity_policy=_policy(),
+        provider=identity_provider,
+    )
+    artifact_id = _artifact_id(_start_and_reach_ready(engine, clock))
+    engine.delivery_confirmed(artifact_id, "receipt-a")
+    events = []
+
+    for _ in range(10):
+        events.extend(engine.poll())
+        clock.advance(0.1)
+
+    assert engine.state is VideoSessionState.WAITING_FOR_PAGE_CHANGE
+    assert len(preparer.calls) == 1
+    assert not any(event.event_type is VideoEventType.PAGE_CHANGED for event in events)
+    assert any(
+        event.event_type is VideoEventType.OPAQUE_IDENTITY_DECIDED
+        and dict(event.details)["decision"] == "different"
+        for event in events
+    )
+    assert any(
+        event.event_type is VideoEventType.PAGE_CHANGE_OBSERVED
+        and dict(event.details)["match_kind"] == "visual_duplicate"
+        for event in events
+    )
+    engine.close()
+
+
+def test_coherent_numeric_page_change_releases_when_template_visual_is_duplicate() -> None:
+    provider = _FakePageNumberProvider(
+        [],
+        preview_labels=[("26", "27")] * 5 + [("28", "29")] * 5,
+    )
+    identity_provider = FakeIdentityProvider(preview_tokens=[0] * 10)
+    engine, clock, _camera, preparer, _store, _visual_ledger = _engine(
+        frame_count=20,
+        page_number_provider=provider,
+        opaque_identity_policy=_policy(),
+        provider=identity_provider,
+    )
+    artifact_id = _artifact_id(_start_and_reach_ready(engine, clock))
+    engine.delivery_confirmed(artifact_id, "receipt-a")
+
+    events = _poll_until(engine, clock, VideoSessionState.SEARCHING)
+
+    assert len(preparer.calls) == 1
+    changed = next(
+        event for event in events if event.event_type is VideoEventType.PAGE_CHANGED
+    )
+    assert dict(changed.details)["strategy"] == "opaque_footer_coherent_numeric_pair"
+    assert dict(changed.details)["coherent_numeric_difference"] is True
     engine.close()
 
 

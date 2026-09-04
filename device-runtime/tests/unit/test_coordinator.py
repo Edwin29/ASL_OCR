@@ -390,6 +390,31 @@ def test_artifact_is_queued_once_with_monotonic_sequence_and_stale_event_ignored
     assert delivery.queue_calls[0][1] == ClientSpreadSequence(1)
 
 
+def test_reopened_scan_restores_delivery_sequence_before_queueing_new_artifact() -> None:
+    coordinator, _catalog, _scan, scanner, delivery, *_ = make_coordinator((ready_entry(),))
+    session_id = ScanSessionId("scan-1")
+    delivery._current[1] = DeliveryUpdate(
+        session_id,
+        ClientSpreadSequence(1),
+        ArtifactId("previous-artifact"),
+        DeliveryStatus.ACKED,
+        receipt_id="previous-receipt",
+    )
+
+    enter_scanning(coordinator)
+    current = coordinator.scan_session
+    assert current is not None
+    assert current.scan_session_id == session_id
+    scanner.events.append(artifact_event(current.scan_session_id, artifact_id="new-artifact"))
+
+    coordinator.poll()
+
+    assert coordinator.state is DeviceFlowState.SCANNING
+    assert delivery.known_status_calls == [session_id]
+    assert delivery.queue_calls[-1][1] == ClientSpreadSequence(2)
+    assert delivery.queue_calls[-1][2].artifact_id == ArtifactId("new-artifact")
+
+
 def test_queue_outage_retries_same_artifact_and_sequence_without_recapture() -> None:
     coordinator, _catalog, _scan, scanner, delivery, *_ = make_coordinator((ready_entry(),))
     enter_scanning(coordinator)
@@ -438,6 +463,45 @@ def test_confirm_freezes_before_flush_and_does_not_seal_until_ack() -> None:
     assert reading.open_calls == []
     assert any(event.event_type is CoordinatorEventType.UPLOAD_FLUSH_COMPLETED for event in events)
     assert FeedbackCode.SPREAD_SENT in [event.code for event in feedback.events]
+
+
+def test_capture_confirm_long_finishes_and_returns_to_capture_catalog() -> None:
+    coordinator, catalog, scan, scanner, delivery, _reading, feedback = make_coordinator((ready_entry(),))
+    enter_scanning(coordinator)
+    current = coordinator.scan_session
+    assert current is not None
+    scanner.events.append(artifact_event(current.scan_session_id))
+    coordinator.poll()
+    delivery.acknowledge(1)
+    coordinator.poll()
+
+    stop_events = coordinator.handle_input(
+        press("capture-exit", DeviceControl.CONFIRM, InputAction.LONG)
+    )
+
+    assert scanner.freeze_calls == 1
+    assert coordinator.state is DeviceFlowState.FINALIZING_DATAPACK
+    assert any(event.event_type is CoordinatorEventType.SCAN_STOP_REQUESTED for event in stop_events)
+    scan.status_results.append(
+        FinalizeResult(
+            current.scan_session_id,
+            current.datapack_id,
+            FinalizeStatus.READY,
+            DatapackRevision(2),
+        )
+    )
+
+    ready_events = coordinator.poll()
+
+    assert coordinator.state is DeviceFlowState.SELECTING_DATAPACK
+    assert coordinator.operating_mode is DeviceOperatingMode.CAPTURE
+    assert len(catalog.list_calls) == 2
+    assert any(event.event_type is CoordinatorEventType.RETURNED_TO_SELECTION for event in ready_events)
+    assert any(
+        event.code is FeedbackCode.SCREEN_CHANGED
+        and dict(event.details) == {"screen": "datapack_selection", "mode": "capture"}
+        for event in feedback.events
+    )
 
 
 def test_ack_feedback_precedes_page_change_callback_diagnostic_exactly_once() -> None:

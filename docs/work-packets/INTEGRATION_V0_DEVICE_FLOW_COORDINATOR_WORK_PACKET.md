@@ -117,7 +117,7 @@ BOOTING
 - 같은 scan session의 client sequence는 단조 증가
 - delivery 결과가 없는데 새 spread가 성공으로 처리되지 않음
 
-CONFIRM SHORT:
+CONFIRM LONG (`CONFIRM SHORT`는 기존 장치/녹화 입력 호환 별칭으로 유지):
 
 1. 새 Scanner capture/selection을 freeze
 2. 현재까지 발급한 마지막 sequence `N`을 cutoff로 고정
@@ -337,7 +337,8 @@ reading session의 늦은 결과가 현재 상태를 변경하지 못해야 한�
 - 별도 coordinator package와 immutable domain 타입 구현
 - core에서 HTTP/serial/OpenCV/GPU/TTS import 0
 - selection → append/new scan → flush → finalize → restored reading 결정론적 test 통과
-- 상태별 CONFIRM SHORT/LONG routing test 통과
+- 상태별 CONFIRM SHORT/LONG routing test 통과. Scanning 종료의 정식 입력은
+  CONFIRM LONG이며 SHORT는 호환 별칭으로만 허용
 - Scanner와 server를 fake로 교체 가능
 - pending spread가 있는데 seal 또는 reading 진입 0
 - server READY 전 `DATAPACK_SAVED`/reading 진입 0

@@ -111,6 +111,8 @@ class ScannerRuntime(Protocol):
 
 
 class DeliveryPort(Protocol):
+    def known_status(self, scan_session_id: ScanSessionId) -> tuple[DeliveryUpdate, ...]: ...
+
     def queue(
         self,
         scan_session_id: ScanSessionId,

@@ -138,6 +138,7 @@ class AndroidUvcCameraSource:
         fourcc: str | None = None,
         rotation: int = 0,
         mirror: bool = False,
+        crop_normalized: tuple[float, float, float, float] | None = None,
         warmup_frames: int = 3,
         reopen_attempts: int = 1,
         reopen_initial_ms: int = 250,
@@ -159,6 +160,7 @@ class AndroidUvcCameraSource:
         self.fourcc = fourcc
         self.rotation = rotation
         self.mirror = mirror
+        self.crop_normalized = crop_normalized
         self.warmup_frames = warmup_frames
         self.reopen_attempts = reopen_attempts
         self.reopen_initial_ms = reopen_initial_ms
@@ -207,6 +209,7 @@ class AndroidUvcCameraSource:
             fourcc=self.fourcc,
             rotation=self.rotation,
             mirror=self.mirror,
+            crop_normalized=self.crop_normalized,
             warmup_frames=self.warmup_frames,
             reopen_attempts=self.reopen_attempts,
             reopen_initial_ms=self.reopen_initial_ms,

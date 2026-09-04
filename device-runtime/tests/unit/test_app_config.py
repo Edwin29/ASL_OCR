@@ -278,6 +278,7 @@ camera_fps = 30.0
 camera_fourcc = "MJPG"
 camera_rotation = 90
 camera_mirror = true
+camera_crop_normalized = [0.0, 0.25, 1.0, 0.75]
 camera_warmup_frames = 5
 camera_reopen_attempts = 2
 camera_reopen_initial_ms = 300
@@ -294,6 +295,7 @@ operator_preview_max_width = 960''',
     assert config.scanner.camera_fourcc == "MJPG"
     assert config.scanner.camera_rotation == 90
     assert config.scanner.camera_mirror
+    assert config.scanner.camera_crop_normalized == (0.0, 0.25, 1.0, 0.75)
     assert config.scanner.camera_reopen_attempts == 2
     assert config.scanner.operator_preview_enabled
     assert config.scanner.operator_preview_max_width == 960
@@ -307,6 +309,53 @@ def test_app_config_rejects_android_uvc_without_selector(tmp_path: Path) -> None
     path.write_text(text, encoding="utf-8")
 
     with pytest.raises(ValueError, match="camera_selector"):
+        DeviceAppConfig.from_toml(path)
+
+
+def test_app_config_loads_android_ip_snapshot_contract(tmp_path: Path) -> None:
+    path = _write_config(tmp_path)
+    text = path.read_text(encoding="utf-8")
+    text = text.replace('profile = "replay"', 'profile = "android_ip_camera"')
+    text = text.replace(
+        'replay_path = "inputs/sample.mp4"',
+        '''camera_snapshot_url = "https://192.168.42.129:4444/video/snapshot?camera=back"
+camera_snapshot_username = "scanner"
+camera_snapshot_password_file = "secrets/phone-camera-password.txt"
+camera_snapshot_allow_insecure_tls = true
+camera_snapshot_timeout_seconds = 12.0
+camera_snapshot_max_response_bytes = 33554432
+camera_snapshot_min_width = 3000
+camera_snapshot_min_height = 2000
+camera_rotation = 90
+camera_snapshot_landscape_rotation = 180
+camera_snapshot_portrait_rotation = 270''',
+    )
+    path.write_text(text, encoding="utf-8")
+
+    config = DeviceAppConfig.from_toml(path)
+
+    assert config.scanner.profile == "android_ip_camera"
+    assert config.scanner.camera_snapshot_url.endswith("camera=back")
+    assert config.scanner.camera_snapshot_username == "scanner"
+    assert config.scanner.camera_snapshot_password_file == (
+        tmp_path / "secrets/phone-camera-password.txt"
+    ).resolve()
+    assert config.scanner.camera_snapshot_allow_insecure_tls
+    assert config.scanner.camera_snapshot_timeout_seconds == 12.0
+    assert config.scanner.camera_snapshot_min_width == 3000
+    assert config.scanner.camera_rotation == 90
+    assert config.scanner.camera_snapshot_landscape_rotation == 180
+    assert config.scanner.camera_snapshot_portrait_rotation == 270
+
+
+def test_app_config_rejects_android_ip_snapshot_without_url(tmp_path: Path) -> None:
+    path = _write_config(tmp_path)
+    text = path.read_text(encoding="utf-8")
+    text = text.replace('profile = "replay"', 'profile = "android_ip_camera"')
+    text = text.replace('replay_path = "inputs/sample.mp4"', "")
+    path.write_text(text, encoding="utf-8")
+
+    with pytest.raises(ValueError, match="camera_snapshot_url"):
         DeviceAppConfig.from_toml(path)
 
 

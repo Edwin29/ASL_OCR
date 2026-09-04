@@ -9,6 +9,8 @@ from __future__ import annotations
 
 from typing import Any
 
+from document_parser.math.latex_ast import aligned_row_cells
+
 from document_parser.accessibility.naturalization import (
     DEFAULT_KOREAN_MATH_NATURALIZER,
     MathSpeechNaturalizer,
@@ -31,6 +33,19 @@ OPERATOR_SPEECH = {
 # top-level Operator case in `math_focus_item_to_speech` below, never for an
 # Operator embedded inside a Row (that's still a real binary connective).
 STANDALONE_SIGN_SPEECH = {"+": "플러스", "-": "마이너스"}
+
+_ROW_ORDINAL_SPEECH = {
+    1: "첫 번째",
+    2: "두 번째",
+    3: "세 번째",
+    4: "네 번째",
+    5: "다섯 번째",
+    6: "여섯 번째",
+    7: "일곱 번째",
+    8: "여덟 번째",
+    9: "아홉 번째",
+    10: "열 번째",
+}
 
 def math_focus_item_to_speech(
     item: dict[str, Any],
@@ -108,12 +123,25 @@ def math_ast_to_speech(
         return f"루트 {radicand}"
     if node_type == "Parenthesized":
         body = math_ast_to_speech(node.get("body"), naturalizer)
+        if node.get("delimiter") == "|":
+            return f"{body}의 절댓값"
         return f"괄호 열고 {body} 괄호 닫고"
     if node_type == "UnaryMinus":
         return f"음수 {math_ast_to_speech(node.get('body'), naturalizer)}"
     if node_type == "AlignedRows":
-        rows = [row for row in (math_ast_to_speech(c, naturalizer) for c in node.get("children", [])) if row]
-        return ", ".join(f"{index}번째 식, {row}" for index, row in enumerate(rows, start=1))
+        rows = []
+        for cells in aligned_row_cells(node):
+            spoken_cells = [
+                speech
+                for speech in (math_ast_to_speech(cell, naturalizer) for cell in cells)
+                if speech
+            ]
+            if spoken_cells:
+                rows.append(", ".join(spoken_cells))
+        return ", ".join(
+            f"{_ROW_ORDINAL_SPEECH.get(index, f'{index}번째')} 식, {row}"
+            for index, row in enumerate(rows, start=1)
+        )
     if node_type == "List":
         # 콤마로 나열된 항목(집합 표기, 구간, 독립된 식 목록) -- 실제
         # 줄바꿈이 아니므로 AlignedRows의 "N번째 식" 접두사는 붙이지 않는다.
@@ -135,10 +163,10 @@ def _relation_to_speech(node: dict[str, Any], naturalizer: MathSpeechNaturalizer
         return f"{subject} {right}보다 작다"
     if operator == ">":
         return f"{subject} {right}보다 크다"
-    if operator == "\\leq":
+    if operator in ("\\leq", "≤"):
         return f"{subject} {right}보다 작거나 같다"
-    if operator == "\\geq":
+    if operator in ("\\geq", "≥"):
         return f"{subject} {right}보다 크거나 같다"
-    if operator == "\\neq":
+    if operator in ("\\neq", "≠"):
         return f"{subject} {naturalizer.attach_particle(right, 'comitative')} 같지 않다"
     return f"{left} {operator} {right}".strip()

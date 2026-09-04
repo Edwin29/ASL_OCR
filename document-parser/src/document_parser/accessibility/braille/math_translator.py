@@ -13,6 +13,8 @@ from __future__ import annotations
 
 from typing import Any
 
+from document_parser.math.latex_ast import aligned_row_cells
+
 from document_parser.accessibility.braille.cell_encoding import (
     ABSOLUTE_VALUE_CELL,
     BRACE_CLOSE_CELL,
@@ -208,21 +210,21 @@ def _node_to_braille(node: object, translator: CharacterBrailleTranslator) -> li
         return [*indicator, *_wrapped_operand_cells(node.get("argument"), translator)]
 
     if node_type == "AlignedRows":
-        # 설계 결정(2026-08-17, 사용자 지시): 연립식/aligned/array를 규정의
-        # 실제 줄바꿈 방식(제6항 연립식 괄호, 제26항 행렬 개행, 제66항 긴
-        # 수식 줄바꿈 -- 서로 다른 세 규칙)으로 각각 재현하는 대신, TTS가
-        # 이미 하는 방식("N번째 식, ..." -- speech/math_rules.py의
-        # AlignedRows 처리와 동일)을 점자에도 그대로 맞춘다: 각 행 앞에
-        # 번호를 태그로 붙이고 전부 한 줄짜리 버퍼로 이어붙인다. 번호
-        # 태그는 규정에서 확인된 점형이 아니라 이 프로젝트의 표기 관례다
-        # (분수/근호처럼 원문에서 읽어낸 값이 아님) -- 이미 검증된 묶음괄호
-        # 셀로 감싸 "이건 본문 숫자가 아니라 행 번호"임을 구분한다.
+        # 물리 디스플레이는 한 줄이므로 각 *논리 행* 앞에 번호 태그를 붙여
+        # 이어붙인다. 2D AST의 같은 행 안에 있는 정렬 셀은 COMMA_CELL로
+        # 구분하며, `&` 셀마다 새 행 번호를 만들지 않는다. 번호 태그는
+        # 규정에서 확인된 점형이 아니라 기존 프로젝트 표기 관례이므로
+        # 묶음괄호로 감싸 본문 숫자와 구분한다. `aligned_row_cells`는 이미
+        # 발행된 flat `children` AST도 종전 의미로 읽게 해 준다.
         cells: list[BrailleCell] = []
-        for index, child in enumerate(node.get("children", []), start=1):
+        for index, row_cells in enumerate(aligned_row_cells(node), start=1):
             cells.append(GROUPING_BRACKET_OPEN)
             cells.extend(translator.translate_digit(str(index)))
             cells.append(GROUPING_BRACKET_CLOSE)
-            cells.extend(_node_to_braille(child, translator))
+            for cell_index, child in enumerate(row_cells):
+                if cell_index > 0:
+                    cells.append(COMMA_CELL)
+                cells.extend(_node_to_braille(child, translator))
         return cells
 
     # Subsuperscript: 아래첨자와 위첨자를 동시에 적는 순서를 규정에서 아직

@@ -212,6 +212,7 @@ class SampledFrameEngine:
         self._opaque_collector: OpaqueQueryCollector | None = None
         self._opaque_candidate_pairs: tuple[OpaqueFooterTokenPair, ...] = ()
         self._opaque_waiting_reference: OpaqueReferenceBank | None = None
+        self._opaque_visual_page_changed = False
         self._next_opaque_sample_at = 0.0
         self._last_opaque_observation_at: float | None = None
         self._opaque_effective_interval_ms: float | None = None
@@ -320,6 +321,7 @@ class SampledFrameEngine:
             self._opaque_collector = None
             self._opaque_candidate_pairs = ()
             self._opaque_waiting_reference = None
+            self._opaque_visual_page_changed = False
             self._last_opaque_observation_at = None
             self._opaque_effective_interval_ms = None
             self.page_change_gate.reset()
@@ -685,7 +687,34 @@ class SampledFrameEngine:
             return
         self._frames_evaluated += 1
         self._publish_preview_diagnostics(analyzed)
+        reasons = set(analyzed.candidate.retry_reasons)
+        motion_observed = bool(
+            reasons
+            & {
+                ReadinessReason.PAGE_MOVING,
+                ReadinessReason.HAND_OR_PAGE_TURN,
+            }
+        )
         if analyzed.candidate.retry_reasons:
+            visual_decision = self.page_change_gate.observe(
+                None,
+                eligible=False,
+                motion_observed=motion_observed,
+            )
+            events.append(
+                self._event(
+                    VideoEventType.PAGE_CHANGE_OBSERVED,
+                    source_frame_id=frame.frame_id,
+                    reason=analyzed.candidate.retry_reasons[0],
+                    details={
+                        "eligible": visual_decision.eligible,
+                        "stable_count": visual_decision.stable_count,
+                        "motion_seen": visual_decision.motion_seen,
+                        "match_kind": None,
+                        "strategy": "opaque_footer_plus_visual",
+                    },
+                )
+            )
             self._opaque_identity_hard_rejected_observations += 1
             self._opaque_collector = OpaqueQueryCollector(
                 self.opaque_identity_policy,
@@ -693,6 +722,43 @@ class SampledFrameEngine:
                 started_at=now,
             )
             return
+        try:
+            preview = self.identity_provider.fingerprint_preview(
+                analyzed.gray_preview,
+                analyzed.mask_preview,
+                analyzed.seam_proxy_fraction,
+            )
+            visual_decision = self.page_change_gate.observe(
+                preview,
+                eligible=True,
+                motion_observed=motion_observed,
+            )
+            self._opaque_visual_page_changed = (
+                self._opaque_visual_page_changed or visual_decision.changed
+            )
+        except (IdentityFingerprintError, OSError, ValueError, TypeError):
+            visual_decision = self.page_change_gate.observe(
+                None,
+                eligible=False,
+                motion_observed=motion_observed,
+            )
+        events.append(
+            self._event(
+                VideoEventType.PAGE_CHANGE_OBSERVED,
+                source_frame_id=frame.frame_id,
+                details={
+                    "eligible": visual_decision.eligible,
+                    "stable_count": visual_decision.stable_count,
+                    "motion_seen": visual_decision.motion_seen,
+                    "match_kind": (
+                        visual_decision.comparison.kind.value
+                        if visual_decision.comparison is not None
+                        else None
+                    ),
+                    "strategy": "opaque_footer_plus_visual",
+                },
+            )
+        )
         pair = self._observe_opaque_pair(frame, analyzed, events)
         decision = (
             self._opaque_collector.observe(pair)
@@ -721,19 +787,42 @@ class SampledFrameEngine:
                 started_at=now,
             )
             return
+        if (
+            not self._opaque_visual_page_changed
+            and not decision.coherent_numeric_difference
+        ):
+            self._opaque_collector = OpaqueQueryCollector(
+                self.opaque_identity_policy,
+                (reference,),
+                started_at=now,
+            )
+            return
+        visual_page_changed = self._opaque_visual_page_changed
         self._page_changes += 1
         self._window.clear()
         self._opaque_collector = None
         self._opaque_waiting_reference = None
+        self._opaque_visual_page_changed = False
         self.guidance.reset()
         events.append(
             self._event(
                 VideoEventType.PAGE_CHANGED,
                 source_frame_id=frame.frame_id,
                 details={
-                    "strategy": "m1_selected_raw_pair",
+                    "strategy": (
+                        "opaque_footer_plus_visual"
+                        if visual_page_changed
+                        else "opaque_footer_coherent_numeric_pair"
+                    ),
                     "valid_observations": decision.valid_observations,
                     "match_count": decision.match_count,
+                    "coherent_numeric_difference": decision.coherent_numeric_difference,
+                    "visual_stable_count": visual_decision.stable_count,
+                    "visual_match_kind": (
+                        visual_decision.comparison.kind.value
+                        if visual_decision.comparison is not None
+                        else None
+                    ),
                 },
             )
         )
@@ -838,6 +927,8 @@ class SampledFrameEngine:
                     "right_token_length": len(pair.right_raw_token) if pair is not None else None,
                     "valid_observations": decision.valid_observations,
                     "match_count": decision.match_count,
+                    "novel_consensus_count": decision.novel_consensus_count,
+                    "coherent_numeric_difference": decision.coherent_numeric_difference,
                     "decision": decision.kind.value,
                     "recognition_processing_ms": self._page_number_latency_ms,
                     "effective_interval_ms": self._opaque_effective_interval_ms,
@@ -869,6 +960,8 @@ class SampledFrameEngine:
                     "decision": decision.kind.value,
                     "valid_observations": decision.valid_observations,
                     "match_count": decision.match_count,
+                    "novel_consensus_count": decision.novel_consensus_count,
+                    "coherent_numeric_difference": decision.coherent_numeric_difference,
                     "matched_artifact_id": (
                         decision.matched_artifact_id.value
                         if decision.matched_artifact_id is not None
@@ -1006,6 +1099,7 @@ class SampledFrameEngine:
             self.page_number_change_tracker.arm(confirmed_page_key)
             self.page_number_scheduler.reset()
             self.page_change_gate.arm(self._pending_preview)
+            self._opaque_visual_page_changed = False
             self._window.clear()
             self._next_page_change_sample_at = self.clock.monotonic()
             if accepted_opaque_bank is not None:
@@ -1317,6 +1411,7 @@ class SampledFrameEngine:
                         return
                     assert self.opaque_identity_policy is not None
                     self._opaque_waiting_reference = matched_bank
+                    self._opaque_visual_page_changed = False
                     self._opaque_collector = OpaqueQueryCollector(
                         self.opaque_identity_policy,
                         (matched_bank,),
@@ -1710,6 +1805,7 @@ class SampledFrameEngine:
         self._opaque_collector = None
         self._opaque_candidate_pairs = ()
         self._opaque_waiting_reference = None
+        self._opaque_visual_page_changed = False
         self._clear_processing()
         events.append(self._event(VideoEventType.SESSION_CANCELLED))
         self._transition(VideoSessionState.IDLE, events)
@@ -1736,6 +1832,7 @@ class SampledFrameEngine:
         self._opaque_collector = None
         self._opaque_candidate_pairs = ()
         self._opaque_waiting_reference = None
+        self._opaque_visual_page_changed = False
         self._clear_processing()
         self._transition(VideoSessionState.ERROR, events, reason=reason)
         events.append(self._event(VideoEventType.SESSION_ERROR, reason=reason))

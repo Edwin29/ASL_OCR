@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import math
-from collections import deque
+from collections import Counter, deque
 from dataclasses import dataclass
 from enum import Enum
 from typing import Sequence
@@ -83,6 +83,8 @@ class OpaqueIdentityDecision:
     match_count: int
     matched_artifact_id: ArtifactId | None = None
     timed_out: bool = False
+    novel_consensus_count: int = 0
+    coherent_numeric_difference: bool = False
 
 
 def token_pair_from_page_observation(
@@ -148,10 +150,24 @@ class OpaqueQueryCollector:
 
     def decision(self, *, now: float | None = None) -> OpaqueIdentityDecision:
         count = len(self._observations)
+        novel_consensus_count = _largest_pair_consensus(self._observations)
+        coherent_numeric_difference = _coherent_numeric_difference(
+            self._observations,
+            self.references,
+        )
+        required_novel_consensus = self.policy.query_sample_count // 2 + 1
         if not self.references:
-            if count >= self.policy.query_sample_count:
-                return OpaqueIdentityDecision(OpaqueIdentityDecisionKind.DIFFERENT, count, 0)
-            return self._unknown(now)
+            if (
+                count >= self.policy.query_sample_count
+                and novel_consensus_count >= required_novel_consensus
+            ):
+                return OpaqueIdentityDecision(
+                    OpaqueIdentityDecisionKind.DIFFERENT,
+                    count,
+                    0,
+                    novel_consensus_count=novel_consensus_count,
+                )
+            return self._unknown(now, novel_consensus_count=novel_consensus_count)
         best_count = 0
         best_artifact = None
         for bank in self.references:
@@ -166,20 +182,33 @@ class OpaqueQueryCollector:
                     count,
                     matches,
                     bank.artifact_id,
+                    novel_consensus_count=novel_consensus_count,
                 )
         if count >= self.policy.query_sample_count and all(
             sum(item.value in {reference.value for reference in bank.observations} for item in self._observations)
             <= self.policy.k_different
             for bank in self.references
-        ):
-            return OpaqueIdentityDecision(OpaqueIdentityDecisionKind.DIFFERENT, count, best_count)
-        return self._unknown(now, best_count, best_artifact)
+        ) and novel_consensus_count >= required_novel_consensus:
+            return OpaqueIdentityDecision(
+                OpaqueIdentityDecisionKind.DIFFERENT,
+                count,
+                best_count,
+                novel_consensus_count=novel_consensus_count,
+                coherent_numeric_difference=coherent_numeric_difference,
+            )
+        return self._unknown(
+            now,
+            best_count,
+            best_artifact,
+            novel_consensus_count=novel_consensus_count,
+        )
 
     def _unknown(
         self,
         now: float | None,
         match_count: int = 0,
         artifact_id: ArtifactId | None = None,
+        novel_consensus_count: int = 0,
     ) -> OpaqueIdentityDecision:
         timed_out = now is not None and (now - self.started_at) * 1000.0 >= self.policy.max_collection_ms
         return OpaqueIdentityDecision(
@@ -188,7 +217,60 @@ class OpaqueQueryCollector:
             match_count,
             artifact_id,
             timed_out,
+            novel_consensus_count,
         )
+
+
+def _largest_pair_consensus(observations: Sequence[OpaqueFooterTokenPair]) -> int:
+    """Return the largest repeated query value without interpreting its text.
+
+    A series of unrelated OCR failures must not become evidence of a page turn
+    merely because none matches the accepted reference bank.
+    """
+
+    return max(Counter(item.value for item in observations).values(), default=0)
+
+
+def _coherent_numeric_difference(
+    observations: Sequence[OpaqueFooterTokenPair],
+    references: Sequence[OpaqueReferenceBank],
+) -> bool:
+    """Corroborate a stable turn when template-heavy pages look identical."""
+
+    query = _dominant_pair(observations)
+    if query is None or not _is_consecutive_numeric_pair(query):
+        return False
+    for bank in references:
+        reference = _dominant_pair(bank.observations)
+        if (
+            reference is not None
+            and reference != query
+            and _is_consecutive_numeric_pair(reference)
+        ):
+            return True
+    return False
+
+
+def _dominant_pair(
+    observations: Sequence[OpaqueFooterTokenPair],
+) -> tuple[str, str] | None:
+    if not observations:
+        return None
+    value, _count = Counter(item.value for item in observations).most_common(1)[0]
+    return value
+
+
+def _is_consecutive_numeric_pair(value: tuple[str, str]) -> bool:
+    left, right = value
+    if not left.isascii() or not right.isascii() or not left.isdigit() or not right.isdigit():
+        return False
+    left_number = int(left)
+    right_number = int(right)
+    return (
+        1 <= left_number <= 9999
+        and 1 <= right_number <= 9999
+        and abs(left_number - right_number) == 1
+    )
 
 
 class InMemoryOpaqueIdentityLedger:

@@ -29,6 +29,7 @@ from document_parser.accessibility.flattening import flatten_document
 from document_parser.accessibility.speech import (
     focus_item_announcement,
     math_focus_item_to_speech,
+    normalize_tts_pronunciation,
     table_cell_announcement,
 )
 from document_parser.datapack.schema import (
@@ -77,10 +78,14 @@ def enumerate_utterances(document: dict[str, Any]) -> dict[str, str]:
             utterances[utterance_key_for_item(item)] = focus_item_announcement(item)
             if item.get("kind") == "TEXT":
                 for span_index, span in enumerate(braille_scrollable_spans(item)):
-                    utterances[utterance_key_for_span(item, span_index)] = math_focus_item_to_speech(span)
+                    utterances[utterance_key_for_span(item, span_index)] = normalize_tts_pronunciation(
+                        math_focus_item_to_speech(span)
+                    )
             if item.get("kind") == "TABLE":
                 for cell in item.get("cells", []):
-                    utterances[utterance_key_for_cell(item, cell)] = table_cell_announcement(cell)
+                    utterances[utterance_key_for_cell(item, cell)] = normalize_tts_pronunciation(
+                        table_cell_announcement(cell)
+                    )
     return utterances
 
 

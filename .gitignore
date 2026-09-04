@@ -13,6 +13,8 @@
 /device-runtime/.test-tmp-*/
 /document-parser/.test-tmp-*/
 /.codex-temp/
+/.pytest-temp-*/
+/.codex-diagnostics/
 
 # User-provided source captures stay local/Drive; committed experiment outputs
 # contain the reproducible manifests, hashes, summaries, and selected artifacts.

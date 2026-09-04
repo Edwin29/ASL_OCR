@@ -73,6 +73,9 @@ class DurableDeliveryPort:
         prepared = prepare_delivery(self.config, self.device_id, scan_session_id, sequence, artifact)
         return _update(self.store.enqueue(prepared))
 
+    def known_status(self, scan_session_id: ScanSessionId) -> tuple[DeliveryUpdate, ...]:
+        return tuple(_update(row) for row in self.store.list_scan(scan_session_id.value))
+
     def pending_status(self, scan_session_id: ScanSessionId) -> tuple[DeliveryUpdate, ...]:
         self._advance_one(scan_session_id)
         return tuple(_update(row) for row in self.store.list_scan(scan_session_id.value))

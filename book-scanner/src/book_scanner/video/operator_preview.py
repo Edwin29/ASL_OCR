@@ -365,11 +365,14 @@ def _annotate_preview(
     mask = diagnostics.mask_preview
     if mask.size:
         resized_mask = cv2.resize(mask, (width, height), interpolation=cv2.INTER_NEAREST) > 0
-        tint = np.zeros_like(view)
-        tint[:, :, 1] = 180
-        view[resized_mask] = cv2.addWeighted(
-            view[resized_mask], 0.78, tint[resized_mask], 0.22, 0
-        )
+        # A non-empty mask array can contain no detected page pixels.
+        # OpenCV returns None when addWeighted receives empty selections.
+        if np.any(resized_mask):
+            tint = np.zeros_like(view)
+            tint[:, :, 1] = 180
+            view[resized_mask] = cv2.addWeighted(
+                view[resized_mask], 0.78, tint[resized_mask], 0.22, 0
+            )
 
     bbox = _obstruction_bbox(metrics, width=width, height=height)
     if bbox is not None:

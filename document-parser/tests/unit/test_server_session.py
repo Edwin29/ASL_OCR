@@ -85,6 +85,23 @@ class DatapackTtsEngineAdapterTests(unittest.TestCase):
         with self.assertRaises(KeyError):
             engine.speak("nope", generation=1)
 
+    def test_old_revision_audio_is_found_through_current_pronunciation(self):
+        old_text = "f(x)와 a"
+        engine = DatapackTtsEngineAdapter(
+            {old_text: {"text": old_text, "wav": "legacy.wav"}}
+        )
+
+        engine.speak("에프(엑스)와 에이", generation=2)
+
+        self.assertEqual(engine.last_audio["wav"], "legacy.wav")
+
+    def test_pronunciation_compatibility_does_not_hide_unrelated_miss(self):
+        engine = DatapackTtsEngineAdapter(
+            {"f(x)": {"text": "f(x)", "wav": "legacy.wav"}}
+        )
+        with self.assertRaises(KeyError):
+            engine.speak("완전히 다른 문장", generation=2)
+
     def test_on_complete_fires_immediately(self):
         engine = DatapackTtsEngineAdapter({"hi": {"text": "hi", "wav": "a.wav"}})
         completed = []

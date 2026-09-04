@@ -15,7 +15,12 @@ from .composition import PaddleOpaqueIdentityBackendConfig, compose_m1_page_numb
 from .config import VideoScannerConfig
 from .engine import SampledFrameEngine
 from .operator_preview import OpenCVOperatorPreview, ThreadedPreviewCameraSource
-from .sources import ImageSequenceCameraSource, OpenCVCameraSource, VideoFileCameraSource
+from .sources import (
+    HttpSnapshotCameraSource,
+    ImageSequenceCameraSource,
+    OpenCVCameraSource,
+    VideoFileCameraSource,
+)
 from .spread_preparer import SeamUVDocPreparerConfig, SeamUVDocSpreadPreparer
 
 
@@ -41,9 +46,21 @@ class LocalScannerRuntimeConfig:
     camera_fourcc: str | None = None
     camera_rotation: int = 0
     camera_mirror: bool = False
+    camera_crop_normalized: tuple[float, float, float, float] | None = None
     camera_warmup_frames: int = 3
     camera_reopen_attempts: int = 1
     camera_reopen_initial_ms: int = 250
+    camera_snapshot_url: str | None = None
+    camera_snapshot_username: str | None = None
+    camera_snapshot_password_file: Path | None = None
+    camera_snapshot_tls_ca_file: Path | None = None
+    camera_snapshot_allow_insecure_tls: bool = False
+    camera_snapshot_timeout_seconds: float = 8.0
+    camera_snapshot_max_response_bytes: int = 32 * 1024 * 1024
+    camera_snapshot_min_width: int = 1920
+    camera_snapshot_min_height: int = 1080
+    camera_snapshot_landscape_rotation: int | None = None
+    camera_snapshot_portrait_rotation: int | None = None
     operator_preview_enabled: bool = False
     operator_preview_max_width: int = 1280
     sample_interval_ms: int = 500
@@ -123,6 +140,7 @@ class LocalBookScannerEngineFactory:
                 fourcc=self.config.camera_fourcc,
                 rotation=self.config.camera_rotation,
                 mirror=self.config.camera_mirror,
+                crop_normalized=self.config.camera_crop_normalized,
                 warmup_frames=self.config.camera_warmup_frames,
                 reopen_attempts=self.config.camera_reopen_attempts,
                 reopen_initial_ms=self.config.camera_reopen_initial_ms,
@@ -146,6 +164,7 @@ class LocalBookScannerEngineFactory:
                 fourcc=self.config.camera_fourcc,
                 rotation=self.config.camera_rotation,
                 mirror=self.config.camera_mirror,
+                crop_normalized=self.config.camera_crop_normalized,
                 warmup_frames=self.config.camera_warmup_frames,
                 reopen_attempts=self.config.camera_reopen_attempts,
                 reopen_initial_ms=self.config.camera_reopen_initial_ms,
@@ -154,6 +173,28 @@ class LocalBookScannerEngineFactory:
             return self._with_operator_preview(
                 source,
                 source_label=f"android_uvc:{self.config.camera_backend}",
+            )
+        if self.config.profile == "android_ip_camera":
+            assert self.config.camera_snapshot_url is not None
+            source = HttpSnapshotCameraSource(
+                self.config.camera_snapshot_url,
+                username=self.config.camera_snapshot_username,
+                password_file=self.config.camera_snapshot_password_file,
+                tls_ca_file=self.config.camera_snapshot_tls_ca_file,
+                allow_insecure_tls=self.config.camera_snapshot_allow_insecure_tls,
+                timeout_seconds=self.config.camera_snapshot_timeout_seconds,
+                max_response_bytes=self.config.camera_snapshot_max_response_bytes,
+                min_width=self.config.camera_snapshot_min_width,
+                min_height=self.config.camera_snapshot_min_height,
+                rotation=self.config.camera_rotation,
+                landscape_rotation=self.config.camera_snapshot_landscape_rotation,
+                portrait_rotation=self.config.camera_snapshot_portrait_rotation,
+                mirror=self.config.camera_mirror,
+                crop_normalized=self.config.camera_crop_normalized,
+            )
+            return self._with_operator_preview(
+                source,
+                source_label="android_ip_camera:snapshot",
             )
         raise ValueError(f"unsupported scanner profile: {self.config.profile}")
 
@@ -183,6 +224,11 @@ class LocalBookScannerEngineFactory:
             or not self.config.camera_selector.strip()
         ):
             raise ValueError("configured Android UVC camera selector is missing")
+        if self.config.profile == "android_ip_camera" and (
+            not isinstance(self.config.camera_snapshot_url, str)
+            or not self.config.camera_snapshot_url.strip()
+        ):
+            raise ValueError("configured Android IP camera snapshot URL is missing")
         if not self.config.uvdoc_runtime_path.is_dir():
             raise ValueError("configured UVDoc runtime directory does not exist")
         if not self.config.uvdoc_checkpoint_path.is_file():

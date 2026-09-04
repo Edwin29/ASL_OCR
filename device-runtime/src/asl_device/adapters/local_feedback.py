@@ -53,13 +53,15 @@ class JsonLineReadingPresenter:
             "reading_session_id": snapshot.reading_session_id.value,
             "datapack_id": snapshot.datapack_id.value,
             "cursor": dict(snapshot.cursor),
+            "source_text": snapshot.source_text,
+            "spoken_text": snapshot.spoken_text,
             "braille_cells": list(snapshot.braille_cells),
             "audio_ref": snapshot.audio_ref,
         }
         try:
             with _JSONL_OUTPUT_LOCK:
                 self.stream.write(
-                    json.dumps(payload, ensure_ascii=True, separators=(",", ":")) + "\n"
+                    json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n"
                 )
                 self.stream.flush()
         except Exception:

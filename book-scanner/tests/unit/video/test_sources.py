@@ -19,6 +19,7 @@ from book_scanner.video.protocols import FrameSample
 from book_scanner.video.sources import (
     CameraUnavailableError,
     FrameDecodeError,
+    HttpSnapshotCameraSource,
     ImageSequenceCameraSource,
     OpenCVCameraSource,
     VideoFileCameraSource,
@@ -142,6 +143,183 @@ def test_live_camera_orients_frame_and_reopens_without_reusing_frame_id() -> Non
     assert first.released
     source.stop()
     assert second.released
+
+
+def test_live_camera_crops_normalized_bounds_after_rotation() -> None:
+    frame = np.arange(4 * 6 * 3, dtype=np.uint8).reshape(4, 6, 3)
+    capture = FakeCapture([frame])
+    source = OpenCVCameraSource(
+        drain_grabs=0,
+        rotation=270,
+        crop_normalized=(0.0, 0.25, 1.0, 0.75),
+        capture_factory=lambda _device: capture,
+    )
+
+    source.start()
+    sample = source.read()
+
+    assert sample is not None
+    rotated = cv2.rotate(frame, cv2.ROTATE_90_COUNTERCLOCKWISE)
+    assert np.array_equal(sample.payload, rotated[2:4, :])
+    source.stop()
+
+
+@pytest.mark.parametrize(
+    "crop,error",
+    [
+        ((0.5, 0.0, 0.5, 1.0), ValueError),
+        ((0.0, 0.0, 1.1, 1.0), ValueError),
+        ((0.0, 0.0, 1.0), TypeError),
+    ],
+)
+def test_live_camera_rejects_invalid_normalized_crop(crop, error) -> None:
+    with pytest.raises(error):
+        OpenCVCameraSource(crop_normalized=crop)
+
+
+class FakeHttpResponse:
+    def __init__(self, payload: bytes, *, content_length: int | None = None) -> None:
+        self.payload = payload
+        self.headers = {} if content_length is None else {"Content-Length": str(content_length)}
+        self.closed = False
+
+    def raise_for_status(self) -> None:
+        return None
+
+    def iter_content(self, chunk_size: int):
+        for offset in range(0, len(self.payload), chunk_size):
+            yield self.payload[offset : offset + chunk_size]
+
+    def close(self) -> None:
+        self.closed = True
+
+
+def test_http_snapshot_fetches_full_resolution_jpeg_with_bounded_request(tmp_path: Path) -> None:
+    frame = np.full((1200, 2000, 3), 73, dtype=np.uint8)
+    ok, encoded = cv2.imencode(".jpg", frame)
+    assert ok
+    response = FakeHttpResponse(encoded.tobytes())
+    calls = []
+
+    def fetcher(url, **kwargs):
+        calls.append((url, kwargs))
+        return response
+
+    password_file = tmp_path / "phone-camera-password.txt"
+    password_file.write_text("private-value\n", encoding="utf-8")
+    source = HttpSnapshotCameraSource(
+        "https://192.168.42.129:4444/video/snapshot?camera=back",
+        username="scanner",
+        password_file=password_file,
+        allow_insecure_tls=True,
+        min_width=1920,
+        min_height=1080,
+        fetcher=fetcher,
+        clock=ManualClock(9.0),
+    )
+
+    source.start()
+    sample = source.read()
+
+    assert sample is not None
+    assert sample.payload.shape == (1200, 2000, 3)
+    assert sample.frame_id.value == "phone-snapshot-00000001"
+    assert source.effective_mode == {
+        "width": 2000.0,
+        "height": 1200.0,
+        "raw_width": 2000.0,
+        "raw_height": 1200.0,
+        "rotation": 0.0,
+        "transport": "http_snapshot",
+    }
+    assert calls[0][0].endswith("/video/snapshot?camera=back")
+    assert calls[0][1]["auth"] == ("scanner", "private-value")
+    assert calls[0][1]["verify"] is False
+    assert response.closed
+    source.stop()
+
+
+@pytest.mark.parametrize(
+    ("shape", "landscape_rotation", "portrait_rotation", "expected_shape", "expected_rotation"),
+    [
+        ((1200, 2000, 3), 180, 270, (1200, 2000, 3), 180.0),
+        ((2000, 1200, 3), 180, 270, (1200, 2000, 3), 270.0),
+    ],
+)
+def test_http_snapshot_selects_rotation_from_raw_aspect(
+    shape, landscape_rotation, portrait_rotation, expected_shape, expected_rotation
+) -> None:
+    frame = np.zeros(shape, dtype=np.uint8)
+    ok, encoded = cv2.imencode(".jpg", frame)
+    assert ok
+    source = HttpSnapshotCameraSource(
+        "http://192.168.42.129:4444/video/snapshot",
+        min_width=1000,
+        min_height=1000,
+        rotation=0,
+        landscape_rotation=landscape_rotation,
+        portrait_rotation=portrait_rotation,
+        fetcher=lambda _url, **_kwargs: FakeHttpResponse(encoded.tobytes()),
+    )
+    source.start()
+
+    sample = source.read()
+
+    assert sample is not None
+    assert sample.payload.shape == expected_shape
+    assert source.effective_mode["rotation"] == expected_rotation
+
+
+def test_http_snapshot_retries_transient_jpeg_decode_failure() -> None:
+    frame = np.zeros((1200, 2000, 3), dtype=np.uint8)
+    ok, encoded = cv2.imencode(".jpg", frame)
+    assert ok
+    responses = iter(
+        (
+            FakeHttpResponse(b"not-a-jpeg"),
+            FakeHttpResponse(encoded.tobytes()),
+        )
+    )
+    source = HttpSnapshotCameraSource(
+        "http://192.168.42.129:4444/video/snapshot",
+        min_width=1000,
+        min_height=1000,
+        fetcher=lambda _url, **_kwargs: next(responses),
+    )
+    source.start()
+
+    sample = source.read()
+
+    assert sample is not None
+    assert sample.payload.shape == frame.shape
+
+
+def test_http_snapshot_rejects_virtual_camera_resolution() -> None:
+    frame = np.zeros((720, 1280, 3), dtype=np.uint8)
+    ok, encoded = cv2.imencode(".jpg", frame)
+    assert ok
+    source = HttpSnapshotCameraSource(
+        "http://192.168.42.129:4444/video/snapshot",
+        min_width=1920,
+        min_height=1080,
+        fetcher=lambda _url, **_kwargs: FakeHttpResponse(encoded.tobytes()),
+    )
+    source.start()
+
+    with pytest.raises(FrameDecodeError, match="minimum"):
+        source.read()
+
+
+def test_http_snapshot_rejects_credentials_over_plain_http(tmp_path: Path) -> None:
+    password_file = tmp_path / "password.txt"
+    password_file.write_text("secret", encoding="utf-8")
+
+    with pytest.raises(ValueError, match="requires HTTPS"):
+        HttpSnapshotCameraSource(
+            "http://192.168.42.129:4444/video/snapshot",
+            username="scanner",
+            password_file=password_file,
+        )
 
 
 class RecordingPreview:
@@ -332,6 +510,25 @@ def test_opencv_operator_preview_tolerates_wait_key_none(monkeypatch) -> None:
 
     assert len(shown) == 2
     preview.stop()
+
+
+@pytest.mark.parametrize("mask_shape", [(50, 100), (0, 0)])
+def test_operator_preview_overlay_without_detected_pixels(mask_shape) -> None:
+    frame = np.full((360, 640, 3), 80, dtype=np.uint8)
+    diagnostics = OperatorPreviewDiagnostics(
+        state="scanning",
+        reason="page_not_found",
+        metrics={"page_pair_found": False},
+        mask_preview=np.zeros(mask_shape, dtype=np.uint8),
+    )
+
+    annotated = _annotate_preview(frame, diagnostics)
+
+    assert annotated.shape == frame.shape
+    assert annotated.dtype == frame.dtype
+    assert np.all(frame == 80)  # Rendering must not mutate the scanner input.
+    assert np.array_equal(annotated[200:], frame[200:])  # No false green tint.
+    assert np.any(annotated[:100] != frame[:100])  # Status still renders.
 
 
 def test_operator_preview_overlay_marks_page_mask_and_obstruction() -> None:

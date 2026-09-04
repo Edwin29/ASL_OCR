@@ -193,7 +193,7 @@ node/braille-window/page 이동 → 종료·재진입 cursor 복구를 점검한
 2. `identity_collection_decided`가 `different`로 끝난 뒤 `spread_sent`가 나오는지 확인한다.
    `artifact_ready`는 내부 Scanner event이며 기본 console feedback에는 따로 출력되지 않는다.
    `spread_sent`는 서버 ACK까지 끝났다는 뜻이다.
-3. 최소 한 건의 `spread_sent`를 확인한 뒤에만 `confirm`으로 스캔을 끝낸다.
+3. 최소 한 건의 `spread_sent`를 확인한 뒤에만 `confirm long`으로 스캔을 끝낸다.
 4. `finalizing` 뒤 `datapack_saved`에 READY `revision`이 표시되고 capture catalog로 돌아오는지 확인한다.
 5. 점퍼/모드 레버 없이 아래 reading 전용 명령으로 READY 데이터팩을 다시 연다.
 
@@ -202,9 +202,12 @@ node/braille-window/page 이동 → 종료·재진입 cursor 복구를 점검한
 tools\windows\e0b-laptop-read.bat D:\ASL_OCR_E0B webcam
 ```
 
-reading catalog에는 READY 데이터팩만 보인다. 저장한 데이터팩을 선택해 `reading_snapshot`의 접근성
-항목, 비어 있지 않은 점자 셀, 문서 음성 재생을 확인한다. 이 명령은 시작 모드만 reading으로 지정하며
-카메라나 STM 점퍼를 요구하지 않는다.
+reading catalog에는 READY 데이터팩만 보인다. 저장한 데이터팩을 선택한 뒤 `up`/`down`으로 항목을
+이동한다. 각 `reading_snapshot`에는 OCR/LaTeX 원문인 `source_text`, 실제 합성 음성 대본인
+`spoken_text`, 같은 generation의 `braille_cells`가 함께 출력된다. 원문과 발음을 보면서 음성을
+청취하고, 수식 항목에서는 `left`/`right`로 현재 점자 창을 이동한다. 리딩 중 `confirm`은 현재
+항목을 새 generation으로 다시 재생하고, `confirm long`은 리딩을 끝내고 데이터팩 선택창으로
+돌아간다. 이 명령은 시작 모드만 reading으로 지정하며 카메라나 STM 점퍼를 요구하지 않는다.
 
 원문과 OCR 결과를 직접 대조할 때는 `datapack_saved`에 나온 ID로 Desktop의
 `D:\device-config\state\e0b-production\datapacks\<datapack-id>\document.json`을 연다. 같은 폴더의

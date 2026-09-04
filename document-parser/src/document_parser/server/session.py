@@ -11,6 +11,7 @@ from __future__ import annotations
 from typing import Any, Callable
 
 from document_parser.accessibility import BraillePresenter, NavigationCommand, NavigationState, SpeechController
+from document_parser.accessibility.speech import normalize_tts_pronunciation
 from document_parser.datapack.loader import Datapack
 
 
@@ -19,13 +20,12 @@ class DatapackTtsEngineAdapter:
     utterance text instead of calling a real TTS engine -- see
     `Datapack.audio_by_text`.
 
-    A lookup miss means the datapack's ingest run and the live navigator
-    have drifted apart (both must go through the same
-    `document_parser.accessibility.speech.focus_item_announcement`
-    dispatch); it is raised loudly rather than silently degraded, per this
-    project's no-silent-drop convention. If this ever fires in practice
-    it means a datapack needs re-ingesting, not that this adapter should
-    guess.
+    Exact lookup remains the primary path.  For an older immutable revision,
+    a TTS-only pronunciation update can change the current lookup text while
+    its existing WAV still contains the same semantic utterance.  A secondary
+    index under today's pronunciation normalization keeps that revision
+    readable until maintenance re-synthesizes it.  Unrelated misses still
+    raise loudly; the compatibility path never guesses by item order.
 
     `on_complete` fires immediately, like `ConsoleTtsEngineAdapter` -- real
     playback happens on remote hardware whose completion ACK doesn't exist
@@ -36,6 +36,10 @@ class DatapackTtsEngineAdapter:
 
     def __init__(self, audio_by_text: dict[str, dict[str, Any]]) -> None:
         self._audio_by_text = audio_by_text
+        self._audio_by_normalized_text: dict[str, dict[str, Any]] = {}
+        for stored_text, entry in audio_by_text.items():
+            normalized = normalize_tts_pronunciation(stored_text)
+            self._audio_by_normalized_text.setdefault(normalized, entry)
         self._on_complete: Callable[[int], None] | None = None
         self.spoken: list[tuple[str, int]] = []
         self.last_audio: dict[str, Any] | None = None
@@ -47,6 +51,8 @@ class DatapackTtsEngineAdapter:
     def speak(self, text: str, generation: int) -> None:
         self.spoken.append((text, generation))
         entry = self._audio_by_text.get(text)
+        if entry is None:
+            entry = self._audio_by_normalized_text.get(text)
         if entry is None:
             raise KeyError(
                 f"No pre-synthesized audio for utterance {text!r}. The datapack's ingest run "

@@ -350,6 +350,8 @@ class ReadingSnapshot:
     cursor: DetailItems
     braille_cells: tuple[int, ...] = ()
     audio_ref: str | None = None
+    source_text: str | None = None
+    spoken_text: str | None = None
 
     def __post_init__(self) -> None:
         if not isinstance(self.reading_session_id, ReadingSessionId):
@@ -362,6 +364,10 @@ class ReadingSnapshot:
         _reading_generation(self.cursor)
         if self.audio_ref is not None:
             _require_text("audio_ref", self.audio_ref)
+        if self.source_text is not None:
+            _require_text("source_text", self.source_text)
+        if self.spoken_text is not None:
+            _require_text("spoken_text", self.spoken_text)
 
     @property
     def generation(self) -> int:

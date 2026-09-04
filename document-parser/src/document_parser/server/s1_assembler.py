@@ -86,9 +86,11 @@ class IncrementalDatapackAssembler:
             "issues": [],
         }
         utterances = enumerate_utterances(document)
-        for key, entry in existing_index.items():
-            if key in utterances and entry.get("text") != utterances[key]:
-                raise S0ConflictError("AUDIO_KEY_COLLISION", "existing audio key maps to different text")
+        # A stable item key may legitimately acquire new spoken text when a
+        # TTS-only pronunciation rule evolves (for example x축 -> 엑스축).
+        # ``synthesize_all`` already reuses only exact text matches and safely
+        # regenerates a mismatched key, so do not reject such revisions as ID
+        # collisions.
         audio_index = synthesize_all(
             utterances,
             self.synthesize,

@@ -113,7 +113,11 @@ def move_braille_cursor(
 
     spans = braille_scrollable_spans(item)
     if not spans:
-        return NavigationResult(state.advanced(), boundary_message="이 항목에는 점자로 표시할 수식이 없습니다.")
+        return NavigationResult(
+            state.advanced(),
+            boundary_message="이 항목에는 점자로 표시할 수식이 없습니다.",
+            boundary_is_audible=False,
+        )
 
     span_index = min(max(state.math_span_index, 0), len(spans) - 1)
     cells = math_focus_item_to_braille(spans[span_index])

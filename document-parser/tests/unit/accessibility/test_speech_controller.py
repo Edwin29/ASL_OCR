@@ -65,9 +65,22 @@ class SpeechControllerDocumentModeTests(unittest.TestCase):
         self.assertGreater(self.engine.cancel_count, cancels_before)
         self.assertEqual(len(self.engine.spoken), 2)
         text, generation = self.engine.spoken[-1]
-        self.assertEqual(text, "x")
+        self.assertEqual(text, "엑스")
         self.assertEqual(generation, self.controller.state.generation)
         self.assertNotEqual(self.engine.spoken[0][1], self.engine.spoken[1][1])
+
+    def test_confirm_short_replays_current_focus_with_new_generation(self):
+        self.controller.speak_current()
+        generation_before = self.controller.state.generation
+        spoken_before = len(self.engine.spoken)
+
+        self.controller.handle_command(press("CONFIRM"))
+
+        self.assertEqual(self.controller.state.node_index, 0)
+        self.assertEqual(self.controller.state.generation, generation_before + 1)
+        self.assertEqual(len(self.engine.spoken), spoken_before + 1)
+        self.assertEqual(self.engine.spoken[-1][0], self.engine.spoken[-2][0])
+        self.assertEqual(self.engine.spoken[-1][1], self.controller.state.generation)
 
     def test_stale_completion_event_is_ignored(self):
         self.controller.handle_command(press("DOWN"))  # move to m1
@@ -291,11 +304,12 @@ class SpeechControllerBrailleTests(unittest.TestCase):
         self.assertEqual(self.controller.state.mode, "TABLE")
         self.assertEqual((self.controller.state.table_row, self.controller.state.table_column), (1, 1))
 
-    def test_left_on_plain_text_with_no_math_reports_boundary(self):
+    def test_left_on_plain_text_with_no_math_is_silent_and_clears_braille(self):
         node_index_before = self.controller.state.node_index
+        spoken_before = len(self.engine.spoken)
         self.controller.handle_command(press("LEFT"))
         self.assertEqual(self.controller.state.node_index, node_index_before)
-        self.assertIn("수식이 없습니다", self.engine.spoken[-1][0])
+        self.assertEqual(len(self.engine.spoken), spoken_before)
         self.assertEqual(self.controller.braille_frame["cells"], [])
 
 

@@ -14,6 +14,7 @@ from book_scanner.video.runtime_composition import (
 )
 from book_scanner.video.camera_host import AndroidUvcCameraSource
 from book_scanner.video.operator_preview import ThreadedPreviewCameraSource
+from book_scanner.video.sources import HttpSnapshotCameraSource
 
 
 def _runtime(
@@ -95,6 +96,7 @@ def test_runtime_composes_android_uvc_source_without_replay_authority() -> None:
         camera_fourcc="MJPG",
         camera_rotation=90,
         camera_mirror=True,
+        camera_crop_normalized=(0.0, 0.25, 1.0, 0.75),
     )
     factory = object.__new__(LocalBookScannerEngineFactory)
     factory.config = runtime
@@ -106,6 +108,7 @@ def test_runtime_composes_android_uvc_source_without_replay_authority() -> None:
     assert source.fallback_index == 1
     assert source.rotation == 90
     assert source.mirror
+    assert source.crop_normalized == (0.0, 0.25, 1.0, 0.75)
 
 
 def test_runtime_wraps_physical_camera_only_when_operator_preview_is_enabled() -> None:
@@ -116,6 +119,7 @@ def test_runtime_wraps_physical_camera_only_when_operator_preview_is_enabled() -
         camera_fourcc="MJPG",
         camera_rotation=90,
         camera_mirror=True,
+        camera_crop_normalized=(0.0, 0.25, 1.0, 0.75),
         camera_warmup_frames=5,
         camera_reopen_attempts=2,
     )
@@ -130,6 +134,35 @@ def test_runtime_wraps_physical_camera_only_when_operator_preview_is_enabled() -
     assert source.source.fourcc == "MJPG"
     assert source.source.rotation == 90
     assert source.source.mirror
+    assert source.source.crop_normalized == (0.0, 0.25, 1.0, 0.75)
     assert source.source.warmup_frames == 5
     assert source.source.reopen_attempts == 2
     assert "pc_camera:msmf:0" in source.preview.window_name
+
+
+def test_runtime_composes_android_ip_snapshot_source() -> None:
+    runtime = replace(
+        _runtime(profile="android_ip_camera"),
+        camera_snapshot_url="https://192.168.42.129:4444/video/snapshot?camera=back",
+        camera_snapshot_username="scanner",
+        camera_snapshot_password_file=Path("phone-password.txt"),
+        camera_snapshot_allow_insecure_tls=True,
+        camera_snapshot_min_width=3000,
+        camera_snapshot_min_height=2000,
+        camera_rotation=180,
+        camera_snapshot_landscape_rotation=180,
+        camera_snapshot_portrait_rotation=270,
+    )
+    factory = object.__new__(LocalBookScannerEngineFactory)
+    factory.config = runtime
+
+    source = factory._camera()
+
+    assert isinstance(source, HttpSnapshotCameraSource)
+    assert source.url.endswith("camera=back")
+    assert source.username == "scanner"
+    assert source.allow_insecure_tls
+    assert source.min_width == 3000
+    assert source.rotation == 180
+    assert source.landscape_rotation == 180
+    assert source.portrait_rotation == 270

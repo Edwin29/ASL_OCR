@@ -24,6 +24,7 @@ from pathlib import Path
 from typing import Any
 
 from document_parser.math.latex_ast import parse_latex_to_ast
+from document_parser.postprocessing import correct_ocr_text, correction_issues
 from document_parser.serialization.table_html import build_table_ir
 
 CHOICE_MARKER_PATTERN = re.compile(r"[①②③④⑤]")
@@ -233,14 +234,21 @@ def node_from_block(
         }
 
     # Everything else (text, paragraph_title, header, footer, number) is TEXT.
+    # Preserve the model output verbatim while using only the auditable,
+    # deterministic correction result for downstream spans and speech.
+    correction = correct_ocr_text(content)
     text_node = {
         **base,
         "content_type": "TEXT",
         "raw_text": content,
-        "normalized_text": content,
-        "spans": spans_from_inline_math(content),
+        "normalized_text": correction.text,
+        "spans": spans_from_inline_math(correction.text),
     }
-    text_node["issues"] = list(base["issues"]) + completeness_issues(content, label)
+    text_node["issues"] = (
+        list(base["issues"])
+        + completeness_issues(content, label)
+        + correction_issues(correction)
+    )
     return text_node
 
 
@@ -309,6 +317,7 @@ def content_nodes_from_cell_text(
 def _cell_text_node(
     node_id: str, text: str, bbox: dict[str, float], page_width: float, page_height: float, source_engine: str
 ) -> dict[str, object]:
+    correction = correct_ocr_text(text)
     return {
         "node_id": node_id,
         "content_type": "TEXT",
@@ -316,10 +325,10 @@ def _cell_text_node(
         "normalized_bbox": normalize_bbox(bbox, page_width, page_height),
         "confidence": 1.0,
         "source_engine": source_engine,
-        "issues": [],
+        "issues": correction_issues(correction),
         "raw_text": text,
-        "normalized_text": text,
-        "spans": [{"span_type": "TEXT", "text": text}],
+        "normalized_text": correction.text,
+        "spans": [{"span_type": "TEXT", "text": correction.text}],
     }
 
 

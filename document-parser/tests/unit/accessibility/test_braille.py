@@ -261,19 +261,16 @@ class UnaryMinusBrailleTests(unittest.TestCase):
 
 
 class AlignedRowsBrailleTests(unittest.TestCase):
-    """설계 결정(2026-08-17): 연립식/aligned/array를 규정의 실제 줄바꿈
-    방식 대신, TTS의 기존 "N번째 식, ..." 방식(speech/math_rules.py)에
-    맞춰 각 행 앞에 번호 태그를 붙이고 한 줄짜리 버퍼로 이어붙인다. 번호
-    태그는 규정에서 읽어낸 값이 아니라 프로젝트 표기 관례이므로, 이미
-    검증된 묶음괄호로 감싸 본문 숫자와 구분한다."""
+    """2D 연립식은 논리 행마다 번호 태그를 한 번 붙이고, 같은 행의
+    정렬 셀은 쉼표 셀로 구분해 한 줄짜리 물리 버퍼에 투영한다."""
 
     def test_two_rows_get_numbered_and_concatenated(self):
         node = {
             "type": "AlignedRows",
             "environment": "cases",
-            "children": [
-                {"type": "Number", "value": "1"},
-                {"type": "Number", "value": "2"},
+            "rows": [
+                {"type": "AlignedRow", "cells": [{"type": "Number", "value": "1"}]},
+                {"type": "AlignedRow", "cells": [{"type": "Number", "value": "2"}]},
             ],
         }
         item = {"ast_status": "VALID", "presentation_ast": node}
@@ -289,10 +286,12 @@ class AlignedRowsBrailleTests(unittest.TestCase):
         # 통일했으므로, environment 값이 달라도 결과는 같아야 한다.
         base = {"type": "Number", "value": "7"}
         cases_item = {"ast_status": "VALID", "presentation_ast": {
-            "type": "AlignedRows", "environment": "cases", "children": [base],
+            "type": "AlignedRows", "environment": "cases",
+            "rows": [{"type": "AlignedRow", "cells": [base]}],
         }}
         no_env_item = {"ast_status": "VALID", "presentation_ast": {
-            "type": "AlignedRows", "children": [base],
+            "type": "AlignedRows",
+            "rows": [{"type": "AlignedRow", "cells": [base]}],
         }}
         self.assertEqual(
             math_focus_item_to_braille(cases_item),
@@ -304,13 +303,60 @@ class AlignedRowsBrailleTests(unittest.TestCase):
         # 태그와 본문이 같은 셀 시퀀스로 뭉개지지 않는다.
         node = {
             "type": "AlignedRows",
-            "children": [{"type": "Number", "value": "1"}],
+            "rows": [{"type": "AlignedRow", "cells": [{"type": "Number", "value": "1"}]}],
         }
         item = {"ast_status": "VALID", "presentation_ast": node}
         cells = math_focus_item_to_braille(item)
         self.assertEqual(cells[0], GROUPING_BRACKET_OPEN)
         self.assertEqual(cells[-2], DIGIT_INDICATOR_CELL)
         self.assertEqual(cells[-1], DIGIT_CELLS["1"])
+
+    def test_alignment_cells_share_one_row_number_and_use_comma_separator(self):
+        node = {
+            "type": "AlignedRows",
+            "environment": "cases",
+            "rows": [
+                {
+                    "type": "AlignedRow",
+                    "cells": [
+                        {"type": "Number", "value": "1"},
+                        {"type": "Number", "value": "2"},
+                    ],
+                },
+                {
+                    "type": "AlignedRow",
+                    "cells": [
+                        {"type": "Number", "value": "3"},
+                        {"type": "Number", "value": "4"},
+                    ],
+                },
+            ],
+        }
+
+        self.assertEqual(math_focus_item_to_braille({"ast_status": "VALID", "presentation_ast": node}), [
+            GROUPING_BRACKET_OPEN, DIGIT_INDICATOR_CELL, DIGIT_CELLS["1"], GROUPING_BRACKET_CLOSE,
+            DIGIT_INDICATOR_CELL, DIGIT_CELLS["1"], COMMA_CELL,
+            DIGIT_INDICATOR_CELL, DIGIT_CELLS["2"],
+            GROUPING_BRACKET_OPEN, DIGIT_INDICATOR_CELL, DIGIT_CELLS["2"], GROUPING_BRACKET_CLOSE,
+            DIGIT_INDICATOR_CELL, DIGIT_CELLS["3"], COMMA_CELL,
+            DIGIT_INDICATOR_CELL, DIGIT_CELLS["4"],
+        ])
+
+    def test_legacy_flat_aligned_rows_keep_previous_numbering(self):
+        node = {
+            "type": "AlignedRows",
+            "children": [
+                {"type": "Number", "value": "1"},
+                {"type": "Number", "value": "2"},
+            ],
+        }
+
+        self.assertEqual(math_focus_item_to_braille({"ast_status": "VALID", "presentation_ast": node}), [
+            GROUPING_BRACKET_OPEN, DIGIT_INDICATOR_CELL, DIGIT_CELLS["1"], GROUPING_BRACKET_CLOSE,
+            DIGIT_INDICATOR_CELL, DIGIT_CELLS["1"],
+            GROUPING_BRACKET_OPEN, DIGIT_INDICATOR_CELL, DIGIT_CELLS["2"], GROUPING_BRACKET_CLOSE,
+            DIGIT_INDICATOR_CELL, DIGIT_CELLS["2"],
+        ])
 
 
 class ListBrailleTests(unittest.TestCase):

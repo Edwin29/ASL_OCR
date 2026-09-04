@@ -1,6 +1,7 @@
 import unittest
 
 from document_parser.accessibility.speech import (
+    focus_item_announcement,
     math_ast_to_speech,
     math_focus_item_to_speech,
     table_cell_announcement,
@@ -31,6 +32,44 @@ class MathAstSpeechTests(unittest.TestCase):
             ],
         }
         self.assertEqual(math_ast_to_speech(ast), "2, 4, 6")
+
+    def test_aligned_rows_use_natural_korean_ordinals(self):
+        ast = {
+            "type": "AlignedRows",
+            "environment": "cases",
+            "rows": [
+                {
+                    "type": "AlignedRow",
+                    "cells": [
+                        {"type": "Identifier", "value": "x"},
+                        {"type": "Identifier", "value": "a"},
+                    ],
+                },
+                {
+                    "type": "AlignedRow",
+                    "cells": [
+                        {"type": "Identifier", "value": "y"},
+                        {"type": "Identifier", "value": "b"},
+                    ],
+                },
+            ],
+        }
+
+        self.assertEqual(
+            math_ast_to_speech(ast),
+            "첫 번째 식, x, a, 두 번째 식, y, b",
+        )
+
+    def test_legacy_flat_aligned_rows_remain_readable(self):
+        ast = {
+            "type": "AlignedRows",
+            "children": [
+                {"type": "Identifier", "value": "x"},
+                {"type": "Identifier", "value": "y"},
+            ],
+        }
+
+        self.assertEqual(math_ast_to_speech(ast), "첫 번째 식, x, 두 번째 식, y")
 
     def test_fraction_uses_natural_korean_denominator_first_order(self):
         ast = {
@@ -100,6 +139,29 @@ class MathAstSpeechTests(unittest.TestCase):
         }
         self.assertEqual(math_ast_to_speech(ast), "a는 b보다 작다")
 
+    def test_unicode_inequality_relations_use_spoken_korean(self):
+        expected = {
+            "≤": "x는 1보다 작거나 같다",
+            "≥": "x는 1보다 크거나 같다",
+            "≠": "x는 1과 같지 않다",
+        }
+        for operator, speech in expected.items():
+            with self.subTest(operator=operator):
+                ast = {
+                    "type": "Relation", "operator": operator,
+                    "left": {"type": "Identifier", "value": "x"},
+                    "right": {"type": "Number", "value": "1"},
+                }
+                self.assertEqual(math_ast_to_speech(ast), speech)
+
+    def test_absolute_value_delimiter_is_not_read_as_parentheses(self):
+        ast = {
+            "type": "Parenthesized",
+            "delimiter": "|",
+            "body": {"type": "Identifier", "value": "x"},
+        }
+        self.assertEqual(math_ast_to_speech(ast), "x의 절댓값")
+
     def test_function_application(self):
         ast = {"type": "FunctionApplication", "name": "sin", "argument": {"type": "Identifier", "value": "θ"}}
         self.assertEqual(math_ast_to_speech(ast), "사인 θ")
@@ -163,6 +225,57 @@ class TextFocusItemSpeechTests(unittest.TestCase):
             ]
         }
         self.assertIn("수식 인식이 불확실합니다.", text_focus_item_to_speech(item))
+
+    def test_axis_notation_is_phonetic_only_in_final_tts_announcement(self):
+        item = {
+            "kind": "TEXT",
+            "spans": [
+                {"kind": "MATH", "text": "x", "ast_status": "VALID", "presentation_ast": {"type": "Identifier", "value": "x"}, "standalone_accessibility": False},
+                {"kind": "TEXT", "text": "축과 y축"},
+            ],
+        }
+        self.assertEqual(text_focus_item_to_speech(item), "x축과 y축")
+        self.assertEqual(focus_item_announcement(item), "엑스축과 와이축")
+
+    def test_standalone_x_is_pronounced_without_rewriting_english_words(self):
+        item = {
+            "kind": "TEXT",
+            "spans": [{"kind": "TEXT", "text": "text에서 f(x)와 2x, x=1을 확인한다."}],
+        }
+        self.assertEqual(
+            focus_item_announcement(item),
+            "text에서 에프(엑스)와 2엑스, 엑스=1을 확인한다.",
+        )
+
+    def test_other_standalone_variables_are_pronounced_but_words_are_untouched(self):
+        item = {
+            "kind": "TEXT",
+            "spans": [{"kind": "TEXT", "text": "EBS text에서 f(x)=ax+b, g(y)=c이다."}],
+        }
+        self.assertEqual(
+            focus_item_announcement(item),
+            "EBS text에서 에프(엑스)=에이 엑스+비, 지(와이)=씨이다.",
+        )
+
+    def test_raw_relations_greek_symbols_and_absolute_value_have_fallback_readings(self):
+        item = {
+            "kind": "TEXT",
+            "spans": [{"kind": "TEXT", "text": "|αx|≤π, y≠0, |ab|≥3"}],
+        }
+        self.assertEqual(
+            focus_item_announcement(item),
+            "알파엑스의 절댓값 작거나 같다 파이, 와이 같지 않다 0, 에이 비의 절댓값 크거나 같다 3",
+        )
+
+    def test_latex_relation_and_greek_fallbacks_are_pronounced(self):
+        item = {
+            "kind": "TEXT",
+            "spans": [{"kind": "TEXT", "text": r"\theta \leq \pi, \Delta x \neq \infty"}],
+        }
+        self.assertEqual(
+            focus_item_announcement(item),
+            "세타 작거나 같다 파이, 델타 엑스 같지 않다 무한대",
+        )
 
 
 class TableSpeechTests(unittest.TestCase):

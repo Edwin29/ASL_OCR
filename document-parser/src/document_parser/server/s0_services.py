@@ -778,6 +778,7 @@ class S0ControlPlane:
             "datapack_id": reading.datapack_id,
             "revision": reading.revision,
             "cursor": _state_to_cursor(session.datapack, session.state),
+            "source_text": _reading_source_text(session.datapack, session.state),
             "state": wire["state"],
             "braille_frame": wire["braille_frame"],
             "audio": wire["audio"],
@@ -842,6 +843,65 @@ class S0ControlPlane:
 
     def _timestamp(self) -> str:
         return self._now().astimezone(timezone.utc).isoformat(timespec="microseconds")
+
+
+def _reading_source_text(datapack: Datapack, state: NavigationState) -> str:
+    """Return the OCR/formula source behind the current audible focus.
+
+    This is diagnostic display text for an operator doing a listening audit;
+    navigation, TTS lookup, and braille generation never depend on it.
+    """
+    pages = datapack.document.get("pages")
+    if not isinstance(pages, list) or not 0 <= state.page_index < len(pages):
+        return ""
+    page = pages[state.page_index]
+    items = page.get("focus_items") if isinstance(page, dict) else None
+    if not isinstance(items, list) or not 0 <= state.node_index < len(items):
+        return ""
+    item = items[state.node_index]
+    if not isinstance(item, dict):
+        return ""
+
+    if state.mode == "TABLE":
+        cells = item.get("cells")
+        if isinstance(cells, list):
+            cell = next(
+                (
+                    candidate
+                    for candidate in cells
+                    if isinstance(candidate, dict)
+                    and candidate.get("row_index") == state.table_row
+                    and candidate.get("column_index") == state.table_column
+                ),
+                None,
+            )
+            if cell is not None:
+                return _source_nodes_text(cell.get("content_nodes"))
+
+    kind = item.get("kind")
+    if kind == "MATH":
+        return _source_node_text(item)
+    if kind == "TEXT":
+        return _source_nodes_text(item.get("spans"))
+    if kind == "TABLE":
+        return f"표 {item.get('row_count', '?')}행 {item.get('column_count', '?')}열"
+    if kind == "UNSUPPORTED_VISUAL":
+        return _source_nodes_text(item.get("preserved_content"))
+    return str(item.get("text", "")).strip()
+
+
+def _source_nodes_text(value: object) -> str:
+    if not isinstance(value, list):
+        return ""
+    return "".join(_source_node_text(node) for node in value if isinstance(node, dict)).strip()
+
+
+def _source_node_text(node: dict[str, object]) -> str:
+    text = node.get("text")
+    if isinstance(text, str) and text:
+        return text
+    raw_formula = node.get("raw_formula")
+    return raw_formula if isinstance(raw_formula, str) else ""
 
 
 def _state_to_cursor(datapack: Datapack, state: NavigationState) -> dict[str, object]:

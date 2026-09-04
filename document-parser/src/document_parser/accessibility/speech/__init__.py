@@ -5,6 +5,7 @@ for that boundary."""
 from typing import Any
 
 from document_parser.accessibility.speech.math_rules import math_ast_to_speech, math_focus_item_to_speech
+from document_parser.accessibility.speech.pronunciation import normalize_tts_pronunciation
 from document_parser.accessibility.speech.table_rules import table_cell_announcement, table_entry_announcement
 from document_parser.accessibility.speech.text_rules import (
     describe_content_nodes,
@@ -25,14 +26,16 @@ def focus_item_announcement(item: dict[str, Any]) -> str:
     """
     kind = item["kind"]
     if kind == "TEXT":
-        return text_focus_item_to_speech(item)
-    if kind == "MATH":
-        return math_focus_item_to_speech(item)
-    if kind == "TABLE":
-        return table_entry_announcement(item)
-    if kind == "UNSUPPORTED_VISUAL":
-        return visual_focus_item_to_speech(item)
-    return str(item.get("text", ""))
+        spoken = text_focus_item_to_speech(item)
+    elif kind == "MATH":
+        spoken = math_focus_item_to_speech(item)
+    elif kind == "TABLE":
+        spoken = table_entry_announcement(item)
+    elif kind == "UNSUPPORTED_VISUAL":
+        spoken = visual_focus_item_to_speech(item)
+    else:
+        spoken = str(item.get("text", ""))
+    return normalize_tts_pronunciation(spoken)
 
 
 __all__ = [
@@ -40,6 +43,7 @@ __all__ = [
     "focus_item_announcement",
     "math_ast_to_speech",
     "math_focus_item_to_speech",
+    "normalize_tts_pronunciation",
     "table_cell_announcement",
     "table_entry_announcement",
     "text_focus_item_to_speech",

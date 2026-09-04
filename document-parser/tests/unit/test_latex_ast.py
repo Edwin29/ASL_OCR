@@ -170,7 +170,8 @@ class LatexAstParserTests(unittest.TestCase):
         aligned = brace_group["body"]
         self.assertEqual(aligned["type"], "AlignedRows")
         self.assertEqual(aligned["environment"], "array")
-        self.assertEqual(len(aligned["children"]), 4)
+        self.assertEqual(len(aligned["rows"]), 2)
+        self.assertEqual([len(row["cells"]) for row in aligned["rows"]], [2, 2])
 
 
 class CommaListTests(unittest.TestCase):
@@ -244,9 +245,9 @@ class CommaListTests(unittest.TestCase):
 
         self.assertEqual(result.unconsumed_tokens, [])
         self.assertEqual(result.ast["type"], "AlignedRows")
-        self.assertEqual(len(result.ast["children"]), 2)
-        self.assertEqual(result.ast["children"][0]["type"], "List")
-        self.assertEqual(result.ast["children"][1], {"type": "Number", "value": "3"})
+        self.assertEqual(len(result.ast["rows"]), 2)
+        self.assertEqual(result.ast["rows"][0]["cells"][0]["type"], "List")
+        self.assertEqual(result.ast["rows"][1]["cells"][0], {"type": "Number", "value": "3"})
 
 
 class BraceAndBracketDelimiterTests(unittest.TestCase):
@@ -369,6 +370,8 @@ class EnvironmentAwareAlignedRowsTests(unittest.TestCase):
         self.assertEqual(result.unconsumed_tokens, [])
         self.assertEqual(result.ast["type"], "AlignedRows")
         self.assertEqual(result.ast["environment"], "cases")
+        self.assertEqual(len(result.ast["rows"]), 2)
+        self.assertEqual([len(row["cells"]) for row in result.ast["rows"]], [2, 2])
 
     def test_aligned_environment_is_captured_matching_real_fixture(self):
         # Same shape as the real p019 fixture's raw_formula.
@@ -379,6 +382,8 @@ class EnvironmentAwareAlignedRowsTests(unittest.TestCase):
         self.assertEqual(result.unconsumed_tokens, [])
         self.assertEqual(result.ast["type"], "AlignedRows")
         self.assertEqual(result.ast["environment"], "aligned")
+        self.assertEqual(len(result.ast["rows"]), 2)
+        self.assertEqual([len(row["cells"]) for row in result.ast["rows"]], [2, 2])
 
     def test_array_environment_with_column_spec_is_captured(self):
         # Same shape as the real p038 fixture's raw_formula.
@@ -400,9 +405,9 @@ class EnvironmentAwareAlignedRowsTests(unittest.TestCase):
 
         self.assertEqual(result.ast, {
             "type": "AlignedRows",
-            "children": [
-                {"type": "Identifier", "value": "a"},
-                {"type": "Identifier", "value": "b"},
+            "rows": [
+                {"type": "AlignedRow", "cells": [{"type": "Identifier", "value": "a"}]},
+                {"type": "AlignedRow", "cells": [{"type": "Identifier", "value": "b"}]},
             ],
         })
         self.assertEqual(result.unconsumed_tokens, [])

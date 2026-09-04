@@ -26,6 +26,7 @@
             "Parenthesized",
             "UnaryMinus",
             "AlignedRows",
+            "AlignedRow",
             "List",
             "Unknown"
           ]
@@ -38,7 +39,21 @@
           "items": {
             "$ref": "#/$defs/node"
           },
-          "description": "Row=implicit multiplication/juxtaposition (no separator between children). AlignedRows=a real \\\\ / & row or cell split (see `environment`). List=a bare \",\"-separated list of complete expressions (set notation, intervals, or a list of independent relations) -- distinct from both: unlike Row it has an explicit separator, and unlike AlignedRows it is not multiple lines/rows."
+          "description": "Row=implicit multiplication/juxtaposition (no separator between children). AlignedRows.children is the legacy pre-2D fallback only. List=a bare \",\"-separated list of complete expressions."
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/node"
+          },
+          "description": "Canonical two-dimensional AlignedRows layout. Each item is an AlignedRow."
+        },
+        "cells": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/node"
+          },
+          "description": "Cells in one AlignedRow, split by LaTeX alignment tabs (&)."
         },
         "left": {
           "$ref": "#/$defs/node"

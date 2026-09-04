@@ -25,7 +25,7 @@ from document_parser.accessibility.braille.viewport import clear_frame
 from document_parser.accessibility.domain.commands import NavigationCommand
 from document_parser.accessibility.domain.events import NavigationResult
 from document_parser.accessibility.domain.navigation_state import NavigationState
-from document_parser.accessibility.speech import focus_item_announcement
+from document_parser.accessibility.speech import focus_item_announcement, normalize_tts_pronunciation
 from document_parser.accessibility.speech.math_rules import math_focus_item_to_speech
 from document_parser.accessibility.speech.table_rules import table_cell_announcement
 
@@ -70,6 +70,16 @@ class SpeechController:
     def handle_command(self, command: NavigationCommand) -> None:
         if command.button == "DOWN" and command.action == "LONG":
             self._toggle_continuous_reading()
+            return
+
+        if command.button == "CONFIRM" and command.action == "SHORT":
+            # Replay is a fresh playback authority even though focus does not
+            # move. Advance generation so the device audio arbiter does not
+            # deduplicate it against the preceding snapshot/audio reference.
+            self._continuous_reading = False
+            self._state = self._state.advanced()
+            self._engine.cancel()
+            self._speak_focus(self._state)
             return
 
         # Any explicit navigation input interrupts continuous reading (§7.5).
@@ -145,11 +155,14 @@ class SpeechController:
         self._state = result.state
         self._refresh_braille_frame(self._state)
         self._engine.cancel()
-        if result.boundary_message:
+        if result.boundary_message and result.boundary_is_audible:
             self._engine.speak(result.boundary_message, self._state.generation)
         elif self._state.math_span_index != previous_span_index:
             new_span = braille_scrollable_spans(item)[self._state.math_span_index]
-            self._engine.speak(math_focus_item_to_speech(new_span), self._state.generation)
+            self._engine.speak(
+                normalize_tts_pronunciation(math_focus_item_to_speech(new_span)),
+                self._state.generation,
+            )
         # else: pure within-span window scroll -- braille frame refreshed
         # above, no new speech (per user decision: silent on scroll-only).
 
@@ -160,7 +173,7 @@ class SpeechController:
         self._state = result.state
         self._refresh_braille_frame(self._state)
         self._engine.cancel()
-        if result.boundary_message:
+        if result.boundary_message and result.boundary_is_audible:
             self._engine.speak(result.boundary_message, self._state.generation)
         # else: pure within-cell window scroll -- silent, same rule as
         # DOCUMENT mode's within-span scroll.
@@ -187,7 +200,8 @@ class SpeechController:
 
     def _speak_result(self, result: NavigationResult) -> None:
         if result.boundary_message:
-            self._engine.speak(result.boundary_message, self._state.generation)
+            if result.boundary_is_audible:
+                self._engine.speak(result.boundary_message, self._state.generation)
             self._refresh_braille_frame(self._state)
             return
         self._speak_focus(self._state)
@@ -212,7 +226,10 @@ class SpeechController:
         if state.mode == "TABLE":
             table_item = current_focus_item(self._document, state)
             cell = current_cell(table_item, state) if table_item is not None else None
-            return table_cell_announcement(cell) if cell is not None else "셀을 찾을 수 없습니다."
+            return (
+                normalize_tts_pronunciation(table_cell_announcement(cell))
+                if cell is not None else "셀을 찾을 수 없습니다."
+            )
 
         item = current_focus_item(self._document, state)
         if item is None:

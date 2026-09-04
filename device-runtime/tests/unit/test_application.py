@@ -140,6 +140,42 @@ def test_reading_navigation_interrupts_audio_before_command_and_closes_once() ->
     assert audio.closed == 1
 
 
+def test_reading_snapshot_reaches_braille_before_audio_as_one_generation() -> None:
+    coordinator = FakeCoordinator()
+    snapshot = object()
+    coordinator.reading_snapshot = snapshot
+    order = []
+
+    class Presenter:
+        def present(self, value):
+            order.append(("braille", value))
+
+        def close(self):
+            pass
+
+    class Audio:
+        def present(self, value):
+            order.append(("audio", value))
+
+        def interrupt(self):
+            pass
+
+        def close(self):
+            pass
+
+    app = DeviceApplication(
+        coordinator,
+        ScriptedControlSource(),
+        poll_interval_seconds=0.01,
+        presenter=Presenter(),
+        audio_presenter=Audio(),
+    )
+
+    app._present()
+
+    assert order == [("braille", snapshot), ("audio", snapshot)]
+
+
 def test_reading_mode_lever_interrupts_audio_before_mode_transition() -> None:
     coordinator = FakeCoordinator()
     coordinator.state = DeviceFlowState.READING

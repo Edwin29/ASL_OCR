@@ -31,5 +31,8 @@ if not exist "%APP_CONFIG%" (
 
 set "PYTHONPATH=%REPO_ROOT%\device-runtime\src;%REPO_ROOT%\book-scanner\src;%PYTHONPATH%"
 echo [E0-B-READ] Starting directly in reading mode. No lever/jumper input is required.
+echo [E0-B-READ] After selecting a datapack with confirm, use up/down to move between scripts.
+echo [E0-B-READ] Use confirm to replay the current item and "confirm long" to return to the catalog.
+echo [E0-B-READ] Each reading_snapshot prints source_text, spoken_text, and braille_cells together.
 "%PYTHON_EXE%" -m asl_device --config "%APP_CONFIG%" --initial-mode reading
 exit /b %ERRORLEVEL%

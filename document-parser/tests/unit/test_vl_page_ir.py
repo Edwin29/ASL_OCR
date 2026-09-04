@@ -21,6 +21,43 @@ class VlPageIrTests(unittest.TestCase):
         math_spans = [s for s in node["spans"] if s.get("math_span_candidate")]
         self.assertEqual([s["text"] for s in math_spans], ["\\sqrt[n]{a}", "-\\sqrt[n]{a}"])
 
+    def test_applies_audited_dictionary_correction_without_changing_raw_text(self):
+        content = "실수 전체에서 언속인 두 회수 f, g와 이차합수 h의 최앗값을 구하시오."
+        page = build_page_ir_from_vl_result(
+            fixture_result([text_block(1, content, order=1)]),
+            page_id="p015",
+        )
+
+        node = page["nodes"][0]
+        self.assertEqual(node["raw_text"], content)
+        self.assertEqual(
+            node["normalized_text"],
+            "실수 전체에서 연속인 두 함수 f, g와 이차함수 h의 최솟값을 구하시오.",
+        )
+        self.assertEqual(node["spans"][0]["text"], node["normalized_text"])
+        applied_rule_ids = {
+            issue["rule_id"]
+            for issue in node["issues"]
+            if issue["code"] == "OCR_DICTIONARY_CORRECTION"
+        }
+        self.assertEqual(
+            applied_rule_ids,
+            {"ko_math_continuous_two_functions", "ko_math_quadratic_function", "ko_math_minimum_value"},
+        )
+
+    def test_corrects_function_near_formula_but_not_legitimate_korean_hansu(self):
+        content = "한수 f(x)와 힘수 $g(x)$를 구한 뒤 한수 앞을 내다본다."
+        page = build_page_ir_from_vl_result(
+            fixture_result([text_block(1, content, order=1)]),
+            page_id="p015",
+        )
+
+        node = page["nodes"][0]
+        self.assertEqual(
+            node["normalized_text"],
+            "함수 f(x)와 함수 $g(x)$를 구한 뒤 한수 앞을 내다본다.",
+        )
+
     def test_builds_display_formula_node(self):
         content = " $$ f(x)=a\\sin^{2}x+\\left|\\cos x-\\frac{1}{2a}\\right| $$ "
         vl_result = fixture_result([

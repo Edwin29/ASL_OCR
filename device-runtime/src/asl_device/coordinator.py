@@ -126,7 +126,13 @@ class DeviceFlowCoordinator:
         if self.state is DeviceFlowState.SELECTING_DATAPACK:
             self._handle_selection_input(input_event, events)
         elif self.state is DeviceFlowState.SCANNING:
-            if input_event.control is DeviceControl.CONFIRM and input_event.action is InputAction.SHORT:
+            if (
+                input_event.control is DeviceControl.CONFIRM
+                and input_event.action in {InputAction.SHORT, InputAction.LONG}
+            ):
+                # LONG is the canonical capture-exit gesture. SHORT remains a
+                # compatibility alias for the original E0 coordinator contract
+                # and existing console/hardware acceptance recordings.
                 self._request_scan_stop(events)
         elif self.state is DeviceFlowState.READING:
             self._handle_reading_input(input_event, events)
@@ -285,11 +291,26 @@ class DeviceFlowCoordinator:
             if session.datapack_id != datapack_id:
                 raise FatalPortError("scan session datapack identity mismatch")
             self.scan_session = session
-            self._last_sequence = 0
-            self._replacement_sequence = None
+            known_deliveries = self.delivery.known_status(session.scan_session_id)
+            restored: dict[int, DeliveryUpdate] = {}
+            for update in known_deliveries:
+                if update.scan_session_id != session.scan_session_id:
+                    raise FatalPortError("delivery history scan identity mismatch")
+                sequence = update.sequence.value
+                previous = restored.get(sequence)
+                if previous is not None and previous.artifact_id != update.artifact_id:
+                    raise FatalPortError("delivery history contains conflicting content")
+                restored[sequence] = update
+            self._last_sequence = max(restored, default=0)
+            rejected_sequences = sorted(
+                sequence
+                for sequence, update in restored.items()
+                if update.status is DeliveryStatus.REJECTED
+            )
+            self._replacement_sequence = rejected_sequences[0] if rejected_sequences else None
             self._cutoff_sequence = None
             self._seal_requested = False
-            self._delivery_by_sequence.clear()
+            self._delivery_by_sequence = restored
             self._seen_scanner_events.clear()
             self._pending_queue = None
             self._emit(

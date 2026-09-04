@@ -150,6 +150,7 @@ class FakeDeliveryPort:
     def __init__(self) -> None:
         self.queue_calls: list[tuple[ScanSessionId, ClientSpreadSequence, ScannerArtifactReady]] = []
         self.flush_calls: list[tuple[ScanSessionId, int]] = []
+        self.known_status_calls: list[ScanSessionId] = []
         self._current: dict[int, DeliveryUpdate] = {}
         self._pending_updates: deque[DeliveryUpdate] = deque()
         self.forced_flush: FlushResult | None = None
@@ -168,6 +169,14 @@ class FakeDeliveryPort:
         update = DeliveryUpdate(scan_session_id, sequence, artifact.artifact_id, DeliveryStatus.QUEUED)
         self._current[sequence.value] = update
         return update
+
+    def known_status(self, scan_session_id: ScanSessionId) -> tuple[DeliveryUpdate, ...]:
+        self.known_status_calls.append(scan_session_id)
+        return tuple(
+            update
+            for _sequence, update in sorted(self._current.items())
+            if update.scan_session_id == scan_session_id
+        )
 
     def pending_status(self, scan_session_id: ScanSessionId) -> tuple[DeliveryUpdate, ...]:
         if not self._pending_updates:
