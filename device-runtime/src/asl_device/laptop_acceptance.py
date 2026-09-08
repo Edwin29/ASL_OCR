@@ -103,8 +103,8 @@ def write_laptop_preflight_report(report: Mapping[str, Any], path: str | Path) -
 
 
 def _probe_e0b_profile(config: DeviceAppConfig) -> dict[str, Any]:
-    if config.scanner.profile not in {"pc_camera", "android_uvc"}:
-        raise ValueError("physical E0-B requires pc_camera or android_uvc")
+    if config.scanner.profile not in {"pc_camera", "android_uvc", "android_ip_camera"}:
+        raise ValueError("physical E0-B requires pc_camera, android_uvc or android_ip_camera")
     if config.controls_mode not in {"console", "stm_serial"}:
         raise ValueError("E0-B controls must be console or stm_serial")
     if config.feedback_mode != "jsonl":
@@ -113,7 +113,9 @@ def _probe_e0b_profile(config: DeviceAppConfig) -> dict[str, Any]:
         raise ValueError("Piper E0-B requires local_io.reading_audio.enabled=true")
     if config.reading_audio.backend != "sounddevice":
         raise ValueError("Piper E0-B requires the sounddevice playback backend")
-    if config.scanner.camera_width is None or config.scanner.camera_height is None:
+    if config.scanner.profile != "android_ip_camera" and (
+        config.scanner.camera_width is None or config.scanner.camera_height is None
+    ):
         raise ValueError("E0-B requires an explicit camera_width and camera_height")
     endpoint = urlsplit(config.connectivity.server_base_url)
     if endpoint.scheme != "https":
@@ -140,6 +142,10 @@ def _probe_e0b_profile(config: DeviceAppConfig) -> dict[str, Any]:
         detail["camera_selector"] = config.scanner.camera_selector
         detail["camera_backend"] = config.scanner.camera_backend
         detail["camera_fallback_index"] = config.scanner.camera_fallback_index
+    elif config.scanner.profile == "android_ip_camera":
+        detail["source_transport"] = "http_snapshot"
+        detail["min_width"] = config.scanner.camera_snapshot_min_width
+        detail["min_height"] = config.scanner.camera_snapshot_min_height
     else:
         detail["camera_index"] = config.scanner.camera_index
     if config.stm_serial is not None:
@@ -170,6 +176,24 @@ def _probe_server_health(config: DeviceAppConfig) -> dict[str, Any]:
 
 
 def _probe_camera(config: DeviceAppConfig) -> dict[str, Any]:
+    if config.scanner.profile == "android_ip_camera":
+        from book_scanner.video.runtime_composition import create_snapshot_source
+
+        source = create_snapshot_source(config.scanner)
+        try:
+            source.start()
+            sample = source.read()
+            if sample is None:
+                raise RuntimeError("snapshot camera returned no frame")
+            height, width = sample.payload.shape[:2]
+            return {
+                "source_profile": "android_ip_camera",
+                "source_type": type(source).__name__,
+                "width": int(width), "height": int(height),
+                "frame_id": sample.frame_id.value,
+            }
+        finally:
+            source.stop()
     if config.scanner.profile == "android_uvc":
         from .android_uvc_probe import run_android_uvc_probe
 

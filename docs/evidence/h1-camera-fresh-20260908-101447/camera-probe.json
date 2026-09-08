@@ -1,0 +1,67 @@
+{
+  "kind": "strict_read_only_snapshot_probe",
+  "started_at_utc": "2026-09-08T01:17:24.911305+00:00",
+  "completed_at_utc": "2026-09-08T01:17:31.763623+00:00",
+  "python": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Scripts\\python.exe",
+  "asl_device_import": "C:\\ASL_OCR_INTEGRATION\\device-runtime\\src\\asl_device\\__init__.py",
+  "book_scanner_import": "C:\\ASL_OCR_INTEGRATION\\book-scanner\\src\\book_scanner\\__init__.py",
+  "profile": "android_ip_camera",
+  "source_class": "HttpSnapshotCameraSource",
+  "operator_preview_enabled_in_h1": true,
+  "snapshot_timeout_seconds": 12.0,
+  "minimum_dimensions": [
+    3000,
+    2000
+  ],
+  "results": [
+    {
+      "attempt": 1,
+      "elapsed_seconds": 1.859,
+      "frame": true,
+      "warning_types": [
+        "InsecureRequestWarning"
+      ],
+      "shape": [
+        3000,
+        4000,
+        3
+      ],
+      "frame_id": "phone-snapshot-00000001",
+      "pixel_sha256": "42d52384ad322e38f193bbf682363e1b049322a07b46e54b180fdc000a0911cc"
+    },
+    {
+      "attempt": 2,
+      "elapsed_seconds": 1.344,
+      "frame": true,
+      "warning_types": [
+        "InsecureRequestWarning"
+      ],
+      "shape": [
+        3000,
+        4000,
+        3
+      ],
+      "frame_id": "phone-snapshot-00000002",
+      "pixel_sha256": "526a75a05b5f6eae0153c3bb8a184514036928700b9118ffba7192d372ece5d7"
+    },
+    {
+      "attempt": 3,
+      "elapsed_seconds": 1.36,
+      "frame": true,
+      "warning_types": [
+        "InsecureRequestWarning"
+      ],
+      "shape": [
+        3000,
+        4000,
+        3
+      ],
+      "frame_id": "phone-snapshot-00000003",
+      "pixel_sha256": "1ea422fc290b550c0b10de7f74efd6b201b07d66a826cacf1b0d264daf98f801"
+    }
+  ],
+  "images_saved": 0,
+  "uploads": 0,
+  "serial_packets": 0,
+  "credential_values_recorded": false
+}

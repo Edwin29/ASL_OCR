@@ -1,0 +1,569 @@
+{
+  "source_sha256": "28f40e925cb0883d184e7f46fbcf929075af3cf04d9da2bff2899b35610b32a6",
+  "config_sha256": "4fb36bf39030201da69e16ced8ee9e595e42287f8e1af96507bf524c6249f3a8",
+  "model_hashes": {
+    "config.json": "16103ac291a82fca50f0bb000d62a4b8168f6042f03c89c44cf32f241d1eb1f2",
+    "inference.json": "fd1b6ec722ea841a72d3ba43e527df1d1066d5d7808e0503ee3eec7265188753",
+    "inference.pdiparams": "3ec8a97ed6cefe8568d3e2ee90bb193299b566a7661aa4fd52d224b96b59f66b",
+    "inference.yml": "27e91d0582f40168aa218303c76e184bc78fa7a5d105aad0cfbad8458b441067",
+    "README.md": "4c1cfd6e103b0966fe97505b5254cfa35a931d47d7effca97a9db47fb57dd699"
+  },
+  "existing_source_unchanged": true,
+  "uploads": 0,
+  "camera_requests": 0,
+  "scope": "Two repetitions of four preserved production-native ROIs. Tail savings are measured accounting, not an implemented optimization or live cadence claim.",
+  "rows": [
+    {
+      "repeat": 0,
+      "phase": "reference",
+      "side": "left",
+      "roi_sha256": "034f0b092087ab779055ed17ca47ddefb79d6884aecd51c784f0b88647fe10d2",
+      "regions": [
+        [
+          458,
+          294,
+          72,
+          22
+        ]
+      ],
+      "recognition": {
+        "raw_text": "2441",
+        "confidence": 0.7568268775939941,
+        "bbox": [
+          458,
+          294,
+          72,
+          22
+        ],
+        "variant_agreement": 1,
+        "status": "conflict"
+      },
+      "elapsed_ms": 241.10259997542016,
+      "calls": [
+        {
+          "text": "2440",
+          "score": 0.6859611868858337,
+          "ms": 210.95780000905506
+        },
+        {
+          "text": "2441",
+          "score": 0.7568268775939941,
+          "ms": 22.467400005552918
+        }
+      ],
+      "first_valid_call_count": 2,
+      "unused_tail_predict_ms": 0
+    },
+    {
+      "repeat": 0,
+      "phase": "reference",
+      "side": "right",
+      "roi_sha256": "b2dd71d2e1161cd11f551f215ecb133a2b61724667323d1db1f90bca8bfd421d",
+      "regions": [
+        [
+          450,
+          330,
+          30,
+          26
+        ],
+        [
+          353,
+          331,
+          45,
+          23
+        ],
+        [
+          283,
+          332,
+          50,
+          22
+        ]
+      ],
+      "recognition": {
+        "raw_text": "27",
+        "confidence": 0.9996957182884216,
+        "bbox": [
+          450,
+          330,
+          30,
+          26
+        ],
+        "variant_agreement": 2,
+        "status": "observed"
+      },
+      "elapsed_ms": 156.60369998659007,
+      "calls": [
+        {
+          "text": "27",
+          "score": 0.9996297359466553,
+          "ms": 22.46569999260828
+        },
+        {
+          "text": "27",
+          "score": 0.999761700630188,
+          "ms": 21.293700003298
+        },
+        {
+          "text": "9",
+          "score": 0.5487191081047058,
+          "ms": 23.245799995493144
+        },
+        {
+          "text": "9",
+          "score": 0.3946639597415924,
+          "ms": 26.912700006505474
+        },
+        {
+          "text": "02",
+          "score": 0.9714073538780212,
+          "ms": 26.806400011992082
+        },
+        {
+          "text": "02",
+          "score": 0.9793550968170166,
+          "ms": 27.80810001422651
+        }
+      ],
+      "first_valid_call_count": 2,
+      "unused_tail_predict_ms": 104.77300002821721
+    },
+    {
+      "repeat": 0,
+      "phase": "query",
+      "side": "left",
+      "roi_sha256": "dfcf83fbc3e74c74a3e56da7f836b058f5c8ea76c6f9232526868d599d10e95a",
+      "regions": [
+        [
+          247,
+          267,
+          30,
+          27
+        ],
+        [
+          381,
+          274,
+          18,
+          18
+        ],
+        [
+          504,
+          283,
+          15,
+          18
+        ],
+        [
+          563,
+          286,
+          9,
+          18
+        ]
+      ],
+      "recognition": {
+        "raw_text": "28",
+        "confidence": 0.9976587295532227,
+        "bbox": [
+          247,
+          267,
+          30,
+          27
+        ],
+        "variant_agreement": 2,
+        "status": "observed"
+      },
+      "elapsed_ms": 265.0735000206623,
+      "calls": [
+        {
+          "text": "28",
+          "score": 0.9959420561790466,
+          "ms": 57.704800012288615
+        },
+        {
+          "text": "28",
+          "score": 0.9993754029273987,
+          "ms": 30.377599992789328
+        },
+        {
+          "text": "M",
+          "score": 0.4259467124938965,
+          "ms": 28.232799988472834
+        },
+        {
+          "text": "M",
+          "score": 0.4289676249027252,
+          "ms": 28.85430000605993
+        },
+        {
+          "text": "8",
+          "score": 0.5504698157310486,
+          "ms": 28.45700000762008
+        },
+        {
+          "text": "8",
+          "score": 0.42095863819122314,
+          "ms": 28.36530000786297
+        },
+        {
+          "text": "I",
+          "score": 0.9607870578765869,
+          "ms": 27.758399985032156
+        },
+        {
+          "text": "I",
+          "score": 0.96608567237854,
+          "ms": 27.517100010300055
+        }
+      ],
+      "first_valid_call_count": 2,
+      "unused_tail_predict_ms": 169.18490000534803
+    },
+    {
+      "repeat": 0,
+      "phase": "query",
+      "side": "right",
+      "roi_sha256": "ed94de79fa876bc5b4a36932db08399a3e726900fa2874f4c6684762b1045a51",
+      "regions": [
+        [
+          466,
+          323,
+          31,
+          26
+        ],
+        [
+          368,
+          323,
+          46,
+          23
+        ],
+        [
+          297,
+          323,
+          50,
+          23
+        ]
+      ],
+      "recognition": {
+        "raw_text": "29",
+        "confidence": 0.999497801065445,
+        "bbox": [
+          466,
+          323,
+          31,
+          26
+        ],
+        "variant_agreement": 2,
+        "status": "observed"
+      },
+      "elapsed_ms": 171.50529997888952,
+      "calls": [
+        {
+          "text": "29",
+          "score": 0.9992953538894653,
+          "ms": 29.089299991028383
+        },
+        {
+          "text": "29",
+          "score": 0.9997002482414246,
+          "ms": 28.43649999704212
+        },
+        {
+          "text": "9",
+          "score": 0.29759570956230164,
+          "ms": 26.73979999963194
+        },
+        {
+          "text": "",
+          "score": 0.0,
+          "ms": 27.047199982916936
+        },
+        {
+          "text": "02",
+          "score": 0.9606550931930542,
+          "ms": 25.268199999118224
+        },
+        {
+          "text": "02",
+          "score": 0.9810144305229187,
+          "ms": 26.778900006320328
+        }
+      ],
+      "first_valid_call_count": 2,
+      "unused_tail_predict_ms": 105.83409998798743
+    },
+    {
+      "repeat": 1,
+      "phase": "reference",
+      "side": "left",
+      "roi_sha256": "034f0b092087ab779055ed17ca47ddefb79d6884aecd51c784f0b88647fe10d2",
+      "regions": [
+        [
+          458,
+          294,
+          72,
+          22
+        ]
+      ],
+      "recognition": {
+        "raw_text": "2441",
+        "confidence": 0.7568268775939941,
+        "bbox": [
+          458,
+          294,
+          72,
+          22
+        ],
+        "variant_agreement": 1,
+        "status": "conflict"
+      },
+      "elapsed_ms": 61.573299986775964,
+      "calls": [
+        {
+          "text": "2440",
+          "score": 0.6859611868858337,
+          "ms": 26.06589999049902
+        },
+        {
+          "text": "2441",
+          "score": 0.7568268775939941,
+          "ms": 28.38629999314435
+        }
+      ],
+      "first_valid_call_count": 2,
+      "unused_tail_predict_ms": 0
+    },
+    {
+      "repeat": 1,
+      "phase": "reference",
+      "side": "right",
+      "roi_sha256": "b2dd71d2e1161cd11f551f215ecb133a2b61724667323d1db1f90bca8bfd421d",
+      "regions": [
+        [
+          450,
+          330,
+          30,
+          26
+        ],
+        [
+          353,
+          331,
+          45,
+          23
+        ],
+        [
+          283,
+          332,
+          50,
+          22
+        ]
+      ],
+      "recognition": {
+        "raw_text": "27",
+        "confidence": 0.9996957182884216,
+        "bbox": [
+          450,
+          330,
+          30,
+          26
+        ],
+        "variant_agreement": 2,
+        "status": "observed"
+      },
+      "elapsed_ms": 203.91890002065338,
+      "calls": [
+        {
+          "text": "27",
+          "score": 0.9996297359466553,
+          "ms": 54.06829999992624
+        },
+        {
+          "text": "27",
+          "score": 0.999761700630188,
+          "ms": 28.60099999816157
+        },
+        {
+          "text": "9",
+          "score": 0.5487191081047058,
+          "ms": 26.763200003188103
+        },
+        {
+          "text": "9",
+          "score": 0.3946639597415924,
+          "ms": 26.233700016746297
+        },
+        {
+          "text": "02",
+          "score": 0.9714073538780212,
+          "ms": 29.29419997963123
+        },
+        {
+          "text": "02",
+          "score": 0.9793550968170166,
+          "ms": 30.712600011611357
+        }
+      ],
+      "first_valid_call_count": 2,
+      "unused_tail_predict_ms": 113.00370001117699
+    },
+    {
+      "repeat": 1,
+      "phase": "query",
+      "side": "left",
+      "roi_sha256": "dfcf83fbc3e74c74a3e56da7f836b058f5c8ea76c6f9232526868d599d10e95a",
+      "regions": [
+        [
+          247,
+          267,
+          30,
+          27
+        ],
+        [
+          381,
+          274,
+          18,
+          18
+        ],
+        [
+          504,
+          283,
+          15,
+          18
+        ],
+        [
+          563,
+          286,
+          9,
+          18
+        ]
+      ],
+      "recognition": {
+        "raw_text": "28",
+        "confidence": 0.9976587295532227,
+        "bbox": [
+          247,
+          267,
+          30,
+          27
+        ],
+        "variant_agreement": 2,
+        "status": "observed"
+      },
+      "elapsed_ms": 236.56850002589636,
+      "calls": [
+        {
+          "text": "28",
+          "score": 0.9959420561790466,
+          "ms": 25.235599983716384
+        },
+        {
+          "text": "28",
+          "score": 0.9993754029273987,
+          "ms": 47.83220001263544
+        },
+        {
+          "text": "M",
+          "score": 0.4259467124938965,
+          "ms": 44.06909999670461
+        },
+        {
+          "text": "M",
+          "score": 0.4289676249027252,
+          "ms": 22.712600009981543
+        },
+        {
+          "text": "8",
+          "score": 0.5504698157310486,
+          "ms": 22.819000005256385
+        },
+        {
+          "text": "8",
+          "score": 0.42095863819122314,
+          "ms": 21.884299989324063
+        },
+        {
+          "text": "I",
+          "score": 0.9607870578765869,
+          "ms": 22.520800004713237
+        },
+        {
+          "text": "I",
+          "score": 0.96608567237854,
+          "ms": 21.656099997926503
+        }
+      ],
+      "first_valid_call_count": 2,
+      "unused_tail_predict_ms": 155.66190000390634
+    },
+    {
+      "repeat": 1,
+      "phase": "query",
+      "side": "right",
+      "roi_sha256": "ed94de79fa876bc5b4a36932db08399a3e726900fa2874f4c6684762b1045a51",
+      "regions": [
+        [
+          466,
+          323,
+          31,
+          26
+        ],
+        [
+          368,
+          323,
+          46,
+          23
+        ],
+        [
+          297,
+          323,
+          50,
+          23
+        ]
+      ],
+      "recognition": {
+        "raw_text": "29",
+        "confidence": 0.999497801065445,
+        "bbox": [
+          466,
+          323,
+          31,
+          26
+        ],
+        "variant_agreement": 2,
+        "status": "observed"
+      },
+      "elapsed_ms": 141.83540001977235,
+      "calls": [
+        {
+          "text": "29",
+          "score": 0.9992953538894653,
+          "ms": 25.63019999070093
+        },
+        {
+          "text": "29",
+          "score": 0.9997002482414246,
+          "ms": 21.44620000035502
+        },
+        {
+          "text": "9",
+          "score": 0.29759570956230164,
+          "ms": 22.11609997902997
+        },
+        {
+          "text": "",
+          "score": 0.0,
+          "ms": 21.21969999279827
+        },
+        {
+          "text": "02",
+          "score": 0.9606550931930542,
+          "ms": 22.020199976395816
+        },
+        {
+          "text": "02",
+          "score": 0.9810144305229187,
+          "ms": 22.33060001162812
+        }
+      ],
+      "first_valid_call_count": 2,
+      "unused_tail_predict_ms": 87.68659995985217
+    }
+  ]
+}

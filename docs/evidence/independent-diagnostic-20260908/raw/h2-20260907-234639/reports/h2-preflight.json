@@ -1,0 +1,71 @@
+{
+  "config_parse": "passed",
+  "device_id": "laptop-device-001",
+  "controls_mode": "stm_serial",
+  "stm_port": "COM9",
+  "cell_count": 10,
+  "reading_audio": true,
+  "ports": [
+    {
+      "device": "COM5",
+      "description": "STMicroelectronics STLink Virtual COM Port(COM5)"
+    },
+    {
+      "device": "COM9",
+      "description": "ǥ�� Bluetooth���� ���� ��ũ(COM9)"
+    }
+  ],
+  "reading_catalog": [
+    {
+      "index": 0,
+      "title": "�� �������� 2026-09-07 02:27 #24",
+      "datapack_id": "datapack-63c0ac30cc8a482f8fa9d0795e044a03",
+      "status": "ready",
+      "revision": 1
+    },
+    {
+      "index": 1,
+      "title": "�� �������� 2026-09-07 01:33 #23",
+      "datapack_id": "datapack-aad8209a668b4feca39243bca5b80840",
+      "status": "ready",
+      "revision": 1
+    },
+    {
+      "index": 2,
+      "title": "�� �������� 2026-09-07 00:44 #22",
+      "datapack_id": "datapack-ff30dc85052d4ef3b1c519dbd20c0cb1",
+      "status": "ready",
+      "revision": 1
+    },
+    {
+      "index": 3,
+      "title": "�� �������� 2026-09-04 16:02 #17",
+      "datapack_id": "datapack-9a051ede9338461eba0febfd8b04bfbf",
+      "status": "ready",
+      "revision": 1
+    },
+    {
+      "index": 4,
+      "title": "�� �������� 2026-09-04 15:54 #16",
+      "datapack_id": "datapack-d31a64f7ff5d4afab4e0f66e0bfc494f",
+      "status": "ready",
+      "revision": 1
+    },
+    {
+      "index": 5,
+      "title": "�� �������� 2026-09-04 13:35 #15",
+      "datapack_id": "datapack-d1f25a58607f4aa1ba0a80cf7d877b6b",
+      "status": "ready",
+      "revision": 1
+    },
+    {
+      "index": 6,
+      "title": "�� �������� 2026-09-04 13:22 #13",
+      "datapack_id": "datapack-50c72d0d1a184837bc093d4d08e93d87",
+      "status": "ready",
+      "revision": 1
+    }
+  ],
+  "d_references": [],
+  "secret_recorded": false
+}

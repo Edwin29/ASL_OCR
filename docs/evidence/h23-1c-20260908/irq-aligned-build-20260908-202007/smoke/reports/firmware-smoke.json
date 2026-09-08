@@ -1,0 +1,17 @@
+﻿{
+    "captured_at_utc":  "2026-09-08T11:21:41.2710604Z",
+    "reset_exit_code":  0,
+    "hello3_count":  1,
+    "hello3_ack_count":  1,
+    "initial_mode_packet_count":  1,
+    "initial_mode_ack_count":  1,
+    "pca_0x40_found":  true,
+    "pca_0x41_found":  true,
+    "pca_init_ok":  true,
+    "v3_connected_debug":  true,
+    "host_frames_sent":  0,
+    "event_log":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\irq-aligned-build-20260908-202007\\smoke\\logs\\firmware-smoke-serial.jsonl",
+    "debug_log":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\irq-aligned-build-20260908-202007\\smoke\\logs\\firmware-smoke-com5.txt",
+    "reset_log":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\irq-aligned-build-20260908-202007\\smoke\\logs\\firmware-smoke-reset.log",
+    "pass":  true
+}

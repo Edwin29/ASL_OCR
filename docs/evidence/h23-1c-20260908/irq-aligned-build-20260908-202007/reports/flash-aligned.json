@@ -1,0 +1,15 @@
+﻿{
+    "started_at_utc":  "2026-09-08T11:20:58.4879744Z",
+    "ended_at_utc":  "2026-09-08T11:20:59.8038281Z",
+    "purpose":  "aligned",
+    "programmer":  "C:\\ST\\STM32CubeIDE_2.2.0\\STM32CubeIDE\\plugins\\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_2.2.500.202603051304\\tools\\bin\\STM32_Programmer_CLI.exe",
+    "probe_serial":  "0670FF485775495067203341",
+    "elf":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\irq-aligned-build-20260908-202007\\firmware-build\\source\\kitel2026final\\Debug\\kitel2026final.elf",
+    "elf_length":  1154432,
+    "elf_sha256":  "1d4a2d9a24cad2a5a856ebf88b6565ddc1d81d3c5b1fd5f811f1551786555d56",
+    "action":  "download_verify_reset",
+    "exit_code":  0,
+    "download_verified":  true,
+    "product_source_modified":  false,
+    "log":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\irq-aligned-build-20260908-202007\\logs\\flash-aligned.log"
+}

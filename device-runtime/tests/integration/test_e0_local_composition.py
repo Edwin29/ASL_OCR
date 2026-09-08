@@ -16,8 +16,10 @@ Image = pytest.importorskip("PIL.Image")
 from asl_device.adapters.local_controls import NullControlSource
 from asl_device.adapters.local_feedback import MemoryFeedbackSink
 from asl_device.delivery_domain import V4TransportError
+from asl_device.connectivity import ConnectivityEvent, ConnectivityEventType
 from asl_device.events import FeedbackCode
 from asl_device.local_composition import build_local_device
+from asl_device.protocols import RecoverablePortError
 from asl_device.types import DeviceControl, DeviceFlowState, DeviceInputEvent, InputAction
 from document_parser.server.c0_presence import DevicePresenceService
 from document_parser.server.s0_http import create_app
@@ -299,7 +301,8 @@ def _step_until(application, predicate, *, attempts: int = 200) -> None:
     raise AssertionError("E0 local application did not reach the expected state")
 
 
-def test_e0_response_loss_ack_flush_seal_and_reading_are_ordered(tmp_path: Path) -> None:
+@pytest.mark.parametrize("recovery", [None, "connection_loss", "queue_failure"])
+def test_e0_response_loss_ack_flush_seal_and_reading_are_ordered(tmp_path: Path, recovery) -> None:
     server_store = S0Store(tmp_path / "server.sqlite3", tmp_path / "server-datapacks")
     s0 = S0ControlPlane(server_store)
     presence = DevicePresenceService(server_store)
@@ -333,11 +336,33 @@ def test_e0_response_loss_ack_flush_seal_and_reading_are_ordered(tmp_path: Path)
             feedback=feedback,
         )
         composition.delivery.transport = LoseFirstResponse(composition.delivery.transport)
+        queue_attempts = []
+        if recovery == "queue_failure":
+            original_queue = composition.delivery.queue
+
+            def fail_queue_once(scan, sequence, artifact):
+                queue_attempts.append((scan, sequence, artifact))
+                if len(queue_attempts) == 1:
+                    raise RecoverablePortError("injected temporary local queue outage")
+                return original_queue(scan, sequence, artifact)
+
+            composition.delivery.queue = fail_queue_once
         app = composition.application
         app.start()
         _step_until(app, lambda: composition.coordinator.state is DeviceFlowState.SELECTING_DATAPACK)
         app.submit_input(_press("select-new"))
-        _step_until(app, lambda: composition.coordinator.state is DeviceFlowState.SCANNING)
+        _step_until(app, lambda: composition.coordinator.state in {
+            DeviceFlowState.SCANNING, DeviceFlowState.RECOVERABLE_ERROR,
+        })
+        if recovery == "queue_failure":
+            assert composition.coordinator.state is DeviceFlowState.RECOVERABLE_ERROR
+            assert not factory.engines[0].closed
+            assert (artifact_root / "artifact-1/manifest.json").exists()
+            app.submit_input(_press("retry-queue"))
+            _step_until(app, lambda: composition.coordinator.state is DeviceFlowState.SCANNING)
+            assert len(queue_attempts) == 2
+            assert queue_attempts[0] == queue_attempts[1]
+        assert composition.coordinator.state is DeviceFlowState.SCANNING
         scan_session_id = composition.coordinator.scan_session.scan_session_id.value
         assert not any(event.code is FeedbackCode.SPREAD_SENT for event in feedback.events)
         assert factory.engines[0].callbacks.count("acked") == 0
@@ -345,6 +370,23 @@ def test_e0_response_loss_ack_flush_seal_and_reading_are_ordered(tmp_path: Path)
             composition.coordinator.scan_session.scan_session_id.value
         )
         assert len(first_spreads) == 1
+        if recovery == "connection_loss":
+            before = composition.delivery.store.list_scan(scan_session_id)[0]
+            pending = factory.engines[0].pending_artifact
+            assert before["status"] == "retrying"
+            composition.coordinator._handle_connectivity_events((ConnectivityEvent(
+                ConnectivityEventType.SERVER_CONNECTION_LOST, time.monotonic(),
+            ),), [])
+            assert composition.coordinator.state is DeviceFlowState.RECOVERABLE_ERROR
+            assert not factory.engines[0].closed
+            assert (artifact_root / "artifact-1/manifest.json").exists()
+            assert factory.engines[0].pending_artifact is pending
+            app.submit_input(_press("resume-same-scan"))
+            _step_until(app, lambda: composition.coordinator.state is DeviceFlowState.SCANNING)
+            after = composition.delivery.store.list_scan(scan_session_id)[0]
+            for key in ("outbox_id", "sequence", "artifact_id", "manifest_sha256"):
+                assert after[key] == before[key]
+        assert len(factory.engines) == 1
         _step_until(
             app,
             lambda: any(event.code is FeedbackCode.SPREAD_SENT for event in feedback.events),

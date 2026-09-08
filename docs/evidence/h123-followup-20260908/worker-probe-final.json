@@ -1,0 +1,27 @@
+{
+  "kind": "pyserial_loopback_worker",
+  "physical_packets": 0,
+  "burst_read_bytes": 256,
+  "results": [
+    {
+      "source": "baseline",
+      "close_seconds": 1.0,
+      "worker_alive_before_close": true,
+      "worker_error_class": null,
+      "worker_alive_at_close_return": true,
+      "worker_alive_after_probe_cleanup": false,
+      "read_bounds": []
+    },
+    {
+      "source": "candidate",
+      "close_seconds": 0.0,
+      "worker_alive_before_close": true,
+      "worker_error_class": null,
+      "worker_alive_at_close_return": false,
+      "worker_alive_after_probe_cleanup": false,
+      "read_bounds": [
+        256
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "captured_at_utc": "2026-09-08T01:33:23.229351+00:00",
+  "files": [
+    {
+      "relative": "state/camera-console/delivery.sqlite3",
+      "size": 32768,
+      "mtime_utc": "2026-09-08T01:30:37.051433+00:00"
+    }
+  ],
+  "sqlite": {
+    "delivery_outbox": {
+      "columns": [
+        "outbox_id",
+        "scan_session_id",
+        "sequence",
+        "device_id",
+        "artifact_id",
+        "spread_id",
+        "source_frame_id",
+        "manifest_path",
+        "manifest_sha256",
+        "inventory_json",
+        "file_count",
+        "total_file_bytes",
+        "upload_digest",
+        "idempotency_key",
+        "status",
+        "attempt_count",
+        "receipt_id",
+        "server_accepted_at",
+        "last_http_status",
+        "last_error_code",
+        "last_error_detail",
+        "cleanup_error",
+        "created_at",
+        "updated_at",
+        "terminal_at"
+      ],
+      "rows": [
+        [
+          "outbox-4c79175765464abab18c575374f9d9d7",
+          "scan-5ac77acbff3d49c79dfc44c92befc76a",
+          1,
+          "laptop-device-001",
+          "spread-f5b8b86435bd421000353433b5e6c6a7",
+          "scan-5ac77acbff3d49c79dfc44c92befc76a-spread-000014",
+          "phone-snapshot-00000146",
+          "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-camera-fresh-20260908-101447\\state\\camera-console\\artifacts\\ready\\spread-f5b8b86435bd421000353433b5e6c6a7\\manifest.json",
+          "25980e7628cac6d78adaa81d46627b50c8468997b8cd73baeb8e92bf9b8368ec",
+          "[{\"path\":\"source_frame.jpg\",\"sha256\":\"1f4e3d6450a188ecad29b01a759096329b4dca72222422963a0e62201e001713\",\"size_bytes\":2811518},{\"path\":\"left/mask.png\",\"sha256\":\"7ef498780b44d4d276090d1a4ee44637936f91fe10bb3be381135b44693b97df\",\"size_bytes\":17138},{\"path\":\"left/crop.jpg\",\"sha256\":\"3ab76a8457da59f5aaee837ae0ae00bafb8b17677bb81a2715964eef065915fd\",\"size_bytes\":889414},{\"path\":\"left/uvdoc.jpg\",\"sha256\":\"71bc96e3bea819b7dba0c891cb3cff333578dca073f310c51d4fb4096329903c\",\"size_bytes\":670500},{\"path\":\"left/diagnostics.json\",\"sha256\":\"d1089c80f6f6840c5d4f49ff6de9e8affae3cc2b45d8e0fb407ff90625e35e06\",\"size_bytes\":1178},{\"path\":\"right/mask.png\",\"sha256\":\"3075eb4cb2443a58232bd4e206496ea946fd302ab92e8dbc79fc7aee25e025af\",\"size_bytes\":15810},{\"path\":\"right/crop.jpg\",\"sha256\":\"89027515c3d294f8350ee8a83c8c6b126a671e2eb6ded47ea738c996752b0911\",\"size_bytes\":771165},{\"path\":\"right/uvdoc.jpg\",\"sha256\":\"103a530e097e2d93372efc1f243ba05c5c1630b738d65e5eeef4a14f49290691\",\"size_bytes\":560781},{\"path\":\"right/diagnostics.json\",\"sha256\":\"50581cab8375a2dbe8e94a3e0f32393712eac51603531f2385be56fbfd006a4e\",\"size_bytes\":1178}]",
+          9,
+          5738682,
+          "8fac8d9f1e2f985e19f92695a4c1f8d937d0dd3d685ed1f62609c88b0db24760",
+          "v3b-8fac8d9f1e2f985e19f92695a4c1f8d937d0dd3d685ed1f62609c88b0db24760",
+          "acked",
+          1,
+          "spread-receipt-3cefb9a9719d9c9eb92e4dd811ed1510",
+          "2026-09-08T01:30:35.152146+00:00",
+          201,
+          null,
+          null,
+          null,
+          "2026-09-08T01:30:36.234929+00:00",
+          "2026-09-08T01:30:37.049429+00:00",
+          "2026-09-08T01:30:37.021293+00:00"
+        ]
+      ]
+    },
+    "delivery_schema_migrations": {
+      "columns": [
+        "version",
+        "applied_at"
+      ],
+      "rows": [
+        [
+          1,
+          "2026-09-08T01:21:26.559094+00:00"
+        ]
+      ]
+    }
+  }
+}

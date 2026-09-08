@@ -110,23 +110,23 @@ def detect_problem_units_in_page(page: dict[str, Any]) -> dict[str, object]:
         for node in nodes
         if isinstance(node.get("node_id"), str)
     }
-    ordered_text_nodes = [
+    ordered_content_nodes = [
         node_by_id[node_id]
         for node_id in reading_order
-        if node_id in node_by_id and node_by_id[node_id].get("content_type") == "TEXT"
+        if node_id in node_by_id and node_by_id[node_id].get("content_type") in {"TEXT", "MATH"}
     ]
-    if not ordered_text_nodes:
+    if not ordered_content_nodes:
         return page
 
-    starts = find_problem_starts(ordered_text_nodes)
+    starts = find_problem_starts(ordered_content_nodes)
     if not starts:
         return page
 
     problems: list[ProblemCandidate] = []
     split_replacements: dict[str, list[dict[str, object]]] = {}
     for position, (start_index, start_kind) in enumerate(starts):
-        end_index = starts[position + 1][0] if position + 1 < len(starts) else len(ordered_text_nodes)
-        scope_nodes = ordered_text_nodes[start_index:end_index]
+        end_index = starts[position + 1][0] if position + 1 < len(starts) else len(ordered_content_nodes)
+        scope_nodes = ordered_content_nodes[start_index:end_index]
         flat_scope_nodes, scope_split_map = flatten_scope_nodes(scope_nodes)
         candidate = classify_problem_scope(flat_scope_nodes, start_kind)
         if candidate is not None:
@@ -258,6 +258,11 @@ def classify_problem_scope(scope_nodes: list[dict[str, Any]], start_kind: str) -
             break
         node_id = node.get("node_id")
         if not isinstance(node_id, str):
+            continue
+        if node.get("content_type") == "MATH":
+            if pending_run:
+                flush_run_as_stem()
+            roles[node_id] = "stem"
             continue
         text = str(node.get("normalized_text", "")).strip()
         if not text:
@@ -512,6 +517,8 @@ def build_problem_unit_node(
 def node_text(node: dict[str, Any] | None) -> str:
     if node is None:
         return ""
+    if node.get("content_type") == "MATH":
+        return str(node.get("raw_formula", "")).strip()
     return str(node.get("normalized_text", "")).strip()
 
 
@@ -567,10 +574,14 @@ def mark_member_nodes(
         if not isinstance(issues, list):
             issues = []
             node["issues"] = issues
+        is_text = node.get("content_type") == "TEXT"
         issues.append({
-            "code": "TEXT_EMBEDDED_IN_PROBLEM_UNIT",
+            "code": "TEXT_EMBEDDED_IN_PROBLEM_UNIT" if is_text else "CONTENT_EMBEDDED_IN_PROBLEM_UNIT",
             "severity": "info",
-            "message": f"OCR TEXT node is embedded in detected problem unit {problem_node_id} with role '{role}'.",
+            "message": (
+                f"OCR {'TEXT' if is_text else node.get('content_type', 'content')} node is embedded "
+                f"in detected problem unit {problem_node_id} with role '{role}'."
+            ),
         })
 
 

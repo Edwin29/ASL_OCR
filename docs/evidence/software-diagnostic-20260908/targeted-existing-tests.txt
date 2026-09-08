@@ -1,0 +1,5 @@
+{"test_files": ["device-runtime/tests/unit/test_reading_audio.py", "device-runtime/tests/unit/test_reading_audio_adapters.py", "device-runtime/tests/unit/test_stm_serial.py", "device-runtime/tests/unit/test_application.py", "device-runtime/tests/unit/test_hold_repeat.py", "device-runtime/tests/unit/test_laptop_acceptance.py", "device-runtime/tests/unit/test_book_scanner_runtime.py", "book-scanner/tests/unit/video/test_sources.py", "book-scanner/tests/unit/video/test_opaque_identity.py", "book-scanner/tests/unit/video/test_engine_v3a5.py"], "new_temp_root": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\diagnostics\\software-audit-20260908-033345-211426", "python": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Scripts\\python.exe"}
+........................................................................ [ 50%]
+......................................................................   [100%]
+142 passed in 8.67s
+DIAGNOSTIC_PYTEST_EXIT=0

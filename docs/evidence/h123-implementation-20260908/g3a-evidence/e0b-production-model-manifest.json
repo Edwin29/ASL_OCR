@@ -1,0 +1,16 @@
+{
+  "paddleocr_vl": {
+    "file_count": 56,
+    "model_home": "D:\\model_home_vl",
+    "tree_sha256": "40411d09e06e9631687c1527a4c9555f84f633538e68635030c458ef456ebd66"
+  },
+  "piper": {
+    "config_sha256": "153b5619d0580f824a59108d83ca19434de410eb8e4fe80325b58684fdc8a1df",
+    "engine_id": "piper",
+    "espeak_tree_sha256": "7668392d99748b9326b637f245883f47ab27ba781959da46ba660b46f8dd7132",
+    "model_sha256": "624fd774e26895f24bebae1bd9a3379e3394baeade4b584924f83e414096e2c9",
+    "voice": "ko_KR-kss-medium"
+  },
+  "schema_version": 1,
+  "source_sha256": "16c57970bc493abcef4a1db0f1917b22956bf5ca1a2ee8b4565fde1f6574e6f8"
+}

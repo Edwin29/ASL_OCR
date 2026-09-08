@@ -1,0 +1,245 @@
+{
+  "python": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Scripts\\python.exe",
+  "python_version": "3.11.9",
+  "imports": {
+    "asl_device": "C:\\ASL_OCR_INTEGRATION\\device-runtime\\src\\asl_device\\__init__.py",
+    "book_scanner": "C:\\ASL_OCR_INTEGRATION\\book-scanner\\src\\book_scanner\\__init__.py",
+    "document_parser": "C:\\ASL_OCR_INTEGRATION\\document-parser\\src\\document_parser\\__init__.py"
+  },
+  "source_identity": {
+    "algorithm": "sha256-of-sorted-lf-file-hashes",
+    "file_count": 246,
+    "digest": "300d69673168801900dae581f453d773bd3121caf938fb4d06928ccec3da20c9"
+  },
+  "environment_manifest": {
+    "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\integration-environment-manifest.json",
+    "sha256": "30a41312c5218e357ae4bb351dbce33e15f69e6cbe2749f26f11266391590aa7"
+  },
+  "parsed_configs": {
+    "h1_console_live_camera": {
+      "config_path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944\\config\\device-app.h1-camera-console.toml",
+      "config_sha256": "48f4c9441260c155f48676c8e7f909b520dfba0d7ce5cdec93ba87e1c9b61bdd",
+      "device_id": "laptop-device-001",
+      "server_base_url": "https://desktop-ekp6an5.taild2128f.ts.net",
+      "connectivity": {
+        "connect_timeout_seconds": 10.0,
+        "request_timeout_seconds": 30.0,
+        "heartbeat_interval_seconds": 5.0,
+        "allow_insecure_http": false,
+        "api_key_file_present": true
+      },
+      "scanner": {
+        "profile": "android_ip_camera",
+        "sample_interval_ms": 750,
+        "opaque_identity_max_collection_ms": 8000,
+        "operator_preview_enabled": true,
+        "snapshot_endpoint": "https://192.168.1.78:4444/video/snapshot?camera=back&snapshot_res=max",
+        "snapshot_auth_configured": true,
+        "snapshot_password_file_present": true,
+        "snapshot_allow_insecure_tls": true,
+        "snapshot_tls_ca_configured": false,
+        "snapshot_timeout_seconds": 12.0,
+        "snapshot_min_width": 3000,
+        "snapshot_min_height": 2000
+      },
+      "local_io": {
+        "controls": "console",
+        "feedback": "jsonl",
+        "presenter": "JsonLineReadingPresenter",
+        "reading_audio": {
+          "enabled": true,
+          "backend": "sounddevice",
+          "request_timeout_seconds": 10.0
+        },
+        "stm_serial": null,
+        "hold_repeat": {
+          "initial_delay_ms": 650,
+          "interval_ms": 180
+        }
+      },
+      "device_loop": {
+        "viewport_size": 10,
+        "poll_interval_ms": 20
+      },
+      "durable_paths_present": {
+        "outbox_parent": true,
+        "artifact_root": true,
+        "scanner_staging_root": true,
+        "scanner_ready_root": true
+      }
+    },
+    "h2_console_stm_output": {
+      "config_path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\config\\device-app.h2-console-stm.toml",
+      "config_sha256": "ac7a2ce9aa6e6d2054d762618989b2e2ebc5aa7f59010e147ca0b87870c8904b",
+      "device_id": "laptop-device-001",
+      "server_base_url": "https://desktop-ekp6an5.taild2128f.ts.net",
+      "connectivity": {
+        "connect_timeout_seconds": 10.0,
+        "request_timeout_seconds": 30.0,
+        "heartbeat_interval_seconds": 5.0,
+        "allow_insecure_http": false,
+        "api_key_file_present": true
+      },
+      "scanner": {
+        "profile": "android_ip_camera",
+        "sample_interval_ms": 750,
+        "opaque_identity_max_collection_ms": 8000,
+        "operator_preview_enabled": false,
+        "snapshot_endpoint": "https://192.168.1.78:4444/video/snapshot?camera=back&snapshot_res=max",
+        "snapshot_auth_configured": true,
+        "snapshot_password_file_present": true,
+        "snapshot_allow_insecure_tls": true,
+        "snapshot_tls_ca_configured": false,
+        "snapshot_timeout_seconds": 12.0,
+        "snapshot_min_width": 3000,
+        "snapshot_min_height": 2000
+      },
+      "local_io": {
+        "controls": "stm_serial",
+        "feedback": "jsonl",
+        "presenter": "StmSerialControlSource",
+        "reading_audio": {
+          "enabled": true,
+          "backend": "sounddevice",
+          "request_timeout_seconds": 10.0
+        },
+        "stm_serial": {
+          "port": "COM9",
+          "baudrate": 9600,
+          "read_timeout_ms": 20,
+          "reconnect_initial_ms": 500,
+          "reconnect_max_ms": 5000,
+          "debounce_ms": 30,
+          "cell_count": 10
+        },
+        "hold_repeat": {
+          "initial_delay_ms": 650,
+          "interval_ms": 180
+        }
+      },
+      "device_loop": {
+        "viewport_size": 10,
+        "poll_interval_ms": 20
+      },
+      "durable_paths_present": {
+        "outbox_parent": true,
+        "artifact_root": true,
+        "scanner_staging_root": true,
+        "scanner_ready_root": true
+      }
+    },
+    "h3_production_physical": {
+      "config_path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\config\\device-app.stm-reading.toml",
+      "config_sha256": "3974105a314f5aeb70acdc002d50235c366350080b799cda33a9066d3ed00798",
+      "device_id": "laptop-device-001",
+      "server_base_url": "https://desktop-ekp6an5.taild2128f.ts.net",
+      "connectivity": {
+        "connect_timeout_seconds": 10.0,
+        "request_timeout_seconds": 30.0,
+        "heartbeat_interval_seconds": 5.0,
+        "allow_insecure_http": false,
+        "api_key_file_present": true
+      },
+      "scanner": {
+        "profile": "android_ip_camera",
+        "sample_interval_ms": 750,
+        "opaque_identity_max_collection_ms": 8000,
+        "operator_preview_enabled": false,
+        "snapshot_endpoint": "https://192.168.1.78:4444/video/snapshot?camera=back&snapshot_res=max",
+        "snapshot_auth_configured": true,
+        "snapshot_password_file_present": true,
+        "snapshot_allow_insecure_tls": true,
+        "snapshot_tls_ca_configured": false,
+        "snapshot_timeout_seconds": 12.0,
+        "snapshot_min_width": 3000,
+        "snapshot_min_height": 2000
+      },
+      "local_io": {
+        "controls": "stm_serial",
+        "feedback": "jsonl",
+        "presenter": "StmSerialControlSource",
+        "reading_audio": {
+          "enabled": true,
+          "backend": "sounddevice",
+          "request_timeout_seconds": 10.0
+        },
+        "stm_serial": {
+          "port": "COM9",
+          "baudrate": 9600,
+          "read_timeout_ms": 20,
+          "reconnect_initial_ms": 500,
+          "reconnect_max_ms": 5000,
+          "debounce_ms": 30,
+          "cell_count": 10
+        },
+        "hold_repeat": {
+          "initial_delay_ms": 650,
+          "interval_ms": 180
+        }
+      },
+      "device_loop": {
+        "viewport_size": 10,
+        "poll_interval_ms": 20
+      },
+      "durable_paths_present": {
+        "outbox_parent": true,
+        "artifact_root": true,
+        "scanner_staging_root": true,
+        "scanner_ready_root": true
+      }
+    }
+  },
+  "environment_override_names_present": [],
+  "audio": {
+    "sounddevice_version": "0.5.6",
+    "collector_windows_session_id": 0,
+    "default_output": {
+      "index": 3,
+      "name": "\uc2a4\ud53c\ucee4(Realtek(R) Audio)",
+      "hostapi": 0,
+      "max_output_channels": 8,
+      "default_samplerate": 44100.0
+    },
+    "interactive_playback_session_required": true
+  },
+  "device_runtime_processes": [],
+  "serial": {
+    "pyserial_version": "3.5",
+    "ports": [
+      {
+        "device": "COM4",
+        "description": "\ud45c\uc900 Bluetooth\uc5d0\uc11c \uc9c1\ub82c \ub9c1\ud06c(COM4)"
+      },
+      {
+        "device": "COM8",
+        "description": "\ud45c\uc900 Bluetooth\uc5d0\uc11c \uc9c1\ub82c \ub9c1\ud06c(COM8)"
+      },
+      {
+        "device": "COM6",
+        "description": "\ud45c\uc900 Bluetooth\uc5d0\uc11c \uc9c1\ub82c \ub9c1\ud06c(COM6)"
+      },
+      {
+        "device": "COM7",
+        "description": "\ud45c\uc900 Bluetooth\uc5d0\uc11c \uc9c1\ub82c \ub9c1\ud06c(COM7)"
+      },
+      {
+        "device": "COM5",
+        "description": "STMicroelectronics STLink Virtual COM Port(COM5)"
+      },
+      {
+        "device": "COM9",
+        "description": "\ud45c\uc900 Bluetooth\uc5d0\uc11c \uc9c1\ub82c \ub9c1\ud06c(COM9)"
+      },
+      {
+        "device": "COM3",
+        "description": "\ud45c\uc900 Bluetooth\uc5d0\uc11c \uc9c1\ub82c \ub9c1\ud06c(COM3)"
+      }
+    ],
+    "ports_opened": 0
+  },
+  "firmware": {
+    "source_main_c_sha256": "c4bb35e208bf2bdcd4e773c4a40f5a5982ff0333e479340bcd9b6fa1c996371f",
+    "flashed_binary_identity": "unverified",
+    "rollback_image": "unverified"
+  }
+}

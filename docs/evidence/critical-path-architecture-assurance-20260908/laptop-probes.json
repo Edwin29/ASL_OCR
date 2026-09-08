@@ -1,0 +1,38 @@
+{
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "results": {
+    "CP-I1": {
+      "input_processed_during_block": false,
+      "cancel_blocked_on_engine_lock": true,
+      "measurement": "50ms barrier observation, not live-camera latency or an SLA",
+      "threads_cleaned": true
+    },
+    "CP-H1": {
+      "intended_packet": "NAV,D,A,78\\n",
+      "read_results": [
+        "NAV,D,A,7",
+        "8\\n"
+      ],
+      "acks": [
+        "ACK,HELLO,3",
+        "ACK,7"
+      ],
+      "accepted_sequences": [
+        7
+      ],
+      "connection_closed": true
+    },
+    "serial_read_source": {
+      "file": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\serial\\serialwin32.py",
+      "read": "    def read(self, size=1):\n        \"\"\"\\\n        Read size bytes from the serial port. If a timeout is set it may\n        return less characters as requested. With no timeout it will block\n        until the requested number of bytes is read.\n        \"\"\"\n        if not self.is_open:\n            raise PortNotOpenError()\n        if size > 0:\n            win32.ResetEvent(self._overlapped_read.hEvent)\n            flags = win32.DWORD()\n            comstat = win32.COMSTAT()\n            if not win32.ClearCommError(self._port_handle, ctypes.byref(flags), ctypes.byref(comstat)):\n                raise SerialException(\"ClearCommError failed ({!r})\".format(ctypes.WinError()))\n            n = min(comstat.cbInQue, size) if self.timeout == 0 else size\n            if n > 0:\n                buf = ctypes.create_string_buffer(n)\n                rc = win32.DWORD()\n                read_ok = win32.ReadFile(\n                    self._port_handle,\n                    buf,\n                    n,\n                    ctypes.byref(rc),\n                    ctypes.byref(self._overlapped_read))\n                if not read_ok and win32.GetLastError() not in (win32.ERROR_SUCCESS, win32.ERROR_IO_PENDING):\n                    raise SerialException(\"ReadFile failed ({!r})\".format(ctypes.WinError()))\n                result_ok = win32.GetOverlappedResult(\n                    self._port_handle,\n                    ctypes.byref(self._overlapped_read),\n                    ctypes.byref(rc),\n                    True)\n                if not result_ok:\n                    if win32.GetLastError() != win32.ERROR_OPERATION_ABORTED:\n                        raise SerialException(\"GetOverlappedResult failed ({!r})\".format(ctypes.WinError()))\n                read = buf.raw[:rc.value]\n            else:\n                read = bytes()\n        else:\n            read = bytes()\n        return bytes(read)\n"
+    },
+    "CP-T1": {
+      "calls": [
+        "scanner.close",
+        "controls.close"
+      ],
+      "coordinator_state": "stopped",
+      "scope": "actual fatal/stop code; fake connectivity spy, not a live C0 leak claim"
+    }
+  }
+}

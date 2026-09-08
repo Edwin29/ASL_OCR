@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "run_id": "h1-camera-fresh-20260908-101447",
+  "status": "completed_with_h1_2_failure",
+  "requested_profile": "1A / 2B",
+  "scope": [
+    "strict Android snapshot preflight",
+    "preview-enabled camera and page-change timing",
+    "fresh H1 pages 26/27 and 28/29"
+  ],
+  "common_manifest": "../demo-run-common-manifest-20260908/run-common-manifest.json",
+  "laptop_run_root": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-camera-fresh-20260908-101447",
+  "production_entrypoint": "python -m asl_device",
+  "initial_mode": "capture",
+  "controls": "console",
+  "camera_profile": "android_ip_camera",
+  "webcam_fallback": false,
+  "fixed_contract": {
+    "sample_interval_ms": 750,
+    "opaque_identity_max_collection_ms": 8000,
+    "scanner_threshold_changes": false,
+    "authentication_or_tls_policy_changes": false
+  },
+  "completion_claims": {
+    "snapshot_probe": "passed_3_of_3",
+    "first_spread_durable_receipt": "passed_sequence_1_http_201_acked",
+    "second_spread_durable_receipt": "failed_footer_identity_unknown",
+    "fresh_ready_revision": "skipped_missing_second_receipt",
+    "physical_control_acceptance": "not_in_scope"
+  },
+  "interactive_runtime": {
+    "scheduled_task": "ASL_OCR_H1_Fresh_20260908_101447",
+    "started_at_utc": "2026-09-08T01:21:25.7888551Z",
+    "windows_session_id": 2,
+    "state": "stopped_after_operator_completed_shutdown",
+    "production_process_observed": true,
+    "native_stdout_in_powershell_transcript": "not_observed_before_first_operator_input"
+  },
+  "observations": [
+    {
+      "id": "C1",
+      "classification": "pass_with_nonfatal_observation",
+      "result": "3/3 frames decoded at 4000x3000 in 1.344-1.859 seconds"
+    },
+    {
+      "id": "JPEG-SOS-WARNING-O01",
+      "classification": "insufficient_evidence",
+      "result": "Decoder emitted Invalid SOS parameters for each successful frame; image decode and minimum-dimension checks still passed"
+    },
+    {
+      "id": "H1-1",
+      "classification": "pass",
+      "result": "sequence 1 source frame phone-snapshot-00000146 produced a 9-file L/R artifact and durable V4 receipt; outbox status acked after one HTTP 201 attempt"
+    },
+    {
+      "id": "H1-CANDIDATE-GUIDANCE-O01",
+      "classification": "expected_behavior",
+      "result": "Operator observed clear pages and reason-specific positioning/occlusion guidance before the first candidate was accepted; no threshold was changed"
+    },
+    {
+      "id": "H1-2-PAGE-CHANGE-ELIGIBILITY-O01",
+      "classification": "superseded_by_footer_identity_evidence",
+      "result": "Initial frames were candidate-ineligible, but later clean frames reached footer identity collection"
+    },
+    {
+      "id": "H1-2-FOOTER-IDENTITY-O01",
+      "classification": "confirmed_runtime_failure",
+      "result": "page-change collection reached 5 valid observations but timed out unknown; no sequence 2 was created"
+    },
+    {
+      "id": "H1-2-FOOTER-ROI-D01",
+      "classification": "test_harness_artifact",
+      "result": "diagnostic incorrectly passed the 640px candidate preview directly to M1; production resamples source+mask to the page-number 1920px input stage"
+    },
+    {
+      "id": "H1-2-REFRAME-O02",
+      "classification": "confirmed_runtime_failure",
+      "result": "after physical reframing, repeated collections timed out unknown at 4 valid observations; effective intervals were 1.843-3.172 seconds and no sequence 2 was created"
+    },
+    {
+      "id": "H1-2-FOOTER-30S-HARNESS-O03",
+      "classification": "test_harness_artifact",
+      "result": "the first 30-second comparison and scaled-ROI replay used 640px inputs and cannot establish the production footer root cause; preserved for audit and superseded by a production-input rerun"
+    },
+    {
+      "id": "H1-2-FOOTER-1920-HARNESS-O04",
+      "classification": "test_harness_artifact_for_production_input_fidelity",
+      "result": "the successful two-phase comparison used the production helper but forced 1920; actual preview_native production passes 4000 for these frames, so this is retained only as a lower-resolution recognizer comparison"
+    },
+    {
+      "id": "H1-DIAGNOSTIC-PAIR-FIELD-D01",
+      "classification": "test_harness_artifact",
+      "result": "one diagnostic attempt exited with AttributeError after using obsolete pair field names; pair.value correction passed a Laptop interpreter smoke test and the rerun completed"
+    },
+    {
+      "id": "H1-2-PAGE-CHANGE-COLLECTION-LIVENESS-O04",
+      "classification": "probable_product_risk_with_confirmed_runtime_profile_incompatibility",
+      "result": "threaded native 4000 query produced 28|29 six times after stabilization, but no exact pair and only one complete pair occurred in its first 8 seconds; production repeatedly timed out/reset and never created sequence 2"
+    },
+    {
+      "id": "H1-A",
+      "classification": "partial_acceptance",
+      "result": "operator heard catalog and condition-specific page-change guidance; actual spread_sent cue was not separately confirmed"
+    }
+  ],
+  "evidence_index": [
+    {
+      "path": "footer-liveness-analysis.json",
+      "sha256": "67da2e9f7ff7ed2e15dec7de2cb9ab271606a2942cabb5071b0c433011277c63"
+    },
+    {
+      "path": "footer-30s-production-input-03/result.json",
+      "sha256": "92234da02c038540ea092f3736c22a0802ac82ecf6996ce2c3d5927f94f21a18"
+    },
+    {
+      "path": "footer-saved-production-native-02/result.json",
+      "sha256": "24b4a35cba31bc0cb24757cc13681dbbcf410a564a44cd68825f5879a93ff11f"
+    },
+    {
+      "path": "footer-30s-native-threaded-query-01/result.json",
+      "sha256": "4398c4db1d76a3e1957194db0065eb64a0451f117ca966cd5b0e2b9255820314"
+    }
+  ],
+  "fail_continuation_policy": "Record each failure. Continue independent planned steps. Skip only steps whose prerequisite failed, with an explicit reason and replacement diagnostic proposal.",
+  "credential_values_recorded": false
+}

@@ -1,0 +1,26 @@
+{
+  "payload": {
+    "base_revision": null,
+    "created_at": "2026-09-07T13:52:10.098951+00:00",
+    "datapack_id": "datapack-3f0d8ec7d8c44dc7a22ea2005ab03748",
+    "device_id": "laptop-device-001",
+    "error_code": null,
+    "error_detail": null,
+    "finalization": null,
+    "published_revision": null,
+    "revision": null,
+    "scan_session_id": "scan-2b05e8b5cb234da48c265b07d94b84a7",
+    "spread_counts": {
+      "error": 0,
+      "processing": 0,
+      "ready": 1,
+      "received": 0,
+      "rejected": 0
+    },
+    "status": "open",
+    "through_sequence": null,
+    "updated_at": "2026-09-07T13:52:10.098951+00:00"
+  },
+  "credential_recorded": false,
+  "read_only": true
+}

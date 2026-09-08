@@ -1,0 +1,101 @@
+{
+  "baseline": [
+    {
+      "path": "device-runtime/src/asl_device/adapters/stm_serial.py",
+      "expected": "3448c3b2467cd36ac26cdc7ea7be861eacb9fbb72048945d5992b72f41e88d03",
+      "actual": "3448c3b2467cd36ac26cdc7ea7be861eacb9fbb72048945d5992b72f41e88d03",
+      "match": true
+    },
+    {
+      "path": "device-runtime/src/asl_device/adapters/book_scanner_runtime.py",
+      "expected": "f91cc13fbf4db9669f700de9500bc73e800f95f7924e0a1bc64759515dd47bd5",
+      "actual": "f91cc13fbf4db9669f700de9500bc73e800f95f7924e0a1bc64759515dd47bd5",
+      "match": true
+    },
+    {
+      "path": "device-runtime/src/asl_device/local_composition.py",
+      "expected": "d990a3cd82b9f40f9764c4635088623806b6b916d75a4d1e62f4856e7e56e932",
+      "actual": "d990a3cd82b9f40f9764c4635088623806b6b916d75a4d1e62f4856e7e56e932",
+      "match": true
+    },
+    {
+      "path": "device-runtime/tests/unit/test_stm_serial.py",
+      "expected": "aa47df3aae3f372f09de56f5676934a7ecf35385747e738e5e66b49ece0aadae",
+      "actual": "aa47df3aae3f372f09de56f5676934a7ecf35385747e738e5e66b49ece0aadae",
+      "match": true
+    },
+    {
+      "path": "device-runtime/tests/unit/test_book_scanner_runtime.py",
+      "expected": "5fb741b491f5a3f3e7192e74a41ac3fa394be4366771e8c4cfac8a28b00d820f",
+      "actual": "5fb741b491f5a3f3e7192e74a41ac3fa394be4366771e8c4cfac8a28b00d820f",
+      "match": true
+    },
+    {
+      "path": "device-runtime/tests/integration/test_e0_local_composition.py",
+      "expected": "1bf66276c874d50a1d80fd75edddca398c77619604211aa5682eceaba37c2ae8",
+      "actual": "1bf66276c874d50a1d80fd75edddca398c77619604211aa5682eceaba37c2ae8",
+      "match": true
+    },
+    {
+      "path": "device-runtime/tests/integration/test_stm_operation_identity.py",
+      "expected": "b1fd54b66e7a74d64da01017fa2bf3fe70fcd32d77c2d0c1bb6faf4e60517428",
+      "actual": "b1fd54b66e7a74d64da01017fa2bf3fe70fcd32d77c2d0c1bb6faf4e60517428",
+      "match": true
+    },
+    {
+      "path": "docs/PROTOTYPE_STABILIZATION_GATE.md",
+      "expected": "01ff4241634559426cd995de7fc35987fc77b321006a74508ae328f8fda3a8bd",
+      "actual": "01ff4241634559426cd995de7fc35987fc77b321006a74508ae328f8fda3a8bd",
+      "match": true
+    },
+    {
+      "path": "docs/HW_SW_INTEGRATION_PLAN.md",
+      "expected": "568bd9f1e5f70d4ef84ea4c575187b1a25c8bff2b32241717e98afa18947d9d5",
+      "actual": "568bd9f1e5f70d4ef84ea4c575187b1a25c8bff2b32241717e98afa18947d9d5",
+      "match": true
+    },
+    {
+      "path": "document-parser/src/document_parser/serialization/vl_page_ir.py",
+      "expected": "f32783748cd5ed99ba97ff231cd037b7c0c635c5eb46d8c00e456feabf0d1a73",
+      "actual": "f32783748cd5ed99ba97ff231cd037b7c0c635c5eb46d8c00e456feabf0d1a73",
+      "match": true
+    },
+    {
+      "path": "document-parser/tests/unit/test_vl_page_ir.py",
+      "expected": "c931fde67c42b6faef6ca07047e92c29fe354f3b3bb9a6ba20a2893caab70606",
+      "actual": "c931fde67c42b6faef6ca07047e92c29fe354f3b3bb9a6ba20a2893caab70606",
+      "match": true
+    },
+    {
+      "path": "document-parser/src/document_parser/structure/problem_units.py",
+      "expected": "ac2b9e8e4b10d306aafa27ebf3f086bc5b875ef72e53c80dd67bc150089a5007",
+      "actual": "ac2b9e8e4b10d306aafa27ebf3f086bc5b875ef72e53c80dd67bc150089a5007",
+      "match": true
+    },
+    {
+      "path": "document-parser/tests/unit/test_problem_units.py",
+      "expected": "d6776a455026d9b87f9e7cd00943aa3b07171b636105b617937e72b6c62aeb91",
+      "actual": "d6776a455026d9b87f9e7cd00943aa3b07171b636105b617937e72b6c62aeb91",
+      "match": true
+    },
+    {
+      "path": "document-parser/src/document_parser/accessibility/flattening/structure_nodes.py",
+      "expected": "0ef9deeee2bd9c5d47717f75ffb9af79c01465c3029e0917f7e03afb1738aebe",
+      "actual": "0ef9deeee2bd9c5d47717f75ffb9af79c01465c3029e0917f7e03afb1738aebe",
+      "match": true
+    }
+  ],
+  "interpreter_hash": "21bb438c0d4a6f1f164b9a646f6ee000340185e5871180aec06db8d3f07c0082",
+  "versions": {
+    "sounddevice": "0.5.6",
+    "cffi": "2.1.1",
+    "pyserial": "3.5",
+    "requests": "2.34.2",
+    "numpy": "2.3.5",
+    "opencv-python": "5.0.0.93"
+  },
+  "elf": {
+    "exists": false,
+    "sha256": null
+  }
+}

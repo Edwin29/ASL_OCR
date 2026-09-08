@@ -1,0 +1,72 @@
+{
+  "snapshots": [
+    {
+      "audio_ref_digest": "67a6337d75a7",
+      "braille_cells": [
+        11,
+        38,
+        45,
+        52,
+        18,
+        18,
+        60,
+        3,
+        24,
+        20
+      ],
+      "cell_count": 10,
+      "focus_item_id": "pg-f6b50fe25b44-00000001-L-vl003-L01",
+      "generation": 2,
+      "nonempty": true,
+      "page_id": "pg-f6b50fe25b44-00000001-L"
+    },
+    {
+      "audio_ref_digest": "eb8791bdc80e",
+      "braille_cells": [
+        32,
+        10,
+        48,
+        29
+      ],
+      "cell_count": 4,
+      "focus_item_id": "pg-f6b50fe25b44-00000001-R-vl007",
+      "generation": 9,
+      "nonempty": true,
+      "page_id": "pg-f6b50fe25b44-00000001-R"
+    },
+    {
+      "audio_ref_digest": "5a9d2f1d55e7",
+      "braille_cells": [
+        32,
+        1,
+        48,
+        26
+      ],
+      "cell_count": 4,
+      "focus_item_id": "pg-f6b50fe25b44-00000002-L-vl003",
+      "generation": 12,
+      "nonempty": true,
+      "page_id": "pg-f6b50fe25b44-00000002-L"
+    },
+    {
+      "audio_ref_digest": "3e7b1a0b6d7d",
+      "braille_cells": [
+        54,
+        55,
+        60,
+        1,
+        62,
+        61,
+        48,
+        60,
+        1,
+        18
+      ],
+      "cell_count": 10,
+      "focus_item_id": "pg-f6b50fe25b44-00000002-R-vl004",
+      "generation": 16,
+      "nonempty": true,
+      "page_id": "pg-f6b50fe25b44-00000002-R"
+    }
+  ]
+}

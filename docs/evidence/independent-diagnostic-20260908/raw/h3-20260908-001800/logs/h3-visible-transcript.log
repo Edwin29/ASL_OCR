@@ -1,0 +1,19 @@
+**********************
+Windows PowerShell 기록 시작
+시작 시간: 20260908004554
+사용자 이름: LAPTOP-HUM24QK4\user
+RunAs 사용자: LAPTOP-HUM24QK4\user
+구성 이름: 
+Machine: LAPTOP-HUM24QK4 (Microsoft Windows NT 10.0.26200.0)
+호스트 응용 프로그램: powershell.exe -NoExit -ExecutionPolicy Bypass -File C:\ASL_OCR_INTEGRATION_RUNTIME\demo-20260905\hardware-integration\h3-20260908-001800\manifests\h3-visible-runtime.ps1
+프로세스 ID: 26528
+PSVersion: 5.1.26100.9168
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9168
+BuildVersion: 10.0.26100.9168
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+기록이 시작되었습니다. 출력 파일은 C:\ASL_OCR_INTEGRATION_RUNTIME\demo-20260905\hardware-integration\h3-20260908-001800\logs\h3-visible-transcript.log입니다.

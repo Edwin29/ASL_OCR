@@ -245,6 +245,58 @@ def test_freeze_waits_for_pending_terminal_then_closes_engine(tmp_path: Path) ->
     assert engine.closed
 
 
+def test_frozen_pending_same_scan_resumes_existing_engine(tmp_path: Path) -> None:
+    root, artifact, event = _fixture(tmp_path)
+    factory = FakeFactory(artifact)
+    bridge = BookScannerRuntimeAdapter(factory, root)
+    bridge.start(_session())
+    engine = factory.created[0]
+    engine.poll_events.append((event,))
+    bridge.poll()
+    bridge.freeze()
+    bridge.start(_session())
+    assert factory.created == [engine]
+    assert engine.pending_artifact is artifact
+    assert not engine.closed and not engine.cancelled
+    assert Path(artifact.manifest_path).exists()
+    bridge.apply_delivery_update(
+        ArtifactId("artifact-1"), _update(DeliveryStatus.ACKED, receipt="receipt-1")
+    )
+    assert engine.callbacks == [("acked", "artifact-1", "receipt-1")]
+    assert not engine.closed
+    bridge.freeze()
+    assert engine.closed
+
+
+def test_frozen_engine_rejects_other_scan_and_active_restart(tmp_path: Path) -> None:
+    root, artifact, _event = _fixture(tmp_path)
+    factory = FakeFactory(artifact)
+    bridge = BookScannerRuntimeAdapter(factory, root)
+    bridge.start(_session())
+    with pytest.raises(FatalPortError, match="already active"):
+        bridge.start(_session())
+    bridge.freeze()
+    for other in (
+        ScanSessionRef(ScanSessionId("scan-2"), DatapackId("datapack-1")),
+        ScanSessionRef(ScanSessionId("scan-1"), DatapackId("datapack-2")),
+    ):
+        with pytest.raises(FatalPortError, match="already active"):
+            bridge.start(other)
+    assert factory.created[0].pending_artifact is artifact
+    assert not factory.created[0].closed
+
+
+def test_freeze_without_pending_allows_fresh_engine(tmp_path: Path) -> None:
+    root, _artifact, _event = _fixture(tmp_path)
+    factory = FakeFactory(None)
+    bridge = BookScannerRuntimeAdapter(factory, root)
+    bridge.start(_session())
+    bridge.freeze()
+    assert factory.created[0].closed
+    bridge.start(_session())
+    assert len(factory.created) == 2
+
+
 def test_guidance_and_fatal_events_map_without_artifacts(tmp_path: Path) -> None:
     root, artifact, _event = _fixture(tmp_path)
     factory = FakeFactory(artifact)

@@ -1,0 +1,15 @@
+{
+  "source": "D:\\Projects\\OCR\\hardware\\stm32\\kitel2026final\\Core\\Src\\main.c",
+  "compiler": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\Hostx64\\x64\\cl.exe",
+  "compile_exit_code": 0,
+  "compile_stdout": "fixture.c\n",
+  "compile_stderr": "",
+  "run_exit_code": 0,
+  "run_stdout": "rx_ring_fixture_pass\n",
+  "run_stderr": "",
+  "cases": [
+    "queued_order",
+    "uart_error_resync",
+    "ring_overflow_resync"
+  ]
+}

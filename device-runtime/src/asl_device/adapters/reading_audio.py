@@ -6,6 +6,7 @@ import hashlib
 import io
 import re
 import threading
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -149,7 +150,7 @@ class S0SystemAudioResourceHttpAdapter(S0AudioResourceHttpAdapter):
 
 
 class SoundDeviceWavPlayer:
-    """Blocking WAV player with thread-safe, immediate stream interruption."""
+    """One caller owns native lifecycle; other threads only signal cancellation."""
 
     def __init__(self, *, sounddevice_module: Any | None = None, frames_per_chunk: int = 2048) -> None:
         if frames_per_chunk <= 0:
@@ -164,52 +165,87 @@ class SoundDeviceWavPlayer:
         self._sounddevice = sounddevice_module
         self.frames_per_chunk = frames_per_chunk
         self._lock = threading.Lock()
-        self._stream: Any | None = None
+        self._cancel: threading.Event | None = None
         self._closed = False
 
     def play(self, resource: AudioResource, cancelled: Callable[[], bool]) -> None:
         with wave.open(io.BytesIO(resource.wav_bytes), "rb") as reader:
+            pcm = memoryview(reader.readframes(reader.getnframes()))
+            samplerate, channels = reader.getframerate(), reader.getnchannels()
+        if cancelled():
+            raise AudioOperationCancelled()
+        cancel = threading.Event()
+        finished = threading.Event()
+        errors: list[str] = []
+        position = 0
+        with self._lock:
+            if self._closed:
+                raise AudioOperationCancelled()
+            if self._cancel is not None:
+                raise RuntimeError("audio playback owner is already active")
+            self._cancel = cancel
+
+        def callback(outdata, frames, time_info, status):
+            nonlocal position
+            # No controller locks, decoding, I/O or native lifecycle calls here.
+            outdata[:] = b"\0" * len(outdata)
+            if cancel.is_set():
+                raise self._sounddevice.CallbackAbort
+            if status:
+                errors.append("audio output callback reported an underrun or device error")
+                raise self._sounddevice.CallbackAbort
+            take = min(len(outdata), len(pcm) - position)
+            outdata[:take] = pcm[position:position + take]
+            position += take
+            if position == len(pcm):
+                raise self._sounddevice.CallbackStop
+
+        stream = None
+        try:
             stream = self._sounddevice.RawOutputStream(
-                samplerate=reader.getframerate(),
-                channels=reader.getnchannels(),
+                samplerate=samplerate,
+                channels=channels,
                 dtype="int16",
                 blocksize=self.frames_per_chunk,
+                callback=callback,
+                finished_callback=finished.set,
             )
-            with self._lock:
-                if self._closed or cancelled():
-                    stream.close()
+            if cancel.is_set() or cancelled():
+                raise AudioOperationCancelled()
+            stream.start()
+            deadline = time.monotonic() + resource.duration_ms / 1000.0 + 10.0
+            while not finished.wait(0.01):
+                if cancel.is_set() or cancelled():
                     raise AudioOperationCancelled()
-                self._stream = stream
+                if time.monotonic() >= deadline:
+                    raise RuntimeError("audio stream completion timed out")
+            if cancel.is_set() or cancelled():
+                raise AudioOperationCancelled()
+            if errors:
+                raise RuntimeError(errors[0])
+        finally:
             try:
-                stream.start()
-                while not cancelled():
-                    frames = reader.readframes(self.frames_per_chunk)
-                    if not frames:
-                        break
-                    stream.write(frames)
-                if cancelled():
-                    raise AudioOperationCancelled()
+                if stream is not None:
+                    try:
+                        if not finished.is_set():
+                            stream.abort()
+                    finally:
+                        stream.close()
             finally:
                 with self._lock:
-                    if self._stream is stream:
-                        self._stream = None
-                _stop_and_close(stream)
+                    self._cancel = None
 
     def stop(self) -> None:
         with self._lock:
-            stream = self._stream
-        if stream is not None:
-            try:
-                stream.abort()
-            except Exception:
-                pass
+            if self._cancel is not None:
+                self._cancel.set()
 
     def close(self) -> None:
         with self._lock:
-            if self._closed:
-                return
             self._closed = True
-        self.stop()
+            if self._cancel is not None:
+                self._cancel.set()
+                raise RuntimeError("audio playback owner has not terminated")
 
 
 def _validate_wav(raw: bytes, sha256: str) -> AudioResource:
@@ -254,12 +290,3 @@ def _optional_int(value: str | None) -> int | None:
     return parsed
 
 
-def _stop_and_close(stream: Any) -> None:
-    try:
-        stream.stop()
-    except Exception:
-        pass
-    try:
-        stream.close()
-    except Exception:
-        pass

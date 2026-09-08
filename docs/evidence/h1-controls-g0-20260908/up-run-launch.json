@@ -1,0 +1,8 @@
+{
+    "run_root":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\up-controlled-20260908-222003",
+    "pid":  22932,
+    "frame_budget":  0,
+    "nav_cap":  128,
+    "capture_seconds":  900,
+    "servo_power":  "operator_confirmed_disconnected"
+}

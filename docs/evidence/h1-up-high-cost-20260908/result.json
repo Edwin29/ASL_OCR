@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "run_date": "2026-09-08",
+  "command": ".\\.venv-e0b\\Scripts\\python.exe -B docs/evidence/h1-up-high-cost-20260908/replay_h1_liveness.py",
+  "exit_code": 0,
+  "assertions_passed": true,
+  "production_source_modified": false,
+  "policy": {
+    "query_sample_count": 5,
+    "k_same": 1,
+    "k_different": 0,
+    "max_collection_ms": 8000
+  },
+  "fidelity_limit": "Actual SampledFrameEngine, OpaqueQueryCollector, and visual gate with fixture camera/analyzer/provider and a clean accepted reference bank. Native replay preserves recorded sample-start intervals, total processing time, raw tokens/status, and hard rejection, but does not restore the original camera/model, accepted bank, or engine instance.",
+  "scenarios": [
+    {
+      "name": "native_recorded_raw_status_clean_reference",
+      "final_state": "waiting_for_page_change",
+      "rows_used": 11,
+      "timeout_valid_counts": [1, 4, 2],
+      "page_changed_count": 0
+    },
+    {
+      "name": "stationary_exact_every_2.05_s",
+      "final_state": "waiting_for_page_change",
+      "rows_used": 19,
+      "timeout_seconds": [8.02, 16.04, 24.06, 32.08],
+      "timeout_valid_counts": [4, 4, 4, 4],
+      "page_changed_count": 0
+    },
+    {
+      "name": "N5_but_unrelated_tokens",
+      "final_state": "waiting_for_page_change",
+      "decision": "unknown",
+      "valid_observations": 5
+    },
+    {
+      "name": "same_page",
+      "final_state": "waiting_for_page_change",
+      "same_n1_decisions": 8
+    },
+    {
+      "name": "deadline_before_start_after_complete",
+      "final_state": "searching",
+      "decision_at_seconds": 8.5,
+      "decision": "different",
+      "valid_observations": 5,
+      "page_changed_count": 1
+    },
+    {
+      "name": "stale_visual_latch",
+      "same_at_step": 3,
+      "latch_after_same": true,
+      "subsequent_current_visual_eligible": false,
+      "subsequent_visual_match_kind": null,
+      "false_page_changed_count": 1,
+      "coherent_numeric_difference": false,
+      "final_state": "searching"
+    }
+  ],
+  "sha256": {
+    "replay_h1_liveness.py": "93a1583a353610692a1bf32f58f310fe3e5786be54b539d8dd32c1c39fdaef8d",
+    "book-scanner/src/book_scanner/video/engine.py": "f223f744fe2fd6a6818ea7bed4ed4f522e27f90590fc2c477fcb40fdbe8e427f",
+    "book-scanner/src/book_scanner/video/opaque_identity.py": "03d11754231e24ad0ffe731c4ecc2c013f009fc48b4193f1a57c638ca1ae2acf"
+  }
+}

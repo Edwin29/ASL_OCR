@@ -1,0 +1,102 @@
+{
+  "baseline_head": "ea7e6f24b38bc74bd2405ca1f35ed1acd2bab42e",
+  "product_count": 12,
+  "files": [
+    {
+      "path": "device-runtime/src/asl_device/application.py",
+      "kind": "product",
+      "before_sha256": "17b2a07553dc37d4d3f879c0dc5d09ac12bdc874f922bb2d9a7eec078784bb59",
+      "after_sha256": "244dda03e6fe5f11daabbeac93f0c136fd17edc4d8c7e162834b20a91b7890fe"
+    },
+    {
+      "path": "device-runtime/src/asl_device/coordinator.py",
+      "kind": "product",
+      "before_sha256": "b68b72ad75c806664b9abd24325540df6a164f189d1e47d7c4f53cdfa26b5633",
+      "after_sha256": "1f328a3955442ddb1ec313c1ebacb04865b8de922f5ff9ecb11bdf52dc69e50c"
+    },
+    {
+      "path": "device-runtime/src/asl_device/hold_repeat.py",
+      "kind": "product",
+      "before_sha256": "d0bdf0983c3afe5f13001e1772651df1dd962d50ea56cd618b456f76b2e28d2c",
+      "after_sha256": "3c9cc340ac0c410c859b24066fc120f6f2b32f275650a2befd49b99df5e3ef15"
+    },
+    {
+      "path": "device-runtime/src/asl_device/laptop_acceptance.py",
+      "kind": "product",
+      "before_sha256": "9a9f7a7e981d94f75fea895e278a3f065f0261e92454684a7f385a9e1cfdf81a",
+      "after_sha256": "b6a1a9441b4733db5b6398580f391a3ce7358acc88b29b4b475d7790686abad7"
+    },
+    {
+      "path": "device-runtime/src/asl_device/reading_audio.py",
+      "kind": "product",
+      "before_sha256": "2ab6d2a2cfb46d8d0627ef87a70065c1870b6f3547077a897d60f523c49e1223",
+      "after_sha256": "feb2d11a2f6d86e4efac6e0423e9aefd323af5d4b137a6f15a6a06f6089adfcb"
+    },
+    {
+      "path": "device-runtime/src/asl_device/__main__.py",
+      "kind": "product",
+      "before_sha256": "7f8707a10872091f3b651b0b1f52a4bad4d43740f55462cf75d1cbe168517a5a",
+      "after_sha256": "b49d3eb1fc683998fa4d6b0c3e0fdfb278b4fb133e74b722822be1c8829239eb"
+    },
+    {
+      "path": "device-runtime/src/asl_device/adapters/reading_audio.py",
+      "kind": "product",
+      "before_sha256": "9e15bf0deb108246dc7b3186d513c42d474a3212a47884b085e00b24823b8c96",
+      "after_sha256": "9fea174388785b7c2486e98a0565fb1048b7d7c4a07ea47f42291b0f9ff56e7c"
+    },
+    {
+      "path": "device-runtime/src/asl_device/adapters/stm_serial.py",
+      "kind": "product",
+      "before_sha256": "3448c3b2467cd36ac26cdc7ea7be861eacb9fbb72048945d5992b72f41e88d03",
+      "after_sha256": "1e5154dee830582773a8e005d3bdb916eb52122184f77ee67452aad1c37dd2c6"
+    },
+    {
+      "path": "device-runtime/tests/unit/test_reading_audio_adapters.py",
+      "kind": "test",
+      "before_sha256": "77d3c469fb09fa1d33457ef330336947a69974d3889c7145df249176a847dea0",
+      "after_sha256": "7ebc4dd2448ffd3024f6b0a16d0fcd28ca53721c28ccb728233cffdbb2427e17"
+    },
+    {
+      "path": "book-scanner/src/book_scanner/video/engine.py",
+      "kind": "product",
+      "before_sha256": "8ac77dc059757ea244c477c3bf641e5fd1d18f415795b9833a838f3337b63435",
+      "after_sha256": "f223f744fe2fd6a6818ea7bed4ed4f522e27f90590fc2c477fcb40fdbe8e427f"
+    },
+    {
+      "path": "book-scanner/src/book_scanner/video/runtime_composition.py",
+      "kind": "product",
+      "before_sha256": "62417b4bb76332eb7fd199de9ad723f763066df755bf3cf5f548a0c8aee9d6b9",
+      "after_sha256": "17a47599eb54a2848f636d1e977c8489b684724c0c0935b4a04e8f238438cbf1"
+    },
+    {
+      "path": "book-scanner/src/book_scanner/video/sources.py",
+      "kind": "product",
+      "before_sha256": "3aee6fd0ea6399886c49d2a3fb3c32c13fd231965124dfb7a1fee6ba24c6dc9f",
+      "after_sha256": "1a5cef671561654060cbf573de15c2620b56f52219f7ab3ca161fa6314a28f47"
+    },
+    {
+      "path": "hardware/stm32/kitel2026final/Core/Src/main.c",
+      "kind": "product",
+      "before_sha256": "030d3f3ed8d94b87af99ddee4da641c4b1ed0af1a029fbaf13c2c812a718fa3f",
+      "after_sha256": "c4bb35e208bf2bdcd4e773c4a40f5a5982ff0333e479340bcd9b6fa1c996371f"
+    },
+    {
+      "path": "device-runtime/tests/unit/test_h123_audio_lifecycle.py",
+      "kind": "test",
+      "before_sha256": null,
+      "after_sha256": "cdfc0911f83bc7f00ad4941c966e7bdebfc25d886302b45e0f78fbca2017e209"
+    },
+    {
+      "path": "device-runtime/tests/unit/test_h123_boundaries.py",
+      "kind": "test",
+      "before_sha256": null,
+      "after_sha256": "4d7a0621ac0e493012e30bafa57da698a9a4274361cce29069a84141fa080920"
+    },
+    {
+      "path": "book-scanner/tests/unit/video/test_h123_camera_recovery.py",
+      "kind": "test",
+      "before_sha256": null,
+      "after_sha256": "d3a79bd9ac490169a2ac94a986f36cb969ebb01dd34e8d28e7bb86c0eb88a762"
+    }
+  ]
+}

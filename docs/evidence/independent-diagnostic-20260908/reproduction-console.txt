@@ -1,0 +1,213 @@
+{
+  "http_taxonomy": [
+    {
+      "trigger": "timeout",
+      "calls": 1,
+      "outcome": "SnapshotTransportError"
+    },
+    {
+      "trigger": "401",
+      "calls": 1,
+      "outcome": "SnapshotTransportError"
+    },
+    {
+      "trigger": "403",
+      "calls": 1,
+      "outcome": "SnapshotTransportError"
+    },
+    {
+      "trigger": "404",
+      "calls": 1,
+      "outcome": "SnapshotTransportError"
+    },
+    {
+      "trigger": "500",
+      "calls": 1,
+      "outcome": "SnapshotTransportError"
+    },
+    {
+      "trigger": "503",
+      "calls": 1,
+      "outcome": "SnapshotTransportError"
+    },
+    {
+      "trigger": "bad_jpeg_then_good",
+      "calls": 2,
+      "outcome": "frame"
+    },
+    {
+      "trigger": "three_bad_jpeg",
+      "calls": 3,
+      "outcome": "FrameDecodeError"
+    }
+  ],
+  "engine_transport_fatal": [
+    {
+      "type": "state_changed",
+      "reason": "frame_decode_failed"
+    },
+    {
+      "type": "session_error",
+      "reason": "frame_decode_failed"
+    }
+  ],
+  "liveness": [
+    {
+      "budget_ms": 8000,
+      "cadence_seconds": 1.6,
+      "state": "searching",
+      "decisions": [
+        {
+          "strategy": "m1_selected_raw_pair",
+          "input_stage": "preview_native",
+          "query_sample_count": 5,
+          "k_same": 1,
+          "k_different": 0,
+          "validated": false,
+          "provenance": "v3a4_two_spread_default_validation_deferred",
+          "recognizer_load_count": null,
+          "recognizer_call_count": null,
+          "recognition_cache_hits": null,
+          "recognition_cache_depth": null,
+          "identity_role": "page_change",
+          "decision": "different",
+          "valid_observations": 5,
+          "match_count": 0,
+          "novel_consensus_count": 5,
+          "coherent_numeric_difference": true,
+          "matched_artifact_id": null,
+          "timed_out": false
+        }
+      ],
+      "guidance_events": 0
+    },
+    {
+      "budget_ms": 8000,
+      "cadence_seconds": 2.5,
+      "state": "waiting_for_page_change",
+      "decisions": [
+        {
+          "strategy": "m1_selected_raw_pair",
+          "input_stage": "preview_native",
+          "query_sample_count": 5,
+          "k_same": 1,
+          "k_different": 0,
+          "validated": false,
+          "provenance": "v3a4_two_spread_default_validation_deferred",
+          "recognizer_load_count": null,
+          "recognizer_call_count": null,
+          "recognition_cache_hits": null,
+          "recognition_cache_depth": null,
+          "identity_role": "page_change",
+          "decision": "unknown",
+          "valid_observations": 4,
+          "match_count": 0,
+          "novel_consensus_count": 4,
+          "coherent_numeric_difference": false,
+          "matched_artifact_id": null,
+          "timed_out": true
+        },
+        {
+          "strategy": "m1_selected_raw_pair",
+          "input_stage": "preview_native",
+          "query_sample_count": 5,
+          "k_same": 1,
+          "k_different": 0,
+          "validated": false,
+          "provenance": "v3a4_two_spread_default_validation_deferred",
+          "recognizer_load_count": null,
+          "recognizer_call_count": null,
+          "recognition_cache_hits": null,
+          "recognition_cache_depth": null,
+          "identity_role": "page_change",
+          "decision": "unknown",
+          "valid_observations": 4,
+          "match_count": 0,
+          "novel_consensus_count": 4,
+          "coherent_numeric_difference": false,
+          "matched_artifact_id": null,
+          "timed_out": true
+        },
+        {
+          "strategy": "m1_selected_raw_pair",
+          "input_stage": "preview_native",
+          "query_sample_count": 5,
+          "k_same": 1,
+          "k_different": 0,
+          "validated": false,
+          "provenance": "v3a4_two_spread_default_validation_deferred",
+          "recognizer_load_count": null,
+          "recognizer_call_count": null,
+          "recognition_cache_hits": null,
+          "recognition_cache_depth": null,
+          "identity_role": "page_change",
+          "decision": "unknown",
+          "valid_observations": 4,
+          "match_count": 0,
+          "novel_consensus_count": 4,
+          "coherent_numeric_difference": false,
+          "matched_artifact_id": null,
+          "timed_out": true
+        }
+      ],
+      "guidance_events": 0
+    },
+    {
+      "budget_ms": 30000,
+      "cadence_seconds": 2.5,
+      "state": "searching",
+      "decisions": [
+        {
+          "strategy": "m1_selected_raw_pair",
+          "input_stage": "preview_native",
+          "query_sample_count": 5,
+          "k_same": 1,
+          "k_different": 0,
+          "validated": false,
+          "provenance": "v3a4_two_spread_default_validation_deferred",
+          "recognizer_load_count": null,
+          "recognizer_call_count": null,
+          "recognition_cache_hits": null,
+          "recognition_cache_depth": null,
+          "identity_role": "page_change",
+          "decision": "different",
+          "valid_observations": 5,
+          "match_count": 0,
+          "novel_consensus_count": 5,
+          "coherent_numeric_difference": true,
+          "matched_artifact_id": null,
+          "timed_out": false
+        }
+      ],
+      "guidance_events": 0
+    }
+  ],
+  "audio_native_operation_overlap": [
+    "start",
+    "write-enter",
+    "abort-enter-during-write",
+    "write-exit",
+    "stop",
+    "close",
+    "AudioOperationCancelled",
+    "abort-after-close"
+  ],
+  "shutdown_error_skips_audio_and_retry": [
+    "controls"
+  ],
+  "android_preflight": {
+    "selected": [
+      "OpenCVCameraSource"
+    ],
+    "result": {
+      "width": 640,
+      "height": 480,
+      "frame_id": "fake"
+    },
+    "profile_error": "physical E0-B requires pc_camera or android_uvc"
+  },
+  "fatal_cli_return": {
+    "return_code": 0,
+    "limitation": "fake coordinator terminal state; actual fatal propagation separately source-inspected"
+  }
+}

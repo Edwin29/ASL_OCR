@@ -1,0 +1,75 @@
+{
+    "recorded_at":  "2026-09-08T02:17:42.9332461+09:00",
+    "stage":  "H3-R",
+    "verdict":  "FAIL",
+    "product_source_modifications":  0,
+    "d_drive_access":  0,
+    "results":  {
+                    "tts_isolated_items":  "PASS",
+                    "real_snapshot_braille_generation":  "PASS",
+                    "paced_generation_110_physical_display":  "PASS",
+                    "production_frame_lineage":  "FAIL",
+                    "paced_zero_clear":  "FAIL",
+                    "rapid_reading_supersession":  "FAIL",
+                    "braille_only_interactive_progress":  "INCONCLUSIVE"
+                },
+    "new_issue":  {
+                      "id":  "ACTUATOR-CLEAR-RESIDUAL-P1",
+                      "classification":  "P1",
+                      "reproductions":  "2/2",
+                      "boundary":  "exact all-zero STM/PCA command -\u003e physical dot retraction",
+                      "likely_domain":  "mechanical neutral/horn/cam or per-channel servo calibration"
+                  },
+    "hashes":  [
+                   {
+                       "path":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\config\\device-app.h3r-console-stm.toml",
+                       "size":  2221,
+                       "sha256":  "2f5a296eb7233321912fc4a3b12fb6b53d357c8c0423a97c9b797d75a960bf75"
+                   },
+                   {
+                       "path":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\config\\device-app.h3r-braille-only.toml",
+                       "size":  2222,
+                       "sha256":  "ee653c77807d195e95ff5e101154609689f58071afe04dadbfb241c2b07891f1"
+                   },
+                   {
+                       "path":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\h3r-console-stm-harness.py",
+                       "size":  2111,
+                       "sha256":  "fe26d3ac5bb85ce06dbf407d5c4f0c6d7d811ae3a2d01f10a7f60c8ee6f6489a"
+                   },
+                   {
+                       "path":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\generation-110-paced-frame.py",
+                       "size":  2022,
+                       "sha256":  "5b699136e16366e8c315f62dae6bbf496f86281f8bd4186c35c776d294613c63"
+                   },
+                   {
+                       "path":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\generation-111-paced-clear.py",
+                       "size":  2013,
+                       "sha256":  "d04cae0d4a6ac3bafc440294379b8802f596e17f78e4844977959e5d98bc2db8"
+                   },
+                   {
+                       "path":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\h3r-events.jsonl",
+                       "size":  30503,
+                       "sha256":  "80e9001771e1a3876afcf9e074fcf5f65d8c85f78448fe3024156885eb249026"
+                   },
+                   {
+                       "path":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\h3r-braille-events.jsonl",
+                       "size":  1543,
+                       "sha256":  "03f6884447b00d212d5506caa807fbe88ab4a38935ab52b794d539a92ffb4ed5"
+                   },
+                   {
+                       "path":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\generation-110-paced-frame.json",
+                       "size":  1393,
+                       "sha256":  "f3c43ff2f898c75cc7d6b9263c1c2c78ad3cede34d2457fa16856599d395db67"
+                   },
+                   {
+                       "path":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\generation-111-paced-clear.json",
+                       "size":  1408,
+                       "sha256":  "610c7a102491e38dde694bc55793783e956b4efd24aaca1bf629de68f10c9784"
+                   },
+                   {
+                       "path":  "C:\\Users\\user\\AppData\\Local\\CrashDumps\\python.exe.31856.dmp",
+                       "size":  44441578,
+                       "sha256":  "c0cb1fcb7ab89c5dc7f103ef40c15f1c85c35aa29036f60481f1512e7a5f6a11"
+                   }
+               ]
+}

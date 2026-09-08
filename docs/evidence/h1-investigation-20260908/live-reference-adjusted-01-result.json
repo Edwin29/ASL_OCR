@@ -1,0 +1,629 @@
+{
+  "phase": "reference-26-27",
+  "python": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Scripts\\python.exe",
+  "config_sha256": "4fb36bf39030201da69e16ced8ee9e595e42287f8e1af96507bf524c6249f3a8",
+  "model_hashes": {
+    "config.json": "16103ac291a82fca50f0bb000d62a4b8168f6042f03c89c44cf32f241d1eb1f2",
+    "inference.json": "fd1b6ec722ea841a72d3ba43e527df1d1066d5d7808e0503ee3eec7265188753",
+    "inference.pdiparams": "3ec8a97ed6cefe8568d3e2ee90bb193299b566a7661aa4fd52d224b96b59f66b",
+    "inference.yml": "27e91d0582f40168aa218303c76e184bc78fa7a5d105aad0cfbad8458b441067",
+    "README.md": "4c1cfd6e103b0966fe97505b5254cfa35a931d47d7effca97a9db47fb57dd699"
+  },
+  "started_at_utc": "2026-09-08T14:17:20.133644+00:00",
+  "duration_budget_seconds": 30,
+  "interval_ms": 100,
+  "n": 5,
+  "collection_ms": 8000,
+  "input_stage": "preview_native",
+  "uploads": 0,
+  "frames_sent_to_stm": 0,
+  "production_state_changes": 0,
+  "fidelity": "Read-only phase with native preview provider and threaded Android source; no GUI rendering, application, engine gate, receipt or reference acceptance.",
+  "rows": [
+    {
+      "source_frame_id": "phone-snapshot-00000001",
+      "captured_at_monotonic": 182323.156,
+      "observed_at_monotonic": 182323.171,
+      "t": 1.4530000000086147,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 157.00000000651926,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 486.3138999789953,
+      "left_roi_sha256": "6ae813d225dffabcb6064d9ace4156d6b956d8de2912b43bd28390640882205b",
+      "right_roi_sha256": "a9a55fc4e2241a0b55029379aefbee739ca67168deca9c1760b717e3ac15d6ac",
+      "elapsed_ms": 657.0000000065193,
+      "saved_source": "source-0.png",
+      "saved_source_sha256": "10320e4302294f2d13009227aeb16cd6795185de151c0b049b5fa20655401796"
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000002",
+      "captured_at_monotonic": 182324.328,
+      "observed_at_monotonic": 182324.515,
+      "t": 2.797000000020489,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 62.999999994644895,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 395.0685999880079,
+      "left_roi_sha256": "5518ac41dce119b1081174037f6aaf9773a62b37059acb5ed270c7be23d75744",
+      "right_roi_sha256": "228d789af7bb5e499cdf8e700116749c1230c3e02b4fe0eb8b8c3bd21a885743",
+      "elapsed_ms": 468.99999998277053,
+      "saved_source": "source-1.png",
+      "saved_source_sha256": "c5cc55f47a89589e7181a3c51840f27c46f90f3a5e7d66e46cafbf617415ef0e"
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000003",
+      "captured_at_monotonic": 182325.578,
+      "observed_at_monotonic": 182325.765,
+      "t": 4.047000000020489,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 93.99999998277053,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 349.0133000013884,
+      "left_roi_sha256": "15296d10f4f5169c904fd1ccef62c34e8ececa0a0ef169b51a3d191cfd111243",
+      "right_roi_sha256": "41183a6b0f33a9d8934bbeeefb547b7ffc1c788e2e4a36aec6040ad2d3bf8023",
+      "elapsed_ms": 452.9999999795109,
+      "saved_source": "source-2.png",
+      "saved_source_sha256": "39180807c290ca8d890b277121ccecdd8695cb93b765594b0078ac6e51a0bc44"
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000004",
+      "captured_at_monotonic": 182326.843,
+      "observed_at_monotonic": 182326.937,
+      "t": 5.219000000011874,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 78.00000000861473,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 343.092399998568,
+      "left_roi_sha256": "e774e577a22ff1696c71eb012d998fb423fdd91d6794051ea6836008a90cd6c5",
+      "right_roi_sha256": "f836e30eef6c6a8e4d019e714bed602ab009bad223459d3257fa1a13ee034da0",
+      "elapsed_ms": 437.9999999946449
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000005",
+      "captured_at_monotonic": 182328.218,
+      "observed_at_monotonic": 182328.25,
+      "t": 6.532000000006519,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 140.00000001396984,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 397.6279000053182,
+      "left_roi_sha256": "e370e36cf963c6c66ddd8901aec9459cc9bc48c48e267cc5e0e4202c3caab627",
+      "right_roi_sha256": "123c9b8a5fb8befa44921e35152be50d77e14731885eba4927337e5edbba7312",
+      "elapsed_ms": 546.0000000020955
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000006",
+      "captured_at_monotonic": 182329.406,
+      "observed_at_monotonic": 182329.421,
+      "t": 7.703000000008615,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 187.9999999946449,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 453.6703000194393,
+      "left_roi_sha256": "fa345894e010d6c4dea9b78e94562c72eda473623b72d3ee71a8195329b74fa4",
+      "right_roi_sha256": "8cac5b41400df650a21501901e0a2d1e07af880d18fcabc84b448b4f13230711",
+      "elapsed_ms": 641.0000000032596
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000007",
+      "captured_at_monotonic": 182330.718,
+      "observed_at_monotonic": 182330.734,
+      "t": 9.01600000000326,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 125.0,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 388.8722999836318,
+      "left_roi_sha256": "62f327093fe363d0f03978ddaaeed2a77ca9e38a9f46e992022b27b7a978dc97",
+      "right_roi_sha256": "47e6f1d1372bdb9dbd1feee4226c02d969916699ced4781ec44d6ede3f247fdc",
+      "elapsed_ms": 531.0000000172295
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000008",
+      "captured_at_monotonic": 182331.906,
+      "observed_at_monotonic": 182331.921,
+      "t": 10.203000000008615,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 157.00000000651926,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 360.3142000210937,
+      "left_roi_sha256": "5fa531501401d1b3fb687125f09cdc51b531b98ddc86d22062589f76ce8c774e",
+      "right_roi_sha256": "17eab16a668034defc10dae412ae31f05b46d6f78bd6361ec1093126d5a25b48",
+      "elapsed_ms": 516.0000000032596
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000009",
+      "captured_at_monotonic": 182333.187,
+      "observed_at_monotonic": 182333.218,
+      "t": 11.5,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 157.00000000651926,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 446.3230000110343,
+      "left_roi_sha256": "6398f76f2b9556f43cbe9adec0013b8fbc9bc363e62a2b62bf1be99fcc4f4b79",
+      "right_roi_sha256": "af7332ad4322b8b23c937c519a19e4253ef43207504543f74705fa13e19927f8",
+      "elapsed_ms": 610.000000015134
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000010",
+      "captured_at_monotonic": 182334.468,
+      "observed_at_monotonic": 182334.5,
+      "t": 12.78200000000652,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 171.00000000209548,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 354.4042999856174,
+      "left_roi_sha256": "35516cbd9f85a5aee57a95d4d3d71253010b9467320c7a335bd868d594446535",
+      "right_roi_sha256": "6184d199e37c5fa901b216e049f753fb93591d519d993f3a7adfd8d0dd547381",
+      "elapsed_ms": 530.9999999881256
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000011",
+      "captured_at_monotonic": 182335.765,
+      "observed_at_monotonic": 182335.781,
+      "t": 14.062999999994645,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 156.00000001722947,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 366.91939999582246,
+      "left_roi_sha256": "3a3e04998527687925185e7cd0ae794f06c83a8dcadc72fe96e19b95d50ade76",
+      "right_roi_sha256": "a52ee5c0d6c64a28c462ad320e14f6beee80e8f0a2a24b17239d7e0429fce28a",
+      "elapsed_ms": 531.0000000172295
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000012",
+      "captured_at_monotonic": 182336.968,
+      "observed_at_monotonic": 182336.984,
+      "t": 15.26600000000326,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 156.00000001722947,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 424.1280000132974,
+      "left_roi_sha256": "f77960d8990ef3aeaf7b1463b34dcef872194a26d7682149a68798e37891f46c",
+      "right_roi_sha256": "f7a8de62dae484c962a66968bad5ce6a1db64e053c89047808c0934655bb51a0",
+      "elapsed_ms": 594.0000000118744
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000013",
+      "captured_at_monotonic": 182338.312,
+      "observed_at_monotonic": 182338.343,
+      "t": 16.625,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 141.00000000325963,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 331.45040000090376,
+      "left_roi_sha256": "8a16502374848a12a05e876326a15cccb30cbf89a2daae2b221141747d59ed54",
+      "right_roi_sha256": "4dcedef31dd0752679a90e58c64926e97992b02e99b63ddd2737552599991790",
+      "elapsed_ms": 485.000000015134
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000014",
+      "captured_at_monotonic": 182339.609,
+      "observed_at_monotonic": 182339.671,
+      "t": 17.953000000008615,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 141.00000000325963,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 375.1429000112694,
+      "left_roi_sha256": "60a57331e2f55ebeb1f2c6f37c659f1c29dafe657affe82697fb60ce3e147c9d",
+      "right_roi_sha256": "d2d031a2cfac91dc3d7be252ff252e2cc946825f1d1125dc4002a47db1b928e0",
+      "elapsed_ms": 516.0000000032596
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000015",
+      "captured_at_monotonic": 182340.812,
+      "observed_at_monotonic": 182340.843,
+      "t": 19.125,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 157.00000000651926,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 413.9102999761235,
+      "left_roi_sha256": "9c3bd7e5aca8e4f9fd929594bc202bfbd684f02be765155e3baa5308ea6da8c7",
+      "right_roi_sha256": "0150c41467c78a221b9729613082f368aaf38d77582ecfc15d24bbfdcdd6a9ca",
+      "elapsed_ms": 578.0000000086147
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000016",
+      "captured_at_monotonic": 182341.984,
+      "observed_at_monotonic": 182342.046,
+      "t": 20.328000000008615,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 94.00000001187436,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 352.51850000349805,
+      "left_roi_sha256": "5965c81366e54169feddea59313dd6cc3f57a590b0af24144fde2a1eb40c2dcd",
+      "right_roi_sha256": "4be2ed2759d05d591b6c633d17f66427a484ba7405d0bf99fb889c1ca68bf258",
+      "elapsed_ms": 453.9999999979045
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000017",
+      "captured_at_monotonic": 182343.14,
+      "observed_at_monotonic": 182343.156,
+      "t": 21.437999999994645,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 156.00000001722947,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 357.61449998244643,
+      "left_roi_sha256": "c0416e8e4b1534a5fb171a8e1a93ea7f9069b44064a0e762d1c3e0d720cb9975",
+      "right_roi_sha256": "f372cbfa723fac35c07068f22785b64a327508668628092124ba3ca99b25a5de",
+      "elapsed_ms": 515.0000000139698
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000018",
+      "captured_at_monotonic": 182344.328,
+      "observed_at_monotonic": 182344.343,
+      "t": 22.625,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 172.0000000204891,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 392.12960001896136,
+      "left_roi_sha256": "28f298b6c9ab60a51dc00303a955323eb30d4baa924ac34cd36fde972d4cb13e",
+      "right_roi_sha256": "25b3b4eec337dba5b88e222983c38479cade051508d39b23b5182dc9a9981009",
+      "elapsed_ms": 562.9999999946449
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000019",
+      "captured_at_monotonic": 182345.625,
+      "observed_at_monotonic": 182345.64,
+      "t": 23.92200000002049,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 140.9999999741558,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 386.4270000194665,
+      "left_roi_sha256": "e28cd4ad53fee99e42e617f3616092bee6eea610f13364f49f279273ef2fd30c",
+      "right_roi_sha256": "da81c03eb3e675ed6a41abd03c8965ad21fbf0f028702358e4d75b72479da36f",
+      "elapsed_ms": 530.9999999881256
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000020",
+      "captured_at_monotonic": 182346.937,
+      "observed_at_monotonic": 182346.953,
+      "t": 25.235000000015134,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 139.999999984866,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 378.3578000147827,
+      "left_roi_sha256": "1d69f57659a71bd34f6dce2e2a145a82755a3fc566506c80fbca59386d74b65e",
+      "right_roi_sha256": "c35691d9fd3ed0669cefc02f8560b465ae38021fc699882aa8808b375c7153c3",
+      "elapsed_ms": 514.999999984866
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000021",
+      "captured_at_monotonic": 182348.187,
+      "observed_at_monotonic": 182348.218,
+      "t": 26.5,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 157.00000000651926,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 464.4770000013523,
+      "left_roi_sha256": "d33f9e8971ab34659d6c76d39b4d1cf015acbbf8981d39c8908fd82435270d79",
+      "right_roi_sha256": "61ee416efa79181bcf86f5550977d404c039e01cdc5dff48d71b777b35a0c04d",
+      "elapsed_ms": 641.0000000032596
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000022",
+      "captured_at_monotonic": 182349.39,
+      "observed_at_monotonic": 182349.421,
+      "t": 27.703000000008615,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 157.00000000651926,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 357.2892999800388,
+      "left_roi_sha256": "c1abf66ffceda4bb9825d5aa08510963f4ac83e014c4b80bd8df38c1e9f523d9",
+      "right_roi_sha256": "fa56fbeb5e9ab10cccf27fc7b0a20d9fba368847b4317f6340a31937ec988770",
+      "elapsed_ms": 516.0000000032596
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000023",
+      "captured_at_monotonic": 182350.765,
+      "observed_at_monotonic": 182350.812,
+      "t": 29.094000000011874,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 155.99999998812564,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 449.21019999310374,
+      "left_roi_sha256": "39428825923d81ca5a6d71c961d410554874036b3911234a375533fa485a1933",
+      "right_roi_sha256": "2fb2a8381db1a13be3d8f2a085c342faa1110b6a2b1268c58f53692a871156ea",
+      "elapsed_ms": 608.9999999967404
+    }
+  ],
+  "completed_at_utc": "2026-09-08T14:17:50.597201+00:00"
+}

@@ -1,0 +1,390 @@
+{
+  "tool": "Python 3.11 stdlib struct/mmap; metadata parser v1",
+  "symbols": "not loaded; no debugger stack available",
+  "dumps": [
+    {
+      "path": "C:\\Users\\user\\AppData\\Local\\CrashDumps\\python.exe.27012.dmp",
+      "size": 43851515,
+      "sha256": "d7ad18d2b268740b796ea1423983f537e7803ac3d6a31c64e69da443244a76d5",
+      "exception": {
+        "thread_id": 28816,
+        "code": "0xc0000005",
+        "address": "0x7ff9ed73e451",
+        "parameters": [
+          "0x0",
+          "0x7ff938f620cc"
+        ],
+        "module": {
+          "name": "C:\\Windows\\System32\\ucrtbase.dll",
+          "base": 140711406403584,
+          "size": 1359872
+        },
+        "module_offset": "0xee451"
+      },
+      "relevant_modules": [
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+          "base": 140698955677696,
+          "size": 106496
+        },
+        {
+          "name": "C:\\Windows\\System32\\ucrtbase.dll",
+          "base": 140711406403584,
+          "size": 1359872
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\VCRUNTIME140.dll",
+          "base": 140709578407936,
+          "size": 118784
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\python311.dll",
+          "base": 140708275486720,
+          "size": 6119424
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\python3.dll",
+          "base": 2035256655872,
+          "size": 61440
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_uuid.pyd",
+          "base": 140710941491200,
+          "size": 28672
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_bz2.pyd",
+          "base": 140709441830912,
+          "size": 86016
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_lzma.pyd",
+          "base": 140709438095360,
+          "size": 167936
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_hashlib.pyd",
+          "base": 140709402574848,
+          "size": 69632
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\libcrypto-3.dll",
+          "base": 140707806445568,
+          "size": 5214208
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_sqlite3.pyd",
+          "base": 140709400084480,
+          "size": 122880
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\sqlite3.dll",
+          "base": 140707804872704,
+          "size": 1540096
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_socket.pyd",
+          "base": 140709399953408,
+          "size": 86016
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\select.pyd",
+          "base": 140710529007616,
+          "size": 36864
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_ssl.pyd",
+          "base": 140709399035904,
+          "size": 184320
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\libssl-3.dll",
+          "base": 140708378443776,
+          "size": 794624
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_queue.pyd",
+          "base": 140710425985024,
+          "size": 36864
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\VCRUNTIME140_1.dll",
+          "base": 140710414057472,
+          "size": 49152
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_ctypes.pyd",
+          "base": 140709394710528,
+          "size": 126976
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\libffi-8.dll",
+          "base": 140710301597696,
+          "size": 45056
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\unicodedata.pyd",
+          "base": 140709404016640,
+          "size": 1146880
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_asyncio.pyd",
+          "base": 140709403295744,
+          "size": 69632
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_overlapped.pyd",
+          "base": 140709402509312,
+          "size": 57344
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_decimal.pyd",
+          "base": 140709282643968,
+          "size": 258048
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_zoneinfo.pyd",
+          "base": 140709398970368,
+          "size": 53248
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_multiprocessing.pyd",
+          "base": 140709291556864,
+          "size": 36864
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_elementtree.pyd",
+          "base": 140707774857216,
+          "size": 131072
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\pyexpat.pyd",
+          "base": 140707774595072,
+          "size": 204800
+        },
+        {
+          "name": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\_cffi_backend.cp311-win_amd64.pyd",
+          "base": 140707689332736,
+          "size": 200704
+        },
+        {
+          "name": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\_sounddevice_data\\portaudio-binaries\\libportaudio64bit.dll",
+          "base": 140707677208576,
+          "size": 335872
+        },
+        {
+          "name": "C:\\Windows\\System32\\AudioSes.dll",
+          "base": 140711062929408,
+          "size": 1798144
+        }
+      ],
+      "stack_status": "not_unwound; no native call attribution",
+      "stream_types": [
+        0,
+        3,
+        4,
+        5,
+        6,
+        7,
+        13,
+        15,
+        21,
+        22
+      ]
+    },
+    {
+      "path": "C:\\Users\\user\\AppData\\Local\\CrashDumps\\python.exe.31856.dmp",
+      "size": 44441578,
+      "sha256": "c0cb1fcb7ab89c5dc7f103ef40c15f1c85c35aa29036f60481f1512e7a5f6a11",
+      "exception": {
+        "thread_id": 29564,
+        "code": "0xc0000005",
+        "address": "0x7ff916200dde",
+        "parameters": [
+          "0x0",
+          "0x1"
+        ],
+        "module": {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\libcrypto-3.dll",
+          "base": 140707792093184,
+          "size": 5214208
+        },
+        "module_offset": "0x290dde"
+      },
+      "relevant_modules": [
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+          "base": 140698955677696,
+          "size": 106496
+        },
+        {
+          "name": "C:\\Windows\\System32\\ucrtbase.dll",
+          "base": 140711406403584,
+          "size": 1359872
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\python311.dll",
+          "base": 140708275486720,
+          "size": 6119424
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\VCRUNTIME140.dll",
+          "base": 140709578407936,
+          "size": 118784
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\python3.dll",
+          "base": 2891465293824,
+          "size": 61440
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_uuid.pyd",
+          "base": 140710529007616,
+          "size": 28672
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_bz2.pyd",
+          "base": 140710174064640,
+          "size": 86016
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_lzma.pyd",
+          "base": 140710173868032,
+          "size": 167936
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_hashlib.pyd",
+          "base": 140709441830912,
+          "size": 69632
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\libcrypto-3.dll",
+          "base": 140707792093184,
+          "size": 5214208
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_sqlite3.pyd",
+          "base": 140709440323584,
+          "size": 122880
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\sqlite3.dll",
+          "base": 140708361994240,
+          "size": 1540096
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_socket.pyd",
+          "base": 140709438160896,
+          "size": 86016
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\select.pyd",
+          "base": 140710414057472,
+          "size": 36864
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_ssl.pyd",
+          "base": 140709402050560,
+          "size": 184320
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\libssl-3.dll",
+          "base": 140708834508800,
+          "size": 794624
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_queue.pyd",
+          "base": 140710301597696,
+          "size": 36864
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\VCRUNTIME140_1.dll",
+          "base": 140709850251264,
+          "size": 49152
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_ctypes.pyd",
+          "base": 140709546229760,
+          "size": 126976
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\libffi-8.dll",
+          "base": 140711157694464,
+          "size": 45056
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\unicodedata.pyd",
+          "base": 140708360093696,
+          "size": 1146880
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_asyncio.pyd",
+          "base": 140709285199872,
+          "size": 69632
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_overlapped.pyd",
+          "base": 140709346279424,
+          "size": 57344
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_decimal.pyd",
+          "base": 140709282643968,
+          "size": 258048
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_zoneinfo.pyd",
+          "base": 140709305253888,
+          "size": 53248
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_multiprocessing.pyd",
+          "base": 140709187747840,
+          "size": 36864
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\_elementtree.pyd",
+          "base": 140707775053824,
+          "size": 131072
+        },
+        {
+          "name": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\pyexpat.pyd",
+          "base": 140707774791680,
+          "size": 204800
+        },
+        {
+          "name": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\_cffi_backend.cp311-win_amd64.pyd",
+          "base": 140707689332736,
+          "size": 200704
+        },
+        {
+          "name": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\_sounddevice_data\\portaudio-binaries\\libportaudio64bit.dll",
+          "base": 140707672358912,
+          "size": 335872
+        },
+        {
+          "name": "C:\\Windows\\System32\\AudioSes.dll",
+          "base": 140711062929408,
+          "size": 1798144
+        }
+      ],
+      "stack_status": "not_unwound; no native call attribution",
+      "stream_types": [
+        0,
+        3,
+        4,
+        5,
+        6,
+        7,
+        13,
+        15,
+        21,
+        22
+      ]
+    }
+  ],
+  "debugger_candidates": {
+    "C:\\Program Files (x86)\\Windows Kits\\10\\Debuggers\\x64\\cdb.exe": false,
+    "C:\\Program Files (x86)\\Windows Kits\\10\\Debuggers\\x64\\windbg.exe": false
+  }
+}

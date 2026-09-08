@@ -1,0 +1,12 @@
+{
+  "root": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\diagnostics\\h123-correction-1788826898582980900",
+  "interpreter": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Scripts\\python.exe",
+  "returncode": 0,
+  "results": [
+    {
+      "package": "device-runtime",
+      "returncode": 0,
+      "output": "........................................................................ [ 23%]\n........................................................................ [ 47%]\n........................................................................ [ 71%]\n........................................................................ [ 95%]\n.............                                                            [100%]\n============================== warnings summary ===============================\n..\\document-parser\\src\\document_parser\\math\\latex_ast.py:1\n  C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\diagnostics\\h123-correction-1788826898582980900\\document-parser\\src\\document_parser\\math\\latex_ast.py:1: DeprecationWarning: invalid escape sequence '\\o'\n    \"\"\"LaTeX -> Presentation AST parser and validator.\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n301 passed, 1 warning in 18.79s\n\n"
+    }
+  ]
+}

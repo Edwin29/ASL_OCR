@@ -1,0 +1,12 @@
+{
+  "source_sha256": "030d3f3ed8d94b87af99ddee4da641c4b1ed0af1a029fbaf13c2c812a718fa3f",
+  "functions": [
+    "ApplyBrailleFrame",
+    "ParseAndApplyFrame",
+    "ProcessHostLine",
+    "PumpBluetoothInput"
+  ],
+  "compiler": "MSVC 14.43.34808 x64",
+  "exit_code": 0,
+  "model_limits": "single unread UART data register; ideal wire; mock I2C; no radio/ORE measurement; ShowCurrentState time omitted"
+}

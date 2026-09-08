@@ -1,0 +1,250 @@
+[
+  {
+    "phase": "live-reference-02",
+    "source_sha256": "3cafa44b5cd5348df8b21ed4b4799bffcca590b0fe0a7e9f29c380b5aabc74a4",
+    "retry_reasons": [
+      "page_not_found",
+      "seam_failed"
+    ],
+    "metrics": {
+      "page_pair_found": false,
+      "source_width": 4000,
+      "source_height": 3000,
+      "preview_width": 640,
+      "preview_height": 480,
+      "physical_edge_margin_fraction": 0.0,
+      "outer_frame_contact_warning": false,
+      "outer_frame_contacts_are_hard_gate": false,
+      "left_top_contact": false,
+      "left_bottom_contact": false,
+      "left_outer_contact": false,
+      "right_top_contact": false,
+      "right_bottom_contact": false,
+      "right_outer_contact": false,
+      "left_top_edge_contact_fraction": 0.0,
+      "left_top_bright_edge_fraction": 0.0,
+      "left_top_ink_edge_fraction": 0.0,
+      "left_bottom_edge_contact_fraction": 0.0,
+      "left_bottom_bright_edge_fraction": 0.0,
+      "left_bottom_ink_edge_fraction": 0.0,
+      "left_outer_edge_contact_fraction": 0.0,
+      "left_outer_bright_edge_fraction": 0.0,
+      "left_outer_ink_edge_fraction": 0.0,
+      "right_top_edge_contact_fraction": 0.0,
+      "right_top_bright_edge_fraction": 0.0,
+      "right_top_ink_edge_fraction": 0.0,
+      "right_bottom_edge_contact_fraction": 0.0,
+      "right_bottom_bright_edge_fraction": 0.0,
+      "right_bottom_ink_edge_fraction": 0.0,
+      "right_outer_edge_contact_fraction": 0.0,
+      "right_outer_bright_edge_fraction": 0.0,
+      "right_outer_ink_edge_fraction": 0.0,
+      "max_edge_contact_fraction": 0.0,
+      "max_bright_edge_fraction": 0.0,
+      "max_ink_edge_fraction": 0.0,
+      "physical_page_clipping_warning": false,
+      "physical_page_clipping_directions": null,
+      "confirmed_content_clipping": false,
+      "confirmed_content_clipping_directions": null,
+      "confirmed_content_clipping_is_hard_gate": false,
+      "mask_confidence_min": 0.0,
+      "white_clip_fraction": 0.0,
+      "black_clip_fraction": 0.0,
+      "illumination_range": 0.2626624669530733,
+      "tenengrad": 1817.50620894845,
+      "laplacian_variance": 276.72754896049497,
+      "left_area_fraction": 0.0,
+      "right_area_fraction": 0.2582063802083333,
+      "seam_proxy_fraction": null,
+      "seam_dispersion_fraction": null,
+      "seam_proxy_confidence": null,
+      "seam_proxy_available": false,
+      "obstruction_detected": false,
+      "content_occluded": false,
+      "obstruction_confidence": 0.0,
+      "obstruction_side": null,
+      "obstruction_bbox_preview": null,
+      "obstruction_component_area_fraction": 0.0,
+      "obstruction_content_overlap_fraction": 0.0,
+      "obstruction_detector": "edge-chroma-intrusion",
+      "obstruction_detector_version": "v1",
+      "obstruction_runtime_provenance": "local-classical-fixed-camera-provisional"
+    },
+    "sides": {
+      "left": {
+        "mask_present": false,
+        "reject_reason": "no_plausible_page_component",
+        "segmentation_diagnostics": {
+          "reason": "external_contour_score_below_threshold",
+          "external_contour_count": 1,
+          "candidate_count": 1,
+          "best_score": 0.5907175640651532
+        }
+      },
+      "right": {
+        "mask_present": true,
+        "reject_reason": null,
+        "segmentation_diagnostics": {
+          "score": 0.8865251707701689,
+          "area_ratio": 0.45829841713221603,
+          "height_ratio": 0.7291666666666666,
+          "inside_luminance": 190.76129601613715,
+          "outside_ring_luminance": 52.5813339731286,
+          "contrast_score": 1.0,
+          "edge_support": 0.9052325581395348,
+          "bbox": [
+            0,
+            34,
+            240,
+            350
+          ],
+          "source": "black_background_external_contour",
+          "retrieval_mode": "RETR_EXTERNAL",
+          "external_contour_count": 1,
+          "candidate_count": 1,
+          "decision": "multi_signal_score_not_area_only"
+        }
+      }
+    },
+    "brightness_checks": [
+      {
+        "area_ratio": 0.6397724627560522,
+        "height_ratio": 0.7583333333333333,
+        "inside_mean": 172.03497540509258,
+        "ring_mean": 78.33452722063038,
+        "contrast_score": 0.732034751441111
+      },
+      {
+        "area_ratio": 0.45829841713221603,
+        "height_ratio": 0.7291666666666666,
+        "inside_mean": 190.76129601613715,
+        "ring_mean": 52.5813339731286,
+        "contrast_score": 1.0
+      }
+    ]
+  },
+  {
+    "phase": "live-query-01",
+    "source_sha256": "bf98bb2d5bc2fb63584f780656a98b0d77f90bb74c9fd129a5d8db0144a59360",
+    "retry_reasons": [
+      "page_not_found",
+      "seam_failed"
+    ],
+    "metrics": {
+      "page_pair_found": false,
+      "source_width": 4000,
+      "source_height": 3000,
+      "preview_width": 640,
+      "preview_height": 480,
+      "physical_edge_margin_fraction": 0.0,
+      "outer_frame_contact_warning": false,
+      "outer_frame_contacts_are_hard_gate": false,
+      "left_top_contact": false,
+      "left_bottom_contact": false,
+      "left_outer_contact": false,
+      "right_top_contact": false,
+      "right_bottom_contact": false,
+      "right_outer_contact": false,
+      "left_top_edge_contact_fraction": 0.0,
+      "left_top_bright_edge_fraction": 0.0,
+      "left_top_ink_edge_fraction": 0.0,
+      "left_bottom_edge_contact_fraction": 0.0,
+      "left_bottom_bright_edge_fraction": 0.0,
+      "left_bottom_ink_edge_fraction": 0.0,
+      "left_outer_edge_contact_fraction": 0.0,
+      "left_outer_bright_edge_fraction": 0.0,
+      "left_outer_ink_edge_fraction": 0.0,
+      "right_top_edge_contact_fraction": 0.0,
+      "right_top_bright_edge_fraction": 0.0,
+      "right_top_ink_edge_fraction": 0.0,
+      "right_bottom_edge_contact_fraction": 0.0,
+      "right_bottom_bright_edge_fraction": 0.0,
+      "right_bottom_ink_edge_fraction": 0.0,
+      "right_outer_edge_contact_fraction": 0.0,
+      "right_outer_bright_edge_fraction": 0.0,
+      "right_outer_ink_edge_fraction": 0.0,
+      "max_edge_contact_fraction": 0.0,
+      "max_bright_edge_fraction": 0.0,
+      "max_ink_edge_fraction": 0.0,
+      "physical_page_clipping_warning": false,
+      "physical_page_clipping_directions": null,
+      "confirmed_content_clipping": false,
+      "confirmed_content_clipping_directions": null,
+      "confirmed_content_clipping_is_hard_gate": false,
+      "mask_confidence_min": 0.0,
+      "white_clip_fraction": 0.0,
+      "black_clip_fraction": 0.0,
+      "illumination_range": 0.21725144140617347,
+      "tenengrad": 2255.1085295396656,
+      "laplacian_variance": 340.22995963377565,
+      "left_area_fraction": 0.0,
+      "right_area_fraction": 0.26199544270833336,
+      "seam_proxy_fraction": null,
+      "seam_dispersion_fraction": null,
+      "seam_proxy_confidence": null,
+      "seam_proxy_available": false,
+      "obstruction_detected": false,
+      "content_occluded": false,
+      "obstruction_confidence": 0.0,
+      "obstruction_side": null,
+      "obstruction_bbox_preview": null,
+      "obstruction_component_area_fraction": 0.0,
+      "obstruction_content_overlap_fraction": 0.0,
+      "obstruction_detector": "edge-chroma-intrusion",
+      "obstruction_detector_version": "v1",
+      "obstruction_runtime_provenance": "local-classical-fixed-camera-provisional"
+    },
+    "sides": {
+      "left": {
+        "mask_present": false,
+        "reject_reason": "no_plausible_page_component",
+        "segmentation_diagnostics": {
+          "reason": "external_contour_score_below_threshold",
+          "external_contour_count": 1,
+          "candidate_count": 1,
+          "best_score": 0.6053962091349484
+        }
+      },
+      "right": {
+        "mask_present": true,
+        "reject_reason": null,
+        "segmentation_diagnostics": {
+          "score": 0.8851478303812603,
+          "area_ratio": 0.46498777932960894,
+          "height_ratio": 0.7270833333333333,
+          "inside_luminance": 189.9328760655086,
+          "outside_ring_luminance": 53.94988555595712,
+          "contrast_score": 1.0,
+          "edge_support": 0.9090368608799049,
+          "bbox": [
+            0,
+            32,
+            238,
+            349
+          ],
+          "source": "black_background_external_contour",
+          "retrieval_mode": "RETR_EXTERNAL",
+          "external_contour_count": 1,
+          "candidate_count": 1,
+          "decision": "multi_signal_score_not_area_only"
+        }
+      }
+    },
+    "brightness_checks": [
+      {
+        "area_ratio": 0.6705510940409684,
+        "height_ratio": 0.7770833333333333,
+        "inside_mean": 164.68641779326884,
+        "ring_mean": 75.96171944550426,
+        "contrast_score": 0.6931617058419108
+      },
+      {
+        "area_ratio": 0.46498777932960894,
+        "height_ratio": 0.7270833333333333,
+        "inside_mean": 189.9328760655086,
+        "ring_mean": 53.94988555595712,
+        "contrast_score": 1.0
+      }
+    ]
+  }
+]

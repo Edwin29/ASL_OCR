@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "run_id": "audio-console-20260908-163539",
+  "started_at_utc": "2026-09-08T08:46:51.969055+00:00",
+  "completed_at_utc": "2026-09-08T08:47:39.580374+00:00",
+  "windows_session_id": 3,
+  "audio_device": {
+    "output_index": 3,
+    "output_name": "스피커(Realtek(R) Audio)",
+    "hostapi_index": 0,
+    "hostapi_name": "MME",
+    "default_samplerate": 44100.0,
+    "max_output_channels": 8
+  },
+  "coordinator_state": "stopped",
+  "cursor_at_exit": {
+    "braille_offset": 0,
+    "document_id": "datapack-63c0ac30cc8a482f8fa9d0795e044a03",
+    "focus_item_id": "pg-c4b5938b7318-00000001-R-vl009-L01",
+    "generation": 171,
+    "math_span_index": 0,
+    "mode": "DOCUMENT",
+    "node_index": 9,
+    "page_id": "pg-c4b5938b7318-00000001-R",
+    "page_index": 1,
+    "table_column": null,
+    "table_row": null
+  },
+  "application_exit_code": 0,
+  "presentation_failures": {
+    "braille": 0,
+    "audio": 0
+  },
+  "audio_worker_alive_after_stop": false,
+  "audio_close_complete": true,
+  "error": null
+}

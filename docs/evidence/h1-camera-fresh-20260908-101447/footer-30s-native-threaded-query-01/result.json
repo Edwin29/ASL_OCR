@@ -1,0 +1,176 @@
+{
+  "kind": "threaded_preview_production_native_query",
+  "started_at_utc": "2026-09-08T02:37:39.757954+00:00",
+  "python": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Scripts\\python.exe",
+  "expected_operator_pages": "28/29 retained after completed two-phase diagnostic",
+  "duration_seconds": 30.0,
+  "input_stage": "preview_native",
+  "maximum_dimension_rule": "max(frame.payload.shape[:2])",
+  "query_sample_count_unchanged": 5,
+  "max_collection_ms_unchanged": 8000,
+  "threshold_changes": 0,
+  "uploads": 0,
+  "product_state_changes": 0,
+  "credential_values_recorded": false,
+  "rows": [
+    {
+      "source_frame_id": "phone-snapshot-00000001",
+      "observed_at_monotonic": 140348.609,
+      "candidate_retry_reasons": [],
+      "left_raw": "1",
+      "right_raw": "0",
+      "left_status": "observed",
+      "right_status": "conflict",
+      "pair": [
+        "1",
+        "0"
+      ],
+      "recognition_processing_ms": 1180.374599993229,
+      "elapsed_ms": 1359.0
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000002",
+      "observed_at_monotonic": 140351.531,
+      "candidate_retry_reasons": [],
+      "left_raw": "1",
+      "right_raw": null,
+      "left_status": "observed",
+      "right_status": "not_observed",
+      "pair": null,
+      "recognition_processing_ms": 589.0278000151739,
+      "elapsed_ms": 828.0
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000003",
+      "observed_at_monotonic": 140357.25,
+      "candidate_retry_reasons": [],
+      "left_raw": "1",
+      "right_raw": null,
+      "left_status": "observed",
+      "right_status": "not_observed",
+      "pair": null,
+      "recognition_processing_ms": 470.76840000227094,
+      "elapsed_ms": 656.0
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000004",
+      "observed_at_monotonic": 140358.75,
+      "candidate_retry_reasons": [
+        "page_not_found",
+        "seam_failed"
+      ],
+      "elapsed_ms": 187.0
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000005",
+      "observed_at_monotonic": 140360.015,
+      "candidate_retry_reasons": [],
+      "left_raw": "28",
+      "right_raw": "29",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "28",
+        "29"
+      ],
+      "recognition_processing_ms": 534.6634000015911,
+      "elapsed_ms": 703.0
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000006",
+      "observed_at_monotonic": 140361.296,
+      "candidate_retry_reasons": [],
+      "left_raw": null,
+      "right_raw": "29",
+      "left_status": "not_observed",
+      "right_status": "observed",
+      "pair": null,
+      "recognition_processing_ms": 521.3679000153206,
+      "elapsed_ms": 797.0
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000007",
+      "observed_at_monotonic": 140362.625,
+      "candidate_retry_reasons": [],
+      "left_raw": "28",
+      "right_raw": "29",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "28",
+        "29"
+      ],
+      "recognition_processing_ms": 1124.896199995419,
+      "elapsed_ms": 1343.0
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000008",
+      "observed_at_monotonic": 140364.296,
+      "candidate_retry_reasons": [],
+      "left_raw": "28",
+      "right_raw": "29",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "28",
+        "29"
+      ],
+      "recognition_processing_ms": 1359.7496000002138,
+      "elapsed_ms": 1625.0
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000009",
+      "observed_at_monotonic": 140366.171,
+      "candidate_retry_reasons": [],
+      "left_raw": "28",
+      "right_raw": "29",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "28",
+        "29"
+      ],
+      "recognition_processing_ms": 1278.2336000236683,
+      "elapsed_ms": 1532.0
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000010",
+      "observed_at_monotonic": 140367.937,
+      "candidate_retry_reasons": [],
+      "left_raw": "28",
+      "right_raw": "29",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "28",
+        "29"
+      ],
+      "recognition_processing_ms": 1154.8996999918018,
+      "elapsed_ms": 1453.0
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000011",
+      "observed_at_monotonic": 140369.562,
+      "candidate_retry_reasons": [],
+      "left_raw": "28",
+      "right_raw": "29",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "28",
+        "29"
+      ],
+      "recognition_processing_ms": 1232.1693999983836,
+      "elapsed_ms": 1516.0
+    }
+  ],
+  "sample_count": 11,
+  "candidate_eligible_count": 10,
+  "complete_pair_count": 7,
+  "pair_counts": {
+    "1|0": 1,
+    "28|29": 6
+  },
+  "largest_pair_consensus": 6,
+  "completed_at_utc": "2026-09-08T02:38:10.120728+00:00"
+}

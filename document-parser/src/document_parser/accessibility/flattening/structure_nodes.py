@@ -110,10 +110,14 @@ def _flatten_node(
 
     if content_type == "TEXT":
         spans = node.get("spans") if isinstance(node.get("spans"), list) else []
+        suppress_choice_braille = (
+            layout.get("problem_unit_role") == "choices"
+            or layout.get("semantic_role") == "answer_choices"
+        )
         return [build_focus_item(
             node_id, "TEXT", page_id, reading_index, [node_id],
             confidence=confidence, issues=issues, problem_id=problem_id,
-            spans=_flatten_spans(spans),
+            spans=_flatten_spans(spans, suppress_math_accessibility=suppress_choice_braille),
         )]
 
     if content_type == "MATH":
@@ -193,7 +197,9 @@ def _flatten_problem_unit(
     return items
 
 
-def _flatten_spans(spans: list[object]) -> list[dict[str, object]]:
+def _flatten_spans(
+    spans: list[object], *, suppress_math_accessibility: bool = False
+) -> list[dict[str, object]]:
     fragments: list[dict[str, object]] = []
     for index, span in enumerate(spans):
         if not isinstance(span, dict):
@@ -212,7 +218,10 @@ def _flatten_spans(spans: list[object]) -> list[dict[str, object]]:
                 "unconsumed_tokens": unconsumed,
                 "ast_status": classify_ast_status(unconsumed, ast_issues),
             }
-            if lexical_suffix is not None:
+            if suppress_math_accessibility:
+                fragment["standalone_accessibility"] = False
+                fragment["standalone_suppression_reason"] = "ANSWER_CHOICE_POLICY"
+            elif lexical_suffix is not None:
                 fragment["standalone_accessibility"] = False
                 fragment["standalone_suppression_reason"] = f"ADJACENT_LEXICAL_SUFFIX:{lexical_suffix}"
             fragments.append(fragment)

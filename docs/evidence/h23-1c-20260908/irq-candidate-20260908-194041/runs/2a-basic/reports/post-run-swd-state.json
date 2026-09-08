@@ -1,0 +1,33 @@
+{
+  "observation_date_local": "2026-09-08",
+  "method": "read-only STM32CubeProgrammer HOTPLUG memory read followed by resume",
+  "candidate_elf_sha256": "a6405b334bff58825fdef335f0c26607d334c6b0c835f8eba53c5cd9a2ca3ca7",
+  "target_voltage_v": 3.24,
+  "device_id": "0x421",
+  "symbols": {
+    "last_frame_apply_ok": "0x2000022c",
+    "pca_apply_failures": "0x20000230",
+    "last_applied_generation": "0x20000234",
+    "bt_rx_overrun_errors": "0x20000be4",
+    "bt_rx_frame_errors": "0x20000be8",
+    "bt_rx_noise_errors": "0x20000bec",
+    "bt_rx_parity_errors": "0x20000bf0",
+    "bt_rx_ring_overflows": "0x20000bf4"
+  },
+  "raw_memory": {
+    "0x2000022c_12_bytes": "01 00 00 00 00 00 00 00 6F 00 00 00",
+    "0x20000be4_20_bytes": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00"
+  },
+  "decoded": {
+    "last_frame_apply_ok": 1,
+    "pca_apply_failures": 0,
+    "last_applied_generation": 111,
+    "bt_rx_overrun_errors": 0,
+    "bt_rx_frame_errors": 0,
+    "bt_rx_noise_errors": 0,
+    "bt_rx_parity_errors": 0,
+    "bt_rx_ring_overflows": 0
+  },
+  "application_resumed": true,
+  "scope_limit": "HAL success proves the requested PCA I2C writes returned successfully; it does not prove the PWM waveform, servo shaft position, cam motion, or physical dot position."
+}

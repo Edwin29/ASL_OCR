@@ -1,0 +1,85 @@
+{
+  "kind": "saved_frame_production_native_replay",
+  "completed_at_utc": "2026-09-08T02:35:50.377757+00:00",
+  "python": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Scripts\\python.exe",
+  "uploads": 0,
+  "product_state_changes": 0,
+  "threshold_changes": 0,
+  "scope_limit": "first saved frame from each 30-second phase only",
+  "rows": [
+    {
+      "phase": "reference",
+      "source_file": "reference-source-frame.jpg",
+      "source_sha256": "b031bb9e01b8d2593b0314913993dd6175214eeb4ec57363775fb05ffb3e5e77",
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "input_stage": "preview_native",
+      "maximum_dimension_argument": 4000,
+      "recognition_processing_ms": 1112.2427000082098,
+      "spread_status": "conflict",
+      "left_status": "conflict",
+      "left_raw": "2441",
+      "right_status": "observed",
+      "right_raw": "27",
+      "pair": [
+        "2441",
+        "27"
+      ],
+      "candidate_retry_reasons": [],
+      "left_roi_bbox": [
+        169,
+        2382,
+        604,
+        506
+      ],
+      "left_roi_sha256": "034f0b092087ab779055ed17ca47ddefb79d6884aecd51c784f0b88647fe10d2",
+      "right_roi_bbox": [
+        3133,
+        2343,
+        667,
+        489
+      ],
+      "right_roi_sha256": "b2dd71d2e1161cd11f551f215ecb133a2b61724667323d1db1f90bca8bfd421d"
+    },
+    {
+      "phase": "query",
+      "source_file": "query-source-frame.jpg",
+      "source_sha256": "1522921a4e222ff19bb2d12920e59c1db5d171c487a062a1fe958ecf161e3c27",
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "input_stage": "preview_native",
+      "maximum_dimension_argument": 4000,
+      "recognition_processing_ms": 1268.8441000063904,
+      "spread_status": "complete",
+      "left_status": "observed",
+      "left_raw": "28",
+      "right_status": "observed",
+      "right_raw": "29",
+      "pair": [
+        "28",
+        "29"
+      ],
+      "candidate_retry_reasons": [],
+      "left_roi_bbox": [
+        163,
+        2388,
+        608,
+        512
+      ],
+      "left_roi_sha256": "dfcf83fbc3e74c74a3e56da7f836b058f5c8ea76c6f9232526868d599d10e95a",
+      "right_roi_bbox": [
+        3135,
+        2343,
+        665,
+        489
+      ],
+      "right_roi_sha256": "ed94de79fa876bc5b4a36932db08399a3e726900fa2874f4c6684762b1045a51"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "event_count": 0,
+  "code_counts": {},
+  "spread_sent_count": 0,
+  "last_spread_sent_at": null,
+  "post_spread_event_count": 0,
+  "post_spread_code_counts": {},
+  "last_event": null,
+  "tail": [],
+  "delivery_tables": {
+    "delivery_outbox": [
+      {
+        "outbox_id": "outbox-c77ff485bfc8409991a6fc9076cb1f97",
+        "scan_session_id": "scan-9725fbc4b3d04095a1810a3d16ef6b35",
+        "sequence": 1,
+        "device_id": "laptop-device-001",
+        "artifact_id": "spread-cd479bf7b7c9a62b8e2c967750e052d2",
+        "spread_id": "scan-9725fbc4b3d04095a1810a3d16ef6b35-spread-000006",
+        "source_frame_id": "phone-snapshot-00000069",
+        "manifest_path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944\\state\\camera-console\\artifacts\\ready\\spread-cd479bf7b7c9a62b8e2c967750e052d2\\manifest.json",
+        "manifest_sha256": "c59468ebabc326d250afdc757fc0103c7b3077322b87b44a18dd6b0b33755ce9",
+        "inventory_json": "[{\"path\":\"source_frame.jpg\",\"sha256\":\"6d1fbf09ba989e67d331ace9d1423f17269465a7ef0088edee51888acbc87972\",\"size_bytes\":2781193},{\"path\":\"left/mask.png\",\"sha256\":\"03e1974b9bbf60a71056e64a54010c10c76a47c57c5cf32a4e809a6ec0cde357\",\"size_bytes\":16179},{\"path\":\"left/crop.jpg\",\"sha256\":\"9a122ea1b8672be4217c5b680a5cd310dbab06d0d9fbe4f60cc28eb4643306f4\",\"size_bytes\":723961},{\"path\":\"left/uvdoc.jpg\",\"sha256\":\"09144fc654baa3f075668de5e3f6704866cc1c27080f6760ed064e768fe0670a\",\"size_bytes\":548281},{\"path\":\"left/diagnostics.json\",\"sha256\":\"3ff8916cd938cfd83ed579187664601bde9e36abe65bc3c2d01d4118ddbdee63\",\"size_bytes\":1177},{\"path\":\"right/mask.png\",\"sha256\":\"48fc9082c5ad2c76de1ed5a311b6e7972908ddd2defc97e60e61b374b70455b6\",\"size_bytes\":15816},{\"path\":\"right/crop.jpg\",\"sha256\":\"77bd472d39c41c4b19abe9a645ea2fd52af52f5cce1e13b9b42170b2a2043d8d\",\"size_bytes\":733610},{\"path\":\"right/uvdoc.jpg\",\"sha256\":\"4597a3a574d3a197d5bf0628cde679557aeec9e0716cfce8b483d0469499b67d\",\"size_bytes\":553048},{\"path\":\"right/diagnostics.json\",\"sha256\":\"7cf190620bb964c693954bef96b53b7b93b5b5a35f16c095aaf2b033e747cc94\",\"size_bytes\":1179}]",
+        "file_count": 9,
+        "total_file_bytes": 5374444,
+        "upload_digest": "126050e336bac12acd37bba0e40fe410765c913ee1644d7a63837ec1403b3b7a",
+        "idempotency_key": "v3b-126050e336bac12acd37bba0e40fe410765c913ee1644d7a63837ec1403b3b7a",
+        "status": "acked",
+        "attempt_count": 1,
+        "receipt_id": "spread-receipt-678834b6e1bd5b4a69f548ab666b37cb",
+        "server_accepted_at": "2026-09-07T14:28:22.556783+00:00",
+        "last_http_status": 201,
+        "last_error_code": null,
+        "last_error_detail": null,
+        "cleanup_error": null,
+        "created_at": "2026-09-07T14:28:22.370031+00:00",
+        "updated_at": "2026-09-07T14:28:23.129124+00:00",
+        "terminal_at": "2026-09-07T14:28:23.113189+00:00"
+      }
+    ],
+    "delivery_schema_migrations": [
+      {
+        "version": 1,
+        "applied_at": "2026-09-07T14:22:01.405096+00:00"
+      }
+    ]
+  },
+  "scan_session_id": null,
+  "server": null,
+  "secret_recorded": false,
+  "read_only": true
+}

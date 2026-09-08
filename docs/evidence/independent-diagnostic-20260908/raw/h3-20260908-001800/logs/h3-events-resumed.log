@@ -1,0 +1,137 @@
+python.exe : 정보: 제공된 패턴에 해당되는 파일을 찾지 못했습니다.
+위치 C:\ASL_OCR_INTEGRATION_RUNTIME\demo-20260905\hardware-integration\h3-20260908-001800\manifests\h3-visible-tee-runtim
+e.ps1:4 문자:1
++ & 'C:\ASL_OCR_INTEGRATION\.venv-e0b\Scripts\python.exe' -m asl_device ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (정보: 제공된 패턴에 해당되는 파일을 찾지 못했습니다.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+C:\ASL_OCR_INTEGRATION\.venv-e0b\Lib\site-packages\paddle\utils\cpp_extension\extension_utils.py:712: UserWarning: No c
+cache found. Please be aware that recompiling all source files may be required. You can download and install ccache fro
+m: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I0908 01:16:30.759068 13392 onednn_context.cc:81] oneDNN v3.6.2
+{"type":"feedback","code":"server_connecting","at_monotonic":103073.234,"details":{}}
+{"type":"feedback","code":"screen_changed","at_monotonic":103073.609,"details":{"screen":"datapack_selection","mode":"capture"}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":103073.609,"details":{"index":0,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-07 23:26 #26","kind":"existing","title_audio_ref":"s0-system-audio:32fb4be57014abe2d4034761a3d39c3d"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":103073.609,"details":{"audio_kind":"system","audio_ref_digest":"417deba6c618"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":103073.765,"details":{"audio_kind":"system","audio_ref_digest":"417deba6c618","content_length":129580,"duration_ms":2937}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":103077.062,"details":{"audio_kind":"system","audio_ref_digest":"417deba6c618"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":103077.062,"details":{"audio_kind":"system","audio_ref_digest":"cbdf46f47c08"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":103077.203,"details":{"audio_kind":"system","audio_ref_digest":"cbdf46f47c08","content_length":242732,"duration_ms":5503}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":103083.093,"details":{"audio_kind":"system","audio_ref_digest":"cbdf46f47c08"}}
+python.exe : 정보: 제공된 패턴에 해당되는 파일을 찾지 못했습니다.
+위치 C:\ASL_OCR_INTEGRATION_RUNTIME\demo-20260905\hardware-integration\h3-20260908-001800\manifests\h3-visible-tee-runtim
+e.ps1:4 문자:1
++ & 'C:\ASL_OCR_INTEGRATION\.venv-e0b\Scripts\python.exe' -m asl_device ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (정보: 제공된 패턴에 해당되는 파일을 찾지 못했습니다.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+C:\ASL_OCR_INTEGRATION\.venv-e0b\Lib\site-packages\paddle\utils\cpp_extension\extension_utils.py:712: UserWarning: No c
+cache found. Please be aware that recompiling all source files may be required. You can download and install ccache fro
+m: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I0908 01:19:00.355747 31136 onednn_context.cc:81] oneDNN v3.6.2
+{"type":"feedback","code":"server_connecting","at_monotonic":103222.921,"details":{}}
+{"type":"feedback","code":"screen_changed","at_monotonic":103223.296,"details":{"screen":"datapack_selection","mode":"capture"}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":103223.296,"details":{"index":0,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-07 23:26 #26","kind":"existing","title_audio_ref":"s0-system-audio:32fb4be57014abe2d4034761a3d39c3d"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":103223.296,"details":{"audio_kind":"system","audio_ref_digest":"417deba6c618"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":103223.39,"details":{"audio_kind":"system","audio_ref_digest":"417deba6c618","content_length":129580,"duration_ms":2937}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":103226.687,"details":{"audio_kind":"system","audio_ref_digest":"417deba6c618"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":103226.687,"details":{"audio_kind":"system","audio_ref_digest":"cbdf46f47c08"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":103226.828,"details":{"audio_kind":"system","audio_ref_digest":"cbdf46f47c08","content_length":242732,"duration_ms":5503}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":103232.718,"details":{"audio_kind":"system","audio_ref_digest":"cbdf46f47c08"}}
+{"type":"feedback","code":"operating_mode_changed","at_monotonic":103286.578,"details":{"mode":"reading"}}
+{"type":"feedback","code":"screen_changed","at_monotonic":103286.578,"details":{"screen":"datapack_selection","mode":"reading"}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":103286.578,"details":{"index":0,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-07 02:27 #24","kind":"existing","title_audio_ref":"s0-system-audio:619d989983f5ded27ba0199634e87b75"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":103286.578,"details":{"audio_kind":"system","audio_ref_digest":"6fca17eeca34"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":103286.703,"details":{"audio_kind":"system","audio_ref_digest":"6fca17eeca34","content_length":118828,"duration_ms":2694}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":103290.109,"details":{"audio_kind":"system","audio_ref_digest":"6fca17eeca34"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":103290.109,"details":{"audio_kind":"system","audio_ref_digest":"217b840a9a96"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":103290.562,"details":{"audio_kind":"system","audio_ref_digest":"217b840a9a96","content_length":232492,"duration_ms":5271}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":103296.171,"details":{"audio_kind":"system","audio_ref_digest":"217b840a9a96"}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":103796.515,"details":{"index":1,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-07 01:33 #23","kind":"existing","title_audio_ref":"s0-system-audio:8aad3b507fac0022243f0148e9c87530"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":103796.515,"details":{"audio_kind":"system","audio_ref_digest":"b0c10c8fd86e"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":103796.656,"details":{"audio_kind":"system","audio_ref_digest":"b0c10c8fd86e","content_length":258604,"duration_ms":5863}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":103797.187,"details":{"index":2,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-07 00:44 #22","kind":"existing","title_audio_ref":"s0-system-audio:e25edb4c86b68d1b75911b21df1c105f"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":103797.187,"details":{"audio_kind":"system","audio_ref_digest":"48448d5bfa89"}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":103797.375,"details":{"index":3,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-04 16:02 #17","kind":"existing","title_audio_ref":"s0-system-audio:4bc1008cf5c525b877317adaa2801379"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":103797.375,"details":{"audio_kind":"system","audio_ref_digest":"aa9edd085a97"}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":103797.562,"details":{"index":4,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-04 15:54 #16","kind":"existing","title_audio_ref":"s0-system-audio:cb253f6e4e9d1c74b1c265f592604b50"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":103797.578,"details":{"audio_kind":"system","audio_ref_digest":"355449a01e51"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":103797.765,"details":{"audio_kind":"system","audio_ref_digest":"355449a01e51","content_length":229932,"duration_ms":5213}}
+python.exe : 정보: 제공된 패턴에 해당되는 파일을 찾지 못했습니다.
+위치 C:\ASL_OCR_INTEGRATION_RUNTIME\demo-20260905\hardware-integration\h3-20260908-001800\manifests\h3-visible-tee-runtim
+e.ps1:4 문자:1
++ & 'C:\ASL_OCR_INTEGRATION\.venv-e0b\Scripts\python.exe' -m asl_device ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (정보: 제공된 패턴에 해당되는 파일을 찾지 못했습니다.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+C:\ASL_OCR_INTEGRATION\.venv-e0b\Lib\site-packages\paddle\utils\cpp_extension\extension_utils.py:712: UserWarning: No c
+cache found. Please be aware that recompiling all source files may be required. You can download and install ccache fro
+m: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I0908 01:33:50.728247 18324 onednn_context.cc:81] oneDNN v3.6.2
+{"type":"feedback","code":"server_connecting","at_monotonic":104113.187,"details":{}}
+{"type":"feedback","code":"screen_changed","at_monotonic":104113.593,"details":{"screen":"datapack_selection","mode":"capture"}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":104113.593,"details":{"index":0,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-07 23:26 #26","kind":"existing","title_audio_ref":"s0-system-audio:32fb4be57014abe2d4034761a3d39c3d"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":104113.593,"details":{"audio_kind":"system","audio_ref_digest":"417deba6c618"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":104113.734,"details":{"audio_kind":"system","audio_ref_digest":"417deba6c618","content_length":129580,"duration_ms":2937}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":104117.031,"details":{"audio_kind":"system","audio_ref_digest":"417deba6c618"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":104117.031,"details":{"audio_kind":"system","audio_ref_digest":"cbdf46f47c08"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":104117.187,"details":{"audio_kind":"system","audio_ref_digest":"cbdf46f47c08","content_length":242732,"duration_ms":5503}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":104123.093,"details":{"audio_kind":"system","audio_ref_digest":"cbdf46f47c08"}}
+{"type":"feedback","code":"operating_mode_changed","at_monotonic":104272.765,"details":{"mode":"reading"}}
+{"type":"feedback","code":"screen_changed","at_monotonic":104272.765,"details":{"screen":"datapack_selection","mode":"reading"}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":104272.765,"details":{"index":0,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-07 02:27 #24","kind":"existing","title_audio_ref":"s0-system-audio:619d989983f5ded27ba0199634e87b75"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":104272.765,"details":{"audio_kind":"system","audio_ref_digest":"6fca17eeca34"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":104272.875,"details":{"audio_kind":"system","audio_ref_digest":"6fca17eeca34","content_length":118828,"duration_ms":2694}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":104276.265,"details":{"audio_kind":"system","audio_ref_digest":"6fca17eeca34"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":104276.265,"details":{"audio_kind":"system","audio_ref_digest":"217b840a9a96"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":104276.437,"details":{"audio_kind":"system","audio_ref_digest":"217b840a9a96","content_length":232492,"duration_ms":5271}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":104282.046,"details":{"audio_kind":"system","audio_ref_digest":"217b840a9a96"}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":104284.078,"details":{"index":1,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-07 01:33 #23","kind":"existing","title_audio_ref":"s0-system-audio:8aad3b507fac0022243f0148e9c87530"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":104284.078,"details":{"audio_kind":"system","audio_ref_digest":"b0c10c8fd86e"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":104284.234,"details":{"audio_kind":"system","audio_ref_digest":"b0c10c8fd86e","content_length":258604,"duration_ms":5863}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":104290.484,"details":{"audio_kind":"system","audio_ref_digest":"b0c10c8fd86e"}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":104292.078,"details":{"index":0,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-07 02:27 #24","kind":"existing","title_audio_ref":"s0-system-audio:619d989983f5ded27ba0199634e87b75"}}
+{"type":"feedback","code":"reading_audio_cache_hit","at_monotonic":104292.078,"details":{"audio_kind":"system","audio_ref_digest":"217b840a9a96"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":104292.078,"details":{"audio_kind":"system","audio_ref_digest":"217b840a9a96","content_length":232492,"duration_ms":5271}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":104297.687,"details":{"audio_kind":"system","audio_ref_digest":"217b840a9a96"}}
+python.exe : 정보: 제공된 패턴에 해당되는 파일을 찾지 못했습니다.
+위치 C:\ASL_OCR_INTEGRATION_RUNTIME\demo-20260905\hardware-integration\h3-20260908-001800\manifests\h3-visible-tee-runtim
+e.ps1:4 문자:1
++ & 'C:\ASL_OCR_INTEGRATION\.venv-e0b\Scripts\python.exe' -m asl_device ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (정보: 제공된 패턴에 해당되는 파일을 찾지 못했습니다.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+C:\ASL_OCR_INTEGRATION\.venv-e0b\Lib\site-packages\paddle\utils\cpp_extension\extension_utils.py:712: UserWarning: No c
+cache found. Please be aware that recompiling all source files may be required. You can download and install ccache fro
+m: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I0908 02:14:32.051494 20992 onednn_context.cc:81] oneDNN v3.6.2
+{"type":"feedback","code":"server_connecting","at_monotonic":106554.484,"details":{}}
+{"type":"feedback","code":"screen_changed","at_monotonic":106554.906,"details":{"screen":"datapack_selection","mode":"capture"}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":106554.906,"details":{"index":0,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-07 23:26 #26","kind":"existing","title_audio_ref":"s0-system-audio:32fb4be57014abe2d4034761a3d39c3d"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":106554.906,"details":{"audio_kind":"system","audio_ref_digest":"417deba6c618"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":106555.062,"details":{"audio_kind":"system","audio_ref_digest":"417deba6c618","content_length":129580,"duration_ms":2937}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":106558.359,"details":{"audio_kind":"system","audio_ref_digest":"417deba6c618"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":106558.359,"details":{"audio_kind":"system","audio_ref_digest":"cbdf46f47c08"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":106558.515,"details":{"audio_kind":"system","audio_ref_digest":"cbdf46f47c08","content_length":242732,"duration_ms":5503}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":106564.406,"details":{"audio_kind":"system","audio_ref_digest":"cbdf46f47c08"}}
+{"type":"feedback","code":"operating_mode_changed","at_monotonic":107204.359,"details":{"mode":"reading"}}
+{"type":"feedback","code":"screen_changed","at_monotonic":107204.359,"details":{"screen":"datapack_selection","mode":"reading"}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":107204.359,"details":{"index":0,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-07 02:27 #24","kind":"existing","title_audio_ref":"s0-system-audio:619d989983f5ded27ba0199634e87b75"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":107204.359,"details":{"audio_kind":"system","audio_ref_digest":"6fca17eeca34"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":107204.515,"details":{"audio_kind":"system","audio_ref_digest":"6fca17eeca34","content_length":118828,"duration_ms":2694}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":107207.937,"details":{"audio_kind":"system","audio_ref_digest":"6fca17eeca34"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":107207.937,"details":{"audio_kind":"system","audio_ref_digest":"217b840a9a96"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":107208.109,"details":{"audio_kind":"system","audio_ref_digest":"217b840a9a96","content_length":232492,"duration_ms":5271}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":107213.718,"details":{"audio_kind":"system","audio_ref_digest":"217b840a9a96"}}

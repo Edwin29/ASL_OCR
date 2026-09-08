@@ -1,0 +1,41 @@
+{
+  "observation_date_local": "2026-09-08",
+  "observer": "user",
+  "frame_generation": 111,
+  "frame_kind": "all-zero clear",
+  "notation": {
+    "1": "raised",
+    "0": "retracted",
+    "?": "uncertain",
+    "layout": [
+      ["D1", "D4"],
+      ["D2", "D5"],
+      ["D3", "D6"]
+    ]
+  },
+  "cells": {
+    "C1": [[1, 0], [1, 0], [0, 0]],
+    "C2": [[0, 1], [0, 1], [1, 1]],
+    "C3": [[1, 1], [1, 1], [1, 1]],
+    "C4": [[0, "?"], [0, 1], [0, 1]],
+    "C5": [[1, 1], [1, 1], [1, 1]],
+    "C6": [[1, 1], [1, 1], [1, 1]],
+    "C7": [[1, 1], [1, 1], [1, 1]],
+    "C8": [[1, 1], [1, 1], [1, 0]],
+    "C9": [[1, 1], [1, 1], [1, 1]],
+    "C10": [[0, 1], [0, 0], [1, 1]]
+  },
+  "totals": {
+    "raised": 43,
+    "retracted": 16,
+    "uncertain": 1
+  },
+  "other_observations": [
+    "The original C1 clear observation [[0,0],[?,0],[0,0]] was corrected after the 10-second C1 isolation video to [[1,0],[1,0],[0,0]].",
+    "The C10 clear dot positions were corrected from [[0,1],[1,1],[0,0]] to [[0,1],[0,0],[1,1]] after comparison with the span-role video; the raised-dot count is unchanged.",
+    "The formula frame and clear were difficult to distinguish visually.",
+    "Cells moved during the candidate firmware run.",
+    "Cells did not move during the earlier RX-counter diagnostic whose malformed frames were atomically rejected."
+  ],
+  "verdict": "physical_clear_failed"
+}

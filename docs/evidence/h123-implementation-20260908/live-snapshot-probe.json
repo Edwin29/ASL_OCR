@@ -1,0 +1,35 @@
+{
+  "kind": "read_only_snapshot_probe",
+  "staged_source": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\diagnostics\\h123-correction-1788815900976129100",
+  "profile": "android_ip_camera",
+  "preview_enabled_in_H1_config": true,
+  "source": "HttpSnapshotCameraSource",
+  "results": [
+    {
+      "attempt": 1,
+      "elapsed_seconds": 12.25,
+      "frame": false,
+      "warning_types": [
+        "InsecureRequestWarning"
+      ]
+    },
+    {
+      "attempt": 2,
+      "elapsed_seconds": 12.281,
+      "frame": false,
+      "warning_types": [
+        "InsecureRequestWarning"
+      ]
+    },
+    {
+      "attempt": 3,
+      "elapsed_seconds": 12.375,
+      "error_class": "SnapshotTransportError",
+      "retryable": true,
+      "http_status": null
+    }
+  ],
+  "images_saved": 0,
+  "uploads": 0,
+  "serial_packets": 0
+}

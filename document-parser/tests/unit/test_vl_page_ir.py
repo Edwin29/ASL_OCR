@@ -2,7 +2,12 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from document_parser.accessibility.braille import braille_scrollable_spans
+from document_parser.accessibility.flattening import flatten_page
+from document_parser.datapack.ingest import enumerate_utterances
+from document_parser.datapack.schema import utterance_key_for_item
 from document_parser.serialization.vl_page_ir import build_document_ir_from_vl, build_page_ir_from_vl_result
+from document_parser.structure.problem_units import detect_problem_units_in_document
 from document_parser.validation import validate_document_ir
 
 
@@ -90,6 +95,94 @@ class VlPageIrTests(unittest.TestCase):
         self.assertEqual((cell["row_index"], cell["column_index"]), (1, 1))
         self.assertEqual(cell["content_nodes"][0]["normalized_text"], "a>0")
         self.assertGreaterEqual(node["structure_confidence"], 0.8)
+
+    def test_reclassifies_single_row_five_choice_table_as_one_text_choice_item(self):
+        # G3-B page 29: PaddleOCR-VL emitted the horizontal answer choices as
+        # table HTML even though the source is one multiple-choice answer row.
+        html = (
+            "<table><tr><td>①62</td><td>②66</td><td>③70</td>"
+            "<td>④74</td><td>⑤78</td></tr></table>"
+        )
+        vl_result = fixture_result([
+            {"block_label": "table", "block_content": html, "block_bbox": [226, 1515, 1427, 1659], "block_id": 9, "block_order": 10},
+        ])
+
+        page = build_page_ir_from_vl_result(vl_result, page_id="p029")
+
+        self.assertEqual(len(page["nodes"]), 1)
+        node = page["nodes"][0]
+        self.assertEqual(node["content_type"], "TEXT")
+        self.assertEqual(node["raw_text"], "①62 ②66 ③70 ④74 ⑤78")
+        self.assertEqual(node["normalized_text"], node["raw_text"])
+        self.assertEqual(node["spans"], [{"span_type": "TEXT", "text": node["raw_text"]}])
+        self.assertEqual(node["layout"]["semantic_role"], "answer_choices")
+        self.assertIn(
+            "VL_TABLE_RECLASSIFIED_AS_CHOICE_ROW",
+            {issue["code"] for issue in node["issues"]},
+        )
+
+    def test_does_not_reclassify_single_row_five_column_data_table(self):
+        html = "<table><tr><td>구간</td><td>A</td><td>B</td><td>C</td><td>D</td></tr></table>"
+        vl_result = fixture_result([
+            {"block_label": "table", "block_content": html, "block_bbox": [100, 100, 900, 240], "block_id": 0, "block_order": 1},
+        ])
+
+        page = build_page_ir_from_vl_result(vl_result, page_id="p029")
+
+        self.assertEqual(page["nodes"][0]["content_type"], "TABLE")
+
+    def test_reclassified_choice_row_is_one_tts_item_with_no_braille_target(self):
+        html = (
+            "<table><tr><td>①62</td><td>②66</td><td>③70</td>"
+            "<td>④74</td><td>⑤78</td></tr></table>"
+        )
+        page = build_page_ir_from_vl_result(
+            fixture_result([
+                text_block(1, "[26008-0011]", order=1),
+                text_block(2, "수열의 값을 구하시오.", order=2),
+                {"block_label": "table", "block_content": html, "block_bbox": [100, 400, 900, 520], "block_id": 3, "block_order": 3},
+            ]),
+            page_id="p029",
+        )
+        payload = detect_problem_units_in_document({
+            "document_manifest": {"book_id": "demo", "page_count": 1},
+            "engine_manifest": {"pipeline": {"mode": "incremental_paddleocr_vl"}},
+            "pages": [page],
+        })
+
+        problem = next(
+            node for node in payload["pages"][0]["nodes"]
+            if node.get("layout", {}).get("structure_label") == "PROBLEM_UNIT"
+        )
+        self.assertEqual(problem["layout"]["answer_structure_type"], "choices")
+        self.assertEqual(len(problem["layout"]["choice_node_ids"]), 1)
+        self.assertEqual(
+            problem["layout"]["choice_options"],
+            [
+                {"label": "①", "text": "62"},
+                {"label": "②", "text": "66"},
+                {"label": "③", "text": "70"},
+                {"label": "④", "text": "74"},
+                {"label": "⑤", "text": "78"},
+            ],
+        )
+
+        accessible_page = flatten_page(payload["pages"][0])
+        document = {
+            "document_id": "demo",
+            "pages": [accessible_page],
+            "global_reading_order": [item["id"] for item in accessible_page["focus_items"]],
+        }
+        choice_item = next(
+            item for item in document["pages"][0]["focus_items"]
+            if item["id"] == problem["layout"]["choice_node_id"]
+        )
+        self.assertEqual(choice_item["kind"], "TEXT")
+        self.assertEqual(braille_scrollable_spans(choice_item), [])
+        utterances = enumerate_utterances(document)
+        spoken = utterances[utterance_key_for_item(choice_item)]
+        self.assertIn("62", spoken)
+        self.assertIn("78", spoken)
 
     def test_parses_real_p004_table_with_math_cells(self):
         # Real raw_html from p004's GPU-verified output: a 3-row x 4-col table

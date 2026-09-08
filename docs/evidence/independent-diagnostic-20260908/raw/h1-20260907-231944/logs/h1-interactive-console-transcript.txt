@@ -1,0 +1,49 @@
+**********************
+Windows PowerShell 기록 시작
+시작 시간: 20260907232200
+사용자 이름: LAPTOP-HUM24QK4\user
+RunAs 사용자: LAPTOP-HUM24QK4\user
+구성 이름: 
+Machine: LAPTOP-HUM24QK4 (Microsoft Windows NT 10.0.26200.0)
+호스트 응용 프로그램: powershell.exe -NoExit -ExecutionPolicy Bypass -File C:\ASL_OCR_INTEGRATION_RUNTIME\demo-20260905\hardware-integration\h1-20260907-231944\manifests\h1-interactive-runtime.ps1
+프로세스 ID: 13692
+PSVersion: 5.1.26100.9168
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9168
+BuildVersion: 10.0.26100.9168
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+ASL OCR H1 live camera + console integration
+Start in capture catalog. Commands: up/down/confirm, confirm long, lever activated, lever released.
+Keep page 26/27 still until spread_sent and durable ACK appear; turn to 28/29 only when instructed.
+ib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+{"type":"feedback","code":"identity_collection_decided","at_monotonic":97057.578,"details":{"source_frame_id":"phone-sna
+pshot-00000072","identity_role":"page_change","decision":"unknown","valid_observations":1,"query_sample_count":5,"timed_
+out":true}}
+C:\ASL_OCR_INTEGRATION\.venv-e0b\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HT
+TPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urll
+ib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+C:\ASL_OCR_INTEGRATION\.venv-e0b\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HT
+TPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urll
+ib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":97064.234,"details":{"source_frame_id":"phone-sn
+apshot-00000373","identity_role":"page_change","valid_observations":1,"query_sample_count":5,"recognition_processing_ms"
+:612.2858000017004,"effective_interval_ms":2500.0}}
+{"type":"feedback","code":"identity_collection_decided","at_monotonic":97065.562,"details":{"source_frame_id":"phone-sna
+pshot-00000072","identity_role":"page_change","decision":"unknown","valid_observations":1,"query_sample_count":5,"timed_
+out":true}}
+{"type":"feedback","code":"identity_collection_decided","at_monotonic":97073.562,"details":{"source_frame_id":"phone-sna
+pshot-00000072","identity_role":"page_change","decision":"unknown","valid_observations":0,"query_sample_count":5,"timed_
+out":true}}
+{"type":"feedback","code":"fatal_error","at_monotonic":97074.953,"details":{"reason":"frame_decode_failed"}}
+Device runtime exited with code 0
+**********************
+Windows PowerShell 기록 끝
+종료 시간: 20260907233634
+**********************

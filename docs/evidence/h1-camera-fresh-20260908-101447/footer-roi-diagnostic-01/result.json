@@ -1,0 +1,142 @@
+{
+  "kind": "isolated_live_footer_roi_diagnostic",
+  "captured_at_utc": "2026-09-08T01:49:14.152495+00:00",
+  "python": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Scripts\\python.exe",
+  "source_frame_id": "phone-snapshot-00000001",
+  "source_shape": [
+    3000,
+    4000,
+    3
+  ],
+  "source_file_sha256": "46be8c73994a37fa45d0b4347cfa4f32911318b061added03f9f2f7dee86768d",
+  "acquisition_ms": 1797.0,
+  "candidate_retry_reasons": [],
+  "candidate_metrics": {
+    "page_pair_found": true,
+    "source_width": 4000,
+    "source_height": 3000,
+    "preview_width": 640,
+    "preview_height": 480,
+    "physical_edge_margin_fraction": 0.10416666666666667,
+    "outer_frame_contact_warning": false,
+    "outer_frame_contacts_are_hard_gate": false,
+    "left_top_contact": false,
+    "left_bottom_contact": false,
+    "left_outer_contact": false,
+    "right_top_contact": false,
+    "right_bottom_contact": false,
+    "right_outer_contact": false,
+    "left_top_edge_contact_fraction": 0.0,
+    "left_top_bright_edge_fraction": 0.0,
+    "left_top_ink_edge_fraction": 0.0,
+    "left_bottom_edge_contact_fraction": 0.0,
+    "left_bottom_bright_edge_fraction": 0.0,
+    "left_bottom_ink_edge_fraction": 0.0,
+    "left_outer_edge_contact_fraction": 0.0,
+    "left_outer_bright_edge_fraction": 0.0,
+    "left_outer_ink_edge_fraction": 0.0,
+    "right_top_edge_contact_fraction": 0.0,
+    "right_top_bright_edge_fraction": 0.0,
+    "right_top_ink_edge_fraction": 0.0,
+    "right_bottom_edge_contact_fraction": 0.0,
+    "right_bottom_bright_edge_fraction": 0.0,
+    "right_bottom_ink_edge_fraction": 0.0,
+    "right_outer_edge_contact_fraction": 0.0,
+    "right_outer_bright_edge_fraction": 0.0,
+    "right_outer_ink_edge_fraction": 0.0,
+    "max_edge_contact_fraction": 0.0,
+    "max_bright_edge_fraction": 0.0,
+    "max_ink_edge_fraction": 0.0,
+    "physical_page_clipping_warning": false,
+    "physical_page_clipping_directions": null,
+    "confirmed_content_clipping": false,
+    "confirmed_content_clipping_directions": null,
+    "confirmed_content_clipping_is_hard_gate": false,
+    "mask_confidence_min": 0.8908207585713315,
+    "white_clip_fraction": 0.0,
+    "black_clip_fraction": 0.0,
+    "illumination_range": 0.1257092693492266,
+    "tenengrad": 3391.5211526670755,
+    "laplacian_variance": 328.4139866066415,
+    "left_area_fraction": 0.30997395833333335,
+    "right_area_fraction": 0.2928515625,
+    "seam_proxy_fraction": 0.4671875,
+    "seam_dispersion_fraction": 0.00625,
+    "seam_proxy_confidence": 0.12549019607843137,
+    "seam_proxy_available": true,
+    "obstruction_detected": false,
+    "content_occluded": false,
+    "obstruction_confidence": 0.0,
+    "obstruction_side": null,
+    "obstruction_bbox_preview": null,
+    "obstruction_component_area_fraction": 0.0,
+    "obstruction_content_overlap_fraction": 0.0,
+    "obstruction_detector": "edge-chroma-intrusion",
+    "obstruction_detector_version": "v1",
+    "obstruction_runtime_provenance": "local-classical-fixed-camera-provisional"
+  },
+  "seam_proxy_fraction": 0.4671875,
+  "spread_status": "missing",
+  "spread_key": null,
+  "recognition_processing_ms": 11.836799996672198,
+  "pages": [
+    {
+      "side": "left",
+      "raw_text": null,
+      "normalized_label": null,
+      "status": "not_observed",
+      "confidence": null,
+      "variant_agreement": 0,
+      "bbox": null,
+      "roi_sha256": "f5b4f04feb7daf1a76270137c9a63b14ee5480df91fc148cde0b1642849b267e",
+      "engine_id": "paddle-en-ppocrv5-mobile-rec-roi",
+      "engine_version": "1",
+      "preprocessing_version": "footer-component-roi-gray-clahe-v1"
+    },
+    {
+      "side": "right",
+      "raw_text": null,
+      "normalized_label": null,
+      "status": "not_observed",
+      "confidence": null,
+      "variant_agreement": 0,
+      "bbox": null,
+      "roi_sha256": "a3c5506f9a6c008149d54c4111f477c971f93321979f6f5fb47a6ede765dd50a",
+      "engine_id": "paddle-en-ppocrv5-mobile-rec-roi",
+      "engine_version": "1",
+      "preprocessing_version": "footer-component-roi-gray-clahe-v1"
+    }
+  ],
+  "roi_files": {
+    "left": {
+      "bbox": [
+        58,
+        328,
+        84,
+        70
+      ],
+      "shape": [
+        70,
+        84
+      ],
+      "sha256": "fb71034e9d30c607fc33e7b8afe85e91250da04f82aac9c621ffeae6535026bf"
+    },
+    "right": {
+      "bbox": [
+        469,
+        336,
+        92,
+        70
+      ],
+      "shape": [
+        70,
+        92
+      ],
+      "sha256": "33060259aa921b8736f4db8a7725086031575d2e7023322092b05527556da118"
+    }
+  },
+  "uploads": 0,
+  "product_state_changes": 0,
+  "threshold_changes": 0,
+  "credential_values_recorded": false
+}

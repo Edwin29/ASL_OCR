@@ -1,0 +1,68 @@
+{
+  "kind": "operator_console_observation",
+  "source": "user transcription from the live Laptop production console",
+  "identity_role": "page_change",
+  "observed_events": [
+    {
+      "source_frame_id": "phone-snapshot-00000527",
+      "valid_observations": 1,
+      "decision": "same",
+      "recognition_processing_ms": 823.9203,
+      "effective_interval_ms": 1750.0
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000528",
+      "valid_observations": 1,
+      "decision": "same",
+      "recognition_processing_ms": 577.0157,
+      "effective_interval_ms": 1656.0
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000531",
+      "valid_observations": 1,
+      "decision": "same",
+      "recognition_processing_ms": 735.485,
+      "effective_interval_ms": 1829.0
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000534",
+      "valid_observations": 1,
+      "decision": "same",
+      "recognition_processing_ms": 778.2099,
+      "effective_interval_ms": 3281.0
+    },
+    {
+      "at_monotonic": 136948.125,
+      "guidance_code": "content_occluded",
+      "stable_for_samples": 3,
+      "audio_cache_hit": true,
+      "audio_playback_started": true,
+      "audio_playback_completed_at_monotonic": 136952.125
+    },
+    {
+      "cycle": "post_visible_page_turn_1",
+      "progress": [1, 2, 3],
+      "decision": "unknown",
+      "valid_observations": 3,
+      "timed_out": true
+    },
+    {
+      "cycle": "post_visible_page_turn_2",
+      "progress": [1, 2, 3, 4, 5],
+      "decision_after_five": "not_present_in_operator_excerpt",
+      "recognition_processing_ms_range": [512.1053, 837.9916],
+      "effective_interval_ms_range": [1688.0, 2062.0]
+    },
+    {
+      "at_monotonic": 136973.906,
+      "guidance_code": "footer_identity_unavailable",
+      "stable_for_samples": 3,
+      "audio_cache_hit": true,
+      "audio_playback_started": true,
+      "audio_playback_completed_at_monotonic": 136976.812
+    }
+  ],
+  "operator_physical_observation": "The visible page-turning hand was detected and produced the appropriate remove-hand guidance. Pages 28/29 still had not produced sequence 2.",
+  "tls_warning_interpretation": "Expected warning from the explicitly scoped self-signed Android camera profile; transport remained successful. Warning volume is a tooling/observability candidate, not a transport failure.",
+  "credential_values_recorded": false
+}

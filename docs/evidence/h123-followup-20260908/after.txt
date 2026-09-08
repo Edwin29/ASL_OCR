@@ -1,0 +1,91 @@
+........................................................................ [ 62%]
+...................................F.......                              [100%]
+================================== FAILURES ===================================
+_ test_e0_response_loss_ack_flush_seal_and_reading_are_ordered[connection_loss] _
+
+tmp_path = WindowsPath('D:/Projects/OCR/docs/evidence/h123-followup-20260908/pytest-after/test_e0_response_loss_ack_flus1')
+recovery = 'connection_loss'
+
+    @pytest.mark.parametrize("recovery", [None, "connection_loss", "queue_failure"])
+    def test_e0_response_loss_ack_flush_seal_and_reading_are_ordered(tmp_path: Path, recovery) -> None:
+        server_store = S0Store(tmp_path / "server.sqlite3", tmp_path / "server-datapacks")
+        s0 = S0ControlPlane(server_store)
+        presence = DevicePresenceService(server_store)
+        s1_config = S1Config.under(server_store.datapacks_root)
+        pipeline = S1Pipeline(
+            server_store,
+            s0,
+            s1_config,
+            FakeFragmentParser(),
+            synthesizer=FakeSynthesizer(),
+            tts_manifest={"engine_id": "fake"},
+        )
+        v4 = V4UploadService(server_store, pipeline, V4Config.from_s1(s1_config))
+        server_app = create_app(
+            s0,
+            "secret",
+            pipeline,
+            presence_service=presence,
+            v4_service=v4,
+        )
+    
+        with LocalServer(server_app) as server:
+            config_path = _write_config(tmp_path, server.origin)
+            artifact_root = tmp_path / "device-state/ready"
+            factory = BundleEngineFactory(artifact_root)
+            feedback = MemoryFeedbackSink()
+            composition = build_local_device(
+                config_path,
+                scanner_factory=factory,
+                controls=NullControlSource(),
+                feedback=feedback,
+            )
+            composition.delivery.transport = LoseFirstResponse(composition.delivery.transport)
+            queue_attempts = []
+            if recovery == "queue_failure":
+                original_queue = composition.delivery.queue
+    
+                def fail_queue_once(scan, sequence, artifact):
+                    queue_attempts.append((scan, sequence, artifact))
+                    if len(queue_attempts) == 1:
+                        raise RecoverablePortError("injected temporary local queue outage")
+                    return original_queue(scan, sequence, artifact)
+    
+                composition.delivery.queue = fail_queue_once
+            app = composition.application
+            app.start()
+            _step_until(app, lambda: composition.coordinator.state is DeviceFlowState.SELECTING_DATAPACK)
+            app.submit_input(_press("select-new"))
+            _step_until(app, lambda: composition.coordinator.state in {
+                DeviceFlowState.SCANNING, DeviceFlowState.RECOVERABLE_ERROR,
+            })
+            if recovery == "queue_failure":
+                assert composition.coordinator.state is DeviceFlowState.RECOVERABLE_ERROR
+                assert not factory.engines[0].closed
+                assert (artifact_root / "artifact-1/manifest.json").exists()
+                app.submit_input(_press("retry-queue"))
+                _step_until(app, lambda: composition.coordinator.state is DeviceFlowState.SCANNING)
+                assert len(queue_attempts) == 2
+                assert queue_attempts[0] == queue_attempts[1]
+            assert composition.coordinator.state is DeviceFlowState.SCANNING
+            scan_session_id = composition.coordinator.scan_session.scan_session_id.value
+            assert not any(event.code is FeedbackCode.SPREAD_SENT for event in feedback.events)
+            assert factory.engines[0].callbacks.count("acked") == 0
+            first_spreads = pipeline.list_spreads(
+                composition.coordinator.scan_session.scan_session_id.value
+            )
+>           assert len(first_spreads) == 1
+E           assert 0 == 1
+E            +  where 0 = len(())
+
+device-runtime\tests\integration\test_e0_local_composition.py:372: AssertionError
+------------------------------ Captured log call ------------------------------
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [08/Sep/2026 09:21:06] "GET /api/v1/health HTTP/1.1" 200 -
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [08/Sep/2026 09:21:06] "[35m[1mPOST /api/v1/devices/device-1/presence-sessions HTTP/1.1[0m" 201 -
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [08/Sep/2026 09:21:06] "GET /api/v1/devices/device-1/datapacks HTTP/1.1" 200 -
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [08/Sep/2026 09:21:06] "[35m[1mPOST /api/v1/devices/device-1/datapacks HTTP/1.1[0m" 201 -
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [08/Sep/2026 09:21:06] "[35m[1mPOST /api/v1/datapacks/datapack-298715cfd61248e7814d170df09f3c3e/scan-sessions HTTP/1.1[0m" 201 -
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [08/Sep/2026 09:21:06] "[35m[1mPOST /api/v1/scan-sessions/scan-016f04be30514db0a8bc7d7b675de92e/spreads HTTP/1.1[0m" 503 -
+=========================== short test summary info ===========================
+FAILED device-runtime\tests\integration\test_e0_local_composition.py::test_e0_response_loss_ack_flush_seal_and_reading_are_ordered[connection_loss]
+1 failed, 114 passed in 6.95s

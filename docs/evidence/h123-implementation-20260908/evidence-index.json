@@ -1,0 +1,224 @@
+{
+  "report": "D:\\Projects\\OCR\\docs\\H123_IMPLEMENTATION_RESULT_20260908.md",
+  "report_sha256": "d156d9f4a050b1ee97fc405ad675dfd6708d400ef2ecb6abf8fcdafc19db9ce1",
+  "product_identity_files": 246,
+  "missing_report_links": [],
+  "evidence": {
+    "baseline-source-tests.zip": {
+      "sha256": "93e4c806ac745541db210bb4ccda9ea8b2f990514e1c004ab878414636b25e49",
+      "bytes": 912006
+    },
+    "baseline.json": {
+      "sha256": "c4c24ee9162d40e9b1151f899b8d7cfc3b74b71977d191f1d1210c119f13301c",
+      "bytes": 54473
+    },
+    "baseline.py": {
+      "sha256": "e4d03bf8cc1169328ab9d4a868123f56dad7b9556815a75cf8db61446c9c8b5f",
+      "bytes": 1093
+    },
+    "design-decisions.md": {
+      "sha256": "b0a7e1c2995074394a598384607048173fb6d3faaf55aa2b1d62f45966195877",
+      "bytes": 3101
+    },
+    "edit_camera_engine.py": {
+      "sha256": "87c9ac0dea0c03af6e005c037f1ba1384c1e65d72ed7248e2728a4cfdd91c398",
+      "bytes": 4636
+    },
+    "edit_factories_transport.py": {
+      "sha256": "297b01f5efec7ad293cdeb11658847f91edfe6a92f5b8548b54fa27e8e6e2147",
+      "bytes": 2893
+    },
+    "edit_firmware_local.py": {
+      "sha256": "15e3bf43c66440fc8d7fc78b62aade668a135c1f610d6c2a9de1e120cdc39e1d",
+      "bytes": 4429
+    },
+    "final-validation.json": {
+      "sha256": "165bdb078894584a73c1fee2fc9119633530c9e238932d832bbe8b27976bc7e9",
+      "bytes": 59978
+    },
+    "final_validation.py": {
+      "sha256": "c842caff86082b77451a949a28836ea98d658ba1a159f8e4260cfa8f8f901b87",
+      "bytes": 2477
+    },
+    "firmware-after-final/build.txt": {
+      "sha256": "2f97a77084ba90d92dc3c08edf2f2487abda4d0d36774442aa09e351cf23a4f3",
+      "bytes": 11
+    },
+    "firmware-after-final/fixture.c": {
+      "sha256": "a128222f3015cf68fc80d7c0fd91ef77eff1e5960b8857244742c22000967151",
+      "bytes": 8920
+    },
+    "firmware-after-final/result.json": {
+      "sha256": "25432122242bb93ce297f761761969a2da6de8fc7d26f8d751d94025d32bff29",
+      "bytes": 919
+    },
+    "firmware-before-03/build.txt": {
+      "sha256": "2f97a77084ba90d92dc3c08edf2f2487abda4d0d36774442aa09e351cf23a4f3",
+      "bytes": 11
+    },
+    "firmware-before-03/fixture.c": {
+      "sha256": "0881b5b5fb64b5b69fd3a4982e2b1f75c05dd4ebcfbb5c9f95d848889f215f64",
+      "bytes": 6330
+    },
+    "firmware-before-03/result.json": {
+      "sha256": "55aac3b024d0eea82c62fbf6bd3c0cde0a569021ef665fa4a98e3537363f34b4",
+      "bytes": 749
+    },
+    "firmware_fixture.py": {
+      "sha256": "3ccd05d8f40f2ba68bd441bd40e804c236ea17e51b31cd1d97b3db3fa09e0e64",
+      "bytes": 7029
+    },
+    "g3a-evidence/e0b-audio-summary.json": {
+      "sha256": "ac79f2ab00c42c371c4a2237978766fbf0cd7e8ac26f8e94ec60065a0b7deb3b",
+      "bytes": 47024
+    },
+    "g3a-evidence/e0b-braille-summary.json": {
+      "sha256": "100406e61832e33fdee2b582d5489d138bdbd2cf5eda0e9094b477c0fc741890",
+      "bytes": 1488
+    },
+    "g3a-evidence/e0b-loopback-run-manifest.json": {
+      "sha256": "33869af6ed07ffa343b895b988c7073ade07230c3162dd32dfff3a4f1f7d4064",
+      "bytes": 1149
+    },
+    "g3a-evidence/e0b-manual-listening.json": {
+      "sha256": "cbb10a10b0d87c9a187256a84d22f93f0b2594dfb5513a7b825e38c1651073c3",
+      "bytes": 46
+    },
+    "g3a-evidence/e0b-p030-e2e-summary.json": {
+      "sha256": "d0022284b8e19c37564c4c4ee2b23d195874c760278bfb389d8b7f0ad42cfced",
+      "bytes": 1270
+    },
+    "g3a-evidence/e0b-page-content-summary.json": {
+      "sha256": "7da104dafae589379c14c7a7b23509dbca0ada2bb2cde1b7a6e26aa352f23f6c",
+      "bytes": 2436
+    },
+    "g3a-evidence/e0b-production-audio-transport.json": {
+      "sha256": "344dd40380fb7c055f8eedb61042961bad36d42ab2967d1422ab985cc1bfd92c",
+      "bytes": 964
+    },
+    "g3a-evidence/e0b-production-full-model-report.json": {
+      "sha256": "7193cbabae7af84eab587d0041f18cf420b866d79dcb8008891169d12c5ebbc8",
+      "bytes": 3354
+    },
+    "g3a-evidence/e0b-production-model-manifest.json": {
+      "sha256": "6ce78014c1c1d0d7bf4bab5681d72c61617f95a62342cb46af5a03cdc4cef1de",
+      "bytes": 648
+    },
+    "g3a-evidence/e0b-replay-boundary.json": {
+      "sha256": "b99ff79a5d11f85463efc33c839164177ebdb2ab4daf0af623f7773c1fbb40cb",
+      "bytes": 22229
+    },
+    "g3a-evidence/e0b-replay-console.log": {
+      "sha256": "c0488cbae694762714eeb2acd80870f2753cbe7f501287388f7fbda71380d194",
+      "bytes": 50964
+    },
+    "g3a-evidence/e0b-replay-input.json": {
+      "sha256": "f29d8176e10b48b228a41b6c79623d0870687df67206a15f8d236644ca8170fb",
+      "bytes": 296
+    },
+    "g3a-evidence/e0b-server-evidence.json": {
+      "sha256": "c403017dfa448ef81f25cc99bc4eae021d4d7dd15e08d4fcc3cada95679f8a41",
+      "bytes": 1606
+    },
+    "g3a-evidence/e0b-server-summary.json": {
+      "sha256": "ab3e8458b5b487b72fc733eab7721ec2887cb7d8e82bded5efd0856487ec50bb",
+      "bytes": 69
+    },
+    "g3a-evidence/e0b-server.log": {
+      "sha256": "a6aa60269f592d42d964e9e629a8a55597c0689ccfa8ec02a4cd4931b6f52878",
+      "bytes": 442971
+    },
+    "g3a-run.log": {
+      "sha256": "24f7eb65b3ecd28513983f1c2cce878b19e2a27e942a2b04ec798e5c50851eeb",
+      "bytes": 2817
+    },
+    "implementation-delta.json": {
+      "sha256": "d6f2df4cdb5e4964c9c82a1ceb41c0eb0450d7eee5df75c20462aee7489180ac",
+      "bytes": 4571
+    },
+    "implementation.diff": {
+      "sha256": "4b331a36930d7988521e3f8c6892bcb25b359e9ee8e0986db5e27146c88dedd9",
+      "bytes": 42540
+    },
+    "implementation_delta.py": {
+      "sha256": "bde2a3666a49a4438a5f3b5abfe22aa84aa2b5b1f7d542e66e2b7dc8947204c0",
+      "bytes": 1675
+    },
+    "index_evidence.py": {
+      "sha256": "85fc1ed2e6e406fde4b3b3e281fd32f68c23463fc5e9e576353a96a30ea84cc7",
+      "bytes": 1453
+    },
+    "inspect_runtime.py": {
+      "sha256": "7cc9333420799583b3b8ec295b4340fde5dadc1130505d2efa1736a37c869a83",
+      "bytes": 1521
+    },
+    "laptop-alignment-apply.json": {
+      "sha256": "e8ee5fb744f8ad1aab39c3dafd4e2fe287c235f485dc1fffcb8f7dbf2a2434fd",
+      "bytes": 1550
+    },
+    "laptop-alignment-inspect.json": {
+      "sha256": "58f3fc487ed4570bcdb76efd8848a9755b789a0d51eb7293cd8ae0b9c312384c",
+      "bytes": 1412
+    },
+    "laptop_alignment.py": {
+      "sha256": "4ef87390b1840839852ac790c3050ff0fa213b59d51743a314da93e6ea1c66d6",
+      "bytes": 3535
+    },
+    "latest-stage.json": {
+      "sha256": "74f164fd936247ab1507fee79072d55e0c4294855116289c4ccef4ef48ca599c",
+      "bytes": 430
+    },
+    "live-snapshot-probe.json": {
+      "sha256": "e13b3bb4680d8eea9acafa3f252320e4a77265221da04c93d648f0de34024da8",
+      "bytes": 857
+    },
+    "live_snapshot_probe.py": {
+      "sha256": "306ca270fc10cb86909c66e39dfa26c17823f7ba01d840a573cd45512e2e1941",
+      "bytes": 2418
+    },
+    "native-interactive-result.json": {
+      "sha256": "dcab7d420ff013dc85e6ec116878f936d3c1834c8a8cca5c3fe3c22f18e27e1b",
+      "bytes": 10127
+    },
+    "native_probe.py": {
+      "sha256": "55393bfb218c9cfe83ea317805edcc798e13c4cc88f55428e12c8112b4737505",
+      "bytes": 3148
+    },
+    "run_native_interactive.py": {
+      "sha256": "b85227a179acee76ff863ce4159138870c885b9ae7130fa4807b3a9039519420",
+      "bytes": 2647
+    },
+    "runtime-context.json": {
+      "sha256": "2337f8a87e764f38b5669afb3f5ffcecde6db11cf2c6aa690e05a03bf436fa82",
+      "bytes": 11690
+    },
+    "stage-h123-correction-1788814565312543700.json": {
+      "sha256": "e7bf8b4cafd589e5b2be9730590886ad7f00fa9bd4f71f01e198f63f4ee90b4f",
+      "bytes": 413
+    },
+    "stage-h123-correction-1788815412469506600.json": {
+      "sha256": "4a4a2d076fd47e140cc8f93bcd35b1d823d05b81716fc3c58abf5bd7045abcab",
+      "bytes": 17528
+    },
+    "stage-h123-correction-1788815458738855800.json": {
+      "sha256": "43b505cbea9368d6f403f48efdfae2e401bb3ec1d285f855d50cd3178f57602a",
+      "bytes": 7821
+    },
+    "stage-h123-correction-1788815507296350600.json": {
+      "sha256": "aaabd6da1b53a71a6645059a89a126c9bd43035d31361571f49ecd92ec18ac5d",
+      "bytes": 1538
+    },
+    "stage-h123-correction-1788815826803776700.json": {
+      "sha256": "2a70c546913b4e14ad1601af2e3bd654f12c82ce39f522ef1589bc2c1eeec345",
+      "bytes": 1773
+    },
+    "stage-h123-correction-1788815900976129100.json": {
+      "sha256": "74f164fd936247ab1507fee79072d55e0c4294855116289c4ccef4ef48ca599c",
+      "bytes": 430
+    },
+    "stage_and_test.py": {
+      "sha256": "622c1c9ad4ce1b15bb7972ff8c42fc84c1e799e10d17da5c4ec691b2c5d8fff0",
+      "bytes": 3096
+    }
+  }
+}

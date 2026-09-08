@@ -1,0 +1,304 @@
+{
+  "schema_version": 1,
+  "kind": "asl_ocr_bounded_demo_run_common_manifest",
+  "captured_at_utc": "2026-09-08T00:59:49.9539962Z",
+  "status": "prepared_with_blockers",
+  "scope": "pages 26/27 and 28/29 bounded physical demonstration path",
+  "credential_values_recorded": false,
+  "authoritative_source": {
+    "git_head": "ea7e6f24b38bc74bd2405ca1f35ed1acd2bab42e",
+    "identity_description": "git head plus preserved S-01/S-02 working-tree stabilization plus approved H1/H2/H3 and T-close/Host-read corrections",
+    "laptop_root": "C:\\ASL_OCR_INTEGRATION",
+    "desktop_root": "D:\\Projects\\OCR",
+    "identity_algorithm": "sha256-of-sorted-lf-file-hashes",
+    "product_file_count": 246,
+    "product_tree_digest": "300d69673168801900dae581f453d773bd3121caf938fb4d06928ccec3da20c9",
+    "desktop_laptop_mismatches_at_last_validation": [],
+    "last_validation": "docs/evidence/h123-followup-20260908/final-validation.json",
+    "regression": {
+      "device_runtime_tests": 301,
+      "scanner_video_tests": 206,
+      "combined_tests": 507,
+      "latest_g3a_automated_status": "passed",
+      "latest_g3a_full_status": "manual_pending"
+    }
+  },
+  "desktop_production_server": {
+    "launcher": "D:\\Projects\\OCR\\tools\\windows\\e0b-start-production-server.bat",
+    "launcher_sha256": "2e058908b6ec481281a0e6fc9385e96c8acd2bc81f3d9dc1a1b0f9c646ef2fbb",
+    "entrypoint": "python -m document_parser.server.combined_server",
+    "configured_python": "D:\\venvs\\gpu_ocr_test\\Scripts\\python.exe",
+    "configured_python_process_id": 5456,
+    "listener_process": {
+      "process_id": 26900,
+      "executable": "C:\\Users\\왕원철\\.pyenv\\pyenv-win\\versions\\3.11.8\\python.exe",
+      "session_id": 1,
+      "note": "Both configured launcher process and actual listener are recorded; the interpreter wrapper relationship is not treated as a source mismatch."
+    },
+    "source": {
+      "root_from_launcher_contract": "D:\\Projects\\OCR\\document-parser\\src",
+      "combined_server_path": "D:\\Projects\\OCR\\document-parser\\src\\document_parser\\server\\combined_server.py",
+      "combined_server_sha256": "bebec979adeabdda59c9690be0c84dcb4edeaf124353ea02b04c5782175c26ef",
+      "runtime_module_file_directly_observed": false,
+      "basis": "The observed process was launched by the checked launcher, which sets PYTHONPATH to the recorded source root."
+    },
+    "local_origin": "http://127.0.0.1:8421",
+    "device_origin": "https://desktop-ekp6an5.taild2128f.ts.net",
+    "tailscale_proxy_target": "http://127.0.0.1:8421",
+    "health": {
+      "status": "ok",
+      "database": "ok",
+      "schema_version": 4,
+      "writable": true,
+      "server_instance_id": "server-d3b9d880827248f9a952faa14d0485bd",
+      "local_and_tailscale_same_instance": true
+    },
+    "models": {
+      "paddleocr_vl": {
+        "model_home": "D:\\model_home_vl",
+        "file_count": 56,
+        "tree_sha256": "40411d09e06e9631687c1527a4c9555f84f633538e68635030c458ef456ebd66"
+      },
+      "piper": {
+        "engine_id": "piper",
+        "voice": "ko_KR-kss-medium",
+        "model_sha256": "624fd774e26895f24bebae1bd9a3379e3394baeade4b584924f83e414096e2c9",
+        "config_sha256": "153b5619d0580f824a59108d83ca19434de410eb8e4fe80325b58684fdc8a1df",
+        "espeak_tree_sha256": "7668392d99748b9326b637f245883f47ab27ba781959da46ba660b46f8dd7132"
+      }
+    },
+    "state_snapshot": {
+      "database": "D:\\device-config\\state\\e0b-production\\server.sqlite3",
+      "database_sha256_at_capture": "bf2bd23ab90247926488b360d7d7a491cd13a0b2aaff728fa1b43ec35963a399",
+      "ready_datapack_count": 7,
+      "stable_cursor_count_for_device": 4,
+      "latest_stable_cursor": {
+        "device_id": "laptop-device-001",
+        "datapack_id": "datapack-63c0ac30cc8a482f8fa9d0795e044a03",
+        "revision_seen": 1,
+        "cursor_version": 1,
+        "page_id": "pg-c4b5938b7318-00000001-R",
+        "page_index": 1,
+        "node_index": 9,
+        "focus_item_id": "pg-c4b5938b7318-00000001-R-vl009-L01",
+        "math_span_index": 0,
+        "braille_offset": 10,
+        "generation": 134,
+        "updated_at": "2026-09-07T17:37:36.728066+00:00"
+      },
+      "preserved_open_reading_sessions": 4,
+      "preserved_active_presence_rows_in_latest_five": 5,
+      "interpretation": "These are preserved server rows, not proof of a currently live Laptop process. Do not delete or reset them; identify new boot/session IDs in each run."
+    }
+  },
+  "laptop_runtime": {
+    "python": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Scripts\\python.exe",
+    "python_version": "3.11.9",
+    "imports": {
+      "asl_device": "C:\\ASL_OCR_INTEGRATION\\device-runtime\\src\\asl_device\\__init__.py",
+      "book_scanner": "C:\\ASL_OCR_INTEGRATION\\book-scanner\\src\\book_scanner\\__init__.py",
+      "document_parser": "C:\\ASL_OCR_INTEGRATION\\document-parser\\src\\document_parser\\__init__.py"
+    },
+    "environment_manifest": {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\integration-environment-manifest.json",
+      "sha256": "30a41312c5218e357ae4bb351dbce33e15f69e6cbe2749f26f11266391590aa7"
+    },
+    "environment_override_names_present": [],
+    "device_runtime_processes_at_capture": [],
+    "stable_device_id": "laptop-device-001",
+    "audio": {
+      "backend": "sounddevice",
+      "sounddevice_version": "0.5.6",
+      "default_output_index": 3,
+      "default_output_name": "스피커(Realtek(R) Audio)",
+      "default_output_hostapi": 0,
+      "default_samplerate": 44100.0,
+      "collector_windows_session_id": 0,
+      "last_verified_interactive_session_id": 2,
+      "run_requirement": "The actual playback process must run in an interactive desktop session and record its own session/device; SSH session 0 is not playback evidence."
+    },
+    "serial": {
+      "pyserial_version": "3.5",
+      "configured_host_link": "COM9",
+      "configured_host_link_present": true,
+      "configured_debug_port": "COM5",
+      "configured_debug_port_present": true,
+      "host_link_baudrate": 9600,
+      "host_read_timeout_ms": 20,
+      "cell_count": 10,
+      "ports_opened_during_manifest_capture": 0
+    },
+    "camera": {
+      "profile": "android_ip_camera",
+      "endpoint": "https://192.168.1.78:4444/video/snapshot?camera=back&snapshot_res=max",
+      "authentication_configured": true,
+      "password_file_present": true,
+      "allow_insecure_tls_for_camera_profile": true,
+      "tls_ca_configured": false,
+      "snapshot_timeout_seconds": 12.0,
+      "minimum_dimensions": [3000, 2000],
+      "sample_interval_ms": 750,
+      "opaque_identity_collection_ms": 8000,
+      "last_probe": "three reads returned no frame and ended in retryable terminal transport error",
+      "current_availability": "unverified"
+    },
+    "firmware": {
+      "source_main_c_sha256": "c4bb35e208bf2bdcd4e773c4a40f5a5982ff0333e479340bcd9b6fa1c996371f",
+      "compiled_fixture_status": "passed_on_windows_x64_hal_stubs",
+      "target_build_identity": "unverified",
+      "flashed_binary_identity": "unverified",
+      "rollback_image": "unverified",
+      "board_source_alignment": "unverified"
+    }
+  },
+  "parsed_config_profiles": {
+    "h1_console_live_camera": {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944\\config\\device-app.h1-camera-console.toml",
+      "sha256": "48f4c9441260c155f48676c8e7f909b520dfba0d7ce5cdec93ba87e1c9b61bdd",
+      "controls": "console",
+      "presenter": "JsonLineReadingPresenter",
+      "reading_audio": "SoundDeviceWavPlayer",
+      "scanner": "ThreadedPreviewCameraSource(HttpSnapshotCameraSource)",
+      "operator_preview_enabled": true,
+      "production_entrypoint_compatible": true
+    },
+    "h2_console_stm_output": {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\config\\device-app.h2-console-stm.toml",
+      "sha256": "ac7a2ce9aa6e6d2054d762618989b2e2ebc5aa7f59010e147ca0b87870c8904b",
+      "parsed_controls": "stm_serial",
+      "parsed_presenter": "StmSerialControlSource",
+      "reading_audio": "SoundDeviceWavPlayer",
+      "historical_runtime_override": "ConsoleControlSource replaced parsed controls; STM presenter remained",
+      "historical_initial_mode": "READING",
+      "production_module_entrypoint": false
+    },
+    "h3_production_physical": {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\config\\device-app.stm-reading.toml",
+      "sha256": "3974105a314f5aeb70acdc002d50235c366350080b799cda33a9066d3ed00798",
+      "controls": "StmSerialControlSource",
+      "presenter": "StmSerialControlSource",
+      "reading_audio": "SoundDeviceWavPlayer",
+      "scanner": "HttpSnapshotCameraSource",
+      "operator_preview_enabled": false,
+      "production_entrypoint": "python -m asl_device --config <config>",
+      "constructor_initial_mode": "CAPTURE",
+      "historical_target": "READING",
+      "runtime_override": null
+    }
+  },
+  "approved_run_profiles": {
+    "camera_read_only_probe": {
+      "config_profile": "h1_console_live_camera",
+      "launcher": "isolated diagnostic source probe",
+      "initial_state": "no DeviceApplication state",
+      "overrides": "construct strict snapshot source from parsed scanner config",
+      "boundaries_exercised": ["camera HTTP/TLS/auth transport", "JPEG decode", "minimum dimensions", "source stop"],
+      "boundaries_bypassed": ["DeviceApplication", "Scanner identity", "outbox", "server", "audio", "STM"],
+      "completion": "frame acquired with dimensions/hash/latency, or typed failure with latency",
+      "serial_packets": 0,
+      "uploads": 0
+    },
+    "audio_console_existing_ready": {
+      "config_profile": "h1_console_live_camera",
+      "launcher": "bounded custom composition using production DeviceApplication/Coordinator/S0/audio classes",
+      "initial_mode": "READING",
+      "runtime_overrides": ["ConsoleControlSource", "JsonLineReadingPresenter", "scanner capture path unused"],
+      "boundaries_exercised": ["DeviceApplication command scheduling", "S0 stable cursor", "authenticated audio_ref", "Piper WAV", "native Laptop speaker", "audio generation supersession", "close/re-entry/restart"],
+      "boundaries_bypassed": ["live capture", "V4/S1/finalize", "physical controls", "STM/PCA/cells"],
+      "starting_datapack_candidate": "datapack-63c0ac30cc8a482f8fa9d0795e044a03",
+      "starting_revision_candidate": 1,
+      "starting_cursor_candidate_generation": 134
+    },
+    "fresh_h1_console": {
+      "config_profile": "h1_console_live_camera",
+      "launcher": "python -m asl_device --config <run-specific-copy>",
+      "initial_mode": "CAPTURE",
+      "runtime_overrides": [],
+      "boundaries_exercised": ["live Android camera", "Scanner candidate/page-change", "same-frame L/R artifact", "durable outbox", "V4 receipt", "S1 fragments", "console CONFIRM LONG downstream semantics", "fresh READY", "actual TTS guidance"],
+      "boundaries_bypassed": ["GPIO", "firmware debounce", "HC-05 NAV generation", "physical press/release", "sequence ACK/dedupe", "physical braille"],
+      "demo_spreads": ["pages 26/27", "pages 28/29"]
+    },
+    "h2_console_stm_output": {
+      "config_profile": "h2_console_stm_output",
+      "launcher": "bounded custom composition",
+      "initial_mode": "READING",
+      "runtime_overrides": ["ConsoleControlSource replaces parsed STM controls", "production StmSerialControlSource remains presenter"],
+      "boundaries_exercised": ["DeviceApplication/Coordinator", "S0 stable cursor", "actual Piper", "production host FRAME", "HC-05", "STM parser", "PCA", "physical cells"],
+      "boundaries_bypassed": ["physical GPIO/control packets", "live capture", "V4/S1/finalize"],
+      "acceptance_rate": "normal production FRAME rate; no pacing or FRAME suppression"
+    },
+    "fresh_h3_physical": {
+      "config_profile": "h3_production_physical",
+      "launcher": "python -m asl_device --config <run-specific-copy>",
+      "initial_mode": "CAPTURE",
+      "runtime_overrides": [],
+      "boundaries_exercised": ["physical V3 controls", "ACK/dedupe/reconnect", "DeviceApplication/Coordinator", "existing READY selection", "S0 cursor", "actual Piper", "normal-rate FRAME", "STM/PCA/physical cells", "reading exit/re-entry/restart"],
+      "capture_path_required": false,
+      "note": "A physical lever transition establishes reading mode; historical fixed-state or V2 SHORT evidence is not V3 acceptance."
+    },
+    "h4_full_bounded_demo": {
+      "config_profile": "h3_production_physical",
+      "launcher": "python -m asl_device --config <frozen-run-copy>",
+      "initial_mode": "CAPTURE",
+      "runtime_overrides": [],
+      "boundaries_exercised": "all production boundaries from physical input through live capture, receipt, READY, actual audio and physical braille, then cursor recovery",
+      "demo_spreads": ["pages 26/27", "pages 28/29"],
+      "entry_gate": "fresh H1/H2/H3 passed on the same final source/config/firmware identity"
+    }
+  },
+  "completion_contract": {
+    "stm_ack": "host accepted/deduped one physical input packet",
+    "outbox_durable": "restart-safe local artifact delivery intent exists",
+    "spread_sent": "durable V4 receipt for the artifact exists",
+    "datapack_saved_revision": "fresh readable READY revision was published",
+    "audio_completion": "the current audio software/native lifecycle finished",
+    "audio_physically_observed": "operator heard the expected current focus/cue without stale replay",
+    "frame_written": "host submitted the serialized FRAME to serial transport",
+    "firmware_applied": "firmware parser accepted and PCA writes succeeded for the generation",
+    "braille_physically_observed": "the expected cells settled and clear was visibly verified"
+  },
+  "immutable_contract": {
+    "scanner_identity_samples": 5,
+    "opaque_identity_collection_ms": 8000,
+    "frame_grammar": "FRAME,page,node,span,offset,generation,c0..c9",
+    "cell_count": 10,
+    "cell_range": [0, 63],
+    "stm_protocol": "V3 ACK/dedupe/press-release semantics",
+    "stable_device_id": "laptop-device-001",
+    "camera_fallback": "forbidden",
+    "authentication_disable": "forbidden",
+    "global_tls_disable": "forbidden",
+    "uart_dma_irq_change_without_measurement": "forbidden",
+    "servo_lut_angle_channel_pin_change_without_measurement": "forbidden"
+  },
+  "run_start_required_fields": [
+    "run_id and new Laptop C: evidence root",
+    "exact launcher and module entrypoint",
+    "run-specific config copy path/hash and parsed safe fields",
+    "all runtime overrides and bypassed boundaries",
+    "Desktop server instance/process/source/module/model identity",
+    "Laptop interpreter/import/product digest",
+    "actual Windows interactive session and audio output device",
+    "initial operating mode and selected datapack/revision/cursor",
+    "new presence boot ID and reading/scan session IDs",
+    "COM ownership, baud/read timeout and negotiated STM protocol",
+    "firmware source/target build/flashed identity and rollback image",
+    "expected packets/frames, maximum actions, stop conditions and observer fields"
+  ],
+  "current_blockers": [
+    "Android camera availability is unverified after the latest three-read failure",
+    "actual authenticated Piper plus rapid control plus native speaker acceptance is not yet run",
+    "firmware target build/flashed identity/rollback image are unverified",
+    "normal-rate FRAME integrity and MCU RX service/error evidence are missing",
+    "PAGE NEXT, CONFIRM SHORT/LONG and physical mode lever wiring are not accepted",
+    "physical cell application and clear residual are not accepted"
+  ],
+  "evidence_sources": {
+    "laptop_runtime": "docs/evidence/demo-run-common-manifest-20260908/laptop-runtime.json",
+    "desktop_runtime": "docs/evidence/demo-run-common-manifest-20260908/desktop-runtime.json",
+    "preserved_run_identities": "docs/evidence/demo-run-common-manifest-20260908/preserved-run-identities.json",
+    "preserved_h3_identity": "docs/evidence/demo-run-common-manifest-20260908/h3-preserved-identity.json",
+    "latest_validation": "docs/evidence/h123-followup-20260908/final-validation.json",
+    "latest_g3a": "docs/evidence/h123-followup-20260908/g3a-evidence/e0b-production-full-model-report.json"
+  }
+}

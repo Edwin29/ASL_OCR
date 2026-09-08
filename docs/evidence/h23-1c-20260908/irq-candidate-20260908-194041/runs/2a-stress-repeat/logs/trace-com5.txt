@@ -1,0 +1,38 @@
+
+
+========================================
+ BRAILLE DISPLAY - HC05 + GITHUB NAV
+ PCA1=TOP / PCA2=BOTTOM
+========================================
+HC-05 UART = 9600 baud
+PCA 0x40 FOUND
+PCA 0x41 FOUND
+PCA CBT: V3 UNAVAILABLE, TRY V2
+BT: HELLO V2...
+BT: V2 UNAVAILABLE, TRY LEGACY
+BT: WAITING FOR PI / HC-05 LINK
+BT: HELLO V3...
+BT: HOST CONNECTED (V3 EDGES)
+BT TX: NAV,V,R,1
+BT RX: ACK,1
+BT ACK: 1
+BT RX: FRAME,0,20,0,0,120,11,38,45,52,18,18,54,55,60,1
+
+========================================
+PAGE   = 0
+NODE   = 20
+SPAN   = 0
+OFFSET = 0
+GEN    = 120
+CELLS  = 11,38,45,52,18,18,54,55,60,1
+========================================
+BT RX: FRAME,0,21,0,0,121,0,0,0,0,0,0,0,0,0,0
+
+========================================
+PAGE   = 0
+NODE   = 21
+SPAN   = 0
+OFFSET = 0
+GEN    = 121
+CELLS  = 0,0,0,0,0,0,0,0,0,0
+========================================

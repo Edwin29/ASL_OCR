@@ -1,0 +1,20 @@
+﻿{
+    "generated_at_utc":  "2026-09-08T10:12:34.2239422Z",
+    "diagnostic_only":  true,
+    "product_source_modified":  false,
+    "source_project":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\fw-preflight-20260908-181500\\firmware-build\\source\\kitel2026final",
+    "project_copy":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\rx-counter-20260908-191131\\firmware-build\\source\\kitel2026final",
+    "workspace":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\rx-counter-20260908-191131\\firmware-build\\workspace",
+    "instrumenter":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\fw-preflight-20260908-181500\\tooling\\instrument_rx_diagnostic.py",
+    "source_main_sha256_before":  "c4bb35e208bf2bdcd4e773c4a40f5a5982ff0333e479340bcd9b6fa1c996371f",
+    "source_main_sha256_after":  "cdb9e3c960759e9599cfa16d42d651ba58db9160de531434cf4cfa5123881aa6",
+    "builder":  "C:\\ST\\STM32CubeIDE_2.2.0\\STM32CubeIDE\\headless-build.bat",
+    "build_log":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\rx-counter-20260908-191131\\logs\\stm32-cubeide-clean-build.log",
+    "build_exit_code":  0,
+    "build_has_error_marker":  false,
+    "artifact":  {
+                     "path":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\rx-counter-20260908-191131\\firmware-build\\source\\kitel2026final\\Debug\\kitel2026final.elf",
+                     "length":  1151760,
+                     "sha256":  "4b96a00b9321c4a7e9cc6639a87f5b92559be2587111070b10495408dfe2a84b"
+                 }
+}

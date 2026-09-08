@@ -81,6 +81,9 @@ class DeviceFlowCoordinator:
         self.connectivity = connectivity
 
         self.state = DeviceFlowState.BOOTING
+        self._fatal_reason: str | None = None
+        self._cleanup_done = False
+        self._cleanup_failures: list[str] = []
         self.operating_mode = initial_mode
         self.catalog: CatalogModel | None = None
         self._catalog_entries = ()
@@ -97,6 +100,14 @@ class DeviceFlowCoordinator:
         self._seen_scanner_events: set[str] = set()
         self._pending_queue: tuple[ClientSpreadSequence, ScannerArtifactReady] | None = None
         self._recovery = "connect"
+
+    @property
+    def fatal_reason(self) -> str | None:
+        return self._fatal_reason
+
+    @property
+    def cleanup_failures(self) -> tuple[str, ...]:
+        return tuple(self._cleanup_failures)
 
     def start(self) -> tuple[CoordinatorEvent, ...]:
         if self.state is not DeviceFlowState.BOOTING:
@@ -172,22 +183,30 @@ class DeviceFlowCoordinator:
         return tuple(events)
 
     def stop(self) -> tuple[CoordinatorEvent, ...]:
-        if self.state is DeviceFlowState.STOPPED:
+        if self._cleanup_done:
             return ()
+        self._cleanup_done = True
         events: list[CoordinatorEvent] = []
         previous = self.state
-        self._transition(DeviceFlowState.CANCELLING, events)
+        first_error: Exception | None = None
+        if previous is not DeviceFlowState.STOPPED:
+            self._transition(DeviceFlowState.CANCELLING, events)
         if self.scan_session is not None and previous is not DeviceFlowState.READING:
             try:
                 self.scanner.cancel()
-            except Exception:
-                pass
+            except Exception as exc:
+                self._cleanup_failures.append(f"scanner.cancel:{type(exc).__name__}")
+                first_error = exc
         if self.connectivity is not None:
             try:
                 self.connectivity.stop()
-            except Exception:
-                pass
+            except Exception as exc:
+                self._cleanup_failures.append(f"connectivity.stop:{type(exc).__name__}")
+                if first_error is None:
+                    first_error = exc
         self._transition(DeviceFlowState.STOPPED, events)
+        if first_error is not None:
+            raise first_error
         return tuple(events)
 
     def _load_catalog(self, events: list[CoordinatorEvent]) -> None:
@@ -707,9 +726,13 @@ class DeviceFlowCoordinator:
         self._emit(CoordinatorEventType.RECOVERABLE_ERROR, events, (("reason", reason), ("recovery", recovery)))
 
     def _fatal(self, reason: str, events: list[CoordinatorEvent]) -> None:
+        if self._fatal_reason is None:
+            self._fatal_reason = reason
         self._emit(CoordinatorEventType.FATAL_ERROR, events, (("reason", reason),))
-        self._feedback(FeedbackCode.FATAL_ERROR, (("reason", reason),))
-        self._transition(DeviceFlowState.STOPPED, events)
+        try:
+            self._feedback(FeedbackCode.FATAL_ERROR, (("reason", reason),))
+        finally:
+            self._transition(DeviceFlowState.STOPPED, events)
 
     def _transition(self, state: DeviceFlowState, events: list[CoordinatorEvent]) -> None:
         if self.state is state:

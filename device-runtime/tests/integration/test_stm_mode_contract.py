@@ -33,6 +33,10 @@ class FakeSerial:
         except queue.Empty:
             return b""
 
+    def read_until(self, expected=b"\n", size=None):
+        assert expected == b"\n" and size == 256
+        return self.readline()
+
     def write(self, data):
         with self._lock:
             self.writes.append(data)
@@ -116,6 +120,8 @@ def test_checked_in_stm_source_and_cubemx_pin_contract_are_synchronized() -> Non
     firmware = repository / "hardware/stm32/kitel2026final"
     main_c = (firmware / "Core/Src/main.c").read_text(encoding="utf-8")
     main_h = (firmware / "Core/Inc/main.h").read_text(encoding="utf-8")
+    interrupt_c = (firmware / "Core/Src/stm32f4xx_it.c").read_text(encoding="utf-8")
+    interrupt_h = (firmware / "Core/Inc/stm32f4xx_it.h").read_text(encoding="utf-8")
     ioc_lines = (firmware / "kitel2026final.ioc").read_text(encoding="utf-8").splitlines()
     ioc = dict(line.split("=", 1) for line in ioc_lines if "=" in line)
 
@@ -136,6 +142,21 @@ def test_checked_in_stm_source_and_cubemx_pin_contract_are_synchronized() -> Non
     assert "SendControlAction('D', action)" in main_c
     assert "one FIFO slot for DOWN release" in main_c
     assert "ReceiveFrameFromPi(FRAME_TIMEOUT_MS)" in main_c
+    assert "#define BT_RX_RING_SIZE         1024U" in main_c
+    assert "#define BT_RX_RESYNC_TOKEN      0x100U" in main_c
+    assert "void BluetoothUartIrqHandler(void)" in main_c
+    assert "StartBluetoothInterruptReceive();" in main_c
+    assert "StopBluetoothInterruptReceive();" in main_c
+    assert "USART_SR_ORE | USART_SR_FE | USART_SR_NE | USART_SR_PE" in main_c
+    assert "BT RX TRANSPORT ERROR" in main_c
+    assert "HAL_UART_Receive(&huart1, &ch, 1U, 1U)" not in main_c[
+        main_c.index("static void PumpBluetoothInput(void)\n{") :
+        main_c.index("/* Keep legacy blocking response semantics")
+    ]
+    assert "void BluetoothUartIrqHandler(void);" in main_h
+    assert "void USART1_IRQHandler(void)" in interrupt_c
+    assert "BluetoothUartIrqHandler();" in interrupt_c
+    assert "void USART1_IRQHandler(void);" in interrupt_h
     for call in (
         "SendControlAction('U', 'S')",
         "SendControlAction('D', 'S')",

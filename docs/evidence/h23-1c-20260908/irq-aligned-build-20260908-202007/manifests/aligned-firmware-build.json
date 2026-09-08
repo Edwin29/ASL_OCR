@@ -1,0 +1,34 @@
+﻿{
+    "generated_at_utc":  "2026-09-08T11:20:30.6024912Z",
+    "identity":  "authoritative integration source after USART1 RX alignment",
+    "product_source_modified_on_laptop":  true,
+    "source_project":  "C:\\ASL_OCR_INTEGRATION\\hardware\\stm32\\kitel2026final",
+    "project_copy":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\irq-aligned-build-20260908-202007\\firmware-build\\source\\kitel2026final",
+    "source_files":  [
+                         {
+                             "relative_path":  "Core\\Src\\main.c",
+                             "sha256":  "f0b93413f352be398dac62db6a64b2d17c19f1b8e14faf874371beddaf6ba1c1"
+                         },
+                         {
+                             "relative_path":  "Core\\Src\\stm32f4xx_it.c",
+                             "sha256":  "71030ed19863327bc4053916f16136e0b760bc77ca6efbba2f0f53d2dc3680a3"
+                         },
+                         {
+                             "relative_path":  "Core\\Inc\\main.h",
+                             "sha256":  "f802d2972e2ac9de4679d4914482ad468dd2098d383a91abb957083fa2e513a3"
+                         },
+                         {
+                             "relative_path":  "Core\\Inc\\stm32f4xx_it.h",
+                             "sha256":  "dd14fbf6d042467d063e09e8c3383b7d67655c84510178cd8de336f533916f7b"
+                         }
+                     ],
+    "builder":  "C:\\ST\\STM32CubeIDE_2.2.0\\STM32CubeIDE\\headless-build.bat",
+    "build_log":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\irq-aligned-build-20260908-202007\\logs\\stm32-cubeide-clean-build.log",
+    "build_exit_code":  0,
+    "build_has_error_marker":  false,
+    "artifact":  {
+                     "path":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\irq-aligned-build-20260908-202007\\firmware-build\\source\\kitel2026final\\Debug\\kitel2026final.elf",
+                     "length":  1154432,
+                     "sha256":  "1d4a2d9a24cad2a5a856ebf88b6565ddc1d81d3c5b1fd5f811f1551786555d56"
+                 }
+}

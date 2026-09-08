@@ -1,0 +1,39 @@
+{
+  "scope": "behavioral models only; firmware unchanged, no physical transmission",
+  "constants": {
+    "HC05_UART_BAUD": 9600,
+    "DEBUG_UART_BAUD": 115200,
+    "BT_RX_LINE_SIZE": 256,
+    "SERVO_BATCH_SIZE": 4,
+    "SERVO_BATCH_DELAY_MS": 100
+  },
+  "overflow_suffix": {
+    "overflow_events": 1,
+    "unexpected_accepted_suffix": [
+      "FRAME,0,17,0,0,111,0,0,0,0,0,0,0,0,0,0"
+    ]
+  },
+  "receive_models": [
+    {
+      "blocking_ms": 0,
+      "lost_bytes_in_model": 0,
+      "received": "FRAME,0,17,0,0,111,0,0,0,0,0,0,0,0,0,0\n"
+    },
+    {
+      "blocking_ms": 2.6909722222222223,
+      "lost_bytes_in_model": 2,
+      "received": "FME,0,17,0,0,111,0,0,0,0,0,0,0,0,0,0\n"
+    },
+    {
+      "blocking_ms": 500,
+      "lost_bytes_in_model": 38,
+      "received": "F"
+    }
+  ],
+  "limitations": [
+    "No compiled C/HAL execution",
+    "No measured UART ORE/FE/NE",
+    "No direct UART versus HC-05 comparison",
+    "No assertion of actual servo pulse or physical state"
+  ]
+}

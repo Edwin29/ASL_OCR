@@ -1,0 +1,221 @@
+{
+  "source_hashes": {
+    "C:\\ASL_OCR_INTEGRATION\\book-scanner\\src\\book_scanner\\video\\engine.py": "f223f744fe2fd6a6818ea7bed4ed4f522e27f90590fc2c477fcb40fdbe8e427f",
+    "C:\\ASL_OCR_INTEGRATION\\book-scanner\\src\\book_scanner\\video\\opaque_identity.py": "aeac3eea75245675a08e7d643dc73ee569cce0db6cf05326841e7bc46273af59"
+  },
+  "reference_input_sha256": "40a4d2a22b4f98c76a7ebec3a9687cd1164694b2c838db1b3ceb641050bae65d",
+  "query_input_sha256": "6f6b02f3370b94f9fa42249618aff5a3c01c793e1bdb390ce285eb6c5b900a0c",
+  "reference_rows": [
+    {
+      "source_frame_id": "phone-snapshot-00000018",
+      "captured_at_monotonic": 180989.078,
+      "observed_at_monotonic": 180989.125,
+      "t": 21.578999999997905,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 140.00000001396984,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 443.82640000549145,
+      "left_roi_sha256": "ad56a66e0a49cf2e421d321d06e7f8c1a26d39681acfe68bbcb2b800cc88a9d9",
+      "right_roi_sha256": "1bf2c525971f59afad41454c08bc291fd885a2203ea6ceb853fcc9f4e5d623eb",
+      "elapsed_ms": 592.9999999934807
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000019",
+      "captured_at_monotonic": 180990.312,
+      "observed_at_monotonic": 180990.359,
+      "t": 22.812999999994645,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 78.00000000861473,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 377.9719999874942,
+      "left_roi_sha256": "5bc1c7d79473e2c87296072f1ce89ce031f7b1c31c43612ff7fb1a5ce2c5fcc4",
+      "right_roi_sha256": "0b14599f252b25f27b93d2b7d1c3269a49a8411dc6ac2cbd304d0e4a28f3305b",
+      "elapsed_ms": 469.00000001187436
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000020",
+      "captured_at_monotonic": 180991.421,
+      "observed_at_monotonic": 180991.453,
+      "t": 23.90700000000652,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 139.999999984866,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 377.46610000613146,
+      "left_roi_sha256": "ef56b1e043b61d0582347767835df2df9a479b96819d19511e013a09335a7b27",
+      "right_roi_sha256": "a467f9a97892e2af8974fae2e612d58e20657e294984428fc788a035192000e1",
+      "elapsed_ms": 530.9999999881256
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000021",
+      "captured_at_monotonic": 180992.609,
+      "observed_at_monotonic": 180992.64,
+      "t": 25.094000000011874,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 140.9999999741558,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 384.6477000042796,
+      "left_roi_sha256": "eb7daa76c951257072046afa44b70c44e78642a663a82a8531a9066d9d4bd1a3",
+      "right_roi_sha256": "9f3a4ad340e82df9969b319616a598583cec8a3b406951f90b8865a8495d8a4e",
+      "elapsed_ms": 530.9999999881256
+    },
+    {
+      "source_frame_id": "phone-snapshot-00000022",
+      "captured_at_monotonic": 180993.781,
+      "observed_at_monotonic": 180993.828,
+      "t": 26.28200000000652,
+      "source_shape": [
+        3000,
+        4000,
+        3
+      ],
+      "analyzer_ms": 125.0,
+      "candidate_retry_reasons": [],
+      "maximum_dimension_argument": 4000,
+      "left_raw": "26",
+      "right_raw": "27",
+      "left_status": "observed",
+      "right_status": "observed",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "recognition_processing_ms": 352.783799986355,
+      "left_roi_sha256": "be4dabb8b46f171e0a2be6d7799d54ecf0a11bd7bc345ca3c0aca6f95342108f",
+      "right_roi_sha256": "7ebf4ae490bbe596884107ebf3437d5dbf36287f219087327648eadb92093547",
+      "elapsed_ms": 483.99999999674037
+    }
+  ],
+  "query_complete_count": 5,
+  "scenarios": [
+    {
+      "scenario": "recorded_live_query_with_rejections",
+      "state": "waiting_for_page_change",
+      "rows_used": 25,
+      "decisions": [
+        {
+          "time": 10.811,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 0,
+          "timed_out": true,
+          "coherent": false
+        }
+      ]
+    },
+    {
+      "scenario": "counterfactual_no_candidate_resets",
+      "state": "waiting_for_page_change",
+      "rows_used": 25,
+      "decisions": [
+        {
+          "time": 8.008,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 0,
+          "timed_out": true,
+          "coherent": false
+        },
+        {
+          "time": 16.013,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 2,
+          "timed_out": true,
+          "coherent": false
+        },
+        {
+          "time": 24.02,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 1,
+          "timed_out": true,
+          "coherent": false
+        },
+        {
+          "time": 32.034,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 2,
+          "timed_out": true,
+          "coherent": false
+        }
+      ]
+    },
+    {
+      "scenario": "counterfactual_complete_pairs_compacted",
+      "state": "searching",
+      "rows_used": 5,
+      "decisions": [
+        {
+          "time": 4.3,
+          "event": "opaque_identity_decided",
+          "decision": "different",
+          "n": 5,
+          "timed_out": false,
+          "coherent": true
+        },
+        {
+          "time": 4.3,
+          "event": "page_changed",
+          "decision": null,
+          "n": 5,
+          "timed_out": null,
+          "coherent": true
+        }
+      ]
+    }
+  ],
+  "fidelity": "Actual engine with recorded raw/timing/rejection rows and fixture reference values from observed first five pairs. No original receipt, frame bank, real camera scheduler, or visual fingerprint restored. Counterfactuals isolate causes only; not proposed threshold changes."
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "kind": "e0b_replay_input",
+  "file_name": "scanner-replay.mp4",
+  "size_bytes": 242882956,
+  "sha256": "16c57970bc493abcef4a1db0f1917b22956bf5ca1a2ee8b4565fde1f6574e6f8",
+  "first_frame": {
+    "width": 3840,
+    "height": 2160
+  },
+  "status": "passed"
+}

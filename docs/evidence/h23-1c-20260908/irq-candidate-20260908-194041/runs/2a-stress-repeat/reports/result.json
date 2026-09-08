@@ -1,0 +1,20 @@
+﻿{
+    "captured_at_utc":  "2026-09-08T11:15:06.8652667Z",
+    "stop_reason":  "completed",
+    "error":  null,
+    "hello3_count":  1,
+    "nav_packets":  [
+                        "NAV,V,R,1"
+                    ],
+    "nav_ack_count":  1,
+    "trigger_observed":  true,
+    "frames_sent":  2,
+    "frame_limit":  2,
+    "inter_frame_delay_ms":  50,
+    "byte_pacing_override":  false,
+    "expected_final_generation":  121,
+    "debug_contains_format_error":  false,
+    "debug_contains_pca_init_ok":  false,
+    "debug_log":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\irq-candidate-20260908-194041\\runs\\2a-stress-repeat\\logs\\com5.txt",
+    "serial_log":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\irq-candidate-20260908-194041\\runs\\2a-stress-repeat\\logs\\serial.jsonl"
+}

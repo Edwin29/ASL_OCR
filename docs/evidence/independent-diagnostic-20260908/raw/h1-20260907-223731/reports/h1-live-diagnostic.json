@@ -1,0 +1,61 @@
+{
+  "datapack": {
+    "id": "datapack-3f0d8ec7d8c44dc7a22ea2005ab03748",
+    "title": "새 데이터팩 2026-09-07 22:52 #25",
+    "status": "draft",
+    "revision": null,
+    "selectable": true
+  },
+  "scan_session": {
+    "status": "finalizing",
+    "datapack_id": "datapack-3f0d8ec7d8c44dc7a22ea2005ab03748",
+    "revision": null,
+    "reason": null
+  },
+  "delivery_db": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-223731\\state\\camera-console\\delivery.sqlite3",
+  "delivery_tables": {
+    "delivery_outbox": [
+      {
+        "outbox_id": "outbox-99510a5891c041958276403018b65027",
+        "scan_session_id": "scan-2b05e8b5cb234da48c265b07d94b84a7",
+        "sequence": 1,
+        "device_id": "laptop-device-001",
+        "artifact_id": "spread-47577804af842a4b8490f3aea35262f5",
+        "spread_id": "scan-2b05e8b5cb234da48c265b07d94b84a7-spread-000015",
+        "source_frame_id": "phone-snapshot-00000191",
+        "manifest_path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-223731\\state\\camera-console\\artifacts\\ready\\spread-47577804af842a4b8490f3aea35262f5\\manifest.json",
+        "manifest_sha256": "9506fecbfb26490475f464971dc3c2ae0667c7d9fa27975fdf33edd85aff9e78",
+        "inventory_json": "[{\"path\":\"source_frame.jpg\",\"sha256\":\"ec95cd0e02d6cf1767362593e0bdb3a031714de0806adb4fe7bf89f0417b3a92\",\"size_bytes\":2688957},{\"path\":\"left/mask.png\",\"sha256\":\"724f4808969bde3a1ec6c7b3c39764ddb997cf3d23752313279ad63cb0bb3354\",\"size_bytes\":15913},{\"path\":\"left/crop.jpg\",\"sha256\":\"35f323fb7322382677bbc8e581cff90e746b639ed8cb9d2d60778f6bd7d1154b\",\"size_bytes\":622948},{\"path\":\"left/uvdoc.jpg\",\"sha256\":\"29dbbbfa578b5f0f80cdd47779305410815154c98d971c7df1ea3dce5e8ac2c3\",\"size_bytes\":456452},{\"path\":\"left/diagnostics.json\",\"sha256\":\"d398a95b5441b1279f02ecdb64cf444c1467908d1991f1e8907e4604a668f2c7\",\"size_bytes\":1177},{\"path\":\"right/mask.png\",\"sha256\":\"28302c2ad3b46528a4391bc8400951e51174f5f477f16a76175f7fc3d4012a54\",\"size_bytes\":15846},{\"path\":\"right/crop.jpg\",\"sha256\":\"d2b4cd0664a542ecdd6c5ab8d5197ca1ff19316c5055a52545753e6bc2f9fba5\",\"size_bytes\":637711},{\"path\":\"right/uvdoc.jpg\",\"sha256\":\"6797a455a616c96e8e40ce7b573c2939cc1e76e8a2f4c1fa0fad893d7a827a85\",\"size_bytes\":440531},{\"path\":\"right/diagnostics.json\",\"sha256\":\"784a7ca0a07c2aa2d5a1ac727340b492eced924b5bbd1e1f551a6a3bf734b83f\",\"size_bytes\":1179}]",
+        "file_count": 9,
+        "total_file_bytes": 4880714,
+        "upload_digest": "13509f057ade65633475e6beef902127654a9379c3ec6b374b1fbf9759f10121",
+        "idempotency_key": "v3b-13509f057ade65633475e6beef902127654a9379c3ec6b374b1fbf9759f10121",
+        "status": "acked",
+        "attempt_count": 1,
+        "receipt_id": "spread-receipt-e1bf0646b544e633f7670772ac105d1e",
+        "server_accepted_at": "2026-09-07T13:56:29.203116+00:00",
+        "last_http_status": 201,
+        "last_error_code": null,
+        "last_error_detail": null,
+        "cleanup_error": null,
+        "created_at": "2026-09-07T13:56:29.008352+00:00",
+        "updated_at": "2026-09-07T13:56:29.756539+00:00",
+        "terminal_at": "2026-09-07T13:56:29.732905+00:00"
+      }
+    ],
+    "delivery_schema_migrations": [
+      {
+        "version": 1,
+        "applied_at": "2026-09-07T13:41:29.105718+00:00"
+      }
+    ]
+  },
+  "state_files": [
+    {
+      "path": "delivery.sqlite3",
+      "size": 32768
+    }
+  ],
+  "credential_recorded": false,
+  "read_only": true
+}

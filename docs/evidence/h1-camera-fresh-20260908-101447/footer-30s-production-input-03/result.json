@@ -1,0 +1,666 @@
+{
+  "kind": "footer_30s_production_input_comparison",
+  "started_at_utc": "2026-09-08T02:26:07.737879+00:00",
+  "python": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Scripts\\python.exe",
+  "production_config_max_collection_ms": 8000,
+  "diagnostic_phase_seconds": 30.0,
+  "query_sample_count_unchanged": 5,
+  "input_stage": "preview_native",
+  "page_number_preview_max_dimension": 1920,
+  "threshold_changes": 0,
+  "uploads": 0,
+  "product_state_changes": 0,
+  "credential_values_recorded": false,
+  "phases": [
+    {
+      "name": "reference",
+      "pages": "26/27",
+      "completed_at_utc": "2026-09-08T02:26:43.277548+00:00",
+      "sample_count": 17,
+      "candidate_eligible_count": 17,
+      "complete_pair_count": 14,
+      "pair_counts": {
+        "26|27": 14
+      },
+      "largest_pair_consensus": 14,
+      "rows": [
+        {
+          "source_frame_id": "phone-snapshot-00000001",
+          "sample_started": 139653.281,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "26",
+          "right_raw": "27",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "791caeda056de7b61615633c15e43a0e9e1ba8c35cadd6f4e203e60de0288d6f",
+          "right_roi_sha256": "aa3af6514ff8ab0f3a859cd899d9a8f54f6f121535c61c443a44799e21ba149f",
+          "recognition_processing_ms": 359.97580000548624,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "source_file_sha256": "b031bb9e01b8d2593b0314913993dd6175214eeb4ec57363775fb05ffb3e5e77",
+          "left_roi_file_sha256": "50461f2c4e6b3dcd0139211e2f6df2e4d130332b70151c8d99920daceaa197e6",
+          "right_roi_file_sha256": "1a06fc9b4506e1a2dc424696a91bb3c9548ca4706666b57f10da6fd9b4bf5850",
+          "elapsed_ms": 2094.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000002",
+          "sample_started": 139655.375,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "26",
+          "right_raw": "27",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "3812cd547576ed37b6c4c0e3f94037aac165fb5d183b75826280fa187b967819",
+          "right_roi_sha256": "5998e7582a4cc44257cab2dc69e922446f6cd7c40dc324c2241053f8aa6132ba",
+          "recognition_processing_ms": 490.4042999842204,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "elapsed_ms": 1906.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000003",
+          "sample_started": 139657.281,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "26",
+          "right_raw": "27",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "fa43a21e9e0bc3fda0cf0a65714762db2cb91ff668970ced83c8f8f6847a00fd",
+          "right_roi_sha256": "f1b463bdf81df86b71e13775d27501c9e6bf706e5a1302e32fbcfa33470e6562",
+          "recognition_processing_ms": 349.25939998356625,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "elapsed_ms": 1844.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000004",
+          "sample_started": 139659.125,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "26",
+          "right_raw": "27",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "847fff561ea817eda1b550b97aa7d24efa9d6e768c46efffb24c9b67c69ec59d",
+          "right_roi_sha256": "3f05276502208413b78c1bf002db0c8cacaa36a77e8f6ba9d8f72fb5c2a19a47",
+          "recognition_processing_ms": 411.77320000133477,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "elapsed_ms": 1953.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000005",
+          "sample_started": 139661.078,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "26",
+          "right_raw": "27",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "a4e61566dc091a25d06a42f1e16a2b9f9c312ad4edd7592bae95e6bcc43a6efc",
+          "right_roi_sha256": "bde53357a18164941386b0e2edaf4d6f28cfcedabe114aca9042ef9ec530cb07",
+          "recognition_processing_ms": 310.2438999922015,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "elapsed_ms": 1843.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000006",
+          "sample_started": 139662.921,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "26",
+          "right_raw": "27",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "1f175503f7f94555479cf47d9fe7d16c2e3091411d6749040a913f16ce5b8b2c",
+          "right_roi_sha256": "1db6afa3b41e8ee2c60a95c5fcc3c9d275c4d3cdbb78df76387f2e09d7c0fbe0",
+          "recognition_processing_ms": 451.0037000000011,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "elapsed_ms": 1922.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000007",
+          "sample_started": 139664.843,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "26",
+          "right_raw": "27",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "07848e785bf9d64e2a4ca41d8b5582cd518e0f543f3e39977f14b379f68dca4d",
+          "right_roi_sha256": "d4f3fd9a0cc001fda5ba6c5f68b060023fbf904e424b4eeac8a55b81833896e4",
+          "recognition_processing_ms": 415.76720000011846,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "elapsed_ms": 1907.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000008",
+          "sample_started": 139666.75,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "26",
+          "right_raw": "27",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "81fabcd7946422e51e267b13e858455707628d0da75129c40c319ed3f74f7090",
+          "right_roi_sha256": "b39efa1f33ef50267d55d52808b4113431fb459dd85971fd6afad9732f272076",
+          "recognition_processing_ms": 438.06519999634475,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "elapsed_ms": 1937.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000009",
+          "sample_started": 139668.687,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "26",
+          "right_raw": "27",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "ff0659ad83f3573f495cf68a276f1918b1cbe28a5b02973e0c2beb6127468024",
+          "right_roi_sha256": "e2382de67034c1f879504fd5283fea2eb048011303650a16175b96421c811c18",
+          "recognition_processing_ms": 379.5716999738943,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "elapsed_ms": 1922.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000010",
+          "sample_started": 139670.609,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "26",
+          "right_raw": "27",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "b45ffda1b55c80d7731ba56b00355bbef7429331debe5f03e739fc6fbd103d25",
+          "right_roi_sha256": "10ca2c1da7655204bcf16ae2ea60823e4b898aa31ea0071106b6df3054ca6408",
+          "recognition_processing_ms": 365.7418999937363,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "elapsed_ms": 1734.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000011",
+          "sample_started": 139672.343,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "26",
+          "right_raw": "27",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "b6c1f5c92396edbf7fb6ce5b6347df3f87f96df249d09730e5cf5ada4e905959",
+          "right_roi_sha256": "bebd625768e95904f7de8faa20a4f546270e7a58a262d96b12f80904b4f0c51f",
+          "recognition_processing_ms": 248.59510001260787,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "elapsed_ms": 1578.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000012",
+          "sample_started": 139673.921,
+          "candidate_retry_reasons": [],
+          "spread_status": "partial",
+          "left_raw": "26",
+          "right_raw": null,
+          "left_status": "observed",
+          "right_status": "not_observed",
+          "left_roi_sha256": "412c05c3b49a8fe5a23de131cb295cabfb39880a7ceec63a807ac8720df6ca67",
+          "right_roi_sha256": "559ff03acb6c31516826cdc34c82efdcbd1b8cec13d19c367055cae8933faf3b",
+          "recognition_processing_ms": 263.70239999960177,
+          "pair": null,
+          "elapsed_ms": 1735.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000013",
+          "sample_started": 139675.656,
+          "candidate_retry_reasons": [],
+          "spread_status": "partial",
+          "left_raw": "26",
+          "right_raw": null,
+          "left_status": "observed",
+          "right_status": "not_observed",
+          "left_roi_sha256": "7e8881a8b7a4d6f914ef3d916649e86c04ced9be14b130c7a0e5ae1faa6c1539",
+          "right_roi_sha256": "a100cbd847018aeb2e02f787b4548358d9bdbb4bc2afca45c63d67b4928ea4c2",
+          "recognition_processing_ms": 329.55379999475554,
+          "pair": null,
+          "elapsed_ms": 1765.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000014",
+          "sample_started": 139677.421,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "26",
+          "right_raw": "27",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "5f870ce7aa7f9ba7085ea1cf66b8c22dcd22aa72d258a0533041d94229190886",
+          "right_roi_sha256": "4782fe32c54e4ff80bb7a0c3809115012414219331ad190da337996395b513d3",
+          "recognition_processing_ms": 356.2087999889627,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "elapsed_ms": 1704.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000015",
+          "sample_started": 139679.125,
+          "candidate_retry_reasons": [],
+          "spread_status": "partial",
+          "left_raw": "26",
+          "right_raw": null,
+          "left_status": "observed",
+          "right_status": "not_observed",
+          "left_roi_sha256": "9886bd359d12107a9cf22f1227a91533873e284f2f56059efd9a3f8d74f78661",
+          "right_roi_sha256": "1b383b7ae77671330a922cf7b414216822034642e1c4c330a0351f54e69bf66b",
+          "recognition_processing_ms": 286.29600000567734,
+          "pair": null,
+          "elapsed_ms": 1687.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000016",
+          "sample_started": 139680.812,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "26",
+          "right_raw": "27",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "9167eca219c35214401ff2216e78171bb8107234f150f8febc8c7defee4384b2",
+          "right_roi_sha256": "9175029429e77b80a89b02c587f63bf13fa89a64d98020756cdb2ea837caff22",
+          "recognition_processing_ms": 498.32230000174604,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "elapsed_ms": 1922.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000017",
+          "sample_started": 139682.734,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "26",
+          "right_raw": "27",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "481e198d52e92f324f4a1907e7bd37dcec0d62c27e994ed68c1fa3787f40de20",
+          "right_roi_sha256": "43c6ccee778ab6d641788e49ae656f89bee9f05078a7a405d0e6cb2bcd92eda6",
+          "recognition_processing_ms": 271.21060001081787,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "elapsed_ms": 1703.0
+        }
+      ]
+    },
+    {
+      "name": "query",
+      "pages": "28/29",
+      "completed_at_utc": "2026-09-08T02:27:25.200484+00:00",
+      "sample_count": 19,
+      "candidate_eligible_count": 19,
+      "complete_pair_count": 10,
+      "pair_counts": {
+        "28|9": 2,
+        "28|02": 2,
+        "28|29": 5,
+        "28|4": 1
+      },
+      "largest_pair_consensus": 5,
+      "rows": [
+        {
+          "source_frame_id": "phone-snapshot-00000018",
+          "sample_started": 139694.921,
+          "candidate_retry_reasons": [],
+          "spread_status": "partial",
+          "left_raw": "28",
+          "right_raw": null,
+          "left_status": "observed",
+          "right_status": "not_observed",
+          "left_roi_sha256": "a764947c91c4764998d78a9da266b51bd1df18a6a133828a4de7108475d89363",
+          "right_roi_sha256": "9a39be34cb65748cbe7a5f5d3be5f0162eb589dd0658a78896c91f99b0cb2b64",
+          "recognition_processing_ms": 229.55210000509396,
+          "pair": null,
+          "source_file_sha256": "1522921a4e222ff19bb2d12920e59c1db5d171c487a062a1fe958ecf161e3c27",
+          "left_roi_file_sha256": "99304183ea1752e4d49ed960f950891af16dcc86c65360a981ac9f745a5bc64b",
+          "right_roi_file_sha256": "43d09cf9e2592628d326657d032259400445eb4f1826945e66dcb906e666b88b",
+          "elapsed_ms": 1985.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000019",
+          "sample_started": 139696.906,
+          "candidate_retry_reasons": [],
+          "spread_status": "conflict",
+          "left_raw": "28",
+          "right_raw": "9",
+          "left_status": "observed",
+          "right_status": "conflict",
+          "left_roi_sha256": "9342ecf0bcc7a1ef605d6cac7f86c039cef30e9ffa947dea5a9caa750ab1f9f4",
+          "right_roi_sha256": "a0bb32e6c93f0f67c5fec30bfe1ee6a404235e7211a4c09dfb57af71b469cccb",
+          "recognition_processing_ms": 286.02719999616966,
+          "pair": [
+            "28",
+            "9"
+          ],
+          "elapsed_ms": 1640.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000020",
+          "sample_started": 139698.546,
+          "candidate_retry_reasons": [],
+          "spread_status": "partial",
+          "left_raw": "28",
+          "right_raw": null,
+          "left_status": "observed",
+          "right_status": "not_observed",
+          "left_roi_sha256": "49ed6f53a82642cf451b6ddcbb59a4b30c72508c8efbb6b7e1d5822232b8cdfb",
+          "right_roi_sha256": "9ff0343c47b1bc4a0367de5dde9cde4330de6b451050fa88c2cd0afab88411e2",
+          "recognition_processing_ms": 204.91530001163483,
+          "pair": null,
+          "elapsed_ms": 1594.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000021",
+          "sample_started": 139700.14,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "28",
+          "right_raw": "02",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "f4c9a99960a99e004f8e1a698a2fe2455aee850678590ff415086c4bdd3af887",
+          "right_roi_sha256": "210b30297314db01dfa79882dfe4a17ef7b59d17ecd8eecc2ab063df12fde04c",
+          "recognition_processing_ms": 250.2954000083264,
+          "pair": [
+            "28",
+            "02"
+          ],
+          "elapsed_ms": 1781.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000022",
+          "sample_started": 139701.921,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "28",
+          "right_raw": "02",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "5a92469feedabe68fc55df0e23c9bd8cb72b6989e8fc0969881f194e4cae86fe",
+          "right_roi_sha256": "b8bba144220bc4cc34102dfed5c8847f285857837fffd9e2250993d6b1c63c4f",
+          "recognition_processing_ms": 209.86360000097193,
+          "pair": [
+            "28",
+            "02"
+          ],
+          "elapsed_ms": 1704.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000023",
+          "sample_started": 139703.625,
+          "candidate_retry_reasons": [],
+          "spread_status": "conflict",
+          "left_raw": "28",
+          "right_raw": "9",
+          "left_status": "observed",
+          "right_status": "conflict",
+          "left_roi_sha256": "43a95aa2ea318c580abb46d5cbab376af18417e68c243fef1b188587fd70d1e9",
+          "right_roi_sha256": "fb15dfd54fa1b42bdebcba1c6ef26083a788e3564e90ef569891de6851a65f5f",
+          "recognition_processing_ms": 253.6602999898605,
+          "pair": [
+            "28",
+            "9"
+          ],
+          "elapsed_ms": 1609.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000024",
+          "sample_started": 139705.234,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "28",
+          "right_raw": "29",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "8c7db0ad60f75ada1792c1286b531f7c41c1d1e75275fbc81c71b9a400e61de5",
+          "right_roi_sha256": "40489f5b2d9c235f8e513db82252bf9eaa59b4aac514b1cc2ff365f7ed259343",
+          "recognition_processing_ms": 208.90359999611974,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "elapsed_ms": 1641.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000025",
+          "sample_started": 139706.875,
+          "candidate_retry_reasons": [],
+          "spread_status": "partial",
+          "left_raw": "28",
+          "right_raw": null,
+          "left_status": "observed",
+          "right_status": "not_observed",
+          "left_roi_sha256": "34edeb47ba5073b957f3ead2ad8d1f851cad59001614af282089cd8392f77479",
+          "right_roi_sha256": "fd5fa2d98df1f3ed693644712801eb5b262b4ea06ff957daa29580185959e86d",
+          "recognition_processing_ms": 203.48050000029616,
+          "pair": null,
+          "elapsed_ms": 1546.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000026",
+          "sample_started": 139708.421,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "28",
+          "right_raw": "29",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "be3e253052ad6a172e24a5e3a3d47ea1823ef9d93aed901c428958e85a7dd158",
+          "right_roi_sha256": "8d2a16cf4994298fc9d8a8e4c973bcc117a5d112f7439106cba3a6fb3d438a3a",
+          "recognition_processing_ms": 223.83519998402335,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "elapsed_ms": 1625.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000027",
+          "sample_started": 139710.046,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "28",
+          "right_raw": "4",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "8c60b6eac38f09cb71a028b863b60e7fdeec8ca998059b24de9bbb55565c683b",
+          "right_roi_sha256": "cf8b282bfbabd7a397416c7344f71842477e78bd9d5be65d5be739eb75fb757c",
+          "recognition_processing_ms": 215.27799998875707,
+          "pair": [
+            "28",
+            "4"
+          ],
+          "elapsed_ms": 1594.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000028",
+          "sample_started": 139711.64,
+          "candidate_retry_reasons": [],
+          "spread_status": "partial",
+          "left_raw": "28",
+          "right_raw": null,
+          "left_status": "observed",
+          "right_status": "not_observed",
+          "left_roi_sha256": "d8ecce00e191aece05006b72ec17c960aaaa4c52404f150f5401183dae11fd99",
+          "right_roi_sha256": "ad28ffbd4186d91856b81dc1fa201683a17af06feb19e7f3dccddd0d13a7a8f9",
+          "recognition_processing_ms": 196.01840001996607,
+          "pair": null,
+          "elapsed_ms": 1578.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000029",
+          "sample_started": 139713.218,
+          "candidate_retry_reasons": [],
+          "spread_status": "partial",
+          "left_raw": "28",
+          "right_raw": null,
+          "left_status": "observed",
+          "right_status": "not_observed",
+          "left_roi_sha256": "a7e500ee1c1a314b1d8ef96d56f1aab1b9a427d45c4da1ab8d3fd779ca12bc7b",
+          "right_roi_sha256": "a1d31dde1c93e99b56320a4deeaad64a564926f4492f67ec0cd38ad7a1ef0b67",
+          "recognition_processing_ms": 195.61359999352135,
+          "pair": null,
+          "elapsed_ms": 1610.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000030",
+          "sample_started": 139714.828,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "28",
+          "right_raw": "29",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "56158c717e9c7ebbd1c892850ee03506799171bc36d115d268320b92700a1d51",
+          "right_roi_sha256": "9f52e035e87f45879cf2db84c72b5f4658fd2958faf9cf7e449adcaef9c5db70",
+          "recognition_processing_ms": 223.48570000031032,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "elapsed_ms": 1547.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000031",
+          "sample_started": 139716.375,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "28",
+          "right_raw": "29",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "f0637c40b5ed3a8e505af533184a1923a6b080d520d03147ac2592865f3a6129",
+          "right_roi_sha256": "c149c03554ef8b08f6f0f02ad38f5daee2651ae2c850dc6f245d3e6ad516d5cb",
+          "recognition_processing_ms": 313.1903999892529,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "elapsed_ms": 1671.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000032",
+          "sample_started": 139718.046,
+          "candidate_retry_reasons": [],
+          "spread_status": "complete",
+          "left_raw": "28",
+          "right_raw": "29",
+          "left_status": "observed",
+          "right_status": "observed",
+          "left_roi_sha256": "b5ccd468b1b93e0fe71125400837f64b3dfd9fc6f81a253d54248f68612786aa",
+          "right_roi_sha256": "8c458fbc81b7205590358341c51de31d53ae91ab3de212c2ab5a526ffcc05f1a",
+          "recognition_processing_ms": 287.14959998615086,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "elapsed_ms": 1704.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000033",
+          "sample_started": 139719.75,
+          "candidate_retry_reasons": [],
+          "spread_status": "partial",
+          "left_raw": "28",
+          "right_raw": null,
+          "left_status": "observed",
+          "right_status": "not_observed",
+          "left_roi_sha256": "d0d4ce1d476df8966888cf4f516a3804fe898dd2f8e5c2a1a60ae1656b7f6e64",
+          "right_roi_sha256": "b6b43bafc88ea3f6a6de8c68418b08d7b3971011b2f53b6dbf649239bcf94887",
+          "recognition_processing_ms": 229.21079999650829,
+          "pair": null,
+          "elapsed_ms": 1656.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000034",
+          "sample_started": 139721.406,
+          "candidate_retry_reasons": [],
+          "spread_status": "partial",
+          "left_raw": "28",
+          "right_raw": null,
+          "left_status": "observed",
+          "right_status": "not_observed",
+          "left_roi_sha256": "40afb0dcc04322def1daf1b14e56fd76455505670ca69556f86a07abcf6ea67c",
+          "right_roi_sha256": "53a988b75932ff96e51048c2a230552f5e9369e96ba335d144bae858f450d1ad",
+          "recognition_processing_ms": 193.4054000012111,
+          "pair": null,
+          "elapsed_ms": 1687.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000035",
+          "sample_started": 139723.093,
+          "candidate_retry_reasons": [],
+          "spread_status": "partial",
+          "left_raw": "28",
+          "right_raw": null,
+          "left_status": "observed",
+          "right_status": "not_observed",
+          "left_roi_sha256": "e27692f444b1f9888e01164ed6113dcd19aa1cf0e5c624a204fb5fc6ae3b82c2",
+          "right_roi_sha256": "efa5c21c0647cc2c4e5164b49adbe79d59fa66c7d45286a6a036d4c0d9cfa20b",
+          "recognition_processing_ms": 196.9581000157632,
+          "pair": null,
+          "elapsed_ms": 1672.0
+        },
+        {
+          "source_frame_id": "phone-snapshot-00000036",
+          "sample_started": 139724.765,
+          "candidate_retry_reasons": [],
+          "spread_status": "partial",
+          "left_raw": "28",
+          "right_raw": null,
+          "left_status": "observed",
+          "right_status": "not_observed",
+          "left_roi_sha256": "91d5e0bbb2d86e1f4bbd1af0e3cd50b339c7b9d0fd17b5aaa4bfdb0348b728ee",
+          "right_roi_sha256": "770b321a654c799183207f74c5c53c12797783fa0279f790655240f8824f40ca",
+          "recognition_processing_ms": 212.76070000021718,
+          "pair": null,
+          "elapsed_ms": 1594.0
+        }
+      ]
+    }
+  ],
+  "completed_at_utc": "2026-09-08T02:27:25.204996+00:00"
+}

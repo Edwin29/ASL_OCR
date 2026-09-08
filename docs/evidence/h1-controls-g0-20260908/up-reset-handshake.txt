@@ -1,0 +1,13 @@
+
+
+========================================
+ BRAILLE DISPLAY - HC05 + GITHUB NAV
+ PCA1=TOP / PCA2=BOTTOM
+========================================
+HC-05 UART = 9600 baud
+PCA 0x40 FOUND
+PCA 0x41 FOUND
+PCA 0x41 INIT ERROR
+{"at_utc":"2026-09-08T13:21:59.2582218Z","direction":"rx","port":"COM9","length":1,"hex":"00","ascii":"\u0000"}
+{"at_utc":"2026-09-08T13:22:00.8350687Z","direction":"rx","port":"COM5","length":207,"hex":"0d0a0d0a3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d0d0a20425241494c4c4520444953504c4159202d2048433035202b20474954485542204e41560d0a20504341313d544f50202f20504341323d424f54544f4d0d0a3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d0d0a48432d30352055415254203d203936303020626175640d0a504341203078343020464f554e440d0a504341203078343120464f554e440d0a","ascii":"\r\n\r\n========================================\r\n BRAILLE DISPLAY - HC05 + GITHUB NAV\r\n PCA1=TOP / PCA2=BOTTOM\r\n========================================\r\nHC-05 UART = 9600 baud\r\nPCA 0x40 FOUND\r\nPCA 0x41 FOUND\r\n"}
+{"at_utc":"2026-09-08T13:22:00.8808540Z","direction":"rx","port":"COM5","length":21,"hex":"504341203078343120494e4954204552524f520d0a","ascii":"PCA 0x41 INIT ERROR\r\n"}

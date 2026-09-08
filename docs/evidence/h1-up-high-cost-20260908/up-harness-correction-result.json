@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-08",
+  "classification": "test_harness_artifact",
+  "product_source_modified": false,
+  "harness": "docs/evidence/h23-1c-20260908/capture_physical_controls.ps1",
+  "changes": [
+    "Emits ports-open separately from observation-ready.",
+    "Emits observation-ready only after the configured HELLO3 ordinal and its initial mode NAV have been acknowledged.",
+    "Counts required control/action packets by unique V3 sequence after observation-ready.",
+    "Rejects a total NAV cap that cannot hold the required handshake-mode packets and required unique controls.",
+    "Reports observation epoch and required-control counts."
+  ],
+  "validation": {
+    "powershell_parser": "pass",
+    "invalid_cap_case": {
+      "ready_after_hello3_count": 2,
+      "required_unique_control_count": 3,
+      "max_nav_packets": 4,
+      "expected": "reject before serial ports are opened",
+      "observed_exit_code": 1,
+      "result": "pass"
+    }
+  },
+  "sha256": "bd5a7e544432242b2f5b375a3b32b107731315dc405de7b3a9ef0e510fafd228"
+}

@@ -1,0 +1,39 @@
+{
+  "focus_item_count": 15,
+  "identified": true,
+  "item_audio_resources_complete": true,
+  "item_audio_resources_present": 15,
+  "missing_item_audio_focus_ids": [],
+  "observed_braille": {
+    "audio_ref_digest": "67a6337d75a7",
+    "braille_cells": [
+      11,
+      38,
+      45,
+      52,
+      18,
+      18,
+      60,
+      3,
+      24,
+      20
+    ],
+    "cell_count": 10,
+    "focus_item_id": "pg-f6b50fe25b44-00000001-L-vl003-L01",
+    "generation": 2,
+    "nonempty": true,
+    "page_id": "pg-f6b50fe25b44-00000001-L"
+  },
+  "page_id": "pg-f6b50fe25b44-00000001-L",
+  "printed_page_footer_exact": true,
+  "problem_codes_found": [
+    "26008-0042",
+    "26008-0043",
+    "26008-0044",
+    "26008-0045"
+  ],
+  "source_provenance": "pinned_mp4_user_confirmed_p030_left_spread",
+  "target_focus_item_id": "pg-f6b50fe25b44-00000001-L-vl003-L01",
+  "target_node_index": 2,
+  "target_text_preview": "1 지수함수 에프 괄호 열고 엑스 괄호 닫고는 2의 음수 엑스 제곱과 같다 에 대하여 함수 와이는 에프 괄호 열고 엑스 괄호 닫고와 같다 의 그래프가 와이축과 만나는 점을 에이, 직선 엑스는 2와 같다 와 만나는 점을 비라 할 때, 선분 AB의 길이는?"
+}

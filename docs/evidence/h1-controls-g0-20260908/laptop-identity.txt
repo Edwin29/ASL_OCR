@@ -1,0 +1,26 @@
+[
+    {
+        "Path":  "C:\\ASL_OCR_INTEGRATION\\book-scanner\\src\\book_scanner\\video\\engine.py",
+        "Hash":  "F223F744FE2FD6A6818EA7BED4ED4F522E27F90590FC2C477FCB40FDBE8E427F"
+    },
+    {
+        "Path":  "C:\\ASL_OCR_INTEGRATION\\book-scanner\\src\\book_scanner\\video\\opaque_identity.py",
+        "Hash":  "AEAC3EEA75245675A08E7D643DC73EE569CCE0DB6CF05326841E7BC46273AF59"
+    },
+    {
+        "Path":  "C:\\ASL_OCR_INTEGRATION\\hardware\\stm32\\kitel2026final\\Core\\Src\\main.c",
+        "Hash":  "F0B93413F352BE398DAC62DB6A64B2D17C19F1B8E14FAF874371BEDDAF6BA1C1"
+    },
+    {
+        "Path":  "C:\\ASL_OCR_INTEGRATION\\hardware\\stm32\\kitel2026final\\Core\\Src\\stm32f4xx_it.c",
+        "Hash":  "71030ED19863327BC4053916F16136E0B760BC77CA6EFBBA2F0F53D2DC3680A3"
+    },
+    {
+        "Path":  "C:\\ASL_OCR_INTEGRATION\\hardware\\stm32\\kitel2026final\\Core\\Inc\\main.h",
+        "Hash":  "F802D2972E2AC9DE4679D4914482AD468DD2098D383A91ABB957083FA2E513A3"
+    },
+    {
+        "Path":  "C:\\ASL_OCR_INTEGRATION\\hardware\\stm32\\kitel2026final\\Core\\Inc\\stm32f4xx_it.h",
+        "Hash":  "DD14FBF6D042467D063E09E8C3383B7D67655C84510178CD8DE336F533916F7B"
+    }
+]

@@ -48,7 +48,7 @@ def main() -> int:
         composition.application.run()
     except KeyboardInterrupt:
         composition.application.stop()
-    return 0
+    return composition.application.exit_code
 
 
 if __name__ == "__main__":

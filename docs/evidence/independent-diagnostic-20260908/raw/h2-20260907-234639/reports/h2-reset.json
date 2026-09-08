@@ -1,0 +1,6 @@
+{
+    "exit_code":  0,
+    "software_reset":  true,
+    "firmware_write":  false,
+    "probe_serial":  "0670FF485775495067203341"
+}

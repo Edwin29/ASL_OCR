@@ -1,0 +1,51 @@
+BT: V3 UNAVAILABLE, TRY V2
+BT: HELLO V2...
+BT: V2 UNAVAILABLE, TRY LEGACY
+BT: WAITING FOR PI / HC-05 LINK
+BT: HELLO V3...
+BT: HOST CONNECTED (V3 EDGES)
+BT TX: NAV,V,R,1
+BT RX: ACK,1
+BT ACK: 1
+DOWN PRESS
+BT TX: NAV,D,A,2
+BT RX: ACK,2
+BT ACK: 2
+DOWN RELEASE
+BT TX: NAV,D,R,3
+BT RX: ACK,3
+BT ACK: 3
+DOWN PRESS
+BT TX: NAV,D,A,4
+BT RX: ACK,4
+BT ACK: 4
+DOWN RELEASE
+BT TX: NAV,D,R,5
+BT RX: ACK,5
+BT ACK: 5
+{"at_utc":"2026-09-08T13:31:28.8527032Z","direction":"rx","port":"COM5","length":77,"hex":"42543a20563320554e415641494c41424c452c205452592056320d0a42543a2048454c4c4f2056322e2e2e0d0a42543a20563220554e415641494c41424c452c20545259204c45474143590d0a","ascii":"BT: V3 UNAVAILABLE, TRY V2\r\nBT: HELLO V2...\r\nBT: V2 UNAVAILABLE, TRY LEGACY\r\n"}
+{"at_utc":"2026-09-08T13:31:29.8620488Z","direction":"rx","port":"COM5","length":50,"hex":"42543a2057414954494e4720464f52205049202f2048432d3035204c494e4b0d0a42543a2048454c4c4f2056332e2e2e0d0a","ascii":"BT: WAITING FOR PI / HC-05 LINK\r\nBT: HELLO V3...\r\n"}
+{"at_utc":"2026-09-08T13:31:29.8930740Z","direction":"rx","port":"COM9","length":8,"hex":"48454c4c4f2c330a","ascii":"HELLO,3\n"}
+{"at_utc":"2026-09-08T13:31:29.9087110Z","direction":"tx","port":"COM9","length":12,"hex":"41434b2c48454c4c4f2c330a","ascii":"ACK,HELLO,3\n"}
+{"at_utc":"2026-09-08T13:31:29.9564174Z","direction":"rx","port":"COM5","length":48,"hex":"42543a20484f535420434f4e4e454354454420285633204544474553290d0a42542054583a204e41562c562c522c310a","ascii":"BT: HOST CONNECTED (V3 EDGES)\r\nBT TX: NAV,V,R,1\n"}
+{"at_utc":"2026-09-08T13:31:29.9726497Z","direction":"rx","port":"COM9","length":10,"hex":"4e41562c562c522c310a","ascii":"NAV,V,R,1\n"}
+{"at_utc":"2026-09-08T13:31:29.9787464Z","direction":"tx","port":"COM9","length":6,"hex":"41434b2c310a","ascii":"ACK,1\n"}
+{"at_utc":"2026-09-08T13:31:30.0029769Z","direction":"rx","port":"COM5","length":25,"hex":"42542052583a2041434b2c310d0a42542041434b3a20310d0a","ascii":"BT RX: ACK,1\r\nBT ACK: 1\r\n"}
+{"at_utc":"2026-09-08T13:32:44.8444192Z","direction":"rx","port":"COM5","length":27,"hex":"444f574e2050524553530d0a42542054583a204e41562c442c412c","ascii":"DOWN PRESS\r\nBT TX: NAV,D,A,"}
+{"at_utc":"2026-09-08T13:32:44.8597099Z","direction":"rx","port":"COM5","length":2,"hex":"320a","ascii":"2\n"}
+{"at_utc":"2026-09-08T13:32:44.9385632Z","direction":"rx","port":"COM9","length":10,"hex":"4e41562c442c412c320a","ascii":"NAV,D,A,2\n"}
+{"at_utc":"2026-09-08T13:32:44.9405626Z","direction":"tx","port":"COM9","length":6,"hex":"41434b2c320a","ascii":"ACK,2\n"}
+{"at_utc":"2026-09-08T13:32:44.9714199Z","direction":"rx","port":"COM5","length":25,"hex":"42542052583a2041434b2c320d0a42542041434b3a20320d0a","ascii":"BT RX: ACK,2\r\nBT ACK: 2\r\n"}
+{"at_utc":"2026-09-08T13:32:45.0179712Z","direction":"rx","port":"COM5","length":31,"hex":"444f574e2052454c454153450d0a42542054583a204e41562c442c522c330a","ascii":"DOWN RELEASE\r\nBT TX: NAV,D,R,3\n"}
+{"at_utc":"2026-09-08T13:32:45.0487540Z","direction":"rx","port":"COM9","length":10,"hex":"4e41562c442c522c330a","ascii":"NAV,D,R,3\n"}
+{"at_utc":"2026-09-08T13:32:45.0508238Z","direction":"tx","port":"COM9","length":6,"hex":"41434b2c330a","ascii":"ACK,3\n"}
+{"at_utc":"2026-09-08T13:32:45.0653082Z","direction":"rx","port":"COM5","length":1,"hex":"42","ascii":"B"}
+{"at_utc":"2026-09-08T13:32:45.0807902Z","direction":"rx","port":"COM5","length":24,"hex":"542052583a2041434b2c330d0a42542041434b3a20330d0a","ascii":"T RX: ACK,3\r\nBT ACK: 3\r\n"}
+{"at_utc":"2026-09-08T13:32:56.0827215Z","direction":"rx","port":"COM5","length":29,"hex":"444f574e2050524553530d0a42542054583a204e41562c442c412c340a","ascii":"DOWN PRESS\r\nBT TX: NAV,D,A,4\n"}
+{"at_utc":"2026-09-08T13:32:56.0990741Z","direction":"rx","port":"COM9","length":10,"hex":"4e41562c442c412c340a","ascii":"NAV,D,A,4\n"}
+{"at_utc":"2026-09-08T13:32:56.1000416Z","direction":"tx","port":"COM9","length":6,"hex":"41434b2c340a","ascii":"ACK,4\n"}
+{"at_utc":"2026-09-08T13:32:56.1454986Z","direction":"rx","port":"COM5","length":25,"hex":"42542052583a2041434b2c340d0a42542041434b3a20340d0a","ascii":"BT RX: ACK,4\r\nBT ACK: 4\r\n"}
+{"at_utc":"2026-09-08T13:32:56.3181958Z","direction":"rx","port":"COM5","length":31,"hex":"444f574e2052454c454153450d0a42542054583a204e41562c442c522c350a","ascii":"DOWN RELEASE\r\nBT TX: NAV,D,R,5\n"}
+{"at_utc":"2026-09-08T13:32:56.3656786Z","direction":"rx","port":"COM9","length":10,"hex":"4e41562c442c522c350a","ascii":"NAV,D,R,5\n"}
+{"at_utc":"2026-09-08T13:32:56.3666713Z","direction":"tx","port":"COM9","length":6,"hex":"41434b2c350a","ascii":"ACK,5\n"}
+{"at_utc":"2026-09-08T13:32:56.3971697Z","direction":"rx","port":"COM5","length":25,"hex":"42542052583a2041434b2c350d0a42542041434b3a20350d0a","ascii":"BT RX: ACK,5\r\nBT ACK: 5\r\n"}

@@ -1,0 +1,32 @@
+{
+  "mode": "apply",
+  "root": "C:\\ASL_OCR_INTEGRATION",
+  "conflicts": [],
+  "other_python_processes": [],
+  "changed_files": [
+    "device-runtime/src/asl_device/application.py",
+    "device-runtime/src/asl_device/coordinator.py",
+    "device-runtime/src/asl_device/hold_repeat.py",
+    "device-runtime/src/asl_device/laptop_acceptance.py",
+    "device-runtime/src/asl_device/reading_audio.py",
+    "device-runtime/src/asl_device/__main__.py",
+    "device-runtime/src/asl_device/adapters/reading_audio.py",
+    "device-runtime/src/asl_device/adapters/stm_serial.py",
+    "device-runtime/tests/unit/test_reading_audio_adapters.py",
+    "book-scanner/src/book_scanner/video/engine.py",
+    "book-scanner/src/book_scanner/video/runtime_composition.py",
+    "book-scanner/src/book_scanner/video/sources.py",
+    "hardware/stm32/kitel2026final/Core/Src/main.c",
+    "device-runtime/tests/unit/test_h123_audio_lifecycle.py",
+    "device-runtime/tests/unit/test_h123_boundaries.py",
+    "book-scanner/tests/unit/video/test_h123_camera_recovery.py"
+  ],
+  "backup": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\diagnostics\\h123-alignment-1788816158479467400",
+  "hashes_verified": true,
+  "interpreter": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Scripts\\python.exe",
+  "imports": [
+    "C:\\ASL_OCR_INTEGRATION\\device-runtime\\src\\asl_device\\__init__.py",
+    "C:\\ASL_OCR_INTEGRATION\\book-scanner\\src\\book_scanner\\__init__.py",
+    "C:\\ASL_OCR_INTEGRATION\\document-parser\\src\\document_parser\\__init__.py"
+  ]
+}

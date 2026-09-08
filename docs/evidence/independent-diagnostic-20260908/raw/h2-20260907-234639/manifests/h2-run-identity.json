@@ -1,0 +1,14 @@
+{
+    "run_root":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639",
+    "source":  "C:\\ASL_OCR_INTEGRATION",
+    "python":  "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Scripts\\python.exe",
+    "controls":  "console",
+    "presenter":  "stm_serial",
+    "stm_port":  "COM9",
+    "debug_port":  "COM5",
+    "device_id":  "laptop-device-001",
+    "initial_mode":  "reading",
+    "product_source_modified":  false,
+    "d_volume_dependency":  0,
+    "credential_values_recorded":  false
+}

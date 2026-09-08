@@ -1,0 +1,61 @@
+{
+  "observation_date_local": "2026-09-08",
+  "observer": "user",
+  "notation": {
+    "1": "raised",
+    "0": "retracted",
+    "layout": [["D1", "D4"], ["D2", "D5"], ["D3", "D6"]]
+  },
+  "observations": [
+    {
+      "at_seconds": 10,
+      "generation": 151,
+      "request": "C5 packed=7; firmware top/PCA1 CH4 state 7",
+      "observed": [[1, 1], [1, 0], [1, 1]],
+      "raised_dots": ["D1", "D2", "D3", "D4", "D6"],
+      "other_cells_changed": false
+    },
+    {
+      "at_seconds": 30,
+      "generation": 153,
+      "request": "C5 packed=56; firmware bottom/PCA2 CH4 state 7",
+      "observed": [[1, 1], [0, 1], [1, 1]],
+      "raised_dots": ["D1", "D3", "D4", "D5", "D6"],
+      "other_cells_changed": false
+    },
+    {
+      "at_seconds": 50,
+      "generation": 155,
+      "request": "C10 packed=7; firmware top/PCA1 CH9 state 7",
+      "observed": [[0, 0], [0, 1], [1, 1]],
+      "raised_dots": ["D3", "D5", "D6"],
+      "other_cells_changed": false
+    },
+    {
+      "at_seconds": 70,
+      "generation": 157,
+      "request": "C10 packed=56; firmware bottom/PCA2 CH9 state 7",
+      "observed": [[1, 1], [1, 0], [1, 1]],
+      "raised_dots": ["D1", "D2", "D3", "D4", "D6"],
+      "other_cells_changed": false
+    }
+  ],
+  "clear_observation": "Every clear step returned to the same corrected display-wide clear pattern.",
+  "c10_clear_pattern": [[0, 1], [0, 0], [1, 1]],
+  "software_evidence": {
+    "frames_sent": 9,
+    "frames_parsed": 9,
+    "last_applied_generation": 158,
+    "last_frame_apply_ok": 1,
+    "pca_apply_failures": 0,
+    "uart_or_ring_error_count": 0
+  },
+  "inference": [
+    "C5 reproduces the C1/C2 PCA column-role reversal without changing any other cell.",
+    "For C10, the 50-second firmware top/PCA1 state change affects only the physical right column relative to its corrected clear baseline.",
+    "For C10, the 70-second firmware bottom/PCA2 state change affects only the physical left column relative to its corrected clear baseline.",
+    "CH0, CH1, CH4, and CH9 independently establish the same board-role reversal without cross-cell or cross-column coupling."
+  ],
+  "classification": "hardware_or_wiring",
+  "severity": "P1"
+}

@@ -183,6 +183,32 @@ def node_from_block(
             return content_nodes_from_cell_text(cell_text, node_id_prefix, cell_bbox, page_width, page_height, source_engine)
 
         table_ir = build_table_ir(content, table_bbox=box, node_id_prefix=node_id, content_node_builder=build_cell_content_nodes)
+        choice_row_text = single_row_choice_text(table_ir)
+        if choice_row_text is not None:
+            correction = correct_ocr_text(choice_row_text)
+            choice_layout = dict(base["layout"])
+            choice_layout.update({
+                "semantic_role": "answer_choices",
+                "reclassified_from_content_type": "TABLE",
+                "source_raw_html": content,
+            })
+            return {
+                **base,
+                "content_type": "TEXT",
+                "raw_text": choice_row_text,
+                "normalized_text": correction.text,
+                "spans": spans_from_inline_math(correction.text),
+                "layout": choice_layout,
+                "issues": list(base["issues"]) + [{
+                    "code": "VL_TABLE_RECLASSIFIED_AS_CHOICE_ROW",
+                    "severity": "info",
+                    "message": (
+                        "A one-row, five-column VL table contained exactly the ordered "
+                        "①-⑤ choice markers, so it was preserved as one answer-choice "
+                        "text item instead of a navigable data table."
+                    ),
+                }] + correction_issues(correction),
+            }
         table_issues = list(base["issues"])
         if table_ir["structure_confidence"] < 0.8:
             table_issues.append({
@@ -250,6 +276,42 @@ def node_from_block(
         + correction_issues(correction)
     )
     return text_node
+
+
+def single_row_choice_text(table_ir: dict[str, object]) -> str | None:
+    """Return one text line for an unambiguous horizontal ①-⑤ choice row.
+
+    PaddleOCR-VL sometimes labels a visually aligned answer row as a one-row
+    HTML table.  Reclassify only the exact standard five-option shape; ordinary
+    data tables, partial rows, reordered markers, and math-bearing cells remain
+    TABLE nodes and keep their existing navigation and braille behavior.
+    """
+    if table_ir.get("row_count") != 1 or table_ir.get("column_count") != EXPECTED_CHOICE_COUNT:
+        return None
+    cells = table_ir.get("cells")
+    if not isinstance(cells, list) or len(cells) != EXPECTED_CHOICE_COUNT:
+        return None
+
+    parts: list[str] = []
+    expected_markers = "①②③④⑤"
+    ordered_cells = sorted(
+        cells,
+        key=lambda cell: cell.get("column_index", 0) if isinstance(cell, dict) else 0,
+    )
+    for expected_column, (cell, marker) in enumerate(zip(ordered_cells, expected_markers), start=1):
+        if not isinstance(cell, dict) or cell.get("row_index") != 1 or cell.get("column_index") != expected_column:
+            return None
+        content_nodes = cell.get("content_nodes")
+        if not isinstance(content_nodes, list) or len(content_nodes) != 1:
+            return None
+        content_node = content_nodes[0]
+        if not isinstance(content_node, dict) or content_node.get("content_type") != "TEXT":
+            return None
+        text = str(content_node.get("normalized_text", "")).strip()
+        if not text.startswith(marker) or not text[len(marker):].strip():
+            return None
+        parts.append(text)
+    return " ".join(parts)
 
 
 def spans_from_inline_math(content: str) -> list[dict[str, object]]:

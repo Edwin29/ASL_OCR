@@ -1,0 +1,109 @@
+FFFF                                                                     [100%]
+================================== FAILURES ===================================
+___ test_cleanup_failures_keep_first_cause_and_attempt_every_resource[None] ___
+
+fatal = None
+
+    @pytest.mark.parametrize('fatal', [None, 'original incident'])
+    def test_cleanup_failures_keep_first_cause_and_attempt_every_resource(fatal):
+        calls = []
+        first = OSError('cancel failure')
+    
+        def cancel():
+            calls.append('cancel')
+            raise first
+    
+        def disconnect():
+            calls.append('disconnect')
+            raise RuntimeError('disconnect failure')
+    
+        coord = coordinator(scanner=NS(cancel=cancel, close=lambda: calls.append('scanner.close')),
+                            connectivity=NS(stop=disconnect))
+        coord.scan_session = NS()
+        coord.state = DeviceFlowState.SCANNING
+        if fatal:
+            coord._fatal(fatal, [])
+        app = DeviceApplication(coord, NS(close=lambda: calls.append('controls.close')),
+                                poll_interval_seconds=.02)
+        app._started = True
+        app.stop()
+        app.stop()
+        assert calls == ['cancel', 'disconnect', 'scanner.close', 'controls.close']
+>       assert app.exit_code == 2
+E       assert 0 == 2
+E        +  where 0 = <asl_device.application.DeviceApplication object at 0x000001AF2793B8D0>.exit_code
+
+device-runtime\tests\unit\test_h123_followup.py:37: AssertionError
+_ test_cleanup_failures_keep_first_cause_and_attempt_every_resource[original incident] _
+
+fatal = 'original incident'
+
+    @pytest.mark.parametrize('fatal', [None, 'original incident'])
+    def test_cleanup_failures_keep_first_cause_and_attempt_every_resource(fatal):
+        calls = []
+        first = OSError('cancel failure')
+    
+        def cancel():
+            calls.append('cancel')
+            raise first
+    
+        def disconnect():
+            calls.append('disconnect')
+            raise RuntimeError('disconnect failure')
+    
+        coord = coordinator(scanner=NS(cancel=cancel, close=lambda: calls.append('scanner.close')),
+                            connectivity=NS(stop=disconnect))
+        coord.scan_session = NS()
+        coord.state = DeviceFlowState.SCANNING
+        if fatal:
+            coord._fatal(fatal, [])
+        app = DeviceApplication(coord, NS(close=lambda: calls.append('controls.close')),
+                                poll_interval_seconds=.02)
+        app._started = True
+        app.stop()
+        app.stop()
+        assert calls == ['cancel', 'disconnect', 'scanner.close', 'controls.close']
+        assert app.exit_code == 2
+        assert coord.fatal_reason == fatal
+>       assert coord.cleanup_failures == ('scanner.cancel:OSError', 'connectivity.stop:RuntimeError')
+               ^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'DeviceFlowCoordinator' object has no attribute 'cleanup_failures'
+
+device-runtime\tests\unit\test_h123_followup.py:39: AttributeError
+_____ test_direct_coordinator_stop_raises_original_cleanup_exception_once _____
+
+    def test_direct_coordinator_stop_raises_original_cleanup_exception_once():
+        first = OSError('first cleanup')
+        coord = coordinator(connectivity=NS(stop=lambda: (_ for _ in ()).throw(first)))
+>       with pytest.raises(OSError) as failure:
+E       Failed: DID NOT RAISE OSError
+
+device-runtime\tests\unit\test_h123_followup.py:47: Failed
+______ test_worker_requests_deadline_and_size_bounded_pyserial_operation ______
+
+    def test_worker_requests_deadline_and_size_bounded_pyserial_operation():
+        class BoundedSerial(FakeSerial):
+            def __init__(self):
+                super().__init__([b'HELLO,3\n', b'NAV,D,A,7', b'8\n'])
+                self.bounds = []
+    
+            def read_until(self, expected=b'\n', size=None):
+                self.bounds.append((expected, size))
+                return super().readline()
+    
+        serial = BoundedSerial()
+        source = StmSerialControlSource(_config(), serial_factory=lambda _: serial)
+        try:
+            source.present(None)
+            _wait_until(lambda: b'ACK,78\n' in serial.written())
+>           assert serial.bounds and set(serial.bounds) == {(b'\n', 256)}
+E           assert ([])
+E            +  where [] = <tests.unit.test_h123_followup.test_worker_requests_deadline_and_size_bounded_pyserial_operation.<locals>.BoundedSerial object at 0x000001AF3DD33C90>.bounds
+
+device-runtime\tests\unit\test_h123_followup.py:69: AssertionError
+=========================== short test summary info ===========================
+FAILED device-runtime\tests\unit\test_h123_followup.py::test_cleanup_failures_keep_first_cause_and_attempt_every_resource[None]
+FAILED device-runtime\tests\unit\test_h123_followup.py::test_cleanup_failures_keep_first_cause_and_attempt_every_resource[original incident]
+FAILED device-runtime\tests\unit\test_h123_followup.py::test_direct_coordinator_stop_raises_original_cleanup_exception_once
+FAILED device-runtime\tests\unit\test_h123_followup.py::test_worker_requests_deadline_and_size_bounded_pyserial_operation
+4 failed in 0.26s

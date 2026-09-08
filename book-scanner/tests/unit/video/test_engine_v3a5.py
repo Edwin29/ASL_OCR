@@ -276,6 +276,42 @@ def test_opaque_footer_difference_without_visual_change_does_not_release_search(
     engine.close()
 
 
+def test_opaque_same_invalidates_prior_visual_change_latch() -> None:
+    reference = ("30", "309")
+    stable_misread = ("38", "308")
+    provider = _FakePageNumberProvider(
+        [],
+        preview_labels=[reference] * 5 + [reference] * 3 + [stable_misread] * 5,
+    )
+    identity_provider = FakeIdentityProvider(
+        preview_tokens=[0] + [1] * 3 + [0] * 5,
+    )
+    engine, clock, _camera, preparer, _store, _visual_ledger = _engine(
+        frame_count=30,
+        page_number_provider=provider,
+        opaque_identity_policy=_policy(),
+        provider=identity_provider,
+    )
+    artifact_id = _artifact_id(_start_and_reach_ready(engine, clock))
+    engine.delivery_confirmed(artifact_id, "receipt-a")
+    events = []
+
+    for _ in range(8):
+        events.extend(engine.poll())
+        clock.advance(0.2)
+
+    assert any(
+        event.event_type is VideoEventType.OPAQUE_IDENTITY_DECIDED
+        and dict(event.details)["decision"] == "same"
+        for event in events
+    )
+    assert engine.state is VideoSessionState.WAITING_FOR_PAGE_CHANGE
+    assert engine._opaque_visual_page_changed is False
+    assert len(preparer.calls) == 1
+    assert not any(event.event_type is VideoEventType.PAGE_CHANGED for event in events)
+    engine.close()
+
+
 def test_coherent_numeric_page_change_releases_when_template_visual_is_duplicate() -> None:
     provider = _FakePageNumberProvider(
         [],

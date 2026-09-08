@@ -1,0 +1,15 @@
+{
+    "run_root":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output",
+    "source":  "C:\\ASL_OCR_INTEGRATION",
+    "python":  "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Scripts\\python.exe",
+    "controls":  "console",
+    "presenter":  "stm_serial",
+    "device_id":  "laptop-device-001",
+    "stm_port":  "COM9",
+    "debug_port":  "COM5",
+    "initial_mode":  "reading",
+    "credential_source_type":  "authorized existing C: H3 runtime files",
+    "credential_destination_reference":  "config/secrets (values not recorded)",
+    "product_source_modified":  false,
+    "d_volume_dependency":  0
+}

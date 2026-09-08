@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-09-08T00:07:14+0900",
+  "tests": [
+    {
+      "trial": "burst",
+      "reset_rc": 0,
+      "hello_seen": true,
+      "stm_tx": "HELLO,3\n",
+      "post_handshake_stm_tx": "NAV,V,R,1\n",
+      "sent_ascii": "FRAME,2,0,0,0,88,0,0,0,0,0,0,0,0,0,0",
+      "paced_seconds_per_byte": 0,
+      "debug_trace": "\r\n\r\n========================================\r\n BRAILLE DISPLAY - HC05 + GITHUB NAV\r\n PCA1=TOP / PCA2=BOTTOM\r\n========================================\r\nHC-05 UART = 9600 baud\r\nPCA 0x40 FOUND\r\nPCA 0x41 FOUND\r\nPCA INIT OK\r\nPCA1 0x40 CH0~9 = TOP Cell1~10\r\nPCA2 0x41 CH0~9 = BOTTOM Cell1~10\r\n\r\nBUTTONS\r\nCN7-28 / PA0 = UP\r\nCN7-30 / PA1 = DOWN\r\nCN7-32 / PA4 = LEFT\r\nCN7-34 / PB0 = RIGHT\r\nCN10-24 / PB1 = PAGE NEXT\r\nPC0 = PAGE PREVIOUS\r\nPC1 = CONFIRM (release sends SHORT or LONG)\r\nPC2 = MODE LEVER (LOW=capture, HIGH=reading)\r\nTap = 1 step\r\nHold >= 650ms = auto-repeat every 180ms\r\n\r\nBT: HELLO V3...\r\nBT: HOST CONNECTED (V3 EDGES)\r\nBT TX: NAV,V,R,1\nBT RX: AK,1\r\nBT RX UNKNOWN\r\nBT RX: FRA,2,0,0,0,88,0,0,0,0,0,0,0,0,0,0\r\nBT RX UNKNOWN\r\nBT TX: NAV,V,R,1\nBT TX: NAV,V,R,1\nBT TX: NAV,V,R,1\nNO ACK -> BLUETOOTH DISCONNECTED\r\nBT: HELLO V3...\r\nBT: V3 UNAVAILABLE, TRY V2\r\nBT: HELLO V2...\r\n"
+    },
+    {
+      "trial": "paced_3ms",
+      "reset_rc": 0,
+      "hello_seen": true,
+      "stm_tx": "HELLO,3\n",
+      "post_handshake_stm_tx": "NAV,V,R,1\n",
+      "sent_ascii": "FRAME,2,0,0,0,88,0,0,0,0,0,0,0,0,0,0",
+      "paced_seconds_per_byte": 0.003,
+      "debug_trace": "\r\n\r\n========================================\r\n BRAILLE DISPLAY - HC05 + GITHUB NAV\r\n PCA1=TOP / PCA2=BOTTOM\r\n========================================\r\nHC-05 UART = 9600 baud\r\nPCA 0x40 FOUND\r\nPCA 0x41 FOUND\r\nPCA INIT OK\r\nPCA1 0x40 CH0~9 = TOP Cell1~10\r\nPCA2 0x41 CH0~9 = BOTTOM Cell1~10\r\n\r\nBUTTONS\r\nCN7-28 / PA0 = UP\r\nCN7-30 / PA1 = DOWN\r\nCN7-32 / PA4 = LEFT\r\nCN7-34 / PB0 = RIGHT\r\nCN10-24 / PB1 = PAGE NEXT\r\nPC0 = PAGE PREVIOUS\r\nPC1 = CONFIRM (release sends SHORT or LONG)\r\nPC2 = MODE LEVER (LOW=capture, HIGH=reading)\r\nTap = 1 step\r\nHold >= 650ms = auto-repeat every 180ms\r\n\r\nBT: HELLO V3...\r\nBT: HOST CONNECTED (V3 EDGES)\r\nBT TX: NAV,V,R,1\nBT RX: ACK,1\r\nBT ACK: 1\r\nBT RX: FRAME,2,00,0,8,0,0,0,0,0,0,0,0,0,0\r\nFRAME FORMAT ERROR\r\n"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "compiler": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\Hostx64\\x64\\cl.exe",
+  "target": "Windows x64 / uint32 unsigned long; HAL stubs, not STM board execution",
+  "function_hashes": {
+    "ApplyBrailleFrame": "8ff51f9650b650ecb1778c9c700a6e4d72d7a40e40c4d1f5995ad11d2c19db2c",
+    "ParseAndApplyFrame": "3626c0a835d25c1a194e9c4e6705e1ebe3114cf2802f96cbe068e54e3d3256c4",
+    "PumpBluetoothInput": "c24031a43aac807e944b1b74baebf8c26aa576345f0f7d27acc8ea870cd533a8"
+  },
+  "result": {
+    "invalid_rejected": 1,
+    "rejected_state_mutated": 1,
+    "overflow_suffix_dispatched": 1,
+    "valid_parse_accepted": 1,
+    "hal_failed_calls": 20,
+    "modeled_delay_ms": 500
+  }
+}

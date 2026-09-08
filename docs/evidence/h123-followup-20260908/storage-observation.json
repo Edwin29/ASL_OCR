@@ -1,0 +1,19 @@
+{
+  "read_only": true,
+  "observations": [
+    {
+      "path": "docs\\evidence\\h123-followup-20260908\\pytest-after\\test_e0_response_loss_ack_flus1\\server.sqlite3",
+      "table": "spread_upload_attempts",
+      "columns": [
+        "error_code",
+        "error_detail"
+      ],
+      "rows": [
+        [
+          "UPLOAD_STORAGE_TEMPORARY",
+          "temporary upload storage failure"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "observation_date_local": "2026-09-08",
+  "classification": "test_harness_artifact",
+  "valid_before_resume": {
+    "last_frame_apply_ok": 1,
+    "bt_rx_overrun_errors": 0,
+    "bt_rx_frame_errors": 0
+  },
+  "invalidated_or_not_collected": [
+    "last_applied_generation",
+    "bt_rx_noise_errors",
+    "bt_rx_parity_errors",
+    "bt_rx_ring_overflows"
+  ],
+  "cause": "The counter collection used STM32_Programmer_CLI -g after partial reads. That command started execution at 0x08000000 and reinitialized firmware globals before the complete reads.",
+  "product_implication": "none established",
+  "required_followup": "Repeat the same bounded two-FRAME stress once and read all symbol ranges before any run/start command."
+}

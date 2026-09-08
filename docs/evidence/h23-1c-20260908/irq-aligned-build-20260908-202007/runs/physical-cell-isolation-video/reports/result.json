@@ -1,0 +1,22 @@
+﻿{
+    "captured_at_utc":  "2026-09-08T11:32:33.1295168Z",
+    "reset_skipped":  false,
+    "stop_reason":  "completed",
+    "error":  null,
+    "reset_exit_code":  0,
+    "hello3_count":  1,
+    "nav_packets":  [
+                        "NAV,V,R,1"
+                    ],
+    "nav_ack_count":  1,
+    "trigger_observed":  true,
+    "profile":  "CellIsolation",
+    "frames_sent":  7,
+    "frame_limit":  7,
+    "inter_frame_delay_ms":  10000,
+    "byte_pacing_override":  false,
+    "debug_contains_format_error":  false,
+    "debug_contains_pca_init_ok":  true,
+    "debug_log":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\irq-aligned-build-20260908-202007\\runs\\physical-cell-isolation-video\\logs\\com5.txt",
+    "serial_log":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\irq-aligned-build-20260908-202007\\runs\\physical-cell-isolation-video\\logs\\serial.jsonl"
+}

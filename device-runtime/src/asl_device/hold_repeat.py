@@ -33,6 +33,7 @@ class HoldRepeatController:
         self._activation: DeviceInputEvent | None = None
         self._next_due: float | None = None
         self._counter = 0
+        self._released_through = float("-inf")
 
     @property
     def active(self) -> bool:
@@ -45,14 +46,21 @@ class HoldRepeatController:
         }:
             raise ValueError("hold repeat accepts only DOWN activated/released edges")
         if event.action is InputAction.RELEASED:
-            self.cancel()
+            self._released_through = max(self._released_through, event.at_monotonic)
+            if self._activation is None or self._activation.at_monotonic <= event.at_monotonic:
+                self.cancel()
             return ()
         if self.active:
             return ()
         self._activation = event
         self._counter = 0
         self._next_due = self.monotonic() + self.initial_delay_seconds
-        return (self._short_event(),)
+        immediate = self._short_event()
+        if event.at_monotonic <= self._released_through:
+            # Urgent release may overtake queued presses. Preserve the accepted
+            # initial step in normal-command order, but never restart its hold.
+            self.cancel()
+        return (immediate,)
 
     def due(self) -> tuple[DeviceInputEvent, ...]:
         now = self.monotonic()

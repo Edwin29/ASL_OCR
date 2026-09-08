@@ -1,0 +1,391 @@
+{
+  "preserved_copy_comparison": [
+    {
+      "file": "pipeline-fidelity-audit-20260908/device-app.h1-camera-console.toml",
+      "sha256": "48f4c9441260c155f48676c8e7f909b520dfba0d7ce5cdec93ba87e1c9b61bdd",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944\\config\\device-app.h1-camera-console.toml"
+      ]
+    },
+    {
+      "file": "pipeline-fidelity-audit-20260908/device-app.h2-console-stm.toml",
+      "sha256": "ac7a2ce9aa6e6d2054d762618989b2e2ebc5aa7f59010e147ca0b87870c8904b",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\manifests\\device-app.h2-console-stm.toml",
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\config\\device-app.h2-console-stm.toml"
+      ]
+    },
+    {
+      "file": "pipeline-fidelity-audit-20260908/device-app.h3r-braille-only.toml",
+      "sha256": "ee653c77807d195e95ff5e101154609689f58071afe04dadbfb241c2b07891f1",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\config\\device-app.h3r-braille-only.toml"
+      ]
+    },
+    {
+      "file": "pipeline-fidelity-audit-20260908/device-app.h3r-console-stm.toml",
+      "sha256": "2f5a296eb7233321912fc4a3b12fb6b53d357c8c0423a97c9b797d75a960bf75",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\config\\device-app.h3r-console-stm.toml"
+      ]
+    },
+    {
+      "file": "pipeline-fidelity-audit-20260908/device-app.stm-reading.toml",
+      "sha256": "3974105a314f5aeb70acdc002d50235c366350080b799cda33a9066d3ed00798",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\config\\device-app.stm-reading.toml"
+      ]
+    },
+    {
+      "file": "pipeline-fidelity-audit-20260908/h1-interactive-runtime.ps1",
+      "sha256": "7909ac3ac51348cb600e730bc8b0f0eb8061aff2ad5c481a72be4d2b4d34d0bb",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944\\manifests\\h1-interactive-runtime.ps1"
+      ]
+    },
+    {
+      "file": "pipeline-fidelity-audit-20260908/h1-start-interactive.ps1",
+      "sha256": "d3f8f8b6665f87000364a8d28dbc734d2ddcad06557433e8175ec94c64f822d9",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944\\manifests\\h1-start-interactive.ps1"
+      ]
+    },
+    {
+      "file": "pipeline-fidelity-audit-20260908/h2-console-stm-harness.py",
+      "sha256": "2f8ee0744e0df995c41c96982e3043416ef8e402b4ab9d0587aacc4882a18fc4",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\manifests\\h2-console-stm-harness.py"
+      ]
+    },
+    {
+      "file": "pipeline-fidelity-audit-20260908/h2-runtime.ps1",
+      "sha256": "d4927cb963acb672e662777eaf53aed9040de4c0ed58712213983d7071e6cafe",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\manifests\\h2-runtime.ps1"
+      ]
+    },
+    {
+      "file": "pipeline-fidelity-audit-20260908/h3-runtime.ps1",
+      "sha256": "9e9dd3dc9fcf00ad42cb8d94321df58f61bcaefca243d3d9c8de5f2c3b3cad35",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\manifests\\h3-runtime.ps1"
+      ]
+    },
+    {
+      "file": "pipeline-fidelity-audit-20260908/h3r-braille-only-harness.py",
+      "sha256": "d04890c2f28713ca0d0f0b3dce707c856cda61230e27f927b21795643874f13d",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\h3r-braille-only-harness.py"
+      ]
+    },
+    {
+      "file": "pipeline-fidelity-audit-20260908/h3r-console-stm-harness.py",
+      "sha256": "fe26d3ac5bb85ce06dbf407d5c4f0c6d7d811ae3a2d01f10a7f60c8ee6f6489a",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\h3r-console-stm-harness.py"
+      ]
+    },
+    {
+      "file": "pipeline-fidelity-audit-20260908/h3r-physical-down-harness.py",
+      "sha256": "04c8dfa280f77723b0d5e559d8efe1443d55832d423a788260f481178d3a66b6",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\h3r-physical-down-harness.py"
+      ]
+    },
+    {
+      "file": "pipeline-fidelity-audit-20260908/h3r-runtime.ps1",
+      "sha256": "fd4c7c71de0ad62843e408182a782f2f4a80ea085d82e931ab21a87ed8c0c031",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\h3r-runtime.ps1"
+      ]
+    },
+    {
+      "file": "h3r-physical-down-20260908/h3r-physical-down-com5.jsonl",
+      "sha256": "1801beb263a35fe3c901909c58528964cd17413ad14c04f8fa8ea7731a9f4205",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\h3r-physical-down-com5.jsonl"
+      ]
+    },
+    {
+      "file": "h3r-physical-down-20260908/h3r-physical-down-console.log",
+      "sha256": "4ded7ad84da4ed9e505fde1a872be058306d4a0a6e7a329325c06982e5941bc9",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\h3r-physical-down-console.log"
+      ]
+    },
+    {
+      "file": "h3r-physical-down-20260908/h3r-physical-down-events.jsonl",
+      "sha256": "fa84bf67b2808f09ef7b6c7c0d4c275eb11e5a31e0e9f49d8e31fdccfd6cad1c",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\h3r-physical-down-events.jsonl"
+      ]
+    },
+    {
+      "file": "h3r-physical-down-20260908/result.json",
+      "sha256": "1906d52ec9344c6e4e0ac7f39127c28992973244b5f4105839864969b01034d2",
+      "matches": []
+    }
+  ],
+  "reported_hash_checks": [
+    {
+      "report": "HARDWARE_INTEGRATION_H2_STATUS_20260908.md",
+      "sha256": "cee1fbfc22e3742f00f31cc2e5630ae5ca5aede42dce831e1e77f4db38d66929",
+      "matches": []
+    },
+    {
+      "report": "HARDWARE_INTEGRATION_H2_STATUS_20260908.md",
+      "sha256": "a7125c1c51679178fce2916e453aa20cb6e146cd6bcf96d7101955e1fd20fc87",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\logs\\stm-com5-trace.log"
+      ]
+    },
+    {
+      "report": "HARDWARE_INTEGRATION_H2_STATUS_20260908.md",
+      "sha256": "e155e424e33a4f67a5967ebc92179cfaadc267537d60fd925eb3c146718ac328",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\logs\\stm-frame-transport-diagnostic.json"
+      ]
+    },
+    {
+      "report": "HARDWARE_INTEGRATION_H2_STATUS_20260908.md",
+      "sha256": "e287ffc3230ecaf55090470215be0dd6aa842e80ac7ad56bf7eece5fd3cd946a",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\logs\\stm-frame-transport-diagnostic-20ms.json"
+      ]
+    },
+    {
+      "report": "HARDWARE_INTEGRATION_H2_STATUS_20260908.md",
+      "sha256": "9255e9dcff02659e0fbe8b5c2a3464c11645350612b3fddfbc21298dd3ba8318",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\logs\\stm-actuator-paced-diagnostic.json"
+      ]
+    },
+    {
+      "report": "HARDWARE_INTEGRATION_H2_STATUS_20260908.md",
+      "sha256": "c86cd9f6ebdd060412916a9323a3492f3802be2eff8a0dfc27eaa9703c4dcdb3",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\logs\\stm-actuator-clear-paced-diagnostic.json"
+      ]
+    },
+    {
+      "report": "HARDWARE_INTEGRATION_H3_READING_OUTPUT_STATUS_20260908.md",
+      "sha256": "4ded7ad84da4ed9e505fde1a872be058306d4a0a6e7a329325c06982e5941bc9",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\h3r-physical-down-console.log"
+      ]
+    },
+    {
+      "report": "HARDWARE_INTEGRATION_H3_READING_OUTPUT_STATUS_20260908.md",
+      "sha256": "fa84bf67b2808f09ef7b6c7c0d4c275eb11e5a31e0e9f49d8e31fdccfd6cad1c",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\h3r-physical-down-events.jsonl"
+      ]
+    },
+    {
+      "report": "HARDWARE_INTEGRATION_H3_READING_OUTPUT_STATUS_20260908.md",
+      "sha256": "1801beb263a35fe3c901909c58528964cd17413ad14c04f8fa8ea7731a9f4205",
+      "matches": [
+        "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\h3r-physical-down-com5.jsonl"
+      ]
+    }
+  ],
+  "h1_events": {
+    "h1-20260907-223731/logs/h1-interactive-console-transcript.txt": [
+      {
+        "type": "feedback",
+        "code": "identity_collection_progress",
+        "at_monotonic": 94886.89,
+        "details": {
+          "source_frame_id": "phone-snapshot-00000336",
+          "identity_role": "page_change",
+          "valid_observations": 1,
+          "query_sample_count": 5,
+          "recognition_processing_ms": 793.0316999991192,
+          "effective_interval_ms": 2389.999999999418
+        }
+      },
+      {
+        "type": "feedback",
+        "code": "identity_collection_decided",
+        "at_monotonic": 94891.671,
+        "details": {
+          "source_frame_id": "phone-snapshot-00000193",
+          "identity_role": "page_change",
+          "decision": "unknown",
+          "valid_observations": 1,
+          "query_sample_count": 5,
+          "timed_out": true
+        }
+      },
+      {
+        "type": "feedback",
+        "code": "identity_collection_decided",
+        "at_monotonic": 94899.687,
+        "details": {
+          "source_frame_id": "phone-snapshot-00000193",
+          "identity_role": "page_change",
+          "decision": "unknown",
+          "valid_observations": 0,
+          "query_sample_count": 5,
+          "timed_out": true
+        }
+      },
+      {
+        "type": "feedback",
+        "code": "fatal_error",
+        "at_monotonic": 94900.734,
+        "details": {
+          "reason": "frame_decode_failed"
+        }
+      }
+    ],
+    "h1-20260907-231944/logs/h1-interactive-console-transcript.txt": [
+      {
+        "type": "feedback",
+        "code": "identity_collection_decided",
+        "at_monotonic": 97057.578,
+        "details": {
+          "source_frame_id": "phone-snapshot-00000072",
+          "identity_role": "page_change",
+          "decision": "unknown",
+          "valid_observations": 1,
+          "query_sample_count": 5,
+          "timed_out": true
+        }
+      },
+      {
+        "type": "feedback",
+        "code": "identity_collection_progress",
+        "at_monotonic": 97064.234,
+        "details": {
+          "source_frame_id": "phone-snapshot-00000373",
+          "identity_role": "page_change",
+          "valid_observations": 1,
+          "query_sample_count": 5,
+          "recognition_processing_ms": 612.2858000017004,
+          "effective_interval_ms": 2500.0
+        }
+      },
+      {
+        "type": "feedback",
+        "code": "identity_collection_decided",
+        "at_monotonic": 97065.562,
+        "details": {
+          "source_frame_id": "phone-snapshot-00000072",
+          "identity_role": "page_change",
+          "decision": "unknown",
+          "valid_observations": 1,
+          "query_sample_count": 5,
+          "timed_out": true
+        }
+      },
+      {
+        "type": "feedback",
+        "code": "identity_collection_decided",
+        "at_monotonic": 97073.562,
+        "details": {
+          "source_frame_id": "phone-snapshot-00000072",
+          "identity_role": "page_change",
+          "decision": "unknown",
+          "valid_observations": 0,
+          "query_sample_count": 5,
+          "timed_out": true
+        }
+      },
+      {
+        "type": "feedback",
+        "code": "fatal_error",
+        "at_monotonic": 97074.953,
+        "details": {
+          "reason": "frame_decode_failed"
+        }
+      }
+    ]
+  },
+  "h3_v3_packets": [
+    "101312.140 BT: HOST CONNECTED (V3 EDGES)",
+    "101312.140 BT TX: NAV,V,R,1",
+    "103286.640 BT: HOST CONNECTED (V3 EDGES)",
+    "103286.640 BT TX: NAV,V,R,1",
+    "103288.453 BT: HOST CONNECTED (V3 EDGES)",
+    "103288.453 BT TX: NAV,V,R,1",
+    "103289.062 BT TX: NAV,V,R,1",
+    "103289.468 BT TX: NAV,V,R,1",
+    "103290.078 BT TX: NAV,V,R,1",
+    "103796.531 BT TX: NAV,D,A,44",
+    "103797.765 BT TX: NAV,D,R,45",
+    "104270.593 BT RX: NACK,47,UNSUPPRTED",
+    "104271.000 BT RX: NACK,47,UNSUPPORTED",
+    "104271.609 BT RX: NACK,47,UNSUPPORTED",
+    "104272.218 BT RX: NACK,47,UNSUPPORED",
+    "104272.828 BT: HOST CONNECTED (V3 EDGES)",
+    "104272.828 BT TX: NAV,V,R,1",
+    "104273.234 BT TX: NAV,V,R,1"
+  ],
+  "h3r_audio_tail": [
+    {
+      "type": "reading_snapshot",
+      "reading_session_id": "reading-48c11880e7cc4aed9c667f40278896c3",
+      "datapack_id": "datapack-63c0ac30cc8a482f8fa9d0795e044a03",
+      "cursor": {
+        "braille_offset": 0,
+        "document_id": "datapack-63c0ac30cc8a482f8fa9d0795e044a03",
+        "focus_item_id": "pg-c4b5938b7318-00000001-L-vl012-L01",
+        "generation": 110,
+        "math_span_index": 0,
+        "mode": "DOCUMENT",
+        "node_index": 16,
+        "page_id": "pg-c4b5938b7318-00000001-L",
+        "page_index": 0,
+        "table_column": null,
+        "table_row": null
+      },
+      "source_text": "f(x)=\\left\\{\\begin{array}{ll}\\frac{\\sqrt{x+1}-a}{x}&(-1\\leq x<0)\\\\2x+b&(x\\geq0)\\end{array}\\right.",
+      "spoken_text": "에프 괄호 열고 엑스 괄호 닫고는 괄호 열고 첫 번째 식, 엑스분의 루트 엑스 더하기 1 빼기 에이, 괄호 열고 음수 1은 엑스보다 작거나 같다는 0보다 작다 괄호 닫고, 두 번째 식, 2 엑스 더하기 비, 괄호 열고 엑스는 0보다 크거나 같다 괄호 닫고 괄호 닫고와 같다",
+      "braille_cells": [
+        11,
+        38,
+        45,
+        52,
+        18,
+        18,
+        54,
+        55,
+        60,
+        1
+      ],
+      "audio_ref": "s0-audio:abfdf371782969057b34c557d459f67e"
+    },
+    {
+      "type": "feedback",
+      "code": "reading_audio_fetch_started",
+      "at_monotonic": 105745.89,
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "d2f6c401e047",
+        "generation": 110
+      }
+    },
+    {
+      "type": "feedback",
+      "code": "reading_audio_playback_started",
+      "at_monotonic": 105746.125,
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "d2f6c401e047",
+        "generation": 110,
+        "content_length": 954924,
+        "duration_ms": 21653
+      }
+    },
+    {
+      "type": "feedback",
+      "code": "reading_audio_interrupted",
+      "at_monotonic": 105751.734,
+      "details": {
+        "generation": 110,
+        "audio_ref_digest": "d2f6c401e047"
+      }
+    }
+  ]
+}

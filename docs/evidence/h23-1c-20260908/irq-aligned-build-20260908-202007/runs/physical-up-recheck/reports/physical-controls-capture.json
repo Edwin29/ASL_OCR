@@ -1,0 +1,16 @@
+﻿{
+    "captured_at_utc":  "2026-09-08T12:41:39.0225274Z",
+    "stop_reason":  "requested",
+    "error":  null,
+    "hello3_count":  2,
+    "nav_packet_count":  2,
+    "ack_count":  2,
+    "nav_packets":  [
+                        "NAV,V,R,1",
+                        "NAV,V,R,1"
+                    ],
+    "host_frames_sent":  0,
+    "max_nav_packets":  4,
+    "event_log":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\irq-aligned-build-20260908-202007\\runs\\physical-up-recheck\\logs\\physical-controls-serial.jsonl",
+    "debug_log":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\irq-aligned-build-20260908-202007\\runs\\physical-up-recheck\\logs\\physical-controls-com5.txt"
+}

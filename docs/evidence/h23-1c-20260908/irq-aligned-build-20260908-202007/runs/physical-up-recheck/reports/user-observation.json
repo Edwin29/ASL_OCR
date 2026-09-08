@@ -1,0 +1,25 @@
+{
+  "observed_at_local": "2026-09-08",
+  "test": "physical_up_short_recheck",
+  "firmware_identity": "irq-aligned-build-20260908-202007",
+  "procedure": {
+    "button": "UP",
+    "press_kind": "SHORT",
+    "press_count": 3,
+    "spacing_seconds_approx": 1,
+    "host_frames_sent": 0
+  },
+  "user_observation": "completed",
+  "trace_observation": {
+    "up_step_debug_count": 0,
+    "nav_u_short_count": 0,
+    "nav_packets": [
+      "NAV,V,R,1",
+      "NAV,V,R,1"
+    ],
+    "note": "The two mode packets belong to the pre-existing boot and the deliberate software reset used to start the observation window; they are not UP responses. No reset followed the three UP presses."
+  },
+  "result": "current_aligned_up_no_packet",
+  "classification": "insufficient_evidence",
+  "reason": "The current aligned firmware did not observe the three UP presses, but the user previously observed UP working with a different firmware version while PAGE NEXT, PAGE PREVIOUS, and CONFIRM were nonresponsive. Source-version, GPIO/pin initialization, harness timing, and wiring/contact remain competing hypotheses."
+}

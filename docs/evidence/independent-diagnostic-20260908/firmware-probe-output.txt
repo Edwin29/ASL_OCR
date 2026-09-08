@@ -1,0 +1,15 @@
+firmware_extracted_probe.c
+firmware_extracted_probe.c(96): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+firmware_extracted_probe.c(108): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+firmware_extracted_probe.c(119): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+firmware_extracted_probe.c(151): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+firmware_extracted_probe.c(161): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+firmware_extracted_probe.c(218): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+transport changed=0 pace_ms=1.04167 dropped=3 applied=1 motor_calls=0
+transport changed=0 pace_ms=20.00000 dropped=0 applied=2 motor_calls=0
+transport changed=1 pace_ms=1.04167 dropped=36 applied=1 motor_calls=20
+transport changed=1 pace_ms=20.00000 dropped=24 applied=1 motor_calls=20
+overflow_suffix_applied=1
+invalid_accepted=0 nav_generation=123 partial_first_cell=1 last_cell=0
+empty_field_accepted=1
+i2c_all_fail_accepted=1 printed_state=1 motor_calls=20 motor_state0=255

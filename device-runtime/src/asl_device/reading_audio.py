@@ -139,6 +139,7 @@ class ReadingAudioController:
         self._pending: list[_AudioJob] = []
         self._active_job: _AudioJob | None = None
         self._closed = False
+        self._close_complete = False
         self._last_key: tuple[str, int, str] | None = None
         self._session_id: ReadingSessionId | None = None
         self._worker = threading.Thread(
@@ -204,8 +205,8 @@ class ReadingAudioController:
             self._epoch += 1
             self._pending.clear()
             self._last_key = None
+            self.playback_port.stop()
             self._condition.notify_all()
-        self.playback_port.stop()
         if had_work:
             details = {}
             if interrupted_key is not None:
@@ -227,16 +228,19 @@ class ReadingAudioController:
 
     def close(self) -> None:
         with self._condition:
-            if self._closed:
+            if self._close_complete:
                 return
             self._closed = True
             self._epoch += 1
             self._pending.clear()
+            self.playback_port.stop()
             self._condition.notify_all()
-        self.playback_port.stop()
         self._worker.join(timeout=30.5)
+        if self._worker.is_alive():
+            raise RuntimeError("reading audio worker did not terminate during close")
         self.playback_port.close()
         self.cache.clear()
+        self._close_complete = True
 
     def _run(self) -> None:
         while True:
@@ -363,10 +367,12 @@ class ReadingAudioController:
                     item for item in self._pending if item.group != job.group
                 ]
             job = replace(job, epoch=self._epoch)
+            if stop or interrupt:
+                # stop is signal-only. Fence the old playback before a new job
+                # can become runnable; it must never target its replacement.
+                self.playback_port.stop()
             self._pending.append(job)
             self._condition.notify_all()
-        if stop or interrupt:
-            self.playback_port.stop()
 
     def _emit(self, code: FeedbackCode, **details: object) -> None:
         if self.feedback is None:

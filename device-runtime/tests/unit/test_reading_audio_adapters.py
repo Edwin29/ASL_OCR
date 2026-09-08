@@ -171,9 +171,15 @@ def test_sounddevice_player_streams_pcm_without_disk_file() -> None:
 
         def start(self):
             self.started = True
-
-        def write(self, payload):
-            self.writes.append(payload)
+            while True:
+                payload = bytearray(self.kwargs['blocksize'] * 2)
+                try:
+                    self.kwargs['callback'](payload, self.kwargs['blocksize'], None, False)
+                except StopCallback:
+                    self.writes.append(bytes(payload))
+                    self.kwargs['finished_callback']()
+                    break
+                self.writes.append(bytes(payload))
 
         def stop(self):
             pass
@@ -184,7 +190,15 @@ def test_sounddevice_player_streams_pcm_without_disk_file() -> None:
         def close(self):
             self.closed = True
 
+    class StopCallback(Exception):
+        pass
+
+    class AbortCallback(Exception):
+        pass
+
     class SoundDevice:
+        CallbackStop = StopCallback
+        CallbackAbort = AbortCallback
         def __init__(self):
             self.stream = None
 

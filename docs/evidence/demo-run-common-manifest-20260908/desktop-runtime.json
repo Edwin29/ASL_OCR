@@ -1,0 +1,314 @@
+{
+  "processes": [
+    {
+      "process_id": 13620,
+      "parent_process_id": 27368,
+      "name": "cmd.exe",
+      "executable": "C:\\WINDOWS\\system32\\cmd.exe",
+      "combined_server_entrypoint": false,
+      "launcher_entrypoint": true
+    },
+    {
+      "process_id": 5456,
+      "parent_process_id": 13620,
+      "name": "python.exe",
+      "executable": "D:\\venvs\\gpu_ocr_test\\Scripts\\python.exe",
+      "combined_server_entrypoint": true,
+      "launcher_entrypoint": false
+    },
+    {
+      "process_id": 26900,
+      "parent_process_id": 5456,
+      "name": "python.exe",
+      "executable": "C:\\Users\\왕원철\\.pyenv\\pyenv-win\\versions\\3.11.8\\python.exe",
+      "combined_server_entrypoint": true,
+      "launcher_entrypoint": false
+    }
+  ],
+  "listener": {
+    "host": "127.0.0.1",
+    "port": 8421,
+    "owning_process_id": 26900
+  },
+  "launcher": {
+    "path": "D:\\Projects\\OCR\\tools\\windows\\e0b-start-production-server.bat",
+    "sha256": "2e058908b6ec481281a0e6fc9385e96c8acd2bc81f3d9dc1a1b0f9c646ef2fbb"
+  },
+  "source": {
+    "root_from_launcher_contract": "D:\\Projects\\OCR\\document-parser\\src",
+    "combined_server_path": "D:\\Projects\\OCR\\document-parser\\src\\document_parser\\server\\combined_server.py",
+    "combined_server_sha256": "bebec979adeabdda59c9690be0c84dcb4edeaf124353ea02b04c5782175c26ef",
+    "runtime_module_file_directly_observed": false,
+    "basis": "current process was launched by the checked launcher, which sets PYTHONPATH to this source root"
+  },
+  "health": {
+    "local": {
+      "api_versions": [
+        "v1"
+      ],
+      "database": "ok",
+      "schema_version": 4,
+      "server_instance_id": "server-d3b9d880827248f9a952faa14d0485bd",
+      "service": "asl-ocr-server",
+      "status": "ok",
+      "writable": true
+    },
+    "tailscale_https": {
+      "api_versions": [
+        "v1"
+      ],
+      "database": "ok",
+      "schema_version": 4,
+      "server_instance_id": "server-d3b9d880827248f9a952faa14d0485bd",
+      "service": "asl-ocr-server",
+      "status": "ok",
+      "writable": true
+    },
+    "same_server_instance": true,
+    "tailscale_proxy": {
+      "public_origin": "https://desktop-ekp6an5.taild2128f.ts.net",
+      "target": "http://127.0.0.1:8421"
+    }
+  },
+  "models": {
+    "paddleocr_vl": {
+      "file_count": 56,
+      "model_home": "D:\\model_home_vl",
+      "tree_sha256": "40411d09e06e9631687c1527a4c9555f84f633538e68635030c458ef456ebd66"
+    },
+    "piper": {
+      "config_sha256": "153b5619d0580f824a59108d83ca19434de410eb8e4fe80325b58684fdc8a1df",
+      "engine_id": "piper",
+      "espeak_tree_sha256": "7668392d99748b9326b637f245883f47ab27ba781959da46ba660b46f8dd7132",
+      "model_sha256": "624fd774e26895f24bebae1bd9a3379e3394baeade4b584924f83e414096e2c9",
+      "voice": "ko_KR-kss-medium"
+    },
+    "schema_version": 1,
+    "source_sha256": "16c57970bc493abcef4a1db0f1917b22956bf5ca1a2ee8b4565fde1f6574e6f8"
+  },
+  "state": {
+    "database_path": "D:\\device-config\\state\\e0b-production\\server.sqlite3",
+    "database_sha256_at_capture": "bf2bd23ab90247926488b360d7d7a491cd13a0b2aaff728fa1b43ec35963a399",
+    "database_bytes": 1019904,
+    "ready_datapacks": [
+      {
+        "datapack_id": "datapack-63c0ac30cc8a482f8fa9d0795e044a03",
+        "status": "ready",
+        "current_revision": 1,
+        "created_by_device_id": "laptop-device-001",
+        "updated_at": "2026-09-06T17:32:13.022618+00:00"
+      },
+      {
+        "datapack_id": "datapack-aad8209a668b4feca39243bca5b80840",
+        "status": "ready",
+        "current_revision": 1,
+        "created_by_device_id": "laptop-device-001",
+        "updated_at": "2026-09-06T16:38:37.250919+00:00"
+      },
+      {
+        "datapack_id": "datapack-ff30dc85052d4ef3b1c519dbd20c0cb1",
+        "status": "ready",
+        "current_revision": 1,
+        "created_by_device_id": "laptop-device-001",
+        "updated_at": "2026-09-06T15:49:49.633051+00:00"
+      },
+      {
+        "datapack_id": "datapack-9a051ede9338461eba0febfd8b04bfbf",
+        "status": "ready",
+        "current_revision": 1,
+        "created_by_device_id": "laptop-device-001",
+        "updated_at": "2026-09-04T07:10:10.210152+00:00"
+      },
+      {
+        "datapack_id": "datapack-d31a64f7ff5d4afab4e0f66e0bfc494f",
+        "status": "ready",
+        "current_revision": 1,
+        "created_by_device_id": "laptop-device-001",
+        "updated_at": "2026-09-04T06:56:59.936909+00:00"
+      },
+      {
+        "datapack_id": "datapack-d1f25a58607f4aa1ba0a80cf7d877b6b",
+        "status": "ready",
+        "current_revision": 1,
+        "created_by_device_id": "laptop-device-001",
+        "updated_at": "2026-09-04T04:42:40.231935+00:00"
+      },
+      {
+        "datapack_id": "datapack-50c72d0d1a184837bc093d4d08e93d87",
+        "status": "ready",
+        "current_revision": 1,
+        "created_by_device_id": "laptop-device-001",
+        "updated_at": "2026-09-04T04:28:47.000306+00:00"
+      }
+    ],
+    "stable_device_progress": [
+      {
+        "device_id": "laptop-device-001",
+        "datapack_id": "datapack-63c0ac30cc8a482f8fa9d0795e044a03",
+        "revision_seen": 1,
+        "cursor_version": 1,
+        "updated_at": "2026-09-07T17:37:36.728066+00:00",
+        "cursor": {
+          "braille_offset": 10,
+          "document_id": "datapack-63c0ac30cc8a482f8fa9d0795e044a03",
+          "focus_item_id": "pg-c4b5938b7318-00000001-R-vl009-L01",
+          "generation": 134,
+          "math_span_index": 0,
+          "mode": "DOCUMENT",
+          "node_index": 9,
+          "page_id": "pg-c4b5938b7318-00000001-R",
+          "page_index": 1,
+          "table_column": null,
+          "table_row": null
+        }
+      },
+      {
+        "device_id": "laptop-device-001",
+        "datapack_id": "datapack-aad8209a668b4feca39243bca5b80840",
+        "revision_seen": 1,
+        "cursor_version": 1,
+        "updated_at": "2026-09-06T16:41:28.229834+00:00",
+        "cursor": {
+          "braille_offset": 0,
+          "document_id": "datapack-aad8209a668b4feca39243bca5b80840",
+          "focus_item_id": "pg-0935e9e5d110-00000002-R-vl012",
+          "generation": 87,
+          "math_span_index": 0,
+          "mode": "DOCUMENT",
+          "node_index": 16,
+          "page_id": "pg-0935e9e5d110-00000002-R",
+          "page_index": 3,
+          "table_column": null,
+          "table_row": null
+        }
+      },
+      {
+        "device_id": "laptop-device-001",
+        "datapack_id": "datapack-ff30dc85052d4ef3b1c519dbd20c0cb1",
+        "revision_seen": 1,
+        "cursor_version": 1,
+        "updated_at": "2026-09-06T16:00:09.388694+00:00",
+        "cursor": {
+          "braille_offset": 0,
+          "document_id": "datapack-ff30dc85052d4ef3b1c519dbd20c0cb1",
+          "focus_item_id": "pg-8921b2542185-00000002-R-vl012",
+          "generation": 87,
+          "math_span_index": 0,
+          "mode": "DOCUMENT",
+          "node_index": 16,
+          "page_id": "pg-8921b2542185-00000002-R",
+          "page_index": 3,
+          "table_column": null,
+          "table_row": null
+        }
+      },
+      {
+        "device_id": "laptop-device-001",
+        "datapack_id": "datapack-d1f25a58607f4aa1ba0a80cf7d877b6b",
+        "revision_seen": 1,
+        "cursor_version": 1,
+        "updated_at": "2026-09-04T06:33:50.736112+00:00",
+        "cursor": {
+          "braille_offset": 0,
+          "document_id": "datapack-d1f25a58607f4aa1ba0a80cf7d877b6b",
+          "focus_item_id": "pg-dbff6ec795ed-00000001-L-vl009",
+          "generation": 45,
+          "math_span_index": 0,
+          "mode": "DOCUMENT",
+          "node_index": 9,
+          "page_id": "pg-dbff6ec795ed-00000001-L",
+          "page_index": 0,
+          "table_column": null,
+          "table_row": null
+        }
+      }
+    ],
+    "open_reading_sessions": [
+      {
+        "reading_session_id": "reading-48c11880e7cc4aed9c667f40278896c3",
+        "device_id": "laptop-device-001",
+        "datapack_id": "datapack-63c0ac30cc8a482f8fa9d0795e044a03",
+        "revision": 1,
+        "status": "open",
+        "created_at": "2026-09-06T17:32:13.668367+00:00",
+        "last_seen_at": "2026-09-07T17:37:36.728066+00:00"
+      },
+      {
+        "reading_session_id": "reading-52d7a9b9a4b54d428faa5f42470dd493",
+        "device_id": "laptop-device-001",
+        "datapack_id": "datapack-aad8209a668b4feca39243bca5b80840",
+        "revision": 1,
+        "status": "open",
+        "created_at": "2026-09-06T16:38:37.916584+00:00",
+        "last_seen_at": "2026-09-06T16:41:28.229834+00:00"
+      },
+      {
+        "reading_session_id": "reading-faaccabd1eec49f3a3f53a3a802e756f",
+        "device_id": "laptop-device-001",
+        "datapack_id": "datapack-ff30dc85052d4ef3b1c519dbd20c0cb1",
+        "revision": 1,
+        "status": "open",
+        "created_at": "2026-09-06T15:49:50.212561+00:00",
+        "last_seen_at": "2026-09-06T16:00:09.388694+00:00"
+      },
+      {
+        "reading_session_id": "reading-50603290c9d540dbacf0c599ca431db5",
+        "device_id": "laptop-device-001",
+        "datapack_id": "datapack-d1f25a58607f4aa1ba0a80cf7d877b6b",
+        "revision": 1,
+        "status": "open",
+        "created_at": "2026-09-04T04:47:29.590064+00:00",
+        "last_seen_at": "2026-09-04T06:33:51.020797+00:00"
+      }
+    ],
+    "recent_presence_rows": [
+      {
+        "presence_session_id": "presence-fae9cb8d826b4733a9bf1738d1f5e253",
+        "boot_id": "process-3890fcfd0f704621bb8075b705f94e58",
+        "status": "active",
+        "last_heartbeat_sequence": 71,
+        "started_at": "2026-09-07T17:31:40.943161+00:00",
+        "last_seen_at": "2026-09-07T17:37:35.989041+00:00",
+        "disconnected_at": null
+      },
+      {
+        "presence_session_id": "presence-d083a122d02145fdbb52da848cc02d3f",
+        "boot_id": "process-2b66bfe5956841a391323827b5a0d5ae",
+        "status": "active",
+        "last_heartbeat_sequence": 164,
+        "started_at": "2026-09-07T17:14:32.262591+00:00",
+        "last_seen_at": "2026-09-07T17:28:12.654007+00:00",
+        "disconnected_at": null
+      },
+      {
+        "presence_session_id": "presence-aad1ccf401d749cfbe7789ecad8c10e0",
+        "boot_id": "process-d4edf5bb34a84ebe8c72f0cb96dae235",
+        "status": "active",
+        "last_heartbeat_sequence": 58,
+        "started_at": "2026-09-07T17:06:15.474607+00:00",
+        "last_seen_at": "2026-09-07T17:11:05.543161+00:00",
+        "disconnected_at": null
+      },
+      {
+        "presence_session_id": "presence-2928f25efb4949669a9f19ca35d1d468",
+        "boot_id": "process-831a2c1cf08e44cb89470959d6f40f7a",
+        "status": "active",
+        "last_heartbeat_sequence": 123,
+        "started_at": "2026-09-07T16:50:51.261393+00:00",
+        "last_seen_at": "2026-09-07T17:01:06.612112+00:00",
+        "disconnected_at": null
+      },
+      {
+        "presence_session_id": "presence-34a1a9141a224c30a1064bc3b0d4acb1",
+        "boot_id": "process-243e7af63ce049edb5dba79dca0617cb",
+        "status": "active",
+        "last_heartbeat_sequence": 88,
+        "started_at": "2026-09-07T16:33:50.941389+00:00",
+        "last_seen_at": "2026-09-07T16:41:11.156191+00:00",
+        "disconnected_at": null
+      }
+    ],
+    "note": "Open/active rows are preserved state, not proof that a Laptop process is currently alive."
+  },
+  "credentials_recorded": false
+}

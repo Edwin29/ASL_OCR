@@ -1,0 +1,15 @@
+﻿{
+    "started_at_utc":  "2026-09-08T10:18:20.9818187Z",
+    "ended_at_utc":  "2026-09-08T10:18:22.3045259Z",
+    "purpose":  "diagnostic",
+    "programmer":  "C:\\ST\\STM32CubeIDE_2.2.0\\STM32CubeIDE\\plugins\\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_2.2.500.202603051304\\tools\\bin\\STM32_Programmer_CLI.exe",
+    "probe_serial":  "0670FF485775495067203341",
+    "elf":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\rx-counter-20260908-191131\\firmware-build\\source\\kitel2026final\\Debug\\kitel2026final.elf",
+    "elf_length":  1151760,
+    "elf_sha256":  "4b96a00b9321c4a7e9cc6639a87f5b92559be2587111070b10495408dfe2a84b",
+    "action":  "download_verify_reset",
+    "exit_code":  0,
+    "download_verified":  true,
+    "product_source_modified":  false,
+    "log":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\rx-counter-20260908-191131\\logs\\flash-diagnostic.log"
+}

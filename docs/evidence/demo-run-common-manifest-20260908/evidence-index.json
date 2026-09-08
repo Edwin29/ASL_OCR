@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "credential_values_recorded": false,
+  "files": {
+    "run-common-manifest.json": {
+      "sha256": "cf11824e914864c81f0fcf12f2ed688ed82aadb0cc29626f83dd369113e1c1aa",
+      "role": "authoritative machine-readable common run manifest"
+    },
+    "laptop-runtime.json": {
+      "sha256": "872142d9bc66f6a24a22b65197b557b8a68a6feb495c5602d580259d3e7dcfba",
+      "role": "read-only parsed config, source, audio and serial inventory"
+    },
+    "desktop-runtime.json": {
+      "sha256": "4a1ab40dc65f45fe255fc5dc6bbd33b0bbd1223a35492ca2a19c1c8c40fc2970",
+      "role": "read-only production server, health and persistent state snapshot"
+    },
+    "preserved-run-identities.json": {
+      "sha256": "db1648e6957435ff2aef2c29d1aed0b74df31de2dce1a3c0d654b82eb8e28fd9",
+      "role": "historical H1/H2/H3 launcher and harness identity"
+    },
+    "../../DEMO_RUN_COMMON_MANIFEST_20260908.md": {
+      "sha256": "1397c7e4f133190ff003bb3dcd6e99ab7adca35470c5ce0485f48b34790e980d",
+      "role": "human-readable manifest contract"
+    }
+  }
+}

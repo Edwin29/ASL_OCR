@@ -1,0 +1,12 @@
+{
+  "root": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\diagnostics\\h123-correction-1788815826803776700",
+  "interpreter": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Scripts\\python.exe",
+  "returncode": 1,
+  "results": [
+    {
+      "package": "device-runtime",
+      "returncode": 1,
+      "output": ".....F....                                                               [100%]\n================================== FAILURES ===================================\n_____ test_checked_in_stm_source_and_cubemx_pin_contract_are_synchronized _____\ntests\\integration\\test_stm_mode_contract.py:117: in test_checked_in_stm_source_and_cubemx_pin_contract_are_synchronized\n    main_c = (firmware / \"Core/Src/main.c\").read_text(encoding=\"utf-8\")\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nC:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\pathlib.py:1058: in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nC:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\pathlib.py:1044: in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\ASL_OCR_INTEGRATION_RUNTIME\\\\demo-20260905\\\\diagnostics\\\\h123-correction-1788815826803776700\\\\hardware\\\\stm32\\\\kitel2026final\\\\Core\\\\Src\\\\main.c'\n=========================== short test summary info ===========================\nFAILED tests/integration/test_stm_mode_contract.py::test_checked_in_stm_source_and_cubemx_pin_contract_are_synchronized\n1 failed, 9 passed in 9.41s\n\n"
+    }
+  ]
+}

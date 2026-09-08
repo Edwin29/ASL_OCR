@@ -1,0 +1,12 @@
+{
+  "calls": [
+    1,
+    2,
+    3
+  ],
+  "first_candidate_valid": true,
+  "production_result": "raises RuntimeError",
+  "exception": "diagnostic late native inference error",
+  "early_return_would_skip_error": true,
+  "conclusion": "First-valid early return is not exception-equivalent; no optimization applied."
+}

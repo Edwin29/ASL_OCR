@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "run_id": "audio-console-20260908-163539",
+  "created_at_utc": "2026-09-08T07:38:55.567971+00:00",
+  "source_root": "C:\\ASL_OCR_INTEGRATION",
+  "python": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Scripts\\python.exe",
+  "launcher": "bounded custom composition",
+  "initial_mode": "reading",
+  "config": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\audio-console-20260908-163539\\config\\device-app.h1-camera-console.toml",
+  "config_sha256": "b9c8af2f3904f5a98fc27aac6f9cfc9c6389ae299015e7152f0d68a8e1895863",
+  "connectivity_config_sha256": "6dd885ae5047e3d761e4ff76c96377c0259a5edec07df58fdbc2e255ab3a143f",
+  "runtime_overrides": [
+    "ConsoleControlSource",
+    "JsonLineReadingPresenter",
+    "initial_mode=READING"
+  ],
+  "production_classes_preserved": [
+    "DeviceApplication",
+    "DeviceFlowCoordinator",
+    "S0ReadingHttpAdapter",
+    "S0AudioResourceHttpAdapter",
+    "S0SystemAudioResourceHttpAdapter",
+    "ReadingAudioController",
+    "SoundDeviceWavPlayer"
+  ],
+  "boundaries_bypassed": [
+    "live capture",
+    "V4 upload",
+    "S1 finalize",
+    "physical controls",
+    "STM presenter",
+    "PCA and servo cells"
+  ],
+  "state_isolated": true,
+  "existing_state_modified": false,
+  "credential_files_copied": 2,
+  "credential_values_recorded": false
+}

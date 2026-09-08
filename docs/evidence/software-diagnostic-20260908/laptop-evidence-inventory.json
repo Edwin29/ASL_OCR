@@ -1,0 +1,1261 @@
+{
+  "files": [
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-223731\\logs\\h1-interactive-console-transcript.txt",
+      "bytes": 3072,
+      "sha256": "bd487578592548a19fa5cafd7bcd1fc20d333ab232f4be317ffc1d249c81aae0"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-223731\\manifests\\h1-capture-current-frame.py",
+      "bytes": 2072,
+      "sha256": "1a917bed1e0d779c0d772adb1fb02be579225f391aacc28b6b0ecb05026eef37"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-223731\\manifests\\h1-interactive-runtime.ps1",
+      "bytes": 1024,
+      "sha256": "5e3b3a4251fbc11adbf42ca25250402f369368559c50f0d513f52a27643147d0"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-223731\\manifests\\h1-list-catalog.py",
+      "bytes": 1205,
+      "sha256": "8424e8c017e2591b955c105cf502e3ae3b451941b65917dba0b599df4dbfc099"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-223731\\manifests\\h1-live-diagnostic.py",
+      "bytes": 2986,
+      "sha256": "adefd5737baa4b76688667d003c32465fea0b54bd41d34a586980ffe239ba69e"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-223731\\manifests\\h1-prepare-runtime.ps1",
+      "bytes": 1774,
+      "sha256": "fd37271a0639a6e0ed08f7bf3476b1ccca5fe5d2790821e0a8803185fb8e4d6c"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-223731\\manifests\\h1-run-identity.json",
+      "bytes": 748,
+      "sha256": "a7d2bf765a1900710dd4829d0edad9dc60d074dac759f3aab06889120e580649"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-223731\\manifests\\h1-server-status.py",
+      "bytes": 883,
+      "sha256": "ee46e20e5aae0e6a49a4ca3447d8065e9912ed0725d61ad360aa5bb00b83c1d1"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-223731\\manifests\\h1-start-interactive.ps1",
+      "bytes": 1029,
+      "sha256": "0709a9c923f260f527f1031a2d99c8bca9547771e302634954e2bcbee6a07f4a"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-223731\\config\\device-app.h1-camera-console.toml",
+      "bytes": 2121,
+      "sha256": "e0b324dd15dc03d11fd93ad14f9e8977c9f1f4f60d17f75bc4a7e10d78a338fb"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-223731\\config\\device-connectivity.integration.toml",
+      "bytes": 416,
+      "sha256": "6dd885ae5047e3d761e4ff76c96377c0259a5edec07df58fdbc2e255ab3a143f"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944\\logs\\h1-interactive-console-transcript.txt",
+      "bytes": 3064,
+      "sha256": "33c128732ac3e9aecee640514d182ee10bab747d25ae58775dc72ccede86555a"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944\\manifests\\camera-burst.py",
+      "bytes": 1744,
+      "sha256": "ca07d0e143d1b2a746bd68104277a8ac4ee5536fbb32af723ce3fd45760e0cf1"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944\\manifests\\h1-capture-current-frame.py",
+      "bytes": 2074,
+      "sha256": "52619790bbbe46343a4f3f68377776e86a122dd5033d9e53555cdb8115279b11"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944\\manifests\\h1-interactive-runtime.ps1",
+      "bytes": 1026,
+      "sha256": "7909ac3ac51348cb600e730bc8b0f0eb8061aff2ad5c481a72be4d2b4d34d0bb"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944\\manifests\\h1-list-catalog.py",
+      "bytes": 1207,
+      "sha256": "dde5c2a8a06bae50244fdcea850cc1c7f645098328ea70434ded92b8f801d3f6"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944\\manifests\\h1-post-first-spread-diagnostic.py",
+      "bytes": 3018,
+      "sha256": "b76c6326c4d64fa7b383cb8579e09ecacd6ad14b31d5e57f0f1e14d212ede3a9"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944\\manifests\\h1-run-identity.json",
+      "bytes": 748,
+      "sha256": "4f4ada5999c1e276fc3bcdb86029268a4a613c8e2642dae027ecfe45e69a19cc"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944\\manifests\\h1-server-status.py",
+      "bytes": 885,
+      "sha256": "471ccfeff55b18f0fbf9bde905757aafc10e016e2eb7df83bb9fe3b98125caaf"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944\\manifests\\h1-start-interactive.ps1",
+      "bytes": 1031,
+      "sha256": "d3f8f8b6665f87000364a8d28dbc734d2ddcad06557433e8175ec94c64f822d9"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944\\manifests\\list-run-files.py",
+      "bytes": 371,
+      "sha256": "3c5d429fb1965b3b864f855bab0edf7910f0912a408df76a12ceba7cd2eb7007"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944\\config\\device-app.h1-camera-console.toml",
+      "bytes": 2123,
+      "sha256": "48f4c9441260c155f48676c8e7f909b520dfba0d7ce5cdec93ba87e1c9b61bdd"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944\\config\\device-connectivity.integration.toml",
+      "bytes": 416,
+      "sha256": "6dd885ae5047e3d761e4ff76c96377c0259a5edec07df58fdbc2e255ab3a143f"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\logs\\h2-events.jsonl",
+      "bytes": 5847,
+      "sha256": "bc3f7fd3dba4def645dba97bb0b8c37ccedbff70bdc3296269eb0627f1a9941b"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\logs\\stm-actuator-clear-paced-diagnostic.json",
+      "bytes": 1232,
+      "sha256": "c86cd9f6ebdd060412916a9323a3492f3802be2eff8a0dfc27eaa9703c4dcdb3"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\logs\\stm-actuator-paced-diagnostic.json",
+      "bytes": 1269,
+      "sha256": "9255e9dcff02659e0fbe8b5c2a3464c11645350612b3fddfbc21298dd3ba8318"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\logs\\stm-com5-trace.log",
+      "bytes": 2425,
+      "sha256": "a7125c1c51679178fce2916e453aa20cb6e146cd6bcf96d7101955e1fd20fc87"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\logs\\stm-frame-transport-diagnostic-20ms.json",
+      "bytes": 1331,
+      "sha256": "e287ffc3230ecaf55090470215be0dd6aa842e80ac7ad56bf7eece5fd3cd946a"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\logs\\stm-frame-transport-diagnostic.json",
+      "bytes": 2393,
+      "sha256": "e155e424e33a4f67a5967ebc92179cfaadc267537d60fd925eb3c146718ac328"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\manifests\\com5-trace.py",
+      "bytes": 655,
+      "sha256": "2b6db76525b0123b8c9b92cd52b1ccf89c7dda302f41a48d7700b429c88b5b0e"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\manifests\\device-app.h2-console-stm.toml",
+      "bytes": 2183,
+      "sha256": "ac7a2ce9aa6e6d2054d762618989b2e2ebc5aa7f59010e147ca0b87870c8904b"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\manifests\\h2-console-stm-harness.py",
+      "bytes": 2089,
+      "sha256": "2f8ee0744e0df995c41c96982e3043416ef8e402b4ab9d0587aacc4882a18fc4"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\manifests\\h2-preflight.py",
+      "bytes": 1789,
+      "sha256": "5611b95cc46a8476e605a78e953cdb28d4213bb2f765d96b186e2153e7d9acf1"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\manifests\\h2-reset.ps1",
+      "bytes": 598,
+      "sha256": "f41dd7225f9523887c9658807e1b1d6e9700ce2050c1c8f8984c67bff3b662b8"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\manifests\\h2-run-identity.json",
+      "bytes": 540,
+      "sha256": "179983bc670c59e6c4a8f9fb482572be941c97b1a56fd430d39a8ee147210ac1"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\manifests\\h2-runtime.ps1",
+      "bytes": 281,
+      "sha256": "d4927cb963acb672e662777eaf53aed9040de4c0ed58712213983d7071e6cafe"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\manifests\\start-com5-trace.ps1",
+      "bytes": 662,
+      "sha256": "c2a545124296206007ebf7b86c5de0c8b6024c76be952c0f8a46011af6d34ef5"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\manifests\\start-h2.ps1",
+      "bytes": 664,
+      "sha256": "f10f35e41686d640617a42d445cc70f94e28654d9b50ddcf1aa7f46710537885"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\manifests\\stm-actuator-clear-paced-diagnostic.py",
+      "bytes": 1975,
+      "sha256": "57d2c32a9807a3eb828b1ccf8f57fcafb80c94b8ac39706337ca7e451b724406"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\manifests\\stm-actuator-paced-diagnostic.py",
+      "bytes": 2010,
+      "sha256": "b0034c83635737309908e21732ca343bd7fcd0240a8db0a0886fcf5ba1310257"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\manifests\\stm-frame-transport-diagnostic-20ms.py",
+      "bytes": 3236,
+      "sha256": "fd6e946e8d8ff80c0ce4e4cbffec2132dc43c48f9564a32030c0ed7659def6cf"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\manifests\\stm-frame-transport-diagnostic.py",
+      "bytes": 3253,
+      "sha256": "9295aa519cd4dcbc7cb0bdd5cad2ad0753aed109ef4008ef4d75cca807a778cb"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\config\\device-app.h2-console-stm.toml",
+      "bytes": 2183,
+      "sha256": "ac7a2ce9aa6e6d2054d762618989b2e2ebc5aa7f59010e147ca0b87870c8904b"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\config\\device-connectivity.integration.toml",
+      "bytes": 416,
+      "sha256": "6dd885ae5047e3d761e4ff76c96377c0259a5edec07df58fdbc2e255ab3a143f"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\logs\\h3-events-resumed.log",
+      "bytes": 35508,
+      "sha256": "f936dea6f38b5b5038de617d95a750608a1a5aa8040e97b99e99fb8486da034e"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\logs\\h3-runtime.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\logs\\h3-visible-transcript.log",
+      "bytes": 935,
+      "sha256": "51c91b8d3105f68fa497d643d24c512f50a051a5a5882db4ffec0ccf7a25e734"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\logs\\stm-com5-trace.log",
+      "bytes": 13531,
+      "sha256": "df9cf2061f51add69cb7bfca16496f5eaa741dc7bd50f335c1c515ba16c2a2fb"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\manifests\\com5-trace.py",
+      "bytes": 660,
+      "sha256": "c72d357a6b53dfe99e236cc054483abf0ee8214cd6555721d999321e69248816"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\manifests\\h3-final-evidence-manifest.json",
+      "bytes": 3624,
+      "sha256": "372bbd09502c40c5955e76ad9c3767abacdfffddbfba7b9080dada81c1b38de1"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\manifests\\h3-processes.json",
+      "bytes": 124,
+      "sha256": "f58841ab86aebf6dee44455bfb0dedf049d000164d2742816d33a9645d2a5e92"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\manifests\\h3-run-identity.json",
+      "bytes": 596,
+      "sha256": "c361cefc1df7bf3abe630aa9090ee51aeb3e06d4913af80535bfdbd159e738f9"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\manifests\\h3-runtime.ps1",
+      "bytes": 417,
+      "sha256": "9e9dd3dc9fcf00ad42cb8d94321df58f61bcaefca243d3d9c8de5f2c3b3cad35"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\manifests\\h3-visible-runtime.ps1",
+      "bytes": 505,
+      "sha256": "1f95196d7805c50ec8c4bc29c7a4f2ddd02df2817b89ce22ffd07d71f6654b11"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\manifests\\h3-visible-tee-runtime.ps1",
+      "bytes": 455,
+      "sha256": "bf0c1fb672f77a7ebf04328287f53fd030b7a748889f24da68e2f89eeeb46588"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\config\\device-app.stm-reading.toml",
+      "bytes": 2185,
+      "sha256": "3974105a314f5aeb70acdc002d50235c366350080b799cda33a9066d3ed00798"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\config\\device-connectivity.integration.toml",
+      "bytes": 416,
+      "sha256": "6dd885ae5047e3d761e4ff76c96377c0259a5edec07df58fdbc2e255ab3a143f"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\com5-logger-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\com5-logger-stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\generation-110-paced-frame.json",
+      "bytes": 1393,
+      "sha256": "f3c43ff2f898c75cc7d6b9263c1c2c78ad3cede34d2457fa16856599d395db67"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\generation-111-paced-clear.json",
+      "bytes": 1408,
+      "sha256": "610c7a102491e38dde694bc55793783e956b4efd24aaca1bf629de68f10c9784"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\h3r-braille-events.jsonl",
+      "bytes": 1543,
+      "sha256": "03f6884447b00d212d5506caa807fbe88ab4a38935ab52b794d539a92ffb4ed5"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\h3r-events.jsonl",
+      "bytes": 30503,
+      "sha256": "80e9001771e1a3876afcf9e074fcf5f65d8c85f78448fe3024156885eb249026"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\h3r-physical-down-com5.jsonl",
+      "bytes": 7908,
+      "sha256": "1801beb263a35fe3c901909c58528964cd17413ad14c04f8fa8ea7731a9f4205"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\h3r-physical-down-console.log",
+      "bytes": 28986,
+      "sha256": "4ded7ad84da4ed9e505fde1a872be058306d4a0a6e7a329325c06982e5941bc9"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\h3r-physical-down-events.jsonl",
+      "bytes": 16786,
+      "sha256": "fa84bf67b2808f09ef7b6c7c0d4c275eb11e5a31e0e9f49d8e31fdccfd6cad1c"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\h3r-physical-down-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\h3r-physical-down-stdout.log",
+      "bytes": 409,
+      "sha256": "a7c9a04e751947de632e8de48a6825060f521db20e1095beb6b59314858a42b0"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\stm-com5-physical-down.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\logs\\stm-com5-trace.log",
+      "bytes": 210,
+      "sha256": "23ba00da452028bb20d9aa35073299147285714d0671862c3b68b8f7dc9478e0"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\com5-physical-down.py",
+      "bytes": 672,
+      "sha256": "7ca22ff671cf8fcf76b1d32a75cef39863faef31d1f1f81566876d0bcb32d6ff"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\com5-trace.py",
+      "bytes": 664,
+      "sha256": "dc7f1d7a469fa4c09e3285cf1f0ec8976d6c801a86eb35d699edbb6b54e17e69"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\finalize-h3r-physical-down.ps1",
+      "bytes": 1200,
+      "sha256": "31010873a89de325516b8062e7e302a74b4e1b5f1669b3d1019e8242ac15346f"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\generation-110-paced-frame.py",
+      "bytes": 2022,
+      "sha256": "5b699136e16366e8c315f62dae6bbf496f86281f8bd4186c35c776d294613c63"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\generation-111-paced-clear.py",
+      "bytes": 2013,
+      "sha256": "d04cae0d4a6ac3bafc440294379b8802f596e17f78e4844977959e5d98bc2db8"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\get-h3r-com5.ps1",
+      "bytes": 534,
+      "sha256": "a18ffb43142246ed0e2d0f6532c94c447ebcc13b01037b3b677c2669f3ddc604"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\h3r-braille-only-harness.py",
+      "bytes": 2136,
+      "sha256": "d04890c2f28713ca0d0f0b3dce707c856cda61230e27f927b21795643874f13d"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\h3r-braille-runtime.ps1",
+      "bytes": 290,
+      "sha256": "8c527478e5ae64f831c629773d2969e9ad9c27f6cfb5f2ffcfef8036904b3128"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\h3r-com5-physical-down-logger.py",
+      "bytes": 793,
+      "sha256": "f3576d3f81aee1626cba724d2fded4dba6536cb74ddd61f00f6bfbf941fc54d9"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\h3r-com5-physical-down-runtime.ps1",
+      "bytes": 249,
+      "sha256": "bfa546d307943a87286261443280d1d9342de904a6c942345b3043a84b388814"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\h3r-console-stm-harness.py",
+      "bytes": 2111,
+      "sha256": "fe26d3ac5bb85ce06dbf407d5c4f0c6d7d811ae3a2d01f10a7f60c8ee6f6489a"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\h3r-final-evidence-manifest.json",
+      "bytes": 4601,
+      "sha256": "ec530a4608db8e96e150a1eab81eb63cc616d3dcf98e61f323e1896688465c37"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\h3r-physical-down-harness.py",
+      "bytes": 5025,
+      "sha256": "04c8dfa280f77723b0d5e559d8efe1443d55832d423a788260f481178d3a66b6"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\h3r-physical-down-result.json",
+      "bytes": 1643,
+      "sha256": "1906d52ec9344c6e4e0ac7f39127c28992973244b5f4105839864969b01034d2"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\h3r-physical-down-runtime.ps1",
+      "bytes": 432,
+      "sha256": "a4724a1ac83c753af7797340df0b47a509c09f3f7c53c303811f3c04d2ec4038"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\h3r-run-identity.json",
+      "bytes": 658,
+      "sha256": "fe179c0358ad783b593167870769c78df77e560ffe010922723799cd5cd2d402"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\h3r-runtime.ps1",
+      "bytes": 289,
+      "sha256": "fd4c7c71de0ad62843e408182a782f2f4a80ea085d82e931ab21a87ed8c0c031"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\poll-h3r-physical-down.ps1",
+      "bytes": 863,
+      "sha256": "d7b61236f5c2ed4c2ca6401f345a76d907c455d4e1ec9915096f53c7f2495917"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\start-h3r-com5-task.ps1",
+      "bytes": 956,
+      "sha256": "afbdd46b38635211f816ba0fe8ae35a0a6dbd913201d294c3d91df9372788a63"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\stop-and-hash-h3r-physical-down.ps1",
+      "bytes": 1450,
+      "sha256": "68eaf6c5c38facc3b9b5abaae9aab1c02080af6ed2f7fcc13d472d9388d6ddd9"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\stop-h3r-com5.ps1",
+      "bytes": 550,
+      "sha256": "417a03a0574d1795cea17264e45548433304791c861576f1eaea66c276f34acc"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\manifests\\verify-h3r-cleanup.ps1",
+      "bytes": 629,
+      "sha256": "ead3f7346f998a4383c034ca2c42b37d54206c820242610eb21b8207336de1f7"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\config\\device-app.h3r-braille-only.toml",
+      "bytes": 2222,
+      "sha256": "ee653c77807d195e95ff5e101154609689f58071afe04dadbfb241c2b07891f1"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\config\\device-app.h3r-console-stm.toml",
+      "bytes": 2221,
+      "sha256": "2f5a296eb7233321912fc4a3b12fb6b53d357c8c0423a97c9b797d75a960bf75"
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\config\\device-connectivity.integration.toml",
+      "bytes": 416,
+      "sha256": "6dd885ae5047e3d761e4ff76c96377c0259a5edec07df58fdbc2e255ab3a143f"
+    }
+  ],
+  "environment_manifest_hash": "30a41312c5218e357ae4bb351dbce33e15f69e6cbe2749f26f11266391590aa7",
+  "environment_manifest": {
+    "schema_version": 1,
+    "purpose": "Authoritative Laptop C: integration environment and G0/G3-B execution manifest",
+    "source": {
+      "repository": "C:\\ASL_OCR_INTEGRATION",
+      "head": "ea7e6f24b38bc74bd2405ca1f35ed1acd2bab42e",
+      "git_status": "M device-runtime/src/asl_device/adapters/book_scanner_runtime.py\n M device-runtime/src/asl_device/adapters/stm_serial.py\n M device-runtime/src/asl_device/local_composition.py\n M device-runtime/tests/integration/test_e0_local_composition.py\n M device-runtime/tests/unit/test_book_scanner_runtime.py\n M device-runtime/tests/unit/test_stm_serial.py\n M document-parser/src/document_parser/accessibility/flattening/structure_nodes.py\n M document-parser/src/document_parser/serialization/vl_page_ir.py\n M document-parser/src/document_parser/structure/problem_units.py\n M document-parser/tests/unit/test_problem_units.py\n M document-parser/tests/unit/test_vl_page_ir.py\n?? device-runtime/tests/integration/test_stm_operation_identity.py\n?? docs/HW_SW_INTEGRATION_PLAN.md\n?? docs/PROTOTYPE_STABILIZATION_GATE.md\n",
+      "expected_tracked_diff": [
+        "device-runtime/src/asl_device/adapters/book_scanner_runtime.py",
+        "device-runtime/src/asl_device/adapters/stm_serial.py",
+        "device-runtime/src/asl_device/local_composition.py",
+        "device-runtime/tests/integration/test_e0_local_composition.py",
+        "device-runtime/tests/unit/test_book_scanner_runtime.py",
+        "device-runtime/tests/unit/test_stm_serial.py",
+        "document-parser/src/document_parser/accessibility/flattening/structure_nodes.py",
+        "document-parser/src/document_parser/serialization/vl_page_ir.py",
+        "document-parser/src/document_parser/structure/problem_units.py",
+        "document-parser/tests/unit/test_problem_units.py",
+        "document-parser/tests/unit/test_vl_page_ir.py"
+      ],
+      "unexpected_tracked_diff": [],
+      "transplant_hashes": {
+        "device-runtime/src/asl_device/adapters/stm_serial.py": {
+          "actual": "3448c3b2467cd36ac26cdc7ea7be861eacb9fbb72048945d5992b72f41e88d03",
+          "expected": "3448c3b2467cd36ac26cdc7ea7be861eacb9fbb72048945d5992b72f41e88d03",
+          "same": true
+        },
+        "device-runtime/src/asl_device/adapters/book_scanner_runtime.py": {
+          "actual": "f91cc13fbf4db9669f700de9500bc73e800f95f7924e0a1bc64759515dd47bd5",
+          "expected": "f91cc13fbf4db9669f700de9500bc73e800f95f7924e0a1bc64759515dd47bd5",
+          "same": true
+        },
+        "device-runtime/src/asl_device/local_composition.py": {
+          "actual": "d990a3cd82b9f40f9764c4635088623806b6b916d75a4d1e62f4856e7e56e932",
+          "expected": "d990a3cd82b9f40f9764c4635088623806b6b916d75a4d1e62f4856e7e56e932",
+          "same": true
+        },
+        "device-runtime/tests/unit/test_stm_serial.py": {
+          "actual": "aa47df3aae3f372f09de56f5676934a7ecf35385747e738e5e66b49ece0aadae",
+          "expected": "aa47df3aae3f372f09de56f5676934a7ecf35385747e738e5e66b49ece0aadae",
+          "same": true
+        },
+        "device-runtime/tests/unit/test_book_scanner_runtime.py": {
+          "actual": "5fb741b491f5a3f3e7192e74a41ac3fa394be4366771e8c4cfac8a28b00d820f",
+          "expected": "5fb741b491f5a3f3e7192e74a41ac3fa394be4366771e8c4cfac8a28b00d820f",
+          "same": true
+        },
+        "device-runtime/tests/integration/test_e0_local_composition.py": {
+          "actual": "1bf66276c874d50a1d80fd75edddca398c77619604211aa5682eceaba37c2ae8",
+          "expected": "1bf66276c874d50a1d80fd75edddca398c77619604211aa5682eceaba37c2ae8",
+          "same": true
+        },
+        "device-runtime/tests/integration/test_stm_operation_identity.py": {
+          "actual": "b1fd54b66e7a74d64da01017fa2bf3fe70fcd32d77c2d0c1bb6faf4e60517428",
+          "expected": "b1fd54b66e7a74d64da01017fa2bf3fe70fcd32d77c2d0c1bb6faf4e60517428",
+          "same": true
+        },
+        "docs/PROTOTYPE_STABILIZATION_GATE.md": {
+          "actual": "01ff4241634559426cd995de7fc35987fc77b321006a74508ae328f8fda3a8bd",
+          "expected": "01ff4241634559426cd995de7fc35987fc77b321006a74508ae328f8fda3a8bd",
+          "same": true
+        },
+        "docs/HW_SW_INTEGRATION_PLAN.md": {
+          "actual": "568bd9f1e5f70d4ef84ea4c575187b1a25c8bff2b32241717e98afa18947d9d5",
+          "expected": "568bd9f1e5f70d4ef84ea4c575187b1a25c8bff2b32241717e98afa18947d9d5",
+          "same": true
+        },
+        "document-parser/src/document_parser/serialization/vl_page_ir.py": {
+          "actual": "f32783748cd5ed99ba97ff231cd037b7c0c635c5eb46d8c00e456feabf0d1a73",
+          "expected": "f32783748cd5ed99ba97ff231cd037b7c0c635c5eb46d8c00e456feabf0d1a73",
+          "same": true
+        },
+        "document-parser/tests/unit/test_vl_page_ir.py": {
+          "actual": "c931fde67c42b6faef6ca07047e92c29fe354f3b3bb9a6ba20a2893caab70606",
+          "expected": "c931fde67c42b6faef6ca07047e92c29fe354f3b3bb9a6ba20a2893caab70606",
+          "same": true
+        },
+        "document-parser/src/document_parser/structure/problem_units.py": {
+          "actual": "ac2b9e8e4b10d306aafa27ebf3f086bc5b875ef72e53c80dd67bc150089a5007",
+          "expected": "ac2b9e8e4b10d306aafa27ebf3f086bc5b875ef72e53c80dd67bc150089a5007",
+          "same": true
+        },
+        "document-parser/tests/unit/test_problem_units.py": {
+          "actual": "d6776a455026d9b87f9e7cd00943aa3b07171b636105b617937e72b6c62aeb91",
+          "expected": "d6776a455026d9b87f9e7cd00943aa3b07171b636105b617937e72b6c62aeb91",
+          "same": true
+        },
+        "document-parser/src/document_parser/accessibility/flattening/structure_nodes.py": {
+          "actual": "0ef9deeee2bd9c5d47717f75ffb9af79c01465c3029e0917f7e03afb1738aebe",
+          "expected": "0ef9deeee2bd9c5d47717f75ffb9af79c01465c3029e0917f7e03afb1738aebe",
+          "same": true
+        }
+      },
+      "lfs": {
+        "pointer_count": 264,
+        "all_pointer_oids_match_desktop_payload": true,
+        "required_for_g3b_runtime": false,
+        "materialized": false
+      }
+    },
+    "environment": {
+      "interpreter": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Scripts\\python.exe",
+      "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+      "interpreter_sha256": "21bb438c0d4a6f1f164b9a646f6ee000340185e5871180aec06db8d3f07c0082",
+      "imports": {
+        "asl_device": "C:\\ASL_OCR_INTEGRATION\\device-runtime\\src\\asl_device\\__init__.py",
+        "book_scanner": "C:\\ASL_OCR_INTEGRATION\\book-scanner\\src\\book_scanner\\__init__.py",
+        "document_parser": "C:\\ASL_OCR_INTEGRATION\\document-parser\\src\\document_parser\\__init__.py"
+      },
+      "old_source_contamination": false,
+      "distributions": [
+        [
+          "aiohappyeyeballs",
+          "2.7.1",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\aiohappyeyeballs-2.7.1.dist-info"
+        ],
+        [
+          "aiohttp",
+          "3.14.3",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\aiohttp-3.14.3.dist-info"
+        ],
+        [
+          "aiosignal",
+          "1.4.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\aiosignal-1.4.0.dist-info"
+        ],
+        [
+          "aistudio_sdk",
+          "0.3.9",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\aistudio_sdk-0.3.9.dist-info"
+        ],
+        [
+          "annotated-types",
+          "0.8.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\annotated_types-0.8.0.dist-info"
+        ],
+        [
+          "anyio",
+          "4.14.2",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\anyio-4.14.2.dist-info"
+        ],
+        [
+          "asl-device-runtime",
+          "0.1.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\asl_device_runtime-0.1.0.dist-info"
+        ],
+        [
+          "attrs",
+          "26.1.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\attrs-26.1.0.dist-info"
+        ],
+        [
+          "bce-python-sdk",
+          "0.9.79",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\bce_python_sdk-0.9.79.dist-info"
+        ],
+        [
+          "blinker",
+          "1.9.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\blinker-1.9.0.dist-info"
+        ],
+        [
+          "book-scanner",
+          "0.2.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\book_scanner-0.2.0.dist-info"
+        ],
+        [
+          "certifi",
+          "2026.7.22",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\certifi-2026.7.22.dist-info"
+        ],
+        [
+          "cffi",
+          "2.1.1",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\cffi-2.1.1.dist-info"
+        ],
+        [
+          "chardet",
+          "7.6.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\chardet-7.6.0.dist-info"
+        ],
+        [
+          "charset-normalizer",
+          "3.5.1",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\charset_normalizer-3.5.1.dist-info"
+        ],
+        [
+          "click",
+          "8.5.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\click-8.5.0.dist-info"
+        ],
+        [
+          "colorama",
+          "0.4.6",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\colorama-0.4.6.dist-info"
+        ],
+        [
+          "colorlog",
+          "6.12.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\colorlog-6.12.0.dist-info"
+        ],
+        [
+          "crc32c",
+          "2.9",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\crc32c-2.9.dist-info"
+        ],
+        [
+          "document-parser",
+          "0.1.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\document_parser-0.1.0.dist-info"
+        ],
+        [
+          "filelock",
+          "3.32.5",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\filelock-3.32.5.dist-info"
+        ],
+        [
+          "Flask",
+          "3.1.3",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\flask-3.1.3.dist-info"
+        ],
+        [
+          "frozenlist",
+          "1.8.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\frozenlist-1.8.0.dist-info"
+        ],
+        [
+          "fsspec",
+          "2026.7.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\fsspec-2026.7.0.dist-info"
+        ],
+        [
+          "future",
+          "1.0.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\future-1.0.0.dist-info"
+        ],
+        [
+          "h11",
+          "0.16.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\h11-0.16.0.dist-info"
+        ],
+        [
+          "hf-xet",
+          "1.6.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\hf_xet-1.6.0.dist-info"
+        ],
+        [
+          "httpcore",
+          "1.0.9",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\httpcore-1.0.9.dist-info"
+        ],
+        [
+          "httpx",
+          "0.28.1",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\httpx-0.28.1.dist-info"
+        ],
+        [
+          "huggingface_hub",
+          "1.29.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\huggingface_hub-1.29.0.dist-info"
+        ],
+        [
+          "idna",
+          "3.19",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\idna-3.19.dist-info"
+        ],
+        [
+          "imagesize",
+          "2.0.1",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\imagesize-2.0.1.dist-info"
+        ],
+        [
+          "iniconfig",
+          "2.3.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\iniconfig-2.3.0.dist-info"
+        ],
+        [
+          "itsdangerous",
+          "2.2.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\itsdangerous-2.2.0.dist-info"
+        ],
+        [
+          "Jinja2",
+          "3.1.6",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\jinja2-3.1.6.dist-info"
+        ],
+        [
+          "MarkupSafe",
+          "3.0.3",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\markupsafe-3.0.3.dist-info"
+        ],
+        [
+          "modelscope",
+          "1.39.1",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\modelscope-1.39.1.dist-info"
+        ],
+        [
+          "modelscope-hub",
+          "0.3.1",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\modelscope_hub-0.3.1.dist-info"
+        ],
+        [
+          "mpmath",
+          "1.3.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\mpmath-1.3.0.dist-info"
+        ],
+        [
+          "multidict",
+          "6.7.1",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\multidict-6.7.1.dist-info"
+        ],
+        [
+          "networkx",
+          "3.6.1",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\networkx-3.6.1.dist-info"
+        ],
+        [
+          "numpy",
+          "2.3.5",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\numpy-2.3.5.dist-info"
+        ],
+        [
+          "opencv-contrib-python",
+          "4.10.0.84",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\opencv_contrib_python-4.10.0.84.dist-info"
+        ],
+        [
+          "opencv-python",
+          "5.0.0.93",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\opencv_python-5.0.0.93.dist-info"
+        ],
+        [
+          "opt-einsum",
+          "3.3.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\opt_einsum-3.3.0.dist-info"
+        ],
+        [
+          "packaging",
+          "26.3",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\packaging-26.3.dist-info"
+        ],
+        [
+          "paddleocr",
+          "3.7.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\paddleocr-3.7.0.dist-info"
+        ],
+        [
+          "paddlepaddle",
+          "3.3.1",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\paddlepaddle-3.3.1.dist-info"
+        ],
+        [
+          "paddlex",
+          "3.7.2",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\paddlex-3.7.2.dist-info"
+        ],
+        [
+          "pandas",
+          "3.0.5",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\pandas-3.0.5.dist-info"
+        ],
+        [
+          "pillow",
+          "12.3.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\pillow-12.3.0.dist-info"
+        ],
+        [
+          "pip",
+          "26.2.1",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\pip-26.2.1.dist-info"
+        ],
+        [
+          "pluggy",
+          "1.6.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\pluggy-1.6.0.dist-info"
+        ],
+        [
+          "prettytable",
+          "3.18.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\prettytable-3.18.0.dist-info"
+        ],
+        [
+          "propcache",
+          "0.5.2",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\propcache-0.5.2.dist-info"
+        ],
+        [
+          "protobuf",
+          "7.36.1",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\protobuf-7.36.1.dist-info"
+        ],
+        [
+          "psutil",
+          "7.2.2",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\psutil-7.2.2.dist-info"
+        ],
+        [
+          "py-cpuinfo",
+          "9.0.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\py_cpuinfo-9.0.0.dist-info"
+        ],
+        [
+          "py-spy",
+          "0.4.2",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\py_spy-0.4.2.dist-info"
+        ],
+        [
+          "pyclipper",
+          "1.4.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\pyclipper-1.4.0.dist-info"
+        ],
+        [
+          "pycparser",
+          "3.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\pycparser-3.0.dist-info"
+        ],
+        [
+          "pycryptodome",
+          "3.23.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\pycryptodome-3.23.0.dist-info"
+        ],
+        [
+          "pydantic",
+          "2.13.5",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\pydantic-2.13.5.dist-info"
+        ],
+        [
+          "pydantic_core",
+          "2.46.5",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\pydantic_core-2.46.5.dist-info"
+        ],
+        [
+          "Pygments",
+          "2.21.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\pygments-2.21.0.dist-info"
+        ],
+        [
+          "pypdf",
+          "6.16.2",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\pypdf-6.16.2.dist-info"
+        ],
+        [
+          "pypdfium2",
+          "5.13.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\pypdfium2-5.13.0.dist-info"
+        ],
+        [
+          "pyserial",
+          "3.5",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\pyserial-3.5.dist-info"
+        ],
+        [
+          "pytest",
+          "9.1.1",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\pytest-9.1.1.dist-info"
+        ],
+        [
+          "python-bidi",
+          "0.6.11",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\python_bidi-0.6.11.dist-info"
+        ],
+        [
+          "python-dateutil",
+          "2.9.0.post0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\python_dateutil-2.9.0.post0.dist-info"
+        ],
+        [
+          "PyYAML",
+          "6.0.2",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\PyYAML-6.0.2.dist-info"
+        ],
+        [
+          "requests",
+          "2.34.2",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\requests-2.34.2.dist-info"
+        ],
+        [
+          "ruamel.yaml",
+          "0.19.1",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\ruamel_yaml-0.19.1.dist-info"
+        ],
+        [
+          "safetensors",
+          "0.8.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\safetensors-0.8.0.dist-info"
+        ],
+        [
+          "setuptools",
+          "84.0.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\setuptools-84.0.0.dist-info"
+        ],
+        [
+          "shapely",
+          "2.1.2",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\shapely-2.1.2.dist-info"
+        ],
+        [
+          "six",
+          "1.17.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\six-1.17.0.dist-info"
+        ],
+        [
+          "sounddevice",
+          "0.5.6",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\sounddevice-0.5.6.dist-info"
+        ],
+        [
+          "sympy",
+          "1.14.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\sympy-1.14.0.dist-info"
+        ],
+        [
+          "torch",
+          "2.13.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\torch-2.13.0.dist-info"
+        ],
+        [
+          "tqdm",
+          "4.70.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\tqdm-4.70.0.dist-info"
+        ],
+        [
+          "typing-inspection",
+          "0.4.4",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\typing_inspection-0.4.4.dist-info"
+        ],
+        [
+          "typing_extensions",
+          "4.16.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\typing_extensions-4.16.0.dist-info"
+        ],
+        [
+          "tzdata",
+          "2026.3",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\tzdata-2026.3.dist-info"
+        ],
+        [
+          "ujson",
+          "5.13.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\ujson-5.13.0.dist-info"
+        ],
+        [
+          "urllib3",
+          "2.7.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\urllib3-2.7.0.dist-info"
+        ],
+        [
+          "wcwidth",
+          "0.8.3",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\wcwidth-0.8.3.dist-info"
+        ],
+        [
+          "Werkzeug",
+          "3.1.8",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\werkzeug-3.1.8.dist-info"
+        ],
+        [
+          "wheel",
+          "0.48.0",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\wheel-0.48.0.dist-info"
+        ],
+        [
+          "yarl",
+          "1.24.5",
+          "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\yarl-1.24.5.dist-info"
+        ]
+      ],
+      "desktop_dependency_differences": [],
+      "extra_laptop_runtime_distributions": [
+        [
+          "cffi",
+          "2.1.1"
+        ],
+        [
+          "py-spy",
+          "0.4.2"
+        ],
+        [
+          "pycparser",
+          "3.0"
+        ],
+        [
+          "sounddevice",
+          "0.5.6"
+        ]
+      ],
+      "pip_check": {
+        "returncode": 0,
+        "stdout": "No broken requirements found.\n",
+        "stderr": ""
+      },
+      "repairs": [
+        {
+          "scope": "integration venv only",
+          "kind": "Desktop dependency payload reproduction and duplicate metadata cleanup",
+          "evidence": "environment-repair.json"
+        },
+        {
+          "scope": "integration venv only",
+          "kind": "restore exact pytest py.py compatibility shim from Desktop environment",
+          "path": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\py.py",
+          "sha256": "b71675b5d9845ba0814e9e88767f88dac3b3cc0d3128da028bd45edbb523e871"
+        }
+      ]
+    },
+    "runtime": {
+      "root": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905",
+      "app_config": {
+        "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\device-app.demo-replay.final.toml",
+        "sha256": "1977cb4cd162da3f7f1e6f5096c80281f4e54f858bed569c6017861f333db632",
+        "full_production_parse": "passed"
+      },
+      "connectivity_config": {
+        "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\device-connectivity.integration.toml",
+        "sha256": "6dd885ae5047e3d761e4ff76c96377c0259a5edec07df58fdbc2e255ab3a143f",
+        "device_id": "laptop-device-001",
+        "server_origin": "https://desktop-ekp6an5.taild2128f.ts.net",
+        "full_production_parse": "passed"
+      },
+      "launcher": {
+        "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\reports\\g3b_final_runner.py",
+        "sha256": "18d863ab8709c626542c1ddff16452aad273a6dc69b671beff2dfa3995632f12",
+        "kind": "runtime-only bounded replay harness"
+      },
+      "secret": {
+        "available": true,
+        "source_type": "existing authorized Desktop production-server credential",
+        "destination_reference": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\secrets\\device-api-key.txt",
+        "content_or_hash_recorded": false
+      },
+      "paths": {
+        "outbox": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\state\\g3b-final\\delivery.sqlite3",
+        "staging": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\state\\g3b-final\\artifacts\\staging",
+        "ready": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\state\\g3b-final\\artifacts\\ready",
+        "models": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\models",
+        "reports": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\reports",
+        "demo_input": "C:\\Users\\user\\Desktop\\OCR_TEST\\20260905_224928.mp4"
+      },
+      "demo_input_sha256": "dc16c5659ccf307f5829a5019138a8332a0f4cbc16607a55224f472850f691d8",
+      "d_drive_dependency_count": 0,
+      "g0": {
+        "status": "PASS",
+        "report": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\reports\\g0-verification-final.json",
+        "pass_conditions": {
+          "source_head": true,
+          "source_tracked_diff": true,
+          "source_changed_hashes": true,
+          "import_isolation": true,
+          "pip_check": true,
+          "config_parse": true,
+          "stable_device_id": true,
+          "server_origin": true,
+          "secret": true,
+          "resolved_d_refs_zero": true,
+          "text_d_refs_zero": true,
+          "env_d_refs_zero": true,
+          "model_identity": true,
+          "demo_identity": true,
+          "state_writable": true,
+          "remote_health": true,
+          "authentication": true
+        },
+        "remote_health_http_status": 200,
+        "server_instance_id": "server-dca97c9e73564b84b59c4b910afd1a39",
+        "authenticated_s0_catalog": "passed"
+      },
+      "g3b": {
+        "gate_status": "BLOCKED",
+        "automated_pipeline_status": "PASS",
+        "human_content_status": "human_pending",
+        "datapack_id": "datapack-63c0ac30cc8a482f8fa9d0795e044a03",
+        "scan_session_id": "scan-99274066b09d40649c8a7b28a4f4c614",
+        "spread_sent_sequences": [
+          1,
+          2
+        ],
+        "eof": {
+          "queued_count": 2,
+          "acked_count": 2
+        },
+        "outbox_rows": 2,
+        "outbox_acked": 2,
+        "server": {
+          "spread_receipts": 2,
+          "fragments": 4,
+          "duplicates": 0
+        },
+        "published_revision": 1,
+        "preflight_status": "passed",
+        "preflight_error_count": 0,
+        "preflight_warning_count": 9,
+        "preflight_metrics": {
+          "page_count": 4,
+          "focus_item_count": 87,
+          "braille_target_count": 75,
+          "braille_nonempty_count": 66,
+          "expected_utterance_count": 176,
+          "checked_audio_file_count": 133
+        },
+        "choice_policy": {
+          "complete_marker_choice_row_count": 13,
+          "grouped_choice_row_count": 10,
+          "ungrouped_choice_row_count": 3,
+          "rows_with_braille_targets": 0,
+          "rows_with_spoken_text": 13,
+          "rows_with_audio": 13,
+          "scope_note": "Page 28 problem 4 sparse OCR fragments are excluded because a complete 1-5 marker row was not recovered."
+        },
+        "math_order": {
+          "standalone_math_count": 3,
+          "all_grouped_as_stem": true,
+          "all_precede_choices": true,
+          "all_have_tts_and_audio": true
+        },
+        "human_pending": [
+          "OCR semantic accuracy for pages 26-29",
+          "page 28 problems 3-4 missing/fragmented content against the printed book",
+          "actual heard TTS content for the selected demo pages",
+          "non-choice math braille warnings against the demonstration requirement"
+        ]
+      },
+      "g4": {
+        "gate_status": "BLOCKED",
+        "automated_serving_status": "PASS",
+        "human_content_status": "human_pending",
+        "page_order_match": true,
+        "observed_item_count": 87,
+        "items_with_spoken_text": 87,
+        "items_with_audio": 87,
+        "audio_fetch_failures": [],
+        "unique_audio_hash_count": 81,
+        "total_fetched_audio_bytes": 27078388,
+        "report": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\reports\\g4-remote-reading-final.json"
+      },
+      "product_source_code_modification_count": 3,
+      "g3a": {
+        "status": "PASS",
+        "input_sha256": "16c57970bc493abcef4a1db0f1917b22956bf5ca1a2ee8b4565fde1f6574e6f8",
+        "datapack_id": "datapack-b9264bc5fbd049ffa9cbbb99f3472326",
+        "scan_session_id": "scan-cc40cb53a67847a9aa77dd800ca44b3c",
+        "spread_receipts": 2,
+        "fragments": 4,
+        "duplicates": 0,
+        "page_count": 4,
+        "audio_resources_verified": 136,
+        "automated_status": "passed",
+        "manual_listening_status": "not_run",
+        "preflight_checked_revision_count": 1,
+        "preflight_error_count": 0,
+        "evidence_dir": "D:\\Projects\\OCR\\device-runtime\\tmp\\g3a-choicebraille-e01"
+      },
+      "product_source_code_modified_files": [
+        "document-parser/src/document_parser/serialization/vl_page_ir.py",
+        "document-parser/src/document_parser/structure/problem_units.py",
+        "document-parser/src/document_parser/accessibility/flattening/structure_nodes.py"
+      ],
+      "test_file_modification_count": 2,
+      "test_files": [
+        "document-parser/tests/unit/test_vl_page_ir.py",
+        "document-parser/tests/unit/test_problem_units.py"
+      ],
+      "modification_authority": "User explicitly approved a new bounded stabilization pass on 2026-09-07."
+    },
+    "original_laptop": {
+      "repository": "C:\\ASL_OCR",
+      "source_hash_changes": [],
+      "status_preserved": true,
+      "production_state_modified": false,
+      "secrets_modified": false,
+      "stable_device_id_expected": "laptop-device-001",
+      "stable_device_id_verified_this_run": true,
+      "reason": "Preserved unchanged; integration runtime is isolated on C:."
+    },
+    "updated_at": "2026-09-06T18:13:39.091834+00:00"
+  },
+  "debuggers": {
+    "cdb": null,
+    "windbg": null,
+    "dumpchk": null,
+    "llvm-readobj": null
+  }
+}

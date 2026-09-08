@@ -1,0 +1,4139 @@
+{
+  "python": "D:\\Projects\\OCR\\.venv-e0b\\Scripts\\python.exe",
+  "source_hashes": {
+    "D:\\Projects\\OCR\\book-scanner\\src\\book_scanner\\video\\engine.py": "6ee44d42cae3456544e58c183c193f970b1467ef26a616feeb9ad6e563dfc380",
+    "D:\\Projects\\OCR\\book-scanner\\src\\book_scanner\\video\\opaque_identity.py": "03d11754231e24ad0ffe731c4ecc2c013f009fc48b4193f1a57c638ca1ae2acf",
+    "D:\\Projects\\OCR\\book-scanner\\tests\\unit\\video\\test_engine_v3a5.py": "b1b43581368a85b24dc220a237857f1921a26bb575a6d48cc9f6ae6e9e6d6e74",
+    "D:\\Projects\\OCR\\book-scanner\\tests\\unit\\video\\test_candidate.py": "147b32361e54ae0d0fdc9502e6923b780ac9c9802aab6262aa43f1b24df65ed8"
+  },
+  "replay_sha256": "93a1583a353610692a1bf32f58f310fe3e5786be54b539d8dd32c1c39fdaef8d",
+  "native_sha256": "4398c4db1d76a3e1957194db0065eb64a0451f117ca966cd5b0e2b9255820314",
+  "policy": {
+    "n": 5,
+    "k_same": 1,
+    "k_different": 0,
+    "max_collection_ms": 8000
+  },
+  "fidelity": "Actual imported engine/collector with fixture source/provider/clock; collector subclass only delegates and records. No live camera, upload, audio, serial, production state.",
+  "checks": {
+    "slow_exact_stays_waiting": true,
+    "fast_exact_changes": true,
+    "five_conflicting_unknown": true,
+    "contaminated_bank_same_n1": true,
+    "source_unchanged": true
+  },
+  "scenarios": [
+    {
+      "scenario": "recorded_native_clean_reference",
+      "state": "waiting_for_page_change",
+      "rows_used": 11,
+      "decisions": [
+        {
+          "time": 8.007,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 1,
+          "timed_out": true,
+          "coherent": false
+        },
+        {
+          "time": 19.21,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 4,
+          "timed_out": true,
+          "coherent": false
+        },
+        {
+          "time": 27.219,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 2,
+          "timed_out": true,
+          "coherent": false
+        }
+      ],
+      "collector_trace": [
+        {
+          "op": "new",
+          "epoch": 0,
+          "started_at": 0.2,
+          "references": []
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-4",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-5",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-6",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-7",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-8",
+          "decision": "different",
+          "n": 5,
+          "consensus": 5,
+          "matches": 0
+        },
+        {
+          "op": "new",
+          "epoch": 1,
+          "started_at": 0.7999999999999999,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "1",
+            "0"
+          ],
+          "frame": "query-1",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "timeout",
+          "epoch": 1,
+          "now": 8.806999999999912,
+          "started_at": 0.7999999999999999,
+          "n": 1,
+          "consensus": 1
+        },
+        {
+          "op": "new",
+          "epoch": 2,
+          "started_at": 8.806999999999912,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "new",
+          "epoch": 3,
+          "started_at": 10.94299999999988,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 3,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-5",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 3,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-7",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 3,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-8",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 3,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-9",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "timeout",
+          "epoch": 3,
+          "now": 20.00999999999982,
+          "started_at": 10.94299999999988,
+          "n": 4,
+          "consensus": 4
+        },
+        {
+          "op": "new",
+          "epoch": 4,
+          "started_at": 20.00999999999982,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 4,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-10",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 4,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-11",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "timeout",
+          "epoch": 4,
+          "now": 28.01899999999971,
+          "started_at": 20.00999999999982,
+          "n": 2,
+          "consensus": 2
+        },
+        {
+          "op": "new",
+          "epoch": 5,
+          "started_at": 28.01899999999971,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "exact_interval_1.5",
+      "state": "searching",
+      "rows_used": 5,
+      "decisions": [
+        {
+          "time": 6.34,
+          "event": "opaque_identity_decided",
+          "decision": "different",
+          "n": 5,
+          "timed_out": false,
+          "coherent": true
+        },
+        {
+          "time": 6.34,
+          "event": "page_changed",
+          "decision": null,
+          "n": 5,
+          "timed_out": null,
+          "coherent": true
+        }
+      ],
+      "collector_trace": [
+        {
+          "op": "new",
+          "epoch": 0,
+          "started_at": 0.2,
+          "references": []
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-4",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-5",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-6",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-7",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-8",
+          "decision": "different",
+          "n": 5,
+          "consensus": 5,
+          "matches": 0
+        },
+        {
+          "op": "new",
+          "epoch": 1,
+          "started_at": 0.7999999999999999,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-1",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-2",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-3",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-4",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-5",
+          "decision": "different",
+          "n": 5,
+          "consensus": 5,
+          "matches": 0
+        }
+      ]
+    },
+    {
+      "scenario": "exact_interval_1.8",
+      "state": "searching",
+      "rows_used": 5,
+      "decisions": [
+        {
+          "time": 7.54,
+          "event": "opaque_identity_decided",
+          "decision": "different",
+          "n": 5,
+          "timed_out": false,
+          "coherent": true
+        },
+        {
+          "time": 7.54,
+          "event": "page_changed",
+          "decision": null,
+          "n": 5,
+          "timed_out": null,
+          "coherent": true
+        }
+      ],
+      "collector_trace": [
+        {
+          "op": "new",
+          "epoch": 0,
+          "started_at": 0.2,
+          "references": []
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-4",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-5",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-6",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-7",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-8",
+          "decision": "different",
+          "n": 5,
+          "consensus": 5,
+          "matches": 0
+        },
+        {
+          "op": "new",
+          "epoch": 1,
+          "started_at": 0.7999999999999999,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-1",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-2",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-3",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-4",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-5",
+          "decision": "different",
+          "n": 5,
+          "consensus": 5,
+          "matches": 0
+        }
+      ]
+    },
+    {
+      "scenario": "exact_interval_1.95",
+      "state": "searching",
+      "rows_used": 9,
+      "decisions": [
+        {
+          "time": 8.02,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 4,
+          "timed_out": true,
+          "coherent": false
+        },
+        {
+          "time": 15.94,
+          "event": "opaque_identity_decided",
+          "decision": "different",
+          "n": 5,
+          "timed_out": false,
+          "coherent": true
+        },
+        {
+          "time": 15.94,
+          "event": "page_changed",
+          "decision": null,
+          "n": 5,
+          "timed_out": null,
+          "coherent": true
+        }
+      ],
+      "collector_trace": [
+        {
+          "op": "new",
+          "epoch": 0,
+          "started_at": 0.2,
+          "references": []
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-4",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-5",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-6",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-7",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-8",
+          "decision": "different",
+          "n": 5,
+          "consensus": 5,
+          "matches": 0
+        },
+        {
+          "op": "new",
+          "epoch": 1,
+          "started_at": 0.7999999999999999,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-1",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-2",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-3",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-4",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "timeout",
+          "epoch": 1,
+          "now": 8.8199999999999,
+          "started_at": 0.7999999999999999,
+          "n": 4,
+          "consensus": 4
+        },
+        {
+          "op": "new",
+          "epoch": 2,
+          "started_at": 8.8199999999999,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-5",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-6",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-7",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-8",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-9",
+          "decision": "different",
+          "n": 5,
+          "consensus": 5,
+          "matches": 0
+        }
+      ]
+    },
+    {
+      "scenario": "exact_interval_2.0",
+      "state": "waiting_for_page_change",
+      "rows_used": 19,
+      "decisions": [
+        {
+          "time": 8.02,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 4,
+          "timed_out": true,
+          "coherent": false
+        },
+        {
+          "time": 16.04,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 4,
+          "timed_out": true,
+          "coherent": false
+        },
+        {
+          "time": 24.06,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 4,
+          "timed_out": true,
+          "coherent": false
+        },
+        {
+          "time": 32.08,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 4,
+          "timed_out": true,
+          "coherent": false
+        }
+      ],
+      "collector_trace": [
+        {
+          "op": "new",
+          "epoch": 0,
+          "started_at": 0.2,
+          "references": []
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-4",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-5",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-6",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-7",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-8",
+          "decision": "different",
+          "n": 5,
+          "consensus": 5,
+          "matches": 0
+        },
+        {
+          "op": "new",
+          "epoch": 1,
+          "started_at": 0.7999999999999999,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-1",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-2",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-3",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-4",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "timeout",
+          "epoch": 1,
+          "now": 8.8199999999999,
+          "started_at": 0.7999999999999999,
+          "n": 4,
+          "consensus": 4
+        },
+        {
+          "op": "new",
+          "epoch": 2,
+          "started_at": 8.8199999999999,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-5",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-6",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-7",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-8",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "timeout",
+          "epoch": 2,
+          "now": 16.83999999999973,
+          "started_at": 8.8199999999999,
+          "n": 4,
+          "consensus": 4
+        },
+        {
+          "op": "new",
+          "epoch": 3,
+          "started_at": 16.83999999999973,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 3,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-9",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 3,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-10",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 3,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-11",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 3,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-12",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "timeout",
+          "epoch": 3,
+          "now": 24.85999999999956,
+          "started_at": 16.83999999999973,
+          "n": 4,
+          "consensus": 4
+        },
+        {
+          "op": "new",
+          "epoch": 4,
+          "started_at": 24.85999999999956,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 4,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-13",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 4,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-14",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 4,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-15",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 4,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-16",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "timeout",
+          "epoch": 4,
+          "now": 32.87999999999954,
+          "started_at": 24.85999999999956,
+          "n": 4,
+          "consensus": 4
+        },
+        {
+          "op": "new",
+          "epoch": 5,
+          "started_at": 32.87999999999954,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 5,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-17",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 5,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-18",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 5,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-19",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        }
+      ]
+    },
+    {
+      "scenario": "exact_interval_2.05",
+      "state": "waiting_for_page_change",
+      "rows_used": 19,
+      "decisions": [
+        {
+          "time": 8.02,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 4,
+          "timed_out": true,
+          "coherent": false
+        },
+        {
+          "time": 16.04,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 4,
+          "timed_out": true,
+          "coherent": false
+        },
+        {
+          "time": 24.06,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 4,
+          "timed_out": true,
+          "coherent": false
+        },
+        {
+          "time": 32.08,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 4,
+          "timed_out": true,
+          "coherent": false
+        }
+      ],
+      "collector_trace": [
+        {
+          "op": "new",
+          "epoch": 0,
+          "started_at": 0.2,
+          "references": []
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-4",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-5",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-6",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-7",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-8",
+          "decision": "different",
+          "n": 5,
+          "consensus": 5,
+          "matches": 0
+        },
+        {
+          "op": "new",
+          "epoch": 1,
+          "started_at": 0.7999999999999999,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-1",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-2",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-3",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-4",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "timeout",
+          "epoch": 1,
+          "now": 8.8199999999999,
+          "started_at": 0.7999999999999999,
+          "n": 4,
+          "consensus": 4
+        },
+        {
+          "op": "new",
+          "epoch": 2,
+          "started_at": 8.8199999999999,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-5",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-6",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-7",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-8",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "timeout",
+          "epoch": 2,
+          "now": 16.83999999999973,
+          "started_at": 8.8199999999999,
+          "n": 4,
+          "consensus": 4
+        },
+        {
+          "op": "new",
+          "epoch": 3,
+          "started_at": 16.83999999999973,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 3,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-9",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 3,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-10",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 3,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-11",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 3,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-12",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "timeout",
+          "epoch": 3,
+          "now": 24.85999999999956,
+          "started_at": 16.83999999999973,
+          "n": 4,
+          "consensus": 4
+        },
+        {
+          "op": "new",
+          "epoch": 4,
+          "started_at": 24.85999999999956,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 4,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-13",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 4,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-14",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 4,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-15",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 4,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-16",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "timeout",
+          "epoch": 4,
+          "now": 32.87999999999954,
+          "started_at": 24.85999999999956,
+          "n": 4,
+          "consensus": 4
+        },
+        {
+          "op": "new",
+          "epoch": 5,
+          "started_at": 32.87999999999954,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 5,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-17",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 5,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-18",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 5,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-19",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        }
+      ]
+    },
+    {
+      "scenario": "exact_interval_2.2",
+      "state": "waiting_for_page_change",
+      "rows_used": 18,
+      "decisions": [
+        {
+          "time": 8.02,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 4,
+          "timed_out": true,
+          "coherent": false
+        },
+        {
+          "time": 16.04,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 4,
+          "timed_out": true,
+          "coherent": false
+        },
+        {
+          "time": 24.06,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 3,
+          "timed_out": true,
+          "coherent": false
+        },
+        {
+          "time": 32.08,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 4,
+          "timed_out": true,
+          "coherent": false
+        }
+      ],
+      "collector_trace": [
+        {
+          "op": "new",
+          "epoch": 0,
+          "started_at": 0.2,
+          "references": []
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-4",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-5",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-6",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-7",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-8",
+          "decision": "different",
+          "n": 5,
+          "consensus": 5,
+          "matches": 0
+        },
+        {
+          "op": "new",
+          "epoch": 1,
+          "started_at": 0.7999999999999999,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-1",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-2",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-3",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-4",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "timeout",
+          "epoch": 1,
+          "now": 8.8199999999999,
+          "started_at": 0.7999999999999999,
+          "n": 4,
+          "consensus": 4
+        },
+        {
+          "op": "new",
+          "epoch": 2,
+          "started_at": 8.8199999999999,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-5",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-6",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-7",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-8",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "timeout",
+          "epoch": 2,
+          "now": 16.83999999999973,
+          "started_at": 8.8199999999999,
+          "n": 4,
+          "consensus": 4
+        },
+        {
+          "op": "new",
+          "epoch": 3,
+          "started_at": 16.83999999999973,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 3,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-9",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 3,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-10",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 3,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-11",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "timeout",
+          "epoch": 3,
+          "now": 24.85999999999956,
+          "started_at": 16.83999999999973,
+          "n": 3,
+          "consensus": 3
+        },
+        {
+          "op": "new",
+          "epoch": 4,
+          "started_at": 24.85999999999956,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 4,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-12",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 4,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-13",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 4,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-14",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 4,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-15",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "timeout",
+          "epoch": 4,
+          "now": 32.87999999999954,
+          "started_at": 24.85999999999956,
+          "n": 4,
+          "consensus": 4
+        },
+        {
+          "op": "new",
+          "epoch": 5,
+          "started_at": 32.87999999999954,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 5,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-16",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 5,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-17",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 5,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-18",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        }
+      ]
+    },
+    {
+      "scenario": "exact_slow_inference",
+      "state": "waiting_for_page_change",
+      "rows_used": 19,
+      "decisions": [
+        {
+          "time": 8.02,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 4,
+          "timed_out": true,
+          "coherent": false
+        },
+        {
+          "time": 16.04,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 4,
+          "timed_out": true,
+          "coherent": false
+        },
+        {
+          "time": 24.06,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 4,
+          "timed_out": true,
+          "coherent": false
+        },
+        {
+          "time": 32.08,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 4,
+          "timed_out": true,
+          "coherent": false
+        }
+      ],
+      "collector_trace": [
+        {
+          "op": "new",
+          "epoch": 0,
+          "started_at": 0.2,
+          "references": []
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-4",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-5",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-6",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-7",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-8",
+          "decision": "different",
+          "n": 5,
+          "consensus": 5,
+          "matches": 0
+        },
+        {
+          "op": "new",
+          "epoch": 1,
+          "started_at": 0.7999999999999999,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-1",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-2",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-3",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-4",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "timeout",
+          "epoch": 1,
+          "now": 8.819999999999933,
+          "started_at": 0.7999999999999999,
+          "n": 4,
+          "consensus": 4
+        },
+        {
+          "op": "new",
+          "epoch": 2,
+          "started_at": 8.819999999999933,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-5",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-6",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-7",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-8",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "timeout",
+          "epoch": 2,
+          "now": 16.839999999999833,
+          "started_at": 8.819999999999933,
+          "n": 4,
+          "consensus": 4
+        },
+        {
+          "op": "new",
+          "epoch": 3,
+          "started_at": 16.839999999999833,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 3,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-9",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 3,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-10",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 3,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-11",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 3,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-12",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "timeout",
+          "epoch": 3,
+          "now": 24.859999999999733,
+          "started_at": 16.839999999999833,
+          "n": 4,
+          "consensus": 4
+        },
+        {
+          "op": "new",
+          "epoch": 4,
+          "started_at": 24.859999999999733,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 4,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-13",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 4,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-14",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 4,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-15",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 4,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-16",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "timeout",
+          "epoch": 4,
+          "now": 32.87999999999969,
+          "started_at": 24.859999999999733,
+          "n": 4,
+          "consensus": 4
+        },
+        {
+          "op": "new",
+          "epoch": 5,
+          "started_at": 32.87999999999969,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 5,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-17",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 5,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-18",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 5,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-19",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        }
+      ]
+    },
+    {
+      "scenario": "same_clean_reference",
+      "state": "waiting_for_page_change",
+      "rows_used": 8,
+      "decisions": [
+        {
+          "time": 0.22,
+          "event": "opaque_identity_decided",
+          "decision": "same",
+          "n": 1,
+          "timed_out": false,
+          "coherent": false
+        },
+        {
+          "time": 1.92,
+          "event": "opaque_identity_decided",
+          "decision": "same",
+          "n": 1,
+          "timed_out": false,
+          "coherent": false
+        },
+        {
+          "time": 3.7,
+          "event": "opaque_identity_decided",
+          "decision": "same",
+          "n": 1,
+          "timed_out": false,
+          "coherent": false
+        },
+        {
+          "time": 5.38,
+          "event": "opaque_identity_decided",
+          "decision": "same",
+          "n": 1,
+          "timed_out": false,
+          "coherent": false
+        },
+        {
+          "time": 7.06,
+          "event": "opaque_identity_decided",
+          "decision": "same",
+          "n": 1,
+          "timed_out": false,
+          "coherent": false
+        },
+        {
+          "time": 8.74,
+          "event": "opaque_identity_decided",
+          "decision": "same",
+          "n": 1,
+          "timed_out": false,
+          "coherent": false
+        },
+        {
+          "time": 10.54,
+          "event": "opaque_identity_decided",
+          "decision": "same",
+          "n": 1,
+          "timed_out": false,
+          "coherent": false
+        },
+        {
+          "time": 12.22,
+          "event": "opaque_identity_decided",
+          "decision": "same",
+          "n": 1,
+          "timed_out": false,
+          "coherent": false
+        }
+      ],
+      "collector_trace": [
+        {
+          "op": "new",
+          "epoch": 0,
+          "started_at": 0.2,
+          "references": []
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-4",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-5",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-6",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-7",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-8",
+          "decision": "different",
+          "n": 5,
+          "consensus": 5,
+          "matches": 0
+        },
+        {
+          "op": "new",
+          "epoch": 1,
+          "started_at": 0.7999999999999999,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "query-1",
+          "decision": "same",
+          "n": 1,
+          "consensus": 1,
+          "matches": 1
+        },
+        {
+          "op": "new",
+          "epoch": 2,
+          "started_at": 1.0,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 2,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "query-2",
+          "decision": "same",
+          "n": 1,
+          "consensus": 1,
+          "matches": 1
+        },
+        {
+          "op": "new",
+          "epoch": 3,
+          "started_at": 2.7000000000000015,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 3,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "query-3",
+          "decision": "same",
+          "n": 1,
+          "consensus": 1,
+          "matches": 1
+        },
+        {
+          "op": "new",
+          "epoch": 4,
+          "started_at": 4.479999999999992,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 4,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "query-4",
+          "decision": "same",
+          "n": 1,
+          "consensus": 1,
+          "matches": 1
+        },
+        {
+          "op": "new",
+          "epoch": 5,
+          "started_at": 6.159999999999957,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 5,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "query-5",
+          "decision": "same",
+          "n": 1,
+          "consensus": 1,
+          "matches": 1
+        },
+        {
+          "op": "new",
+          "epoch": 6,
+          "started_at": 7.839999999999921,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 6,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "query-6",
+          "decision": "same",
+          "n": 1,
+          "consensus": 1,
+          "matches": 1
+        },
+        {
+          "op": "new",
+          "epoch": 7,
+          "started_at": 9.519999999999886,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 7,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "query-7",
+          "decision": "same",
+          "n": 1,
+          "consensus": 1,
+          "matches": 1
+        },
+        {
+          "op": "new",
+          "epoch": 8,
+          "started_at": 11.319999999999848,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 8,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "query-8",
+          "decision": "same",
+          "n": 1,
+          "consensus": 1,
+          "matches": 1
+        },
+        {
+          "op": "new",
+          "epoch": 9,
+          "started_at": 12.999999999999812,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "five_conflicting_pairs",
+      "state": "waiting_for_page_change",
+      "rows_used": 5,
+      "decisions": [
+        {
+          "time": 8.02,
+          "event": "opaque_identity_decided",
+          "decision": "unknown",
+          "n": 5,
+          "timed_out": true,
+          "coherent": false
+        }
+      ],
+      "collector_trace": [
+        {
+          "op": "new",
+          "epoch": 0,
+          "started_at": 0.2,
+          "references": []
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-4",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-5",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-6",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-7",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-8",
+          "decision": "different",
+          "n": 5,
+          "consensus": 5,
+          "matches": 0
+        },
+        {
+          "op": "new",
+          "epoch": 1,
+          "started_at": 0.7999999999999999,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "10",
+            "80"
+          ],
+          "frame": "query-1",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "11",
+            "81"
+          ],
+          "frame": "query-2",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "12",
+            "82"
+          ],
+          "frame": "query-3",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "13",
+            "83"
+          ],
+          "frame": "query-4",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "14",
+            "84"
+          ],
+          "frame": "query-5",
+          "decision": "unknown",
+          "n": 5,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "timeout",
+          "epoch": 1,
+          "now": 8.8199999999999,
+          "started_at": 0.7999999999999999,
+          "n": 5,
+          "consensus": 1
+        },
+        {
+          "op": "new",
+          "epoch": 2,
+          "started_at": 8.8199999999999,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "fifth_starts_before_deadline",
+      "state": "searching",
+      "rows_used": 5,
+      "decisions": [
+        {
+          "time": 8.5,
+          "event": "opaque_identity_decided",
+          "decision": "different",
+          "n": 5,
+          "timed_out": false,
+          "coherent": true
+        },
+        {
+          "time": 8.5,
+          "event": "page_changed",
+          "decision": null,
+          "n": 5,
+          "timed_out": null,
+          "coherent": true
+        }
+      ],
+      "collector_trace": [
+        {
+          "op": "new",
+          "epoch": 0,
+          "started_at": 0.2,
+          "references": []
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-4",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-5",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-6",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-7",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 0,
+          "pair": [
+            "26",
+            "27"
+          ],
+          "frame": "f-8",
+          "decision": "different",
+          "n": 5,
+          "consensus": 5,
+          "matches": 0
+        },
+        {
+          "op": "new",
+          "epoch": 1,
+          "started_at": 0.7999999999999999,
+          "references": [
+            [
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ],
+              [
+                "26",
+                "27"
+              ]
+            ]
+          ]
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-1",
+          "decision": "unknown",
+          "n": 1,
+          "consensus": 1,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-2",
+          "decision": "unknown",
+          "n": 2,
+          "consensus": 2,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-3",
+          "decision": "unknown",
+          "n": 3,
+          "consensus": 3,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-4",
+          "decision": "unknown",
+          "n": 4,
+          "consensus": 4,
+          "matches": 0
+        },
+        {
+          "op": "observe",
+          "epoch": 1,
+          "pair": [
+            "28",
+            "29"
+          ],
+          "frame": "query-5",
+          "decision": "different",
+          "n": 5,
+          "consensus": 5,
+          "matches": 0
+        }
+      ]
+    }
+  ],
+  "reference_sensitivity": {
+    "reference_pairs": [
+      [
+        "26",
+        "27"
+      ],
+      [
+        "26",
+        "27"
+      ],
+      [
+        "26",
+        "27"
+      ],
+      [
+        "26",
+        "27"
+      ],
+      [
+        "28",
+        "29"
+      ]
+    ],
+    "query": [
+      "28",
+      "29"
+    ],
+    "decision": "same",
+    "n": 1,
+    "matches": 1,
+    "limit": "Synthetic reference bank; original accepted bank was not preserved."
+  }
+}

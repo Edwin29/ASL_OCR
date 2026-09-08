@@ -1,0 +1,393 @@
+{
+  "status": "passed",
+  "interpreter": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Scripts\\pythonw.exe",
+  "source_root": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\diagnostics\\h123-correction-1788814565312543700",
+  "physical_serial_packets": 0,
+  "sounddevice": "0.5.6",
+  "output_device": {
+    "name": "\uc2a4\ud53c\ucee4(Realtek(R) Audio)",
+    "index": 3,
+    "hostapi": 0,
+    "max_input_channels": 0,
+    "max_output_channels": 8,
+    "default_low_input_latency": 0.09,
+    "default_low_output_latency": 0.09,
+    "default_high_input_latency": 0.18,
+    "default_high_output_latency": 0.18,
+    "default_samplerate": 44100.0
+  },
+  "heard_by_human": "not_observed",
+  "windows_session_id": 2,
+  "events": [
+    {
+      "code": "reading_audio_fetch_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "c5bdf7e50857",
+        "generation": 1
+      }
+    },
+    {
+      "code": "reading_audio_playback_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "c5bdf7e50857",
+        "generation": 1,
+        "content_length": 19244,
+        "duration_ms": 600
+      }
+    },
+    {
+      "code": "reading_audio_fetch_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "2811e2bf9a81",
+        "generation": 2
+      }
+    },
+    {
+      "code": "reading_audio_playback_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "2811e2bf9a81",
+        "generation": 2,
+        "content_length": 19244,
+        "duration_ms": 600
+      }
+    },
+    {
+      "code": "reading_audio_fetch_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "898a7560c933",
+        "generation": 3
+      }
+    },
+    {
+      "code": "reading_audio_playback_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "898a7560c933",
+        "generation": 3,
+        "content_length": 19244,
+        "duration_ms": 600
+      }
+    },
+    {
+      "code": "reading_audio_fetch_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "ec06e0b6d97e",
+        "generation": 4
+      }
+    },
+    {
+      "code": "reading_audio_playback_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "ec06e0b6d97e",
+        "generation": 4,
+        "content_length": 19244,
+        "duration_ms": 600
+      }
+    },
+    {
+      "code": "reading_audio_fetch_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "ff7dc383d3fa",
+        "generation": 5
+      }
+    },
+    {
+      "code": "reading_audio_playback_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "ff7dc383d3fa",
+        "generation": 5,
+        "content_length": 19244,
+        "duration_ms": 600
+      }
+    },
+    {
+      "code": "reading_audio_fetch_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "e69bc95e2904",
+        "generation": 6
+      }
+    },
+    {
+      "code": "reading_audio_playback_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "e69bc95e2904",
+        "generation": 6,
+        "content_length": 19244,
+        "duration_ms": 600
+      }
+    },
+    {
+      "code": "reading_audio_fetch_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "8ad464a35859",
+        "generation": 7
+      }
+    },
+    {
+      "code": "reading_audio_playback_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "8ad464a35859",
+        "generation": 7,
+        "content_length": 19244,
+        "duration_ms": 600
+      }
+    },
+    {
+      "code": "reading_audio_fetch_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "2e7a213cb239",
+        "generation": 8
+      }
+    },
+    {
+      "code": "reading_audio_playback_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "2e7a213cb239",
+        "generation": 8,
+        "content_length": 19244,
+        "duration_ms": 600
+      }
+    },
+    {
+      "code": "reading_audio_fetch_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "78a1502b46c1",
+        "generation": 9
+      }
+    },
+    {
+      "code": "reading_audio_playback_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "78a1502b46c1",
+        "generation": 9,
+        "content_length": 19244,
+        "duration_ms": 600
+      }
+    },
+    {
+      "code": "reading_audio_fetch_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "e4c8e9c7c68b",
+        "generation": 10
+      }
+    },
+    {
+      "code": "reading_audio_playback_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "e4c8e9c7c68b",
+        "generation": 10,
+        "content_length": 19244,
+        "duration_ms": 600
+      }
+    },
+    {
+      "code": "reading_audio_fetch_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "284ea9de3e8c",
+        "generation": 11
+      }
+    },
+    {
+      "code": "reading_audio_playback_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "284ea9de3e8c",
+        "generation": 11,
+        "content_length": 19244,
+        "duration_ms": 600
+      }
+    },
+    {
+      "code": "reading_audio_fetch_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "544ba0db950f",
+        "generation": 12
+      }
+    },
+    {
+      "code": "reading_audio_playback_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "544ba0db950f",
+        "generation": 12,
+        "content_length": 19244,
+        "duration_ms": 600
+      }
+    },
+    {
+      "code": "reading_audio_fetch_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "1692e73cc34b",
+        "generation": 13
+      }
+    },
+    {
+      "code": "reading_audio_playback_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "1692e73cc34b",
+        "generation": 13,
+        "content_length": 19244,
+        "duration_ms": 600
+      }
+    },
+    {
+      "code": "reading_audio_fetch_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "3269acd0bf61",
+        "generation": 14
+      }
+    },
+    {
+      "code": "reading_audio_playback_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "3269acd0bf61",
+        "generation": 14,
+        "content_length": 19244,
+        "duration_ms": 600
+      }
+    },
+    {
+      "code": "reading_audio_fetch_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "f5e4a5d79205",
+        "generation": 15
+      }
+    },
+    {
+      "code": "reading_audio_playback_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "f5e4a5d79205",
+        "generation": 15,
+        "content_length": 19244,
+        "duration_ms": 600
+      }
+    },
+    {
+      "code": "reading_audio_fetch_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "b302c7897ab8",
+        "generation": 16
+      }
+    },
+    {
+      "code": "reading_audio_playback_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "b302c7897ab8",
+        "generation": 16,
+        "content_length": 19244,
+        "duration_ms": 600
+      }
+    },
+    {
+      "code": "reading_audio_fetch_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "02b5465fc216",
+        "generation": 17
+      }
+    },
+    {
+      "code": "reading_audio_playback_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "02b5465fc216",
+        "generation": 17,
+        "content_length": 19244,
+        "duration_ms": 600
+      }
+    },
+    {
+      "code": "reading_audio_fetch_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "478e25a3d9ae",
+        "generation": 18
+      }
+    },
+    {
+      "code": "reading_audio_playback_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "478e25a3d9ae",
+        "generation": 18,
+        "content_length": 19244,
+        "duration_ms": 600
+      }
+    },
+    {
+      "code": "reading_audio_fetch_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "3ec75622e9aa",
+        "generation": 19
+      }
+    },
+    {
+      "code": "reading_audio_playback_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "3ec75622e9aa",
+        "generation": 19,
+        "content_length": 19244,
+        "duration_ms": 600
+      }
+    },
+    {
+      "code": "reading_audio_fetch_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "08435e242575",
+        "generation": 20
+      }
+    },
+    {
+      "code": "reading_audio_playback_started",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "08435e242575",
+        "generation": 20,
+        "content_length": 19244,
+        "duration_ms": 600
+      }
+    },
+    {
+      "code": "reading_audio_playback_completed",
+      "details": {
+        "audio_kind": "reading",
+        "audio_ref_digest": "08435e242575",
+        "generation": 20
+      }
+    }
+  ],
+  "worker_alive": false,
+  "task_name": "ASL-H123-native-1788814969348235100"
+}

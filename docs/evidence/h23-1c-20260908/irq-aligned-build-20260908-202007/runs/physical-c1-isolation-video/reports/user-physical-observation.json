@@ -1,0 +1,49 @@
+{
+  "observation_date_local": "2026-09-08",
+  "observer": "user",
+  "notation": {
+    "1": "raised",
+    "0": "retracted",
+    "layout": [["D1", "D4"], ["D2", "D5"], ["D3", "D6"]]
+  },
+  "observations": [
+    {
+      "at_seconds": 10,
+      "generation": 141,
+      "request": "C1 packed=7; firmware top/PCA1 CH0 state 7, firmware bottom/PCA2 CH0 state 0",
+      "expected": [[1, 0], [1, 0], [1, 0]],
+      "observed": [[1, 1], [1, 1], [0, 0]],
+      "raised_dots": ["D1", "D2", "D4", "D5"]
+    },
+    {
+      "at_seconds": 30,
+      "generation": 143,
+      "request": "C1 packed=56; firmware top/PCA1 CH0 state 0, firmware bottom/PCA2 CH0 state 7",
+      "expected": [[0, 1], [0, 1], [0, 1]],
+      "observed": [[0, 0], [0, 0], [0, 0]],
+      "raised_dots": []
+    }
+  ],
+  "clear_observation": {
+    "all_clear_steps_identical": true,
+    "corrected_c1_pattern": [[1, 0], [1, 0], [0, 0]],
+    "raised_dots": ["D1", "D2"],
+    "correction": "Supersedes the earlier C1 clear notation [[0,0],[?,0],[0,0]]."
+  },
+  "software_evidence": {
+    "frames_sent": 5,
+    "frames_parsed": 5,
+    "last_applied_generation": 144,
+    "last_frame_apply_ok": 1,
+    "pca_apply_failures": 0,
+    "uart_or_ring_error_count": 0
+  },
+  "inference": [
+    "PCA1 CH0 state changes affect the physical C1 right column.",
+    "PCA2 CH0 state changes affect the physical C1 left column.",
+    "Together with C2, this confirms that the installed PCA column roles are reversed relative to the firmware contract for at least CH0 and CH1.",
+    "C1 physical all-zero occurs at logical top state 0 and logical bottom state 7, proving that a universal state-0 clear assumption is invalid for the installed horn/cam phase."
+  ],
+  "classification": "hardware_or_wiring",
+  "severity": "P1"
+}

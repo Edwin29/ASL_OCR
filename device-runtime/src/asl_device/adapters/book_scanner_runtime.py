@@ -60,6 +60,11 @@ class BookScannerRuntimeAdapter:
         if not isinstance(scan_session, ScanSessionRef):
             raise TypeError("scan_session must be a ScanSessionRef")
         if self._engine is not None:
+            if self._frozen and self._scan_session == scan_session:
+                # freeze retained this engine to settle its pending artifact.
+                # Resume ownership without resetting source or identity history.
+                self._frozen = False
+                return
             raise FatalPortError("Book Scanner engine is already active")
         engine: BookScannerEngine | None = None
         try:

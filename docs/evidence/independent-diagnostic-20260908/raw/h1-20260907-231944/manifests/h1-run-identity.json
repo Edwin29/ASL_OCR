@@ -1,0 +1,13 @@
+{
+    "run_root":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944",
+    "source_checkout":  "C:\\ASL_OCR_INTEGRATION",
+    "python":  "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Scripts\\python.exe",
+    "config":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944\\config\\device-app.h1-camera-console.toml",
+    "state_root":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944\\state\\camera-console",
+    "controls":  "console",
+    "initial_mode":  "capture",
+    "device_id":  "laptop-device-001",
+    "credential_values_recorded":  false,
+    "d_volume_dependency":  0,
+    "product_source_modified":  false
+}

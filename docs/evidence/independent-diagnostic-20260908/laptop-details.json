@@ -1,0 +1,478 @@
+{
+  "configs": [
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-223731\\config\\device-app.h1-camera-console.toml",
+      "sha256": "e0b324dd15dc03d11fd93ad14f9e8977c9f1f4f60d17f75bc4a7e10d78a338fb",
+      "parsed": true,
+      "controls": "console",
+      "feedback": "jsonl",
+      "scanner": {
+        "profile": "android_ip_camera",
+        "camera_index": 0,
+        "camera_backend": "auto",
+        "camera_snapshot_url": "https://192.168.1.78:4444/video/snapshot?camera=back&snapshot_res=max",
+        "camera_snapshot_allow_insecure_tls": true,
+        "camera_snapshot_timeout_seconds": 12.0,
+        "camera_snapshot_min_width": 3000,
+        "camera_snapshot_min_height": 2000,
+        "sample_interval_ms": 750,
+        "opaque_identity_max_collection_ms": 8000
+      },
+      "audio": {
+        "enabled": true,
+        "backend": "sounddevice",
+        "max_resource_bytes": 4194304,
+        "max_cache_bytes": 8388608,
+        "max_cache_entries": 4,
+        "download_chunk_bytes": 65536,
+        "request_timeout_seconds": 10.0
+      },
+      "stm": null,
+      "viewport": 10,
+      "poll_interval": 20
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-231944\\config\\device-app.h1-camera-console.toml",
+      "sha256": "48f4c9441260c155f48676c8e7f909b520dfba0d7ce5cdec93ba87e1c9b61bdd",
+      "parsed": true,
+      "controls": "console",
+      "feedback": "jsonl",
+      "scanner": {
+        "profile": "android_ip_camera",
+        "camera_index": 0,
+        "camera_backend": "auto",
+        "camera_snapshot_url": "https://192.168.1.78:4444/video/snapshot?camera=back&snapshot_res=max",
+        "camera_snapshot_allow_insecure_tls": true,
+        "camera_snapshot_timeout_seconds": 12.0,
+        "camera_snapshot_min_width": 3000,
+        "camera_snapshot_min_height": 2000,
+        "sample_interval_ms": 750,
+        "opaque_identity_max_collection_ms": 8000
+      },
+      "audio": {
+        "enabled": true,
+        "backend": "sounddevice",
+        "max_resource_bytes": 4194304,
+        "max_cache_bytes": 8388608,
+        "max_cache_entries": 4,
+        "download_chunk_bytes": 65536,
+        "request_timeout_seconds": 10.0
+      },
+      "stm": null,
+      "viewport": 10,
+      "poll_interval": 20
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h2-20260907-234639\\config\\device-app.h2-console-stm.toml",
+      "sha256": "ac7a2ce9aa6e6d2054d762618989b2e2ebc5aa7f59010e147ca0b87870c8904b",
+      "parsed": true,
+      "controls": "stm_serial",
+      "feedback": "jsonl",
+      "scanner": {
+        "profile": "android_ip_camera",
+        "camera_index": 0,
+        "camera_backend": "auto",
+        "camera_snapshot_url": "https://192.168.1.78:4444/video/snapshot?camera=back&snapshot_res=max",
+        "camera_snapshot_allow_insecure_tls": true,
+        "camera_snapshot_timeout_seconds": 12.0,
+        "camera_snapshot_min_width": 3000,
+        "camera_snapshot_min_height": 2000,
+        "sample_interval_ms": 750,
+        "opaque_identity_max_collection_ms": 8000
+      },
+      "audio": {
+        "enabled": true,
+        "backend": "sounddevice",
+        "max_resource_bytes": 4194304,
+        "max_cache_bytes": 8388608,
+        "max_cache_entries": 4,
+        "download_chunk_bytes": 65536,
+        "request_timeout_seconds": 10.0
+      },
+      "stm": {
+        "port": "COM9",
+        "baudrate": 9600,
+        "read_timeout_ms": 20,
+        "reconnect_initial_ms": 500,
+        "reconnect_max_ms": 5000,
+        "debounce_ms": 30,
+        "cell_count": 10
+      },
+      "viewport": 10,
+      "poll_interval": 20
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\config\\device-app.stm-reading.toml",
+      "sha256": "3974105a314f5aeb70acdc002d50235c366350080b799cda33a9066d3ed00798",
+      "parsed": true,
+      "controls": "stm_serial",
+      "feedback": "jsonl",
+      "scanner": {
+        "profile": "android_ip_camera",
+        "camera_index": 0,
+        "camera_backend": "auto",
+        "camera_snapshot_url": "https://192.168.1.78:4444/video/snapshot?camera=back&snapshot_res=max",
+        "camera_snapshot_allow_insecure_tls": true,
+        "camera_snapshot_timeout_seconds": 12.0,
+        "camera_snapshot_min_width": 3000,
+        "camera_snapshot_min_height": 2000,
+        "sample_interval_ms": 750,
+        "opaque_identity_max_collection_ms": 8000
+      },
+      "audio": {
+        "enabled": true,
+        "backend": "sounddevice",
+        "max_resource_bytes": 4194304,
+        "max_cache_bytes": 8388608,
+        "max_cache_entries": 4,
+        "download_chunk_bytes": 65536,
+        "request_timeout_seconds": 10.0
+      },
+      "stm": {
+        "port": "COM9",
+        "baudrate": 9600,
+        "read_timeout_ms": 20,
+        "reconnect_initial_ms": 500,
+        "reconnect_max_ms": 5000,
+        "debounce_ms": 30,
+        "cell_count": 10
+      },
+      "viewport": 10,
+      "poll_interval": 20
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\config\\device-app.h3r-braille-only.toml",
+      "sha256": "ee653c77807d195e95ff5e101154609689f58071afe04dadbfb241c2b07891f1",
+      "parsed": true,
+      "controls": "stm_serial",
+      "feedback": "jsonl",
+      "scanner": {
+        "profile": "android_ip_camera",
+        "camera_index": 0,
+        "camera_backend": "auto",
+        "camera_snapshot_url": "https://192.168.1.78:4444/video/snapshot?camera=back&snapshot_res=max",
+        "camera_snapshot_allow_insecure_tls": true,
+        "camera_snapshot_timeout_seconds": 12.0,
+        "camera_snapshot_min_width": 3000,
+        "camera_snapshot_min_height": 2000,
+        "sample_interval_ms": 750,
+        "opaque_identity_max_collection_ms": 8000
+      },
+      "audio": {
+        "enabled": false,
+        "backend": "sounddevice",
+        "max_resource_bytes": 4194304,
+        "max_cache_bytes": 8388608,
+        "max_cache_entries": 4,
+        "download_chunk_bytes": 65536,
+        "request_timeout_seconds": 10.0
+      },
+      "stm": {
+        "port": "COM9",
+        "baudrate": 9600,
+        "read_timeout_ms": 20,
+        "reconnect_initial_ms": 500,
+        "reconnect_max_ms": 5000,
+        "debounce_ms": 30,
+        "cell_count": 10
+      },
+      "viewport": 10,
+      "poll_interval": 20
+    },
+    {
+      "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3r-20260908-reading-output\\config\\device-app.h3r-console-stm.toml",
+      "sha256": "2f5a296eb7233321912fc4a3b12fb6b53d357c8c0423a97c9b797d75a960bf75",
+      "parsed": true,
+      "controls": "stm_serial",
+      "feedback": "jsonl",
+      "scanner": {
+        "profile": "android_ip_camera",
+        "camera_index": 0,
+        "camera_backend": "auto",
+        "camera_snapshot_url": "https://192.168.1.78:4444/video/snapshot?camera=back&snapshot_res=max",
+        "camera_snapshot_allow_insecure_tls": true,
+        "camera_snapshot_timeout_seconds": 12.0,
+        "camera_snapshot_min_width": 3000,
+        "camera_snapshot_min_height": 2000,
+        "sample_interval_ms": 750,
+        "opaque_identity_max_collection_ms": 8000
+      },
+      "audio": {
+        "enabled": true,
+        "backend": "sounddevice",
+        "max_resource_bytes": 4194304,
+        "max_cache_bytes": 8388608,
+        "max_cache_entries": 4,
+        "download_chunk_bytes": 65536,
+        "request_timeout_seconds": 10.0
+      },
+      "stm": {
+        "port": "COM9",
+        "baudrate": 9600,
+        "read_timeout_ms": 20,
+        "reconnect_initial_ms": 500,
+        "reconnect_max_ms": 5000,
+        "debounce_ms": 30,
+        "cell_count": 10
+      },
+      "viewport": 10,
+      "poll_interval": 20
+    }
+  ],
+  "dumps": [
+    {
+      "path": "C:\\Users\\user\\AppData\\Local\\CrashDumps\\python.exe.27012.dmp",
+      "sha256": "d7ad18d2b268740b796ea1423983f537e7803ac3d6a31c64e69da443244a76d5",
+      "exception_code": "0xc0000005",
+      "thread_id": 28816,
+      "fault": {
+        "name": "ucrtbase.dll",
+        "offset": "0xee451"
+      },
+      "exception_address": "0x7ff9ed73e451",
+      "context_rip": "0x7ff9ed73e451",
+      "context_rsp": "0x37debdf6e8",
+      "exception_parameters": [
+        "0x0",
+        "0x7ff938f620cc"
+      ],
+      "thread_count": 24,
+      "audio_crypto_modules": [
+        {
+          "name": "python.exe",
+          "base": 140698955677696,
+          "size": 106496
+        },
+        {
+          "name": "ucrtbase.dll",
+          "base": 140711406403584,
+          "size": 1359872
+        },
+        {
+          "name": "python311.dll",
+          "base": 140708275486720,
+          "size": 6119424
+        },
+        {
+          "name": "python3.dll",
+          "base": 2035256655872,
+          "size": 61440
+        },
+        {
+          "name": "libcrypto-3.dll",
+          "base": 140707806445568,
+          "size": 5214208
+        },
+        {
+          "name": "_ssl.pyd",
+          "base": 140709399035904,
+          "size": 184320
+        },
+        {
+          "name": "libssl-3.dll",
+          "base": 140708378443776,
+          "size": 794624
+        },
+        {
+          "name": "torch_python.dll",
+          "base": 140706892349440,
+          "size": 19820544
+        },
+        {
+          "name": "libportaudio64bit.dll",
+          "base": 140707677208576,
+          "size": 335872
+        },
+        {
+          "name": "AudioSes.dll",
+          "base": 140711062929408,
+          "size": 1798144
+        },
+        {
+          "name": "dsound.dll",
+          "base": 140710240518144,
+          "size": 606208
+        }
+      ],
+      "stack_status": "not_unwound; exception context only; no cdb/WinDbg or symbols found"
+    },
+    {
+      "path": "C:\\Users\\user\\AppData\\Local\\CrashDumps\\python.exe.31856.dmp",
+      "sha256": "c0cb1fcb7ab89c5dc7f103ef40c15f1c85c35aa29036f60481f1512e7a5f6a11",
+      "exception_code": "0xc0000005",
+      "thread_id": 29564,
+      "fault": {
+        "name": "libcrypto-3.dll",
+        "offset": "0x290dde"
+      },
+      "exception_address": "0x7ff916200dde",
+      "context_rip": "0x7ff916200dde",
+      "context_rsp": "0xa6833eec00",
+      "exception_parameters": [
+        "0x0",
+        "0x1"
+      ],
+      "thread_count": 27,
+      "audio_crypto_modules": [
+        {
+          "name": "python.exe",
+          "base": 140698955677696,
+          "size": 106496
+        },
+        {
+          "name": "ucrtbase.dll",
+          "base": 140711406403584,
+          "size": 1359872
+        },
+        {
+          "name": "python311.dll",
+          "base": 140708275486720,
+          "size": 6119424
+        },
+        {
+          "name": "python3.dll",
+          "base": 2891465293824,
+          "size": 61440
+        },
+        {
+          "name": "libcrypto-3.dll",
+          "base": 140707792093184,
+          "size": 5214208
+        },
+        {
+          "name": "_ssl.pyd",
+          "base": 140709402050560,
+          "size": 184320
+        },
+        {
+          "name": "libssl-3.dll",
+          "base": 140708834508800,
+          "size": 794624
+        },
+        {
+          "name": "torch_python.dll",
+          "base": 140706892349440,
+          "size": 19820544
+        },
+        {
+          "name": "libportaudio64bit.dll",
+          "base": 140707672358912,
+          "size": 335872
+        },
+        {
+          "name": "AudioSes.dll",
+          "base": 140711062929408,
+          "size": 1798144
+        },
+        {
+          "name": "dsound.dll",
+          "base": 140710240518144,
+          "size": 606208
+        }
+      ],
+      "stack_status": "not_unwound; exception context only; no cdb/WinDbg or symbols found"
+    }
+  ],
+  "h0_build": {
+    "manifests/stm32-build.json": "{\n    \"generated_at\":  \"2026-09-07T12:02:34.0715456Z\",\n    \"builder\":  \"C:\\\\ST\\\\STM32CubeIDE_2.2.0\\\\STM32CubeIDE\\\\headless-build.bat\",\n    \"project_copy\":  \"C:\\\\ASL_OCR_INTEGRATION_RUNTIME\\\\demo-20260905\\\\hardware-integration\\\\h0-20260907-205411\\\\firmware-build\\\\source\\\\kitel2026final\",\n    \"workspace\":  \"C:\\\\ASL_OCR_INTEGRATION_RUNTIME\\\\demo-20260905\\\\hardware-integration\\\\h0-20260907-205411\\\\firmware-build\\\\workspace\",\n    \"log\":  \"C:\\\\ASL_OCR_INTEGRATION_RUNTIME\\\\demo-20260905\\\\hardware-integration\\\\h0-20260907-205411\\\\logs\\\\stm32-cubeide-clean-build.log\",\n    \"exit_code\":  0,\n    \"artifacts\":  [\n                      {\n                          \"path\":  \"C:\\\\ASL_OCR_INTEGRATION_RUNTIME\\\\demo-20260905\\\\hardware-integration\\\\h0-20260907-205411\\\\firmware-build\\\\source\\\\kitel2026final\\\\Debug\\\\kitel2026final.elf\",\n                          \"length\":  1169392,\n                          \"sha256\":  \"62ecee2ccc811cf046466d38e80001f959f27a6f256f803903769289b9556c05\"\n                      }\n                  ]\n}",
+    "reports/stm32-flash-verify.json": "{\n    \"started_at_utc\":  \"2026-09-07T13:14:23.7701563Z\",\n    \"ended_at_utc\":  \"2026-09-07T13:14:25.8491901Z\",\n    \"programmer\":  \"C:\\\\ST\\\\STM32CubeIDE_2.2.0\\\\STM32CubeIDE\\\\plugins\\\\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_2.2.500.202603051304\\\\tools\\\\bin\\\\STM32_Programmer_CLI.exe\",\n    \"probe_serial\":  \"0670FF485775495067203341\",\n    \"board\":  \"NUCLEO-F446RE\",\n    \"elf\":  \"C:\\\\ASL_OCR_INTEGRATION_RUNTIME\\\\demo-20260905\\\\hardware-integration\\\\h0-20260907-205411\\\\firmware-build\\\\source\\\\kitel2026final\\\\Debug\\\\kitel2026final.elf\",\n    \"elf_sha256\":  \"62ecee2ccc811cf046466d38e80001f959f27a6f256f803903769289b9556c05\",\n    \"action\":  \"download_verify_reset\",\n    \"exit_code\":  0,\n    \"status\":  \"passed\",\n    \"log\":  \"C:\\\\ASL_OCR_INTEGRATION_RUNTIME\\\\demo-20260905\\\\hardware-integration\\\\h0-20260907-205411\\\\logs\\\\stm32-flash-verify.log\",\n    \"product_source_modified\":  false\n}\n",
+    "manifests/h0-current-invariants.py": "import hashlib\nimport json\nimport os\nimport subprocess\nimport tempfile\nfrom pathlib import Path\n\nfrom asl_device.app_config import DeviceAppConfig\n\nruntime = Path(r\"C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\")\nrun_root = runtime / \"hardware-integration\" / \"h0-20260907-205411\"\nconfig_path = run_root / \"config\" / \"device-app.camera-console.toml\"\ng0 = json.loads((runtime / \"reports\" / \"g0-verification-final.json\").read_text(encoding=\"utf-8\"))\nconfig = DeviceAppConfig.from_toml(config_path)\n\nmodel_checks = []\nfor previous in g0[\"checks\"][\"models\"][\"files\"]:\n    path = runtime / previous[\"relative_path\"]\n    actual = hashlib.sha256(path.read_bytes()).hexdigest()\n    model_checks.append(\n        {\n            \"relative_path\": previous[\"relative_path\"],\n            \"expected_sha256\": previous[\"expected_sha256\"],\n            \"actual_sha256\": actual,\n            \"match\": actual == previous[\"expected_sha256\"],\n        }\n    )\n\ntext_paths = [config_path, run_root / \"config\" / \"device-connectivity.integration.toml\"]\ntext_d_refs = []\nfor path in text_paths:\n    for number, line in enumerate(path.read_text(encoding=\"utf-8\").splitlines(), 1):\n        if \"d:/\" in line.lower() or \"d:\\\\\" in line.lower():\n            text_d_refs.append({\"path\": str(path), \"line\": number})\n\nresolved_paths = [\n    config.config_path,\n    config.connectivity.api_key_file,\n    config.delivery.outbox_db_path,\n    config.delivery.artifact_root,\n    config.scanner.staging_root,\n    config.scanner.ready_root,\n    config.scanner.uvdoc_runtime_path,\n    config.scanner.uvdoc_checkpoint_path,\n    config.scanner.m1_model_dir,\n    config.scanner.m1_model_manifest,\n]\nresolved_d_refs = [str(path) for path in resolved_paths if str(path).lower().startswith(\"d:\\\\\")]\n\nprobe = run_root / \"state\" / \"camera-console\" / \".h0-write-probe\"\nprobe.parent.mkdir(parents=True, exist_ok=True)\nprobe.write_text(\"h0\", encoding=\"ascii\")\nstate_writable = probe.read_text(encoding=\"ascii\") == \"h0\"\nprobe.unlink()\n\npip_check = subprocess.run(\n    [os.sys.executable, \"-m\", \"pip\", \"check\"], capture_output=True, text=True, encoding=\"utf-8\"\n)\n\nresult = {\n    \"config_parse\": \"passed\",\n    \"device_id\": config.connectivity.device_id.value,\n    \"server_origin\": config.connectivity.server_base_url,\n    \"secret_available\": config.connectivity.api_key_file.is_file(),\n    \"secret_content_or_hash_recorded\": False,\n    \"viewport_size\": config.viewport_size,\n    \"controls\": config.controls_mode,\n    \"model_checks\": model_checks,\n    \"all_model_hashes_match\": all(item[\"match\"] for item in model_checks),\n    \"text_d_references\": text_d_refs,\n    \"resolved_d_references\": resolved_d_refs,\n    \"d_dependency_count\": len(text_d_refs) + len(resolved_d_refs),\n    \"isolated_state_writable\": state_writable,\n    \"pip_check_returncode\": pip_check.returncode,\n    \"pip_check_stdout\": pip_check.stdout.strip(),\n}\noutput = run_root / \"reports\" / \"h0-current-invariants.json\"\noutput.write_text(json.dumps(result, ensure_ascii=False, indent=2) + \"\\n\", encoding=\"utf-8\")\nprint(json.dumps(result, ensure_ascii=False, indent=2))\n"
+  },
+  "manifest_source": {
+    "repository": "C:\\ASL_OCR_INTEGRATION",
+    "head": "ea7e6f24b38bc74bd2405ca1f35ed1acd2bab42e",
+    "git_status": "M device-runtime/src/asl_device/adapters/book_scanner_runtime.py\n M device-runtime/src/asl_device/adapters/stm_serial.py\n M device-runtime/src/asl_device/local_composition.py\n M device-runtime/tests/integration/test_e0_local_composition.py\n M device-runtime/tests/unit/test_book_scanner_runtime.py\n M device-runtime/tests/unit/test_stm_serial.py\n M document-parser/src/document_parser/accessibility/flattening/structure_nodes.py\n M document-parser/src/document_parser/serialization/vl_page_ir.py\n M document-parser/src/document_parser/structure/problem_units.py\n M document-parser/tests/unit/test_problem_units.py\n M document-parser/tests/unit/test_vl_page_ir.py\n?? device-runtime/tests/integration/test_stm_operation_identity.py\n?? docs/HW_SW_INTEGRATION_PLAN.md\n?? docs/PROTOTYPE_STABILIZATION_GATE.md\n",
+    "expected_tracked_diff": [
+      "device-runtime/src/asl_device/adapters/book_scanner_runtime.py",
+      "device-runtime/src/asl_device/adapters/stm_serial.py",
+      "device-runtime/src/asl_device/local_composition.py",
+      "device-runtime/tests/integration/test_e0_local_composition.py",
+      "device-runtime/tests/unit/test_book_scanner_runtime.py",
+      "device-runtime/tests/unit/test_stm_serial.py",
+      "document-parser/src/document_parser/accessibility/flattening/structure_nodes.py",
+      "document-parser/src/document_parser/serialization/vl_page_ir.py",
+      "document-parser/src/document_parser/structure/problem_units.py",
+      "document-parser/tests/unit/test_problem_units.py",
+      "document-parser/tests/unit/test_vl_page_ir.py"
+    ],
+    "unexpected_tracked_diff": [],
+    "transplant_hashes": {
+      "device-runtime/src/asl_device/adapters/stm_serial.py": {
+        "actual": "3448c3b2467cd36ac26cdc7ea7be861eacb9fbb72048945d5992b72f41e88d03",
+        "expected": "3448c3b2467cd36ac26cdc7ea7be861eacb9fbb72048945d5992b72f41e88d03",
+        "same": true
+      },
+      "device-runtime/src/asl_device/adapters/book_scanner_runtime.py": {
+        "actual": "f91cc13fbf4db9669f700de9500bc73e800f95f7924e0a1bc64759515dd47bd5",
+        "expected": "f91cc13fbf4db9669f700de9500bc73e800f95f7924e0a1bc64759515dd47bd5",
+        "same": true
+      },
+      "device-runtime/src/asl_device/local_composition.py": {
+        "actual": "d990a3cd82b9f40f9764c4635088623806b6b916d75a4d1e62f4856e7e56e932",
+        "expected": "d990a3cd82b9f40f9764c4635088623806b6b916d75a4d1e62f4856e7e56e932",
+        "same": true
+      },
+      "device-runtime/tests/unit/test_stm_serial.py": {
+        "actual": "aa47df3aae3f372f09de56f5676934a7ecf35385747e738e5e66b49ece0aadae",
+        "expected": "aa47df3aae3f372f09de56f5676934a7ecf35385747e738e5e66b49ece0aadae",
+        "same": true
+      },
+      "device-runtime/tests/unit/test_book_scanner_runtime.py": {
+        "actual": "5fb741b491f5a3f3e7192e74a41ac3fa394be4366771e8c4cfac8a28b00d820f",
+        "expected": "5fb741b491f5a3f3e7192e74a41ac3fa394be4366771e8c4cfac8a28b00d820f",
+        "same": true
+      },
+      "device-runtime/tests/integration/test_e0_local_composition.py": {
+        "actual": "1bf66276c874d50a1d80fd75edddca398c77619604211aa5682eceaba37c2ae8",
+        "expected": "1bf66276c874d50a1d80fd75edddca398c77619604211aa5682eceaba37c2ae8",
+        "same": true
+      },
+      "device-runtime/tests/integration/test_stm_operation_identity.py": {
+        "actual": "b1fd54b66e7a74d64da01017fa2bf3fe70fcd32d77c2d0c1bb6faf4e60517428",
+        "expected": "b1fd54b66e7a74d64da01017fa2bf3fe70fcd32d77c2d0c1bb6faf4e60517428",
+        "same": true
+      },
+      "docs/PROTOTYPE_STABILIZATION_GATE.md": {
+        "actual": "01ff4241634559426cd995de7fc35987fc77b321006a74508ae328f8fda3a8bd",
+        "expected": "01ff4241634559426cd995de7fc35987fc77b321006a74508ae328f8fda3a8bd",
+        "same": true
+      },
+      "docs/HW_SW_INTEGRATION_PLAN.md": {
+        "actual": "568bd9f1e5f70d4ef84ea4c575187b1a25c8bff2b32241717e98afa18947d9d5",
+        "expected": "568bd9f1e5f70d4ef84ea4c575187b1a25c8bff2b32241717e98afa18947d9d5",
+        "same": true
+      },
+      "document-parser/src/document_parser/serialization/vl_page_ir.py": {
+        "actual": "f32783748cd5ed99ba97ff231cd037b7c0c635c5eb46d8c00e456feabf0d1a73",
+        "expected": "f32783748cd5ed99ba97ff231cd037b7c0c635c5eb46d8c00e456feabf0d1a73",
+        "same": true
+      },
+      "document-parser/tests/unit/test_vl_page_ir.py": {
+        "actual": "c931fde67c42b6faef6ca07047e92c29fe354f3b3bb9a6ba20a2893caab70606",
+        "expected": "c931fde67c42b6faef6ca07047e92c29fe354f3b3bb9a6ba20a2893caab70606",
+        "same": true
+      },
+      "document-parser/src/document_parser/structure/problem_units.py": {
+        "actual": "ac2b9e8e4b10d306aafa27ebf3f086bc5b875ef72e53c80dd67bc150089a5007",
+        "expected": "ac2b9e8e4b10d306aafa27ebf3f086bc5b875ef72e53c80dd67bc150089a5007",
+        "same": true
+      },
+      "document-parser/tests/unit/test_problem_units.py": {
+        "actual": "d6776a455026d9b87f9e7cd00943aa3b07171b636105b617937e72b6c62aeb91",
+        "expected": "d6776a455026d9b87f9e7cd00943aa3b07171b636105b617937e72b6c62aeb91",
+        "same": true
+      },
+      "document-parser/src/document_parser/accessibility/flattening/structure_nodes.py": {
+        "actual": "0ef9deeee2bd9c5d47717f75ffb9af79c01465c3029e0917f7e03afb1738aebe",
+        "expected": "0ef9deeee2bd9c5d47717f75ffb9af79c01465c3029e0917f7e03afb1738aebe",
+        "same": true
+      }
+    },
+    "lfs": {
+      "pointer_count": 264,
+      "all_pointer_oids_match_desktop_payload": true,
+      "required_for_g3b_runtime": false,
+      "materialized": false
+    }
+  }
+}

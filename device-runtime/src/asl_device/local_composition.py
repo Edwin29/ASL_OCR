@@ -144,7 +144,7 @@ def build_local_device(
     if controls_value is None:
         if config.controls_mode == "stm_serial":
             assert config.stm_serial is not None
-            stm = StmSerialControlSource(config.stm_serial)
+            stm = StmSerialControlSource(config.stm_serial, event_namespace=connectivity.boot_id)
             controls_value = stm
             if presenter_value is None:
                 presenter_value = stm

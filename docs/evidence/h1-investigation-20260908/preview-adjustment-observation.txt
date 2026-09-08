@@ -1,0 +1,227 @@
+[
+    {
+        "at":  "2026-09-08T14:10:40.555352+00:00",
+        "frame":  "phone-snapshot-00000197",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8573132867600918
+    },
+    {
+        "at":  "2026-09-08T14:10:41.828580+00:00",
+        "frame":  "phone-snapshot-00000198",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8585760347757233
+    },
+    {
+        "at":  "2026-09-08T14:10:42.984761+00:00",
+        "frame":  "phone-snapshot-00000199",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8582099322262131
+    },
+    {
+        "at":  "2026-09-08T14:10:44.285634+00:00",
+        "frame":  "phone-snapshot-00000200",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8583011558046474
+    },
+    {
+        "at":  "2026-09-08T14:10:45.459384+00:00",
+        "frame":  "phone-snapshot-00000201",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8443910291937526
+    },
+    {
+        "at":  "2026-09-08T14:10:46.725612+00:00",
+        "frame":  "phone-snapshot-00000202",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8353885305064354
+    },
+    {
+        "at":  "2026-09-08T14:10:48.024543+00:00",
+        "frame":  "phone-snapshot-00000203",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8535650773029059
+    },
+    {
+        "at":  "2026-09-08T14:10:49.334749+00:00",
+        "frame":  "phone-snapshot-00000204",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8524839273701427
+    },
+    {
+        "at":  "2026-09-08T14:10:50.629428+00:00",
+        "frame":  "phone-snapshot-00000205",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8512425556587431
+    },
+    {
+        "at":  "2026-09-08T14:10:51.877045+00:00",
+        "frame":  "phone-snapshot-00000206",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.85136309968641
+    },
+    {
+        "at":  "2026-09-08T14:10:53.157220+00:00",
+        "frame":  "phone-snapshot-00000207",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.843642774012751
+    },
+    {
+        "at":  "2026-09-08T14:10:54.430387+00:00",
+        "frame":  "phone-snapshot-00000208",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8571441474287145
+    },
+    {
+        "at":  "2026-09-08T14:10:55.670543+00:00",
+        "frame":  "phone-snapshot-00000209",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8581447706185834
+    },
+    {
+        "at":  "2026-09-08T14:10:56.924006+00:00",
+        "frame":  "phone-snapshot-00000210",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8579592292126744
+    },
+    {
+        "at":  "2026-09-08T14:10:58.144889+00:00",
+        "frame":  "phone-snapshot-00000211",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.858311274429908
+    },
+    {
+        "at":  "2026-09-08T14:10:59.387967+00:00",
+        "frame":  "phone-snapshot-00000212",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8596320830915938
+    },
+    {
+        "at":  "2026-09-08T14:11:00.648274+00:00",
+        "frame":  "phone-snapshot-00000213",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8602643709056436
+    },
+    {
+        "at":  "2026-09-08T14:11:01.898274+00:00",
+        "frame":  "phone-snapshot-00000214",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8599986480220981
+    },
+    {
+        "at":  "2026-09-08T14:11:03.075937+00:00",
+        "frame":  "phone-snapshot-00000215",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8591821145929438
+    },
+    {
+        "at":  "2026-09-08T14:11:04.369234+00:00",
+        "frame":  "phone-snapshot-00000216",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8589061520284746
+    },
+    {
+        "at":  "2026-09-08T14:11:05.546465+00:00",
+        "frame":  "phone-snapshot-00000217",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8596791922518315
+    },
+    {
+        "at":  "2026-09-08T14:11:06.647104+00:00",
+        "frame":  "phone-snapshot-00000218",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8642297827353693
+    },
+    {
+        "at":  "2026-09-08T14:11:07.912393+00:00",
+        "frame":  "phone-snapshot-00000219",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8380458298074887
+    },
+    {
+        "at":  "2026-09-08T14:11:09.217135+00:00",
+        "frame":  "phone-snapshot-00000220",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8458382879777652
+    },
+    {
+        "at":  "2026-09-08T14:11:10.519554+00:00",
+        "frame":  "phone-snapshot-00000221",
+        "reasons":  [
+
+                    ],
+        "pair":  true,
+        "confidence":  0.8453119528658711
+    }
+]

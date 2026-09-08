@@ -30,7 +30,10 @@ class FrameDecodeError(CameraSourceError):
 
 
 class SnapshotTransportError(CameraSourceError):
-    pass
+    def __init__(self, message: str, *, retryable: bool = False, status_code: int | None = None) -> None:
+        super().__init__(message)
+        self.retryable = retryable
+        self.status_code = status_code
 
 
 class _Capture(Protocol):
@@ -440,12 +443,17 @@ class HttpSnapshotCameraSource:
         self.mirror = mirror
         self.crop_normalized = crop_normalized
         self.fetcher = fetcher
+        self._owns_fetcher = fetcher is None
         self.clock = clock or SystemClock()
         self.frame_prefix = frame_prefix
         self._session = None
         self._counter = 0
         self._started = False
         self._effective_mode: dict[str, float | str] | None = None
+        self._transport_failures = 0
+        self._retry_at = 0.0
+        self._terminal_error: SnapshotTransportError | None = None
+        self._generation = 0
 
     @property
     def exhausted(self) -> bool:
@@ -468,11 +476,20 @@ class HttpSnapshotCameraSource:
             self._session = requests.Session()
             self.fetcher = self._session.get
         self._counter = 0
+        self._transport_failures = 0
+        self._retry_at = 0.0
+        self._terminal_error = None
+        self._generation += 1
         self._started = True
 
     def read(self) -> FrameSample[np.ndarray] | None:
         if not self._started or self.fetcher is None:
             return None
+        if self._terminal_error is not None:
+            raise self._terminal_error
+        if self.clock.monotonic() < self._retry_at:
+            return None
+        generation = self._generation
         frame = None
         decode_error: FrameDecodeError | None = None
         for _attempt in range(3):
@@ -481,9 +498,24 @@ class HttpSnapshotCameraSource:
                 break
             except FrameDecodeError as exc:
                 decode_error = exc
+            except SnapshotTransportError as exc:
+                if generation != self._generation or not self._started:
+                    return None
+                self._transport_failures += 1
+                if not exc.retryable or self._transport_failures >= 3:
+                    self._terminal_error = exc
+                    raise
+                # Pull-driven retry: never sleep or perform another transport
+                # attempt in this read, including on the preview capture worker.
+                self._retry_at = self.clock.monotonic() + 0.25 * self._transport_failures
+                return None
+        if generation != self._generation or not self._started:
+            return None
         if frame is None:
             assert decode_error is not None
             raise decode_error
+        self._transport_failures = 0
+        self._retry_at = 0.0
         raw_height, raw_width = frame.shape[:2]
         applied_rotation = self.rotation
         if raw_width > raw_height and self.landscape_rotation is not None:
@@ -536,8 +568,23 @@ class HttpSnapshotCameraSource:
                     raise FrameDecodeError("snapshot response exceeds configured byte limit")
         except FrameDecodeError:
             raise
+        except CameraUnavailableError:
+            raise
         except Exception as exc:
-            raise SnapshotTransportError(f"snapshot request failed: {type(exc).__name__}") from exc
+            import requests
+
+            status = getattr(getattr(exc, "response", None), "status_code", None)
+            status = status if isinstance(status, int) else None
+            retryable = (
+                status in {408, 429, 500, 502, 503, 504} if status is not None else (
+                    isinstance(exc, (requests.exceptions.Timeout, requests.exceptions.ConnectionError))
+                    or (isinstance(exc, OSError) and not isinstance(exc, requests.exceptions.RequestException))
+                )
+            ) and not isinstance(exc, requests.exceptions.SSLError)
+            raise SnapshotTransportError(
+                f"snapshot request failed: {type(exc).__name__}",
+                retryable=retryable, status_code=status,
+            ) from exc
         finally:
             if response is not None:
                 response.close()
@@ -554,6 +601,9 @@ class HttpSnapshotCameraSource:
     def stop(self) -> None:
         session, self._session = self._session, None
         self._started = False
+        self._generation += 1
+        if self._owns_fetcher:
+            self.fetcher = None
         if session is not None:
             session.close()
 

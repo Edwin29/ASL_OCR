@@ -1,0 +1,10 @@
+{
+    "created_at":  "2026-09-08T02:11:17+0900",
+    "reset_rc":  0,
+    "hello_seen":  true,
+    "post_handshake_stm_tx":  "NAV,V,R,1\n",
+    "sent_ascii":  "FRAME,0,16,0,0,110,11,38,45,52,18,18,54,55,60,1",
+    "pace_seconds_per_byte":  0.02,
+    "debug_trace":  "\r\n\r\n========================================\r\n BRAILLE DISPLAY - HC05 + GITHUB NAV\r\n PCA1=TOP / PCA2=BOTTOM\r\n========================================\r\nHC-05 UART = 9600 baud\r\nPCA 0x40 FOUND\r\nPCA 0x41 FOUND\r\nPCA INIT OK\r\nPCA1 0x40 CH0~9 = TOP Cell1~10\r\nPCA2 0x41 CH0~9 = BOTTOM Cell1~10\r\n\r\nBUTTONS\r\nCN7-28 / PA0 = UP\r\nCN7-30 / PA1 = DOWN\r\nCN7-32 / PA4 = LEFT\r\nCN7-34 / PB0 = RIGHT\r\nCN10-24 / PB1 = PAGE NEXT\r\nPC0 = PAGE PREVIOUS\r\nPC1 = CONFIRM (release sends SHORT or LONG)\r\nPC2 = MODE LEVER (LOW=capture, HIGH=reading)\r\nTap = 1 step\r\nHold \u003e= 650ms = auto-repeat every 180ms\r\n\r\nBT: HELLO V3...\r\nBT: HOST CONNECTED (V3 EDGES)\r\nBT TX: NAV,V,R,1\nBT RX: ACK,1\r\nBT ACK: 1\r\nBT RX: FRAME,0,16,0,0,110,11,38,45,52,18,18,54,55,60,1\r\n\r\n========================================\r\nPAGE   = 0\r\nNODE   = 16\r\nSPAN   = 0\r\nOFFSET = 0\r\nGEN    = 110\r\nCELLS  = 11,38,45,52,18,18,54,55,60,1\r\n========================================\r\n",
+    "human_motor_observation":  "PASS: all motors moved; stable 10-cell pattern; no abnormal vibration/repetition/jam"
+}

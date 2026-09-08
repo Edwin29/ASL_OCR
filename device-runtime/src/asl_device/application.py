@@ -56,7 +56,9 @@ class DeviceApplication:
         self._presentation_failures: dict[str, int] = {"braille": 0, "audio": 0}
         self._warned_presentation_failures: set[tuple[str, str]] = set()
         self._started = False
+        self._startup_attempted = False
         self._stopped = False
+        self._cleanup_failures: list[str] = []
 
     def start(self) -> tuple[CoordinatorEvent, ...]:
         if self._started:
@@ -64,19 +66,12 @@ class DeviceApplication:
         if self._stopped:
             raise RuntimeError("Device application cannot restart after stop")
         try:
+            self._startup_attempted = True
             events = self.coordinator.start()
             self._started = True
             self._present()
         except BaseException:
-            self._stopped = True
-            try:
-                if self._started:
-                    self.coordinator.stop()
-                close = getattr(self.coordinator.scanner, "close", None)
-                if close is not None:
-                    close()
-            finally:
-                self._close_host_io()
+            self.stop()
             raise
         return events
 
@@ -141,16 +136,29 @@ class DeviceApplication:
         self.hold_repeat.cancel()
         events: tuple[CoordinatorEvent, ...] = ()
         try:
-            if self._started:
+            if self._started or self._startup_attempted:
                 events = self.coordinator.stop()
-        finally:
-            try:
-                close = getattr(self.coordinator.scanner, "close", None)
-                if close is not None:
-                    close()
-            finally:
-                self._close_host_io()
+        except Exception as exc:
+            self._cleanup_failures.append(f"coordinator:{type(exc).__name__}")
+        self._close_resource(self.coordinator.scanner)
+        self._close_host_io()
         return events
+
+    @property
+    def exit_code(self) -> int:
+        return 2 if self.coordinator.fatal_reason is not None or self._cleanup_failures else 0
+
+    @property
+    def cleanup_failures(self) -> tuple[str, ...]:
+        return tuple(self._cleanup_failures)
+
+    def _close_resource(self, resource: object) -> None:
+        close = getattr(resource, "close", None)
+        if close is not None:
+            try:
+                close()
+            except Exception as exc:
+                self._cleanup_failures.append(f"{type(resource).__name__}:{type(exc).__name__}")
 
     def _drain_inputs(self) -> tuple[DeviceInputEvent, ...]:
         events: list[DeviceInputEvent] = []
@@ -205,6 +213,4 @@ class DeviceApplication:
             if resource is None or id(resource) in seen:
                 continue
             seen.add(id(resource))
-            close = getattr(resource, "close", None)
-            if close is not None:
-                close()
+            self._close_resource(resource)

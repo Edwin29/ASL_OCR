@@ -1,0 +1,64 @@
+{
+  "checks": [
+    {
+      "detail": "physical E0-B requires pc_camera or android_uvc",
+      "elapsed_ms": 0.0,
+      "error_type": "ValueError",
+      "name": "e0b_profile",
+      "status": "failed"
+    },
+    {
+      "detail": {
+        "assets_loaded": true,
+        "factory": "LocalBookScannerEngineFactory"
+      },
+      "elapsed_ms": 8922.0,
+      "name": "scanner_models",
+      "status": "passed"
+    },
+    {
+      "detail": {
+        "http_status": 200,
+        "origin": "https://desktop-ekp6an5.taild2128f.ts.net"
+      },
+      "elapsed_ms": 250.0,
+      "name": "server_health",
+      "status": "passed"
+    },
+    {
+      "detail": {
+        "frame_id": "camera-00000001",
+        "height": 480,
+        "width": 640
+      },
+      "elapsed_ms": 4813.0,
+      "name": "camera",
+      "status": "passed"
+    },
+    {
+      "detail": {
+        "channels": 1,
+        "content_length": 129580,
+        "cue": "screen.capture_catalog",
+        "duration_ms": 2937,
+        "playback_requested": false,
+        "sample_rate": 22050,
+        "transport": "authenticated_s0_wav"
+      },
+      "elapsed_ms": 343.0,
+      "name": "piper_audio",
+      "status": "passed"
+    }
+  ],
+  "device_id": "laptop-device-001",
+  "generated_at": "2026-09-07T13:40:00+00:00",
+  "host": {
+    "python": "3.11.9",
+    "release": "10",
+    "system": "Windows"
+  },
+  "packet": "Device Integration E0-B — Conditional Laptop Preflight",
+  "passed": false,
+  "schema_version": 1,
+  "test_profile": "webcam"
+}

@@ -37,6 +37,10 @@ class FakeSerial:
         except queue.Empty:
             return b""
 
+    def read_until(self, expected=b"\n", size=None) -> bytes:
+        assert expected == b"\n" and size == 256
+        return self.readline()
+
     def write(self, data: bytes) -> int:
         if self.write_delay:
             time.sleep(self.write_delay)
@@ -97,6 +101,24 @@ def _next_events(source: StmSerialControlSource, count: int = 1):
 
     _wait_until(ready)
     return tuple(found)
+
+
+def test_new_stm_sources_do_not_reuse_operation_ids() -> None:
+    ids = []
+    for _ in range(2):
+        serial = FakeSerial((b"HELLO,3\n", b"NAV,C,S,2\n"))
+        source = StmSerialControlSource(_config(), serial_factory=lambda _config: serial)
+        try:
+            ids.append(_next_events(source)[0].event_id)
+        finally:
+            source.close()
+    assert ids[0] != ids[1]
+
+
+@pytest.mark.parametrize("namespace", ["", "a" * 81, "bad:namespace", "공백", "has space"])
+def test_stm_rejects_namespace_outside_bounded_server_id_contract(namespace) -> None:
+    with pytest.raises(ValueError, match="event_namespace"):
+        StmSerialControlSource(_config(), event_namespace=namespace)
 
 
 def test_v2_hello_and_nav_are_acked_before_application_poll() -> None:

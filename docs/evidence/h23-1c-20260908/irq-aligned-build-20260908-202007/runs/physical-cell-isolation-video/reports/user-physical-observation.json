@@ -1,0 +1,51 @@
+{
+  "observation_date_local": "2026-09-08",
+  "observer": "user",
+  "notation": {
+    "1": "raised",
+    "0": "retracted",
+    "layout": [["D1", "D4"], ["D2", "D5"], ["D3", "D6"]]
+  },
+  "observations": [
+    {
+      "step": "B",
+      "generation": 131,
+      "request": "C1 packed=63; D1-D6 active",
+      "expected": [[1, 1], [1, 1], [1, 1]],
+      "observed": [[0, 1], [0, 1], [0, 0]],
+      "raised_dots": ["D4", "D5"],
+      "other_cell": "C2 unchanged from clear"
+    },
+    {
+      "step": "D",
+      "generation": 133,
+      "request": "C2 packed=7; D1-D3 active, D4-D6 clear",
+      "expected": [[1, 0], [1, 0], [1, 0]],
+      "observed": [[0, 1], [0, 0], [1, 0]],
+      "raised_dots": ["D3", "D4"],
+      "other_cell": "C1 identical to clear"
+    },
+    {
+      "step": "F",
+      "generation": 135,
+      "request": "C2 packed=56; D1-D3 clear, D4-D6 active",
+      "expected": [[0, 1], [0, 1], [0, 1]],
+      "observed": [[1, 1], [1, 1], [0, 1]],
+      "raised_dots": ["D1", "D2", "D4", "D5", "D6"],
+      "other_cell": "C1 identical to clear"
+    }
+  ],
+  "clear_steps": ["A", "C", "E", "G"],
+  "clear_observation": "All clear steps returned to exactly the corrected 43-raised, 16-retracted, 1-uncertain display-wide pattern.",
+  "software_evidence": {
+    "frames_sent": 7,
+    "frames_parsed": 7,
+    "last_applied_generation": 136,
+    "last_frame_apply_ok": 1,
+    "pca_apply_failures": 0,
+    "uart_or_ring_error_count": 0
+  },
+  "verdict": "For C2, the firmware top path changes the physical right column and the firmware bottom path changes the physical left column, consistent with swapped PCA column roles. State 0 and state 7 also fail their requested dot patterns, so horn/cam state calibration remains independently incorrect.",
+  "classification": "hardware_or_wiring",
+  "severity": "P1"
+}

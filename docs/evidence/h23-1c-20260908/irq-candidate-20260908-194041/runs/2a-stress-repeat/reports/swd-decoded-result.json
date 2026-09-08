@@ -1,0 +1,24 @@
+{
+  "observation_date_local": "2026-09-08",
+  "candidate_elf_sha256": "a6405b334bff58825fdef335f0c26607d334c6b0c835f8eba53c5cd9a2ca3ca7",
+  "packet_interval_ms": 50,
+  "frames": [
+    {"generation": 120, "kind": "formula"},
+    {"generation": 121, "kind": "all-zero clear"}
+  ],
+  "decoded": {
+    "last_frame_apply_ok": 1,
+    "pca_apply_failures": 0,
+    "last_applied_generation": 121,
+    "bt_rx_overrun_errors": 0,
+    "bt_rx_frame_errors": 0,
+    "bt_rx_noise_errors": 0,
+    "bt_rx_parity_errors": 0,
+    "bt_rx_ring_overflows": 0
+  },
+  "target_voltage_v": [3.24, 3.25],
+  "device_id": "0x421",
+  "post_capture_action": "software reset after all reads completed",
+  "verdict": "pass",
+  "scope": "Host-to-firmware normal-rate ordering, buffering, parser commit, and PCA HAL completion. Physical clear is a separate failed boundary."
+}

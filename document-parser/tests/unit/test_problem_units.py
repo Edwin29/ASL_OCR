@@ -1,5 +1,8 @@
 import unittest
 
+from document_parser.accessibility.braille import braille_scrollable_spans
+from document_parser.accessibility.flattening import flatten_page
+from document_parser.accessibility.speech import focus_item_announcement
 from document_parser.structure import (
     PROBLEM_UNIT_STRUCTURE_LABEL,
     detect_problem_units_in_document,
@@ -208,6 +211,81 @@ class ProblemUnitTests(unittest.TestCase):
         self.assertEqual(split_line["layout"]["problem_unit_role"], "stem")
         self.assertTrue(split_line["bbox_is_estimated"])
 
+    def test_preserves_standalone_math_in_problem_stem_reading_order(self):
+        payload = {
+            "document_manifest": {"book_id": "book", "page_count": 1},
+            "engine_manifest": {},
+            "validation_summary": {},
+            "pages": [{
+                "page_id": "p027",
+                "page_geometry": {"width": 1000, "height": 1000},
+                "nodes": [
+                    text_node("m1", "[26009-0037]", 0),
+                    text_node("m2", "5 함수", 1),
+                    math_node("m3", "f(x)=x^2", 2),
+                    text_node("m4", "에 대하여 옳은 것은?", 3),
+                    text_node("m5", "① 1 ② 2 ③ 3 ④ 4 ⑤ 5", 4),
+                ],
+                "reading_order": ["m1", "m2", "m3", "m4", "m5"],
+                "parse_issues": [],
+                "quality_report": {"status": "PASS"},
+            }],
+        }
+
+        processed = detect_problem_units_in_document(payload)
+        page = processed["pages"][0]
+        problem = problem_by_marker(problem_unit_nodes(page), "m1")
+
+        self.assertEqual(problem["layout"]["stem_node_ids"], ["m2", "m3", "m4"])
+        self.assertEqual(problem["embedded_text_nodes"], ["m1", "m2", "m3", "m4", "m5"])
+        self.assertEqual(page["reading_order"], [problem["node_id"]])
+        self.assertEqual(
+            [item["source_node_ids"][0] for item in flatten_page(page)["focus_items"]],
+            ["m1", "m2", "m3", "m4", "m5"],
+        )
+
+    def test_keeps_choice_math_in_tts_but_suppresses_choice_braille(self):
+        choice = text_node("c3", "① 1 ② 2 ③ 3 ④ 4 ⑤ 5", 2)
+        choice["spans"] = [
+            {"span_type": "TEXT", "text": "① 1 ② "},
+            {
+                "span_type": "MATH",
+                "text": "2",
+                "math_span_candidate": True,
+                "presentation_ast": {"type": "Number", "value": "2"},
+                "unconsumed_tokens": [],
+                "ast_issues": [],
+            },
+            {"span_type": "TEXT", "text": " ③ 3 ④ 4 ⑤ 5"},
+        ]
+        payload = {
+            "document_manifest": {"book_id": "book", "page_count": 1},
+            "engine_manifest": {},
+            "validation_summary": {},
+            "pages": [{
+                "page_id": "p027",
+                "page_geometry": {"width": 1000, "height": 1000},
+                "nodes": [
+                    text_node("c1", "[26009-0038]", 0),
+                    text_node("c2", "함수의 값을 고른 것은?", 1),
+                    choice,
+                ],
+                "reading_order": ["c1", "c2", "c3"],
+                "parse_issues": [],
+                "quality_report": {"status": "PASS"},
+            }],
+        }
+
+        page = detect_problem_units_in_document(payload)["pages"][0]
+        choice_item = next(
+            item for item in flatten_page(page)["focus_items"]
+            if item["source_node_ids"] == ["c3"]
+        )
+
+        self.assertEqual(braille_scrollable_spans(choice_item), [])
+        self.assertTrue(any(span.get("kind") == "MATH" for span in choice_item["spans"]))
+        self.assertIn("2", focus_item_announcement(choice_item))
+
     def test_ignores_marker_dense_text_without_start_signal(self):
         payload = {
             "document_manifest": {"book_id": "book", "page_count": 1},
@@ -327,6 +405,24 @@ def text_node(node_id, text, index):
         "raw_text": text,
         "normalized_text": text,
         "spans": [{"span_type": "TEXT", "text": text}],
+        "layout": {},
+    }
+
+
+def math_node(node_id, formula, index):
+    y = 10 + index * 30
+    return {
+        "node_id": node_id,
+        "content_type": "MATH",
+        "bbox": {"x": 50, "y": y, "width": 500, "height": 20},
+        "normalized_bbox": {"x": 0.05, "y": y / 4000, "width": 0.5, "height": 0.005},
+        "reading_order_index": index,
+        "confidence": 0.9,
+        "source_engine": "fixture",
+        "issues": [],
+        "raw_formula": formula,
+        "presentation_ast": {"type": "Identifier", "name": "f"},
+        "unconsumed_tokens": [],
         "layout": {},
     }
 

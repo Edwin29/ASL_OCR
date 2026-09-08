@@ -1,0 +1,45 @@
+﻿{
+    "generated_at_utc":  "2026-09-08T10:41:42.5753568Z",
+    "candidate":  "USART1 interrupt ring",
+    "product_source_modified_on_laptop":  false,
+    "source_project":  "C:\\ASL_OCR_INTEGRATION\\hardware\\stm32\\kitel2026final",
+    "staging_root":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\fw-preflight-20260908-181500\\tooling\\irq-candidate-stage-20260908-194041",
+    "project_copy":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\irq-candidate-20260908-194041\\firmware-build\\source\\kitel2026final",
+    "workspace":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\irq-candidate-20260908-194041\\firmware-build\\workspace",
+    "changed_files":  [
+                          {
+                              "relative_path":  "Core\\Src\\main.c",
+                              "source_sha256":  "c4bb35e208bf2bdcd4e773c4a40f5a5982ff0333e479340bcd9b6fa1c996371f",
+                              "candidate_sha256":  "f0b93413f352be398dac62db6a64b2d17c19f1b8e14faf874371beddaf6ba1c1",
+                              "changed":  true
+                          },
+                          {
+                              "relative_path":  "Core\\Src\\stm32f4xx_it.c",
+                              "source_sha256":  "3681076251d67ff46ca8c70b200fc228fbebd08260fe84ed8e68e9647cf8b1b6",
+                              "candidate_sha256":  "71030ed19863327bc4053916f16136e0b760bc77ca6efbba2f0f53d2dc3680a3",
+                              "changed":  true
+                          },
+                          {
+                              "relative_path":  "Core\\Inc\\main.h",
+                              "source_sha256":  "91a8f012d92f8c763905fb41edb1d281907d431dad9d3a95a77800afa69371ba",
+                              "candidate_sha256":  "f802d2972e2ac9de4679d4914482ad468dd2098d383a91abb957083fa2e513a3",
+                              "changed":  true
+                          },
+                          {
+                              "relative_path":  "Core\\Inc\\stm32f4xx_it.h",
+                              "source_sha256":  "a8b16d0e7cf5defc41dc52c9cc1341ca4deba9789cc8e60ea6fb76a8503b5a6d",
+                              "candidate_sha256":  "dd14fbf6d042467d063e09e8c3383b7d67655c84510178cd8de336f533916f7b",
+                              "changed":  true
+                          }
+                      ],
+    "changed_file_count":  4,
+    "builder":  "C:\\ST\\STM32CubeIDE_2.2.0\\STM32CubeIDE\\headless-build.bat",
+    "build_log":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\irq-candidate-20260908-194041\\logs\\stm32-cubeide-clean-build.log",
+    "build_exit_code":  0,
+    "build_has_error_marker":  false,
+    "artifact":  {
+                     "path":  "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\irq-candidate-20260908-194041\\firmware-build\\source\\kitel2026final\\Debug\\kitel2026final.elf",
+                     "length":  1154424,
+                     "sha256":  "a6405b334bff58825fdef335f0c26607d334c6b0c835f8eba53c5cd9a2ca3ca7"
+                 }
+}

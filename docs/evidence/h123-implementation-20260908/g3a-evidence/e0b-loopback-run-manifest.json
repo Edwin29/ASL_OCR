@@ -1,0 +1,31 @@
+{
+  "checks": {
+    "boundary_status": "passed",
+    "controller_complete": true,
+    "explicit_page_change_starts": true,
+    "reverse_navigation": true,
+    "server_rows_complete": true,
+    "server_summary": {
+      "duplicates": 0,
+      "fragments": 4,
+      "spread_receipts": 2
+    }
+  },
+  "completed_at": "2026-09-07T21:22:11.434069+00:00",
+  "device_id": "desktop-loopback-a4bf8e54abe6",
+  "environment": "desktop_production_full_model",
+  "evidence_dir": "D:\\Projects\\OCR\\docs\\evidence\\h123-implementation-20260908\\g3a-evidence",
+  "failure": null,
+  "kind": "e0b_production_full_model_desktop_acceptance",
+  "limitations": [
+    "Pinned MP4 replay was used; a live camera was not exercised.",
+    "STM32/bridge and Raspberry Pi hardware were not exercised."
+  ],
+  "repository_dirty": true,
+  "repository_revision": "ea7e6f24b38bc74bd2405ca1f35ed1acd2bab42e",
+  "scan_session_id": "scan-bbf3d602b6fe491fa33bfc7aca23f770",
+  "schema_version": 1,
+  "started_at": "2026-09-07T21:18:05.284342+00:00",
+  "status": "passed",
+  "work_dir": "D:\\Projects\\OCR\\device-runtime\\tmp\\h123-g3a-work-20260908"
+}

@@ -1,0 +1,64 @@
+{
+  "fragments": [
+    {
+      "page_id": "pg-28870de21691-00000001-L",
+      "sequence": 1,
+      "side": "left",
+      "status": "ready"
+    },
+    {
+      "page_id": "pg-28870de21691-00000001-R",
+      "sequence": 1,
+      "side": "right",
+      "status": "ready"
+    },
+    {
+      "page_id": "pg-28870de21691-00000002-L",
+      "sequence": 2,
+      "side": "left",
+      "status": "ready"
+    },
+    {
+      "page_id": "pg-28870de21691-00000002-R",
+      "sequence": 2,
+      "side": "right",
+      "status": "ready"
+    }
+  ],
+  "scan_session_id": "scan-8b6c3b74bbf14ede90b8fa1798eb8dbf",
+  "spreads": [
+    {
+      "receipt_id": "spread-receipt-ddf911312b6f245fed4afb6e471360b5",
+      "sequence": 1,
+      "source_frame_id": "video-00000092",
+      "spread_id": "scan-8b6c3b74bbf14ede90b8fa1798eb8dbf-spread-000001",
+      "status": "ready"
+    },
+    {
+      "receipt_id": "spread-receipt-2bc15040160a3784c8db314c7a62f830",
+      "sequence": 2,
+      "source_frame_id": "video-00000365",
+      "spread_id": "scan-8b6c3b74bbf14ede90b8fa1798eb8dbf-spread-000002",
+      "status": "ready"
+    }
+  ],
+  "summary": {
+    "duplicates": 0,
+    "fragments": 4,
+    "spread_receipts": 2
+  },
+  "upload_attempts": [
+    {
+      "attempt_count": 1,
+      "s1_receipt_id": "spread-receipt-ddf911312b6f245fed4afb6e471360b5",
+      "sequence": 1,
+      "status": "accepted"
+    },
+    {
+      "attempt_count": 1,
+      "s1_receipt_id": "spread-receipt-2bc15040160a3784c8db314c7a62f830",
+      "sequence": 2,
+      "status": "accepted"
+    }
+  ]
+}

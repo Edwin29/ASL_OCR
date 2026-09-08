@@ -1,0 +1,222 @@
+{
+  "kind": "saved_footer_roi_candidate_region_replay",
+  "source_function": "book_scanner.video.page_number_recognizer._candidate_regions",
+  "rows": [
+    {
+      "phase": "reference",
+      "side": "left",
+      "shape": [
+        82,
+        96
+      ],
+      "candidate_regions": [],
+      "candidate_clusters": [],
+      "two_x_shape": [
+        164,
+        192
+      ],
+      "two_x_candidate_regions": [],
+      "three_x_candidate_regions": [
+        [
+          6,
+          186,
+          10,
+          14
+        ],
+        [
+          89,
+          147,
+          14,
+          13
+        ]
+      ],
+      "four_x_candidate_regions": [
+        [
+          8,
+          248,
+          14,
+          19
+        ],
+        [
+          119,
+          196,
+          19,
+          18
+        ],
+        [
+          324,
+          203,
+          5,
+          12
+        ]
+      ]
+    },
+    {
+      "phase": "reference",
+      "side": "right",
+      "shape": [
+        81,
+        108
+      ],
+      "candidate_regions": [],
+      "candidate_clusters": [],
+      "two_x_shape": [
+        162,
+        216
+      ],
+      "two_x_candidate_regions": [
+        [
+          214,
+          104,
+          2,
+          13
+        ],
+        [
+          211,
+          78,
+          4,
+          19
+        ],
+        [
+          145,
+          88,
+          10,
+          10
+        ]
+      ],
+      "three_x_candidate_regions": [
+        [
+          321,
+          156,
+          3,
+          18
+        ],
+        [
+          317,
+          117,
+          5,
+          31
+        ],
+        [
+          217,
+          132,
+          15,
+          15
+        ]
+      ],
+      "four_x_candidate_regions": [
+        [
+          180,
+          179,
+          60,
+          14
+        ]
+      ]
+    },
+    {
+      "phase": "query",
+      "side": "left",
+      "shape": [
+        82,
+        96
+      ],
+      "candidate_regions": [],
+      "candidate_clusters": [],
+      "two_x_shape": [
+        164,
+        192
+      ],
+      "two_x_candidate_regions": [],
+      "three_x_candidate_regions": [
+        [
+          92,
+          131,
+          16,
+          13
+        ],
+        [
+          269,
+          200,
+          19,
+          13
+        ]
+      ],
+      "four_x_candidate_regions": [
+        [
+          123,
+          174,
+          21,
+          19
+        ],
+        [
+          160,
+          178,
+          8,
+          12
+        ],
+        [
+          359,
+          266,
+          25,
+          18
+        ]
+      ]
+    },
+    {
+      "phase": "query",
+      "side": "right",
+      "shape": [
+        81,
+        108
+      ],
+      "candidate_regions": [],
+      "candidate_clusters": [],
+      "two_x_shape": [
+        162,
+        216
+      ],
+      "two_x_candidate_regions": [
+        [
+          213,
+          96,
+          3,
+          14
+        ],
+        [
+          152,
+          86,
+          11,
+          10
+        ]
+      ],
+      "three_x_candidate_regions": [
+        [
+          320,
+          144,
+          4,
+          19
+        ],
+        [
+          228,
+          129,
+          16,
+          15
+        ],
+        [
+          147,
+          130,
+          9,
+          11
+        ]
+      ],
+      "four_x_candidate_regions": [
+        [
+          192,
+          173,
+          35,
+          15
+        ]
+      ]
+    }
+  ]
+}

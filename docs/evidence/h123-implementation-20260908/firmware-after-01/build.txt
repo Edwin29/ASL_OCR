@@ -1,0 +1,2 @@
+fixture.c
+fixture.c(216): error C2146: 구문 오류: ')'이(가) 'last_frame_apply_ok' 식별자 앞에 없습니다.

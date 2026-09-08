@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 import queue
+import re
 import threading
 import time
+import uuid
 from collections import deque
 from collections.abc import Callable
 from typing import Protocol
@@ -14,7 +16,7 @@ from asl_device.types import DeviceControl, DeviceInputEvent, InputAction, Readi
 
 
 class SerialConnection(Protocol):
-    def readline(self) -> bytes: ...
+    def read_until(self, expected: bytes = b"\n", size: int | None = None) -> bytes: ...
 
     def write(self, data: bytes) -> int: ...
 
@@ -78,6 +80,7 @@ class StmSerialControlSource:
         self,
         config: StmSerialConfig,
         *,
+        event_namespace: str | None = None,
         serial_factory: SerialFactory | None = None,
         monotonic: Callable[[], float] = time.monotonic,
         max_lines_per_poll: int = 16,
@@ -87,6 +90,10 @@ class StmSerialControlSource:
             raise ValueError("max_lines_per_poll must be positive")
         if input_queue_capacity <= 0:
             raise ValueError("input_queue_capacity must be positive")
+        namespace = f"process-{uuid.uuid4().hex}" if event_namespace is None else event_namespace
+        if re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]{0,79}", namespace) is None:
+            raise ValueError("event_namespace must be 1-80 safe ASCII characters")
+        self._event_namespace = namespace
         self.config = config
         self.serial_factory = serial_factory or _open_serial
         self.monotonic = monotonic
@@ -202,6 +209,7 @@ class StmSerialControlSource:
         seen_sequences: set[int] = set()
         sequence_order: deque[int] = deque()
         down_active = False
+        framer = _SerialLineFramer()
 
         try:
             while not self._stop.is_set():
@@ -222,6 +230,7 @@ class StmSerialControlSource:
                         )
                         self._wait(min(retry_seconds, 0.1))
                         continue
+                    framer = _SerialLineFramer()
                     connection_epoch += 1
                     event_counter = 0
                     protocol_version = None
@@ -238,9 +247,12 @@ class StmSerialControlSource:
                         self._protocol_version = None
 
                 try:
-                    raw = connection.readline()
-                    if raw:
-                        line = raw.decode("ascii", errors="strict").strip()
+                    # pyserial read_until checks a whole-call timeout, unlike
+                    # IOBase.readline whose per-byte reads can keep renewing it.
+                    # The framer retains partial records across bounded reads.
+                    raw = connection.read_until(size=256)
+                    for record in framer.feed(raw):
+                        line = record.decode("ascii", errors="strict").strip()
                         if line in {"HELLO,2", "HELLO,3"}:
                             if down_active:
                                 event_counter += 1
@@ -314,7 +326,7 @@ class StmSerialControlSource:
                                 if hardware_sequence is not None:
                                     if (
                                         self._events.full()
-                                        and action is not InputAction.RELEASED
+                                        and not (control is DeviceControl.DOWN and action is InputAction.RELEASED)
                                         and not duplicate_sequence
                                         and not debounced
                                     ):
@@ -348,13 +360,13 @@ class StmSerialControlSource:
                                         else event_counter
                                     )
                                     event = DeviceInputEvent(
-                                        f"stm-{connection_epoch:04d}-{suffix:010d}",
+                                        f"stm-{self._event_namespace}-{connection_epoch:04d}-{suffix:010d}",
                                         control,
                                         action,
                                         now,
                                         hardware_sequence,
                                     )
-                                    if action is InputAction.RELEASED:
+                                    if control is DeviceControl.DOWN and action is InputAction.RELEASED:
                                         self._release_events.put(event)
                                     else:
                                         try:
@@ -435,7 +447,7 @@ class StmSerialControlSource:
     def _enqueue_forced_down_release(self, connection_epoch: int, counter: int) -> None:
         self._release_events.put(
             DeviceInputEvent(
-                f"stm-{connection_epoch:04d}-disconnect-{counter:08d}",
+                f"stm-{self._event_namespace}-{connection_epoch:04d}-disconnect-{counter:08d}",
                 DeviceControl.DOWN,
                 InputAction.RELEASED,
                 self.monotonic(),
@@ -506,3 +518,26 @@ def _open_serial(config: StmSerialConfig) -> SerialConnection:
         timeout=config.read_timeout_ms / 1000.0,
         write_timeout=config.read_timeout_ms / 1000.0,
     )
+
+
+class _SerialLineFramer:
+    """Only complete records reach ACK/dedupe; oversize tails are never packets."""
+
+    def __init__(self) -> None:
+        self._line = bytearray()
+        self._discarding = False
+
+    def feed(self, raw: bytes):
+        for byte in raw:
+            if byte == 10:
+                record = bytes(self._line)
+                self._line.clear()
+                discard, self._discarding = self._discarding, False
+                if not discard:
+                    yield record
+            elif not self._discarding:
+                if len(self._line) >= 255:
+                    self._line.clear()
+                    self._discarding = True
+                else:
+                    self._line.append(byte)

@@ -1,0 +1,12 @@
+{
+  "root": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\diagnostics\\h123-correction-1788815900976129100",
+  "interpreter": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Scripts\\python.exe",
+  "returncode": 0,
+  "results": [
+    {
+      "package": "device-runtime",
+      "returncode": 0,
+      "output": "..........                                                               [100%]\n10 passed in 8.89s\n\n"
+    }
+  ]
+}

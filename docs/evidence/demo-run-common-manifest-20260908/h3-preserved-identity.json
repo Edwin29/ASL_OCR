@@ -1,0 +1,82 @@
+{
+  "h3-run-identity.json": {
+    "run_root": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800",
+    "source": "C:\\ASL_OCR_INTEGRATION",
+    "python": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Scripts\\python.exe",
+    "controls": "stm_serial",
+    "presenter": "stm_serial",
+    "stm_port": "COM9",
+    "debug_port": "COM5",
+    "device_id": "laptop-device-001",
+    "initial_target": "reading",
+    "h2_status": "FAIL_CONDITIONAL_PROGRESSION",
+    "product_source_modified": false,
+    "d_volume_dependency": 0,
+    "credential_values_recorded": false
+  },
+  "h3-final-evidence-manifest.json": {
+    "recorded_at": "2026-09-08T01:41:15.7779770+09:00",
+    "stage": "H3",
+    "verdict": "FAIL",
+    "product_source_modifications": 0,
+    "d_drive_access": 0,
+    "crash": {
+      "time": "2026-09-08T01:28:38+09:00",
+      "exception": "0xc0000005",
+      "fault_module": "ucrtbase.dll",
+      "wer_report_id": "015e9e01-0d78-4714-ad4e-029754334dab",
+      "sounddevice": "0.5.6",
+      "portaudio": "PortAudio V19.7.0-devel"
+    },
+    "checks": {
+      "down_hold_cadence": "PASS",
+      "reconnect_v3": "PASS",
+      "post_reconnect_short_navigation": "PASS",
+      "page_next": "FAIL",
+      "page_previous": "PASS",
+      "confirm_short": "FAIL",
+      "confirm_long": "FAIL",
+      "mode_lever": "BLOCKED",
+      "frame_transport": "FAIL",
+      "audio_rapid_supersession": "FAIL"
+    },
+    "hashes": [
+      {
+        "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\config\\device-app.stm-reading.toml",
+        "size": 2185,
+        "last_write": "2026-09-08T00:31:55.0885332+09:00",
+        "sha256": "3974105a314f5aeb70acdc002d50235c366350080b799cda33a9066d3ed00798"
+      },
+      {
+        "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\manifests\\h3-run-identity.json",
+        "size": 596,
+        "last_write": "2026-09-08T00:31:10.1040724+09:00",
+        "sha256": "c361cefc1df7bf3abe630aa9090ee51aeb3e06d4913af80535bfdbd159e738f9"
+      },
+      {
+        "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\logs\\stm-com5-trace.log",
+        "size": 13531,
+        "last_write": "2026-09-08T01:36:50.5223232+09:00",
+        "sha256": "df9cf2061f51add69cb7bfca16496f5eaa741dc7bd50f335c1c515ba16c2a2fb"
+      },
+      {
+        "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h3-20260908-001800\\logs\\h3-events-resumed.log",
+        "size": 27632,
+        "last_write": "2026-09-08T01:36:56.0210759+09:00",
+        "sha256": "6de285b2fd3abd29501ebdbbd63731f5f67269d434732e99a5e3668fa222d17e"
+      },
+      {
+        "path": "C:\\Users\\user\\AppData\\Local\\CrashDumps\\python.exe.27012.dmp",
+        "size": 43851515,
+        "last_write": "2026-09-08T01:28:49.6966530+09:00",
+        "sha256": "d7ad18d2b268740b796ea1423983f537e7803ac3d6a31c64e69da443244a76d5"
+      },
+      {
+        "path": "C:\\ProgramData\\Microsoft\\Windows\\WER\\ReportArchive\\AppCrash_python.exe_8541cc2ed7738ba158d2dfc91669c709925bba0_ffcdfcec_985dfb15-6c73-426a-8378-84faf7dff9bc\\Report.wer",
+        "size": 102930,
+        "last_write": "2026-09-08T01:28:51.2268156+09:00",
+        "sha256": "0b96a5bd616f81d396012ee636771faaf15f94a17bd49ad6fd502accf8e7dcd8"
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "product_count": 2,
+  "files": [
+    {
+      "path": "device-runtime/src/asl_device/coordinator.py",
+      "before_sha256": "1f328a3955442ddb1ec313c1ebacb04865b8de922f5ff9ecb11bdf52dc69e50c",
+      "after_sha256": "49dc06104a944559c0d7ecfdce9953a405ddc8a55c66285f37a688d481282661",
+      "kind": "product"
+    },
+    {
+      "path": "device-runtime/src/asl_device/adapters/stm_serial.py",
+      "before_sha256": "1e5154dee830582773a8e005d3bdb916eb52122184f77ee67452aad1c37dd2c6",
+      "after_sha256": "9cec3f2ec6bde29925385af5324a4ce05e824c649b3aa34509dbdbf3fd974a2d",
+      "kind": "product"
+    },
+    {
+      "path": "device-runtime/tests/unit/test_stm_serial.py",
+      "before_sha256": "aa47df3aae3f372f09de56f5676934a7ecf35385747e738e5e66b49ece0aadae",
+      "after_sha256": "33f32597fee3060302243bda4e3955e9e7424b14a45bb09110f332e1d05074bc",
+      "kind": "test"
+    },
+    {
+      "path": "device-runtime/tests/integration/test_stm_mode_contract.py",
+      "before_sha256": "b2463138a57f35cc28cf22b8fc8540c9ccb98e41d9d91e232ae83d650017f8f7",
+      "after_sha256": "0e19dd5469afd819f22d6a31097bebda75b6332d958be2a59ddc882197559b44",
+      "kind": "test"
+    },
+    {
+      "path": "device-runtime/tests/unit/test_h123_followup.py",
+      "before_sha256": null,
+      "after_sha256": "d394acf9171c3e4126d2ef656d2cb07575199bbdd2d2ba2db28c203d90af07aa",
+      "kind": "test"
+    }
+  ]
+}

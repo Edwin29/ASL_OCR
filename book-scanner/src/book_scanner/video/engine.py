@@ -63,7 +63,7 @@ from .protocols import (
     SpreadIdentityProvider,
     SpreadPreparer,
 )
-from .sources import CameraUnavailableError, FrameDecodeError, SystemClock
+from .sources import CameraUnavailableError, FrameDecodeError, SnapshotTransportError, SystemClock
 from .types import (
     ArtifactId,
     PreparationDecision,
@@ -246,6 +246,7 @@ class SampledFrameEngine:
         self._opaque_identity_same_decisions = 0
         self._opaque_identity_different_decisions = 0
         self._opaque_identity_unknown_timeouts = 0
+        self._page_change_guidance_pending = False
         self._opaque_identity_hard_rejected_observations = 0
         # Recognition is synchronous at this boundary, so requests cannot queue.
         self._opaque_identity_busy_skipped_observations = 0
@@ -328,6 +329,7 @@ class SampledFrameEngine:
             self.page_number_change_tracker.reset()
             self.page_number_scheduler.reset()
             self.guidance.reset()
+            self._page_change_guidance_pending = False
             self._transition(VideoSessionState.ARMING, events)
             events.append(self._event(VideoEventType.SESSION_STARTED))
             try:
@@ -377,6 +379,9 @@ class SampledFrameEngine:
             self._next_sample_at = now + self.policy.sample_interval_ms / 1000.0
             try:
                 frame = self.camera.read()
+            except SnapshotTransportError as exc:
+                self._fail_snapshot(exc, events)
+                return tuple(events)
             except FrameDecodeError:
                 self._fail(ReadinessReason.FRAME_DECODE_FAILED, events)
                 return tuple(events)
@@ -498,6 +503,7 @@ class SampledFrameEngine:
             self._active_job_id,
             self.session_id,
         )
+        self._future.add_done_callback(self._cleanup_preparation_after_close)
 
     def _poll_opaque_identity(self, events: list[VideoEvent]) -> None:
         assert self._opaque_identity_active
@@ -662,6 +668,7 @@ class SampledFrameEngine:
             )
         timeout = self._opaque_collector.decision(now=now)
         if timeout.timed_out:
+            self._page_change_guidance_pending = True
             self._emit_opaque_decision(
                 timeout,
                 reference.observations[0].source_frame_id,
@@ -678,6 +685,8 @@ class SampledFrameEngine:
         self._next_opaque_sample_at = now + self.opaque_identity_policy.observation_interval_ms / 1000.0
         frame = self._read_frame_for_opaque(events)
         if frame is None:
+            if self._page_change_guidance_pending:
+                self._page_change_guidance(ReadinessReason.FOOTER_IDENTITY_UNAVAILABLE, events)
             return
         self._waiting_preview_frames += 1
         try:
@@ -696,6 +705,7 @@ class SampledFrameEngine:
             }
         )
         if analyzed.candidate.retry_reasons:
+            self._page_change_guidance(analyzed.candidate.retry_reasons[0], events)
             visual_decision = self.page_change_gate.observe(
                 None,
                 eligible=False,
@@ -773,6 +783,8 @@ class SampledFrameEngine:
             events,
         )
         if decision.kind is OpaqueIdentityDecisionKind.UNKNOWN:
+            if pair is None or self._page_change_guidance_pending:
+                self._page_change_guidance(ReadinessReason.FOOTER_IDENTITY_UNAVAILABLE, events)
             return
         self._emit_opaque_decision(
             decision,
@@ -781,6 +793,16 @@ class SampledFrameEngine:
             events,
         )
         if decision.kind is OpaqueIdentityDecisionKind.SAME:
+            self.guidance.observe(None, self.clock.monotonic())
+            self._page_change_guidance_pending = False
+            # SAME invalidates visual-change evidence collected before this
+            # identity decision. Do not let a later OCR misread reuse an old
+            # latch to release the page-change gate.
+            self._opaque_visual_page_changed = False
+            if self._page_change_baseline_preview is not None:
+                self.page_change_gate.arm(self._page_change_baseline_preview)
+            else:
+                self.page_change_gate.reset()
             self._opaque_collector = OpaqueQueryCollector(
                 self.opaque_identity_policy,
                 (reference,),
@@ -804,6 +826,7 @@ class SampledFrameEngine:
         self._opaque_waiting_reference = None
         self._opaque_visual_page_changed = False
         self.guidance.reset()
+        self._page_change_guidance_pending = False
         events.append(
             self._event(
                 VideoEventType.PAGE_CHANGED,
@@ -829,9 +852,24 @@ class SampledFrameEngine:
         self._transition(VideoSessionState.SEARCHING, events)
         self._next_sample_at = now + self.policy.sample_interval_ms / 1000.0
 
+    def _page_change_guidance(self, reason: ReadinessReason, events: list[VideoEvent]) -> None:
+        if self.state is not VideoSessionState.WAITING_FOR_PAGE_CHANGE:
+            return
+        guidance = self.guidance.observe(reason, self.clock.monotonic())
+        if guidance is not None:
+            events.append(self._event(
+                VideoEventType.GUIDANCE_REQUESTED, reason=guidance.reason,
+                details={"identity_role": OpaqueIdentityRole.PAGE_CHANGE.value,
+                         "stable_for_samples": guidance.stable_for_samples,
+                         "stable_for_ms": guidance.stable_for_ms},
+            ))
+
     def _read_frame_for_opaque(self, events: list[VideoEvent]):
         try:
             frame = self.camera.read()
+        except SnapshotTransportError as exc:
+            self._fail_snapshot(exc, events)
+            return None
         except FrameDecodeError:
             self._fail(ReadinessReason.FRAME_DECODE_FAILED, events)
             return None
@@ -1231,6 +1269,18 @@ class SampledFrameEngine:
             self._closed = True
         self._executor.shutdown(wait=False, cancel_futures=True)
 
+    def _cleanup_preparation_after_close(
+        self,
+        future: Future[PreparationDecision],
+    ) -> None:
+        """Dispose a preparation that finishes after its engine owner closes."""
+
+        with self._lock:
+            if not self._closed or future is not self._future:
+                return
+            self._discard_completed_preparation()
+            self._clear_processing()
+
     def __enter__(self) -> SampledFrameEngine:
         return self
 
@@ -1524,6 +1574,9 @@ class SampledFrameEngine:
         self._next_page_change_sample_at = now + self.page_change_policy.sample_interval_ms / 1000.0
         try:
             frame = self.camera.read()
+        except SnapshotTransportError as exc:
+            self._fail_snapshot(exc, events)
+            return
         except FrameDecodeError:
             self._fail(ReadinessReason.FRAME_DECODE_FAILED, events)
             return
@@ -1818,7 +1871,13 @@ class SampledFrameEngine:
         self._processing_job_id = None
         self._processing_started_at = None
 
-    def _fail(self, reason: ReadinessReason, events: list[VideoEvent]) -> None:
+    def _fail_snapshot(self, error: SnapshotTransportError, events: list[VideoEvent]) -> None:
+        self._fail(ReadinessReason.CAMERA_UNAVAILABLE, events, details={
+            "stage": "http_snapshot", "error_class": type(error).__name__,
+            "retryable": error.retryable, "http_status": error.status_code,
+        })
+
+    def _fail(self, reason: ReadinessReason, events: list[VideoEvent], *, details=None) -> None:
         self._stop_camera()
         self._emit_pending_opaque_discard(f"session_error:{reason.value}", events)
         self._release_pending()
@@ -1835,7 +1894,7 @@ class SampledFrameEngine:
         self._opaque_visual_page_changed = False
         self._clear_processing()
         self._transition(VideoSessionState.ERROR, events, reason=reason)
-        events.append(self._event(VideoEventType.SESSION_ERROR, reason=reason))
+        events.append(self._event(VideoEventType.SESSION_ERROR, reason=reason, details=details or {}))
 
     def _publish_preview_diagnostics(
         self,

@@ -1,0 +1,44 @@
+{
+  "test": "physical_down_to_reading_braille",
+  "result": "PASS",
+  "negotiated_protocol_evidence": "v2_async_short",
+  "audio_enabled": false,
+  "product_source_modified": false,
+  "before": {
+    "page_index": 1,
+    "node_index": 8,
+    "generation": 128,
+    "focus_item_id": "pg-c4b5938b7318-00000001-R-vl008",
+    "braille_cells": [11, 38, 45, 52]
+  },
+  "physical_input": {
+    "debug": "DOWN STEP",
+    "packet": "NAV,D,S,2",
+    "ack": "ACK,2"
+  },
+  "after": {
+    "page_index": 1,
+    "node_index": 9,
+    "generation": 129,
+    "focus_item_id": "pg-c4b5938b7318-00000001-R-vl009-L01",
+    "braille_cells": [38, 45, 34, 60, 1, 52, 11, 38, 45, 52],
+    "stm_frame": "FRAME,1,9,0,0,129,38,45,34,60,1,52,11,38,45,52"
+  },
+  "human_observation": {
+    "cursor_advanced_once": true,
+    "cells_moved": true,
+    "unexpected_repeat": false,
+    "abnormal_noise_vibration_or_stall": false
+  },
+  "limitations": [
+    "TTS was disabled to isolate this path from the known native supersession crash.",
+    "NAV,D,S,2 is V2 asynchronous SHORT evidence and does not establish the V3 ACTIVATED/RELEASED contract.",
+    "This single successful production-speed frame does not clear the intermittent FRAME transport P1.",
+    "This test does not clear the deterministic residual-raised-cell P1."
+  ],
+  "evidence_sha256": {
+    "h3r-physical-down-console.log": "4ded7ad84da4ed9e505fde1a872be058306d4a0a6e7a329325c06982e5941bc9",
+    "h3r-physical-down-events.jsonl": "fa84bf67b2808f09ef7b6c7c0d4c275eb11e5a31e0e9f49d8e31fdccfd6cad1c",
+    "h3r-physical-down-com5.jsonl": "1801beb263a35fe3c901909c58528964cd17413ad14c04f8fa8ea7731a9f4205"
+  }
+}

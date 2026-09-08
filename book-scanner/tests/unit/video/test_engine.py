@@ -251,6 +251,86 @@ def test_cancel_during_processing_releases_camera_and_discards_result() -> None:
     engine.close()
 
 
+def test_close_discards_late_preparation_without_another_poll() -> None:
+    clock = ManualClock()
+    entered = threading.Event()
+    release = threading.Event()
+
+    def blocking(frame, spread_id, job_id, session_id):
+        entered.set()
+        release.wait(2)
+        return _ready(frame, spread_id, job_id, session_id)
+
+    camera = FakeCameraSource(_frames(3))
+    store = FakeArtifactStore()
+    engine = SampledFrameEngine(
+        camera,
+        OpenCVCandidateAnalyzer(),
+        FakeSpreadPreparer(blocking),
+        store,
+        session_id="close-late-preparation",
+        clock=clock,
+        policy=_policy(),
+    )
+    engine.start()
+    for _ in range(3):
+        engine.poll(); clock.advance(0.1)
+    assert entered.wait(1)
+
+    engine.close()
+    assert camera.stopped
+    assert store.commits == []
+    release.set()
+    for _ in range(1000):
+        if store.discards:
+            break
+        time.sleep(0.001)
+
+    assert len(store.discards) == 1
+    assert store.commits == []
+    engine.close()
+    assert len(store.discards) == 1
+
+
+def test_close_discards_late_failed_preparation_job_without_another_poll() -> None:
+    clock = ManualClock()
+    entered = threading.Event()
+    release = threading.Event()
+
+    def blocking_failure(_frame, _spread_id, _job_id, _session_id):
+        entered.set()
+        release.wait(2)
+        raise RuntimeError("late preparation failure")
+
+    store = FakeArtifactStore()
+    engine = SampledFrameEngine(
+        FakeCameraSource(_frames(3)),
+        OpenCVCandidateAnalyzer(),
+        FakeSpreadPreparer(blocking_failure),
+        store,
+        session_id="close-late-failure",
+        clock=clock,
+        policy=_policy(),
+    )
+    engine.start()
+    for _ in range(3):
+        engine.poll(); clock.advance(0.1)
+    assert entered.wait(1)
+
+    engine.close()
+    release.set()
+    for _ in range(1000):
+        if store.discarded_jobs:
+            break
+        time.sleep(0.001)
+
+    assert len(store.discarded_jobs) == 1
+    assert store.discards == []
+    assert store.commits == []
+    engine.close()
+    assert len(store.discarded_jobs) == 1
+
+
 def test_processor_cannot_return_another_source_frame() -> None:
     clock = ManualClock()
 

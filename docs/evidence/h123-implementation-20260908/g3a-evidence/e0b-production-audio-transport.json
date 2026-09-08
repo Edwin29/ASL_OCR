@@ -1,0 +1,41 @@
+{
+  "authenticated": true,
+  "cache_bytes": 1996464,
+  "cache_entries": 4,
+  "cache_hits": 3,
+  "cache_limit_bytes": 8388608,
+  "cache_limit_entries": 4,
+  "client_wav_persisted": false,
+  "cross_session_request_rejected": true,
+  "failures": 0,
+  "fetch_count": 4,
+  "interruptions": 1,
+  "p030_target": {
+    "audio_ref_digest": "3061658bea9b",
+    "braille_cell_count": 11,
+    "braille_cells": [
+      11,
+      38,
+      45,
+      52,
+      18,
+      18,
+      60,
+      3,
+      24,
+      20,
+      45
+    ],
+    "focus_item_id": "pg-f6b50fe25b44-00000001-L-vl003-L01",
+    "node_index": 2,
+    "page_id": "pg-f6b50fe25b44-00000001-L",
+    "playback_requested": false
+  },
+  "pages_presented": 4,
+  "playback_completions": 8,
+  "playback_starts": 9,
+  "system_audio_cross_device_rejected": true,
+  "system_audio_fetch_count": 2,
+  "system_audio_unauthorized_rejected": true,
+  "unauthorized_request_rejected": true
+}

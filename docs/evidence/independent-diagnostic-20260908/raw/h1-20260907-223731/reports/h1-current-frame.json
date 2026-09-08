@@ -1,0 +1,9 @@
+{
+  "frame_id": "phone-snapshot-00000001",
+  "width": 4000,
+  "height": 3000,
+  "pixel_sha256": "3fbcb9942c2af7024d0e075c1727958a00c4fa1fe7250114958372eedfe66e46",
+  "jpeg_sha256": "6bc4a009540cbca3ea51c69fab70da7e892dcc4eddf64902aa6b1d824ec06799",
+  "path": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\h1-20260907-223731\\captures\\h1-current-frame.jpg",
+  "production_source": "HttpSnapshotCameraSource"
+}

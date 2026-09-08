@@ -1,0 +1,533 @@
+{
+  "python": "3.11.8 (tags/v3.11.8:db85d51, Feb  6 2024, 22:03:32) [MSC v.1937 64 bit (AMD64)]",
+  "results": {
+    "liveness_fast": {
+      "latency_per_observation": 1.9,
+      "budget_ms": 8000,
+      "elapsed_ms": 9580.0,
+      "N": 5,
+      "state": "searching",
+      "observations": 5,
+      "decisions": [
+        {
+          "strategy": "m1_selected_raw_pair",
+          "input_stage": "preview_native",
+          "query_sample_count": 5,
+          "k_same": 1,
+          "k_different": 0,
+          "validated": false,
+          "provenance": "v3a4_two_spread_default_validation_deferred",
+          "recognizer_load_count": null,
+          "recognizer_call_count": null,
+          "recognition_cache_hits": null,
+          "recognition_cache_depth": null,
+          "identity_role": "page_change",
+          "decision": "different",
+          "valid_observations": 5,
+          "match_count": 0,
+          "novel_consensus_count": 5,
+          "coherent_numeric_difference": true,
+          "matched_artifact_id": null,
+          "timed_out": false
+        }
+      ],
+      "event_types": [
+        "opaque_identity_decided",
+        "opaque_identity_observed",
+        "page_change_observed",
+        "page_changed",
+        "state_changed"
+      ]
+    },
+    "liveness_slow": {
+      "latency_per_observation": 2.5,
+      "budget_ms": 8000,
+      "elapsed_ms": 50400.00000000002,
+      "N": 5,
+      "state": "waiting_for_page_change",
+      "observations": 20,
+      "decisions": [
+        {
+          "strategy": "m1_selected_raw_pair",
+          "input_stage": "preview_native",
+          "query_sample_count": 5,
+          "k_same": 1,
+          "k_different": 0,
+          "validated": false,
+          "provenance": "v3a4_two_spread_default_validation_deferred",
+          "recognizer_load_count": null,
+          "recognizer_call_count": null,
+          "recognition_cache_hits": null,
+          "recognition_cache_depth": null,
+          "identity_role": "page_change",
+          "decision": "unknown",
+          "valid_observations": 4,
+          "match_count": 0,
+          "novel_consensus_count": 4,
+          "coherent_numeric_difference": false,
+          "matched_artifact_id": null,
+          "timed_out": true
+        },
+        {
+          "strategy": "m1_selected_raw_pair",
+          "input_stage": "preview_native",
+          "query_sample_count": 5,
+          "k_same": 1,
+          "k_different": 0,
+          "validated": false,
+          "provenance": "v3a4_two_spread_default_validation_deferred",
+          "recognizer_load_count": null,
+          "recognizer_call_count": null,
+          "recognition_cache_hits": null,
+          "recognition_cache_depth": null,
+          "identity_role": "page_change",
+          "decision": "unknown",
+          "valid_observations": 4,
+          "match_count": 0,
+          "novel_consensus_count": 4,
+          "coherent_numeric_difference": false,
+          "matched_artifact_id": null,
+          "timed_out": true
+        },
+        {
+          "strategy": "m1_selected_raw_pair",
+          "input_stage": "preview_native",
+          "query_sample_count": 5,
+          "k_same": 1,
+          "k_different": 0,
+          "validated": false,
+          "provenance": "v3a4_two_spread_default_validation_deferred",
+          "recognizer_load_count": null,
+          "recognizer_call_count": null,
+          "recognition_cache_hits": null,
+          "recognition_cache_depth": null,
+          "identity_role": "page_change",
+          "decision": "unknown",
+          "valid_observations": 4,
+          "match_count": 0,
+          "novel_consensus_count": 4,
+          "coherent_numeric_difference": false,
+          "matched_artifact_id": null,
+          "timed_out": true
+        },
+        {
+          "strategy": "m1_selected_raw_pair",
+          "input_stage": "preview_native",
+          "query_sample_count": 5,
+          "k_same": 1,
+          "k_different": 0,
+          "validated": false,
+          "provenance": "v3a4_two_spread_default_validation_deferred",
+          "recognizer_load_count": null,
+          "recognizer_call_count": null,
+          "recognition_cache_hits": null,
+          "recognition_cache_depth": null,
+          "identity_role": "page_change",
+          "decision": "unknown",
+          "valid_observations": 4,
+          "match_count": 0,
+          "novel_consensus_count": 4,
+          "coherent_numeric_difference": false,
+          "matched_artifact_id": null,
+          "timed_out": true
+        }
+      ],
+      "event_types": [
+        "opaque_identity_decided",
+        "opaque_identity_observed",
+        "page_change_observed"
+      ]
+    },
+    "liveness_missing": {
+      "latency_per_observation": 2.5,
+      "budget_ms": 8000,
+      "elapsed_ms": 50400.00000000002,
+      "N": 5,
+      "state": "waiting_for_page_change",
+      "observations": 20,
+      "decisions": [
+        {
+          "strategy": "m1_selected_raw_pair",
+          "input_stage": "preview_native",
+          "query_sample_count": 5,
+          "k_same": 1,
+          "k_different": 0,
+          "validated": false,
+          "provenance": "v3a4_two_spread_default_validation_deferred",
+          "recognizer_load_count": null,
+          "recognizer_call_count": null,
+          "recognition_cache_hits": null,
+          "recognition_cache_depth": null,
+          "identity_role": "page_change",
+          "decision": "unknown",
+          "valid_observations": 0,
+          "match_count": 0,
+          "novel_consensus_count": 0,
+          "coherent_numeric_difference": false,
+          "matched_artifact_id": null,
+          "timed_out": true
+        },
+        {
+          "strategy": "m1_selected_raw_pair",
+          "input_stage": "preview_native",
+          "query_sample_count": 5,
+          "k_same": 1,
+          "k_different": 0,
+          "validated": false,
+          "provenance": "v3a4_two_spread_default_validation_deferred",
+          "recognizer_load_count": null,
+          "recognizer_call_count": null,
+          "recognition_cache_hits": null,
+          "recognition_cache_depth": null,
+          "identity_role": "page_change",
+          "decision": "unknown",
+          "valid_observations": 0,
+          "match_count": 0,
+          "novel_consensus_count": 0,
+          "coherent_numeric_difference": false,
+          "matched_artifact_id": null,
+          "timed_out": true
+        },
+        {
+          "strategy": "m1_selected_raw_pair",
+          "input_stage": "preview_native",
+          "query_sample_count": 5,
+          "k_same": 1,
+          "k_different": 0,
+          "validated": false,
+          "provenance": "v3a4_two_spread_default_validation_deferred",
+          "recognizer_load_count": null,
+          "recognizer_call_count": null,
+          "recognition_cache_hits": null,
+          "recognition_cache_depth": null,
+          "identity_role": "page_change",
+          "decision": "unknown",
+          "valid_observations": 0,
+          "match_count": 0,
+          "novel_consensus_count": 0,
+          "coherent_numeric_difference": false,
+          "matched_artifact_id": null,
+          "timed_out": true
+        },
+        {
+          "strategy": "m1_selected_raw_pair",
+          "input_stage": "preview_native",
+          "query_sample_count": 5,
+          "k_same": 1,
+          "k_different": 0,
+          "validated": false,
+          "provenance": "v3a4_two_spread_default_validation_deferred",
+          "recognizer_load_count": null,
+          "recognizer_call_count": null,
+          "recognition_cache_hits": null,
+          "recognition_cache_depth": null,
+          "identity_role": "page_change",
+          "decision": "unknown",
+          "valid_observations": 0,
+          "match_count": 0,
+          "novel_consensus_count": 0,
+          "coherent_numeric_difference": false,
+          "matched_artifact_id": null,
+          "timed_out": true
+        }
+      ],
+      "event_types": [
+        "opaque_identity_decided",
+        "opaque_identity_observed",
+        "page_change_observed"
+      ]
+    },
+    "liveness_slow_30s": {
+      "latency_per_observation": 2.5,
+      "budget_ms": 30000,
+      "elapsed_ms": 12579.999999999998,
+      "N": 5,
+      "state": "searching",
+      "observations": 5,
+      "decisions": [
+        {
+          "strategy": "m1_selected_raw_pair",
+          "input_stage": "preview_native",
+          "query_sample_count": 5,
+          "k_same": 1,
+          "k_different": 0,
+          "validated": false,
+          "provenance": "v3a4_two_spread_default_validation_deferred",
+          "recognizer_load_count": null,
+          "recognizer_call_count": null,
+          "recognition_cache_hits": null,
+          "recognition_cache_depth": null,
+          "identity_role": "page_change",
+          "decision": "different",
+          "valid_observations": 5,
+          "match_count": 0,
+          "novel_consensus_count": 5,
+          "coherent_numeric_difference": true,
+          "matched_artifact_id": null,
+          "timed_out": false
+        }
+      ],
+      "event_types": [
+        "opaque_identity_decided",
+        "opaque_identity_observed",
+        "page_change_observed",
+        "page_changed",
+        "state_changed"
+      ]
+    },
+    "snapshot_taxonomy": {
+      "timeout": {
+        "calls": 1,
+        "state": "error",
+        "events": [
+          [
+            "state_changed",
+            "frame_decode_failed"
+          ],
+          [
+            "session_error",
+            "frame_decode_failed"
+          ]
+        ]
+      },
+      "401": {
+        "calls": 1,
+        "state": "error",
+        "events": [
+          [
+            "state_changed",
+            "frame_decode_failed"
+          ],
+          [
+            "session_error",
+            "frame_decode_failed"
+          ]
+        ]
+      },
+      "503": {
+        "calls": 1,
+        "state": "error",
+        "events": [
+          [
+            "state_changed",
+            "frame_decode_failed"
+          ],
+          [
+            "session_error",
+            "frame_decode_failed"
+          ]
+        ]
+      }
+    },
+    "decode_once_then_good": {
+      "calls": 2,
+      "result": "success"
+    },
+    "decode_persistent": {
+      "calls": 3,
+      "result": "FrameDecodeError"
+    },
+    "guidance_mapper_positive_control": [
+      "s0-system-cue:scan.guidance",
+      30,
+      "guidance",
+      false
+    ],
+    "native_call_overlap": [
+      [
+        {
+          "abort_overlaps_write": true
+        },
+        {
+          "stop_overlaps_abort": true
+        },
+        {
+          "close_overlaps_abort": true
+        }
+      ],
+      [
+        {
+          "abort_overlaps_write": true
+        },
+        {
+          "stop_overlaps_abort": true
+        },
+        {
+          "close_overlaps_abort": true
+        }
+      ],
+      [
+        {
+          "abort_overlaps_write": true
+        },
+        {
+          "stop_overlaps_abort": true
+        },
+        {
+          "close_overlaps_abort": true
+        }
+      ],
+      [
+        {
+          "abort_overlaps_write": true
+        },
+        {
+          "stop_overlaps_abort": true
+        },
+        {
+          "close_overlaps_abort": true
+        }
+      ],
+      [
+        {
+          "abort_overlaps_write": true
+        },
+        {
+          "stop_overlaps_abort": true
+        },
+        {
+          "close_overlaps_abort": true
+        }
+      ],
+      [
+        {
+          "abort_overlaps_write": true
+        },
+        {
+          "stop_overlaps_abort": true
+        },
+        {
+          "close_overlaps_abort": true
+        }
+      ],
+      [
+        {
+          "abort_overlaps_write": true
+        },
+        {
+          "stop_overlaps_abort": true
+        },
+        {
+          "close_overlaps_abort": true
+        }
+      ],
+      [
+        {
+          "abort_overlaps_write": true
+        },
+        {
+          "stop_overlaps_abort": true
+        },
+        {
+          "close_overlaps_abort": true
+        }
+      ],
+      [
+        {
+          "abort_overlaps_write": true
+        },
+        {
+          "stop_overlaps_abort": true
+        },
+        {
+          "close_overlaps_abort": true
+        }
+      ],
+      [
+        {
+          "abort_overlaps_write": true
+        },
+        {
+          "stop_overlaps_abort": true
+        },
+        {
+          "close_overlaps_abort": true
+        }
+      ]
+    ],
+    "notify_before_stop_current_generation_failure": [
+      {
+        "code": "reading_audio_fetch_started",
+        "audio_kind": "reading",
+        "audio_ref_digest": "1ab17d54f767",
+        "generation": 1
+      },
+      {
+        "code": "reading_audio_playback_started",
+        "audio_kind": "reading",
+        "audio_ref_digest": "1ab17d54f767",
+        "generation": 1,
+        "content_length": 172,
+        "duration_ms": 8
+      },
+      {
+        "code": "reading_audio_failed",
+        "audio_kind": "reading",
+        "audio_ref_digest": "1ab17d54f767",
+        "generation": 1,
+        "error_class": "OSError",
+        "retryable": false
+      }
+    ],
+    "release_overtakes_activation": {
+      "batches": [
+        [
+          "stm-diagnostic-0001-0000000001",
+          "stm-diagnostic-0001-0000000002",
+          "stm-diagnostic-0001-0000000003",
+          "stm-diagnostic-0001-0000000004",
+          "stm-diagnostic-0001-0000000005",
+          "stm-diagnostic-0001-0000000006",
+          "stm-diagnostic-0001-0000000007",
+          "stm-diagnostic-0001-0000000008",
+          "stm-diagnostic-0001-0000000009",
+          "stm-diagnostic-0001-0000000010",
+          "stm-diagnostic-0001-0000000011",
+          "stm-diagnostic-0001-0000000012",
+          "stm-diagnostic-0001-0000000013",
+          "stm-diagnostic-0001-0000000014",
+          "stm-diagnostic-0001-0000000015",
+          "stm-diagnostic-0001-0000000018"
+        ],
+        [
+          "stm-diagnostic-0001-0000000016",
+          "stm-diagnostic-0001-0000000017"
+        ]
+      ],
+      "host_writes": [
+        "ACK,HELLO,3",
+        "FRAME,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+        "ACK,1",
+        "ACK,2",
+        "ACK,3",
+        "ACK,4",
+        "ACK,5",
+        "ACK,6",
+        "ACK,7",
+        "ACK,8",
+        "ACK,9",
+        "ACK,10",
+        "ACK,11",
+        "ACK,12",
+        "ACK,13",
+        "ACK,14",
+        "ACK,15",
+        "ACK,16",
+        "ACK,17",
+        "ACK,18"
+      ],
+      "hold_active_after_physical_release": true,
+      "late_repeat_count": 1
+    },
+    "android_preflight_wrong_source": {
+      "width": 640,
+      "height": 480,
+      "frame_id": "webcam"
+    },
+    "android_preflight_profile_rejection": "physical E0-B requires pc_camera or android_uvc",
+    "cli_return_after_handled_fatal": 0,
+    "cli_feedback": [
+      "fatal_error"
+    ]
+  }
+}

@@ -1,0 +1,83 @@
+
+
+================================BT: V2 UNAVAILABLE, TRY LEGACY
+
+
+========================================
+ BRAILLE DISPLAY - HC05 + GITHUB NAV
+ PCA1=TOP / PCA2=BOTTOM
+========================================
+HC-05 UART = 9600 baud
+PCA 0x40 FOUND
+PCA 0x41 FOUND
+PCA INIT OK
+PCA1 0x40 CH0~9 = TOP Cell1~10
+PCA2 0x41 CH0~9 = BOTTOM Cell1~10
+
+BUTTONS
+CN7-28 / PA0 = UP
+CN7-30 / PA1 = DOWN
+CN7-32 / PA4 = LEFT
+CN7-34 / PB0 = RIGHT
+CN10-24 / PB1 = PAGE NEXT
+PC0 = PAGE PREVIOUS
+PC1 = CONFIRM (release sends SHORT or LONG)
+PC2 = MODE LEVER (LOW=capture, HIGH=reading)
+Tap = 1 step
+Hold >= 650ms = auto-repeat every 180ms
+
+BT: HELLO V3...
+BT: HOST CONNECTED (V3 EDGES)
+BT TX: NAV,V,R,1
+BT RX: ACK,1
+BT ACK: 1
+BT RX: FRAME,0,40,0,0,140,0,0,0,0,0,0,0,0,0,0
+
+========================================
+PAGE   = 0
+NODE   = 40
+SPAN   = 0
+OFFSET = 0
+GEN    = 140
+CELLS  = 0,0,0,0,0,0,0,0,0,0
+========================================
+BT RX: FRAME,0,41,0,0,141,7,0,0,0,0,0,0,0,0,0
+
+========================================
+PAGE   = 0
+NODE   = 41
+SPAN   = 0
+OFFSET = 0
+GEN    = 141
+CELLS  = 7,0,0,0,0,0,0,0,0,0
+========================================
+BT RX: FRAME,0,42,0,0,142,0,0,0,0,0,0,0,0,0,0
+
+========================================
+PAGE   = 0
+NODE   = 42
+SPAN   = 0
+OFFSET = 0
+GEN    = 142
+CELLS  = 0,0,0,0,0,0,0,0,0,0
+========================================
+BT RX: FRAME,0,43,0,0,143,56,0,0,0,0,0,0,0,0,0
+
+========================================
+PAGE   = 0
+NODE   = 43
+SPAN   = 0
+OFFSET = 0
+GEN    = 143
+CELLS  = 56,0,0,0,0,0,0,0,0,0
+========================================
+BT RX: FRAME,0,44,0,0,144,0,0,0,0,0,0,0,0,0,0
+
+========================================
+PAGE   = 0
+NODE   = 44
+SPAN   = 0
+OFFSET = 0
+GEN    = 144
+CELLS  = 0,0,0,0,0,0,0,0,0,0
+========================================

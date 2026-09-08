@@ -1,0 +1,54 @@
+{
+  "kind": "operator_console_observation",
+  "source": "user transcription from the live Laptop production console after physical reframing",
+  "identity_role": "page_change",
+  "physical_adjustment": "Book enlarged in frame as instructed; pages 28/29 held fixed",
+  "observed_cycles": [
+    {
+      "progress": [3, 4],
+      "decision": "unknown",
+      "valid_observations": 4,
+      "timed_out": true,
+      "effective_interval_ms_range": [1922.0, 2594.0]
+    },
+    {
+      "progress": [1, 2, 3, 4],
+      "decision": "unknown",
+      "valid_observations": 4,
+      "timed_out": true,
+      "effective_interval_ms_range": [1843.0, 2282.0]
+    },
+    {
+      "progress": [1, 2, 3, 4],
+      "decision": "unknown",
+      "valid_observations": 4,
+      "timed_out": true,
+      "effective_interval_ms_range": [1859.0, 2453.0]
+    },
+    {
+      "progress": [1, 2, 3, 4],
+      "decision": "unknown",
+      "valid_observations": 4,
+      "timed_out": true,
+      "effective_interval_ms_range": [1859.0, 2343.0]
+    },
+    {
+      "progress": [1, 2, 3, 4],
+      "decision": "unknown",
+      "valid_observations": 4,
+      "timed_out": true,
+      "effective_interval_ms_range": [1938.0, 2359.0]
+    }
+  ],
+  "recognition_processing_ms_observed_range": [570.3758, 1391.9975],
+  "guidance": {
+    "guidance_code": "footer_identity_unavailable",
+    "stable_for_samples_max": 123,
+    "stable_for_ms_max": 148110,
+    "audio_cache_hit": true,
+    "audio_playback_started": true,
+    "audio_playback_completed": true
+  },
+  "sequence_2_observed": false,
+  "credential_values_recorded": false
+}

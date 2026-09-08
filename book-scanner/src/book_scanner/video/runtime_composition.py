@@ -175,23 +175,7 @@ class LocalBookScannerEngineFactory:
                 source_label=f"android_uvc:{self.config.camera_backend}",
             )
         if self.config.profile == "android_ip_camera":
-            assert self.config.camera_snapshot_url is not None
-            source = HttpSnapshotCameraSource(
-                self.config.camera_snapshot_url,
-                username=self.config.camera_snapshot_username,
-                password_file=self.config.camera_snapshot_password_file,
-                tls_ca_file=self.config.camera_snapshot_tls_ca_file,
-                allow_insecure_tls=self.config.camera_snapshot_allow_insecure_tls,
-                timeout_seconds=self.config.camera_snapshot_timeout_seconds,
-                max_response_bytes=self.config.camera_snapshot_max_response_bytes,
-                min_width=self.config.camera_snapshot_min_width,
-                min_height=self.config.camera_snapshot_min_height,
-                rotation=self.config.camera_rotation,
-                landscape_rotation=self.config.camera_snapshot_landscape_rotation,
-                portrait_rotation=self.config.camera_snapshot_portrait_rotation,
-                mirror=self.config.camera_mirror,
-                crop_normalized=self.config.camera_crop_normalized,
-            )
+            source = create_snapshot_source(self.config)
             return self._with_operator_preview(
                 source,
                 source_label="android_ip_camera:snapshot",
@@ -275,4 +259,25 @@ def _effective_scanner_config(
             effective.opaque_footer_identity,
             max_collection_ms=timeout,
         ),
+    )
+
+
+def create_snapshot_source(config) -> HttpSnapshotCameraSource:
+    """Share strict IP source configuration between production and preflight."""
+    assert config.camera_snapshot_url is not None
+    return HttpSnapshotCameraSource(
+        config.camera_snapshot_url,
+        username=config.camera_snapshot_username,
+        password_file=config.camera_snapshot_password_file,
+        tls_ca_file=config.camera_snapshot_tls_ca_file,
+        allow_insecure_tls=config.camera_snapshot_allow_insecure_tls,
+        timeout_seconds=config.camera_snapshot_timeout_seconds,
+        max_response_bytes=config.camera_snapshot_max_response_bytes,
+        min_width=config.camera_snapshot_min_width,
+        min_height=config.camera_snapshot_min_height,
+        rotation=config.camera_rotation,
+        landscape_rotation=config.camera_snapshot_landscape_rotation,
+        portrait_rotation=config.camera_snapshot_portrait_rotation,
+        mirror=config.camera_mirror,
+        crop_normalized=config.camera_crop_normalized,
     )

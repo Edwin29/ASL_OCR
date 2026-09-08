@@ -1,0 +1,22 @@
+{
+  "version": "3.5",
+  "module": "C:\\ASL_OCR_INTEGRATION\\.venv-e0b\\Lib\\site-packages\\serial\\__init__.py",
+  "read_until_source": "    def read_until(self, expected=LF, size=None):\n        \"\"\"\\\n        Read until an expected sequence is found ('\\n' by default), the size\n        is exceeded or until timeout occurs.\n        \"\"\"\n        lenterm = len(expected)\n        line = bytearray()\n        timeout = Timeout(self._timeout)\n        while True:\n            c = self.read(1)\n            if c:\n                line += c\n                if line[-lenterm:] == expected:\n                    break\n                if size is not None and len(line) >= size:\n                    break\n            else:\n                break\n            if timeout.expired():\n                break\n        return bytes(line)\n",
+  "read_until_sha256": "e962da8dffcc542caaa7b9e487ae067cad405c9ccedde2813a25b6d1cf38e4ed",
+  "timeout_seconds": 0.05,
+  "producer_bytes": 80,
+  "producer_spacing_seconds": 0.005,
+  "physical_packets": 0,
+  "results": [
+    {
+      "method": "readline",
+      "bytes": 80,
+      "elapsed_seconds": 0.5
+    },
+    {
+      "method": "read_until",
+      "bytes": 11,
+      "elapsed_seconds": 0.062000000005355105
+    }
+  ]
+}
