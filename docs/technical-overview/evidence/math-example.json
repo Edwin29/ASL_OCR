@@ -1,0 +1,70 @@
+{
+  "scope": "synthetic pure function example; no physical output",
+  "input_latex": "\\frac{1}{2}",
+  "ast": {
+    "type": "Fraction",
+    "numerator": {
+      "type": "Number",
+      "value": "1"
+    },
+    "denominator": {
+      "type": "Number",
+      "value": "2"
+    }
+  },
+  "issues": [],
+  "unconsumed_tokens": [],
+  "speech_rule_output": "2분의 1",
+  "logical_dot_sets": [
+    [
+      3,
+      4,
+      5,
+      6
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      3,
+      4,
+      5,
+      6
+    ],
+    [
+      1
+    ]
+  ],
+  "window": {
+    "source_id": "documentation-example",
+    "cells": [
+      60,
+      3,
+      12,
+      60,
+      1
+    ],
+    "offset": 0,
+    "viewport_size": 10,
+    "total_cell_count": 5,
+    "has_previous": false,
+    "has_next": false
+  },
+  "ten_cell_payload_after_zero_padding": [
+    60,
+    3,
+    12,
+    60,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

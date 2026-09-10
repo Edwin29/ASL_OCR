@@ -1,0 +1,836 @@
+{
+  "equation_windows": [
+    {
+      "source_id": "equation-example",
+      "cells": [
+        38,
+        45,
+        34,
+        60,
+        1,
+        52,
+        24,
+        60,
+        3,
+        18
+      ],
+      "offset": 0,
+      "viewport_size": 10,
+      "total_cell_count": 13,
+      "has_previous": false,
+      "has_next": true
+    },
+    {
+      "source_id": "equation-example",
+      "cells": [
+        18,
+        60,
+        10
+      ],
+      "offset": 10,
+      "viewport_size": 10,
+      "total_cell_count": 13,
+      "has_previous": true,
+      "has_next": false
+    }
+  ],
+  "scope": "controlled text/VL-result/raw-pair fixtures; no OCR inference or physical output",
+  "math": [
+    {
+      "input": "(x+1)^2=9",
+      "ast": {
+        "type": "Relation",
+        "operator": "=",
+        "left": {
+          "type": "Power",
+          "base": {
+            "type": "Parenthesized",
+            "body": {
+              "type": "Row",
+              "children": [
+                {
+                  "type": "Identifier",
+                  "value": "x"
+                },
+                {
+                  "type": "Operator",
+                  "value": "+"
+                },
+                {
+                  "type": "Number",
+                  "value": "1"
+                }
+              ]
+            },
+            "delimiter": "("
+          },
+          "exponent": {
+            "type": "Number",
+            "value": "2"
+          }
+        },
+        "right": {
+          "type": "Number",
+          "value": "9"
+        }
+      },
+      "status": "VALID",
+      "issues": [],
+      "unconsumed_tokens": [],
+      "speech": "괄호 열고 x 더하기 1 괄호 닫고의 2 제곱은 9와 같다",
+      "braille": [
+        38,
+        45,
+        34,
+        60,
+        1,
+        52,
+        24,
+        60,
+        3,
+        18,
+        18,
+        60,
+        10
+      ]
+    },
+    {
+      "input": "(x+\\unsupported)^2=9",
+      "ast": {
+        "type": "Relation",
+        "operator": "=",
+        "left": {
+          "type": "Power",
+          "base": {
+            "type": "Parenthesized",
+            "body": {
+              "type": "Row",
+              "children": [
+                {
+                  "type": "Identifier",
+                  "value": "x"
+                },
+                {
+                  "type": "Operator",
+                  "value": "+"
+                },
+                {
+                  "type": "Unknown",
+                  "value": "\\unsupported"
+                }
+              ]
+            },
+            "delimiter": "("
+          },
+          "exponent": {
+            "type": "Number",
+            "value": "2"
+          }
+        },
+        "right": {
+          "type": "Number",
+          "value": "9"
+        }
+      },
+      "status": "PARTIAL",
+      "issues": [
+        {
+          "code": "AST_UNKNOWN_COMMAND",
+          "severity": "warning",
+          "message": "Unrecognized command \\unsupported preserved as an Unknown node."
+        },
+        {
+          "code": "AST_UNKNOWN_NODE",
+          "severity": "info",
+          "message": "Unparsed fragment at $.left.base.body.children[2]: '\\\\unsupported'."
+        }
+      ],
+      "unconsumed_tokens": [],
+      "speech": "일부 기호 인식이 불확실합니다. 괄호 열고 x 더하기 인식할 수 없는 기호 괄호 닫고의 2 제곱은 9와 같다",
+      "braille": []
+    },
+    {
+      "input": "(x+1)^2=",
+      "ast": {
+        "type": "Relation",
+        "operator": "=",
+        "left": {
+          "type": "Power",
+          "base": {
+            "type": "Parenthesized",
+            "body": {
+              "type": "Row",
+              "children": [
+                {
+                  "type": "Identifier",
+                  "value": "x"
+                },
+                {
+                  "type": "Operator",
+                  "value": "+"
+                },
+                {
+                  "type": "Number",
+                  "value": "1"
+                }
+              ]
+            },
+            "delimiter": "("
+          },
+          "exponent": {
+            "type": "Number",
+            "value": "2"
+          }
+        },
+        "right": {
+          "type": "Unknown",
+          "value": ""
+        }
+      },
+      "status": "INVALID",
+      "issues": [
+        {
+          "code": "AST_UNEXPECTED_END",
+          "severity": "error",
+          "message": "Expected an expression but reached the end of input."
+        },
+        {
+          "code": "AST_UNKNOWN_NODE",
+          "severity": "info",
+          "message": "Unparsed fragment at $.right: ''."
+        }
+      ],
+      "unconsumed_tokens": [],
+      "speech": "수식 인식이 불확실합니다.",
+      "braille": []
+    }
+  ],
+  "page": {
+    "input_blocks": [
+      {
+        "block_label": "display_formula",
+        "block_content": "(x+1)^2=9",
+        "block_order": 3,
+        "block_id": 3,
+        "block_bbox": [
+          50,
+          200,
+          700,
+          240
+        ]
+      },
+      {
+        "block_label": "text",
+        "block_content": "① 1 ② 2 ③ 3 ④ 4 ⑤ 5",
+        "block_order": 4,
+        "block_id": 4,
+        "block_bbox": [
+          50,
+          250,
+          700,
+          290
+        ]
+      },
+      {
+        "block_label": "text",
+        "block_content": "[26008-0011]",
+        "block_order": 1,
+        "block_id": 1,
+        "block_bbox": [
+          50,
+          100,
+          700,
+          140
+        ]
+      },
+      {
+        "block_label": "text",
+        "block_content": "다음 방정식의 양의 해를 고르시오.",
+        "block_order": 2,
+        "block_id": 2,
+        "block_bbox": [
+          50,
+          150,
+          700,
+          190
+        ]
+      }
+    ],
+    "page_ir": {
+      "page_id": "doc-example",
+      "page_geometry": {
+        "width": 1000,
+        "height": 1400
+      },
+      "nodes": [
+        {
+          "node_id": "doc-example-vl001",
+          "bbox": {
+            "x": 50.0,
+            "y": 100.0,
+            "width": 650.0,
+            "height": 40.0
+          },
+          "normalized_bbox": {
+            "x": 0.05,
+            "y": 0.071429,
+            "width": 0.65,
+            "height": 0.028571
+          },
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [
+            {
+              "code": "TEXT_EMBEDDED_IN_PROBLEM_UNIT",
+              "severity": "info",
+              "message": "OCR TEXT node is embedded in detected problem unit doc-example-problem-001 with role 'problem_code'."
+            }
+          ],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 1,
+            "problem_unit_role": "problem_code",
+            "promoted_into_structure_node_id": "doc-example-problem-001"
+          },
+          "content_type": "TEXT",
+          "raw_text": "[26008-0011]",
+          "normalized_text": "[26008-0011]",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "[26008-0011]"
+            }
+          ],
+          "is_primary_reading_order_candidate": false,
+          "parent_structure_node_id": "doc-example-problem-001"
+        },
+        {
+          "node_id": "doc-example-vl002",
+          "bbox": {
+            "x": 50.0,
+            "y": 150.0,
+            "width": 650.0,
+            "height": 40.0
+          },
+          "normalized_bbox": {
+            "x": 0.05,
+            "y": 0.107143,
+            "width": 0.65,
+            "height": 0.028571
+          },
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [
+            {
+              "code": "TEXT_EMBEDDED_IN_PROBLEM_UNIT",
+              "severity": "info",
+              "message": "OCR TEXT node is embedded in detected problem unit doc-example-problem-001 with role 'stem'."
+            }
+          ],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 2,
+            "problem_unit_role": "stem",
+            "promoted_into_structure_node_id": "doc-example-problem-001"
+          },
+          "content_type": "TEXT",
+          "raw_text": "다음 방정식의 양의 해를 고르시오.",
+          "normalized_text": "다음 방정식의 양의 해를 고르시오.",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "다음 방정식의 양의 해를 고르시오."
+            }
+          ],
+          "is_primary_reading_order_candidate": false,
+          "parent_structure_node_id": "doc-example-problem-001"
+        },
+        {
+          "node_id": "doc-example-vl003",
+          "bbox": {
+            "x": 50.0,
+            "y": 200.0,
+            "width": 650.0,
+            "height": 40.0
+          },
+          "normalized_bbox": {
+            "x": 0.05,
+            "y": 0.142857,
+            "width": 0.65,
+            "height": 0.028571
+          },
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [
+            {
+              "code": "CONTENT_EMBEDDED_IN_PROBLEM_UNIT",
+              "severity": "info",
+              "message": "OCR MATH node is embedded in detected problem unit doc-example-problem-001 with role 'stem'."
+            }
+          ],
+          "layout": {
+            "vl_block_label": "display_formula",
+            "vl_block_id": 3,
+            "problem_unit_role": "stem",
+            "promoted_into_structure_node_id": "doc-example-problem-001"
+          },
+          "content_type": "MATH",
+          "raw_formula": "(x+1)^2=9",
+          "formula_format": "LATEX",
+          "presentation_ast": {
+            "type": "Relation",
+            "operator": "=",
+            "left": {
+              "type": "Power",
+              "base": {
+                "type": "Parenthesized",
+                "body": {
+                  "type": "Row",
+                  "children": [
+                    {
+                      "type": "Identifier",
+                      "value": "x"
+                    },
+                    {
+                      "type": "Operator",
+                      "value": "+"
+                    },
+                    {
+                      "type": "Number",
+                      "value": "1"
+                    }
+                  ]
+                },
+                "delimiter": "("
+              },
+              "exponent": {
+                "type": "Number",
+                "value": "2"
+              }
+            },
+            "right": {
+              "type": "Number",
+              "value": "9"
+            }
+          },
+          "unconsumed_tokens": [],
+          "is_primary_reading_order_candidate": false,
+          "parent_structure_node_id": "doc-example-problem-001"
+        },
+        {
+          "node_id": "doc-example-vl004",
+          "bbox": {
+            "x": 50.0,
+            "y": 250.0,
+            "width": 650.0,
+            "height": 40.0
+          },
+          "normalized_bbox": {
+            "x": 0.05,
+            "y": 0.178571,
+            "width": 0.65,
+            "height": 0.028571
+          },
+          "confidence": 1.0,
+          "source_engine": "paddleocr-vl",
+          "issues": [
+            {
+              "code": "TEXT_EMBEDDED_IN_PROBLEM_UNIT",
+              "severity": "info",
+              "message": "OCR TEXT node is embedded in detected problem unit doc-example-problem-001 with role 'choices'."
+            }
+          ],
+          "layout": {
+            "vl_block_label": "text",
+            "vl_block_id": 4,
+            "problem_unit_role": "choices",
+            "promoted_into_structure_node_id": "doc-example-problem-001"
+          },
+          "content_type": "TEXT",
+          "raw_text": "① 1 ② 2 ③ 3 ④ 4 ⑤ 5",
+          "normalized_text": "① 1 ② 2 ③ 3 ④ 4 ⑤ 5",
+          "spans": [
+            {
+              "span_type": "TEXT",
+              "text": "① 1 ② 2 ③ 3 ④ 4 ⑤ 5"
+            }
+          ],
+          "is_primary_reading_order_candidate": false,
+          "parent_structure_node_id": "doc-example-problem-001"
+        },
+        {
+          "node_id": "doc-example-problem-001",
+          "content_type": "UNKNOWN",
+          "bbox": {
+            "x": 50.0,
+            "y": 100.0,
+            "width": 650.0,
+            "height": 190.0
+          },
+          "normalized_bbox": {
+            "x": 0.05,
+            "y": 0.071429,
+            "width": 0.65,
+            "height": 0.135714
+          },
+          "reading_order_index": 0,
+          "confidence": 1.0,
+          "source_engine": "text-pattern-problem-unit-detector",
+          "issues": [
+            {
+              "code": "PROBLEM_UNIT_DETECTED",
+              "severity": "info",
+              "message": "Text-pattern evidence (stem start marker + answer structure) indicates a problem unit."
+            }
+          ],
+          "embedded_text_nodes": [
+            "doc-example-vl001",
+            "doc-example-vl002",
+            "doc-example-vl003",
+            "doc-example-vl004"
+          ],
+          "layout": {
+            "structure_label": "PROBLEM_UNIT",
+            "is_problem_unit": true,
+            "problem_start_kind": "code",
+            "problem_marker_node_id": "doc-example-vl001",
+            "answer_structure_type": "choices",
+            "stem_node_ids": [
+              "doc-example-vl002",
+              "doc-example-vl003"
+            ],
+            "stem_text": "다음 방정식의 양의 해를 고르시오. (x+1)^2=9",
+            "condition_node_ids": [],
+            "condition_items": [],
+            "bogi_node_ids": [],
+            "bogi_items": [],
+            "choice_node_id": "doc-example-vl004",
+            "choice_node_ids": [
+              "doc-example-vl004"
+            ],
+            "choice_raw_text": "① 1 ② 2 ③ 3 ④ 4 ⑤ 5",
+            "choice_options": [
+              {
+                "label": "①",
+                "text": "1"
+              },
+              {
+                "label": "②",
+                "text": "2"
+              },
+              {
+                "label": "③",
+                "text": "3"
+              },
+              {
+                "label": "④",
+                "text": "4"
+              },
+              {
+                "label": "⑤",
+                "text": "5"
+              }
+            ]
+          }
+        }
+      ],
+      "reading_order": [
+        "doc-example-problem-001"
+      ],
+      "parse_issues": [
+        {
+          "code": "PROBLEM_UNITS_DETECTED",
+          "severity": "info",
+          "message": "1 problem units were detected and promoted into primary reading order."
+        }
+      ],
+      "quality_report": {
+        "status": "PASS_WITH_CORRECTION",
+        "issues": []
+      }
+    },
+    "accessible_page": {
+      "page_id": "doc-example",
+      "focus_items": [
+        {
+          "id": "doc-example-vl001",
+          "kind": "TEXT",
+          "page_id": "doc-example",
+          "reading_index": 0,
+          "confidence": 1.0,
+          "issues": [
+            {
+              "code": "TEXT_EMBEDDED_IN_PROBLEM_UNIT",
+              "severity": "info",
+              "message": "OCR TEXT node is embedded in detected problem unit doc-example-problem-001 with role 'problem_code'."
+            }
+          ],
+          "source_node_ids": [
+            "doc-example-vl001"
+          ],
+          "problem_id": "doc-example-problem-001",
+          "spans": [
+            {
+              "kind": "TEXT",
+              "text": "[26008-0011]"
+            }
+          ]
+        },
+        {
+          "id": "doc-example-vl002",
+          "kind": "TEXT",
+          "page_id": "doc-example",
+          "reading_index": 0,
+          "confidence": 1.0,
+          "issues": [
+            {
+              "code": "TEXT_EMBEDDED_IN_PROBLEM_UNIT",
+              "severity": "info",
+              "message": "OCR TEXT node is embedded in detected problem unit doc-example-problem-001 with role 'stem'."
+            }
+          ],
+          "source_node_ids": [
+            "doc-example-vl002"
+          ],
+          "problem_id": "doc-example-problem-001",
+          "spans": [
+            {
+              "kind": "TEXT",
+              "text": "다음 방정식의 양의 해를 고르시오."
+            }
+          ]
+        },
+        {
+          "id": "doc-example-vl003",
+          "kind": "MATH",
+          "page_id": "doc-example",
+          "reading_index": 0,
+          "confidence": 1.0,
+          "issues": [
+            {
+              "code": "CONTENT_EMBEDDED_IN_PROBLEM_UNIT",
+              "severity": "info",
+              "message": "OCR MATH node is embedded in detected problem unit doc-example-problem-001 with role 'stem'."
+            }
+          ],
+          "source_node_ids": [
+            "doc-example-vl003"
+          ],
+          "problem_id": "doc-example-problem-001",
+          "raw_formula": "(x+1)^2=9",
+          "presentation_ast": {
+            "type": "Relation",
+            "operator": "=",
+            "left": {
+              "type": "Power",
+              "base": {
+                "type": "Parenthesized",
+                "body": {
+                  "type": "Row",
+                  "children": [
+                    {
+                      "type": "Identifier",
+                      "value": "x"
+                    },
+                    {
+                      "type": "Operator",
+                      "value": "+"
+                    },
+                    {
+                      "type": "Number",
+                      "value": "1"
+                    }
+                  ]
+                },
+                "delimiter": "("
+              },
+              "exponent": {
+                "type": "Number",
+                "value": "2"
+              }
+            },
+            "right": {
+              "type": "Number",
+              "value": "9"
+            }
+          },
+          "unconsumed_tokens": [],
+          "ast_status": "VALID"
+        },
+        {
+          "id": "doc-example-vl004",
+          "kind": "TEXT",
+          "page_id": "doc-example",
+          "reading_index": 0,
+          "confidence": 1.0,
+          "issues": [
+            {
+              "code": "TEXT_EMBEDDED_IN_PROBLEM_UNIT",
+              "severity": "info",
+              "message": "OCR TEXT node is embedded in detected problem unit doc-example-problem-001 with role 'choices'."
+            }
+          ],
+          "source_node_ids": [
+            "doc-example-vl004"
+          ],
+          "problem_id": "doc-example-problem-001",
+          "spans": [
+            {
+              "kind": "TEXT",
+              "text": "① 1 ② 2 ③ 3 ④ 4 ⑤ 5"
+            }
+          ]
+        }
+      ]
+    },
+    "validation": {
+      "schema_valid": true,
+      "validation_performed": true,
+      "coordinate_missing_node_count": 0,
+      "reading_order_cycle_count": 0,
+      "invalid_reading_order_ref_count": 0,
+      "missing_reading_order_node_count": 0,
+      "duplicate_node_id_count": 0,
+      "required_field_missing_count": 0,
+      "type_error_count": 0,
+      "bbox_invalid_count": 0,
+      "normalized_bbox_out_of_range_count": 0,
+      "confidence_invalid_count": 0,
+      "reading_order_index_mismatch_count": 0,
+      "invalid_embedded_text_ref_count": 0,
+      "quality_status_invalid_count": 0,
+      "issue_invalid_count": 0,
+      "page_count_mismatch": false,
+      "page_count": 1
+    },
+    "focus_count": 4,
+    "duplicate_member_reference_focus_count": 4
+  },
+  "bad_formula_bbox": {
+    "schema_valid": true,
+    "focus_count": 3,
+    "focus_kinds": [
+      "TEXT",
+      "TEXT",
+      "TEXT"
+    ]
+  },
+  "identity": {
+    "same": [
+      {
+        "pair": [
+          "26",
+          "27"
+        ],
+        "decision": "same",
+        "valid": 1,
+        "consensus": 1,
+        "numeric_corroboration": false
+      }
+    ],
+    "changed": [
+      {
+        "pair": [
+          "28",
+          "29"
+        ],
+        "decision": "unknown",
+        "valid": 1,
+        "consensus": 1,
+        "numeric_corroboration": false
+      },
+      {
+        "pair": [
+          "28",
+          "29"
+        ],
+        "decision": "unknown",
+        "valid": 2,
+        "consensus": 2,
+        "numeric_corroboration": false
+      },
+      {
+        "pair": [
+          "28",
+          "29"
+        ],
+        "decision": "unknown",
+        "valid": 3,
+        "consensus": 3,
+        "numeric_corroboration": false
+      },
+      {
+        "pair": [
+          "28",
+          "29"
+        ],
+        "decision": "unknown",
+        "valid": 4,
+        "consensus": 4,
+        "numeric_corroboration": false
+      },
+      {
+        "pair": [
+          "28",
+          "29"
+        ],
+        "decision": "different",
+        "valid": 5,
+        "consensus": 5,
+        "numeric_corroboration": true
+      }
+    ],
+    "inconsistent": [
+      {
+        "pair": [
+          "28",
+          "29"
+        ],
+        "decision": "unknown",
+        "valid": 1,
+        "consensus": 1,
+        "numeric_corroboration": false
+      },
+      {
+        "pair": [
+          "2B",
+          "29"
+        ],
+        "decision": "unknown",
+        "valid": 2,
+        "consensus": 1,
+        "numeric_corroboration": false
+      },
+      {
+        "pair": [
+          "28",
+          "2g"
+        ],
+        "decision": "unknown",
+        "valid": 3,
+        "consensus": 1,
+        "numeric_corroboration": false
+      },
+      {
+        "pair": [
+          "23",
+          "29"
+        ],
+        "decision": "unknown",
+        "valid": 4,
+        "consensus": 1,
+        "numeric_corroboration": false
+      },
+      {
+        "pair": [
+          "28",
+          "9"
+        ],
+        "decision": "unknown",
+        "valid": 5,
+        "consensus": 1,
+        "numeric_corroboration": false
+      }
+    ]
+  }
+}

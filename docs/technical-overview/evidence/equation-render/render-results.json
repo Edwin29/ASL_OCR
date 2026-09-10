@@ -1,0 +1,28 @@
+{
+  "renderer": "mermaid@11.12.0",
+  "browser": "Microsoft Edge headless",
+  "input": "D:\\Projects\\OCR\\docs\\ASL_OCR_TECHNICAL_OVERVIEW.md",
+  "sha256": "b64288bd47ec4304cb1e2f0ca986dbab5f39f7209cccf5aa44c6baa2f22f6613",
+  "results": [
+    {
+      "diagram": 1,
+      "passed": true
+    },
+    {
+      "diagram": 2,
+      "passed": true
+    },
+    {
+      "diagram": 3,
+      "passed": true
+    },
+    {
+      "diagram": 4,
+      "passed": true
+    },
+    {
+      "diagram": 5,
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "head": "b6005f13b0283cc6cac128a5016140613b7ee1ae",
+  "baseline_source_files_checked": 247,
+  "source_hash_changes": [],
+  "product_source_modification_count": 0,
+  "local_links_checked": 143,
+  "link_errors": [],
+  "equation_example_verified": true,
+  "old_fraction_example_absent": true,
+  "mermaid_count": 5,
+  "actual_render_passed_and_current": true,
+  "document_sha256": "b64288bd47ec4304cb1e2f0ca986dbab5f39f7209cccf5aa44c6baa2f22f6613",
+  "physical_or_production_io_executed": false,
+  "passed": true
+}

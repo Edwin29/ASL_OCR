@@ -1,0 +1,25 @@
+{
+  "renderer": "mermaid@11.12.0",
+  "browser": "Microsoft Edge headless",
+  "input": "D:\\Projects\\OCR\\docs\\technical-overview\\READER_FEEDBACK_BEFORE.md.snapshot",
+  "sha256": "8e8fc96bb4dd0da6887a32aedf77b705b4aa884af226ac3f455572d03f93cfba",
+  "results": [
+    {
+      "diagram": 1,
+      "passed": true
+    },
+    {
+      "diagram": 2,
+      "passed": false,
+      "error": "Error: Parse error on line 17:\n...; 다음 spread와 overlap        V-->>D: rec\n-----------------------^\nExpecting 'SOLID_OPEN_ARROW', 'DOTTED_OPEN_ARROW', 'SOLID_ARROW', 'BIDIRECTIONAL_SOLID_ARROW', 'DOTTED_ARROW', 'BIDIRECTIONAL_DOTTED_ARROW', 'SOLID_CROSS', 'DOTTED_CROSS', 'SOLID_POINT', 'DOTTED_POINT', got 'NEWLINE'"
+    },
+    {
+      "diagram": 3,
+      "passed": true
+    },
+    {
+      "diagram": 4,
+      "passed": true
+    }
+  ]
+}

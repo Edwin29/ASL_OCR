@@ -1,0 +1,12 @@
+{
+  "phase": 5,
+  "completed_utc": "2026-09-10T11:16:16.9376194Z",
+  "input": "docs/technical-overview/PASS_4_DOCUMENTATION_BLUEPRINT.md",
+  "input_sha256": "94c399d6f57e6427487c58f7b6e5514bf82bddbf3e283a7724e2f78f1e95186c",
+  "document": "docs/ASL_OCR_TECHNICAL_OVERVIEW.md",
+  "draft_sha256": "237969372354743a366b4ab89704b33b0a07d4ca1b4ab9a54d1edfcd8d0819c6",
+  "archive": "docs/technical-overview/PASS_5_DRAFT.md.snapshot",
+  "archive_links_resolve_relative_to": "docs/ASL_OCR_TECHNICAL_OVERVIEW.md",
+  "mermaid_diagrams": 4,
+  "status": "complete_before_pass6"
+}

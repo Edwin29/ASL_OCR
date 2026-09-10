@@ -1,0 +1,40 @@
+# 핵심 원리 보강 검증보고서
+
+입력은 선정표→근거 카드→배치 설계 이후 작성한 [수정 전 초안 사본](CORE_EXPANSION_DRAFT.md.snapshot)이다. 초안 SHA256: `c261f6398a446f79b8cd017cfe19e1dd73cde9b6281f9b752702b0784e20ccad`. 이 보고서의 발견 목록을 먼저 작성하고 다음 교정을 적용한다.
+
+## 선행 대조와 발견
+
+| ID | Finding | Evidence | Impact | Required correction |
+|---|---|---|---|---|
+| CV1 | 예제의 중복 참조 추가를 production parser 전체의 재실행으로 오해할 수 있음 | [probe](evidence/core_principles_examples.py)의 중복 단계는 이미 만든 Page IR에 같은 ID를 더해 flatten_page만 호출. 다른 주 예제는 PaddleVlFragmentParser를 fake VL adapter로 실행 | schema 검증까지 중복 fixture가 통과했다고 과장할 수 있음 | §7 표와 설명에 ‘읽기 항목 변환기만 직접 확인, 전체 parser 재검증 아님’ 명시 |
+| CV2 | raw pair 예제 다음의 ‘영상 기반 추가 조건’이 숫자 확인과 별개 필수 조건처럼 읽힐 수 있음 | [engine](../../book-scanner/src/book_scanner/video/engine.py#L780)의 DIFFERENT AND (visual OR numeric) | 숫자 근거가 있어도 영상 변화가 반드시 필요하다고 오해 | live engine의 결합은 둘 중 하나이며 실제 촬영 전체를 이번 예제로 실행하지 않았다는 범위를 명확히 표현 |
+| CV3 | ‘일부 해석’ 예제는 중간 발화 문자열이지 실제 한국어 발음·Piper 파형 결과가 아님 | math_focus_item_to_speech 반환을 JSON에 기록하며 합성기/재생기 미실행 | source의 x가 최종 발음으로 바뀌는 단계와 혼동 | 세 예제의 음성 결과는 발화 규칙 문자열이며 합성·청취 미실행임을 설명 |
+
+## 확인된 주장과 제한
+
+- AST 생성·상태 부여·speech/braille 소비를 현재 source에 대조했다. 구조에서 직접 page/item 탐색한다고 쓰지 않았고 item/span/window 구분을 유지했다.
+- VL block_order를 이용한 정렬, 문제 marker와 answer structure의 연결, node ID 기반 visited를 실제 fake-adapter 예제로 확인했다. 이미지 의미 이해·전역 text dedupe라고 설명하지 않는다.
+- 같은 페이지 재촬영, seam의 중복 화소, 같은 요청 재전송, 같은 읽기 노드 재참조를 분리했다. pHash와 exact raw pair count를 같은 알고리즘으로 합치지 않았다.
+- bbox 누락 반례는 형식 검사 한계를 구체화했다. 새로운 H1 incident 원인이나 교재 전체 품질 판정으로 승격하지 않는다.
+- 데이터 무결성·구조 검사·READY 게시·음성 완료·물리 점자 적용의 보장 범위는 기존 문서와 source를 유지한다. 신규 비교 벤치마크가 없으므로 상대 성능 우위를 주장하지 않는다.
+- S0 명령 재사용은 같은 session/command ID와 내용이라는 조건을 갖는다. 시스템 전체 exactly-once나 native/servo 강제취소를 주장하지 않는다.
+
+## 실제 실행
+
+| 경로 | 결과 | 증거 |
+|---|---|---|
+| Scanner identity/page-change/seam | 26 passed | [로그](evidence/core-scanner-pytest.txt) |
+| Parser AST/VL/problems/flatten/finalize/S0 | 109 passed | [로그](evidence/core-parser-pytest.txt) |
+| Device audio/native lifecycle/serial | 52 passed | [로그](evidence/core-device-pytest.txt) |
+| V4 replay/conflict/hash reject | 4 passed | [로그](evidence/core-v4-pytest.txt) |
+| 통제된 수식·페이지·관측 쌍 예제 | 결과 JSON 생성 성공 | [값과 구조](evidence/core-principles-examples.json) |
+
+총191 passed. 기존 PASS6의252개를 다시 실행했다는 뜻이 아니며 이번 보강 주장에 맞춘 별도 선정 suite다. 실제 인식 모델·Piper·카메라·serial·servo·production 저장소는 실행하지 않았다.
+
+## 교정 후 확인
+
+초기 보고서 [사본](CORE_VERIFICATION_INITIAL.md.snapshot)을 보존한 뒤 CV1–CV3을 반영했다. 중복 참조는 flatten 단독 시험, 번호 예제는 visual OR numeric 중 numeric 경로의 수집기 시험, 음성 예제는 발화 문자열임을 명시했다.
+
+기존4개 도식에 수식 구조와 두 출력을 연결하는 도식1개를 추가했다. Mermaid11.12.0과 Edge headless에서 총5개 모두 파싱·SVG·PNG 생성에 성공했다. 새 AST 도식의 한국어 표시와 배치를 이미지를 열어 확인했다. [렌더링 기록](evidence/core-expansion-render/render-results.json), [AST 도식 이미지](evidence/core-expansion-render/diagram-4.png)를 보존한다.
+
+최종 무결성·기존 문장 보존·용어표·파일 해시는 [실행 기록](evidence/core-expansion-validation.json)에 남긴다. 제품 소스·펌웨어·설정값은 변경하지 않는다. 이 문서 보강의 완료와 실기기 H4 수용은 별개다.

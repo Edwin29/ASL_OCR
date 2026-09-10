@@ -1,0 +1,30 @@
+{
+  "head": "b6005f13b0283cc6cac128a5016140613b7ee1ae",
+  "source_files_checked": 247,
+  "source_hash_changes": [],
+  "local_links_checked": 160,
+  "link_errors": [],
+  "numbered_main_sections": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "mermaid_count": 4,
+  "mermaid_types": [
+    "flowchart LR",
+    "sequenceDiagram",
+    "flowchart TD",
+    "flowchart TD"
+  ],
+  "mermaid_renderer_executed": false,
+  "code_fences_balanced": true,
+  "unexpected_japanese_kana": false,
+  "document_sha256": "8e8fc96bb4dd0da6887a32aedf77b705b4aa884af226ac3f455572d03f93cfba",
+  "passed": true
+}

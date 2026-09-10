@@ -1,0 +1,71 @@
+{
+  "recorded_utc": "2026-09-10T13:33:10.418751+00:00",
+  "head": "b6005f13b0283cc6cac128a5016140613b7ee1ae",
+  "completed_order": [
+    "terminology correspondence",
+    "selection",
+    "evidence cards and controlled examples",
+    "blueprint",
+    "additive draft",
+    "verification report",
+    "correction",
+    "render and integrity"
+  ],
+  "baseline_source_files_checked": 247,
+  "source_hash_changes": [],
+  "product_source_modification_count": 0,
+  "approved_korean_nonempty_lines_checked": 366,
+  "missing_or_replaced_original_lines": [],
+  "local_links_checked": 195,
+  "link_errors": [],
+  "mermaid_count": 5,
+  "actual_render_passed_and_current": true,
+  "tests": {
+    "scanner": 26,
+    "parser": 109,
+    "device": 52,
+    "v4": 4,
+    "total": 191
+  },
+  "physical_or_production_io_executed": false,
+  "corrections_applied": [
+    "CV1",
+    "CV2",
+    "CV3"
+  ],
+  "files": [
+    {
+      "path": "docs\\ASL_OCR_TECHNICAL_OVERVIEW.md",
+      "sha256": "7ba67300c415ca925759d48b141895f8c888712b34e5d72e3b447e349acbdefd"
+    },
+    {
+      "path": "docs\\technical-overview\\TERMINOLOGY_CROSSWALK.md",
+      "sha256": "f6a97f7f7b21919e60e6598f052abd7cd220870117b1ad61edfbe95623c88dd3"
+    },
+    {
+      "path": "docs\\technical-overview\\CORE_PRINCIPLES_SELECTION.md",
+      "sha256": "c16bcc131d0b667b50eb7aca02ceb80b36e4e15515e785d44e97f1a81a97c889"
+    },
+    {
+      "path": "docs\\technical-overview\\CORE_PRINCIPLES_EVIDENCE_CARDS.md",
+      "sha256": "7d51cf321ea0285e777778ca08a3e28cbb9c3b6726fd1f0cc39d25b88c249441"
+    },
+    {
+      "path": "docs\\technical-overview\\CORE_PRINCIPLES_BLUEPRINT.md",
+      "sha256": "1b594ccbb98d817b71e33dc6efe2e8815432030823b6beebda059b1f9449adcc"
+    },
+    {
+      "path": "docs\\technical-overview\\CORE_PRINCIPLES_VERIFICATION.md",
+      "sha256": "72439ce2d47ca914ef48421fc7af871a097af6ba044a9c790fd6e05f383a1f0c"
+    },
+    {
+      "path": "docs\\technical-overview\\CORE_PRINCIPLES_EXPANSION_PLAN_20260910.md",
+      "sha256": "1be0e206d22190fae10e85d2debffbf944c530a12353f3c8d018e53c7089d24b"
+    },
+    {
+      "path": "docs\\technical-overview\\README.md",
+      "sha256": "523b6c923fe6ed83007174cf123789d1c2df9eb757686e56e7848f238221db23"
+    }
+  ],
+  "passed": true
+}

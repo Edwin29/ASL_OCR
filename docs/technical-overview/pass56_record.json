@@ -1,0 +1,107 @@
+{
+  "scope": "Technical Overview PASS 5 and PASS 6",
+  "status": "complete",
+  "recorded_utc": "2026-09-10T11:26:43.5379814Z",
+  "head": "b6005f13b0283cc6cac128a5016140613b7ee1ae",
+  "passes_completed": [
+    5,
+    6
+  ],
+  "input_chain": [
+    "PASS4 completed blueprint -> PASS5 complete draft",
+    "PASS5 frozen draft -> PASS6 initial report",
+    "PASS6 initial report -> corrected final overview -> final validation"
+  ],
+  "pass5_completed_utc": "2026-09-10T11:16:16.9376194Z",
+  "initial_report_before_correction": true,
+  "findings_corrected": [
+    "V01",
+    "V02",
+    "V03",
+    "V04",
+    "V05",
+    "V06",
+    "V07",
+    "V08"
+  ],
+  "selected_tests": {
+    "total": 252,
+    "scanner": 46,
+    "parser": 145,
+    "device": 61,
+    "subtests": 3
+  },
+  "test_first_attempt_environment_error": "Device: existing pytest temp root access denied, 60 passed / 1 fixture error; same suite passed with new isolated C: basetemp",
+  "mermaid_renderer_executed": false,
+  "mermaid_diagrams": 4,
+  "local_links_checked": 160,
+  "final_integrity_passed": true,
+  "baseline_source_files_checked": 247,
+  "product_source_modification_count": 0,
+  "source_hash_changes": [],
+  "source_diff_paths": [],
+  "hardware_or_live_pipeline_executed": false,
+  "prior_analysis_record_preserved": "docs/technical-overview/analysis_run_record.json",
+  "artifacts": [
+    {
+      "path": "docs/ASL_OCR_TECHNICAL_OVERVIEW.md",
+      "sha256": "8e8fc96bb4dd0da6887a32aedf77b705b4aa884af226ac3f455572d03f93cfba"
+    },
+    {
+      "path": "docs/technical-overview/PASS_6_VERIFICATION_REPORT.md",
+      "sha256": "c976b031bfc37901045c864ef8d4436b947aaf9cc051e45652d0c75cc37384d5"
+    },
+    {
+      "path": "docs/technical-overview/PASS_6_INITIAL_REPORT.md.snapshot",
+      "sha256": "a38ec41c7d39a8e7c61c0e5b3fa8676fa404d7e8220a27f3ac5c3c30d959c166"
+    },
+    {
+      "path": "docs/technical-overview/PASS_5_DRAFT.md.snapshot",
+      "sha256": "237969372354743a366b4ab89704b33b0a07d4ca1b4ab9a54d1edfcd8d0819c6"
+    },
+    {
+      "path": "docs/technical-overview/pass5_record.json",
+      "sha256": "25e863be26eec32f5fa074f5c966c8c36e2e80834a738f9458516595cd504b7a"
+    },
+    {
+      "path": "docs/technical-overview/README.md",
+      "sha256": "5972f8662ffd66f1bfd7538e0ca856251bfd1ea6eafa5666431f72b2170bb76b"
+    },
+    {
+      "path": "docs/technical-overview/evidence/device-pytest-isolated.txt",
+      "sha256": "d0de01328a0a73d4cb66578411a9b8482db98850a7d7e413df56b513d87e8396"
+    },
+    {
+      "path": "docs/technical-overview/evidence/device-pytest.txt",
+      "sha256": "3af40a00f1e4f30694380023810f5e236971ecd364b1cceb0ed7939ae1ea655f"
+    },
+    {
+      "path": "docs/technical-overview/evidence/documentation-validation-initial.json",
+      "sha256": "3a4be322b009389a7980f80bf004f6f296e8352f4c426d853b316386e55906d0"
+    },
+    {
+      "path": "docs/technical-overview/evidence/documentation-validation.json",
+      "sha256": "ce4c004a74adb683a65c21923c0ee2c8415e211c8f97cd8e8e6be59d1de7a7fe"
+    },
+    {
+      "path": "docs/technical-overview/evidence/math_example.py",
+      "sha256": "7e230ddd0a753088f5074bede97404afeac4928719d7b41bf056f3e57eb1dde9"
+    },
+    {
+      "path": "docs/technical-overview/evidence/math-example.json",
+      "sha256": "4ff3a052ce4f5cb7cc9becc80a826efb4e6badedd2b0cf0c29524b638e300ed6"
+    },
+    {
+      "path": "docs/technical-overview/evidence/parser-pytest.txt",
+      "sha256": "5817cd68e08dd796bad4333863e0b1174cd44fa55c929ee221a2ea3816f8fb8a"
+    },
+    {
+      "path": "docs/technical-overview/evidence/scanner-pytest.txt",
+      "sha256": "04f115bf56497b50d20bab9d0f0a20f86fef99049cd99bb51e31274f6939307d"
+    },
+    {
+      "path": "docs/technical-overview/evidence/validate_documentation.py",
+      "sha256": "de50fa5080b873fb4ee117e76db3805873a22e0bdf03fd1c7d46e0166c8fe4c6"
+    }
+  ]
+}

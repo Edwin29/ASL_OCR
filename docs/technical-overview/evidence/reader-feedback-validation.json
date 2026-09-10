@@ -1,0 +1,35 @@
+{
+  "scope": "reader feedback correction only; core-principle expansion remains planned",
+  "head": "b6005f13b0283cc6cac128a5016140613b7ee1ae",
+  "baseline_source_files_checked": 247,
+  "source_hash_changes": [],
+  "product_source_modification_count": 0,
+  "local_links_checked": 137,
+  "link_errors": [],
+  "mermaid_renderer": "mermaid@11.12.0",
+  "mermaid_render_passed": true,
+  "render_matches_current_document": true,
+  "workflow_png_visually_inspected": true,
+  "product_tests_rerun": false,
+  "hardware_executed": false,
+  "files": [
+    {
+      "path": "docs\\ASL_OCR_TECHNICAL_OVERVIEW.md",
+      "sha256": "e5d4ba1ef542e8949993a81308d1b665a401f5536ef4b1bc3b3fd37937ecafe9"
+    },
+    {
+      "path": "docs\\technical-overview\\README.md",
+      "sha256": "3b1f559766b4a19fff2b2c521965a93314b48ca42d29493c9a3e31274ce94edf"
+    },
+    {
+      "path": "docs\\technical-overview\\READER_FEEDBACK_REVISION_20260910.md",
+      "sha256": "1dff8c764f9d773929437fb96b1f6e9d3b3db73019f3fc428e75fd8bb32e8c82"
+    },
+    {
+      "path": "docs\\technical-overview\\CORE_PRINCIPLES_EXPANSION_PLAN_20260910.md",
+      "sha256": "dd1b6059afb531d7cdd114b502696c2fdeccfe13342bd842c2f4cc8bb17a6652"
+    }
+  ],
+  "renderer_library_sha256": "07e37dfa97b337ccc85365d57eddf99b9706f09db3b59b260d0333b23b343c4b",
+  "passed": true
+}

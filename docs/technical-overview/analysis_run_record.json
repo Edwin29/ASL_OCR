@@ -1,0 +1,82 @@
+{
+  "recorded_utc": "2026-09-10T08:22:41.4138188Z",
+  "scope": "Technical Overview analysis PASS 0 through PASS 4 only",
+  "head_before": "b6005f13b0283cc6cac128a5016140613b7ee1ae",
+  "head_after": "b6005f13b0283cc6cac128a5016140613b7ee1ae",
+  "baseline_tracked_source_file_count": 247,
+  "changed_baseline_source_file_count": 0,
+  "changed_baseline_source_paths": [],
+  "tracked_product_source_diff": [],
+  "passes_completed": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "passes_not_started": [
+    5,
+    6
+  ],
+  "input_chain": [
+    "ROADMAP + source inventory -> PASS0",
+    "PASS0 -> PASS1",
+    "PASS1 -> PASS2",
+    "PASS1 + PASS2 -> PASS3",
+    "PASS0 + PASS1 + PASS2 + PASS3 -> PASS4"
+  ],
+  "methodology": [
+    "read-only source and test-contract inspection",
+    "prior evidence reports used with run-specific limits",
+    "analysis artifacts only; no final overview prose",
+    "source hash and document link integrity check; not PASS6"
+  ],
+  "live_tests_executed": false,
+  "model_inference_executed": false,
+  "ssh_or_hardware_access": false,
+  "product_source_modification_count": 0,
+  "artifacts": [
+    {
+      "path": "baseline.json",
+      "sha256": "696dab26ac42bb68d297c2999e56e4e22ac92cbb61307dce5d3face0603495e9",
+      "bytes": 43218
+    },
+    {
+      "path": "PASS_0_SCOPE_BASELINE.md",
+      "sha256": "aed32b0934badadf38ebdb727daf2d6a4be344643172be5571731581b8964cce",
+      "bytes": 7050
+    },
+    {
+      "path": "PASS_1_EXECUTION_RECONSTRUCTION.md",
+      "sha256": "b979258187e1798950d2e00b2678326728d83ecd00388281fbad1941210a9358",
+      "bytes": 10567
+    },
+    {
+      "path": "PASS_2_ALGORITHMS_AND_DECISIONS.md",
+      "sha256": "d7d2d40c58184e72ecd4ac127d27441e8b9b3b1e4c47cbee7b46e6065a736166",
+      "bytes": 31990
+    },
+    {
+      "path": "PASS_3_DATA_AND_FAILURES.md",
+      "sha256": "aa85bbdeb990d94693963d31015af5520052a69a1d217870b08c910f56ed2f09",
+      "bytes": 28119
+    },
+    {
+      "path": "PASS_4_DOCUMENTATION_BLUEPRINT.md",
+      "sha256": "94c399d6f57e6427487c58f7b6e5514bf82bddbf3e283a7724e2f78f1e95186c",
+      "bytes": 30373
+    },
+    {
+      "path": "README.md",
+      "sha256": "61775205d4ed8869c1ca44ddbd8ded7a2123285936bda66e1b63b69910cdcb58",
+      "bytes": 3763
+    },
+    {
+      "path": "ROADMAP_PROMPT.md",
+      "sha256": "8e4cf95fac78de55d17c3c4131b5b1eb8af380aa4df5c5b1a670ed2b0e84ba32",
+      "bytes": 8450
+    }
+  ],
+  "local_link_count": 86,
+  "broken_local_links": []
+}
