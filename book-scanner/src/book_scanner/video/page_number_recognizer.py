@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import math
 import hashlib
+import platform
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Mapping
@@ -319,10 +320,15 @@ class PaddleRoiDigitRecognizer:
         self.verified_file_hashes = verified_hashes
         self.model_bytes = sum(path.stat().st_size for path in root.iterdir() if path.is_file())
         self.device = device
+        runtime_options: dict[str, Any] = {"device": device} if device is not None else {}
+        if platform.machine().lower() in {"aarch64", "arm64"} and device in {None, "cpu"}:
+            # Pi ARM64: default CPU threading crashes on first inference;
+            # one thread passed the isolated native and model probes.
+            runtime_options["cpu_threads"] = 1
         self._model = TextRecognition(
             model_name="en_PP-OCRv5_mobile_rec",
             model_dir=str(root),
-            **({"device": device} if device is not None else {}),
+            **runtime_options,
         )
         self.load_count = 1
         self.calls = 0

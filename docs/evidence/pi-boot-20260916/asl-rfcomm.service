@@ -1,0 +1,12 @@
+[Unit]
+Description=ASL HC-05 RFCOMM binding
+Requires=bluetooth.service
+After=bluetooth.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /home/user/ASL_OCR_PI/runtime/boot-setup-20260916/bind_rfcomm.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

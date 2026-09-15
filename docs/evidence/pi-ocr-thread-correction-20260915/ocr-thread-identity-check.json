@@ -1,0 +1,10 @@
+{
+  "checked": 249,
+  "changes": [
+    {
+      "path": "source/book-scanner/src/book_scanner/video/page_number_recognizer.py",
+      "baseline": "28f40e925cb0883d184e7f46fbcf929075af3cf04d9da2bff2899b35610b32a6",
+      "current": "18d287218c164164a61266612c01e694966cf1a7d1e51efce919355f1ab43596"
+    }
+  ]
+}

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import logging
 import math
 import threading
 import time
@@ -15,6 +16,9 @@ import numpy as np
 
 from .protocols import Clock, FrameSample
 from .types import FrameId
+
+
+_logger = logging.getLogger(__name__)
 
 
 class CameraSourceError(RuntimeError):
@@ -502,18 +506,28 @@ class HttpSnapshotCameraSource:
                 if generation != self._generation or not self._started:
                     return None
                 self._transport_failures += 1
-                if not exc.retryable or self._transport_failures >= 3:
+                if not exc.retryable:
                     self._terminal_error = exc
                     raise
                 # Pull-driven retry: never sleep or perform another transport
                 # attempt in this read, including on the preview capture worker.
-                self._retry_at = self.clock.monotonic() + 0.25 * self._transport_failures
+                # Keep the same source/session alive until recovery or stop.
+                # Cap both the delay and exponent during arbitrarily long outages.
+                delay = min(5.0, 0.25 * 2 ** min(self._transport_failures - 1, 5))
+                self._retry_at = self.clock.monotonic() + delay
+                if self._transport_failures == 1:
+                    _logger.warning(
+                        "snapshot_connection_waiting http_status=%s retry_max_seconds=5",
+                        exc.status_code,
+                    )
                 return None
         if generation != self._generation or not self._started:
             return None
         if frame is None:
             assert decode_error is not None
             raise decode_error
+        if self._transport_failures:
+            _logger.warning("snapshot_connection_restored failures=%s", self._transport_failures)
         self._transport_failures = 0
         self._retry_at = 0.0
         raw_height, raw_width = frame.shape[:2]

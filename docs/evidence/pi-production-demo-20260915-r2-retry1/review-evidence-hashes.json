@@ -1,0 +1,40 @@
+[
+  {
+    "sequence": 1,
+    "path": "D:\\device-config\\state\\e0b-production\\datapacks\\_server\\received\\v4\\upload-91f0400fb80e4f05a9fc9fff8f758c58\\manifest.json",
+    "sha256": "8597c64830ba7f98ec145c5cf2e3a5bee79eead1ded05f54d1017bb8bc64d653"
+  },
+  {
+    "sequence": 1,
+    "path": "D:\\device-config\\state\\e0b-production\\datapacks\\_server\\received\\v4\\upload-91f0400fb80e4f05a9fc9fff8f758c58\\source_frame.jpg",
+    "sha256": "09dc52921315ca2c684040576ed4c5b55d3b2cd5252c8c86beca95386b382496"
+  },
+  {
+    "sequence": 2,
+    "path": "D:\\device-config\\state\\e0b-production\\datapacks\\_server\\received\\v4\\upload-fa8a81e660b343b7861388e764406fb7\\manifest.json",
+    "sha256": "6f9f4b235954411b475a00b76c988ba588a2929e4c6d35f8a569be1e02d8e413"
+  },
+  {
+    "sequence": 2,
+    "path": "D:\\device-config\\state\\e0b-production\\datapacks\\_server\\received\\v4\\upload-fa8a81e660b343b7861388e764406fb7\\source_frame.jpg",
+    "sha256": "f9a95b0194ce5785b57e40d5c5886108c89c0a385b17c7dbc0a4f74b82a7b206"
+  },
+  {
+    "sequence": 3,
+    "path": "D:\\device-config\\state\\e0b-production\\datapacks\\_server\\received\\v4\\upload-9158b1844fd740299e2dfedc610f63f2\\manifest.json",
+    "sha256": "9416d1b6e34e89b694f9eeb33c0a15bc85f6cf4d60d42a832c76af0c89221581"
+  },
+  {
+    "sequence": 3,
+    "path": "D:\\device-config\\state\\e0b-production\\datapacks\\_server\\received\\v4\\upload-9158b1844fd740299e2dfedc610f63f2\\source_frame.jpg",
+    "sha256": "0a50f63054ddf5c0ad4b92afe50a51e51bac3ecfc8935fd6fa8a84b9a2b5c909"
+  },
+  {
+    "path": "docs\\evidence\\pi-production-demo-20260915-r2-retry1\\stdout-finalization-review.log",
+    "sha256": "580e7ab0cf4aeb786986dc756ad1eb46e3b6183ab8c1d7c3e9d652c889f63677"
+  },
+  {
+    "path": "docs\\evidence\\pi-production-demo-20260915-r2-retry1\\stdout-two-spreads.log",
+    "sha256": "4b7ab51007316306e863df44ef0d2e175e19f333ac7d00b403a7b25c2f88fe8a"
+  }
+]

@@ -1,0 +1,7 @@
+﻿{
+    "exit_code":  0,
+    "elf_sha256":  "9a3e9941b6823af6104968a1b69bdd63a4d43f3377bcc49d77c009fe9e35bd4a",
+    "probe":  "066EFF505071655067246025",
+    "action":  "download_verify_reset",
+    "host_sha256":  "2de4388da3912dc2098191ca4ca668db5c761f9ac606606348f0aba1facaf6fe"
+}

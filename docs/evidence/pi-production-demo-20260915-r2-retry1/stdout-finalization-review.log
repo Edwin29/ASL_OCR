@@ -1,0 +1,612 @@
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/paddle/utils/cpp_extension/extension_utils.py:718: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+{"type":"feedback","code":"server_connecting","at_monotonic":17982.017643563,"details":{}}
+{"type":"feedback","code":"screen_changed","at_monotonic":17982.272539541,"details":{"screen":"datapack_selection","mode":"capture"}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":17982.272827725,"details":{"index":0,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-15 23:50 #29","kind":"existing","title_audio_ref":"s0-system-audio:d32b894dd62e0c7603c017195d21f606"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":17982.273321352,"details":{"audio_kind":"system","audio_ref_digest":"417deba6c618"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":17982.342591856,"details":{"audio_kind":"system","audio_ref_digest":"417deba6c618","content_length":129580,"duration_ms":2937}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":17985.318133552,"details":{"audio_kind":"system","audio_ref_digest":"417deba6c618"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":17985.31838705,"details":{"audio_kind":"system","audio_ref_digest":"69aca30e0bfb"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":17985.424352784,"details":{"audio_kind":"system","audio_ref_digest":"69aca30e0bfb","content_length":253484,"duration_ms":5747}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":17991.188147634,"details":{"audio_kind":"system","audio_ref_digest":"69aca30e0bfb"}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":17996.415674492,"details":{"index":1,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-08 23:47 #28","kind":"existing","title_audio_ref":"s0-system-audio:0ab8d8c1e1f3b44bca8c6855d20c22b6"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":17996.416714467,"details":{"audio_kind":"system","audio_ref_digest":"bb4ae4003cb7"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":17996.535560197,"details":{"audio_kind":"system","audio_ref_digest":"bb4ae4003cb7","content_length":235052,"duration_ms":5329}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":18001.93807876,"details":{"audio_kind":"system","audio_ref_digest":"bb4ae4003cb7"}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18002.689178073,"details":{"index":2,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-08 10:26 #27","kind":"existing","title_audio_ref":"s0-system-audio:11e2fd6b18ba0c8f5bc82cba361a8c5e"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18002.690103808,"details":{"audio_kind":"system","audio_ref_digest":"7b21c92cec8f"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18002.817186006,"details":{"audio_kind":"system","audio_ref_digest":"7b21c92cec8f","content_length":249900,"duration_ms":5666}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18003.339801141,"details":{"index":3,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-07 23:26 #26","kind":"existing","title_audio_ref":"s0-system-audio:32fb4be57014abe2d4034761a3d39c3d"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18003.384141158,"details":{"audio_kind":"system","audio_ref_digest":"cbdf46f47c08"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18003.486420187,"details":{"audio_kind":"system","audio_ref_digest":"cbdf46f47c08","content_length":242732,"duration_ms":5503}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18003.536549948,"details":{"index":4,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-07 22:52 #25","kind":"existing","title_audio_ref":"s0-system-audio:cfd6164062d6ad78f244c3379af012ad"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18003.540510295,"details":{"audio_kind":"system","audio_ref_digest":"3bca5d42a902"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18003.642203606,"details":{"audio_kind":"system","audio_ref_digest":"3bca5d42a902","content_length":236588,"duration_ms":5364}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18003.72046122,"details":{"index":5,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-07 02:27 #24","kind":"existing","title_audio_ref":"s0-system-audio:619d989983f5ded27ba0199634e87b75"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18003.726843738,"details":{"audio_kind":"system","audio_ref_digest":"217b840a9a96"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18003.852497611,"details":{"audio_kind":"system","audio_ref_digest":"217b840a9a96","content_length":232492,"duration_ms":5271}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18003.904438917,"details":{"index":6,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-07 01:33 #23","kind":"existing","title_audio_ref":"s0-system-audio:8aad3b507fac0022243f0148e9c87530"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18003.906852181,"details":{"audio_kind":"system","audio_ref_digest":"b0c10c8fd86e"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18004.013486017,"details":{"audio_kind":"system","audio_ref_digest":"b0c10c8fd86e","content_length":258604,"duration_ms":5863}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18004.08890987,"details":{"index":7,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-07 00:44 #22","kind":"existing","title_audio_ref":"s0-system-audio:e25edb4c86b68d1b75911b21df1c105f"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18004.098163612,"details":{"audio_kind":"system","audio_ref_digest":"48448d5bfa89"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18004.198433023,"details":{"audio_kind":"system","audio_ref_digest":"48448d5bfa89","content_length":231980,"duration_ms":5259}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18004.272522514,"details":{"index":8,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-07 00:41 #21","kind":"existing","title_audio_ref":"s0-system-audio:78c4568c3f6abf89ca499a9056772a79"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18004.282808231,"details":{"audio_kind":"system","audio_ref_digest":"d38192f74674"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18004.390371396,"details":{"audio_kind":"system","audio_ref_digest":"d38192f74674","content_length":259116,"duration_ms":5875}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18004.456066787,"details":{"index":9,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-06 23:05 #20","kind":"existing","title_audio_ref":"s0-system-audio:ecf2f6f943b9ff5b568eb04557f83678"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18004.464430442,"details":{"audio_kind":"system","audio_ref_digest":"35e22634097a"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18004.578480105,"details":{"audio_kind":"system","audio_ref_digest":"35e22634097a","content_length":216620,"duration_ms":4911}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18004.640363649,"details":{"index":10,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-05 03:56 #19","kind":"existing","title_audio_ref":"s0-system-audio:e23a0937a54669fec3fb47999a4de4d9"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18004.643719444,"details":{"audio_kind":"system","audio_ref_digest":"1cd8bc8c0d67"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18004.746126602,"details":{"audio_kind":"system","audio_ref_digest":"1cd8bc8c0d67","content_length":243756,"duration_ms":5526}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18004.824429253,"details":{"index":11,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-05 03:46 #18","kind":"existing","title_audio_ref":"s0-system-audio:2640edc122d1c925588bf38832c978c1"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18004.830987807,"details":{"audio_kind":"system","audio_ref_digest":"88010a64149e"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18004.935272157,"details":{"audio_kind":"system","audio_ref_digest":"88010a64149e","content_length":224812,"duration_ms":5097}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18005.008880224,"details":{"index":12,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-04 16:02 #17","kind":"existing","title_audio_ref":"s0-system-audio:4bc1008cf5c525b877317adaa2801379"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18005.020309639,"details":{"audio_kind":"system","audio_ref_digest":"aa9edd085a97"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18005.154821144,"details":{"audio_kind":"system","audio_ref_digest":"aa9edd085a97","content_length":222252,"duration_ms":5039}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18005.193031549,"details":{"index":13,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-04 15:54 #16","kind":"existing","title_audio_ref":"s0-system-audio:cb253f6e4e9d1c74b1c265f592604b50"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18005.199217476,"details":{"audio_kind":"system","audio_ref_digest":"355449a01e51"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18005.305841294,"details":{"audio_kind":"system","audio_ref_digest":"355449a01e51","content_length":229932,"duration_ms":5213}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18005.376615915,"details":{"index":14,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-04 13:35 #15","kind":"existing","title_audio_ref":"s0-system-audio:67245d0e06e9e6650210959d5dc21b2f"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18005.379612545,"details":{"audio_kind":"system","audio_ref_digest":"66b0597b1eff"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18005.488671682,"details":{"audio_kind":"system","audio_ref_digest":"66b0597b1eff","content_length":210476,"duration_ms":4772}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18005.560528704,"details":{"index":15,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-04 13:33 #14","kind":"existing","title_audio_ref":"s0-system-audio:15b94ff9a84596e5e6927f5d72fde097"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18005.563588853,"details":{"audio_kind":"system","audio_ref_digest":"a9ead8fcd8db"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18005.676995168,"details":{"audio_kind":"system","audio_ref_digest":"a9ead8fcd8db","content_length":223276,"duration_ms":5062}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18007.799731648,"details":{"index":16,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-04 13:22 #13","kind":"existing","title_audio_ref":"s0-system-audio:41f7d5470e78a3001a3960b238ecc98c"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18007.810476326,"details":{"audio_kind":"system","audio_ref_digest":"fda892667070"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18007.912629502,"details":{"audio_kind":"system","audio_ref_digest":"fda892667070","content_length":214060,"duration_ms":4853}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18008.46577647,"details":{"index":17,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-04 12:40 #12","kind":"existing","title_audio_ref":"s0-system-audio:596032f170a02e76f9cb0b33e3db5ffd"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18008.469520837,"details":{"audio_kind":"system","audio_ref_digest":"41a13de357fd"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18008.557263431,"details":{"audio_kind":"system","audio_ref_digest":"41a13de357fd","content_length":218668,"duration_ms":4957}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18008.648092638,"details":{"index":18,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-04 12:05 #11","kind":"existing","title_audio_ref":"s0-system-audio:3d202bbddb338df02570a87ef278c727"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18008.650598734,"details":{"audio_kind":"system","audio_ref_digest":"42c7fbcc2369"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18008.738497865,"details":{"audio_kind":"system","audio_ref_digest":"42c7fbcc2369","content_length":219180,"duration_ms":4969}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18008.831112709,"details":{"index":19,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-03 21:59 #10","kind":"existing","title_audio_ref":"s0-system-audio:286b4907b01140efcbcb6b2b43ffc25d"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18008.838194038,"details":{"audio_kind":"system","audio_ref_digest":"b9b6b16749a9"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18008.920230944,"details":{"audio_kind":"system","audio_ref_digest":"b9b6b16749a9","content_length":218156,"duration_ms":4946}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18009.013795115,"details":{"index":20,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-03 21:57 #09","kind":"existing","title_audio_ref":"s0-system-audio:2ba00282945d9861503aff1c31a67d03"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18009.018222015,"details":{"audio_kind":"system","audio_ref_digest":"1869abf52d29"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18009.128823994,"details":{"audio_kind":"system","audio_ref_digest":"1869abf52d29","content_length":236076,"duration_ms":5352}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18009.196157208,"details":{"index":21,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-03 21:02 #08","kind":"existing","title_audio_ref":"s0-system-audio:eca8a12b1c539e0ec521832103ea4980"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18009.201859471,"details":{"audio_kind":"system","audio_ref_digest":"6befc0ef305e"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18009.293228081,"details":{"audio_kind":"system","audio_ref_digest":"6befc0ef305e","content_length":257580,"duration_ms":5840}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18011.351137019,"details":{"index":22,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-03 20:44 #07","kind":"existing","title_audio_ref":"s0-system-audio:2cfa5444911fe37b5b1d2af91ffae6f6"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18011.360702351,"details":{"audio_kind":"system","audio_ref_digest":"885769f5940a"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18011.446540475,"details":{"audio_kind":"system","audio_ref_digest":"885769f5940a","content_length":228908,"duration_ms":5190}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18012.017049651,"details":{"index":23,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-03 20:31 #06","kind":"existing","title_audio_ref":"s0-system-audio:4fe5357f093195811a2039fbc20ad301"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18012.018117793,"details":{"audio_kind":"system","audio_ref_digest":"eeac4edf8fe7"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18012.126175193,"details":{"audio_kind":"system","audio_ref_digest":"eeac4edf8fe7","content_length":214572,"duration_ms":4865}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18012.208262635,"details":{"index":24,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-03 20:28 #05","kind":"existing","title_audio_ref":"s0-system-audio:2aefbd0ad94f9d38a762f3d9340c3c4e"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18012.21379251,"details":{"audio_kind":"system","audio_ref_digest":"d68517f1c083"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18012.306134781,"details":{"audio_kind":"system","audio_ref_digest":"d68517f1c083","content_length":221228,"duration_ms":5016}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18012.391354464,"details":{"index":25,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-03 20:24 #04","kind":"existing","title_audio_ref":"s0-system-audio:4c995302c9e390db13c96f0bde33a515"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18012.400561521,"details":{"audio_kind":"system","audio_ref_digest":"1d504b78a75e"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18012.506523341,"details":{"audio_kind":"system","audio_ref_digest":"1d504b78a75e","content_length":218668,"duration_ms":4957}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18012.575012863,"details":{"index":26,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-03 19:56 #03","kind":"existing","title_audio_ref":"s0-system-audio:7ce4292c69e36d85f435cb7fdfbd675a"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18012.58147201,"details":{"audio_kind":"system","audio_ref_digest":"a459157d232d"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18012.680673666,"details":{"audio_kind":"system","audio_ref_digest":"a459157d232d","content_length":251436,"duration_ms":5700}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18012.758329357,"details":{"index":27,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-03 19:36 #02","kind":"existing","title_audio_ref":"s0-system-audio:f259841528d1aca0bb6ff3739d6f6cbe"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18012.766186181,"details":{"audio_kind":"system","audio_ref_digest":"e6f22a58e2c8"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18012.86770449,"details":{"audio_kind":"system","audio_ref_digest":"e6f22a58e2c8","content_length":217132,"duration_ms":4923}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18012.942038811,"details":{"index":28,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-03 19:33 #01","kind":"existing","title_audio_ref":"s0-system-audio:5cd4393828f7bb872d6ca9e02afff92a"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18012.95338204,"details":{"audio_kind":"system","audio_ref_digest":"d59a05d8d0b2"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18013.065461676,"details":{"audio_kind":"system","audio_ref_digest":"d59a05d8d0b2","content_length":243244,"duration_ms":5515}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18013.126775388,"details":{"index":29,"title":"\uc0c8 \ub370\uc774\ud130\ud329 \ucd94\uac00","kind":"new_datapack"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18013.13015835,"details":{"audio_kind":"system","audio_ref_digest":"c6d5b528eab8"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18013.209610752,"details":{"audio_kind":"system","audio_ref_digest":"c6d5b528eab8","content_length":76844,"duration_ms":1741}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":18014.988990166,"details":{"audio_kind":"system","audio_ref_digest":"c6d5b528eab8"}}
+{"type":"feedback","code":"camera_opened","at_monotonic":18020.314029389,"details":{"source_type":"HttpSnapshotCameraSource"}}
+{"type":"feedback","code":"screen_changed","at_monotonic":18020.314261629,"details":{"screen":"capture","mode":"capture"}}
+{"type":"feedback","code":"confirm_selection","at_monotonic":18020.314400202,"details":{"datapack_id":"datapack-f93b6930cfa9419e84704869e459fe9b"}}
+{"type":"feedback","code":"scan_started","at_monotonic":18020.314464998,"details":{"datapack_id":"datapack-f93b6930cfa9419e84704869e459fe9b"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18020.314799736,"details":{"audio_kind":"system","audio_ref_digest":"5caec0c3249a"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18020.383543478,"details":{"audio_kind":"system","audio_ref_digest":"5caec0c3249a","content_length":90156,"duration_ms":2043}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":18022.428082407,"details":{"audio_kind":"system","audio_ref_digest":"5caec0c3249a"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18022.428319739,"details":{"audio_kind":"system","audio_ref_digest":"a1c32ba76ffb"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18022.51788882,"details":{"audio_kind":"system","audio_ref_digest":"a1c32ba76ffb","content_length":86572,"duration_ms":1962}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":18024.578380497,"details":{"audio_kind":"system","audio_ref_digest":"a1c32ba76ffb"}}
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"scanner_guidance","at_monotonic":18030.087958032,"details":{"guidance_code":"hand_or_page_turn","observations_considered":3,"stable_for_samples":3,"stable_for_ms":4028}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18030.088442678,"details":{"audio_kind":"system","audio_ref_digest":"41dbe62df62c"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18030.201640321,"details":{"audio_kind":"system","audio_ref_digest":"41dbe62df62c","content_length":130604,"duration_ms":2961}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":18033.178621077,"details":{"audio_kind":"system","audio_ref_digest":"41dbe62df62c"}}
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"candidate_selected","at_monotonic":18046.218833178,"details":{"source_frame_id":"phone-snapshot-00000011","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000001","identity_role":"candidate_verification"}}
+{"type":"feedback","code":"identity_collection_started","at_monotonic":18046.219030622,"details":{"source_frame_id":"phone-snapshot-00000011","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000001","identity_role":"candidate_verification","query_sample_count":5}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18051.805212817,"details":{"source_frame_id":"phone-snapshot-00000014","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000001","identity_role":"candidate_verification","valid_observations":1,"query_sample_count":5,"recognition_processing_ms":3722.2635969992552,"effective_interval_ms":null}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18062.712717252,"details":{"source_frame_id":"phone-snapshot-00000016","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000001","identity_role":"candidate_verification","valid_observations":2,"query_sample_count":5,"recognition_processing_ms":3571.0640870020143,"effective_interval_ms":5399.138672000845}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18068.885409085,"details":{"source_frame_id":"phone-snapshot-00000017","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000001","identity_role":"candidate_verification","valid_observations":3,"query_sample_count":5,"recognition_processing_ms":3557.3977359999844,"effective_interval_ms":6172.6872399995045}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18074.789370886,"details":{"source_frame_id":"phone-snapshot-00000018","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000001","identity_role":"candidate_verification","valid_observations":4,"query_sample_count":5,"recognition_processing_ms":3573.6220219987445,"effective_interval_ms":5903.647358998569}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_aborted","at_monotonic":18087.555997282,"details":{"source_frame_id":"phone-snapshot-00000021","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000001","identity_role":"candidate_verification","terminal_reason":"page_not_found","valid_observations":4,"missing_observations":3,"query_sample_count":5}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"scanner_guidance","at_monotonic":18099.830291095,"details":{"guidance_code":"hand_or_page_turn","observations_considered":3,"stable_for_samples":3,"stable_for_ms":5927}}
+{"type":"feedback","code":"reading_audio_cache_hit","at_monotonic":18099.830743463,"details":{"audio_kind":"system","audio_ref_digest":"41dbe62df62c"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18099.830864018,"details":{"audio_kind":"system","audio_ref_digest":"41dbe62df62c","content_length":130604,"duration_ms":2961}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":18102.818056815,"details":{"audio_kind":"system","audio_ref_digest":"41dbe62df62c"}}
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"candidate_selected","at_monotonic":18106.699058916,"details":{"source_frame_id":"phone-snapshot-00000029","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000002","identity_role":"candidate_verification"}}
+{"type":"feedback","code":"identity_collection_started","at_monotonic":18106.699252748,"details":{"source_frame_id":"phone-snapshot-00000029","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000002","identity_role":"candidate_verification","query_sample_count":5}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18111.245915803,"details":{"source_frame_id":"phone-snapshot-00000030","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000002","identity_role":"candidate_verification","valid_observations":1,"query_sample_count":5,"recognition_processing_ms":2847.5007859997277,"effective_interval_ms":5312.768038998911}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18116.788466131,"details":{"source_frame_id":"phone-snapshot-00000031","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000002","identity_role":"candidate_verification","valid_observations":2,"query_sample_count":5,"recognition_processing_ms":2906.8462289978925,"effective_interval_ms":5542.38882899881}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18122.926940574,"details":{"source_frame_id":"phone-snapshot-00000032","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000002","identity_role":"candidate_verification","valid_observations":3,"query_sample_count":5,"recognition_processing_ms":3577.9179300006945,"effective_interval_ms":6138.502370002243}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18128.358823315,"details":{"source_frame_id":"phone-snapshot-00000033","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000002","identity_role":"candidate_verification","valid_observations":4,"query_sample_count":5,"recognition_processing_ms":3621.6261650006345,"effective_interval_ms":5431.68637099734}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18133.019372882,"details":{"source_frame_id":"phone-snapshot-00000034","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000002","identity_role":"candidate_verification","valid_observations":5,"query_sample_count":5,"recognition_processing_ms":2842.2759099994437,"effective_interval_ms":4660.623195999506}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18138.983818847,"details":{"source_frame_id":"phone-snapshot-00000035","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000002","identity_role":"candidate_verification","valid_observations":6,"query_sample_count":5,"recognition_processing_ms":3577.83217999895,"effective_interval_ms":5964.14954100328}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18144.498696072,"details":{"source_frame_id":"phone-snapshot-00000036","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000002","identity_role":"candidate_verification","valid_observations":7,"query_sample_count":5,"recognition_processing_ms":3565.0746319988684,"effective_interval_ms":5515.20163099849}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18149.532991798,"details":{"source_frame_id":"phone-snapshot-00000037","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000002","identity_role":"candidate_verification","valid_observations":8,"query_sample_count":5,"recognition_processing_ms":2843.5636530011834,"effective_interval_ms":5034.336392000114}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_decided","at_monotonic":18154.389697225,"details":{"source_frame_id":"phone-snapshot-00000029","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000002","identity_role":"candidate_verification","decision":"unknown","valid_observations":8,"query_sample_count":5,"timed_out":true}}
+{"type":"feedback","code":"scanner_guidance","at_monotonic":18154.389928298,"details":{"guidance_code":"footer_identity_unavailable","valid_observations":8}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18154.390273666,"details":{"audio_kind":"system","audio_ref_digest":"5fd8cabbc41c"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18154.450300499,"details":{"audio_kind":"system","audio_ref_digest":"5fd8cabbc41c","content_length":88108,"duration_ms":1997}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":18156.508101837,"details":{"audio_kind":"system","audio_ref_digest":"5fd8cabbc41c"}}
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"candidate_selected","at_monotonic":18161.256293211,"details":{"source_frame_id":"phone-snapshot-00000041","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000003","identity_role":"candidate_verification"}}
+{"type":"feedback","code":"identity_collection_started","at_monotonic":18161.256607042,"details":{"source_frame_id":"phone-snapshot-00000041","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000003","identity_role":"candidate_verification","query_sample_count":5}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18166.775535849,"details":{"source_frame_id":"phone-snapshot-00000042","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000003","identity_role":"candidate_verification","valid_observations":1,"query_sample_count":5,"recognition_processing_ms":3564.8238150024554,"effective_interval_ms":4807.951449998654}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18171.977847587,"details":{"source_frame_id":"phone-snapshot-00000043","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000003","identity_role":"candidate_verification","valid_observations":2,"query_sample_count":5,"recognition_processing_ms":2859.8475379985757,"effective_interval_ms":5202.611087999685}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18176.769897123,"details":{"source_frame_id":"phone-snapshot-00000044","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000003","identity_role":"candidate_verification","valid_observations":3,"query_sample_count":5,"recognition_processing_ms":2859.688313998049,"effective_interval_ms":4791.954332999012}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_aborted","at_monotonic":18178.587085138,"details":{"source_frame_id":"phone-snapshot-00000045","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000003","identity_role":"candidate_verification","terminal_reason":"content_occluded","valid_observations":3,"missing_observations":0,"query_sample_count":5}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"candidate_selected","at_monotonic":18195.507146365,"details":{"source_frame_id":"phone-snapshot-00000052","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000004","identity_role":"candidate_verification"}}
+{"type":"feedback","code":"identity_collection_started","at_monotonic":18195.507355938,"details":{"source_frame_id":"phone-snapshot-00000052","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000004","identity_role":"candidate_verification","query_sample_count":5}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18201.010529763,"details":{"source_frame_id":"phone-snapshot-00000053","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000004","identity_role":"candidate_verification","valid_observations":1,"query_sample_count":5,"recognition_processing_ms":3598.276779997832,"effective_interval_ms":4791.954332999012}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_aborted","at_monotonic":18203.662354883,"details":{"source_frame_id":"phone-snapshot-00000054","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000004","identity_role":"candidate_verification","terminal_reason":"page_not_found","valid_observations":1,"missing_observations":0,"query_sample_count":5}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"candidate_selected","at_monotonic":18217.245839158,"details":{"source_frame_id":"phone-snapshot-00000059","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000005","identity_role":"candidate_verification"}}
+{"type":"feedback","code":"identity_collection_started","at_monotonic":18217.246035453,"details":{"source_frame_id":"phone-snapshot-00000059","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000005","identity_role":"candidate_verification","query_sample_count":5}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18223.531018299,"details":{"source_frame_id":"phone-snapshot-00000062","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000005","identity_role":"candidate_verification","valid_observations":1,"query_sample_count":5,"recognition_processing_ms":4343.503131000034,"effective_interval_ms":4791.954332999012}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18233.701749365,"details":{"source_frame_id":"phone-snapshot-00000064","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000005","identity_role":"candidate_verification","valid_observations":2,"query_sample_count":5,"recognition_processing_ms":3622.973653000372,"effective_interval_ms":6050.865852997958}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_aborted","at_monotonic":18245.744862819,"details":{"source_frame_id":"phone-snapshot-00000067","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000005","identity_role":"candidate_verification","terminal_reason":"page_not_found","valid_observations":2,"missing_observations":3,"query_sample_count":5}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"candidate_selected","at_monotonic":18251.678171092,"details":{"source_frame_id":"phone-snapshot-00000069","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000006","identity_role":"candidate_verification"}}
+{"type":"feedback","code":"identity_collection_started","at_monotonic":18251.67836235,"details":{"source_frame_id":"phone-snapshot-00000069","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000006","identity_role":"candidate_verification","query_sample_count":5}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18256.426897161,"details":{"source_frame_id":"phone-snapshot-00000071","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000006","identity_role":"candidate_verification","valid_observations":1,"query_sample_count":5,"recognition_processing_ms":2888.7809730003937,"effective_interval_ms":4848.569876998226}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18272.17428649,"details":{"source_frame_id":"phone-snapshot-00000074","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000006","identity_role":"candidate_verification","valid_observations":2,"query_sample_count":5,"recognition_processing_ms":4282.989790997817,"effective_interval_ms":6138.842895001289}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18279.904948994,"details":{"source_frame_id":"phone-snapshot-00000075","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000006","identity_role":"candidate_verification","valid_observations":3,"query_sample_count":5,"recognition_processing_ms":5028.0704029974,"effective_interval_ms":7730.252506997203}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18285.052985841,"details":{"source_frame_id":"phone-snapshot-00000076","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000006","identity_role":"candidate_verification","valid_observations":4,"query_sample_count":5,"recognition_processing_ms":2851.128657002846,"effective_interval_ms":5148.3254010017845}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18290.52596938,"details":{"source_frame_id":"phone-snapshot-00000077","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000006","identity_role":"candidate_verification","valid_observations":5,"query_sample_count":5,"recognition_processing_ms":3533.3507920004195,"effective_interval_ms":5471.851100999629}}
+{"type":"feedback","code":"identity_collection_decided","at_monotonic":18290.528557789,"details":{"source_frame_id":"phone-snapshot-00000077","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000006","identity_role":"candidate_verification","decision":"different","valid_observations":5,"query_sample_count":5,"timed_out":false}}
+{"type":"feedback","code":"spread_sent","at_monotonic":18308.494745542,"details":{"sequence":1}}
+{"type":"feedback","code":"identity_collection_started","at_monotonic":18308.495018836,"details":{"source_frame_id":"phone-snapshot-00000069","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000006","identity_role":"page_change","query_sample_count":5}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18308.495293464,"details":{"audio_kind":"system","audio_ref_digest":"b32c7761ac44"}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18308.603758974,"details":{"audio_kind":"system","audio_ref_digest":"b32c7761ac44","content_length":194092,"duration_ms":4400}}
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":18313.068457154,"details":{"audio_kind":"system","audio_ref_digest":"b32c7761ac44"}}
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18314.170389898,"details":{"source_frame_id":"phone-snapshot-00000078","identity_role":"page_change","valid_observations":1,"query_sample_count":5,"recognition_processing_ms":3638.1729599997925,"effective_interval_ms":23644.64490500177}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18319.809572336,"details":{"source_frame_id":"phone-snapshot-00000079","identity_role":"page_change","valid_observations":2,"query_sample_count":5,"recognition_processing_ms":3577.4739350017626,"effective_interval_ms":5630.626604997815}}
+{"type":"feedback","code":"identity_collection_decided","at_monotonic":18319.812201949,"details":{"source_frame_id":"phone-snapshot-00000079","identity_role":"page_change","decision":"same","valid_observations":2,"query_sample_count":5,"timed_out":false}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18327.280962999,"details":{"source_frame_id":"phone-snapshot-00000080","identity_role":"page_change","valid_observations":1,"query_sample_count":5,"recognition_processing_ms":5032.00829799971,"effective_interval_ms":7479.198058001202}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18333.742285863,"details":{"source_frame_id":"phone-snapshot-00000081","identity_role":"page_change","valid_observations":2,"query_sample_count":5,"recognition_processing_ms":4292.203953002172,"effective_interval_ms":6454.440777997661}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18339.945780409,"details":{"source_frame_id":"phone-snapshot-00000082","identity_role":"page_change","valid_observations":3,"query_sample_count":5,"recognition_processing_ms":4282.219374003034,"effective_interval_ms":6210.931776000507}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18355.13817911,"details":{"source_frame_id":"phone-snapshot-00000085","identity_role":"page_change","valid_observations":1,"query_sample_count":5,"recognition_processing_ms":5025.08353000303,"effective_interval_ms":7202.047170998412}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18367.472584063,"details":{"source_frame_id":"phone-snapshot-00000087","identity_role":"page_change","valid_observations":2,"query_sample_count":5,"recognition_processing_ms":4315.929594999034,"effective_interval_ms":6292.983273000573}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18373.967235875,"details":{"source_frame_id":"phone-snapshot-00000088","identity_role":"page_change","valid_observations":3,"query_sample_count":5,"recognition_processing_ms":3577.8411889987183,"effective_interval_ms":6485.968165001395}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18379.890942913,"details":{"source_frame_id":"phone-snapshot-00000089","identity_role":"page_change","valid_observations":4,"query_sample_count":5,"recognition_processing_ms":3568.5916140027985,"effective_interval_ms":5932.423906997428}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18386.673897212,"details":{"source_frame_id":"phone-snapshot-00000090","identity_role":"page_change","valid_observations":5,"query_sample_count":5,"recognition_processing_ms":4311.655513000005,"effective_interval_ms":6774.8882220003}}
+{"type":"feedback","code":"identity_collection_decided","at_monotonic":18386.674134303,"details":{"source_frame_id":"phone-snapshot-00000090","identity_role":"page_change","decision":"different","valid_observations":5,"query_sample_count":5,"timed_out":false}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"candidate_selected","at_monotonic":18393.161114937,"details":{"source_frame_id":"phone-snapshot-00000091","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000007","identity_role":"candidate_verification"}}
+{"type":"feedback","code":"identity_collection_started","at_monotonic":18393.161303065,"details":{"source_frame_id":"phone-snapshot-00000091","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000007","identity_role":"candidate_verification","query_sample_count":5}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18398.73295464,"details":{"source_frame_id":"phone-snapshot-00000094","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000007","identity_role":"candidate_verification","valid_observations":1,"query_sample_count":5,"recognition_processing_ms":3612.8337920017657,"effective_interval_ms":6774.8882220003}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18405.841274816,"details":{"source_frame_id":"phone-snapshot-00000095","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000007","identity_role":"candidate_verification","valid_observations":2,"query_sample_count":5,"recognition_processing_ms":5018.062019000354,"effective_interval_ms":7101.279316000728}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18410.956809879,"details":{"source_frame_id":"phone-snapshot-00000096","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000007","identity_role":"candidate_verification","valid_observations":3,"query_sample_count":5,"recognition_processing_ms":2832.9546909990313,"effective_interval_ms":5121.61652299983}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18415.603957967,"details":{"source_frame_id":"phone-snapshot-00000097","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000007","identity_role":"candidate_verification","valid_observations":4,"query_sample_count":5,"recognition_processing_ms":2821.3616229986656,"effective_interval_ms":4641.0578489994805}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18424.161464828,"details":{"source_frame_id":"phone-snapshot-00000099","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000007","identity_role":"candidate_verification","valid_observations":5,"query_sample_count":5,"recognition_processing_ms":2095.9536629998183,"effective_interval_ms":3938.6375550020603}}
+{"type":"feedback","code":"identity_collection_decided","at_monotonic":18424.161731474,"details":{"source_frame_id":"phone-snapshot-00000099","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000007","identity_role":"candidate_verification","decision":"different","valid_observations":5,"query_sample_count":5,"timed_out":false}}
+{"type":"feedback","code":"spread_sent","at_monotonic":18440.361481983,"details":{"sequence":2}}
+{"type":"feedback","code":"identity_collection_started","at_monotonic":18440.361757352,"details":{"source_frame_id":"phone-snapshot-00000091","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000007","identity_role":"page_change","query_sample_count":5}}
+{"type":"feedback","code":"reading_audio_cache_hit","at_monotonic":18440.361929055,"details":{"audio_kind":"system","audio_ref_digest":"b32c7761ac44"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18440.362233647,"details":{"audio_kind":"system","audio_ref_digest":"b32c7761ac44","content_length":194092,"duration_ms":4400}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":18444.828584784,"details":{"audio_kind":"system","audio_ref_digest":"b32c7761ac44"}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18454.227659567,"details":{"source_frame_id":"phone-snapshot-00000102","identity_role":"page_change","valid_observations":1,"query_sample_count":5,"recognition_processing_ms":2854.0787599995383,"effective_interval_ms":5189.435641997989}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18460.590263184,"details":{"source_frame_id":"phone-snapshot-00000103","identity_role":"page_change","valid_observations":2,"query_sample_count":5,"recognition_processing_ms":3602.857066998695,"effective_interval_ms":6354.669356001978}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18465.29461618,"details":{"source_frame_id":"phone-snapshot-00000104","identity_role":"page_change","valid_observations":3,"query_sample_count":5,"recognition_processing_ms":2123.060001998965,"effective_interval_ms":4712.378236999939}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18470.572824453,"details":{"source_frame_id":"phone-snapshot-00000105","identity_role":"page_change","valid_observations":4,"query_sample_count":5,"recognition_processing_ms":2876.325025998085,"effective_interval_ms":5269.859385996824}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18475.42854876,"details":{"source_frame_id":"phone-snapshot-00000106","identity_role":"page_change","valid_observations":5,"query_sample_count":5,"recognition_processing_ms":2846.645896002883,"effective_interval_ms":4863.6506230031955}}
+{"type":"feedback","code":"identity_collection_decided","at_monotonic":18475.428810093,"details":{"source_frame_id":"phone-snapshot-00000106","identity_role":"page_change","decision":"different","valid_observations":5,"query_sample_count":5,"timed_out":false}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18480.17827669,"details":{"source_frame_id":"phone-snapshot-00000107","identity_role":"page_change","valid_observations":1,"query_sample_count":5,"recognition_processing_ms":2878.4466569995857,"effective_interval_ms":4742.243574997701}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18485.01683069,"details":{"source_frame_id":"phone-snapshot-00000108","identity_role":"page_change","valid_observations":2,"query_sample_count":5,"recognition_processing_ms":2867.278186000476,"effective_interval_ms":4846.5525200008415}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18489.970883765,"details":{"source_frame_id":"phone-snapshot-00000109","identity_role":"page_change","valid_observations":3,"query_sample_count":5,"recognition_processing_ms":2857.2460240029613,"effective_interval_ms":4945.615816999634}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18494.936957237,"details":{"source_frame_id":"phone-snapshot-00000110","identity_role":"page_change","valid_observations":4,"query_sample_count":5,"recognition_processing_ms":2860.7871330023045,"effective_interval_ms":4973.977640001976}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18499.696747266,"details":{"source_frame_id":"phone-snapshot-00000111","identity_role":"page_change","valid_observations":5,"query_sample_count":5,"recognition_processing_ms":2884.2201530023885,"effective_interval_ms":4752.294081998116}}
+{"type":"feedback","code":"identity_collection_decided","at_monotonic":18499.696965876,"details":{"source_frame_id":"phone-snapshot-00000111","identity_role":"page_change","decision":"different","valid_observations":5,"query_sample_count":5,"timed_out":false}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"candidate_selected","at_monotonic":18505.424161068,"details":{"source_frame_id":"phone-snapshot-00000113","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000008","identity_role":"candidate_verification"}}
+{"type":"feedback","code":"identity_collection_started","at_monotonic":18505.4243524,"details":{"source_frame_id":"phone-snapshot-00000113","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000008","identity_role":"candidate_verification","query_sample_count":5}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18510.306874577,"details":{"source_frame_id":"phone-snapshot-00000115","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000008","identity_role":"candidate_verification","valid_observations":1,"query_sample_count":5,"recognition_processing_ms":2861.471708998579,"effective_interval_ms":4752.294081998116}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18515.397855031,"details":{"source_frame_id":"phone-snapshot-00000116","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000008","identity_role":"candidate_verification","valid_observations":2,"query_sample_count":5,"recognition_processing_ms":2877.648888999829,"effective_interval_ms":5084.277428999485}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18523.907040178,"details":{"source_frame_id":"phone-snapshot-00000117","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000008","identity_role":"candidate_verification","valid_observations":3,"query_sample_count":5,"recognition_processing_ms":3617.217488001188,"effective_interval_ms":8515.763080002216}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18528.478212493,"details":{"source_frame_id":"phone-snapshot-00000118","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000008","identity_role":"candidate_verification","valid_observations":4,"query_sample_count":5,"recognition_processing_ms":2169.72313199949,"effective_interval_ms":4564.2630139991525}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18534.60405859,"details":{"source_frame_id":"phone-snapshot-00000119","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000008","identity_role":"candidate_verification","valid_observations":5,"query_sample_count":5,"recognition_processing_ms":3620.895690000907,"effective_interval_ms":6131.892086999869}}
+{"type":"feedback","code":"identity_collection_decided","at_monotonic":18534.604315793,"details":{"source_frame_id":"phone-snapshot-00000119","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000008","identity_role":"candidate_verification","decision":"different","valid_observations":5,"query_sample_count":5,"timed_out":false}}
+{"type":"feedback","code":"spread_sent","at_monotonic":18551.010201524,"details":{"sequence":3}}
+{"type":"feedback","code":"identity_collection_started","at_monotonic":18551.010464541,"details":{"source_frame_id":"phone-snapshot-00000113","spread_id":"scan-87c8b2c5e29d4c99b27808d64addf32d-spread-000008","identity_role":"page_change","query_sample_count":5}}
+{"type":"feedback","code":"reading_audio_cache_hit","at_monotonic":18551.010635355,"details":{"audio_kind":"system","audio_ref_digest":"b32c7761ac44"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18551.010931928,"details":{"audio_kind":"system","audio_ref_digest":"b32c7761ac44","content_length":194092,"duration_ms":4400}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":18555.479177086,"details":{"audio_kind":"system","audio_ref_digest":"b32c7761ac44"}}
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18556.852544217,"details":{"source_frame_id":"phone-snapshot-00000120","identity_role":"page_change","valid_observations":1,"query_sample_count":5,"recognition_processing_ms":3654.297540000698,"effective_interval_ms":22241.064255998936}}
+{"type":"feedback","code":"identity_collection_decided","at_monotonic":18556.852804827,"details":{"source_frame_id":"phone-snapshot-00000120","identity_role":"page_change","decision":"same","valid_observations":1,"query_sample_count":5,"timed_out":false}}
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host '192.168.1.78'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Invalid SOS parameters for sequential JPEG
+{"type":"feedback","code":"identity_collection_progress","at_monotonic":18561.872936644,"details":{"source_frame_id":"phone-snapshot-00000121","identity_role":"page_change","valid_observations":1,"query_sample_count":5,"recognition_processing_ms":2865.810564999265,"effective_interval_ms":5028.213388999575}}
+{"type":"feedback","code":"identity_collection_decided","at_monotonic":18561.873220142,"details":{"source_frame_id":"phone-snapshot-00000121","identity_role":"page_change","decision":"same","valid_observations":1,"query_sample_count":5,"timed_out":false}}
+{"type":"feedback","code":"scan_stopping","at_monotonic":18561.896585973,"details":{"through_sequence":3}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18561.901059006,"details":{"audio_kind":"system","audio_ref_digest":"82a0b63076e3"}}
+{"type":"feedback","code":"finalizing","at_monotonic":18561.959221815,"details":{}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18561.964728103,"details":{"audio_kind":"system","audio_ref_digest":"5cac7aeebe67"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18562.037199972,"details":{"audio_kind":"system","audio_ref_digest":"5cac7aeebe67","content_length":101932,"duration_ms":2310}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":18564.368917299,"details":{"audio_kind":"system","audio_ref_digest":"5cac7aeebe67"}}
+{"type":"feedback","code":"datapack_saved","at_monotonic":18646.597464042,"details":{"datapack_id":"datapack-f93b6930cfa9419e84704869e459fe9b","revision":1}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18646.598781943,"details":{"audio_kind":"system","audio_ref_digest":"2fd76e185e96"}}
+{"type":"feedback","code":"screen_changed","at_monotonic":18646.658461542,"details":{"screen":"datapack_selection","mode":"capture"}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18646.658819892,"details":{"index":0,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-15 23:54 #30","kind":"existing","title_audio_ref":"s0-system-audio:8fc04ede6e54058437ab8518559dc01e"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18646.68347895,"details":{"audio_kind":"system","audio_ref_digest":"2fd76e185e96","content_length":112684,"duration_ms":2554}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":18649.290090529,"details":{"audio_kind":"system","audio_ref_digest":"2fd76e185e96"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18649.290326972,"details":{"audio_kind":"system","audio_ref_digest":"417deba6c618"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18649.364918402,"details":{"audio_kind":"system","audio_ref_digest":"417deba6c618","content_length":129580,"duration_ms":2937}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":18652.349588169,"details":{"audio_kind":"system","audio_ref_digest":"417deba6c618"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18652.349826372,"details":{"audio_kind":"system","audio_ref_digest":"e48f2e2bd8fb"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18652.446796796,"details":{"audio_kind":"system","audio_ref_digest":"e48f2e2bd8fb","content_length":228396,"duration_ms":5178}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":18657.6501668,"details":{"audio_kind":"system","audio_ref_digest":"e48f2e2bd8fb"}}
+{"type":"feedback","code":"operating_mode_changed","at_monotonic":18663.380797641,"details":{"mode":"reading"}}
+{"type":"feedback","code":"screen_changed","at_monotonic":18663.381368509,"details":{"screen":"datapack_selection","mode":"reading"}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":18663.381735859,"details":{"index":0,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-15 23:54 #30","kind":"existing","title_audio_ref":"s0-system-audio:8fc04ede6e54058437ab8518559dc01e"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":18663.382151949,"details":{"audio_kind":"system","audio_ref_digest":"6fca17eeca34"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18663.478931538,"details":{"audio_kind":"system","audio_ref_digest":"6fca17eeca34","content_length":118828,"duration_ms":2694}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":18666.180126528,"details":{"audio_kind":"system","audio_ref_digest":"6fca17eeca34"}}
+{"type":"feedback","code":"reading_audio_cache_hit","at_monotonic":18666.180596136,"details":{"audio_kind":"system","audio_ref_digest":"e48f2e2bd8fb"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":18666.18082232,"details":{"audio_kind":"system","audio_ref_digest":"e48f2e2bd8fb","content_length":228396,"duration_ms":5178}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":18671.389531378,"details":{"audio_kind":"system","audio_ref_digest":"e48f2e2bd8fb"}}

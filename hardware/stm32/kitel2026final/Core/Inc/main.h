@@ -74,11 +74,11 @@ void BluetoothUartIrqHandler(void);
 #define RIGHT_GPIO_Port GPIOB
 #define PAGE_NEXT_Pin GPIO_PIN_1
 #define PAGE_NEXT_GPIO_Port GPIOB
-#define PAGE_PREVIOUS_Pin GPIO_PIN_0
-#define PAGE_PREVIOUS_GPIO_Port GPIOC
-#define CONFIRM_Pin GPIO_PIN_1
+#define PAGE_PREVIOUS_Pin GPIO_PIN_2
+#define PAGE_PREVIOUS_GPIO_Port GPIOB
+#define CONFIRM_Pin GPIO_PIN_0
 #define CONFIRM_GPIO_Port GPIOC
-#define MODE_LEVER_Pin GPIO_PIN_2
+#define MODE_LEVER_Pin GPIO_PIN_8
 #define MODE_LEVER_GPIO_Port GPIOC
 #define TMS_Pin GPIO_PIN_13
 #define TMS_GPIO_Port GPIOA

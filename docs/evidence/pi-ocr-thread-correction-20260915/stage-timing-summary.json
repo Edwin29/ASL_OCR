@@ -1,0 +1,149 @@
+[
+  {
+    "phase": "concurrent-a",
+    "run": "stage-timing-concurrent-a-1789475828521791538",
+    "samples": 5,
+    "measured": 5,
+    "complete": 0,
+    "attempts": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "read_ms": {
+      "median": 1767.65,
+      "min": 1448.05,
+      "max": 2579.51
+    },
+    "decode_ms": {
+      "median": 227.62,
+      "min": 226.69,
+      "max": 228.73
+    },
+    "network_residual_ms": {
+      "median": 1495.18,
+      "min": 1175.27,
+      "max": 2307.91
+    },
+    "analyze_ms": {
+      "median": 204.68,
+      "min": 204.03,
+      "max": 216.9
+    },
+    "prepare_ms": {
+      "median": 21.76,
+      "min": 19.43,
+      "max": 29.86
+    },
+    "recognize_ms": {
+      "median": 2791.76,
+      "min": 2237.68,
+      "max": 3540.29
+    },
+    "stage_sum_ms": {
+      "median": 4802.06,
+      "min": 4333.5,
+      "max": 5579.03
+    }
+  },
+  {
+    "phase": "concurrent-a2",
+    "run": "stage-timing-concurrent-a2-1789475984429079839",
+    "samples": 5,
+    "measured": 5,
+    "complete": 2,
+    "attempts": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "read_ms": {
+      "median": 1930.67,
+      "min": 1423.43,
+      "max": 2297.78
+    },
+    "decode_ms": {
+      "median": 226.42,
+      "min": 224.73,
+      "max": 232.7
+    },
+    "network_residual_ms": {
+      "median": 1659.91,
+      "min": 1149.25,
+      "max": 2018.66
+    },
+    "analyze_ms": {
+      "median": 206.49,
+      "min": 203.94,
+      "max": 218.36
+    },
+    "prepare_ms": {
+      "median": 22.25,
+      "min": 20.1,
+      "max": 30.3
+    },
+    "recognize_ms": {
+      "median": 2850.23,
+      "min": 2818.48,
+      "max": 4381.36
+    },
+    "stage_sum_ms": {
+      "median": 5146.91,
+      "min": 4499.84,
+      "max": 6281.87
+    }
+  },
+  {
+    "phase": "relay-b",
+    "run": "stage-timing-relay-b-1789475921335897504",
+    "samples": 5,
+    "measured": 5,
+    "complete": 1,
+    "attempts": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "read_ms": {
+      "median": 1723.66,
+      "min": 1583.61,
+      "max": 1886.7
+    },
+    "decode_ms": {
+      "median": 230.66,
+      "min": 224.71,
+      "max": 236.59
+    },
+    "network_residual_ms": {
+      "median": 1452.91,
+      "min": 1307.5,
+      "max": 1612.41
+    },
+    "analyze_ms": {
+      "median": 205.54,
+      "min": 204.0,
+      "max": 222.46
+    },
+    "prepare_ms": {
+      "median": 21.67,
+      "min": 19.45,
+      "max": 29.96
+    },
+    "recognize_ms": {
+      "median": 2830.7,
+      "min": 2257.79,
+      "max": 4318.13
+    },
+    "stage_sum_ms": {
+      "median": 4965.06,
+      "min": 4226.45,
+      "max": 6128.18
+    }
+  }
+]

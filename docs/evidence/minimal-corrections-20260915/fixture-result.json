@@ -1,0 +1,25 @@
+{
+  "compiler": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\Hostx64\\x64\\cl.exe",
+  "source_sha256": "d7d58063cd6e69ecee04f4e6b2537bf0e9ea6a8ac9b2cb1514ae5335ba612849",
+  "measurement_values_exact_match": 180,
+  "unchanged_functions": [
+    "ParseAndApplyFrame",
+    "PumpBluetoothInput",
+    "BluetoothUartIrqHandler",
+    "BluetoothRxPushToken",
+    "BluetoothRxHandleByte",
+    "ServiceControlTransmit",
+    "ProcessHostLine",
+    "ButtonPollStep",
+    "ButtonPollEdge",
+    "ButtonPollConfirm",
+    "ModeLeverPoll",
+    "TryBluetoothHandshake"
+  ],
+  "gpio_header_ioc_consistent": true,
+  "compile_exit": 0,
+  "run_exit": 0,
+  "stdout": "PASS: 160 motor states, 640 cell patterns, GPIO masks, 7 malformed frames, failed-channel-only retry, high-to-clear index0, cache\n",
+  "stderr": "",
+  "target": "Windows x64 extracted production C / HAL stubs, not physical proof"
+}

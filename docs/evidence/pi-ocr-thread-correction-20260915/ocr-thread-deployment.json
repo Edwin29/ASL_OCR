@@ -1,0 +1,8 @@
+{
+  "file": "/home/user/ASL_OCR_PI/source/book-scanner/src/book_scanner/video/page_number_recognizer.py",
+  "before": "28f40e925cb0883d184e7f46fbcf929075af3cf04d9da2bff2899b35610b32a6",
+  "after": "18d287218c164164a61266612c01e694966cf1a7d1e51efce919355f1ab43596",
+  "backup": "/home/user/ASL_OCR_PI/runtime/initial-20260915/evidence/page_number_recognizer.before-thread-fix.py",
+  "change": "ARM64 implicit/explicit CPU inference cpu_threads=1",
+  "unix": 1789473443.2031517
+}

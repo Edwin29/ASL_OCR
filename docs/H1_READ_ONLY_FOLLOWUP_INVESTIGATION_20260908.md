@@ -183,3 +183,37 @@ Evidence: `live-query-adjusted-01-result.json`, `live-query-adjusted-01-source-0
 이로써 미리보기를 사용한 scene 조정으로 양쪽 demo spread의 검출/identity 품질이 개선된 증거를 확보했다. General OCR 개선·모든 scene 통과·기존 timeout 위험 해소를 뜻하지 않는다. 기존 코드 수정은 현재까지 불필요했고 하지 않았다. 다음 gate는 동일 배치의 continuous Scanner lifecycle 검증, 이후 source alignment 승인 조건을 충족한 fresh H1의 두 receipt/finalize/READY다. 진단 process는 종료했고 추가 사용자 조작은 지금 요청하지 않는다.
 
 Evidence: `live-reference-adjusted-01-result.json`, `live-reference-adjusted-01-source-0.png`, `both-adjusted-replay-result.json`. 기존 코드 수정0/upload0/FRAME0 유지.
+
+## 10. 동일 배치의 continuous Scanner diagnostic — 완료
+
+Run `continuous-20260908-233514` (UTC 14:35:14~14:36:52), Laptop PID28416. 사용자에게26/27 유지 후 첫 bank 등록을 확인한 시점에28/29로 넘기도록 안내했고 사용자는 완료를 보고했다. `user-turn-completed.txt`는 assistant가 응답을 받은 시각이며 실제 손 움직임 시각이 아니다.
+
+새 `continuous_scanner.py`만 작성했다. 실제 LocalBookScannerEngineFactory의 camera acquisition, analyzer, native M1, UVDoc preparation, filesystem artifact store, SampledFrameEngine을 사용했다. staging/ready만 새 C: run에 격리했다. 설정된 threaded acquisition은 유지하고 GUI sink만 NullPreview로 대체했다. SSH 연결을 유지하는 비대화형 실행으로 DeviceApplication scheduling/audio context는 시험하지 않았다. 최초 Start-Process 시도는 관측 시 run 폴더가 없었으며 정확한 종료 원인은 미확정이다. 연결 유지 방식 실행은 정상 완료했다.
+
+첫 artifact의 delivery_queued/delivery_confirmed는 새 진단 코드가 호출했다. receipt 문자열은 `DIAGNOSTIC-NOT-V4-first-artifact`이며 실제 outbox/V4 durable receipt가 아니다. 다만 bank 자체는 이번 연속 실행에서 관측한 실제5 pair로 생성됐으며 fixture bank를 주입하지 않았다. 두 번째 artifact는 서버 전달 없이 종료했다.
+
+| 경계 | 결과 / monotonic |
+|---|---|
+| 첫 candidate identity | 183414.562 N5 DIFFERENT, consensus5, timeout=false |
+| 첫 local artifact | 183420.156, source frame00000003 |
+| 첫 bank 등록 | 183420.171, depth5, 진단용 receipt |
+| 동일 페이지 대기 | SAME37회;26/27 digest 일치 |
+| 새 페이지 수집 | 183474.230~183479.515,28/29 N1→N5 |
+| PAGE_CHANGED | 183479.515, coherent numeric pair, match0/consensus5 |
+| 둘째 candidate identity | 183489.187 N5 DIFFERENT |
+| 둘째 local artifact | 183493.250, source frame00000063 |
+| 종료 | idle, camera_resource_released=true, PID 종료 확인 |
+
+이번 PAGE_CHANGED는 `opaque_footer_coherent_numeric_pair` 경로이며 visual_match_kind=ambiguous/visual_stable_count=0이다. 따라서 visual-only page-change gate 통과를 주장하지 않는다. 첫 유효 query 관측부터 결정까지 약5.285초이며 손 넘김 완료부터의 latency는 아니다.
+
+Frames evaluated61, selected2, processed2, dropped0. Opaque valid52/missing0/unknown timeouts0/hard rejected3. Raw reason은 content_occluded2/page_not_found1이며 이후 회복했다. Native stderr에 `Invalid SOS parameters for sequential JPEG`가 관측됐지만 이 run에서 fatal로 이어지지 않았다. 경고를 숨기거나 decoder root cause를 확정하지 않았다.
+
+각 artifact의 L/R source_frame_id가 일치하고 실제 Laptop 파일4개의 SHA-256이 artifact ref와 일치함을 독립 read-back으로 확인했다. 각 spread manifest와 artifact refs, 전체 events180개, policy/config hash/import identity/result를 Desktop evidence에 복사했다. 이미지 원본은 Laptop isolated ready 경로에 보존되어 있으며 파일 목록/크기/hash는 `artifact-files.json`에 있다. `verification.json`의26/27 및28/29 digest 계산은 production token serialization과 같은 NUL 구분식을 사용했고 live event digest와 일치한다.
+
+**판정: continuous Scanner diagnostic의 두 local artifact + page-change 경계 PASS.** 실제 live camera와 실제 준비·identity lifecycle의 연속성이 이전 recorded replay보다 추가 검증됐다. Slow-exact 8초 timeout risk가 일반적으로 해소됐다는 뜻은 아니다. N5/Ksame1/Kdifferent0/8000ms 및 candidate/duplicate threshold 변경0. 기존 product source 수정0, upload0, FRAME0.
+
+실행 engine hash는 기존 Laptop `f223f744fe2fd6a6818ea7bed4ed4f522e27f90590fc2c477fcb40fdbe8e427f`이며 최신 Desktop checkpoint의 engine과 다르다. Imports는 모두 C:/ASL_OCR_INTEGRATION 아래임을 확인했다. 이 결과를 최신 Desktop source의 hardware acceptance로 재표기하지 않는다.
+
+다음 gate는 배포 source identity를 명시적으로 정렬·검증한 뒤, 같은 scene에서 production DeviceApplication/Coordinator + console controls의 fresh H1 두 durable receipts/CONFIRM LONG/fresh READY를 검증하는 것이다. 별도 승인 없이 source를 배포하거나 upload run을 시작하지 않았다. Audio/physical controls/physical CLEAR 및 H4 미완료 상태는 유지한다. 사용자는 현재28/29 배치이며 추가 조작은 아직 필요 없다.
+
+Evidence: `docs/evidence/h1-investigation-20260908/continuous-20260908-233514/` 및 새 `continuous_scanner.py`.

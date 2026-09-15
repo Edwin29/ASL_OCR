@@ -1,0 +1,40 @@
+{
+  "pre_boot_id": "4f41073e-238f-4c80-a0f4-e0980141278f",
+  "post_boot_id": "212dd0f2-1ac9-4227-aa47-b34ebf6024ec",
+  "cursor_exact_match": true,
+  "resumed": {
+    "type": "feedback",
+    "code": "reading_resumed",
+    "at_monotonic": 469.467854741,
+    "details": {
+      "braille_offset": 0,
+      "document_id": "datapack-f93b6930cfa9419e84704869e459fe9b",
+      "focus_item_id": "pg-6eb58202c4d6-00000001-L-vl006",
+      "generation": 60,
+      "math_span_index": 0,
+      "mode": "DOCUMENT",
+      "node_index": 6,
+      "page_id": "pg-6eb58202c4d6-00000001-L",
+      "page_index": 0,
+      "table_column": null,
+      "table_row": null
+    }
+  },
+  "first_screen": {
+    "type": "feedback",
+    "code": "screen_changed",
+    "at_monotonic": 45.338743417,
+    "details": {
+      "screen": "datapack_selection",
+      "mode": "capture"
+    }
+  },
+  "operator_report": "Boot announcement after approximately 1-2 minutes; remaining operations normal.",
+  "single_production_pid": 997,
+  "restarts": 0,
+  "limitations": [
+    "Initial screen logged capture; later mode changed to reading.",
+    "No dedicated V3 wire trace captured in this run.",
+    "Power loss while uploading/writing not tested."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "exit_code": 0,
+  "stdout": "PASS: no host, immediate V3, missed first HELLO, unrelated ACK then V3, V2-only rejection, clock rollover\n",
+  "preserved_functions": [
+    "ParseAndApplyFrame",
+    "ApplyBrailleFrame",
+    "Motor_SetState",
+    "ButtonPollStep",
+    "ButtonPollEdge",
+    "ButtonPollConfirm",
+    "ModeLeverPoll",
+    "PumpBluetoothInput",
+    "ProcessHostLine",
+    "ServiceControlTransmit"
+  ],
+  "main_sha256": "bf708bf805acbeae787968b2b5a03dc3e7661e0f68a7ad2438bdbdd2f7847a3c",
+  "boundary": "extracted production C, simulated line timing; no Bluetooth/physical proof"
+}

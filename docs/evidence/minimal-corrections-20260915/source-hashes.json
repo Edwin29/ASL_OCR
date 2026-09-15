@@ -1,0 +1,10 @@
+[
+  {
+    "Path": "D:\\Projects\\OCR\\device-runtime\\src\\asl_device\\adapters\\stm_serial.py",
+    "Hash": "2DE4388DA3912DC2098191CA4CA668DB5C761F9AC606606348F0ABA1FACAF6FE"
+  },
+  {
+    "Path": "D:\\Projects\\OCR\\hardware\\stm32\\kitel2026final\\Core\\Src\\main.c",
+    "Hash": "9BCB9DDF15342240697F1CFF9BDD30CEAA1395F0588EB07E3EC69AA08E4AD6EB"
+  }
+]

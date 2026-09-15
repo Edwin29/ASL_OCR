@@ -1,0 +1,34 @@
+BOOT_EXEC_PRODUCTION
+/home/user/ASL_OCR_PI/.venv/lib/python3.13/site-packages/paddle/utils/cpp_extension/extension_utils.py:718: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+{"type":"feedback","code":"server_connecting","at_monotonic":45.114289787,"details":{}}
+{"type":"feedback","code":"screen_changed","at_monotonic":45.338743417,"details":{"screen":"datapack_selection","mode":"capture"}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":45.339024454,"details":{"index":0,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-15 23:54 #30","kind":"existing","title_audio_ref":"s0-system-audio:8fc04ede6e54058437ab8518559dc01e"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":45.339772231,"details":{"audio_kind":"system","audio_ref_digest":"417deba6c618"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":45.409162787,"details":{"audio_kind":"system","audio_ref_digest":"417deba6c618","content_length":129580,"duration_ms":2937}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":48.394419063,"details":{"audio_kind":"system","audio_ref_digest":"417deba6c618"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":48.394659563,"details":{"audio_kind":"system","audio_ref_digest":"e48f2e2bd8fb"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":48.484882155,"details":{"audio_kind":"system","audio_ref_digest":"e48f2e2bd8fb","content_length":228396,"duration_ms":5178}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":53.694922652,"details":{"audio_kind":"system","audio_ref_digest":"e48f2e2bd8fb"}}
+{"type":"feedback","code":"operating_mode_changed","at_monotonic":463.996813708,"details":{"mode":"reading"}}
+{"type":"feedback","code":"screen_changed","at_monotonic":463.997409206,"details":{"screen":"datapack_selection","mode":"reading"}}
+{"type":"feedback","code":"speak_catalog_title","at_monotonic":463.997799409,"details":{"index":0,"title":"\uc0c8 \ub370\uc774\ud130\ud329 2026-09-15 23:54 #30","kind":"existing","title_audio_ref":"s0-system-audio:8fc04ede6e54058437ab8518559dc01e"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":463.998178871,"details":{"audio_kind":"system","audio_ref_digest":"6fca17eeca34"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":464.086362256,"details":{"audio_kind":"system","audio_ref_digest":"6fca17eeca34","content_length":118828,"duration_ms":2694}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":466.789569091,"details":{"audio_kind":"system","audio_ref_digest":"6fca17eeca34"}}
+{"type":"feedback","code":"reading_audio_cache_hit","at_monotonic":466.789854294,"details":{"audio_kind":"system","audio_ref_digest":"e48f2e2bd8fb"}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":466.789956257,"details":{"audio_kind":"system","audio_ref_digest":"e48f2e2bd8fb","content_length":228396,"duration_ms":5178}}
+{"type":"feedback","code":"screen_changed","at_monotonic":469.467411353,"details":{"screen":"reading","mode":"reading"}}
+{"type":"feedback","code":"reading_resumed","at_monotonic":469.467854741,"details":{"braille_offset":0,"document_id":"datapack-f93b6930cfa9419e84704869e459fe9b","focus_item_id":"pg-6eb58202c4d6-00000001-L-vl006","generation":60,"math_span_index":0,"mode":"DOCUMENT","node_index":6,"page_id":"pg-6eb58202c4d6-00000001-L","page_index":0,"table_column":null,"table_row":null}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":469.472021393,"details":{"audio_kind":"reading","audio_ref_digest":"83bddce8f224","generation":60}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":469.625629879,"details":{"audio_kind":"reading","audio_ref_digest":"83bddce8f224","generation":60,"content_length":719916,"duration_ms":16324}}
+{"type":"feedback","code":"reading_audio_interrupted","at_monotonic":475.384121076,"details":{"generation":60,"audio_ref_digest":"83bddce8f224"}}
+{"type":"feedback","code":"reading_audio_cache_hit","at_monotonic":476.506907449,"details":{"audio_kind":"reading","audio_ref_digest":"83bddce8f224","generation":62}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":476.507083727,"details":{"audio_kind":"reading","audio_ref_digest":"83bddce8f224","generation":62,"content_length":719916,"duration_ms":16324}}
+{"type":"feedback","code":"reading_audio_interrupted","at_monotonic":477.01101968,"details":{"generation":62,"audio_ref_digest":"83bddce8f224"}}
+{"type":"feedback","code":"reading_audio_fetch_started","at_monotonic":478.517934493,"details":{"audio_kind":"reading","audio_ref_digest":"762a485e37df","generation":64}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":478.624225052,"details":{"audio_kind":"reading","audio_ref_digest":"762a485e37df","generation":64,"content_length":205356,"duration_ms":4656}}
+{"type":"feedback","code":"reading_audio_interrupted","at_monotonic":479.58779177,"details":{"generation":64,"audio_ref_digest":"762a485e37df"}}
+{"type":"feedback","code":"reading_audio_cache_hit","at_monotonic":479.739763495,"details":{"audio_kind":"reading","audio_ref_digest":"83bddce8f224","generation":65}}
+{"type":"feedback","code":"reading_audio_playback_started","at_monotonic":479.739946828,"details":{"audio_kind":"reading","audio_ref_digest":"83bddce8f224","generation":65,"content_length":719916,"duration_ms":16324}}
+{"type":"feedback","code":"reading_audio_playback_completed","at_monotonic":496.099518091,"details":{"audio_kind":"reading","audio_ref_digest":"83bddce8f224","generation":65}}

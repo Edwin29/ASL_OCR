@@ -1,0 +1,155 @@
+{"t": 259195.546, "phase": "initial", "kind": "open_enter", "thread": 30260}
+{"t": 259195.546, "phase": "initial", "kind": "status", "protocol": null, "worker_alive": true, "wires": []}
+{"t": 259196.546, "phase": "initial", "kind": "reset_start"}
+{"t": 259196.578, "phase": "initial", "kind": "open_ok", "number": 1, "handle": "708"}
+{"t": 259196.75, "phase": "initial", "kind": "reset_end", "exit": 0}
+{"t": 259196.75, "phase": "initial", "kind": "status", "protocol": null, "worker_alive": true, "wires": [{"number": 1, "calls": 3, "returns": 3, "bytes": 0, "waiting": 0, "open": true}]}
+{"t": 259196.828, "phase": "initial", "kind": "debug", "text": "\r\n"}
+{"t": 259196.828, "phase": "initial", "kind": "debug", "text": "\r\n"}
+{"t": 259196.828, "phase": "initial", "kind": "debug", "text": "========================================\r\n"}
+{"t": 259196.828, "phase": "initial", "kind": "debug", "text": " BRAILLE DISPLAY - HC05 + GITHUB NAV\r\n"}
+{"t": 259196.828, "phase": "initial", "kind": "debug", "text": " PCA1=TOP / PCA2=BOTTOM\r\n"}
+{"t": 259196.843, "phase": "initial", "kind": "debug", "text": "========================================\r\n"}
+{"t": 259196.843, "phase": "initial", "kind": "debug", "text": "HC-05 UART = 9600 baud\r\n"}
+{"t": 259196.843, "phase": "initial", "kind": "debug", "text": "PCA 0x40 FOUND\r\n"}
+{"t": 259196.843, "phase": "initial", "kind": "debug", "text": "PCA 0x41 FOUND\r\n"}
+{"t": 259196.859, "phase": "initial", "kind": "debug", "text": "PCA INIT OK\r\n"}
+{"t": 259196.859, "phase": "initial", "kind": "debug", "text": "PCA1 0x41 CH9~0 = TOP/LEFT logical Cell1~10\r\n"}
+{"t": 259196.875, "phase": "initial", "kind": "debug", "text": "PCA2 0x40 CH9~0 = BOTTOM/RIGHT logical Cell1~10\r\n"}
+{"t": 259196.875, "phase": "initial", "kind": "debug", "text": "\r\n"}
+{"t": 259196.875, "phase": "initial", "kind": "debug", "text": "BUTTONS\r\n"}
+{"t": 259196.875, "phase": "initial", "kind": "debug", "text": "CN7-28 / PA0 = UP\r\n"}
+{"t": 259196.875, "phase": "initial", "kind": "debug", "text": "CN7-30 / PA1 = DOWN\r\n"}
+{"t": 259196.875, "phase": "initial", "kind": "debug", "text": "CN7-32 / PA4 = LEFT\r\n"}
+{"t": 259196.875, "phase": "initial", "kind": "debug", "text": "CN7-34 / PB0 = RIGHT\r\n"}
+{"t": 259196.875, "phase": "initial", "kind": "debug", "text": "CN10-24 / PB1 = PAGE NEXT\r\n"}
+{"t": 259196.875, "phase": "initial", "kind": "debug", "text": "PB2 = PAGE PREVIOUS\r\n"}
+{"t": 259196.89, "phase": "initial", "kind": "debug", "text": "PC0 = CONFIRM (release sends SHORT or LONG)\r\n"}
+{"t": 259196.89, "phase": "initial", "kind": "debug", "text": "PC8 = MODE LEVER (LOW=capture, HIGH=reading)\r\n"}
+{"t": 259196.89, "phase": "initial", "kind": "debug", "text": "Tap = 1 step\r\n"}
+{"t": 259196.89, "phase": "initial", "kind": "debug", "text": "Hold >= 650ms = auto-repeat every 180ms\r\n"}
+{"t": 259196.89, "phase": "initial", "kind": "debug", "text": "\r\n"}
+{"t": 259196.89, "phase": "initial", "kind": "debug", "text": "BT: HELLO V3...\r\n"}
+{"t": 259196.921, "phase": "initial", "kind": "rx", "number": 1, "text": "H", "hex": "48"}
+{"t": 259196.921, "phase": "initial", "kind": "rx", "number": 1, "text": "ELLO,3\n", "hex": "454c4c4f2c330a"}
+{"t": 259196.921, "phase": "initial", "kind": "write_enter", "number": 1, "text": "ACK,HELLO,3\n"}
+{"t": 259196.921, "phase": "initial", "kind": "write_return", "number": 1, "count": 12}
+{"t": 259196.921, "phase": "initial", "kind": "write_enter", "number": 1, "text": "FRAME,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\n"}
+{"t": 259196.921, "phase": "initial", "kind": "write_return", "number": 1, "count": 36}
+{"t": 259196.937, "phase": "initial", "kind": "debug", "text": "BT: HOST CONNECTED (V3 EDGES)\r\n"}
+{"t": 259196.937, "phase": "initial", "kind": "debug", "text": "BT TX: NAV,V,R,1\n"}
+{"t": 259196.984, "phase": "initial", "kind": "rx", "number": 1, "text": "NAV,V,R,1\n", "hex": "4e41562c562c522c310a"}
+{"t": 259196.984, "phase": "initial", "kind": "write_enter", "number": 1, "text": "ACK,1\n"}
+{"t": 259196.984, "phase": "initial", "kind": "write_return", "number": 1, "count": 6}
+{"t": 259196.984, "phase": "initial", "kind": "write_enter", "number": 1, "text": "FRAME,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\n"}
+{"t": 259196.984, "phase": "initial", "kind": "write_return", "number": 1, "count": 36}
+{"t": 259197.0, "phase": "initial", "kind": "application", "control": "lever", "action": "released", "sequence": 1}
+{"t": 259197.0, "phase": "initial", "kind": "debug", "text": "BT RX: FRAME,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n"}
+{"t": 259197.515, "phase": "initial", "kind": "debug", "text": "\r\n"}
+{"t": 259197.515, "phase": "initial", "kind": "debug", "text": "========================================\r\n"}
+{"t": 259197.515, "phase": "initial", "kind": "debug", "text": "PAGE   = 0\r\n"}
+{"t": 259197.515, "phase": "initial", "kind": "debug", "text": "NODE   = 0\r\n"}
+{"t": 259197.531, "phase": "initial", "kind": "debug", "text": "SPAN   = 0\r\n"}
+{"t": 259197.531, "phase": "initial", "kind": "debug", "text": "OFFSET = 0\r\n"}
+{"t": 259197.531, "phase": "initial", "kind": "debug", "text": "GEN    = 0\r\n"}
+{"t": 259197.531, "phase": "initial", "kind": "debug", "text": "CELLS  = 0,0,0,0,0,0,0,0,0,0\r\n"}
+{"t": 259197.531, "phase": "initial", "kind": "debug", "text": "========================================\r\n"}
+{"t": 259197.531, "phase": "initial", "kind": "debug", "text": "BT RX: ACK,1\r\n"}
+{"t": 259197.531, "phase": "initial", "kind": "debug", "text": "BT ACK: 1\r\n"}
+{"t": 259197.531, "phase": "initial", "kind": "debug", "text": "BT RX: FRAME,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n"}
+{"t": 259197.546, "phase": "initial", "kind": "debug", "text": "\r\n"}
+{"t": 259197.546, "phase": "initial", "kind": "debug", "text": "========================================\r\n"}
+{"t": 259197.546, "phase": "initial", "kind": "debug", "text": "PAGE   = 0\r\n"}
+{"t": 259197.546, "phase": "initial", "kind": "debug", "text": "NODE   = 0\r\n"}
+{"t": 259197.546, "phase": "initial", "kind": "debug", "text": "SPAN   = 0\r\n"}
+{"t": 259197.546, "phase": "initial", "kind": "debug", "text": "OFFSET = 0\r\n"}
+{"t": 259197.546, "phase": "initial", "kind": "debug", "text": "GEN    = 0\r\n"}
+{"t": 259197.546, "phase": "initial", "kind": "debug", "text": "CELLS  = 0,0,0,0,0,0,0,0,0,0\r\n"}
+{"t": 259197.546, "phase": "initial", "kind": "debug", "text": "========================================\r\n"}
+{"t": 259197.75, "phase": "CLEAR", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 22, "returns": 21, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259197.765, "phase": "CLEAR", "kind": "write_enter", "number": 1, "text": "FRAME,0,801,0,0,801,0,0,0,0,0,0,0,0,0,0\n"}
+{"t": 259197.765, "phase": "CLEAR", "kind": "write_return", "number": 1, "count": 40}
+{"t": 259197.828, "phase": "CLEAR", "kind": "debug", "text": "BT RX: FRAME,0,801,0,0,801,0,0,0,0,0,0,0,0,0,0\r\n"}
+{"t": 259197.828, "phase": "CLEAR", "kind": "debug", "text": "\r\n"}
+{"t": 259197.828, "phase": "CLEAR", "kind": "debug", "text": "========================================\r\n"}
+{"t": 259197.828, "phase": "CLEAR", "kind": "debug", "text": "PAGE   = 0\r\n"}
+{"t": 259197.828, "phase": "CLEAR", "kind": "debug", "text": "NODE   = 801\r\n"}
+{"t": 259197.828, "phase": "CLEAR", "kind": "debug", "text": "SPAN   = 0\r\n"}
+{"t": 259197.843, "phase": "CLEAR", "kind": "debug", "text": "OFFSET = 0\r\n"}
+{"t": 259197.843, "phase": "CLEAR", "kind": "debug", "text": "GEN    = 801\r\n"}
+{"t": 259197.843, "phase": "CLEAR", "kind": "debug", "text": "CELLS  = 0,0,0,0,0,0,0,0,0,0\r\n"}
+{"t": 259197.843, "phase": "CLEAR", "kind": "debug", "text": "========================================\r\n"}
+{"t": 259198.765, "phase": "CLEAR", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 38, "returns": 38, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259199.781, "phase": "CLEAR", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 55, "returns": 54, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259200.796, "phase": "CLEAR", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 71, "returns": 70, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259201.812, "phase": "CLEAR", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 87, "returns": 87, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259202.75, "phase": "LEFTMOST_LEFT_COLUMN", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 103, "returns": 102, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259202.781, "phase": "LEFTMOST_LEFT_COLUMN", "kind": "write_enter", "number": 1, "text": "FRAME,0,802,0,0,802,7,0,0,0,0,0,0,0,0,0\n"}
+{"t": 259202.843, "phase": "LEFTMOST_LEFT_COLUMN", "kind": "write_return", "number": 1, "count": 40}
+{"t": 259202.906, "phase": "LEFTMOST_LEFT_COLUMN", "kind": "debug", "text": "BT RX: FRAME,0,802,0,0,802,7,0,0,0,0,0,0,0,0,0\r\n"}
+{"t": 259202.906, "phase": "LEFTMOST_LEFT_COLUMN", "kind": "debug", "text": "\r\n"}
+{"t": 259202.906, "phase": "LEFTMOST_LEFT_COLUMN", "kind": "debug", "text": "========================================\r\n"}
+{"t": 259202.906, "phase": "LEFTMOST_LEFT_COLUMN", "kind": "debug", "text": "PAGE   = 0\r\n"}
+{"t": 259202.906, "phase": "LEFTMOST_LEFT_COLUMN", "kind": "debug", "text": "NODE   = 802\r\n"}
+{"t": 259202.906, "phase": "LEFTMOST_LEFT_COLUMN", "kind": "debug", "text": "SPAN   = 0\r\n"}
+{"t": 259202.906, "phase": "LEFTMOST_LEFT_COLUMN", "kind": "debug", "text": "OFFSET = 0\r\n"}
+{"t": 259202.906, "phase": "LEFTMOST_LEFT_COLUMN", "kind": "debug", "text": "GEN    = 802\r\n"}
+{"t": 259202.906, "phase": "LEFTMOST_LEFT_COLUMN", "kind": "debug", "text": "CELLS  = 7,0,0,0,0,0,0,0,0,0\r\n"}
+{"t": 259202.921, "phase": "LEFTMOST_LEFT_COLUMN", "kind": "debug", "text": "========================================\r\n"}
+{"t": 259203.765, "phase": "LEFTMOST_LEFT_COLUMN", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 118, "returns": 117, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259204.781, "phase": "LEFTMOST_LEFT_COLUMN", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 134, "returns": 134, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259205.796, "phase": "LEFTMOST_LEFT_COLUMN", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 150, "returns": 150, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259206.812, "phase": "LEFTMOST_LEFT_COLUMN", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 166, "returns": 166, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259207.75, "phase": "CLEAR", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 182, "returns": 181, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259207.781, "phase": "CLEAR", "kind": "write_enter", "number": 1, "text": "FRAME,0,803,0,0,803,0,0,0,0,0,0,0,0,0,0\n"}
+{"t": 259207.781, "phase": "CLEAR", "kind": "write_return", "number": 1, "count": 40}
+{"t": 259207.828, "phase": "CLEAR", "kind": "debug", "text": "BT RX: FRAME,0,803,0,0,803,0,0,0,0,0,0,0,0,0,0\r\n"}
+{"t": 259207.828, "phase": "CLEAR", "kind": "debug", "text": "\r\n"}
+{"t": 259207.843, "phase": "CLEAR", "kind": "debug", "text": "========================================\r\n"}
+{"t": 259207.843, "phase": "CLEAR", "kind": "debug", "text": "PAGE   = 0\r\n"}
+{"t": 259207.843, "phase": "CLEAR", "kind": "debug", "text": "NODE   = 803\r\n"}
+{"t": 259207.843, "phase": "CLEAR", "kind": "debug", "text": "SPAN   = 0\r\n"}
+{"t": 259207.843, "phase": "CLEAR", "kind": "debug", "text": "OFFSET = 0\r\n"}
+{"t": 259207.843, "phase": "CLEAR", "kind": "debug", "text": "GEN    = 803\r\n"}
+{"t": 259207.843, "phase": "CLEAR", "kind": "debug", "text": "CELLS  = 0,0,0,0,0,0,0,0,0,0\r\n"}
+{"t": 259207.843, "phase": "CLEAR", "kind": "debug", "text": "========================================\r\n"}
+{"t": 259208.765, "phase": "CLEAR", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 198, "returns": 198, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259209.781, "phase": "CLEAR", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 215, "returns": 214, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259210.796, "phase": "CLEAR", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 231, "returns": 231, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259211.812, "phase": "CLEAR", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 247, "returns": 247, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259212.75, "phase": "RIGHTMOST_RIGHT_COLUMN", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 263, "returns": 262, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259212.765, "phase": "RIGHTMOST_RIGHT_COLUMN", "kind": "write_enter", "number": 1, "text": "FRAME,0,804,0,0,804,0,0,0,0,0,0,0,0,0,56\n"}
+{"t": 259212.828, "phase": "RIGHTMOST_RIGHT_COLUMN", "kind": "write_return", "number": 1, "count": 41}
+{"t": 259212.89, "phase": "RIGHTMOST_RIGHT_COLUMN", "kind": "debug", "text": "BT RX: FRAME,0,804,0,0,804,0,0,0,0,0,0,0,0,0,56\r\n"}
+{"t": 259212.89, "phase": "RIGHTMOST_RIGHT_COLUMN", "kind": "debug", "text": "\r\n"}
+{"t": 259212.89, "phase": "RIGHTMOST_RIGHT_COLUMN", "kind": "debug", "text": "========================================\r\n"}
+{"t": 259212.89, "phase": "RIGHTMOST_RIGHT_COLUMN", "kind": "debug", "text": "PAGE   = 0\r\n"}
+{"t": 259212.89, "phase": "RIGHTMOST_RIGHT_COLUMN", "kind": "debug", "text": "NODE   = 804\r\n"}
+{"t": 259212.906, "phase": "RIGHTMOST_RIGHT_COLUMN", "kind": "debug", "text": "SPAN   = 0\r\n"}
+{"t": 259212.906, "phase": "RIGHTMOST_RIGHT_COLUMN", "kind": "debug", "text": "OFFSET = 0\r\n"}
+{"t": 259212.906, "phase": "RIGHTMOST_RIGHT_COLUMN", "kind": "debug", "text": "GEN    = 804\r\n"}
+{"t": 259212.906, "phase": "RIGHTMOST_RIGHT_COLUMN", "kind": "debug", "text": "CELLS  = 0,0,0,0,0,0,0,0,0,56\r\n"}
+{"t": 259212.906, "phase": "RIGHTMOST_RIGHT_COLUMN", "kind": "debug", "text": "========================================\r\n"}
+{"t": 259213.765, "phase": "RIGHTMOST_RIGHT_COLUMN", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 278, "returns": 277, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259214.781, "phase": "RIGHTMOST_RIGHT_COLUMN", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 294, "returns": 294, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259215.796, "phase": "RIGHTMOST_RIGHT_COLUMN", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 311, "returns": 310, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259216.812, "phase": "RIGHTMOST_RIGHT_COLUMN", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 327, "returns": 326, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259217.75, "phase": "FINAL_CLEAR", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 342, "returns": 341, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259217.75, "phase": "FINAL_CLEAR", "kind": "write_enter", "number": 1, "text": "FRAME,0,805,0,0,805,0,0,0,0,0,0,0,0,0,0\n"}
+{"t": 259217.75, "phase": "FINAL_CLEAR", "kind": "write_return", "number": 1, "count": 40}
+{"t": 259217.812, "phase": "FINAL_CLEAR", "kind": "debug", "text": "BT RX: FRAME,0,805,0,0,805,0,0,0,0,0,0,0,0,0,0\r\n"}
+{"t": 259217.812, "phase": "FINAL_CLEAR", "kind": "debug", "text": "\r\n"}
+{"t": 259217.812, "phase": "FINAL_CLEAR", "kind": "debug", "text": "========================================\r\n"}
+{"t": 259217.812, "phase": "FINAL_CLEAR", "kind": "debug", "text": "PAGE   = 0\r\n"}
+{"t": 259217.812, "phase": "FINAL_CLEAR", "kind": "debug", "text": "NODE   = 805\r\n"}
+{"t": 259217.812, "phase": "FINAL_CLEAR", "kind": "debug", "text": "SPAN   = 0\r\n"}
+{"t": 259217.812, "phase": "FINAL_CLEAR", "kind": "debug", "text": "OFFSET = 0\r\n"}
+{"t": 259217.812, "phase": "FINAL_CLEAR", "kind": "debug", "text": "GEN    = 805\r\n"}
+{"t": 259217.812, "phase": "FINAL_CLEAR", "kind": "debug", "text": "CELLS  = 0,0,0,0,0,0,0,0,0,0\r\n"}
+{"t": 259217.828, "phase": "FINAL_CLEAR", "kind": "debug", "text": "========================================\r\n"}
+{"t": 259218.765, "phase": "FINAL_CLEAR", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 359, "returns": 358, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259219.781, "phase": "FINAL_CLEAR", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 375, "returns": 374, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259220.796, "phase": "FINAL_CLEAR", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 391, "returns": 390, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259221.812, "phase": "FINAL_CLEAR", "kind": "status", "protocol": 3, "worker_alive": true, "wires": [{"number": 1, "calls": 407, "returns": 407, "bytes": 18, "waiting": 0, "open": true}]}
+{"t": 259222.75, "phase": "FINAL_CLEAR", "kind": "close_enter", "number": 1}
+{"t": 259222.75, "phase": "FINAL_CLEAR", "kind": "close_return", "number": 1}

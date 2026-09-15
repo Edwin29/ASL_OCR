@@ -1,0 +1,7 @@
+﻿{
+    "started_utc":  "2026-09-15T09:37:01.6282417Z",
+    "ended_utc":  "2026-09-15T09:40:12.1524165Z",
+    "native_exit_code":  null,
+    "debug_exited":  true,
+    "note":  "Direct native call without output pipeline; null is unobserved, never success."
+}

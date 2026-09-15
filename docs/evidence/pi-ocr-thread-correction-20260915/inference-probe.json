@@ -1,0 +1,21 @@
+{
+  "scope": "synthetic native inference only",
+  "recognition": {
+    "text": "28",
+    "score": 0.9984957575798035,
+    "seconds": 0.5009091400006582
+  },
+  "uvdoc": {
+    "result_fields": {
+      "success": "True",
+      "adapter_name": "uvdoc",
+      "device": "cpu",
+      "processing_ms": "2505.4645109994453",
+      "input_size": "(320, 480)",
+      "output_size": "(320, 480)",
+      "reason": "None",
+      "diagnostics": "{'load_count': 1, 'load_ms': 660.8235659996353, 'model_input_size': [488, 712], 'grid_shape': [1, 2, 45, 31], 'sampling_mode': 'bilinear'}"
+    },
+    "seconds": 3.168330307999895
+  }
+}

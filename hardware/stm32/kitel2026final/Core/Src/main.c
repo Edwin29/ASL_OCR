@@ -27,7 +27,7 @@
  *
  * Additional active-low inputs (verify physical Morpho header positions
  * against the NUCLEO-F446RE board schematic before wiring):
- * PC0 = PAGE PREVIOUS, PC1 = CONFIRM, PC2 = MODE LEVER
+ * PB2 = PAGE PREVIOUS, PC0 = CONFIRM, PC8 = MODE LEVER
  *
  * Power examples on male Morpho header:
  * CN7-16 = +3.3V
@@ -68,8 +68,8 @@ UART_HandleTypeDef huart2;      /* Tera Term */
 /* ============================================================
  * PCA9685
  * ============================================================ */
-#define PCA1_ADDR               (0x40U << 1)
-#define PCA2_ADDR               (0x41U << 1)
+#define PCA1_ADDR               (0x41U << 1)
+#define PCA2_ADDR               (0x40U << 1)
 
 #define PCA_MODE1               0x00U
 #define PCA_MODE2               0x01U
@@ -84,15 +84,46 @@ UART_HandleTypeDef huart2;      /* Tera Term */
  * Servo / Braille display
  *
  * NEW PCA WIRING
- * PCA #1 (0x40) CH0~CH9 = TOP motors, Cell 1~10
- * PCA #2 (0x41) CH0~CH9 = BOTTOM motors, Cell 1~10
+ * PCA #1 (0x41) CH0~CH9 = TOP/LEFT motors, Cell 1~10
+ * PCA #2 (0x40) CH0~CH9 = BOTTOM/RIGHT motors, Cell 1~10
  * ============================================================ */
 #define MOTOR_COUNT             20U
 #define BRAILLE_CELL_COUNT      10U
 
 #define SERVO_FREQ_HZ           50U
-#define SERVO_MIN_US            700U
-#define SERVO_MAX_US            2300U
+
+/* Hardware-team measurements, 2026-09-14: microseconds per physical motor.
+ * Rows are CH0..CH9 on the address above; positions 0..7 map to existing
+ * logical states. Position 8 (180-degree 000) is preserved as measurement
+ * data only. CLEAR always uses position 0, independent of previous state.
+ */
+#define SERVO_CAL_POSITIONS     9U
+static const uint16_t PCA1_SERVO_LUT_US[10][SERVO_CAL_POSITIONS] =
+{
+    { 513U, 674U, 1001U, 1191U, 1558U, 1729U, 1997U, 2183U, 2358U },
+    { 513U, 781U, 1030U, 1270U, 1587U, 1797U, 2046U, 2261U, 2437U },
+    { 513U, 752U,  986U, 1167U, 1519U, 1704U, 2021U, 2231U, 2461U },
+    { 513U, 586U,  957U, 1079U, 1475U, 1582U, 2011U, 2163U, 2329U },
+    { 513U, 728U, 1001U, 1192U, 1470U, 1719U, 2080U, 2207U, 2422U },
+    { 513U, 640U,  923U, 1099U, 1450U, 1675U, 1982U, 2168U, 2391U },
+    { 513U, 718U, 1055U, 1279U, 1558U, 1787U, 2080U, 2310U, 2554U },
+    { 513U, 693U,  952U, 1118U, 1421U, 1680U, 1973U, 2173U, 2446U },
+    { 513U, 751U,  977U, 1201U, 1533U, 1831U, 2026U, 2280U, 2554U },
+    { 513U, 605U, 1006U, 1133U, 1455U, 1727U, 2021U, 2153U, 2437U }
+};
+static const uint16_t PCA2_SERVO_LUT_US[10][SERVO_CAL_POSITIONS] =
+{
+    { 513U, 723U,  972U, 1118U, 1485U, 1689U, 2002U, 2222U, 2480U },
+    { 513U, 723U,  972U, 1201U, 1553U, 1831U, 2134U, 2280U, 2480U },
+    { 513U, 835U, 1050U, 1270U, 1616U, 1885U, 2075U, 2370U, 2431U },
+    { 513U, 659U,  889U, 1162U, 1489U, 1774U, 2075U, 2319U, 2518U },
+    { 513U, 864U, 1133U, 1396U, 1636U, 1963U, 2236U, 2422U, 2598U },
+    { 513U, 762U, 1040U, 1287U, 1533U, 1880U, 2168U, 2314U, 2529U },
+    { 513U, 711U, 1060U, 1240U, 1646U, 1934U, 2163U, 2339U, 2588U },
+    { 513U, 718U,  996U, 1161U, 1455U, 1836U, 2163U, 2295U, 2515U },
+    { 513U, 840U, 1152U, 1362U, 1636U, 1938U, 2236U, 2432U, 2588U },
+    { 513U, 664U,  947U, 1147U, 1396U, 1694U, 2036U, 2202U, 2432U }
+};
 
 /* Move changed servos in small groups to reduce peak current. */
 #define SERVO_BATCH_SIZE        4U
@@ -151,9 +182,9 @@ static const uint8_t BOTTOM_REVERSE_LUT[8] =
  * CN7-32 / PA4 = LEFT
  * CN7-34 / PB0 = RIGHT
  * CN10-24 / PB1 = PAGE NEXT
- * PC0 = PAGE PREVIOUS
- * PC1 = CONFIRM
- * PC2 = MODE LEVER (LOW=capture, HIGH=reading)
+ * CN10-22 / PB2 = PAGE PREVIOUS
+ * CN7-38 / PC0 = CONFIRM
+ * CN10-2 / PC8 = MODE LEVER (LOW=capture, HIGH=reading)
  *
  * GPIO Input + Pull-up.
  * Each button connects GPIO <-> switch <-> GND.
@@ -458,7 +489,6 @@ static HAL_StatusTypeDef Motor_SetState(uint8_t motor, uint8_t state)
 {
     uint16_t pca_addr;
     uint8_t channel;
-    uint16_t angle_x10;
     uint32_t pulse_us;
     uint32_t pwm_count;
 
@@ -476,12 +506,9 @@ static HAL_StatusTypeDef Motor_SetState(uint8_t motor, uint8_t state)
         channel = (uint8_t)(motor - 10U);
     }
 
-    /* state 0..7 -> 0,22.5,...157.5 degrees */
-    angle_x10 = (uint16_t)state * 225U;
-
-    pulse_us = SERVO_MIN_US +
-               (((uint32_t)(SERVO_MAX_US - SERVO_MIN_US) *
-                 (uint32_t)angle_x10) / 1800U);
+    /* Keep logical state/bit ordering; use the measured pulse for this motor. */
+    pulse_us = (motor < 10U) ? PCA1_SERVO_LUT_US[channel][state]
+                             : PCA2_SERVO_LUT_US[channel][state];
 
     pwm_count =
         (pulse_us * 4096U * SERVO_FREQ_HZ) /
@@ -493,16 +520,16 @@ static HAL_StatusTypeDef Motor_SetState(uint8_t motor, uint8_t state)
 /* ============================================================
  * 10 Braille cells -> 20 motors
  *
- * NEW CHANNEL MAP:
- *   Cell 1 top    -> PCA1 CH0
- *   Cell 2 top    -> PCA1 CH1
+ * LOGICAL READING ORDER (physical columns run in reverse):
+ *   Cell 1 top    -> PCA1 CH9
+ *   Cell 2 top    -> PCA1 CH8
  *   ...
- *   Cell 10 top   -> PCA1 CH9
+ *   Cell 10 top   -> PCA1 CH0
  *
- *   Cell 1 bottom -> PCA2 CH0
- *   Cell 2 bottom -> PCA2 CH1
+ *   Cell 1 bottom -> PCA2 CH9
+ *   Cell 2 bottom -> PCA2 CH8
  *   ...
- *   Cell 10 bottom-> PCA2 CH9
+ *   Cell 10 bottom-> PCA2 CH0
  *
  * GitHub / Unicode Braille 6-bit encoding:
  * bit0=dot1 bit1=dot2 bit2=dot3 bit3=dot4 bit4=dot5 bit5=dot6
@@ -530,12 +557,11 @@ static uint8_t ApplyBrailleFrame(const uint8_t cells[BRAILLE_CELL_COUNT])
         uint8_t bottom_state = SERVO_STATE_LUT[bottom_pattern];
 
         /*
-         * NEW WIRING:
-         * top_motor    0..9   -> PCA1 CH0..9
-         * bottom_motor 10..19 -> PCA2 CH0..9
+         * Reverse logical cell order only. Calibration stays attached to
+         * its measured physical motor/PCA channel.
          */
-        uint8_t top_motor = i;
-        uint8_t bottom_motor = (uint8_t)(10U + i);
+        uint8_t top_motor = (uint8_t)(BRAILLE_CELL_COUNT - 1U - i);
+        uint8_t bottom_motor = (uint8_t)(10U + top_motor);
 
         if (current_motor_state[top_motor] != top_state)
         {
@@ -1156,73 +1182,53 @@ static uint8_t SendControlAction(char control, char action)
 }
 
 /* ============================================================
- * Initial / reconnect handshake with legacy fallback
+ * Production V3-only initial / reconnect handshake
  * ============================================================ */
 static uint8_t TryBluetoothHandshake(void)
 {
-    static const char hello_v2[] = "HELLO,2\n";
-    static const char hello_v1[] = "HELLO\n";
+    static const char hello_v3[] = "HELLO,3\n";
     char line[64];
     GPIO_PinState lever_state;
+    uint8_t attempt;
 
     ResetControlTransport();
     bt_protocol_v2 = 0U;
     bt_protocol_v3 = 0U;
+    bt_connected = 0U;
+    /* Production is V3-only. Each attempt has a fixed total deadline;
+     * unrelated/late lines never renew it. The outer loop retries later. */
+    for (attempt = 0U; attempt < 3U && !bt_connected; attempt++)
     {
-        static const char hello_v3[] = "HELLO,3\n";
+        uint32_t started;
         Debug_Print("BT: HELLO V3...\r\n");
-        HAL_UART_Transmit(
-            &huart1,
-            (uint8_t *)hello_v3,
-            (uint16_t)(sizeof(hello_v3) - 1U),
-            1000U);
-    }
-
-    if (HC05_ReadLine(line, sizeof(line), VERSIONED_HANDSHAKE_TIMEOUT_MS) &&
-        strcmp(line, "ACK,HELLO,3") == 0)
-    {
-        bt_protocol_v2 = 1U;
-        bt_protocol_v3 = 1U;
-        bt_connected = 1U;
-        Debug_Print("BT: HOST CONNECTED (V3 EDGES)\r\n");
-    }
-    else
-    {
-        Debug_Print("BT: V3 UNAVAILABLE, TRY V2\r\n");
-        bt_protocol_v3 = 0U;
-        Debug_Print("BT: HELLO V2...\r\n");
-        HAL_UART_Transmit(
-            &huart1,
-            (uint8_t *)hello_v2,
-            (uint16_t)(sizeof(hello_v2) - 1U),
-            1000U);
-
-        if (HC05_ReadLine(line, sizeof(line), VERSIONED_HANDSHAKE_TIMEOUT_MS) &&
-            strcmp(line, "ACK,HELLO,2") == 0)
+        if (HAL_UART_Transmit(&huart1, (uint8_t *)hello_v3,
+                              (uint16_t)(sizeof(hello_v3) - 1U), 1000U) != HAL_OK)
+            continue;
+        started = HAL_GetTick();
+        while (!bt_connected)
         {
-            bt_protocol_v2 = 1U;
-            bt_connected = 1U;
-            Debug_Print("BT: HOST CONNECTED (V2 ASYNC)\r\n");
-        }
-        else
-        {
-            Debug_Print("BT: V2 UNAVAILABLE, TRY LEGACY\r\n");
-            HAL_UART_Transmit(
-                &huart1,
-                (uint8_t *)hello_v1,
-                (uint16_t)(sizeof(hello_v1) - 1U),
-                1000U);
-            if (!ReceiveFrameFromPi(VERSIONED_HANDSHAKE_TIMEOUT_MS))
+            uint32_t elapsed = HAL_GetTick() - started;
+            uint32_t remaining;
+            if (elapsed >= VERSIONED_HANDSHAKE_TIMEOUT_MS)
+                break;
+            remaining = VERSIONED_HANDSHAKE_TIMEOUT_MS - elapsed;
+            if (!HC05_ReadLine(line, sizeof(line), remaining))
+                break;
+            if (strcmp(line, "ACK,HELLO,3") == 0)
             {
-                bt_connected = 0U;
-                Debug_Print("BT: WAITING FOR PI / HC-05 LINK\r\n");
-                return 0U;
+                bt_protocol_v2 = 1U; /* Shared asynchronous transport machinery. */
+                bt_protocol_v3 = 1U;
+                bt_connected = 1U;
+                break;
             }
-            bt_protocol_v2 = 0U;
-            bt_connected = 1U;
-            Debug_Print("BT: HOST CONNECTED (V1 LEGACY)\r\n");
         }
     }
+    if (!bt_connected)
+    {
+        Debug_Print("BT: V3 REQUIRED, WAITING FOR LINK\r\n");
+        return 0U;
+    }
+    Debug_Print("BT: HOST CONNECTED (V3 EDGES)\r\n");
 
     if (bt_protocol_v2)
         StartBluetoothInterruptReceive();
@@ -1296,33 +1302,33 @@ int main(void)
     /* PCA presence check */
     if (HAL_I2C_IsDeviceReady(&hi2c1, PCA1_ADDR, 3U, 100U) != HAL_OK)
     {
-        Debug_Print("PCA 0x40 NOT FOUND\r\n");
+        Debug_Print("PCA1 0x41 NOT FOUND\r\n");
         Error_Handler();
     }
     Debug_Print("PCA 0x40 FOUND\r\n");
 
     if (HAL_I2C_IsDeviceReady(&hi2c1, PCA2_ADDR, 3U, 100U) != HAL_OK)
     {
-        Debug_Print("PCA 0x41 NOT FOUND\r\n");
+        Debug_Print("PCA2 0x40 NOT FOUND\r\n");
         Error_Handler();
     }
     Debug_Print("PCA 0x41 FOUND\r\n");
 
     if (PCA_Init(PCA1_ADDR) != HAL_OK)
     {
-        Debug_Print("PCA 0x40 INIT ERROR\r\n");
+        Debug_Print("PCA1 0x41 INIT ERROR\r\n");
         Error_Handler();
     }
 
     if (PCA_Init(PCA2_ADDR) != HAL_OK)
     {
-        Debug_Print("PCA 0x41 INIT ERROR\r\n");
+        Debug_Print("PCA2 0x40 INIT ERROR\r\n");
         Error_Handler();
     }
 
     Debug_Print("PCA INIT OK\r\n");
-    Debug_Print("PCA1 0x40 CH0~9 = TOP Cell1~10\r\n");
-    Debug_Print("PCA2 0x41 CH0~9 = BOTTOM Cell1~10\r\n");
+    Debug_Print("PCA1 0x41 CH9~0 = TOP/LEFT logical Cell1~10\r\n");
+    Debug_Print("PCA2 0x40 CH9~0 = BOTTOM/RIGHT logical Cell1~10\r\n");
 
     /* Force the first received frame to update all motors. */
     memset(current_motor_state, 0xFF, sizeof(current_motor_state));
@@ -1335,9 +1341,9 @@ int main(void)
         "CN7-32 / PA4 = LEFT\r\n"
         "CN7-34 / PB0 = RIGHT\r\n"
         "CN10-24 / PB1 = PAGE NEXT\r\n"
-        "PC0 = PAGE PREVIOUS\r\n"
-        "PC1 = CONFIRM (release sends SHORT or LONG)\r\n"
-        "PC2 = MODE LEVER (LOW=capture, HIGH=reading)\r\n"
+        "PB2 = PAGE PREVIOUS\r\n"
+        "PC0 = CONFIRM (release sends SHORT or LONG)\r\n"
+        "PC8 = MODE LEVER (LOW=capture, HIGH=reading)\r\n"
         "Tap = 1 step\r\n"
         "Hold >= 650ms = auto-repeat every 180ms\r\n\r\n");
 
@@ -1569,14 +1575,14 @@ static void MX_GPIO_Init(void)
     GPIO_InitStruct.Pull = GPIO_PULLUP;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-    /* PB0 = RIGHT, PB1 = PAGE NEXT */
-    GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_1;
+    /* PB0 = RIGHT, PB1 = PAGE NEXT, PB2 = PAGE PREVIOUS */
+    GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2;
     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
     GPIO_InitStruct.Pull = GPIO_PULLUP;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-    /* PC0 = PAGE PREVIOUS, PC1 = CONFIRM, PC2 = MODE LEVER */
-    GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2;
+    /* PC0 = CONFIRM, PC8 = MODE LEVER */
+    GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_8;
     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
     GPIO_InitStruct.Pull = GPIO_PULLUP;
     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);

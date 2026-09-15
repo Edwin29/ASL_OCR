@@ -107,7 +107,7 @@ def test_new_stm_sources_do_not_reuse_operation_ids() -> None:
     ids = []
     for _ in range(2):
         serial = FakeSerial((b"HELLO,3\n", b"NAV,C,S,2\n"))
-        source = StmSerialControlSource(_config(), serial_factory=lambda _config: serial)
+        source = _diagnostic_source(_config(), serial_factory=lambda _config: serial)
         try:
             ids.append(_next_events(source)[0].event_id)
         finally:
@@ -118,12 +118,12 @@ def test_new_stm_sources_do_not_reuse_operation_ids() -> None:
 @pytest.mark.parametrize("namespace", ["", "a" * 81, "bad:namespace", "공백", "has space"])
 def test_stm_rejects_namespace_outside_bounded_server_id_contract(namespace) -> None:
     with pytest.raises(ValueError, match="event_namespace"):
-        StmSerialControlSource(_config(), event_namespace=namespace)
+        _diagnostic_source(_config(), event_namespace=namespace)
 
 
 def test_v2_hello_and_nav_are_acked_before_application_poll() -> None:
     serial = FakeSerial((b"HELLO,2\n",))
-    source = StmSerialControlSource(_config(), serial_factory=lambda _config: serial)
+    source = _diagnostic_source(_config(), serial_factory=lambda _config: serial)
     try:
         source.present(None)
         _wait_until(lambda: len(serial.written()) >= 2)
@@ -147,7 +147,7 @@ def test_v2_hello_and_nav_are_acked_before_application_poll() -> None:
 
 def test_v3_down_edges_are_acked_and_duplicate_sequence_is_applied_once() -> None:
     serial = FakeSerial((b"HELLO,3\n",))
-    source = StmSerialControlSource(_config(), serial_factory=lambda _config: serial)
+    source = _diagnostic_source(_config(), serial_factory=lambda _config: serial)
     try:
         source.present(None)
         _wait_until(lambda: source.protocol_version == 3)
@@ -172,7 +172,7 @@ def test_v3_down_edges_are_acked_and_duplicate_sequence_is_applied_once() -> Non
 
 def test_v2_rejects_down_edge_actions() -> None:
     serial = FakeSerial((b"HELLO,2\n",))
-    source = StmSerialControlSource(_config(), serial_factory=lambda _config: serial)
+    source = _diagnostic_source(_config(), serial_factory=lambda _config: serial)
     try:
         source.present(None)
         _wait_until(lambda: source.protocol_version == 2)
@@ -185,7 +185,7 @@ def test_v2_rejects_down_edge_actions() -> None:
 
 def test_v3_rehandshake_forces_active_down_release() -> None:
     serial = FakeSerial((b"HELLO,3\n",))
-    source = StmSerialControlSource(_config(), serial_factory=lambda _config: serial)
+    source = _diagnostic_source(_config(), serial_factory=lambda _config: serial)
     try:
         source.present(None)
         _wait_until(lambda: source.protocol_version == 3)
@@ -201,7 +201,7 @@ def test_v3_rehandshake_forces_active_down_release() -> None:
 
 def test_v2_duplicate_sequence_is_reacked_but_applied_once() -> None:
     serial = FakeSerial((b"HELLO,2\n",))
-    source = StmSerialControlSource(_config(), serial_factory=lambda _config: serial)
+    source = _diagnostic_source(_config(), serial_factory=lambda _config: serial)
     try:
         source.present(None)
         _wait_until(lambda: source.protocol_version == 2)
@@ -218,7 +218,7 @@ def test_v2_duplicate_sequence_is_reacked_but_applied_once() -> None:
 
 def test_v2_rehandshake_starts_a_new_sequence_epoch_on_the_same_port() -> None:
     serial = FakeSerial((b"HELLO,2\n",))
-    source = StmSerialControlSource(_config(), serial_factory=lambda _config: serial)
+    source = _diagnostic_source(_config(), serial_factory=lambda _config: serial)
     try:
         source.present(None)
         _wait_until(lambda: source.protocol_version == 2)
@@ -240,7 +240,7 @@ def test_v2_rehandshake_starts_a_new_sequence_epoch_on_the_same_port() -> None:
 
 def test_v2_changed_frames_are_pushed_independently_and_latest_wins_before_handshake() -> None:
     serial = FakeSerial()
-    source = StmSerialControlSource(_config(), serial_factory=lambda _config: serial)
+    source = _diagnostic_source(_config(), serial_factory=lambda _config: serial)
     try:
         source.present(_snapshot((1,), generation=1))
         source.present(_snapshot((2,), generation=2))
@@ -260,7 +260,7 @@ def test_v2_changed_frames_are_pushed_independently_and_latest_wins_before_hands
 
 def test_legacy_hello_and_nav_keep_frame_response_contract() -> None:
     serial = FakeSerial((b"HELLO\n",))
-    source = StmSerialControlSource(_config(), serial_factory=lambda _config: serial)
+    source = _diagnostic_source(_config(), serial_factory=lambda _config: serial)
     try:
         source.present(None)
         _wait_until(lambda: len(serial.written()) == 1)
@@ -280,7 +280,7 @@ def test_legacy_hello_and_nav_keep_frame_response_contract() -> None:
 
 def test_v2_debounce_still_acks_each_distinct_hardware_sequence() -> None:
     serial = FakeSerial((b"HELLO,2\n",))
-    source = StmSerialControlSource(_config(), serial_factory=lambda _config: serial)
+    source = _diagnostic_source(_config(), serial_factory=lambda _config: serial)
     try:
         source.present(None)
         _wait_until(lambda: source.protocol_version == 2)
@@ -297,7 +297,7 @@ def test_v2_debounce_still_acks_each_distinct_hardware_sequence() -> None:
 
 def test_v2_full_input_queue_returns_busy_without_false_ack() -> None:
     serial = FakeSerial((b"HELLO,2\n",))
-    source = StmSerialControlSource(
+    source = _diagnostic_source(
         _config(),
         serial_factory=lambda _config: serial,
         input_queue_capacity=1,
@@ -318,7 +318,7 @@ def test_v2_full_input_queue_returns_busy_without_false_ack() -> None:
 
 def test_present_and_poll_do_not_wait_for_slow_serial_write() -> None:
     serial = FakeSerial((b"HELLO,2\n",), write_delay=0.15)
-    source = StmSerialControlSource(_config(), serial_factory=lambda _config: serial)
+    source = _diagnostic_source(_config(), serial_factory=lambda _config: serial)
     try:
         started = time.monotonic()
         source.present(_snapshot())
@@ -336,7 +336,7 @@ def test_stm_reconnect_uses_bounded_background_backoff() -> None:
     first.fail_read = True
     second = FakeSerial((b"HELLO,2\n",))
     connections = deque((first, second))
-    source = StmSerialControlSource(
+    source = _diagnostic_source(
         _config(),
         serial_factory=lambda _config: connections.popleft(),
     )
@@ -349,8 +349,60 @@ def test_stm_reconnect_uses_bounded_background_backoff() -> None:
         source.close()
 
 
+def test_silent_open_reconnects_but_established_idle_does_not() -> None:
+    now = [0.0]
+    silent = FakeSerial()
+    healthy = FakeSerial((b"HELLO,3\n", b"NAV,V,R,1\n"))
+    connections = deque((silent, healthy))
+    source = _diagnostic_source(
+        _config(), serial_factory=lambda _config: connections.popleft(),
+        monotonic=lambda: now[0],
+    )
+    try:
+        source.poll()
+        _wait_until(lambda: source.connected)
+        now[0] = 5.1
+        _wait_until(lambda: silent.closed == 1)
+        now[0] = 5.2
+        _wait_until(lambda: source.protocol_version == 3)
+        events = _next_events(source)
+        assert events[0].control is DeviceControl.LEVER
+        now[0] = 100.0
+        time.sleep(0.04)
+        assert healthy.closed == 0
+        assert source.protocol_version == 3
+    finally:
+        source.close()
+    assert healthy.closed == 1
+
+
+@pytest.mark.parametrize("protocol", (2, 3))
+def test_initial_mode_retries_current_frame_once_without_replaying_old_snapshot(protocol: int) -> None:
+    serial = FakeSerial((f"HELLO,{protocol}\n".encode(),))
+    source = _diagnostic_source(_config(), serial_factory=lambda _config: serial)
+    try:
+        source.poll()
+        _wait_until(lambda: any(w.startswith(b"FRAME,") for w in serial.written()))
+        source.present(_snapshot((7, 9), generation=42))
+        _wait_until(lambda: any(b",42," in w for w in serial.written()))
+        before = len([w for w in serial.written() if w.startswith(b"FRAME,")])
+        serial.push(b"NAV,V,R,1\n")
+        _wait_until(lambda: len([w for w in serial.written() if w.startswith(b"FRAME,")]) == before + 1)
+        frames = [w for w in serial.written() if w.startswith(b"FRAME,")]
+        assert frames[-1] == frames[-2]
+        assert b",42," in frames[-1]
+        serial.push(b"NAV,V,R,1\n")
+        serial.push(b"NAV,V,A,2\n")
+        _wait_until(lambda: b"ACK,2\n" in serial.written())
+        time.sleep(0.03)
+        assert len([w for w in serial.written() if w.startswith(b"FRAME,")]) == before + 1
+        assert len([e for e in source.poll() if e.hardware_sequence == 1]) == 1
+    finally:
+        source.close()
+
+
 def test_stm_rejects_cells_the_six_dot_firmware_cannot_render() -> None:
-    source = StmSerialControlSource(_config(), serial_factory=lambda _config: FakeSerial())
+    source = _diagnostic_source(_config(), serial_factory=lambda _config: FakeSerial())
     try:
         with pytest.raises(ValueError, match="six-dot"):
             source.present(_snapshot((64,)))
@@ -375,7 +427,7 @@ def test_stm_rejects_cells_the_six_dot_firmware_cannot_render() -> None:
 )
 def test_stm_v2_formal_wire_contract(wire, control, action) -> None:
     serial = FakeSerial((b"HELLO,2\n",))
-    source = StmSerialControlSource(_config(), serial_factory=lambda _config: serial)
+    source = _diagnostic_source(_config(), serial_factory=lambda _config: serial)
     try:
         source.present(None)
         _wait_until(lambda: source.protocol_version == 2)
@@ -405,7 +457,7 @@ def test_stm_v2_formal_wire_contract(wire, control, action) -> None:
 )
 def test_stm_rejects_packets_outside_hardware_contract(wire) -> None:
     serial = FakeSerial((b"HELLO,2\n",))
-    source = StmSerialControlSource(_config(), serial_factory=lambda _config: serial)
+    source = _diagnostic_source(_config(), serial_factory=lambda _config: serial)
     try:
         source.present(None)
         _wait_until(lambda: source.protocol_version == 2)
@@ -415,5 +467,32 @@ def test_stm_rejects_packets_outside_hardware_contract(wire) -> None:
 
         assert source.poll() == ()
         assert len(serial.written()) == writes_before
+    finally:
+        source.close()
+
+
+def _diagnostic_source(*args, **kwargs):
+    """Retain explicit compatibility coverage outside production defaults."""
+    return StmSerialControlSource(*args, allow_legacy_protocols=True, **kwargs)
+
+
+def test_production_ignores_old_handshakes_and_pre_handshake_nav():
+    serial = FakeSerial((b"HELLO,2\n", b"HELLO\n", b"NAV,C,S,1\n"))
+    source = StmSerialControlSource(_config(), serial_factory=lambda _: serial)
+    try:
+        source.present(_snapshot())
+        time.sleep(0.04)
+        assert source.protocol_version is None
+        assert serial.written() == ()
+        assert source.poll() == ()
+        serial.push(b"HELLO,3\n")
+        _wait_until(lambda: source.protocol_version == 3)
+        assert serial.written()[0] == b"ACK,HELLO,3\n"
+        serial.push(b"NAV,D,A,2\n")
+        assert _next_events(source)[0].action is InputAction.ACTIVATED
+        serial.push(b"HELLO,2\n")
+        _wait_until(lambda: serial.closed > 0)
+        assert source.protocol_version is None
+        assert b"ACK,HELLO,2\n" not in serial.written()
     finally:
         source.close()

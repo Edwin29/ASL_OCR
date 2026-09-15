@@ -1,0 +1,21 @@
+[Unit]
+Description=ASL Pi production demo
+After=pipewire.service wireplumber.service
+Wants=pipewire.service wireplumber.service
+StartLimitIntervalSec=600
+StartLimitBurst=5
+
+[Service]
+Type=simple
+WorkingDirectory=/home/user/ASL_OCR_PI/source
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONIOENCODING=utf-8
+ExecStart=/home/user/ASL_OCR_PI/.venv/bin/python /home/user/ASL_OCR_PI/runtime/boot-setup-20260916/start_production.py
+Restart=on-failure
+RestartSec=15
+KillSignal=SIGINT
+TimeoutStopSec=45
+UMask=0077
+
+[Install]
+WantedBy=default.target

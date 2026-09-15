@@ -57,6 +57,7 @@ _PROTOCOL_V3 = 3
 _INPUT_QUEUE_CAPACITY = 128
 _SEQUENCE_WINDOW = 256
 _MAX_UINT32 = (1 << 32) - 1
+_HANDSHAKE_TIMEOUT_SECONDS = 5.0
 
 
 class StmSerialControlSource:
@@ -71,7 +72,7 @@ class StmSerialControlSource:
     Protocol v3 adds physical DOWN press/release edges. The host owns repeat
     timing, so v3 firmware never queues repeated DOWN SHORT commands.
 
-    Legacy ``HELLO`` and three-field ``NAV`` remain supported. A legacy NAV
+    Diagnostic opt-in retains ``HELLO`` and three-field ``NAV``. A legacy NAV
     still receives exactly one FRAME after the next application presentation,
     preserving the blocking firmware contract while new firmware migrates.
     """
@@ -85,6 +86,7 @@ class StmSerialControlSource:
         monotonic: Callable[[], float] = time.monotonic,
         max_lines_per_poll: int = 16,
         input_queue_capacity: int = _INPUT_QUEUE_CAPACITY,
+        allow_legacy_protocols: bool = False,
     ) -> None:
         if max_lines_per_poll <= 0:
             raise ValueError("max_lines_per_poll must be positive")
@@ -98,6 +100,8 @@ class StmSerialControlSource:
         self.serial_factory = serial_factory or _open_serial
         self.monotonic = monotonic
         self.max_lines_per_poll = max_lines_per_poll
+        # Explicit diagnostic opt-in only; production composition uses V3.
+        self.allow_legacy_protocols = allow_legacy_protocols
 
         self._events: queue.Queue[DeviceInputEvent] = queue.Queue(input_queue_capacity)
         self._release_events: queue.SimpleQueue[DeviceInputEvent] = queue.SimpleQueue()
@@ -203,6 +207,7 @@ class StmSerialControlSource:
         event_counter = 0
         protocol_version: int | None = None
         handshake_seen = False
+        initial_frame_retry_pending = False
         sent_frame_version = -1
         legacy_response_after: int | None = None
         last_input: tuple[DeviceControl, InputAction, float] | None = None
@@ -210,6 +215,7 @@ class StmSerialControlSource:
         sequence_order: deque[int] = deque()
         down_active = False
         framer = _SerialLineFramer()
+        opened_at = 0.0
 
         try:
             while not self._stop.is_set():
@@ -231,28 +237,42 @@ class StmSerialControlSource:
                         self._wait(min(retry_seconds, 0.1))
                         continue
                     framer = _SerialLineFramer()
+                    opened_at = self.monotonic()
                     connection_epoch += 1
                     event_counter = 0
                     protocol_version = None
                     handshake_seen = False
+                    initial_frame_retry_pending = False
                     sent_frame_version = -1
                     legacy_response_after = None
                     last_input = None
                     seen_sequences.clear()
                     sequence_order.clear()
                     down_active = False
-                    retry_seconds = self.config.reconnect_initial_ms / 1000.0
                     with self._state_lock:
                         self._connection = connection
                         self._protocol_version = None
 
                 try:
+                    # A Bluetooth COM handle can open successfully yet deliver
+                    # no data. Reuse reconnect rather than wait forever on it.
+                    if not handshake_seen and self.monotonic() - opened_at >= _HANDSHAKE_TIMEOUT_SECONDS:
+                        raise OSError("STM handshake timed out after serial open")
                     # pyserial read_until checks a whole-call timeout, unlike
                     # IOBase.readline whose per-byte reads can keep renewing it.
                     # The framer retains partial records across bounded reads.
                     raw = connection.read_until(size=256)
                     for record in framer.feed(raw):
                         line = record.decode("ascii", errors="strict").strip()
+                        if not self.allow_legacy_protocols:
+                            if line in {"HELLO,2", "HELLO"}:
+                                if handshake_seen:
+                                    raise OSError("STM attempted a non-V3 rehandshake")
+                                # Do not ACK or send a FRAME that could accept
+                                # an older protocol. Existing deadline retries.
+                                continue
+                            if not handshake_seen and line != "HELLO,3":
+                                continue
                         if line in {"HELLO,2", "HELLO,3"}:
                             if down_active:
                                 event_counter += 1
@@ -279,6 +299,7 @@ class StmSerialControlSource:
                                 version = self._desired_frame_version
                             self._write(connection, payload)
                             sent_frame_version = version
+                            initial_frame_retry_pending = True
                         elif line == "HELLO":
                             if down_active:
                                 event_counter += 1
@@ -292,6 +313,7 @@ class StmSerialControlSource:
                             sequence_order.clear()
                             legacy_response_after = None
                             protocol_version = _PROTOCOL_V1
+                            initial_frame_retry_pending = False
                             handshake_seen = True
                             with self._state_lock:
                                 self._protocol_version = protocol_version
@@ -344,6 +366,14 @@ class StmSerialControlSource:
                                     handshake_seen = True
                                     with self._state_lock:
                                         self._protocol_version = protocol_version
+                                    if control is DeviceControl.LEVER and initial_frame_retry_pending:
+                                        # Firmware emits initial MODE after enabling RX.
+                                        # Re-send the current frame once: the immediate
+                                        # handshake frame can lose its prefix on that
+                                        # transition. The normal latest-wins path below
+                                        # avoids replaying a superseded snapshot.
+                                        sent_frame_version = -1
+                                        initial_frame_retry_pending = False
                                 else:
                                     protocol_version = _PROTOCOL_V1
                                     handshake_seen = True
@@ -385,6 +415,8 @@ class StmSerialControlSource:
                                         if len(sequence_order) > _SEQUENCE_WINDOW:
                                             seen_sequences.discard(sequence_order.popleft())
 
+                    if handshake_seen:
+                        retry_seconds = self.config.reconnect_initial_ms / 1000.0
                     if handshake_seen and protocol_version in {_PROTOCOL_V2, _PROTOCOL_V3}:
                         with self._state_lock:
                             payload = self._desired_frame_payload
@@ -408,6 +440,7 @@ class StmSerialControlSource:
                     connection = None
                     protocol_version = None
                     handshake_seen = False
+                    initial_frame_retry_pending = False
                     legacy_response_after = None
                     with self._state_lock:
                         self._connection = None

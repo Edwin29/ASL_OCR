@@ -1,0 +1,6 @@
+{
+  "target": "/home/user/ASL_OCR_PI/source/book-scanner/src/book_scanner/video/sources.py",
+  "before_sha256": "1a5cef671561654060cbf573de15c2620b56f52219f7ab3ca161fa6314a28f47",
+  "after_sha256": "be7f3c57c262c2ca24b17a4c0f64972b39f4ea630029daff3c294b57a6ba73c0",
+  "product_files_changed": 1
+}

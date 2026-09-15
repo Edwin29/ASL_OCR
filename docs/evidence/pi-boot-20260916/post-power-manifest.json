@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/home/user/ASL_OCR_PI/.venv/bin/python",
+    "-u",
+    "-m",
+    "asl_device",
+    "--config",
+    "/home/user/ASL_OCR_PI/config/device-app.stm-capture-round2-20260915.toml",
+    "--initial-mode",
+    "capture"
+  ],
+  "pid": 997,
+  "boot_id": "212dd0f2-1ac9-4227-aa47-b34ebf6024ec",
+  "config_sha256": "16742b412a125541f991a10afce55ca043d66ba9aeb1f0cd51f4590412ea62c3",
+  "state_preserved": true,
+  "readiness": "RFCOMM node and server TCP only; V3/API/audio require runtime evidence"
+}

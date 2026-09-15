@@ -1,0 +1,13 @@
+{
+  "asl-production.service": "42a02b3f5044ab258882b17cd7e63a163a0019e86d06d8390567b7b1bb978408",
+  "asl-rfcomm.service": "9034cccc61d037e450599a3ec44f9279de02bff57294d29630ded75be05289ef",
+  "bind_rfcomm.sh": "092bbd18f6d1d20af5eaa571cfa9f1eed9c727dc953ef5dc3c871feb24bdf0bc",
+  "install_root.sh": "4c26604b562bc841f914a09d6e7663db7002f32930272074fe757445f5716458",
+  "post-power-manifest.json": "f452dd02ba4fef7968d1a5fa8b7d6c265bd5f523ecdf5baa47e937e2ba10a4b6",
+  "post-power-on.log": "0493dfd2f9c2c5fb9eb318aad509c5d57f5264ac9aeabc936f9038a252246955",
+  "power-recovery-result.json": "788813251c69fd1ad36cb5afb059655f1b658713c4cca36c5cddff46339ecd74",
+  "pre-power-cursor.json": "61103ecc5a3f1d86c601598e1ca79b4fdfaf1f62a0ee25c80c99b943b603335f",
+  "pre-power-off.log": "e769c6fddcb351ecca8cf05612a1ee0136b312ec97aa769ce1faaa37ae063112",
+  "pre-service-production.log": "b34a37fdd0fe3d41561ae90bf08f66fcee929b3e6ff8eeede177db348f51e643",
+  "start_production.py": "e8b6ded6bebbdd177380bda62e46e34869dbb8e848dac9b334836760e284e216"
+}

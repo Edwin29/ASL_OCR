@@ -1,0 +1,27 @@
+{
+  "events": [
+    {
+      "phase": "startup-1",
+      "control": "lever",
+      "action": "released",
+      "sequence": 1
+    },
+    {
+      "phase": "startup-2",
+      "control": "lever",
+      "action": "released",
+      "sequence": 1
+    },
+    {
+      "phase": "startup-3",
+      "control": "lever",
+      "action": "released",
+      "sequence": 1
+    }
+  ],
+  "error": null,
+  "opens": 1,
+  "worker_alive_after_close": false,
+  "source_hash": "2de4388da3912dc2098191ca4ca668db5c761f9ac606606348f0aba1facaf6fe",
+  "source": "C:\\ASL_OCR_INTEGRATION_RUNTIME\\demo-20260905\\hardware-integration\\minimal-corrections-20260915\\stm_serial_candidate.py"
+}

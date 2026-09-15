@@ -1,0 +1,15 @@
+{
+  "events": [
+    {
+      "phase": "initial",
+      "control": "lever",
+      "action": "released",
+      "sequence": 1
+    }
+  ],
+  "error": null,
+  "opens": 1,
+  "worker_alive_after_close": false,
+  "source_hash": "2de4388da3912dc2098191ca4ca668db5c761f9ac606606348f0aba1facaf6fe",
+  "source": "C:\\ASL_OCR_INTEGRATION\\device-runtime\\src\\asl_device\\adapters\\stm_serial.py"
+}

@@ -1,0 +1,3 @@
+snapshot_connection_waiting http_status=None retry_max_seconds=5
+snapshot_connection_restored failures=40
+{"result": "PASS", "offline_attempts": 40, "simulated_seconds": 182.75, "recovery": true, "stop": true, "tls_permanent": true}

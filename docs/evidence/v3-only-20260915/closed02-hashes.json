@@ -1,0 +1,14 @@
+[
+  {
+    "Path": "D:\\Projects\\OCR\\docs\\evidence\\v3-only-20260915\\closed02-debug.jsonl",
+    "Hash": "338A0912F5E1F5C9ADA569281A7579E7B03E90F77260F17B2A4E97ACA32656E1"
+  },
+  {
+    "Path": "D:\\Projects\\OCR\\docs\\evidence\\v3-only-20260915\\closed02-host-serial-35148.jsonl",
+    "Hash": "177AC62E14D586CA94C2222FA3A0779E5A264B0167D457DD534186C0B9942317"
+  },
+  {
+    "Path": "D:\\Projects\\OCR\\docs\\evidence\\v3-only-20260915\\closed02-launcher-lifecycle.json",
+    "Hash": "F79C8CCF1FD6EB0E07DA75E138543443BEB9CCC7E1DF0E422953D6E539F84457"
+  }
+]

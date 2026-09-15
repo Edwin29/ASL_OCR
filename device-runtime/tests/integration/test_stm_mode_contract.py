@@ -82,7 +82,7 @@ def test_actual_stm_wire_selects_ready_datapack_for_reading_without_scan() -> No
 
     try:
         source.present(coordinator.reading_snapshot)
-        serial.lines.put(b"HELLO,2\n")
+        serial.lines.put(b"HELLO,3\n")
         sequence = 1
         for control, action in (
             ("V", "R"),
@@ -130,8 +130,8 @@ def test_checked_in_stm_source_and_cubemx_pin_contract_are_synchronized() -> Non
     assert "#define BUTTON_REPEAT_INTERVAL_MS   180U" in main_c
     assert 'static const char hello_v3[] = "HELLO,3\\n"' in main_c
     assert 'strcmp(line, "ACK,HELLO,3") == 0' in main_c
-    assert 'static const char hello_v2[] = "HELLO,2\\n"' in main_c
-    assert 'strcmp(line, "ACK,HELLO,2") == 0' in main_c
+    assert 'static const char hello_v2[]' not in main_c
+    assert 'V3 REQUIRED, WAITING FOR LINK' in main_c
     assert '"NAV,%c,%c,%lu\\n"' in main_c
     assert 'sscanf(line, "ACK,%lu%c"' in main_c
     assert "static void PumpBluetoothInput(void)" in main_c
@@ -175,9 +175,9 @@ def test_checked_in_stm_source_and_cubemx_pin_contract_are_synchronized() -> Non
         "PA4": ("LEFT", "GPIO_PIN_4", "GPIOA"),
         "PB0": ("RIGHT", "GPIO_PIN_0", "GPIOB"),
         "PB1": ("PAGE_NEXT", "GPIO_PIN_1", "GPIOB"),
-        "PC0": ("PAGE_PREVIOUS", "GPIO_PIN_0", "GPIOC"),
-        "PC1": ("CONFIRM", "GPIO_PIN_1", "GPIOC"),
-        "PC2": ("MODE_LEVER", "GPIO_PIN_2", "GPIOC"),
+        "PB2": ("PAGE_PREVIOUS", "GPIO_PIN_2", "GPIOB"),
+        "PC0": ("CONFIRM", "GPIO_PIN_0", "GPIOC"),
+        "PC8": ("MODE_LEVER", "GPIO_PIN_8", "GPIOC"),
     }
     for pin, (label, hal_pin, port) in expected.items():
         assert ioc[f"{pin}.GPIO_Label"] == label
